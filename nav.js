@@ -4,14 +4,11 @@
   const pages = [
     { file: "index.html", icon: "🔎", label: "Guia de Busca" },
     { file: "calculadora.html", icon: "🧮", label: "Vale a Caixa?" },
-    { file: "efeitos-aventura.html", icon: "✨", label: "Efeitos Aventura" },
+    { file: "efeitos-aventura.html", icon: "⚡", label: "Efeitos Aventura" },
     { file: "poeira-estelar.html", icon: "✨", label: "Poeira Estelar" }
   ];
 
-  function currentFile() {
-    const file = location.pathname.split("/").pop();
-    return file || "index.html";
-  }
+  const currentFile = () => location.pathname.split("/").pop() || "index.html";
 
   function findMenu() {
     return document.querySelector(".navlinks")
@@ -23,7 +20,6 @@
   function buildMenu() {
     const menu = findMenu();
     if (!menu) return;
-
     const current = currentFile();
 
     menu.innerHTML = pages.map(page => {

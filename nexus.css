@@ -1,0 +1,119 @@
+
+/* ===== GO Nexus: identidade e estrutura compartilhadas ===== */
+.gonexus-header{
+  background:#081120;
+  border-bottom:1px solid #253652;
+}
+.gonexus-header .gonexus-inner{
+  width:min(1180px,calc(100% - 32px));
+  margin:0 auto;
+  padding:30px 0 28px;
+}
+.gonexus-header .gonexus-brand{
+  display:inline-block;
+  margin:0;
+  font-family:"Orbitron","Arial Black","Segoe UI",sans-serif;
+  font-size:clamp(1.55rem,3vw,2.05rem);
+  font-weight:900;
+  line-height:1;
+  letter-spacing:.075em;
+  color:#f8fafc;
+  text-decoration:none;
+  text-transform:uppercase;
+  text-shadow:0 0 18px rgba(56,189,248,.10);
+}
+.gonexus-header .gonexus-brand .nexus{
+  background:linear-gradient(90deg,#38bdf8 0%,#8b5cf6 52%,#ec4899 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 0 8px rgba(139,92,246,.32));
+}
+.gonexus-tagline{
+  margin:12px 0 22px;
+  color:#94a3b8;
+  font-size:.96rem;
+}
+.gonexus-header nav,
+.gonexus-header .navlinks{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px 12px;
+}
+.gonexus-header nav a,
+.gonexus-header .navlinks a{
+  display:inline-flex;
+  align-items:center;
+  min-height:42px;
+  padding:9px 12px;
+  border:1px solid transparent;
+  border-radius:14px;
+  color:#cbd5e1;
+  font-size:.91rem;
+  font-weight:800;
+  line-height:1.15;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:.18s ease;
+}
+.gonexus-header nav a:hover,
+.gonexus-header .navlinks a:hover{
+  color:#fff;
+  background:#111c31;
+  border-color:#2d405f;
+}
+.gonexus-header nav a.active,
+.gonexus-header nav a[aria-current="page"],
+.gonexus-header .navlinks a.active,
+.gonexus-header .navlinks a[aria-current="page"]{
+  color:#fff;
+  background:#121d34;
+  border-color:#263958;
+  box-shadow:0 0 22px rgba(99,102,241,.10);
+}
+.gonexus-footer{
+  width:100%;
+  padding:28px 18px 34px;
+  border-top:1px solid #18243a;
+  background:#070d18;
+  text-align:center;
+  color:#7f8da3;
+  font-size:.78rem;
+  line-height:1.65;
+}
+.gonexus-footer strong{
+  color:#aab6c8;
+  font-weight:800;
+}
+@media (max-width:640px){
+  .gonexus-header .gonexus-inner{
+    width:min(100% - 36px,1180px);
+    padding:25px 0 24px;
+  }
+  .gonexus-header .gonexus-brand{
+    font-size:1.65rem;
+    letter-spacing:.06em;
+  }
+  .gonexus-tagline{
+    margin:10px 0 18px;
+    font-size:.86rem;
+    line-height:1.45;
+  }
+  .gonexus-header nav,
+  .gonexus-header .navlinks{
+    gap:7px 8px;
+  }
+  .gonexus-header nav a,
+  .gonexus-header .navlinks a{
+    min-height:38px;
+    padding:8px 9px;
+    border-radius:12px;
+    font-size:.82rem;
+  }
+  .gonexus-footer{
+    padding:23px 22px 29px;
+    font-size:.72rem;
+    line-height:1.55;
+  }
+}

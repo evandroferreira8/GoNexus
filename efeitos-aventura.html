@@ -17,8 +17,18 @@ header{padding:25px 0 18px;text-align:center}.brand{font-size:1.7rem;font-weight
 .card:hover{border-color:var(--glow);box-shadow:0 0 28px rgba(var(--rgb),.32)}.card:hover .art img{transform:scale(1.07);filter:drop-shadow(0 0 3px var(--glow)) drop-shadow(0 0 11px var(--glow)) drop-shadow(0 0 25px rgba(var(--rgb),.95))}
 .badge{background:rgba(var(--rgb),.14);color:var(--glow);border:1px solid rgba(var(--rgb),.4)}.details{color:var(--glow)}
 @media(max-width:430px){.art{border-right:0;border-bottom:1px solid rgba(var(--rgb),.25)}}
-</style></head><body>
-<header class="wrap"><div class="brand">GO NEXUS</div><div class="sub">Guias e ferramentas para sua jornada no Pokémon GO</div><nav><a href="index.html">🔎 Guia de Busca</a><a href="calculadora.html">🧮 Vale a Caixa?</a><a class="active" href="efeitos-aventura.html">⭐ Efeitos Aventura</a><a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor">💬 Feedback</a></nav></header>
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nexus.css">
+</head><body>
+<header class="gonexus-header">
+  <div class="gonexus-inner">
+    <a class="gonexus-brand" href="index.html" aria-label="GO Nexus">GO <span class="nexus">NEXUS</span></a>
+    <p class="gonexus-tagline">Guias e ferramentas para sua jornada no Pokémon GO</p>
+    <nav class="navlinks" aria-label="Navegação principal"></nav>
+  </div>
+</header>
 <main class="wrap"><section class="hero"><b>GUIA INTERATIVO</b><h1>Efeitos Aventura</h1><p>Bônus temporários ativados usando ataques específicos fora de batalha. Encontre rapidamente um Pokémon, ataque ou tipo de benefício.</p></section>
 <section class="controls"><input id="q" type="search" placeholder="Buscar Pokémon, ataque ou efeito..." aria-label="Buscar"><div class="chips"><button class="chip on" data-f="all">Todos</button><button class="chip" data-f="raid">Reides</button><button class="chip" data-f="capture">Captura</button><button class="chip" data-f="explore">Exploração</button><button class="chip" data-f="max">Max</button></div></section>
 <section class="grid"><article class="card" data-cat="raid" data-search="mega mewtwo x soco dinâmico+ reides aumenta o dano contra pokémon mega em reides e permite quebrar dois escudos em super megarreides.">
@@ -68,14 +78,16 @@ header{padding:25px 0 18px;text-align:center}.brand{font-size:1.7rem;font-weight
 <button class="details" type="button">Ver observações</button><div class="more">O efeito é ativado fora de batalha. Custos, duração e funcionamento podem ser alterados pelo jogo.</div></div></article></section><div id="empty" class="empty">Nenhum efeito encontrado.</div>
 <section class="info"><h2>Informações importantes</h2><ul><li>Os cards usam adesivos do Pokémon GO para manter uma identidade visual consistente.</li><li>Os Efeitos Aventura são ativados fora de batalha.</li><li>Custos, duração, disponibilidade e funcionamento podem mudar com atualizações do jogo.</li></ul></section>
 <section class="feedback"><h2>Encontrou algo desatualizado?</h2><p>Envie uma correção ou sugestão para ajudar a manter o guia atualizado.</p><a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor">💬 Enviar feedback</a></section></main>
-<footer>
-  © 2026 GO Nexus — Evandro Ferreira. Todos os direitos reservados.<br>
-  Projeto independente e não oficial. Pokémon e Pokémon GO e demais marcas, personagens e elementos relacionados pertencem aos seus respectivos titulares.
+<footer class="gonexus-footer">
+  <strong>GO Nexus</strong><br>
+  © 2026 Evandro Ferreira · Todos os direitos reservados.<br>
+  Projeto independente e não oficial. Pokémon e Pokémon GO pertencem aos seus respectivos titulares.
 </footer>
 <script>
 const q=document.querySelector("#q"),cards=[...document.querySelectorAll(".card")],chips=[...document.querySelectorAll(".chip")],empty=document.querySelector("#empty");let f="all";
 function run(){let n=0,s=q.value.trim().toLowerCase();cards.forEach(c=>{let show=(f==="all"||c.dataset.cat.split(" ").includes(f))&&(!s||c.dataset.search.includes(s)||c.innerText.toLowerCase().includes(s));c.classList.toggle("hide",!show);if(show)n++});empty.style.display=n?"none":"block"}
 q.addEventListener("input",run);chips.forEach(b=>b.addEventListener("click",()=>{f=b.dataset.f;chips.forEach(x=>x.classList.toggle("on",x===b));run()}));document.querySelectorAll(".details").forEach(b=>b.addEventListener("click",()=>{let c=b.closest(".card");c.classList.toggle("open");b.textContent=c.classList.contains("open")?"Ocultar observações":"Ver observações"}));
 </script>
+
 <script src="nav.js"></script>
 </body></html>

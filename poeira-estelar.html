@@ -97,18 +97,17 @@
     @media(max-width:500px){.wrap{width:min(100% - 20px,1180px)}.hero{padding-top:44px}.pokemon-grid{grid-template-columns:repeat(2,1fr)}
       .pokemon img{width:82px;height:82px}.calculator{padding:16px}.selected-box img{width:85px;height:85px}nav a{font-size:.8rem;padding:8px}}
   </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nexus.css">
 </head>
 <body>
-<header>
-  <div class="wrap topbar">
-    <a class="brand" href="index.html">GO <span>NEXUS</span></a>
-    <nav aria-label="Navegação principal">
-      <a href="index.html">🔎 Guia de Busca</a>
-      <a href="calculadora.html">🧮 Vale a Caixa?</a>
-      <a href="efeitos-aventura.html">⭐ Efeitos Aventura</a>
-      <a class="active" href="poeira-estelar.html">✨ Poeira Estelar</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener">💬 Feedback</a>
-    </nav>
+<header class="gonexus-header">
+  <div class="gonexus-inner">
+    <a class="gonexus-brand" href="index.html" aria-label="GO Nexus">GO <span class="nexus">NEXUS</span></a>
+    <p class="gonexus-tagline">Guias e ferramentas para sua jornada no Pokémon GO</p>
+    <nav class="navlinks" aria-label="Navegação principal"></nav>
   </div>
 </header>
 
@@ -164,9 +163,10 @@
   </section>
 </main>
 
-<footer>
-  © 2026 GO Nexus — Evandro Ferreira. Todos os direitos reservados.<br>
-  Projeto independente e não oficial. Pokémon e Pokémon GO e demais marcas, personagens e elementos relacionados pertencem aos seus respectivos titulares.
+<footer class="gonexus-footer">
+  <strong>GO Nexus</strong><br>
+  © 2026 Evandro Ferreira · Todos os direitos reservados.<br>
+  Projeto independente e não oficial. Pokémon e Pokémon GO pertencem aos seus respectivos titulares.
 </footer>
 
 <script>

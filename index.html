@@ -10,9 +10,19 @@ body{background:radial-gradient(circle at 18% -10%,rgba(56,189,248,.13),transpar
 .card{transition:.2s}.card:hover{border-color:#4f67a0!important;box-shadow:0 0 20px rgba(99,102,241,.12)}
 .font-mono.text-indigo-400,.text-indigo-400{color:#67e8f9!important}.bg-indigo-600{background:linear-gradient(135deg,#2563eb,#7c3aed)!important}.bg-indigo-600:hover{filter:brightness(1.12)}
 #guia-iv>div{border-color:#334765!important;box-shadow:0 0 32px rgba(99,102,241,.10)}.iv-fill{background:linear-gradient(90deg,#38bdf8,#8b5cf6)!important}
-</style></head><body>
+</style><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nexus.css">
+</head><body>
 <nav class="sitebar"><div class="navwrap"><div><strong class="nexus-brand">GO <span>NEXUS</span></strong><div class="text-xs text-slate-400">Guias e ferramentas para sua jornada no Pokémon GO</div></div><div class="navlinks"><a class="active" href="index.html">🔎 Guia de Busca</a><a href="calculadora.html">🧮 Vale a Caixa?</a><a href="efeitos-aventura.html">✨ Efeitos Aventura</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">💬 Feedback</a></div></div></nav>
-<header class="max-w-3xl mx-auto px-4 pt-9 pb-7 text-center"><h1 class="text-3xl font-bold">Guia de Busca</h1><p class="text-slate-400 mt-2 mb-5">Encontre e copie filtros para organizar seus Pokémon.</p><input id="search" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 outline-none focus:border-indigo-500" placeholder="Buscar comando ou descrição..."><div class="mt-5 text-left rounded-xl border border-amber-500/30 bg-amber-500/10 p-4"><strong class="text-amber-300">⚠️ Os filtros podem mudar</strong><p class="text-sm text-slate-300 mt-1">Os comandos de pesquisa do Pokémon GO podem ser adicionados, alterados ou removidos sem aviso prévio. Este guia será atualizado assim que essas mudanças forem identificadas.</p></div></header>
+<header class="gonexus-header">
+  <div class="gonexus-inner">
+    <a class="gonexus-brand" href="index.html" aria-label="GO Nexus">GO <span class="nexus">NEXUS</span></a>
+    <p class="gonexus-tagline">Guias e ferramentas para sua jornada no Pokémon GO</p>
+    <nav class="navlinks" aria-label="Navegação principal"></nav>
+  </div>
+</header>
 <main id="app" class="max-w-3xl mx-auto px-4 space-y-4"></main>
 <section id="guia-iv" class="max-w-3xl mx-auto px-4 mt-12">
   <div class="rounded-2xl border border-slate-700 bg-slate-800 overflow-hidden">
@@ -71,9 +81,10 @@ body{background:radial-gradient(circle at 18% -10%,rgba(56,189,248,.13),transpar
   </div>
 </section>
 <section class="max-w-3xl mx-auto px-4 mt-10"><div class="rounded-2xl border border-slate-700 bg-slate-800/70 p-5 text-center"><h2 class="text-lg font-bold">Ajude a melhorar o GO Nexus</h2><p class="text-sm text-slate-400 mt-2 mb-4">Encontrou algum erro, informação desatualizada ou tem uma sugestão? Envie seu feedback para ajudar a manter as ferramentas atualizadas.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 hover:bg-indigo-500 px-5 py-3 font-semibold text-white transition-colors">💬 Enviar feedback</a></div></section>
-<footer>
-  © 2026 GO Nexus — Evandro Ferreira. Todos os direitos reservados.<br>
-  Projeto independente e não oficial. Pokémon e Pokémon GO e demais marcas, personagens e elementos relacionados pertencem aos seus respectivos titulares.
+<footer class="gonexus-footer">
+  <strong>GO Nexus</strong><br>
+  © 2026 Evandro Ferreira · Todos os direitos reservados.<br>
+  Projeto independente e não oficial. Pokémon e Pokémon GO pertencem aos seus respectivos titulares.
 </footer>
 <script>
 const db=[
@@ -98,5 +109,6 @@ function render(){db.forEach(([cat,items])=>{const sec=document.createElement('s
 search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();document.querySelectorAll('.cat').forEach(sec=>{let any=false;sec.querySelectorAll('.card').forEach(c=>{const ok=!q||c.dataset.s.includes(q);c.classList.toggle('hide',!ok);any ||= ok});sec.classList.toggle('hide',!any);sec.querySelector('.list').classList.toggle('hidden',!q)})});
 document.querySelectorAll('.copy-static').forEach(b=>b.addEventListener('click',async()=>{const original=b.textContent;try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent='✓ Copiado';setTimeout(()=>b.textContent=original,1200)}catch{}}));
 </script>
+
 <script src="nav.js"></script>
 </body></html>

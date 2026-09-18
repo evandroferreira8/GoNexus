@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GO Nexus — consulte Pokémon que concedem Poeira Estelar extra na captura e calcule bônus.">
+  <title>Poeira Estelar | GO Nexus</title>
+  <style>
+    :root{
+      --bg:#070b17;--panel:#0d1425;--panel2:#111a2e;--text:#f8fafc;--muted:#9ca9bf;
+      --line:#23304a;--blue:#38bdf8;--violet:#8b5cf6;--pink:#ec4899;--green:#a3e635;
+      --shadow:0 18px 60px rgba(0,0,0,.32);--radius:22px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);background:
+      radial-gradient(circle at 18% -5%,rgba(56,189,248,.14),transparent 30%),
+      radial-gradient(circle at 82% 0%,rgba(139,92,246,.15),transparent 30%),
+      var(--bg);line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    button,input,select{font:inherit}
+    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(7,11,23,.84);backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(148,163,184,.12)}
+    .topbar{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:950;letter-spacing:.06em;font-size:1.28rem}
+    .brand span{background:linear-gradient(90deg,var(--blue),var(--violet),var(--pink));-webkit-background-clip:text;color:transparent;
+      filter:drop-shadow(0 0 10px rgba(139,92,246,.25))}
+    nav{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{padding:9px 12px;border-radius:12px;color:#cbd5e1;font-size:.91rem;font-weight:750}
+    nav a:hover,nav a.active{background:#141e34;color:white;box-shadow:0 0 18px rgba(56,189,248,.14)}
+    .hero{padding:68px 0 28px;text-align:center}
+    .eyebrow{display:inline-flex;padding:7px 12px;border:1px solid rgba(163,230,53,.28);border-radius:999px;
+      color:#d9f99d;background:rgba(163,230,53,.07);font-weight:800;font-size:.82rem}
+    h1{font-size:clamp(2.3rem,6vw,4.6rem);line-height:1;margin:18px 0 14px;letter-spacing:-.055em}
+    h1 span{background:linear-gradient(90deg,#d9f99d,var(--green),#38bdf8);-webkit-background-clip:text;color:transparent}
+    .lead{max-width:730px;margin:0 auto;color:var(--muted);font-size:1.06rem}
+    .toolbar{margin:30px auto 10px;display:grid;grid-template-columns:1fr auto;gap:12px;max-width:850px}
+    .search{position:relative}
+    .search input{width:100%;height:54px;border-radius:16px;border:1px solid #2b3a58;background:#0c1426;color:white;
+      padding:0 18px 0 48px;outline:none;transition:.2s}
+    .search:before{content:"⌕";position:absolute;left:18px;top:11px;font-size:1.5rem;color:#94a3b8}
+    .search input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(163,230,53,.10),0 0 24px rgba(163,230,53,.12)}
+    .toolbar select{height:54px;border:1px solid #2b3a58;background:#0c1426;color:white;border-radius:16px;padding:0 16px;outline:none}
+    .note{margin:18px auto 34px;max-width:900px;color:#aab6c9;font-size:.9rem}
+    .groups{display:grid;gap:22px;padding-bottom:30px}
+    .group{--glow:163,230,53;background:linear-gradient(145deg,rgba(var(--glow),.07),rgba(13,20,37,.97) 30%);
+      border:1px solid rgba(var(--glow),.30);border-radius:var(--radius);padding:20px;box-shadow:0 0 26px rgba(var(--glow),.07)}
+    .group-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:17px}
+    .group-title{display:flex;align-items:center;gap:12px}
+    .dust-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(var(--glow),.12);
+      border:1px solid rgba(var(--glow),.30);box-shadow:0 0 20px rgba(var(--glow),.12);font-size:1.35rem}
+    .amount{font-size:1.7rem;font-weight:950;letter-spacing:-.03em}
+    .amount small{font-size:.78rem;color:#aeb9ca;font-weight:700;letter-spacing:0}
+    .quick-values{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .quick-values span{padding:6px 9px;border:1px solid #293653;border-radius:10px;background:#0b1221;color:#bdc8d8;font-size:.76rem}
+    .pokemon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:12px}
+    .pokemon{--poke:56,189,248;appearance:none;text-align:center;color:white;background:#0a1120;border:1px solid rgba(var(--poke),.24);
+      border-radius:18px;padding:13px 9px 11px;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s}
+    .pokemon:hover,.pokemon.selected{transform:translateY(-3px);border-color:rgba(var(--poke),.85);
+      box-shadow:0 0 24px rgba(var(--poke),.18)}
+    .pokemon img{width:92px;height:92px;object-fit:contain;display:block;margin:auto;
+      filter:drop-shadow(0 0 5px rgba(var(--poke),.55)) drop-shadow(0 0 14px rgba(var(--poke),.30));transition:.2s}
+    .pokemon:hover img,.pokemon.selected img{transform:scale(1.06);filter:drop-shadow(0 0 6px rgba(var(--poke),.8)) drop-shadow(0 0 18px rgba(var(--poke),.48))}
+    .pokemon strong{display:block;margin-top:7px;font-size:.91rem}
+    .pokemon .mini{font-size:.72rem;color:#8997ad;margin-top:2px}
+    .empty{display:none;text-align:center;color:#94a3b8;padding:42px 10px}
+    .calculator{margin:18px 0 60px;background:linear-gradient(145deg,rgba(139,92,246,.10),rgba(13,20,37,.98) 38%);
+      border:1px solid rgba(139,92,246,.36);border-radius:26px;padding:24px;box-shadow:var(--shadow),0 0 32px rgba(139,92,246,.08)}
+    .calculator h2{margin:0 0 5px;font-size:1.55rem}
+    .calculator .sub{color:var(--muted);margin:0 0 20px}
+    .calc-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+    .selected-box{display:flex;align-items:center;gap:18px;min-height:136px;background:#0a1120;border:1px solid #263451;border-radius:20px;padding:17px}
+    .selected-box img{width:105px;height:105px;object-fit:contain;filter:drop-shadow(0 0 14px rgba(56,189,248,.3))}
+    .selected-box .placeholder{color:#8492a8}
+    .selected-name{font-size:1.25rem;font-weight:900}
+    .selected-base{color:#bef264;font-weight:900;font-size:1.1rem}
+    .controls{display:grid;gap:12px}
+    .toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0a1120;border:1px solid #263451;border-radius:15px;padding:11px 13px}
+    .toggle input{width:19px;height:19px;accent-color:#a3e635}
+    .event-row{display:grid;grid-template-columns:1fr 120px;align-items:center;gap:10px;background:#0a1120;border:1px solid #263451;border-radius:15px;padding:8px 10px 8px 13px}
+    .event-row select{width:100%;height:38px;border-radius:10px;border:1px solid #34435f;background:#101a2e;color:white;padding:0 8px}
+    .result{margin-top:20px;text-align:center;padding:23px;border-radius:20px;background:#080f1d;border:1px solid rgba(163,230,53,.32);
+      box-shadow:0 0 28px rgba(163,230,53,.09)}
+    .result-label{color:#9eabc0;font-size:.86rem}
+    .result-value{font-size:clamp(2rem,6vw,3.4rem);font-weight:950;color:#d9f99d;letter-spacing:-.04em}
+    .formula{color:#7f8da4;font-size:.78rem;margin-top:4px}
+    .feedback{border-top:1px solid #1d2940;padding:42px 0;text-align:center}
+    .feedback h2{margin:0 0 8px}.feedback p{color:var(--muted);max-width:650px;margin:0 auto 18px}
+    .btn{display:inline-flex;padding:11px 16px;border-radius:13px;background:linear-gradient(90deg,#2563eb,#7c3aed);font-weight:850;box-shadow:0 0 24px rgba(124,58,237,.18)}
+    footer{text-align:center;color:#718096;border-top:1px solid #182238;padding:25px 16px 40px;font-size:.82rem}
+    .hidden{display:none!important}
+    @media(max-width:800px){.topbar{align-items:flex-start;flex-direction:column;padding:14px 0}.topbar nav{justify-content:flex-start}
+      header{position:relative}.calc-grid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}.group-head{align-items:flex-start;flex-direction:column}
+      .quick-values{justify-content:flex-start}}
+    @media(max-width:500px){.wrap{width:min(100% - 20px,1180px)}.hero{padding-top:44px}.pokemon-grid{grid-template-columns:repeat(2,1fr)}
+      .pokemon img{width:82px;height:82px}.calculator{padding:16px}.selected-box img{width:85px;height:85px}nav a{font-size:.8rem;padding:8px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <a class="brand" href="index.html">GO <span>NEXUS</span></a>
+    <nav aria-label="Navegação principal">
+      <a href="index.html">🔎 Guia de Busca</a>
+      <a href="calculadora.html">🧮 Vale a Caixa?</a>
+      <a href="efeitos-aventura.html">⭐ Efeitos Aventura</a>
+      <a class="active" href="poeira-estelar.html">✨ Poeira Estelar</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener">💬 Feedback</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="eyebrow">✨ GUIA + CALCULADORA</div>
+    <h1>Poeira <span>Estelar</span></h1>
+    <p class="lead">Encontre os Pokémon da lista que concedem Poeira Estelar extra na captura e simule os bônus de clima, Pedaço de Estrela e eventos.</p>
+    <div class="toolbar">
+      <div class="search"><input id="search" type="search" placeholder="Pesquisar Pokémon..." autocomplete="off" aria-label="Pesquisar Pokémon"></div>
+      <select id="groupFilter" aria-label="Filtrar por quantidade de Poeira Estelar">
+        <option value="all">Todos os valores</option>
+        <option value="500">500</option><option value="700">700</option><option value="750">750</option>
+        <option value="950">950</option><option value="1000">1.000</option><option value="1200">1.200</option><option value="2100">2.100</option>
+      </select>
+    </div>
+    <p class="note">Lista baseada na referência enviada para o GO Nexus. Os valores exibidos são de captura base. Bônus ativos podem alterar o total; o bônus de clima não se aplica a encontros de pesquisa, conforme a observação da referência.</p>
+  </section>
+
+  <section class="wrap">
+    <div id="groups" class="groups"></div>
+    <div id="empty" class="empty">Nenhum Pokémon encontrado com esse filtro.</div>
+
+    <section class="calculator" id="calculator">
+      <h2>Calculadora de captura</h2>
+      <p class="sub">Selecione um Pokémon acima e combine os bônus.</p>
+      <div class="calc-grid">
+        <div class="selected-box" id="selectedBox">
+          <div class="placeholder">👆 Selecione um Pokémon para começar.</div>
+        </div>
+        <div class="controls">
+          <label class="toggle"><span>🌦️ Clima favorável <small>(+25%)</small></span><input id="weather" type="checkbox"></label>
+          <label class="toggle"><span>✨ Pedaço de Estrela <small>(×1,5)</small></span><input id="starPiece" type="checkbox"></label>
+          <label class="event-row"><span>🎉 Bônus de evento</span>
+            <select id="eventBonus"><option value="1">1×</option><option value="2">2×</option><option value="3">3×</option><option value="4">4×</option></select>
+          </label>
+        </div>
+      </div>
+      <div class="result">
+        <div class="result-label">Poeira Estelar estimada pela captura</div>
+        <div class="result-value" id="resultValue">—</div>
+        <div class="formula" id="formula">Selecione um Pokémon.</div>
+      </div>
+    </section>
+  </section>
+
+  <section class="feedback">
+    <div class="wrap">
+      <h2>Ajude a melhorar o GO Nexus</h2>
+      <p>Encontrou algum erro, informação desatualizada ou tem uma sugestão? Envie seu feedback para ajudar a manter as ferramentas atualizadas.</p>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener">💬 Enviar feedback</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  GO Nexus · Desenvolvido por DelorisNyx · Código de amizade: 859609280640<br>
+  Projeto independente para a comunidade de Pokémon GO.
+</footer>
+
+<script>
+const IMG = id => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+
+const groups = [
+  {base:500, color:"163,230,53", pokemon:[
+    ["Paras",46,"251,146,60"],["Meowth",52,"250,204,21"],["Shroomish",285,"163,230,53"],
+    ["Foongus",590,"244,114,182"],["Morelull",755,"216,180,254"],["Delibird",225,"239,68,68"]]},
+  {base:700, color:"34,197,94", pokemon:[
+    ["Parasect",47,"239,68,68"],["Persian",53,"250,204,21"],["Breloom",286,"74,222,128"],
+    ["Amoonguss",591,"244,114,182"],["Shiinotic",756,"232,121,249"]]},
+  {base:750, color:"56,189,248", pokemon:[
+    ["Combee",415,"250,204,21"],["Meowth de Alola",52,"148,163,184","alola"],
+    ["Trubbish",568,"74,222,128"],["Staryu",120,"251,191,36"],["Sableye",302,"139,92,246"]]},
+  {base:950, color:"251,146,60", pokemon:[
+    ["Vespiquen",416,"250,204,21"],["Persian de Alola",53,"148,163,184","alola"],
+    ["Garbodor",569,"74,222,128"],["Starmie",121,"217,70,239"]]},
+  {base:1000, color:"232,121,249", pokemon:[
+    ["Shellder",90,"167,139,250"],["Drampa",780,"125,211,252"]]},
+  {base:1200, color:"139,92,246", pokemon:[
+    ["Cloyster",91,"139,92,246"]]},
+  {base:2100, color:"244,114,182", pokemon:[
+    ["Audino",531,"244,114,182"]]}
+];
+
+// Special form artwork fallback. PokeAPI artwork URLs for variants are not guaranteed by the numeric helper.
+const specialImages = {
+  "Meowth de Alola":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10161.png",
+  "Persian de Alola":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10162.png"
+};
+
+const fmt = n => new Intl.NumberFormat("pt-BR").format(n);
+const groupEl = document.getElementById("groups");
+let selected = null;
+
+function imageFor(p){ return specialImages[p[0]] || IMG(p[1]); }
+
+function render(){
+  groupEl.innerHTML="";
+  groups.forEach(g=>{
+    const section=document.createElement("section");
+    section.className="group"; section.dataset.base=g.base; section.style.setProperty("--glow",g.color);
+    const weather=Math.floor(g.base*1.25);
+    const star=Math.floor(g.base*1.5);
+    const both=Math.floor(g.base*1.25*1.5);
+    section.innerHTML=`
+      <div class="group-head">
+        <div class="group-title"><div class="dust-icon">✨</div><div class="amount">${fmt(g.base)} <small>Poeira Estelar</small></div></div>
+        <div class="quick-values">
+          <span>Clima: ${fmt(weather)}</span><span>Pedaço: ${fmt(star)}</span><span>Clima + Pedaço: ${fmt(both)}</span>
+        </div>
+      </div><div class="pokemon-grid"></div>`;
+    const grid=section.querySelector(".pokemon-grid");
+    g.pokemon.forEach(p=>{
+      const b=document.createElement("button"); b.className="pokemon"; b.type="button";
+      b.dataset.name=p[0].toLowerCase(); b.dataset.base=g.base; b.style.setProperty("--poke",p[2]);
+      b.innerHTML=`<img src="${imageFor(p)}" alt="${p[0]}" loading="lazy"><strong>${p[0]}</strong><div class="mini">✨ ${fmt(g.base)}</div>`;
+      b.addEventListener("click",()=>selectPokemon(p,g,b));
+      grid.appendChild(b);
+    });
+    groupEl.appendChild(section);
+  });
+  applyFilters();
+}
+
+function selectPokemon(p,g,button){
+  document.querySelectorAll(".pokemon").forEach(x=>x.classList.remove("selected"));
+  button.classList.add("selected");
+  selected={name:p[0],base:g.base,img:imageFor(p),color:p[2]};
+  const box=document.getElementById("selectedBox");
+  box.innerHTML=`<img src="${selected.img}" alt="${selected.name}"><div><div class="selected-name">${selected.name}</div><div class="selected-base">✨ ${fmt(selected.base)} base</div><div style="color:#8e9bb0;font-size:.82rem;margin-top:4px">Aplique os bônus ao lado.</div></div>`;
+  box.querySelector("img").style.filter=`drop-shadow(0 0 15px rgba(${selected.color},.45))`;
+  calculate();
+  document.getElementById("calculator").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function calculate(){
+  if(!selected) return;
+  let mult=1, labels=[];
+  if(document.getElementById("weather").checked){mult*=1.25;labels.push("clima 1,25×")}
+  if(document.getElementById("starPiece").checked){mult*=1.5;labels.push("Pedaço 1,5×")}
+  const event=Number(document.getElementById("eventBonus").value);
+  if(event!==1){mult*=event;labels.push(`evento ${event}×`)}
+  const total=Math.floor(selected.base*mult);
+  document.getElementById("resultValue").textContent=`✨ ${fmt(total)}`;
+  document.getElementById("formula").textContent=labels.length
+    ? `${fmt(selected.base)} × ${labels.join(" × ")} = ${fmt(total)}`
+    : `${fmt(selected.base)} de Poeira Estelar base`;
+}
+
+function applyFilters(){
+  const q=document.getElementById("search").value.trim().toLowerCase();
+  const f=document.getElementById("groupFilter").value;
+  let visible=0;
+  document.querySelectorAll(".group").forEach(group=>{
+    let groupVisible=0;
+    group.querySelectorAll(".pokemon").forEach(p=>{
+      const okName=!q||p.dataset.name.includes(q);
+      const okGroup=f==="all"||p.dataset.base===f;
+      const ok=okName&&okGroup;
+      p.classList.toggle("hidden",!ok);
+      if(ok){groupVisible++;visible++}
+    });
+    group.classList.toggle("hidden",groupVisible===0);
+  });
+  document.getElementById("empty").style.display=visible?"none":"block";
+}
+document.getElementById("search").addEventListener("input",applyFilters);
+document.getElementById("groupFilter").addEventListener("change",applyFilters);
+["weather","starPiece","eventBonus"].forEach(id=>document.getElementById(id).addEventListener("change",calculate));
+render();
+</script>
+</body>
+</html>

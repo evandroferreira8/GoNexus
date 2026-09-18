@@ -7,12 +7,15 @@
     { file:"poeira-estelar.html", icon:"✨", label:"Poeira Estelar" }
   ];
   const current = location.pathname.split("/").pop() || "index.html";
-  function render(){
-    const nav = document.querySelector(".nx-sitebar .navlinks");
-    if(!nav) return;
-    nav.innerHTML = pages.map(p =>
-      `<a href="${p.file}"${current===p.file?' class="active" aria-current="page"':''}>${p.icon} ${p.label}</a>`
-    ).join("") + `<a href="${FEEDBACK}" target="_blank" rel="noopener noreferrer">💬 Feedback</a>`;
+  function buildMenu(){
+    const menu = document.querySelector(".gn-header .navlinks");
+    if(!menu) return;
+    menu.innerHTML = pages.map(p => {
+      const active = current === p.file ? ' class="active" aria-current="page"' : "";
+      return `<a href="${p.file}"${active}>${p.icon} ${p.label}</a>`;
+    }).join("") + `<a href="${FEEDBACK}" target="_blank" rel="noopener noreferrer">💬 Feedback</a>`;
   }
-  document.readyState==="loading" ? document.addEventListener("DOMContentLoaded",render) : render();
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", buildMenu)
+    : buildMenu();
 })();

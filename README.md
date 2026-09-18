@@ -7,6 +7,7 @@ Guias e ferramentas para sua jornada no Pokémon GO.
 - `calculadora.html` — Vale a Caixa?
 - `efeitos-aventura.html` — Efeitos Aventura
 - `poeira-estelar.html` — Poeira Estelar
+- `evolucoes-especiais.html` — Evoluções Especiais: pré-requisitos de evolução
 - `nav.js` — navegação compartilhada
 
 ## Autoria

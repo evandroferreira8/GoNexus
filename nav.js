@@ -6,7 +6,8 @@
     { file: "index.html", icon: "🔎", label: "Guia de Busca" },
     { file: "calculadora.html", icon: "🧮", label: "Vale a Caixa?" },
     { file: "efeitos-aventura.html", icon: "⚡", label: "Efeitos Aventura" },
-    { file: "poeira-estelar.html", icon: "✨", label: "Poeira Estelar" }
+    { file: "poeira-estelar.html", icon: "✨", label: "Poeira Estelar" },
+    { file: "evolucoes-especiais.html", icon: "🧬", label: "Evoluções Especiais" }
   ];
 
   const baseStyles = `

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+<title>Vale a Caixa? | GO Nexus</title>
+<meta name="description" content="Compare o preço de uma caixa do Pokémon GO com o custo dos itens comprados separadamente.">
+<style>
+:root{--bg:#08111e;--card:#121d31;--card2:#0d1728;--line:#263653;--text:#f7f9fc;--muted:#a9b6cb;--accent:#39d6ae;--blue:#65a8ff;--warn:#ffd166;--bad:#ff7474;--r:20px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,#142647 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select{font:inherit}.wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+header{padding:38px 0 20px}.eyebrow{color:var(--blue);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2.3rem,7vw,4.7rem);line-height:.95;letter-spacing:-.055em;margin:10px 0 14px}.lead{max-width:760px;color:var(--muted);line-height:1.6;margin:0}
+.layout{display:grid;grid-template-columns:1.3fr .8fr;gap:18px;padding-bottom:40px}.card{background:linear-gradient(180deg,#142039,#101a2d);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}.pad{padding:21px}
+h2{font-size:1.1rem;margin:0}.titlebar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.small{font-size:.82rem;color:var(--muted);line-height:1.5}
+.fields{display:grid;grid-template-columns:1fr 170px 180px;gap:10px}label{display:block;color:#c6d1e2;font-weight:750;font-size:.78rem;margin-bottom:7px}
+input,select{width:100%;height:45px;border:1px solid var(--line);border-radius:12px;background:#0a1425;color:var(--text);padding:0 12px;outline:0}input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #65a8ff22}
+.btn{border:0;border-radius:12px;padding:11px 14px;background:#246bd9;color:white;font-weight:850;cursor:pointer}.btn.secondary{background:#243754;border:1px solid #5c759c;color:#fff}.btn.clearbtn{background:#45202b;border:1px solid #a94d68;color:#ffdce5;box-shadow:0 0 0 3px rgba(255,116,116,.08)}.btn.clearbtn:hover{background:#592534}
+.items{display:flex;flex-direction:column;gap:9px}.row{display:grid;grid-template-columns:minmax(190px,1fr) 90px 46px;gap:9px;align-items:end;background:#0c1628;border:1px solid var(--line);border-radius:14px;padding:11px}.remove{height:45px;border:1px solid #603647;border-radius:11px;background:#2b1721;color:#ff9cac;font-weight:900;cursor:pointer}
+.info{margin-top:16px;border:1px solid #345076;background:#12243c;border-radius:14px;padding:14px;color:#cfe3ff;font-size:.84rem;line-height:1.55}.warning{border-color:#5a4a25;background:#292317;color:#ffe29a}
+.result{position:sticky;top:14px}.hero{text-align:center;padding:24px;border-bottom:1px solid var(--line)}.hero .kicker{color:var(--muted);font-size:.8rem;text-transform:uppercase}.hero .answer{font-size:1.45rem;font-weight:900;margin:9px 0 4px}.hero .sub{color:var(--muted);font-size:.9rem}
+.compare{padding:20px}.comparebox{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}.side{padding:15px;border-radius:15px;background:#0c1628;border:1px solid var(--line)}.side span{display:block;color:var(--muted);font-size:.77rem}.side strong{display:block;font-size:1.45rem;margin-top:5px}.vs{color:var(--muted);font-weight:900}.saving{margin-top:14px;padding:16px;border-radius:15px;background:#102d2c;border:1px solid #23534d}.saving span{display:block;color:#b8ddd6;font-size:.78rem}.saving strong{display:block;color:#4de3b7;font-size:1.65rem;margin-top:3px}.explain{margin-top:15px;line-height:1.55;color:#dbe4f2}.details{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);line-height:1.55}
+.coinpacks{margin-top:18px}.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.pack{border:1px solid var(--line);border-radius:12px;padding:10px;background:#0c1628}.pack strong,.pack span{display:block}.pack span{font-size:.74rem;color:var(--muted);margin-top:3px}
+details{border-top:1px solid var(--line);padding:17px 21px}summary{cursor:pointer;font-weight:850}.pricegrid{display:grid;grid-template-columns:1fr 120px;gap:7px;margin-top:13px;align-items:center}.pricegrid input{height:39px}
+footer{padding:0 0 35px;color:var(--muted);font-size:.78rem;line-height:1.55}
+.feedback{margin:0 auto 28px}.feedbackbox{background:linear-gradient(180deg,#142039,#101a2d);border:1px solid var(--line);border-radius:var(--r);padding:20px;text-align:center}.feedbackbox h2{margin:0 0 8px}.feedbackbox p{max-width:720px;margin:0 auto 15px;color:var(--muted);line-height:1.55}.feedbackbtn{display:inline-block;text-decoration:none;border-radius:12px;padding:11px 16px;background:#246bd9;color:#fff;font-weight:850}.feedbackbtn:hover{background:#347be8}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.result{position:static}.fields{grid-template-columns:1fr 1fr}.fields>div:first-child{grid-column:1/-1}}
+@media(max-width:560px){header{padding-top:27px}.pad{padding:15px}.fields{grid-template-columns:1fr}.fields>div:first-child{grid-column:auto}.row{grid-template-columns:1fr 72px 43px}.comparebox{grid-template-columns:1fr}.vs{text-align:center}.packs{grid-template-columns:1fr 1fr}.side strong{font-size:1.3rem}}
+
+.price-focus{position:relative}
+.price-focus input{border:1px solid #4d83d1;background:#0a172b;box-shadow:0 0 0 3px rgba(101,168,255,.10),0 0 22px rgba(101,168,255,.20);font-weight:850;font-size:1.08rem;transition:.2s}
+.price-focus input:focus{border-color:#79b6ff;box-shadow:0 0 0 4px rgba(101,168,255,.17),0 0 30px rgba(101,168,255,.38)}
+.price-focus.attention input{animation:pricePulse 2.4s ease-in-out infinite}
+@keyframes pricePulse{0%,100%{box-shadow:0 0 0 3px rgba(101,168,255,.10),0 0 18px rgba(101,168,255,.16)}50%{box-shadow:0 0 0 4px rgba(101,168,255,.16),0 0 30px rgba(101,168,255,.32)}}
+
+@media(prefers-reduced-motion:reduce){.price-focus.attention input{animation:none}}
+
+
+.sitebar{border-bottom:1px solid var(--line);background:#08111ee6}.sitebar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0}.brand{font-weight:900}.brand small{display:block;color:var(--muted);font-weight:600;margin-top:2px}.navlinks{display:flex;gap:8px;flex-wrap:wrap}.navlinks a{color:#dbe4f2;text-decoration:none;padding:9px 12px;border:1px solid var(--line);border-radius:11px;font-weight:800;font-size:.85rem}.navlinks a.active{background:#246bd9;border-color:#246bd9;color:white}.brasil-note{margin:0 0 18px;border:1px solid #345076;background:#12243c;border-radius:14px;padding:14px;color:#cfe3ff;font-size:.86rem;line-height:1.55}@media(max-width:620px){.sitebar .wrap{align-items:flex-start;flex-direction:column}.navlinks{width:100%}.navlinks a{flex:1;text-align:center}}
+</style>
+<style id="go-nexus-theme">
+:root{--nx:#38bdf8;--nx2:#8b5cf6;--nx3:#ec4899}
+body{background:radial-gradient(circle at 15% 0,rgba(56,189,248,.13),transparent 30%),radial-gradient(circle at 88% 4%,rgba(139,92,246,.12),transparent 28%),#07111f}
+.sitebar{box-shadow:0 8px 30px rgba(0,0,0,.2)}.nexus-word{font-size:1.08rem;letter-spacing:.03em}.nexus-word b{background:linear-gradient(90deg,var(--nx),var(--nx2),var(--nx3));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 18px rgba(139,92,246,.3)}
+.navlinks a{transition:.2s}.navlinks a:hover{border-color:#6366f1;box-shadow:0 0 16px rgba(99,102,241,.18)}.navlinks a.active{background:linear-gradient(135deg,#2563eb,#7c3aed)!important;box-shadow:0 0 18px rgba(99,102,241,.32)}
+.card{box-shadow:0 10px 30px rgba(0,0,0,.13)}.btn:not(.clearbtn){background:linear-gradient(135deg,#2563eb,#7c3aed);box-shadow:0 0 16px rgba(99,102,241,.18)}
+input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,248,.12),0 0 22px rgba(56,189,248,.14)}
+.price-focus input{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,248,.10),0 0 24px rgba(56,189,248,.20)}
+.result{--result-rgb:56,189,248}.result .hero{background:radial-gradient(circle at 50% 0,rgba(var(--result-rgb),.12),transparent 70%)}.saving{transition:.25s}
+.feedbackbtn{background:linear-gradient(135deg,#2563eb,#7c3aed);box-shadow:0 0 18px rgba(99,102,241,.2)}
+</style></head>
+<body>
+<nav class="sitebar"><div class="wrap"><div class="brand"><span class="nexus-word">GO <b>NEXUS</b></span><small>Guias e ferramentas para sua jornada no Pokémon GO</small></div><div class="navlinks"><a href="index.html">🔎 Guia de Busca</a><a class="active" href="calculadora.html">🧮 Vale a Caixa?</a><a href="efeitos-aventura.html">✨ Efeitos Aventura</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">💬 Feedback</a></div></div></nav>
+
+<header class="wrap">
+  <div class="eyebrow">Calculadora de ofertas • Pokémon GO</div>
+  <h1>Vale a Caixa?</h1>
+  <p class="lead">Descubra se uma caixa ou combo compensa comparando o preço da oferta com o preço dos mesmos itens comprados separadamente na loja.</p>
+</header>
+<div class="wrap"><div class="brasil-note"><strong>Referência Brasil:</strong> os preços, pacotes de Pokémoedas e demais informações comerciais usados nesta calculadora têm como referência a loja brasileira do Pokémon GO e valores em reais (R$), quando aplicável. Os valores podem mudar sem aviso prévio.</div></div>
+
+
+<main class="wrap layout">
+<section>
+  <div class="card pad">
+    <div class="titlebar"><h2>1. Informe a oferta</h2><button class="btn clearbtn" id="clear">↻ Limpar tudo</button></div>
+    <div class="fields">
+      <div><label>Nome da caixa</label><input id="name" placeholder="Ex.: Caixa de Reides"></div>
+      <div class="price-focus attention" id="priceBox"><label>Preço da oferta</label><input id="price" inputmode="numeric" autocomplete="off" placeholder="0"></div>
+      <div><label>Como ela é vendida?</label><select id="currency"><option value="coins">Pokémoedas</option><option value="brl">Reais (R$)</option></select></div>
+    </div>
+    
+
+    <div class="titlebar" style="margin-top:25px">
+      <div><h2>2. O que vem na caixa?</h2><div class="small">Adicione cada item e sua quantidade.</div></div>
+      <button class="btn" id="add">+ Adicionar item</button>
+    </div>
+    <div class="items" id="items"></div>
+    <div class="info"><strong>Itens sem preço individual:</strong> MTs, MTs Elite, Doces Raros e outros itens podem aparecer em combos sem possuir um preço individual oficial em Pokémoedas. Eles ficam visíveis na oferta, mas <strong>não são usados para aumentar artificialmente o valor da caixa</strong>. Por isso, quando houver itens assim, a vantagem real do combo pode ser maior do que a calculada.</div>
+    <div class="info warning"><strong>Brasil:</strong> Incubadoras e Superincubadoras pagas estão sujeitas às restrições atualmente aplicadas à loja brasileira. Os preços e conteúdos da loja podem mudar sem aviso prévio.</div>
+  </div>
+
+  <div class="card coinpacks">
+    <details open>
+      <summary>Pacotes de Pokémoedas usados no cálculo em R$</summary>
+      <div class="small" style="margin-top:8px">Valores da Web Store brasileira informados em setembro de 2026. O site procura automaticamente a combinação mais barata de pacotes que forneça moedas suficientes.</div>
+      <div class="packs" id="packs"></div>
+    </details>
+    <details>
+      <summary>Preços individuais usados</summary>
+      <div class="small" style="margin-top:8px">Estes são os preços e pacotes observados na loja do jogo. A calculadora escolhe automaticamente a combinação mais barata para a quantidade informada. “Sem preço” significa que o item não entra no cálculo principal.</div>
+      <div class="pricegrid" id="pricegrid"></div>
+    </details>
+  </div>
+</section>
+
+<aside>
+<div class="card result">
+  <div class="hero">
+    <div class="kicker">Resultado</div>
+    <div class="answer" id="answer">Adicione os itens da oferta</div>
+    <div class="sub" id="answerSub">A comparação aparecerá aqui.</div>
+  </div>
+  <div class="compare">
+    <div class="comparebox">
+      <div class="side"><span>COMPRANDO O COMBO</span><strong id="combo">—</strong></div>
+      <div class="vs">VS.</div>
+      <div class="side"><span>COMPRANDO SEPARADAMENTE</span><strong id="separate">—</strong></div>
+    </div>
+    <div class="saving">
+      <span id="savingLabel">VOCÊ ECONOMIZA</span>
+      <strong id="saving">—</strong>
+    </div>
+    <div class="explain" id="explain">Monte a oferta para descobrir qual opção custa menos.</div>
+    <div class="details" id="details"></div>
+  </div>
+</div>
+</aside>
+</main>
+
+<section class="wrap feedback"><div class="feedbackbox"><h2>Ajude a melhorar o GO Nexus</h2><p>Encontrou algum erro, informação desatualizada ou tem uma sugestão? Envie seu feedback para ajudar a manter as ferramentas atualizadas.</p><a class="feedbackbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">💬 Enviar feedback</a></div></section>
+
+<footer class="wrap">O cálculo compara o preço da oferta com os valores individuais de referência. Quando a oferta é em reais, a calculadora determina quanto custaria obter as Pokémoedas necessárias usando os pacotes brasileiros da Web Store. O cálculo não considera saldo de Pokémoedas que o jogador já possua. GO Nexus é um projeto independente para a comunidade, sem vínculo com The Pokémon Company, Niantic ou Scopely. Desenvolvido e atualizado por DelorisNyx.</footer>
+
+<script>
+const catalog=[
+{id:"remote",name:"Passe de Reide à Distância",packs:[{qty:1,price:195},{qty:3,price:525}]},
+{id:"premium",name:"Passe de Batalha Premium",packs:[{qty:1,price:100},{qty:3,price:250}]},
+{id:"incubator",name:"Incubadora",packs:[{qty:1,price:150}],restricted:true},{id:"superincubator",name:"Superincubadora",packs:[{qty:1,price:200}],restricted:true},
+{id:"poffin",name:"Poffin",packs:[{qty:1,price:100}]},{id:"pokeball",name:"Poké Bola",packs:[{qty:20,price:100},{qty:100,price:460},{qty:200,price:800}]},
+{id:"incense",name:"Incenso",packs:[{qty:1,price:40},{qty:8,price:250}]},{id:"rocket",name:"Radar Rocket",packs:[{qty:1,price:200}]},
+{id:"star",name:"Pedaço de Estrela",packs:[{qty:1,price:100},{qty:8,price:640}]},{id:"egg",name:"Ovo da Sorte",packs:[{qty:1,price:80},{qty:8,price:500}]},
+{id:"potion",name:"Poção Máxima",packs:[{qty:10,price:200}]},{id:"revive",name:"Máximo Reviver",packs:[{qty:6,price:180}]},
+{id:"lure",name:"Módulo Atrair",packs:[{qty:1,price:100},{qty:8,price:680}]},{id:"glaciallure",name:"Módulo Atrair Glacial",packs:[{qty:1,price:180}]},
+{id:"mossylure",name:"Módulo Atrair Musgoso",packs:[{qty:1,price:180}]},{id:"magneticlure",name:"Módulo Atrair Magnético",packs:[{qty:1,price:180}]},
+{id:"rainylure",name:"Módulo Atrair Chuvoso",packs:[{qty:1,price:180}]},{id:"bag",name:"Expansão da Bolsa",packs:[{qty:1,price:200}]},
+{id:"storage",name:"Armazenamento Pokémon",packs:[{qty:1,price:200}]},{id:"postcard",name:"Página de cartões-postais",packs:[{qty:1,price:100}]},
+{id:"medallion",name:"Medalhão de Equipes",packs:[{qty:1,price:1000}]},{id:"maxparticles",name:"Pacote de Partículas Max (800 PM)",packs:[{qty:1,price:150},{qty:3,price:425}]},
+{id:"maxmushroom",name:"Cogumelo Max",packs:[{qty:1,price:400},{qty:3,price:1000}]},{id:"linkcharges",name:"200 Cargas de Conexão",packs:[{qty:1,price:100},{qty:3,price:250}]},
+{id:"greatball",name:"Grande Bola",packs:null},{id:"ultraball",name:"Ultra Bola",packs:null},{id:"fasttm",name:"MT de Ataque Ágil",packs:null},
+{id:"chargedtm",name:"MT de Ataque Carregado",packs:null},{id:"elitefasttm",name:"MT Elite de Ataque Ágil",packs:null},{id:"elitechargedtm",name:"MT Elite de Ataque Carregado",packs:null},
+{id:"rarecandy",name:"Doce Raro",packs:null},{id:"rarecandyxl",name:"Doce Raro GG",packs:null},{id:"silverpinap",name:"Fruta Caxí Prateada",packs:null},
+{id:"goldenrazz",name:"Fruta Frambo Dourada",packs:null},{id:"razz",name:"Fruta Frambo",packs:null},{id:"pinap",name:"Fruta Caxí",packs:null},
+{id:"nanab",name:"Fruta Anaba",packs:null},{id:"component",name:"Componente Misterioso",packs:null}
+];
+
+const coinPacks=[
+{coins:110,price:1.90},{coins:600,price:9.90},{coins:1300,price:18.90},
+{coins:2700,price:37.90},{coins:5600,price:76.90},{coins:15500,price:191.90}
+];
+
+const $=id=>document.getElementById(id);
+const brl=n=>Number(n||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const coins=n=>Number(n||0).toLocaleString("pt-BR",{maximumFractionDigits:1})+" 🪙";
+function parseBR(v){
+  v=String(v??"").trim().replace(/\s/g,"");
+  if(!v)return 0;
+  if(v.includes(","))v=v.replace(/\./g,"").replace(",",".");
+  return Number(v.replace(/[^\d.-]/g,""))||0;
+}
+function moneyFromDigits(v){
+  const digits=String(v??"").replace(/\D/g,"").replace(/^0+(?=\d)/,"");
+  if(!digits)return {digits:"",value:0,formatted:""};
+  const cents=parseInt(digits,10);
+  return {digits,value:cents/100,formatted:(cents/100).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2})};
+}
+function handlePriceInput(){
+  if($("currency").value==="brl"){
+    const m=moneyFromDigits($("price").value);
+    $("price").dataset.cents=m.digits;
+    $("price").value=m.formatted;
+  }else{
+    const digits=$("price").value.replace(/\D/g,"");
+    $("price").value=digits?Number(digits).toLocaleString("pt-BR"):"";
+  }
+  $("priceBox").classList.toggle("attention",!$("price").value);
+  calc();
+}
+function currentPrice(){
+  if($("currency").value==="brl"){
+    const d=$("price").dataset.cents||"";
+    return d?parseInt(d,10)/100:0;
+  }
+  return Number(String($("price").value).replace(/\./g,"").replace(/\D/g,""))||0;
+}
+function opts(id="premium"){return catalog.map(x=>`<option value="${x.id}" ${x.id===id?"selected":""}>${x.name}${!x.packs?" • sem preço":""}${x.restricted?" ⚠":""}</option>`).join("")}
+
+function addRow(id="premium",qty=1){
+ const r=document.createElement("div");r.className="row";
+ r.innerHTML=`<div><label>Item</label><select class="sel">${opts(id)}</select></div><div><label>Qtd.</label><input class="qty" type="number" min="0" step="1" value="${qty}"></div><button class="remove" title="Remover">×</button>`;
+ r.querySelectorAll("select,input").forEach(x=>x.addEventListener("input",calc));
+ r.querySelector(".remove").addEventListener("click",()=>{r.remove();calc()});
+ $("items").appendChild(r);calc();
+}
+
+function cheapestItemPurchase(item,targetQty){
+ targetQty=Math.max(0,Math.ceil(targetQty));if(!targetQty||!item.packs)return null;
+ const maxPack=Math.max(...item.packs.map(p=>p.qty)),max=targetQty+maxPack-1,dp=new Array(max+1).fill(Infinity),prev=new Array(max+1).fill(null);dp[0]=0;
+ for(let q=0;q<=max;q++){if(!Number.isFinite(dp[q]))continue;item.packs.forEach((p,i)=>{let n=q+p.qty;if(n<=max&&dp[q]+p.price<dp[n]){dp[n]=dp[q]+p.price;prev[n]=[q,i]}})}
+ let best=-1;for(let q=targetQty;q<=max;q++)if(Number.isFinite(dp[q])&&(best<0||dp[q]<dp[best]||(dp[q]===dp[best]&&q<best)))best=q;
+ const counts=item.packs.map(()=>0);let cur=best;while(cur>0&&prev[cur]){let [before,i]=prev[cur];counts[i]++;cur=before}return {cost:dp[best],qty:best,counts};
+}
+function cheapestCoins(target){
+ target=Math.ceil(Math.max(0,target));
+ if(!target)return {cost:0,coins:0,counts:coinPacks.map(()=>0)};
+ // Unbounded coin change minimizing BRL. Bound only needs target + largest pack.
+ const max=target+15500;
+ const dp=new Array(max+1).fill(Infinity),prev=new Array(max+1).fill(null);dp[0]=0;
+ for(let i=0;i<=max;i++){
+   if(!Number.isFinite(dp[i]))continue;
+   coinPacks.forEach((p,idx)=>{
+     const n=Math.min(max,i+p.coins),c=dp[i]+p.price;
+     if(c<dp[n]-1e-9){dp[n]=c;prev[n]=[i,idx]}
+   });
+ }
+ let best=target;
+ for(let i=target;i<=max;i++)if(dp[i]<dp[best]-1e-9 || (Math.abs(dp[i]-dp[best])<1e-9&&i<best))best=i;
+ const counts=coinPacks.map(()=>0);let cur=best;
+ while(cur>0&&prev[cur]){const [before,idx]=prev[cur];counts[idx]++;cur=before}
+ return {cost:dp[best],coins:best,counts};
+}
+
+function calc(){
+ let total=0,unpriced=0,unpricedKinds=[],purchaseDetails=[];
+ document.querySelectorAll(".row").forEach(r=>{
+  const item=catalog.find(x=>x.id===r.querySelector(".sel").value),q=Math.max(0,parseInt(r.querySelector(".qty").value)||0);if(!q)return;
+  if(!item.packs){unpriced+=q;unpricedKinds.push(`${q}× ${item.name}`);return}
+  const best=cheapestItemPurchase(item,q);total+=best.cost;
+  const used=best.counts.map((c,i)=>c?`${c}× pacote de ${item.packs[i].qty}`:null).filter(Boolean).join(" + ");
+  purchaseDetails.push(`${q}× ${item.name}: ${coins(best.cost)}${best.qty>q?` (entrega ${best.qty}; sobram ${best.qty-q})`:""}${item.packs.length>1?` — ${used}`:""}`);
+ });
+ const mode=$("currency").value,price=currentPrice();
+ $("combo").textContent=mode==="brl"?brl(price):coins(price);
+ if(total<=0){
+   $("separate").textContent="—";$("saving").textContent="—";$("answer").textContent="Não há itens com preço individual";$("answerSub").textContent="Os itens sem preço oficial continuam listados, mas não podem ser comparados diretamente.";$("explain").textContent="Adicione ao menos um item com preço individual conhecido para fazer a comparação.";$("details").textContent=unpricedKinds.length?"Sem preço individual: "+unpricedKinds.join(", "):"";return;
+ }
+ if(mode==="coins"){
+   const diff=total-price,pct=total?diff/total*100:0;
+   $("separate").textContent=coins(total);
+   $("saving").textContent=diff>=0?`${coins(diff)} (${Math.max(0,pct).toLocaleString("pt-BR",{maximumFractionDigits:1})}%)`:`A oferta custa ${coins(-diff)} a mais`;
+   $("savingLabel").textContent=diff>=0?"VOCÊ ECONOMIZA":"VOCÊ PAGA A MAIS";
+   $("answer").textContent=diff>0?"O combo é mais barato":diff===0?"Os preços são iguais":"Comprar separado é mais barato";
+   $("answerSub").textContent=diff>0?`Os mesmos itens custariam ${coins(total)} separadamente.`:"Compare os valores abaixo.";
+   $("explain").textContent=diff>0?`Você paga ${coins(price)} no combo em vez de ${coins(total)} comprando os itens separadamente.`:`O combo custa ${coins(price)}, enquanto os itens com preço conhecido somam ${coins(total)}.`;
+   $("details").innerHTML=`<strong>Como calculamos a compra separada:</strong><br>${purchaseDetails.join("<br>")}`+(unpriced?`<br><br>Há também <strong>${unpriced} item(ns) sem preço individual</strong> que não entraram na conta: ${unpricedKinds.join(", ")}.`:"");
+ }else{
+   const buy=cheapestCoins(total),diff=buy.cost-price,pct=buy.cost?diff/buy.cost*100:0;
+   $("separate").textContent=brl(buy.cost);
+   $("saving").textContent=diff>=0?`${brl(diff)} (${Math.max(0,pct).toLocaleString("pt-BR",{maximumFractionDigits:1})}%)`:`${brl(-diff)} a mais`;
+   $("savingLabel").textContent=diff>=0?"VOCÊ ECONOMIZA":"O COMBO CUSTA";
+   $("answer").textContent=diff>0?"O combo é mais barato":Math.abs(diff)<.005?"Os preços são equivalentes":"Comprar separado é mais barato";
+   $("answerSub").textContent=`Os itens com preço conhecido somam ${coins(total)}.`;
+   $("explain").textContent=diff>0?`Para comprar separadamente, você precisaria de ${coins(total)}. A forma mais barata de obter moedas suficientes na Web Store custa ${brl(buy.cost)}. Como o combo custa ${brl(price)}, a diferença é ${brl(diff)}.`:`Para comprar separadamente, seriam necessárias ${coins(total)}. Pelos pacotes da Web Store, isso custaria ${brl(buy.cost)}.`;
+   const used=buy.counts.map((c,i)=>c?`${c}× ${coinPacks[i].coins.toLocaleString("pt-BR")} moedas (${brl(coinPacks[i].price)})`:null).filter(Boolean);
+   $("details").innerHTML=`<strong>Como calculamos os itens:</strong><br>${purchaseDetails.join("<br>")}<br><br>Para obter pelo menos ${coins(total)}, a combinação mais barata na Web Store é <strong>${used.join(" + ")}</strong>. Ela fornece ${coins(buy.coins)}${buy.coins>total?`, sobrando ${coins(buy.coins-total)}`:""}.`+(unpriced?`<br><br>O combo também contém <strong>${unpriced} item(ns) sem preço individual</strong>, que não aumentaram o valor calculado: ${unpricedKinds.join(", ")}.`:"");
+ }
+}
+
+function modeChanged(){
+ const mode=$("currency").value;
+ $("price").value="";
+ $("price").dataset.cents="";
+ $("price").placeholder=mode==="brl"?"0,00":"0";
+ $("price").inputMode="numeric";
+ $("priceBox").classList.add("attention");
+ calc();
+}
+$("add").addEventListener("click",()=>addRow());
+$("clear").addEventListener("click",()=>{$("items").innerHTML="";$("name").value="";$("price").value="";$("price").dataset.cents="";$("priceBox").classList.add("attention");addRow();calc()});
+$("price").addEventListener("input",handlePriceInput);
+
+$("currency").addEventListener("change",modeChanged);
+
+$("packs").innerHTML=coinPacks.map(p=>`<div class="pack"><strong>${p.coins.toLocaleString("pt-BR")} 🪙</strong><span>${brl(p.price)}</span></div>`).join("");
+$("pricegrid").innerHTML=catalog.map(x=>{const txt=!x.packs?"Sem preço":x.packs.map(p=>`${p.qty} por ${coins(p.price)}`).join("<br>");return `<div class="small">${x.name}${x.restricted?" ⚠":""}</div><div class="small">${txt}</div>`}).join("");
+addRow("premium",1);addRow("remote",1);calc();
+
+const resultCard=document.querySelector('.result');const answerNode=document.getElementById('answer');
+const glowObserver=new MutationObserver(()=>{const t=answerNode.textContent.toLowerCase();if(t.includes('combo é mais barato')){resultCard.style.setProperty('--result-rgb','52,211,153');resultCard.style.boxShadow='0 0 28px rgba(52,211,153,.16)'}else if(t.includes('separado é mais barato')){resultCard.style.setProperty('--result-rgb','248,113,113');resultCard.style.boxShadow='0 0 28px rgba(248,113,113,.15)'}else{resultCard.style.setProperty('--result-rgb','56,189,248');resultCard.style.boxShadow='0 0 24px rgba(56,189,248,.10)'}});glowObserver.observe(answerNode,{childList:true,characterData:true,subtree:true});
+</script>
+</body>
+</html>

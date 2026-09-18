@@ -9,7 +9,7 @@ Guias e ferramentas para sua jornada no Pokémon GO.
 - `efeitos-aventura.html` — Efeitos Aventura
 - `poeira-estelar.html` — Poeira Estelar
 - `nav.js` — menu compartilhado entre as páginas
-- `nexus.css` — identidade visual compartilhada do cabeçalho e rodapé
+- `nexus.css` — cabeçalho e rodapé compartilhados
 
 ## Manutenção do menu
 

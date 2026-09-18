@@ -22,7 +22,6 @@
 
   function buildMenu() {
     const menu = findMenu();
-
     if (!menu) return;
 
     const current = currentFile();
@@ -30,7 +29,6 @@
     menu.innerHTML = pages.map(page => {
       const active = current === page.file ? ' class="active"' : "";
       const aria = current === page.file ? ' aria-current="page"' : "";
-
       return `<a${active}${aria} href="${page.file}">${page.icon} ${page.label}</a>`;
     }).join("") +
     `<a href="${FEEDBACK}" target="_blank" rel="noopener noreferrer">💬 Feedback</a>`;

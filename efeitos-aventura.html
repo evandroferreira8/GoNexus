@@ -68,7 +68,10 @@ header{padding:25px 0 18px;text-align:center}.brand{font-size:1.7rem;font-weight
 <button class="details" type="button">Ver observações</button><div class="more">O efeito é ativado fora de batalha. Custos, duração e funcionamento podem ser alterados pelo jogo.</div></div></article></section><div id="empty" class="empty">Nenhum efeito encontrado.</div>
 <section class="info"><h2>Informações importantes</h2><ul><li>Os cards usam adesivos do Pokémon GO para manter uma identidade visual consistente.</li><li>Os Efeitos Aventura são ativados fora de batalha.</li><li>Custos, duração, disponibilidade e funcionamento podem mudar com atualizações do jogo.</li></ul></section>
 <section class="feedback"><h2>Encontrou algo desatualizado?</h2><p>Envie uma correção ou sugestão para ajudar a manter o guia atualizado.</p><a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor">💬 Enviar feedback</a></section></main>
-<footer class="wrap">GO Nexus • projeto independente para a comunidade de Pokémon GO<br>desenvolvido e atualizado por DelorisNyx • código de amizade 859609280640<br>Guia atualizado em setembro de 2026</footer>
+<footer>
+  © 2026 GO Nexus — Evandro Ferreira. Todos os direitos reservados.<br>
+  Projeto independente e não oficial. Pokémon e Pokémon GO e demais marcas, personagens e elementos relacionados pertencem aos seus respectivos titulares.
+</footer>
 <script>
 const q=document.querySelector("#q"),cards=[...document.querySelectorAll(".card")],chips=[...document.querySelectorAll(".chip")],empty=document.querySelector("#empty");let f="all";
 function run(){let n=0,s=q.value.trim().toLowerCase();cards.forEach(c=>{let show=(f==="all"||c.dataset.cat.split(" ").includes(f))&&(!s||c.dataset.search.includes(s)||c.innerText.toLowerCase().includes(s));c.classList.toggle("hide",!show);if(show)n++});empty.style.display=n?"none":"block"}

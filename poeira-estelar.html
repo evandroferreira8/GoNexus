@@ -97,39 +97,9 @@
     @media(max-width:500px){.wrap{width:min(100% - 20px,1180px)}.hero{padding-top:44px}.pokemon-grid{grid-template-columns:repeat(2,1fr)}
       .pokemon img{width:82px;height:82px}.calculator{padding:16px}.selected-box img{width:85px;height:85px}nav a{font-size:.8rem;padding:8px}}
   </style>
-
-<style id="gn-shared">
-.gn-header{position:relative;z-index:20;background:rgba(7,11,23,.92);border-bottom:1px solid rgba(148,163,184,.14)}
-.gn-topbar{width:min(1180px,calc(100% - 32px));margin:auto;min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 0}
-.gn-id{flex:0 0 auto}
-.gn-brand{display:inline-block;text-decoration:none;color:#f8fafc;font:900 1.22rem/1.1 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.035em}
-.gn-brand span{background:linear-gradient(90deg,#38bdf8,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 8px rgba(139,92,246,.20))}
-.gn-sub{margin-top:5px;color:#94a3b8;font:500 .78rem/1.35 system-ui,-apple-system,"Segoe UI",sans-serif}
-.gn-header .navlinks{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
-.gn-header .navlinks a{display:inline-flex;align-items:center;padding:9px 12px;border:1px solid #2d3b55;border-radius:12px;background:transparent;color:#cbd5e1;text-decoration:none;font:800 .86rem/1.25 system-ui,-apple-system,"Segoe UI",sans-serif;white-space:nowrap}
-.gn-header .navlinks a:hover{background:#111b30;color:#fff}
-.gn-header .navlinks a.active,.gn-header .navlinks a[aria-current="page"]{background:#141e34;border-color:#334765;color:#fff;box-shadow:0 0 18px rgba(56,189,248,.12)}
-.gn-footer{width:100%;margin:0;padding:25px 16px 34px;border-top:1px solid #182238;background:transparent;color:#718096;text-align:center;font:500 .78rem/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
-.gn-footer strong{color:#94a3b8;font-weight:800}
-@media(max-width:800px){
- .gn-topbar{width:min(100% - 28px,1180px);align-items:flex-start;flex-direction:column;gap:14px;padding:18px 0}
- .gn-sub{font-size:.8rem}
- .gn-header .navlinks{width:100%;justify-content:flex-start}
- .gn-header .navlinks a{font-size:.80rem;padding:8px 9px}
- .gn-footer{font-size:.72rem;padding:22px 18px 28px}
-}
-</style>
 </head>
 <body>
-<header class="gn-header">
-  <div class="gn-topbar">
-    <div class="gn-id">
-      <a class="gn-brand" href="index.html">GO <span>NEXUS</span></a>
-      <div class="gn-sub">Guias e ferramentas para sua jornada no Pokémon GO</div>
-    </div>
-    <nav class="navlinks" aria-label="Navegação principal"></nav>
-  </div>
-</header>
+<go-nexus-header></go-nexus-header>
 
 <main>
   <section class="hero wrap">
@@ -183,12 +153,7 @@
   </section>
 </main>
 
-<footer class="gn-footer">
-  <strong>GO Nexus</strong><br>
-  Desenvolvido por <strong>DelorisNyx</strong> · Código de amizade: <strong>8596 0928 0640</strong><br>
-  © 2026 · Todos os direitos reservados.<br>
-  Projeto independente e não oficial. Pokémon e Pokémon GO pertencem aos seus respectivos titulares.
-</footer>
+<go-nexus-footer></go-nexus-footer>
 
 <script>
 const IMG = id => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;

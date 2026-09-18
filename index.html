@@ -11,37 +11,8 @@ body{background:radial-gradient(circle at 18% -10%,rgba(56,189,248,.13),transpar
 .font-mono.text-indigo-400,.text-indigo-400{color:#67e8f9!important}.bg-indigo-600{background:linear-gradient(135deg,#2563eb,#7c3aed)!important}.bg-indigo-600:hover{filter:brightness(1.12)}
 #guia-iv>div{border-color:#334765!important;box-shadow:0 0 32px rgba(99,102,241,.10)}.iv-fill{background:linear-gradient(90deg,#38bdf8,#8b5cf6)!important}
 </style>
-<style id="gn-shared">
-.gn-header{position:relative;z-index:20;background:rgba(7,11,23,.92);border-bottom:1px solid rgba(148,163,184,.14)}
-.gn-topbar{width:min(1180px,calc(100% - 32px));margin:auto;min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 0}
-.gn-id{flex:0 0 auto}
-.gn-brand{display:inline-block;text-decoration:none;color:#f8fafc;font:900 1.22rem/1.1 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.035em}
-.gn-brand span{background:linear-gradient(90deg,#38bdf8,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 8px rgba(139,92,246,.20))}
-.gn-sub{margin-top:5px;color:#94a3b8;font:500 .78rem/1.35 system-ui,-apple-system,"Segoe UI",sans-serif}
-.gn-header .navlinks{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
-.gn-header .navlinks a{display:inline-flex;align-items:center;padding:9px 12px;border:1px solid #2d3b55;border-radius:12px;background:transparent;color:#cbd5e1;text-decoration:none;font:800 .86rem/1.25 system-ui,-apple-system,"Segoe UI",sans-serif;white-space:nowrap}
-.gn-header .navlinks a:hover{background:#111b30;color:#fff}
-.gn-header .navlinks a.active,.gn-header .navlinks a[aria-current="page"]{background:#141e34;border-color:#334765;color:#fff;box-shadow:0 0 18px rgba(56,189,248,.12)}
-.gn-footer{width:100%;margin:0;padding:25px 16px 34px;border-top:1px solid #182238;background:transparent;color:#718096;text-align:center;font:500 .78rem/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
-.gn-footer strong{color:#94a3b8;font-weight:800}
-@media(max-width:800px){
- .gn-topbar{width:min(100% - 28px,1180px);align-items:flex-start;flex-direction:column;gap:14px;padding:18px 0}
- .gn-sub{font-size:.8rem}
- .gn-header .navlinks{width:100%;justify-content:flex-start}
- .gn-header .navlinks a{font-size:.80rem;padding:8px 9px}
- .gn-footer{font-size:.72rem;padding:22px 18px 28px}
-}
-</style>
 </head><body>
-<header class="gn-header">
-  <div class="gn-topbar">
-    <div class="gn-id">
-      <a class="gn-brand" href="index.html">GO <span>NEXUS</span></a>
-      <div class="gn-sub">Guias e ferramentas para sua jornada no Pokémon GO</div>
-    </div>
-    <nav class="navlinks" aria-label="Navegação principal"></nav>
-  </div>
-</header>
+<go-nexus-header></go-nexus-header>
 <header class="max-w-3xl mx-auto px-4 pt-9 pb-7 text-center"><h1 class="text-3xl font-bold">Guia de Busca</h1><p class="text-slate-400 mt-2 mb-5">Encontre e copie filtros para organizar seus Pokémon.</p><input id="search" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 outline-none focus:border-indigo-500" placeholder="Buscar comando ou descrição..."><div class="mt-5 text-left rounded-xl border border-amber-500/30 bg-amber-500/10 p-4"><strong class="text-amber-300">⚠️ Os filtros podem mudar</strong><p class="text-sm text-slate-300 mt-1">Os comandos de pesquisa do Pokémon GO podem ser adicionados, alterados ou removidos sem aviso prévio. Este guia será atualizado assim que essas mudanças forem identificadas.</p></div></header>
 <main id="app" class="max-w-3xl mx-auto px-4 space-y-4"></main>
 <section id="guia-iv" class="max-w-3xl mx-auto px-4 mt-12">
@@ -101,12 +72,7 @@ body{background:radial-gradient(circle at 18% -10%,rgba(56,189,248,.13),transpar
   </div>
 </section>
 <section class="max-w-3xl mx-auto px-4 mt-10"><div class="rounded-2xl border border-slate-700 bg-slate-800/70 p-5 text-center"><h2 class="text-lg font-bold">Ajude a melhorar o GO Nexus</h2><p class="text-sm text-slate-400 mt-2 mb-4">Encontrou algum erro, informação desatualizada ou tem uma sugestão? Envie seu feedback para ajudar a manter as ferramentas atualizadas.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 hover:bg-indigo-500 px-5 py-3 font-semibold text-white transition-colors">💬 Enviar feedback</a></div></section>
-<footer class="gn-footer">
-  <strong>GO Nexus</strong><br>
-  Desenvolvido por <strong>DelorisNyx</strong> · Código de amizade: <strong>8596 0928 0640</strong><br>
-  © 2026 · Todos os direitos reservados.<br>
-  Projeto independente e não oficial. Pokémon e Pokémon GO pertencem aos seus respectivos titulares.
-</footer>
+<go-nexus-footer></go-nexus-footer>
 <script>
 const db=[
 ["⚙️ Operadores e Nomes",[["&","E: combina condições"],[",","OU: uma condição ou outra"],[";","OU: alternativa à vírgula"],[":","OU: alternativa para combinar possibilidades"],["!","NÃO: exclui o termo seguinte"],["+pikachu","Família evolutiva de Pikachu"],["\\\"hundo\\\"","Apelido exato"],["#pvp","Tag específica"],["#","Pokémon com alguma tag"],["!#","Pokémon sem tag"],["charizard","Pesquisa pelo nome da espécie"],["25","Número exato da Pokédex"],["1-151","Intervalo da Pokédex"],["1-","A partir do número indicado"],["-151","Até o número indicado"]]],

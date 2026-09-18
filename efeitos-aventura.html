@@ -18,37 +18,8 @@ header{padding:25px 0 18px;text-align:center}.brand{font-size:1.7rem;font-weight
 .badge{background:rgba(var(--rgb),.14);color:var(--glow);border:1px solid rgba(var(--rgb),.4)}.details{color:var(--glow)}
 @media(max-width:430px){.art{border-right:0;border-bottom:1px solid rgba(var(--rgb),.25)}}
 </style>
-<style id="gn-shared">
-.gn-header{position:relative;z-index:20;background:rgba(7,11,23,.92);border-bottom:1px solid rgba(148,163,184,.14)}
-.gn-topbar{width:min(1180px,calc(100% - 32px));margin:auto;min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 0}
-.gn-id{flex:0 0 auto}
-.gn-brand{display:inline-block;text-decoration:none;color:#f8fafc;font:900 1.22rem/1.1 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.035em}
-.gn-brand span{background:linear-gradient(90deg,#38bdf8,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 8px rgba(139,92,246,.20))}
-.gn-sub{margin-top:5px;color:#94a3b8;font:500 .78rem/1.35 system-ui,-apple-system,"Segoe UI",sans-serif}
-.gn-header .navlinks{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
-.gn-header .navlinks a{display:inline-flex;align-items:center;padding:9px 12px;border:1px solid #2d3b55;border-radius:12px;background:transparent;color:#cbd5e1;text-decoration:none;font:800 .86rem/1.25 system-ui,-apple-system,"Segoe UI",sans-serif;white-space:nowrap}
-.gn-header .navlinks a:hover{background:#111b30;color:#fff}
-.gn-header .navlinks a.active,.gn-header .navlinks a[aria-current="page"]{background:#141e34;border-color:#334765;color:#fff;box-shadow:0 0 18px rgba(56,189,248,.12)}
-.gn-footer{width:100%;margin:0;padding:25px 16px 34px;border-top:1px solid #182238;background:transparent;color:#718096;text-align:center;font:500 .78rem/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
-.gn-footer strong{color:#94a3b8;font-weight:800}
-@media(max-width:800px){
- .gn-topbar{width:min(100% - 28px,1180px);align-items:flex-start;flex-direction:column;gap:14px;padding:18px 0}
- .gn-sub{font-size:.8rem}
- .gn-header .navlinks{width:100%;justify-content:flex-start}
- .gn-header .navlinks a{font-size:.80rem;padding:8px 9px}
- .gn-footer{font-size:.72rem;padding:22px 18px 28px}
-}
-</style>
 </head><body>
-<header class="gn-header">
-  <div class="gn-topbar">
-    <div class="gn-id">
-      <a class="gn-brand" href="index.html">GO <span>NEXUS</span></a>
-      <div class="gn-sub">Guias e ferramentas para sua jornada no Pokémon GO</div>
-    </div>
-    <nav class="navlinks" aria-label="Navegação principal"></nav>
-  </div>
-</header>
+<go-nexus-header></go-nexus-header>
 <main class="wrap"><section class="hero"><b>GUIA INTERATIVO</b><h1>Efeitos Aventura</h1><p>Bônus temporários ativados usando ataques específicos fora de batalha. Encontre rapidamente um Pokémon, ataque ou tipo de benefício.</p></section>
 <section class="controls"><input id="q" type="search" placeholder="Buscar Pokémon, ataque ou efeito..." aria-label="Buscar"><div class="chips"><button class="chip on" data-f="all">Todos</button><button class="chip" data-f="raid">Reides</button><button class="chip" data-f="capture">Captura</button><button class="chip" data-f="explore">Exploração</button><button class="chip" data-f="max">Max</button></div></section>
 <section class="grid"><article class="card" data-cat="raid" data-search="mega mewtwo x soco dinâmico+ reides aumenta o dano contra pokémon mega em reides e permite quebrar dois escudos em super megarreides.">
@@ -98,12 +69,7 @@ header{padding:25px 0 18px;text-align:center}.brand{font-size:1.7rem;font-weight
 <button class="details" type="button">Ver observações</button><div class="more">O efeito é ativado fora de batalha. Custos, duração e funcionamento podem ser alterados pelo jogo.</div></div></article></section><div id="empty" class="empty">Nenhum efeito encontrado.</div>
 <section class="info"><h2>Informações importantes</h2><ul><li>Os cards usam adesivos do Pokémon GO para manter uma identidade visual consistente.</li><li>Os Efeitos Aventura são ativados fora de batalha.</li><li>Custos, duração, disponibilidade e funcionamento podem mudar com atualizações do jogo.</li></ul></section>
 <section class="feedback"><h2>Encontrou algo desatualizado?</h2><p>Envie uma correção ou sugestão para ajudar a manter o guia atualizado.</p><a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor">💬 Enviar feedback</a></section></main>
-<footer class="gn-footer">
-  <strong>GO Nexus</strong><br>
-  Desenvolvido por <strong>DelorisNyx</strong> · Código de amizade: <strong>8596 0928 0640</strong><br>
-  © 2026 · Todos os direitos reservados.<br>
-  Projeto independente e não oficial. Pokémon e Pokémon GO pertencem aos seus respectivos titulares.
-</footer>
+<go-nexus-footer></go-nexus-footer>
 <script>
 const q=document.querySelector("#q"),cards=[...document.querySelectorAll(".card")],chips=[...document.querySelectorAll(".chip")],empty=document.querySelector("#empty");let f="all";
 function run(){let n=0,s=q.value.trim().toLowerCase();cards.forEach(c=>{let show=(f==="all"||c.dataset.cat.split(" ").includes(f))&&(!s||c.dataset.search.includes(s)||c.innerText.toLowerCase().includes(s));c.classList.toggle("hide",!show);if(show)n++});empty.style.display=n?"none":"block"}

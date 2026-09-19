@@ -96,3 +96,14 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 - Adicionado **Chimecho** à faixa de **1.000 Poeira Estelar** por captura.
 - Removido **Drampa** dessa faixa: a recompensa base de captura atual é 100 Poeira Estelar, não 1.000.
 - Índice da busca global regenerado após a correção.
+
+
+## Revisão responsiva definitiva do Easter Egg — 19/09/2026
+
+- Revelação de Arceus compactada no celular para que título, introdução e abas apareçam mais cedo.
+- Abas Origem, Lendários e Míticos passam a ocupar três colunas equilibradas no mobile.
+- Grupos de Lendários não usam mais rolagem horizontal: os Pokémon são exibidos em grade responsiva.
+- Nomes dos Pokémon podem quebrar linha e não são mais cortados em telas estreitas.
+- A instrução de toque virou um marcador compacto junto ao título da seção.
+- O fundo estrelado foi suavizado no mobile para preservar legibilidade.
+- O cartão de lore continua aparecendo junto do Pokémon selecionado e agora se reposiciona durante a rolagem em vez de desaparecer.

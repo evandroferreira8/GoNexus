@@ -58,7 +58,7 @@ input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,2
   <h1>Vale a Caixa?</h1>
   <p class="lead">Descubra se uma caixa ou combo compensa comparando o preço da oferta com o preço dos mesmos itens comprados separadamente na loja.</p>
 </header>
-<div class="wrap"><div class="brasil-note"><strong>Referência Brasil:</strong> os preços, pacotes de Pokémoedas e demais informações comerciais usados nesta calculadora têm como referência a loja brasileira do Pokémon GO e valores em reais (R$), quando aplicável. Os valores podem mudar sem aviso prévio.</div></div>
+<div class="wrap"><details class="nx-accordion" data-nx-group="calc-info"><summary><span class="nx-summary-main"><span>🇧🇷</span><span class="nx-summary-copy"><span class="nx-summary-title">Referência Brasil · setembro de 2026</span><span class="nx-summary-sub">Preços, Pokémoedas e regras comerciais usados no cálculo</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary><div class="nx-body"><p class="small" style="margin:12px 0 0">Os preços, pacotes de Pokémoedas e demais informações comerciais usados nesta calculadora têm como referência a loja brasileira do Pokémon GO e valores em reais (R$), quando aplicável. Os valores podem mudar sem aviso prévio.</p></div></details></div>
 
 
 <main class="wrap layout">
@@ -77,12 +77,11 @@ input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,2
       <button class="btn" id="add">+ Adicionar item</button>
     </div>
     <div class="items" id="items"></div>
-    <div class="info"><strong>Itens sem preço individual:</strong> MTs, MTs Elite, Doces Raros e outros itens podem aparecer em combos sem possuir um preço individual oficial em Pokémoedas. Eles ficam visíveis na oferta, mas <strong>não são usados para aumentar artificialmente o valor da caixa</strong>. Por isso, quando houver itens assim, a vantagem real do combo pode ser maior do que a calculada.</div>
-    <div class="info warning"><strong>Brasil:</strong> Incubadoras e Superincubadoras pagas estão sujeitas às restrições atualmente aplicadas à loja brasileira. Os preços e conteúdos da loja podem mudar sem aviso prévio.</div>
+    <details class="nx-accordion" data-nx-group="calc-info" style="margin-top:14px"><summary><span class="nx-summary-main"><span>ℹ️</span><span class="nx-summary-copy"><span class="nx-summary-title">Como a calculadora trata exceções</span><span class="nx-summary-sub">Itens sem preço individual e restrições da loja brasileira</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary><div class="nx-body"><div class="info" style="margin-top:12px"><strong>Itens sem preço individual:</strong> MTs, MTs Elite, Doces Raros e outros itens podem aparecer em combos sem possuir um preço individual oficial em Pokémoedas. Eles ficam visíveis na oferta, mas <strong>não são usados para aumentar artificialmente o valor da caixa</strong>. Por isso, quando houver itens assim, a vantagem real do combo pode ser maior do que a calculada.</div><div class="info warning"><strong>Brasil:</strong> Incubadoras e Superincubadoras pagas estão sujeitas às restrições atualmente aplicadas à loja brasileira. Os preços e conteúdos da loja podem mudar sem aviso prévio.</div></div></details>
   </div>
 
   <div class="card coinpacks">
-    <details open>
+    <details>
       <summary>Pacotes de Pokémoedas usados no cálculo em R$</summary>
       <div class="small" style="margin-top:8px">Valores da Web Store brasileira informados em setembro de 2026. O site procura automaticamente a combinação mais barata de pacotes que forneça moedas suficientes.</div>
       <div class="packs" id="packs"></div>

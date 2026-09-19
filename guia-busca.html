@@ -22,17 +22,13 @@ body{background:radial-gradient(circle at 18% -10%,rgba(56,189,248,.13),transpar
     <div class="langtop"><div class="langtitle">🌐 Idioma do Pokémon GO</div><div class="langswitch"><button type="button" class="langbtn" data-lang="pt">Português</button><button type="button" class="langbtn" data-lang="en">English</button></div></div>
     <p class="langhelp">O comando exibido e o botão de copiar seguem o idioma selecionado. A busca do GO Nexus reconhece os termos nos dois idiomas. Português é o padrão.</p>
   </div>
-  <div class="mt-5 text-left rounded-xl border border-amber-500/30 bg-amber-500/10 p-4"><strong class="text-amber-300">⚠️ Os filtros acompanham o idioma do jogo</strong><p class="text-sm text-slate-300 mt-1">Vários termos são localizados pelo Pokémon GO. Por exemplo, <code>evolve&amp;evolvenew</code> em inglês corresponde a <code>evoluir&amp;evoluirnovo</code> em português. Os comandos podem ser adicionados, alterados ou removidos sem aviso prévio.</p><div class="sourcebox">Os filtros principais foram revisados com a Central de Ajuda oficial do Pokémon GO em português e inglês. Filtros avançados ou mais recentes que ainda não aparecem na documentação oficial são sinalizados no guia.</div></div>
+  <details class="nx-accordion mt-5 text-left" data-nx-group="guide-info"><summary><span class="nx-summary-main"><span>⚠️</span><span class="nx-summary-copy"><span class="nx-summary-title text-amber-300">Os filtros acompanham o idioma do jogo</span><span class="nx-summary-sub">Veja por que alguns comandos mudam em Português e English</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary><div class="nx-body"><p class="text-sm text-slate-300 mt-3">Vários termos são localizados pelo Pokémon GO. Por exemplo, <code>evolve&amp;evolvenew</code> em inglês corresponde a <code>evoluir&amp;evoluirnovo</code> em português. Os comandos podem ser adicionados, alterados ou removidos sem aviso prévio.</p><div class="sourcebox">Os filtros principais foram revisados com a Central de Ajuda oficial do Pokémon GO em português e inglês. Filtros avançados ou mais recentes que ainda não aparecem na documentação oficial são sinalizados no guia.</div></div></details>
 </header>
 <main id="app" class="max-w-3xl mx-auto px-4 space-y-4"></main>
-<section id="guia-iv" class="max-w-3xl mx-auto px-4 mt-12">
-  <div class="rounded-2xl border border-slate-700 bg-slate-800 overflow-hidden">
-    <div class="bg-slate-900 p-5">
-      <div class="text-indigo-400 text-sm font-bold tracking-wide">GUIA RÁPIDO</div>
-      <h2 class="text-2xl font-bold mt-1">Entendendo os filtros de IV</h2>
-      <p class="text-slate-400 mt-2">Veja como os números usados nos filtros representam as faixas de Ataque, Defesa e PS.</p>
-    </div>
-    <div class="p-5 space-y-7 text-slate-300">
+<section id="guia-iv" class="max-w-3xl mx-auto px-4 mt-8">
+  <details class="nx-accordion" data-nx-group="guide-info">
+    <summary><span class="nx-summary-main"><span>📊</span><span class="nx-summary-copy"><span class="nx-summary-title">Entendendo os filtros de IV</span><span class="nx-summary-sub">Faixas de Ataque, Defesa, PS e avaliação por estrelas</span></span></span><span class="nx-summary-side"><span class="nx-count">Guia rápido</span><span class="nx-chevron">⌄</span></span></summary>
+    <div class="nx-body"><div class="p-5 space-y-7 text-slate-300">
       <div>
         <p class="leading-relaxed">Cada Pokémon possui três atributos individuais: <strong class="text-white">Ataque, Defesa e PS</strong>. Cada atributo pode ter um valor de <strong class="text-white">0 a 15</strong>. Nos filtros de busca, os números de 0 a 4 não indicam diretamente o IV: eles representam <strong class="text-white">faixas de valores</strong>.</p>
       </div>
@@ -78,10 +74,10 @@ body{background:radial-gradient(circle at 18% -10%,rgba(56,189,248,.13),transpar
         </div>
         <p class="text-sm text-slate-400 mt-4">Um Pokémon <code class="text-indigo-300">4*</code> possui 15 pontos em Ataque, 15 em Defesa e 15 em PS, totalizando 45 pontos de IV.</p>
       </div>
-    </div>
-  </div>
+    </div></div>
+  </details>
 </section>
-<section class="max-w-3xl mx-auto px-4 mt-10"><div class="rounded-2xl border border-slate-700 bg-slate-800/70 p-5 text-center"><h2 class="text-lg font-bold">Ajude a melhorar o GO Nexus</h2><p class="text-sm text-slate-400 mt-2 mb-4">Encontrou algum erro, informação desatualizada ou tem uma sugestão? Envie seu feedback para ajudar a manter as ferramentas atualizadas.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 hover:bg-indigo-500 px-5 py-3 font-semibold text-white transition-colors">💬 Enviar feedback</a></div></section>
+<section class="max-w-3xl mx-auto px-4 mt-7"><div class="rounded-2xl border border-slate-700 bg-slate-800/70 p-4 text-center"><h2 class="text-lg font-bold">Ajude a melhorar o GO Nexus</h2><p class="text-sm text-slate-400 mt-2 mb-4">Encontrou algum erro, informação desatualizada ou tem uma sugestão? Envie seu feedback para ajudar a manter as ferramentas atualizadas.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 hover:bg-indigo-500 px-5 py-3 font-semibold text-white transition-colors">💬 Enviar feedback</a></div></section>
 <go-nexus-footer></go-nexus-footer>
 <script>
 const E=(en,pt,desc,opt={})=>({en,pt,desc,...opt});
@@ -92,7 +88,7 @@ E("&","&","E: combina condições"),E(",",",","OU: uma condição ou outra"),E("
 ["📊 Atributos (IV & Avaliação)",[
 E("4*","4*","IV perfeito 15/15/15"),E("3*","3*","3 estrelas"),E("2*","2*","2 estrelas"),E("1*","1*","1 estrela"),E("0*","0*","0 estrelas"),
 ...[[0,"0"],[1,"1–5"],[2,"6–10"],[3,"11–14"],[4,"15"]].flatMap(([n,r])=>[E(`${n}attack`,`${n}ataque`,`Ataque IV ${r}`),E(`${n}defense`,`${n}defesa`,`Defesa IV ${r}`),E(`${n}hp`,`${n}PS`,`PS IV ${r}`)]),
-E("0-1attack","0-1ataque","Ataque entre as faixas 0 e 1"),E("3-4defense","3-4defesa","Defesa entre as faixas 3 e 4"),E("3-4hp","3-4PS","PS entre as faixas 3 e 4"),E("0attack&0defense&0hp","0ataque&0defesa&0PS","IV 0/0/0 (nundo)"),E("0attack&4defense&4hp","0ataque&4defesa&4PS","IV 0/15/15")]],
+E("0-1attack","0-1ataque","Ataque entre as faixas 0 e 1"),E("3-4defense","3-4defesa","Defesa entre as faixas 3 e 4"),E("3-4hp","3-4PS","PS entre as faixas 3 e 4"),E("0attack&0defense&0hp","0ataque&0defesa&0PS","IV 0/0/0 (nundo)"),E("0attack&4defense&4hp","0ataque&4defesa&4PS","IV 0/15/15"),E("4attack&4defense&4hp","4ataque&4defesa&4PS","IV 15/15/15 — equivalente a 4*")]],
 ["🔢 PC, PS e Quantidades",[
 E("cp1500","PC1500","Exatamente 1500 PC"),E("cp1500-2500","PC1500-2500","Entre 1500 e 2500 PC"),E("cp2500-","PC2500-","2500 PC ou mais"),E("cp-1500","PC-1500","1500 PC ou menos"),E("hp200","PS200","Exatamente 200 PS"),E("hp200-","PS200-","200 PS ou mais"),E("hp-50","PS-50","50 PS ou menos"),E("candyxl","doce GG","Fortalecidos com Doce GG"),E("count1","total1","Um exemplar da espécie"),E("count2-","total2-","Dois ou mais exemplares"),E("countcandy100-","totaldoce100-","100 doces ou mais"),E("countcandyxl50-","totaldocexl50-","50 Doces GG ou mais"),E("candykm1","docekm1","Distância de 1 km por Doce do companheiro"),E("candykm3","docekm3","Distância de 3 km por Doce do companheiro"),E("candykm5","docekm5","Distância de 5 km por Doce do companheiro"),E("candykm20","docekm20","Distância de 20 km por Doce do companheiro")]],
 ["💧 Tipos",[
@@ -134,12 +130,13 @@ function updateLangUI(){
 function render(){
   app.innerHTML='';
   const q=norm(search.value.trim());
-  db.forEach(([cat,items])=>{
+  db.forEach(([cat,items],idx)=>{
     const visible=items.filter(item=>!q||norm([cat,item.pt,item.en,item.desc,...(item.aliases||[])].join(' ')).includes(q));
     if(q&&!visible.length)return;
-    const sec=document.createElement('section');sec.className='cat rounded-xl overflow-hidden bg-slate-800 border border-slate-800';
-    const h=document.createElement('button');h.className='w-full bg-slate-900 p-4 font-semibold text-left flex justify-between';h.innerHTML='<span>'+cat+'</span><span>⌄</span>';
-    const list=document.createElement('div');list.className='list '+(q?'':'hidden')+' p-4 space-y-3';
+    const sec=document.createElement('details');sec.className='cat nx-accordion';sec.dataset.nxGroup='search-categories';sec.open=!!q;
+    const h=document.createElement('summary');
+    h.innerHTML=`<span class="nx-summary-main"><span class="nx-summary-copy"><span class="nx-summary-title">${cat}</span><span class="nx-summary-sub">${items.length} comandos nesta categoria</span></span></span><span class="nx-summary-side"><span class="nx-count">${visible.length}</span><span class="nx-chevron">⌄</span></span>`;
+    const list=document.createElement('div');list.className='nx-body p-4 space-y-3';
     if(cat.includes('Lista de Amigos')){const n=document.createElement('div');n.className='text-sm p-3 rounded-lg border border-indigo-500/30 bg-indigo-500/10 text-indigo-200';n.textContent='Estes filtros são usados na lista de amigos, não no armazenamento de Pokémon.';list.appendChild(n)}
     visible.forEach(item=>{
       const cmd=currentCmd(item),alt=otherCmd(item);
@@ -155,7 +152,7 @@ function render(){
       b.onclick=async()=>{try{await navigator.clipboard.writeText(cmd);b.textContent='✓';setTimeout(()=>{b.innerHTML=icon()},1000)}catch{}};
       c.append(t,b);list.appendChild(c)
     });
-    h.onclick=()=>list.classList.toggle('hidden');sec.append(h,list);app.appendChild(sec)
+    sec.append(h,list);app.appendChild(sec)
   });
   updateLangUI();
 }

@@ -120,3 +120,7 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 - Resultado com arte maior, halo do Pokémon e hierarquia visual mais forte.
 - Card compartilhável redesenhado em 1080×1350 (4:5), ideal para feed e mensageiros.
 - O card continua sendo gerado localmente no navegador.
+
+## Ajuste visual extra
+
+- Aba **Quiz do Companheiro** recebeu título mais forte e brilho visual mais evidente para destacar a experiência.

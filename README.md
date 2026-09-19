@@ -107,3 +107,16 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 - A instrução de toque virou um marcador compacto junto ao título da seção.
 - O fundo estrelado foi suavizado no mobile para preservar legibilidade.
 - O cartão de lore continua aparecendo junto do Pokémon selecionado e agora se reposiciona durante a rolagem em vez de desaparecer.
+
+
+## Atualização extra
+- Easter egg com nova aba **Companheiro** dentro da cosmogonia.
+- Quiz de 5 perguntas para revelar qual Lendário ou Mítico combina mais com a pessoa.
+- Botões para **compartilhar**, **salvar card**, **copiar resultado** e **refazer teste**.
+
+
+## Refinamento visual do quiz Companheiro
+- Interface do quiz refinada para mobile e desktop.
+- Resultado com arte maior, halo do Pokémon e hierarquia visual mais forte.
+- Card compartilhável redesenhado em 1080×1350 (4:5), ideal para feed e mensageiros.
+- O card continua sendo gerado localmente no navegador.

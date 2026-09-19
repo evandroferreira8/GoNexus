@@ -250,6 +250,52 @@
       ];
       const mythicals=['mew','celebi','jirachi','deoxys','phione','manaphy','darkrai','shaymin','victini','keldeo','meloetta','genesect','magearna','marshadow','zeraora','meltan','melmetal','zarude','pecharunt'];
 
+
+      const companionProfiles={
+        lugia:{name:'Lugia',type:'Lendário',title:'O guardião sereno',traits:['Equilíbrio','Proteção','Serenidade'],glow:'96,165,250',gradient:['#1d4ed8','#7c3aed'],desc:'Você transmite calma mesmo em momentos intensos. Costuma proteger as pessoas ao redor e prefere força com controle a exageros.',share:'Meu companheiro do GO Nexus é Lugia 🌊 · equilíbrio, proteção e serenidade.'},
+        ho_oh:{name:'Ho-Oh',type:'Lendário',title:'A chama da esperança',traits:['Carisma','Renovação','Brilho'],glow:'251,146,60',gradient:['#ea580c','#dc2626'],desc:'Sua energia reacende o ânimo do grupo. Você inspira, levanta o astral e transforma recomeços em algo bonito.',share:'Meu companheiro do GO Nexus é Ho-Oh 🔥 · carisma, renovação e brilho.'},
+        rayquaza:{name:'Rayquaza',type:'Lendário',title:'A presença majestosa',traits:['Liderança','Instinto','Grandeza'],glow:'34,197,94',gradient:['#0f766e','#16a34a'],desc:'Você tem presença forte e senso de direção. Quando age, costuma ir direto ao ponto e enxergar o panorama de cima.',share:'Meu companheiro do GO Nexus é Rayquaza 🐉 · liderança, instinto e grandeza.'},
+        suicune:{name:'Suicune',type:'Lendário',title:'A pureza que acolhe',traits:['Sensibilidade','Intuição','Calma'],glow:'56,189,248',gradient:['#0369a1','#2563eb'],desc:'Você observa antes de agir e valoriza ambientes leves. Sua força aparece no cuidado, na escuta e na delicadeza.',share:'Meu companheiro do GO Nexus é Suicune 💧 · sensibilidade, intuição e calma.'},
+        mew:{name:'Mew',type:'Mítico',title:'A curiosidade viva',traits:['Curiosidade','Versatilidade','Leveza'],glow:'244,114,182',gradient:['#db2777','#8b5cf6'],desc:'Você gosta de explorar possibilidades, aprender coisas novas e circular com naturalidade entre grupos, ideias e caminhos.',share:'Meu companheiro do GO Nexus é Mew ✨ · curiosidade, versatilidade e leveza.'},
+        celebi:{name:'Celebi',type:'Mítico',title:'O coração da floresta',traits:['Cuidado','Harmonia','Esperança'],glow:'74,222,128',gradient:['#15803d','#0f766e'],desc:'Você tem um jeito gentil de fazer bem aos outros. Procura harmonia, respeita o tempo das coisas e valoriza vínculos genuínos.',share:'Meu companheiro do GO Nexus é Celebi 🌿 · cuidado, harmonia e esperança.'},
+        jirachi:{name:'Jirachi',type:'Mítico',title:'O desejo que guia',traits:['Sonho','Doçura','Sutileza'],glow:'250,204,21',gradient:['#ca8a04','#d97706'],desc:'Você alimenta sonhos com delicadeza e constância. Tem um brilho discreto, mas marcante, que torna seus objetivos especiais.',share:'Meu companheiro do GO Nexus é Jirachi 🌠 · sonho, doçura e sutileza.'},
+        darkrai:{name:'Darkrai',type:'Mítico',title:'O mistério profundo',traits:['Profundidade','Reserva','Intensidade'],glow:'168,85,247',gradient:['#6d28d9','#312e81'],desc:'Você é mais intenso do que parece à primeira vista. Prefere profundidade a superficialidade e costuma perceber nuances que passam despercebidas.',share:'Meu companheiro do GO Nexus é Darkrai 🌙 · profundidade, reserva e intensidade.'}
+      };
+
+      const companionPriority=['lugia','ho_oh','rayquaza','suicune','mew','celebi','jirachi','darkrai'];
+      const companionQuestions=[
+        {q:'Em um evento do Pokémon GO, qual papel combina mais com você?',options:[
+          {text:'Organizar a turma e manter tudo sob controle.',scores:{lugia:2,suicune:1}},
+          {text:'Animar o grupo e levantar o astral.',scores:{ho_oh:2,jirachi:1}},
+          {text:'Tomar a dianteira e puxar o ritmo.',scores:{rayquaza:2,darkrai:1}},
+          {text:'Observar, explorar e descobrir coisas novas.',scores:{mew:2,celebi:1}}
+        ]},
+        {q:'Qual cenário parece mais com a sua energia?',options:[
+          {text:'Oceano, vento e silêncio.',scores:{lugia:2,suicune:1}},
+          {text:'Pôr do sol, luz quente e céu aberto.',scores:{ho_oh:2,rayquaza:1}},
+          {text:'Floresta viva, fresca e acolhedora.',scores:{celebi:2,mew:1}},
+          {text:'Noite, estrelas e um clima misterioso.',scores:{darkrai:2,jirachi:1}}
+        ]},
+        {q:'O que mais move você quando quer muito alguma coisa?',options:[
+          {text:'Proteger quem está comigo.',scores:{lugia:2,suicune:1}},
+          {text:'Inspirar e reacender a esperança.',scores:{ho_oh:2,celebi:1}},
+          {text:'Ir além, crescer e vencer limites.',scores:{rayquaza:2,jirachi:1}},
+          {text:'Entender o desconhecido e ir mais fundo.',scores:{darkrai:2,mew:1}}
+        ]},
+        {q:'Se pudesse escolher um bônus simbólico para hoje, qual seria?',options:[
+          {text:'Mais tranquilidade e proteção para todos.',scores:{suicune:2,lugia:1}},
+          {text:'Mais sorte, brilho e boas vibrações.',scores:{jirachi:2,ho_oh:1}},
+          {text:'Mais liberdade para explorar e improvisar.',scores:{mew:2,rayquaza:1}},
+          {text:'Mais profundidade, foco e intensidade.',scores:{darkrai:2,celebi:1}}
+        ]},
+        {q:'Como seus amigos provavelmente descreveriam você?',options:[
+          {text:'Confiável, sereno e equilibrado.',scores:{lugia:2,suicune:1}},
+          {text:'Radiante, inspirador e caloroso.',scores:{ho_oh:2,jirachi:1}},
+          {text:'Marcante, livre e determinado.',scores:{rayquaza:2,darkrai:1}},
+          {text:'Curioso, gentil e fora do óbvio.',scores:{mew:2,celebi:2}}
+        ]}
+      ];
+
       const img=(key,cls='')=>{
         const label=lore[key]?.name||key;
         if(key==='arceus')return `<img ${cls?`class="${cls}"`:''} loading="lazy" src="${ARCEUS_DATA}" alt="${label}">`;
@@ -306,14 +352,63 @@
         .cosmic-node::before{content:"";position:absolute;left:50%;top:9px;width:96px;height:96px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(var(--node-glow),.16) 0%,rgba(var(--node-glow),.07) 48%,transparent 73%);opacity:.78;pointer-events:none;transition:.2s}.cosmic-node:hover,.cosmic-node:focus-visible{transform:translateY(-2px);border-color:rgba(var(--node-glow),.62);box-shadow:0 10px 26px rgba(0,0,0,.2),0 0 20px rgba(var(--node-glow),.17)}.cosmic-node:hover::before,.cosmic-node:focus-visible::before{opacity:1;background:radial-gradient(circle,rgba(var(--node-glow),.22) 0%,rgba(var(--node-glow),.09) 50%,transparent 74%)}.cosmic-node.selected{border-color:rgba(var(--node-glow),.82);box-shadow:0 10px 26px rgba(0,0,0,.2),0 0 0 1px rgba(var(--node-glow),.16),0 0 25px rgba(var(--node-glow),.24)}.cosmic-node.selected::before{opacity:1;background:radial-gradient(circle,rgba(var(--node-glow),.3) 0%,rgba(var(--node-glow),.12) 50%,transparent 74%)}.cosmic-node:focus-visible{outline:2px solid rgba(var(--node-glow),.78);outline-offset:2px}.cosmic-node img{position:relative;z-index:1;width:84px;height:84px;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(0,0,0,.32)) drop-shadow(0 0 8px rgba(var(--node-glow),.17));transition:filter .2s,transform .2s}.cosmic-node .sprite-frame{position:relative;z-index:1;width:84px;height:84px;--sprite-scale:.75;filter:drop-shadow(0 8px 10px rgba(0,0,0,.32)) drop-shadow(0 0 8px rgba(var(--node-glow),.17));transition:filter .2s,transform .2s}.cosmic-node:hover img,.cosmic-node.selected img,.cosmic-node:hover .sprite-frame,.cosmic-node.selected .sprite-frame{filter:drop-shadow(0 8px 10px rgba(0,0,0,.32)) drop-shadow(0 0 12px rgba(var(--node-glow),.34));transform:scale(1.025)}.cosmic-node span{font-size:.82rem;font-weight:900;line-height:1.2;text-align:center;white-space:normal;overflow-wrap:anywhere}.cosmic-node small{font-size:.66rem;color:#8aa0ba;font-weight:700;line-height:1.25;text-align:center;white-space:normal;overflow-wrap:anywhere}.cosmic-node.god{width:190px;padding:16px}.cosmic-node.god img{width:112px;height:112px}.cosmic-node.god .sprite-frame{width:112px;height:112px;--sprite-scale:1}.cosmic-node.mini,.cosmic-node.myth-mini{width:112px;padding:9px}.cosmic-node.mini img,.cosmic-node.myth-mini img{width:66px;height:66px}.cosmic-node.mini .sprite-frame,.cosmic-node.myth-mini .sprite-frame{width:66px;height:66px;--sprite-scale:.59}.cosmic-node.mini span,.cosmic-node.myth-mini span{font-size:.75rem}.cosmic-node.mini small,.cosmic-node.myth-mini small{display:none}
         .poke-popover{--pop-glow:56,189,248;position:fixed;z-index:1810;width:min(360px,calc(100vw - 24px));display:none;grid-template-columns:68px 1fr;gap:11px;align-items:center;padding:12px 13px;border:1px solid rgba(var(--pop-glow),.56);border-radius:17px;background:linear-gradient(145deg,rgba(9,22,40,.99),rgba(8,17,31,.99));box-shadow:0 18px 44px rgba(0,0,0,.44),0 0 22px rgba(var(--pop-glow),.18);backdrop-filter:blur(11px);pointer-events:none}.poke-popover.show{display:grid}.poke-popover img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3)) drop-shadow(0 0 8px rgba(var(--pop-glow),.25))}.poke-popover .sprite-frame{width:64px;height:64px;--sprite-scale:.57;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3)) drop-shadow(0 0 8px rgba(var(--pop-glow),.25))}.poke-popover strong{display:block;color:#f8fbff;font-size:.89rem;line-height:1.25}.poke-popover b{display:inline-block;margin-left:5px;color:rgb(var(--pop-glow));font-size:.68rem}.poke-popover p{margin:5px 0 0;color:#a9b9cc;font-size:.76rem;line-height:1.52}.poke-popover::after{content:"";position:absolute;width:10px;height:10px;background:#091628;border-left:1px solid rgba(var(--pop-glow),.56);border-top:1px solid rgba(var(--pop-glow),.56);transform:rotate(45deg);left:var(--arrow-x,22px);top:var(--arrow-y,-6px)}
         details.sources{margin-top:15px;border:1px solid rgba(49,69,103,.65);border-radius:16px;background:#081526;overflow:hidden}details.sources summary{cursor:pointer;padding:12px 14px;color:#bcd0e5;font-size:.78rem;font-weight:850;list-style:none}details.sources summary::-webkit-details-marker{display:none}.source-body{padding:0 14px 14px;border-top:1px solid rgba(49,69,103,.55);color:#8ca0b7;font-size:.73rem;line-height:1.6}.source-body a{color:#7dd3fc;text-underline-offset:2px}
+
+        .companion-shell{display:grid;gap:14px}
+        .companion-intro{position:relative;overflow:hidden;border:1px solid rgba(49,69,103,.72);border-radius:20px;background:linear-gradient(145deg,rgba(9,22,40,.96),rgba(8,17,31,.97));padding:16px 17px;box-shadow:0 14px 32px rgba(0,0,0,.16)}
+        .companion-intro::before{content:'';position:absolute;inset:auto -18% -38% auto;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.16),transparent 70%);pointer-events:none}
+        .quiz-chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(250,204,21,.24);background:rgba(250,204,21,.07);color:#fde68a;font-size:.7rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
+        .companion-intro h4{margin:11px 0 7px;font-size:1.08rem}
+        .companion-intro p{margin:0;color:#9db0c8;font-size:.84rem;line-height:1.62;max-width:760px}
+        .companion-quiz{display:grid;gap:14px}
+        .quiz-card,.result-card{border:1px solid rgba(49,69,103,.72);border-radius:22px;background:linear-gradient(160deg,rgba(9,22,40,.98),rgba(7,17,31,.98));padding:17px;box-shadow:0 16px 34px rgba(0,0,0,.18)}
+        .quiz-progress{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+        .quiz-progress span{color:#9ab0ca;font-size:.76rem;font-weight:800}
+        .quiz-track{height:10px;flex:1;min-width:110px;border-radius:999px;background:rgba(42,58,86,.72);overflow:hidden}
+        .quiz-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#38bdf8,#8b5cf6,#facc15)}
+        .quiz-question{font-size:1.12rem;line-height:1.35;margin:0 0 14px;color:#f8fbff}
+        .quiz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+        .quiz-option{position:relative;display:flex;align-items:flex-start;gap:10px;text-align:left;border:1px solid rgba(58,79,114,.75);border-radius:16px;background:linear-gradient(160deg,rgba(12,25,44,.98),rgba(8,17,31,.98));padding:14px 13px;color:#e5eef9;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease}
+        .quiz-option:hover,.quiz-option:focus-visible{transform:translateY(-2px);border-color:rgba(96,165,250,.62);box-shadow:0 14px 26px rgba(0,0,0,.2),0 0 0 1px rgba(96,165,250,.12),0 0 18px rgba(96,165,250,.12)}
+        .quiz-option-badge{width:29px;height:29px;flex:0 0 29px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,rgba(56,189,248,.16),rgba(139,92,246,.18));border:1px solid rgba(96,165,250,.3);color:#d7e9ff;font-size:.78rem;font-weight:900}
+        .quiz-option-text{font-size:.86rem;line-height:1.5;color:#e7eff8}
+        .quiz-meta{margin-top:12px;color:#8ea4be;font-size:.75rem;line-height:1.55}
+        .result-card{position:relative;overflow:hidden}
+        .result-card::before{content:'';position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--c1,#38bdf8),var(--c2,#8b5cf6),#facc15)}
+        .result-top{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center}
+        .result-art{position:relative;min-height:150px;display:grid;place-items:center;border-radius:20px;border:1px solid rgba(49,69,103,.55);background:radial-gradient(circle at center,rgba(255,255,255,.06),transparent 62%),linear-gradient(180deg,rgba(10,20,36,.98),rgba(8,17,31,.98))}
+        .result-art::before{content:'';position:absolute;width:112px;height:112px;border-radius:50%;background:radial-gradient(circle,rgba(var(--glow,56,189,248),.28),rgba(var(--glow,56,189,248),.08) 45%,transparent 72%);filter:blur(3px)}
+        .result-art img,.result-art .sprite-frame{position:relative;z-index:1;width:118px;height:118px;--sprite-scale:1.05;filter:drop-shadow(0 10px 16px rgba(0,0,0,.32)) drop-shadow(0 0 15px rgba(var(--glow,56,189,248),.28))}
+        .result-kicker{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#dbe8f8;font-size:.7rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
+        .result-copy h4{margin:10px 0 3px;font-size:1.48rem;line-height:1.08}
+        .result-copy .subtitle{margin:0;color:#fde68a;font-size:.86rem;font-weight:800}
+        .result-copy p{margin:10px 0 0;color:#a5b8cf;font-size:.86rem;line-height:1.62}
+        .trait-list{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 0;padding:0;list-style:none}
+        .trait-list li{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.05);color:#eef6ff;font-size:.78rem;font-weight:850}
+        .result-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+        .result-btn{appearance:none;border:1px solid rgba(70,96,138,.82);border-radius:14px;background:linear-gradient(135deg,rgba(16,33,57,.98),rgba(11,22,40,.98));color:#f5f9ff;padding:12px 14px;font-size:.82rem;font-weight:900;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+        .result-btn:hover,.result-btn:focus-visible{transform:translateY(-1px);border-color:rgba(96,165,250,.72);box-shadow:0 12px 24px rgba(0,0,0,.18),0 0 18px rgba(96,165,250,.12)}
+        .result-btn.primary{background:linear-gradient(135deg,rgba(29,78,216,.95),rgba(124,58,237,.95));border-color:rgba(147,197,253,.42)}
+        .result-note{margin-top:10px;color:#8398b2;font-size:.72rem;line-height:1.5}
+        .companion-intro{padding:20px 20px 18px;background:radial-gradient(circle at 88% 18%,rgba(250,204,21,.09),transparent 28%),radial-gradient(circle at 12% 12%,rgba(56,189,248,.12),transparent 26%),linear-gradient(145deg,rgba(9,22,40,.98),rgba(8,17,31,.99))}
+        .companion-intro::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 0 46%,rgba(255,255,255,.025) 48%,transparent 50%)}
+        .companion-intro h4{font-size:1.22rem;letter-spacing:-.015em}.companion-intro p{max-width:820px}
+        .companion-perks{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.companion-perks span{display:inline-flex;align-items:center;min-height:30px;padding:6px 10px;border-radius:999px;border:1px solid rgba(79,103,144,.6);background:rgba(10,22,39,.78);color:#bcd0e7;font-size:.72rem;font-weight:800}.companion-perks span::before{content:'✦';margin-right:6px;color:#fde68a;font-size:.65rem}
+        .quiz-card{position:relative;overflow:hidden;padding:21px;background:radial-gradient(circle at 100% 0,rgba(139,92,246,.08),transparent 32%),linear-gradient(160deg,rgba(9,22,40,.99),rgba(7,17,31,.99))}.quiz-card::after{content:'';position:absolute;right:-54px;bottom:-72px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.09),transparent 70%);pointer-events:none}
+        .quiz-track{height:8px}.quiz-fill{box-shadow:0 0 12px rgba(56,189,248,.18)}
+        .quiz-question{font-size:1.22rem;letter-spacing:-.015em;margin-bottom:16px;max-width:820px}
+        .quiz-options{gap:11px}.quiz-option{min-height:74px;padding:15px 14px;align-items:center}.quiz-option:hover,.quiz-option:focus-visible{background:linear-gradient(160deg,rgba(18,39,65,.99),rgba(10,22,40,.99))}.quiz-option-badge{width:33px;height:33px;flex-basis:33px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}.quiz-option-text{font-size:.9rem;line-height:1.48}
+        .result-card{padding:21px;background:radial-gradient(circle at 14% 12%,rgba(var(--glow,56,189,248),.08),transparent 25%),radial-gradient(circle at 92% 8%,rgba(var(--glow,56,189,248),.07),transparent 24%),linear-gradient(160deg,rgba(9,22,40,.99),rgba(7,17,31,.995))}.result-card::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 0 43%,rgba(255,255,255,.018) 45%,transparent 47%)}
+        .result-top{grid-template-columns:190px 1fr;gap:22px}.result-art{min-height:190px;border-radius:24px;background:radial-gradient(circle at 50% 50%,rgba(var(--glow,56,189,248),.12),transparent 54%),linear-gradient(180deg,rgba(12,25,44,.98),rgba(8,17,31,.98));box-shadow:inset 0 0 30px rgba(var(--glow,56,189,248),.05)}.result-art::before{width:150px;height:150px;background:radial-gradient(circle,rgba(var(--glow,56,189,248),.36),rgba(var(--glow,56,189,248),.1) 46%,transparent 73%)}.result-art img,.result-art .sprite-frame{width:145px;height:145px;--sprite-scale:1.29}
+        .result-copy h4{font-size:1.7rem;margin-top:12px;letter-spacing:-.02em}.result-copy .subtitle{font-size:.92rem}.result-copy p{font-size:.9rem;max-width:720px}.trait-list li{background:rgba(var(--glow,56,189,248),.07);border-color:rgba(var(--glow,56,189,248),.22);color:#f4f8ff}.result-actions{padding-top:4px}.result-btn{min-height:46px;padding:12px 15px}.result-btn.primary{box-shadow:0 10px 24px rgba(29,78,216,.16),0 0 18px rgba(124,58,237,.12)}
+        .result-note{display:flex;align-items:flex-start;gap:7px;margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05)}.result-note::before{content:'ⓘ';color:#93c5fd;flex:0 0 auto}
         @media(max-width:800px){
           .overlay{padding:12px}.cosmos{width:100%;max-height:94vh;border-radius:24px}.cosmos::before{opacity:.28}
           .close{top:9px;right:9px;margin:9px 9px 0 0;width:38px;height:38px;font-size:1.12rem}
           .cosmic-hero{grid-template-columns:132px minmax(0,1fr);gap:16px;padding:22px 18px 14px;align-items:center}
           .arceus-stage{min-height:142px}.arceus-stage::before{width:124px;height:124px}.arceus-stage img{max-width:132px;max-height:132px}
           .hero-copy .eyebrow{font-size:.66rem;padding:5px 9px}.hero-copy h2{font-size:1.72rem;margin:8px 0 6px}.hero-copy p{font-size:.82rem;line-height:1.52;max-width:none}
-          .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:0 18px 14px}.tab{padding:9px 8px;font-size:.76rem;min-width:0;white-space:nowrap}
-          .panel{padding:0 18px 22px}.panel-title{align-items:flex-start;flex-direction:column;gap:7px;margin-bottom:11px}.panel-title h3{font-size:1rem}.panel-title p{font-size:.75rem;line-height:1.45;margin-top:3px}.micro{display:inline-flex;align-items:center;align-self:flex-start;padding:5px 8px;border:1px solid rgba(56,189,248,.18);border-radius:999px;background:rgba(56,189,248,.055);font-size:.66rem;line-height:1.25;color:#9dc8df}
+          .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:0 18px 14px}.tab{padding:9px 8px;font-size:.76rem;min-width:0;white-space:nowrap}
+          .panel{padding:0 18px 22px}.panel-title{align-items:flex-start;flex-direction:column;gap:7px;margin-bottom:11px}.panel-title h3{font-size:1rem}.panel-title p{font-size:.75rem;line-height:1.45;margin-top:3px}.micro{display:inline-flex;align-items:center;align-self:flex-start;padding:5px 8px;border:1px solid rgba(56,189,248,.18);border-radius:999px;background:rgba(56,189,248,.055);font-size:.66rem;line-height:1.25;color:#9dc8df}.quiz-options{grid-template-columns:1fr}.result-top{grid-template-columns:1fr}.result-art{min-height:132px}.result-copy{text-align:center}.trait-list{justify-content:center}.result-actions{flex-direction:column}.result-btn{width:100%}.companion-intro{padding:14px 14px 15px}
           .legend-grid{grid-template-columns:1fr;gap:12px}.legend-group{padding:12px 12px 13px;overflow:visible}.legend-title{font-size:.82rem;margin-bottom:10px}.legend-orbit{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;overflow:visible;padding:0}.legend-orbit .cosmic-node:last-child:nth-child(odd){grid-column:1/-1;width:min(180px,100%);justify-self:center}
           .origin-row{gap:8px}.origin-row:not(:first-child){display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.origin-row:not(:first-child) .cosmic-node:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:min(180px,100%)}
           .cosmic-node{width:100%;min-width:0;padding:10px 7px;border-radius:16px}.cosmic-node.god{width:164px;padding:13px 9px}.cosmic-node.mini,.cosmic-node.myth-mini{width:100%;padding:10px 7px}.cosmic-node img{width:72px;height:72px}.cosmic-node .sprite-frame{width:72px;height:72px;--sprite-scale:.643}.cosmic-node.mini img,.cosmic-node.myth-mini img{width:70px;height:70px}.cosmic-node.mini .sprite-frame,.cosmic-node.myth-mini .sprite-frame{width:70px;height:70px;--sprite-scale:.625}.cosmic-node span,.cosmic-node.mini span,.cosmic-node.myth-mini span{font-size:.77rem;min-height:1.9em;display:flex;align-items:center;justify-content:center}.cosmic-node small{font-size:.61rem}
@@ -324,7 +419,7 @@
           .cosmic-hero{grid-template-columns:102px minmax(0,1fr);gap:12px;padding:18px 12px 10px}.arceus-stage{min-height:112px}.arceus-stage::before{width:96px;height:96px}.arceus-stage img{max-width:108px;max-height:108px}
           .hero-copy{text-align:left;padding-right:28px}.hero-copy .eyebrow{font-size:.6rem;padding:4px 7px;letter-spacing:.04em}.hero-copy h2{font-size:1.48rem;margin:7px 0 5px;line-height:1.08}.hero-copy p{font-size:.75rem;line-height:1.45;color:#aebed0}.hero-copy strong{display:inline;color:#f5e9bd}
           .tabs{padding:0 10px 11px;gap:6px}.tab{font-size:.7rem;padding:8px 5px;border-radius:10px}
-          .panel{padding:0 10px 16px}.panel-title{margin-bottom:10px;gap:6px}.panel-title h3{font-size:.96rem}.panel-title p{font-size:.72rem}.micro{font-size:.62rem;padding:4px 7px}
+          .panel{padding:0 10px 16px}.panel-title{margin-bottom:10px;gap:6px}.panel-title h3{font-size:.96rem}.panel-title p{font-size:.72rem}.micro{font-size:.62rem;padding:4px 7px}.quiz-card,.result-card{padding:13px}.quiz-question{font-size:1rem}.quiz-option{padding:12px 11px}.quiz-option-text{font-size:.82rem}.companion-intro h4{font-size:1rem}.companion-intro p{font-size:.78rem}.result-copy h4{font-size:1.26rem}.result-copy p{font-size:.8rem}.result-art img,.result-art .sprite-frame{width:106px;height:106px}
           .origin-map{padding:10px;border-radius:18px}.origin-row{gap:7px}.cosmic-node.god{width:150px}.cosmic-node span,.cosmic-node.mini span,.cosmic-node.myth-mini span{font-size:.75rem}.cosmic-node small{font-size:.59rem}
           .legend-group{padding:11px;border-radius:18px}.legend-title{font-size:.79rem}.legend-orbit{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.myth-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.cosmic-node.myth-mini{width:100%}
           .poke-popover{width:min(300px,calc(100vw - 20px));grid-template-columns:56px 1fr;padding:10px 11px;border-radius:15px}.poke-popover img,.poke-popover .sprite-frame{width:54px;height:54px}.poke-popover .sprite-frame{--sprite-scale:.482}.poke-popover strong{font-size:.82rem}.poke-popover p{font-size:.72rem;line-height:1.45}
@@ -357,6 +452,7 @@
             <button class="tab active" type="button" data-tab="origin" role="tab" aria-selected="true">🌌 Origem</button>
             <button class="tab" type="button" data-tab="legendary" role="tab" aria-selected="false">⭐ Lendários</button>
             <button class="tab" type="button" data-tab="mythical" role="tab" aria-selected="false">✦ Míticos</button>
+            <button class="tab" type="button" data-tab="companion" role="tab" aria-selected="false">🎯 Companheiro</button>
           </div>
 
           <section class="panel active" data-panel="origin" role="tabpanel">
@@ -378,6 +474,19 @@
             <div class="panel-title"><div><h3>Pokémon Míticos</h3><p>Seres raros ligados a tempo, sonhos, desejos, natureza, tecnologia, metal e outros mitos.</p></div><span class="micro">Toque para descobrir a lore</span></div>
             <div class="myth-grid">${mythicalHtml}</div>
             <details class="sources"><summary>Fontes e critério editorial ▾</summary><div class="source-body">As notas foram revisadas a partir da Pokédex oficial e de páginas oficiais dos jogos. Para o núcleo da criação: <a href="https://legends.arceus.pokemon.com/en-us/pokemon/arceus/" target="_blank" rel="noopener">Arceus</a> · <a href="https://diamondpearl.pokemon.com/en-au/story/" target="_blank" rel="noopener">mitos de Sinnoh</a>. Para descrições individuais, a referência principal é a <a href="https://www.pokemon.com/br/pokedex" target="_blank" rel="noopener">Pokédex oficial Pokémon</a>. Quando a franquia apresenta algo como lenda, rumor ou tradição, o GO Nexus mantém essa linguagem em vez de tratar a afirmação como fato científico do universo Pokémon.</div></details>
+          </section>
+
+          <section class="panel" data-panel="companion" role="tabpanel">
+            <div class="panel-title"><div><h3>Qual lendário ou mítico combina com você?</h3><p>Um quiz rápido, visual e leve para revelar seu companheiro do GO Nexus.</p></div><span class="micro">5 perguntas · resultado compartilhável</span></div>
+            <div class="companion-shell">
+              <div class="companion-intro">
+                <span class="quiz-chip">Companheiro Pokémon</span>
+                <h4>Encontre quem caminharia com você</h4>
+                <p>Cinco escolhas rápidas revelam um Lendário ou Mítico com uma energia parecida com a sua. É uma brincadeira do GO Nexus — sem resposta certa ou errada.</p>
+                <div class="companion-perks" aria-label="Resumo do quiz"><span>5 perguntas</span><span>resultado instantâneo</span><span>card compartilhável</span></div>
+              </div>
+              <div class="companion-quiz" data-companion-quiz></div>
+            </div>
           </section>
         </div>
       </div>`;
@@ -417,6 +526,58 @@
         panels.forEach(p=>p.classList.toggle('active',p.dataset.panel===tab.dataset.tab));
         popover.classList.remove('show');activeNode?.classList.remove('selected');activeNode=null;
       }));
+
+      const companionQuizHost=root.querySelector('[data-companion-quiz]');
+      const shareUrl=new URL('index.html',location.href).href;
+      const companionState={step:0,answers:[],result:null};
+      let spriteSheetPromise=null;
+
+      const loadImage=src=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=src;});
+      const getSpriteSheet=()=>spriteSheetPromise||(spriteSheetPromise=loadImage(SPRITE_DATA));
+      const pulseButton=(button,label)=>{if(!button)return;const original=button.dataset.label||button.textContent;button.dataset.label=original;button.textContent=label;clearTimeout(button._pulseTimer);button._pulseTimer=setTimeout(()=>{button.textContent=button.dataset.label||original;},1600);};
+      const resultPriority=(scores)=>companionPriority.map((key,index)=>({key,score:scores[key]||0,index})).sort((a,b)=>b.score-a.score||a.index-b.index)[0]?.key||'lugia';
+      const computeCompanionResult=()=>{const scores={};companionState.answers.forEach((answerIndex,questionIndex)=>{const option=companionQuestions[questionIndex]?.options?.[answerIndex];if(!option)return;Object.entries(option.scores).forEach(([key,value])=>{scores[key]=(scores[key]||0)+value;});});return resultPriority(scores);};
+      const companionProgress=(step,total)=>`<div class="quiz-progress"><span>Pergunta ${step} de ${total}</span><div class="quiz-track" aria-hidden="true"><div class="quiz-fill" style="width:${Math.round(step/total*100)}%"></div></div></div>`;
+      const renderQuestion=()=>{const q=companionQuestions[companionState.step];companionQuizHost.innerHTML=`<div class="quiz-card">${companionProgress(companionState.step+1,companionQuestions.length)}<h4 class="quiz-question">${q.q}</h4><div class="quiz-options">${q.options.map((option,index)=>`<button class="quiz-option" type="button" data-answer="${index}"><span class="quiz-option-badge">${String.fromCharCode(65+index)}</span><span class="quiz-option-text">${option.text}</span></button>`).join('')}</div><div class="quiz-meta">Escolha a alternativa que mais combina com você. O resultado aparece ao final com um card próprio para compartilhar.</div></div>`;};
+      const renderResult=key=>{const profile=companionProfiles[key];companionQuizHost.innerHTML=`<div class="result-card" style="--c1:${profile.gradient[0]};--c2:${profile.gradient[1]};--glow:${profile.glow}"><div class="result-top"><div class="result-art" style="--glow:${profile.glow}">${img(key,'companion-result-art')}</div><div class="result-copy"><span class="result-kicker">✦ Companheiro encontrado · ${profile.type}</span><h4>${profile.name}</h4><p class="subtitle">${profile.title}</p><p>${profile.desc}</p><ul class="trait-list">${profile.traits.map(trait=>`<li>${trait}</li>`).join('')}</ul></div></div><div class="result-actions"><button class="result-btn primary" type="button" data-companion-action="share">📤 Compartilhar resultado</button><button class="result-btn" type="button" data-companion-action="save">🖼️ Salvar card</button><button class="result-btn" type="button" data-companion-action="copy">📋 Copiar texto</button><button class="result-btn" type="button" data-companion-action="reset">↻ Refazer</button></div><div class="result-note">O card é criado no seu próprio navegador. No celular, o botão de compartilhar usa o menu nativo quando disponível.</div></div>`;};
+      const renderCompanionQuiz=()=>{if(!companionQuizHost)return;if(companionState.result)renderResult(companionState.result);else renderQuestion();};
+      const roundedRect=(ctx,x,y,w,h,r)=>{const radius=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+radius,y);ctx.arcTo(x+w,y,x+w,y+h,radius);ctx.arcTo(x+w,y+h,x,y+h,radius);ctx.arcTo(x,y+h,x,y,radius);ctx.arcTo(x,y,x+w,y,radius);ctx.closePath();};
+      const wrapText=(ctx,text,x,y,maxWidth,lineHeight,color)=>{ctx.fillStyle=color;const words=text.split(/\s+/);let line='';let currentY=y;for(const word of words){const test=line?`${line} ${word}`:word;if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,currentY);line=word;currentY+=lineHeight;}else{line=test;}}if(line)ctx.fillText(line,x,currentY);return currentY;};
+      const buildCompanionCard=async key=>{
+        const profile=companionProfiles[key];
+        const canvas=document.createElement('canvas');
+        canvas.width=1080;canvas.height=1350;
+        const ctx=canvas.getContext('2d');
+        const W=canvas.width,H=canvas.height;
+        ctx.fillStyle='#06101d';ctx.fillRect(0,0,W,H);
+        const bg=ctx.createLinearGradient(0,0,W,H);bg.addColorStop(0,profile.gradient[0]);bg.addColorStop(.5,'#07111f');bg.addColorStop(1,profile.gradient[1]);ctx.globalAlpha=.22;ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);ctx.globalAlpha=1;
+        for(let i=0;i<34;i++){const x=(i*173)%W,y=(i*263)%H,r=2+(i%3);ctx.fillStyle=`rgba(255,255,255,${.035+(i%4)*.012})`;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
+        roundedRect(ctx,54,54,972,1242,48);ctx.fillStyle='rgba(7,17,31,.9)';ctx.fill();ctx.strokeStyle='rgba(148,163,184,.24)';ctx.lineWidth=2;ctx.stroke();
+        const top=ctx.createLinearGradient(84,84,996,540);top.addColorStop(0,profile.gradient[0]);top.addColorStop(1,profile.gradient[1]);ctx.save();roundedRect(ctx,84,84,912,470,38);ctx.clip();ctx.fillStyle=top;ctx.fillRect(84,84,912,470);const haze=ctx.createRadialGradient(820,280,40,820,280,260);haze.addColorStop(0,'rgba(255,255,255,.22)');haze.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=haze;ctx.fillRect(84,84,912,470);ctx.restore();
+        ctx.fillStyle='rgba(255,255,255,.96)';ctx.font='800 32px Inter, Arial, sans-serif';ctx.fillText('GO NEXUS',124,142);ctx.fillStyle='rgba(255,255,255,.78)';ctx.font='600 25px Inter, Arial, sans-serif';ctx.fillText('Meu companheiro Lendário ou Mítico é…',124,184);
+        ctx.fillStyle='#fff';ctx.font='900 78px Inter, Arial, sans-serif';ctx.fillText(profile.name.toUpperCase(),124,300);
+        ctx.fillStyle='#fff4bc';ctx.font='800 34px Inter, Arial, sans-serif';ctx.fillText(profile.title,124,350);
+        roundedRect(ctx,124,386,168,46,23);ctx.fillStyle='rgba(7,17,31,.28)';ctx.fill();ctx.fillStyle='rgba(255,255,255,.92)';ctx.font='800 23px Inter, Arial, sans-serif';ctx.fillText(profile.type,151,417);
+        const centerX=824,centerY=325;const aura=ctx.createRadialGradient(centerX,centerY,30,centerX,centerY,190);aura.addColorStop(0,`rgba(${profile.glow},.58)`);aura.addColorStop(.52,`rgba(${profile.glow},.18)`);aura.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=aura;ctx.beginPath();ctx.arc(centerX,centerY,195,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(255,255,255,.24)';ctx.lineWidth=3;ctx.beginPath();ctx.arc(centerX,centerY,156,0,Math.PI*2);ctx.stroke();
+        if(key==='arceus'){const art=await loadImage(ARCEUS_DATA);ctx.drawImage(art,704,205,240,240);}else if(SPRITE_POS[key]){const sheet=await getSpriteSheet();const [sx,sy]=SPRITE_POS[key];ctx.imageSmoothingEnabled=false;ctx.drawImage(sheet,sx,sy,112,112,704,205,240,240);ctx.imageSmoothingEnabled=true;}
+        roundedRect(ctx,84,592,912,562,34);ctx.fillStyle='rgba(255,255,255,.045)';ctx.fill();ctx.strokeStyle='rgba(148,163,184,.12)';ctx.lineWidth=1.5;ctx.stroke();
+        ctx.fillStyle='#f8fbff';ctx.font='800 30px Inter, Arial, sans-serif';ctx.fillText('Sua energia no GO Nexus',124,658);
+        let tx=124,ty=711;ctx.font='800 25px Inter, Arial, sans-serif';for(const trait of profile.traits){const width=ctx.measureText(trait).width+48;if(tx+width>930){tx=124;ty+=62;}roundedRect(ctx,tx,ty-32,width,46,23);ctx.fillStyle=`rgba(${profile.glow},.1)`;ctx.fill();ctx.strokeStyle=`rgba(${profile.glow},.32)`;ctx.lineWidth=1.5;ctx.stroke();ctx.fillStyle='#eff6ff';ctx.fillText(trait,tx+24,ty-2);tx+=width+12;}
+        ctx.fillStyle='#c9d7e8';ctx.font='500 31px Inter, Arial, sans-serif';wrapText(ctx,profile.desc,124,826,800,47,'#c9d7e8');
+        roundedRect(ctx,124,1046,832,2,1);ctx.fillStyle='rgba(148,163,184,.18)';ctx.fill();
+        ctx.fillStyle='#93c5fd';ctx.font='800 27px Inter, Arial, sans-serif';ctx.fillText('Descubra o seu companheiro no GO Nexus',124,1106);
+        ctx.fillStyle='#8ea3be';ctx.font='500 22px Inter, Arial, sans-serif';ctx.fillText(shareUrl,124,1148);
+        ctx.fillStyle='rgba(255,255,255,.58)';ctx.font='500 20px Inter, Arial, sans-serif';ctx.fillText('Quiz lúdico · resultado baseado nas suas escolhas',124,1234);
+        ctx.fillStyle='rgba(255,255,255,.8)';ctx.font='800 20px Inter, Arial, sans-serif';ctx.textAlign='right';ctx.fillText('GO NEXUS',956,1234);ctx.textAlign='left';
+        return new Promise(resolve=>canvas.toBlob(blob=>resolve({blob,canvas}),'image/png'));
+      };
+      const companionShareText=key=>`${companionProfiles[key].share}
+Descubra o seu: ${shareUrl}`;
+      const saveCompanionCard=async key=>{const {blob}=await buildCompanionCard(key);const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`go-nexus-companheiro-${key}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);};
+      const shareCompanionCard=async key=>{const shareText=companionShareText(key);const {blob}=await buildCompanionCard(key);const file=new File([blob],`go-nexus-companheiro-${key}.png`,{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({title:`Meu companheiro do GO Nexus é ${companionProfiles[key].name}`,text:shareText,files:[file]});}else if(navigator.share){await navigator.share({title:`Meu companheiro do GO Nexus é ${companionProfiles[key].name}`,text:shareText,url:shareUrl});await saveCompanionCard(key);}else{await saveCompanionCard(key);}}
+      const copyCompanionResult=async key=>{const text=companionShareText(key);if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);}else{const area=document.createElement('textarea');area.value=text;document.body.appendChild(area);area.select();document.execCommand('copy');area.remove();}}
+      companionQuizHost?.addEventListener('click',async e=>{const answer=e.target.closest('[data-answer]');if(answer){const index=Number(answer.dataset.answer);companionState.answers[companionState.step]=index;if(companionState.step<companionQuestions.length-1){companionState.step+=1;}else{companionState.result=computeCompanionResult();}renderCompanionQuiz();return;}const action=e.target.closest('[data-companion-action]');if(!action||!companionState.result)return;try{if(action.dataset.companionAction==='reset'){companionState.step=0;companionState.answers=[];companionState.result=null;renderCompanionQuiz();return;}if(action.dataset.companionAction==='copy'){await copyCompanionResult(companionState.result);pulseButton(action,'✅ Copiado');return;}if(action.dataset.companionAction==='save'){action.disabled=true;pulseButton(action,'⏳ Gerando');await saveCompanionCard(companionState.result);action.disabled=false;pulseButton(action,'✅ Salvo');return;}if(action.dataset.companionAction==='share'){action.disabled=true;pulseButton(action,'⏳ Preparando');await shareCompanionCard(companionState.result);action.disabled=false;pulseButton(action,'✅ Pronto');return;}}catch(err){action.disabled=false;pulseButton(action,'⚠️ Tente de novo');console.warn(err);}});
+      renderCompanionQuiz();
 
       const positionPopover=(button)=>{
         const r=button.getBoundingClientRect();

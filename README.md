@@ -82,26 +82,17 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 - Corrigida a imagem de **Persian de Alola** em **Poeira Estelar**.
 
 
-## Easter egg — O Ovo Original
+## Easter egg cósmico — versão corrigida e auditada
 
-O site possui um easter egg visual no canto inferior esquerdo. O ovo cósmico muda de estado nos dois primeiros toques e, no terceiro, revela a cosmogonia Pokémon. A experiência usa os adesivos enviados para Arceus, Lendários e Míticos e organiza a lore em três painéis visuais: **Origem**, **Lendários** e **Míticos**.
-
-A árvore é apresentada como uma **árvore mítica**, não como parentesco biológico literal. O núcleo de Sinnoh foi conferido em fontes oficiais da franquia.
-
-
-## Easter egg — revisão visual definitiva v2
-
-- Ovo redesenhado com referência visual aos ovos de Reide de Pokémon GO: formato mais redondo, casca clara, padrões geométricos, brilho discreto e paleta inspirada em Arceus (dourado, branco/cinza e verde).
-- Pokémon clicáveis recebem uma aura neon discreta para comunicar interatividade sem poluir a interface.
-- A informação de cada Pokémon agora aparece em um pequeno pop-up ancorado ao lado do card clicado; no celular, ele aparece imediatamente acima ou abaixo do Pokémon, evitando que o usuário precise procurar texto no fim da seção.
-- Os antigos painéis de informação no rodapé das abas ficam ocultos.
+- As imagens do easter egg agora ficam **embutidas no próprio `nav.js`** em um sprite otimizado. Isso elimina falhas de caminho/404 ao publicar pelo GitHub Pages e dispensa a pasta `assets/easter-egg`.
+- Corrigido o comportamento do balão do ovo em telas touch: ele não permanece aberto sobre o conteúdo da página.
+- Refinado o alinhamento do cabeçalho da experiência cósmica em desktop e mobile.
+- As informações dos Pokémon continuam aparecendo junto ao Pokémon selecionado, em popover contextual.
+- Auditoria de regressão: as páginas e scripts da base estável foram preservados; fora desta documentação, apenas `nav.js` foi alterado.
 
 
-## Easter egg — versão final com ovo inspirado no Pokémon GO
+## Correção — Poeira Estelar (19/09/2026)
 
-- O ovo anterior foi descartado e substituído pelo **ovo aprovado pelo usuário**, baseado no formato visual dos ovos do Pokémon GO e nas cores de Arceus.
-- A terceira interação agora possui uma sequência de eclosão mais lenta, com cerca de 2,7 segundos de transição antes da cosmogonia.
-- Lendários e Míticos receberam notas de lore revisadas e mais precisas, priorizando Pokédex e páginas oficiais Pokémon.
-- A seção de Lendários foi expandida com núcleos de Kanto, Johto, Hoenn, Titãs, Sinnoh, Unova, Alola, Galar/Hisui e Paldea/Kitakami.
-- Pokémon clicáveis usam uma aura neon discreta baseada em suas próprias cores. Ao selecionar, o destaque aumenta e a informação aparece imediatamente ao lado do Pokémon.
-- O mapa continua sendo **mitológico/temático**, não uma árvore genealógica biológica literal.
+- Adicionado **Chimecho** à faixa de **1.000 Poeira Estelar** por captura.
+- Removido **Drampa** dessa faixa: a recompensa base de captura atual é 100 Poeira Estelar, não 1.000.
+- Índice da busca global regenerado após a correção.

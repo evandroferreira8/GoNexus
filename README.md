@@ -142,7 +142,7 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 - Nova aba **Ditto e Disfarces** em Formas e Variações.
 - Lista regular de disfarces revisada para setembro de 2026.
 - Minijogo **Onde está o Ditto?**: um card esconde Ditto a cada rodada, com animação de transformação, contador de tentativas e chance lúdica de Ditto Brilhante.
-- As imagens dos disfarces usam os adesivos locais do projeto em `assets/ditto/`.
+- As imagens dos disfarces ficam incorporadas diretamente na página, sem depender de uma pasta externa de imagens.
 - A chance de Ditto Brilhante do minijogo é apenas recreativa e não reproduz a taxa real do Pokémon GO.
 
 ## Refinamento de tipografia — Ditto e Disfarces
@@ -153,3 +153,10 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 ## Ajuste da lista de Ditto
 - A seção agora mostra apenas os disfarces atuais de Ditto reportados para setembro de 2026.
 - Referências a listas temporárias de eventos foram removidas da interface.
+
+
+## Correção de imagens e exportação
+- Artes do quiz Companheiro agora ficam incorporadas no `nav.js`, eliminando dependência de `assets/companion/`.
+- Artes do minijogo Ditto ficam incorporadas em `formas-especiais.html`, eliminando dependência de `assets/ditto/`.
+- Salvamento do card foi reforçado para navegadores móveis, com geração em PNG validada antes do download.
+- Removido um bloco antigo de CSS que voltava a colocar moldura pesada atrás da arte do companheiro.

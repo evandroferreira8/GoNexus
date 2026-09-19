@@ -1,43 +1,74 @@
-# GO Nexus — Quiz + Formas e Variações
+# GO Nexus — Busca Global + Novidades Automáticas
 
-Versão consolidada do GO Nexus com **10 ferramentas**, uma área especial de **Quiz** no cabeçalho e nova seção educativa sobre **Pokémon Brilhantes**.
+Esta versão preserva as 10 ferramentas, o Quiz de 80 perguntas e acrescenta duas melhorias na página inicial.
 
-## Novidades desta versão
+## 1. Busca global
 
-### 🎮 Quiz GO Nexus
-- Página nova: `quiz.html`.
-- **80 perguntas**, em referência aos 80 níveis do Pokémon GO.
-- 8 perguntas para cada uma das 10 ferramentas do site.
-- Dois modos:
-  - Rodada rápida: 10 perguntas sorteadas.
-  - Desafio dos 80 níveis: todas as 80 perguntas.
-- Feedback explicativo após cada resposta.
-- Visual e áreas de toque pensados para celular.
+A Home agora possui uma busca que procura conteúdo em todas as 10 ferramentas e também no Quiz.
 
-### ✨ Formas Especiais e Variações Visuais
-A antiga página **Formas Especiais** passa a ser apresentada como **Formas e Variações** no menu e na Home.
+Exemplos de busca:
 
-A página agora possui três áreas:
-- Fusões
-- Mudanças de Forma
-- Variações Visuais
+- `shiny`
+- `Zygarde`
+- `Gigamax`
+- `Poképarada`
+- `Megaenergia`
+- `Poeira Estelar`
 
-A área de Variações Visuais explica Pokémon Brilhantes (Shinies), deixando explícito que **Shiny não é uma forma diferente**, mas uma variação visual rara.
+O arquivo `search-index.json` contém o índice utilizado pela busca. O script `scripts/build_search_index.py` recria esse índice a partir das páginas HTML do projeto.
 
-### Probabilidades de Shiny
-O GO Nexus separa rigorosamente:
-- **informação oficial**, como disponibilidade de Shiny e anúncios de “chance aumentada”;
-- **estimativas comunitárias**, que não são tratadas como taxas oficiais.
+## 2. Eventos e novidades
 
-A página inclui:
-- exemplos de probabilidade acumulada para leigos;
-- explicação de por que “1 em 512” não significa garantia no encontro 512;
-- calculadora interativa de chance acumulada;
-- fontes oficiais do Pokémon GO e referências comunitárias identificadas como estimativas.
+No final da Home há um carrossel com as cinco publicações mais recentes da página oficial de notícias do Pokémon GO em português.
 
-## Navegação
-O cabeçalho agora mostra:
+Cada cartão mostra apenas:
 
-**Início · Ferramentas · Quiz · Feedback**
+- imagem de destaque;
+- título;
+- indicação de fonte oficial;
+- link para abrir a matéria original no site do Pokémon GO.
 
-O Quiz é uma experiência transversal às 10 ferramentas e, por isso, não entra na contagem das ferramentas da Home.
+O GO Nexus não republica o conteúdo das notícias.
+
+## 3. Atualização automática pelo GitHub Actions
+
+O workflow `.github/workflows/update-news.yml` roda duas vezes por dia e também pode ser iniciado manualmente.
+
+Ele:
+
+1. acessa `https://pokemongo.com/pt-BR/news`;
+2. identifica as cinco publicações mais recentes;
+3. abre cada notícia para obter título e imagem de destaque;
+4. atualiza `news.json`;
+5. recria `search-index.json`;
+6. faz commit somente se houver mudanças.
+
+O script foi feito para manter o último `news.json` válido caso o site oficial fique temporariamente indisponível ou mude de estrutura.
+
+## Arquivos novos desta versão
+
+- `news.json`
+- `search-index.json`
+- `scripts/update_news.py`
+- `scripts/build_search_index.py`
+- `.github/workflows/update-news.yml`
+
+## Observação sobre GitHub Actions
+
+Para a atualização automática funcionar, o GitHub Actions precisa estar habilitado no repositório. O workflow já solicita `contents: write` para poder salvar as alterações em `news.json` e `search-index.json`.
+
+## Direitos autorais e uso
+
+© 2026 Evandro Ferreira. Todos os direitos reservados.
+
+O código-fonte e o conteúdo original do GO Nexus são disponibilizados publicamente para fins de consulta e funcionamento do projeto.
+
+Não é autorizada a reprodução, redistribuição, republicação, modificação ou utilização deste projeto, total ou parcialmente, em outros sites, aplicações ou serviços sem autorização prévia do autor.
+
+GO Nexus é um projeto independente criado para a comunidade de Pokémon GO e não possui afiliação, patrocínio ou vínculo oficial com The Pokémon Company, Nintendo, Niantic ou Scopely.
+
+Pokémon, Pokémon GO e demais marcas, personagens, imagens e elementos relacionados pertencem aos seus respectivos titulares.
+
+## Revisão técnica da busca global
+
+A busca também indexa o texto usado para montar listas dinâmicas em JavaScript. Isso permite encontrar nomes que não aparecem no HTML inicial — por exemplo, espécies presentes nas listas da Central Mega e da Central Max — sem exibir código no trecho mostrado ao usuário.

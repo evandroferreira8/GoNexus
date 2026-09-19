@@ -72,3 +72,11 @@ Pokémon, Pokémon GO e demais marcas, personagens, imagens e elementos relacion
 ## Revisão técnica da busca global
 
 A busca também indexa o texto usado para montar listas dinâmicas em JavaScript. Isso permite encontrar nomes que não aparecem no HTML inicial — por exemplo, espécies presentes nas listas da Central Mega e da Central Max — sem exibir código no trecho mostrado ao usuário.
+
+
+## Ajustes de interface — 19/09/2026
+
+- **Vale a Caixa?** ganhou o campo “Pokémoedas que você já tem”, cálculo de quanto falta para o combo, saldo restante e sugestão da combinação mais barata de pacotes para completar o saldo.
+- **Superpoção** e **Hiperpoção** foram adicionadas à lista de itens como itens sem preço individual oficial.
+- Corrigido o vazamento do card “3. Veja a chance acumulada” no mobile em **Formas e Variações**.
+- Corrigida a imagem de **Persian de Alola** em **Poeira Estelar**.

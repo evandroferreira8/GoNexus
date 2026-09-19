@@ -136,3 +136,20 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 - O primeiro toque agora revela uma mensagem explícita pedindo um novo toque.
 - O segundo toque avisa que o ovo está prestes a eclodir e orienta o terceiro toque.
 - O aviso funciona também em telas touch e mostra progresso visual 1/3 e 2/3.
+
+
+## Ditto e Disfarces
+- Nova aba **Ditto e Disfarces** em Formas e Variações.
+- Lista regular de disfarces revisada para setembro de 2026.
+- Minijogo **Onde está o Ditto?**: um card esconde Ditto a cada rodada, com animação de transformação, contador de tentativas e chance lúdica de Ditto Brilhante.
+- As imagens dos disfarces usam os adesivos locais do projeto em `assets/ditto/`.
+- A chance de Ditto Brilhante do minijogo é apenas recreativa e não reproduz a taxa real do Pokémon GO.
+
+## Refinamento de tipografia — Ditto e Disfarces
+- Textos explicativos, títulos, dicas, status, cards e notas da nova seção receberam tamanhos mais confortáveis no desktop e no celular.
+- Os nomes dos Pokémon foram ampliados sem alterar a grade ou a mecânica do minijogo.
+- A aba responsiva ganhou tipografia ligeiramente maior no mobile.
+
+## Ajuste da lista de Ditto
+- A seção agora mostra apenas os disfarces atuais de Ditto reportados para setembro de 2026.
+- Referências a listas temporárias de eventos foram removidas da interface.

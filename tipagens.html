@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f">
+<title>Tipagens | GO Nexus</title>
+<meta name="description" content="Entenda tipagens no Pokémon GO de forma visual: veja contra quem cada tipo é forte, fraco e resistente, com foco em leitura rápida no celular.">
+<style>
+:root{--bg:#07111f;--panel:#0b1729;--line:#263653;--text:#f8fafc;--muted:#9fb0c7;--blue:#38bdf8;--violet:#8b5cf6;--pink:#ec4899;--green:#34d399;--yellow:#facc15}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 14% 0,rgba(56,189,248,.14),transparent 28%),radial-gradient(circle at 88% 4%,rgba(139,92,246,.16),transparent 26%),var(--bg);color:var(--text);font:17px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.shell{width:min(1120px,calc(100% - 26px));margin:auto}.hero{text-align:center;padding:38px 0 20px}.eyebrow{display:inline-flex;padding:7px 12px;border:1px solid rgba(56,189,248,.24);border-radius:999px;background:rgba(56,189,248,.08);color:#bae6fd;font-size:.82rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase}.hero h1{margin:13px 0 10px;font-size:clamp(2.15rem,6vw,4rem);line-height:.96;letter-spacing:-.05em}.grad{background:linear-gradient(90deg,#38bdf8,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{max-width:820px;margin:auto;color:#b7c5d8;font-size:1.03rem;line-height:1.68}.lead strong{color:#fff}.hero-meta{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px}.hero-meta span{padding:7px 10px;border:1px solid #2b3d58;border-radius:999px;background:#0a1526;color:#9fb0c6;font-size:.8rem;font-weight:780}
+.stage{display:grid;gap:14px}.panel{border:1px solid #263653;border-radius:22px;background:linear-gradient(180deg,rgba(13,27,46,.96),rgba(7,17,31,.96));box-shadow:0 16px 40px rgba(0,0,0,.16)}.panel.pad{padding:18px}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}.section-head h2{margin:0;font-size:1.2rem}.section-head p{margin:4px 0 0;color:#8ea0b8;font-size:.95rem;max-width:58ch}
+.toggle{display:flex;gap:10px;flex-wrap:wrap}.toggle button{min-height:48px;padding:11px 16px;border:1px solid #30435f;border-radius:14px;background:#091526;color:#d5dfeb;font:800 .96rem/1.2 inherit;cursor:pointer}.toggle button.active{border-color:#4a67a0;background:linear-gradient(135deg,rgba(37,99,235,.2),rgba(124,58,237,.18));box-shadow:0 0 0 1px rgba(125,211,252,.08),0 0 24px rgba(56,189,248,.06)}
+.mode{display:none}.mode.active{display:block}
+.type-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.type-btn{position:relative;min-height:58px;padding:10px 10px;border-radius:16px;border:1px solid rgba(255,255,255,.09);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));color:#fff;font:800 .93rem/1.15 inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}.type-btn::after{content:"";position:absolute;inset:1px;border-radius:15px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0));pointer-events:none}.type-btn.active{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(255,255,255,.12),0 0 0 4px rgba(255,255,255,.04),0 14px 24px rgba(0,0,0,.22)}
+.selected-strip{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 14px}.mini-type{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;color:#fff;font-size:.82rem;font-weight:900;border:1px solid rgba(255,255,255,.14)}.ghost{background:#081526;color:#8ea0b8;border-style:dashed}
+.helper{margin-top:10px;color:#7f91a8;font-size:.86rem;line-height:1.6}.helper strong{color:#dce7f5}
+.result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.result-card{padding:15px;border:1px solid #273a57;border-radius:18px;background:#081526}.result-card h3{margin:0 0 9px;font-size:1rem;display:flex;align-items:center;gap:8px}.result-card p{margin:0;color:#8ea0b8;font-size:.89rem;line-height:1.55}.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.badge{display:inline-flex;align-items:center;min-height:34px;padding:7px 11px;border:1px solid rgba(255,255,255,.08);border-radius:999px;background:rgba(255,255,255,.03);color:#edf2f8;font-size:.84rem;font-weight:850}.empty{margin-top:12px;padding:12px;border:1px dashed #31445f;border-radius:14px;color:#7e90a7;font-size:.9rem}.good{border-color:rgba(52,211,153,.22);background:rgba(52,211,153,.05)}.warn{border-color:rgba(250,204,21,.22);background:rgba(250,204,21,.055)}.special{border-color:rgba(167,139,250,.22);background:rgba(139,92,246,.06)}
+.meter{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.stat{padding:14px;border:1px solid #273a57;border-radius:16px;background:#081526}.stat strong{display:block;font-size:1.18rem}.stat span{display:block;color:#8ca0b7;font-size:.86rem;line-height:1.45;margin-top:2px}
+.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.legend .item{padding:12px;border:1px solid #263a57;border-radius:16px;background:#081526}.legend b{display:block;font-size:.95rem}.legend small{display:block;margin-top:5px;color:#89a0ba;font-size:.82rem;line-height:1.5}
+.quick-table{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding-top:12px}.quick-type{padding:13px;border:1px solid #263a57;border-radius:15px;background:#081526}.quick-type h4{margin:0 0 9px;font-size:1rem;display:flex;align-items:center;gap:8px}.quick-type .line{margin-top:8px;color:#8ea0b8;font-size:.86rem;line-height:1.55}.quick-type .line b{display:block;color:#dce7f5;font-size:.81rem;margin-bottom:4px}
+@media(max-width:980px){.type-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.result-grid,.legend,.meter,.quick-table{grid-template-columns:1fr}}
+@media(max-width:640px){body{font-size:18px}.shell{width:min(100% - 18px,1120px)}.hero{padding-top:30px}.hero h1{font-size:2.4rem}.lead{font-size:1.02rem}.panel.pad{padding:14px}.section-head h2{font-size:1.15rem}.type-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.type-btn{min-height:56px;font-size:.96rem}.toggle button{flex:1}.result-card{padding:13px}.badge{font-size:.86rem;padding:8px 12px;min-height:36px}}
+</style>
+</head>
+<body>
+<go-nexus-header></go-nexus-header>
+<main class="shell">
+  <section class="hero">
+    <span class="eyebrow">🛡️ Guia visual de combate</span>
+    <h1><span class="grad">Tipagens</span></h1>
+    <p class="lead">Uma área feita para ser direta: escolha um tipo e veja, de forma visual, <strong>contra quem ele funciona bem</strong>, <strong>contra quem ele sofre</strong> e quais são as <strong>fraquezas e resistências</strong> mais importantes no Pokémon GO.</p>
+    <div class="hero-meta"><span>Leitura rápida</span><span>Botões grandes para celular</span><span>Sem tabela confusa logo de cara</span></div>
+  </section>
+
+  <section class="stage">
+    <section class="panel pad">
+      <div class="section-head">
+        <div><h2>Escolha como quer consultar</h2><p>Você pode pensar como atacante ou como defensor. O GO Nexus mostra primeiro o essencial e deixa o detalhamento extra para baixo.</p></div>
+      </div>
+      <div class="toggle" role="tablist" aria-label="Modo de consulta">
+        <button id="attackTab" class="active" type="button" role="tab" aria-selected="true" aria-controls="attackMode">⚔️ Atacando</button>
+        <button id="defenseTab" type="button" role="tab" aria-selected="false" aria-controls="defenseMode">🧱 Defendendo</button>
+      </div>
+
+      <div class="mode active" id="attackMode" role="tabpanel">
+        <div class="helper">Selecione o <strong>tipo do golpe</strong> que você quer usar. O resultado mostra os alvos contra os quais ele tende a render melhor ou pior.</div>
+        <div class="type-grid" id="attackGrid" style="margin-top:14px"></div>
+        <div class="selected-strip" style="margin-top:14px"><span style="color:#90a4bd;font-size:.9rem">Tipo selecionado:</span><span id="attackSelected" class="mini-type ghost">Escolha um tipo</span></div>
+        <div class="meter">
+          <div class="stat"><strong id="attackSuperCount">0</strong><span>tipos contra os quais ele é super efetivo</span></div>
+          <div class="stat"><strong id="attackResistCount">0</strong><span>tipos que resistem a esse ataque ou seguram bem o dano</span></div>
+        </div>
+        <div class="result-grid">
+          <div class="result-card good"><h3>✅ Muito bom contra</h3><p>Quando você quer apertar o defensor pelo lado da fraqueza.</p><div class="badges" id="attackGood"></div><div class="empty" id="attackGoodEmpty" hidden>Nenhum tipo aqui.</div></div>
+          <div class="result-card warn"><h3>⚠️ Funciona pior contra</h3><p>Esses tipos resistem ao golpe ou reduzem bem sua pressão ofensiva.</p><div class="badges" id="attackBad"></div><div class="empty" id="attackBadEmpty" hidden>Nenhum tipo aqui.</div></div>
+          <div class="result-card special" style="grid-column:1/-1"><h3>✨ Caso especial</h3><p>No universo Pokémon existem matchups que seriam “sem efeito”. No Pokémon GO, pense neles como <strong>resistências muito fortes</strong>. Eu deixei separados só para ficar mais fácil de visualizar.</p><div class="badges" id="attackImmune"></div><div class="empty" id="attackImmuneEmpty" hidden>Este tipo não tem casos especiais nessa linha.</div></div>
+        </div>
+      </div>
+
+      <div class="mode" id="defenseMode" role="tabpanel" hidden>
+        <div class="helper">Selecione <strong>um ou dois tipos do defensor</strong>. Isso ajuda a entender fraquezas e resistências de Pokémon de tipo simples ou duplo.</div>
+        <div class="selected-strip" style="margin-top:12px"><span style="color:#90a4bd;font-size:.9rem">Defensor:</span><span id="def1" class="mini-type ghost">Primeiro tipo</span><span id="def2" class="mini-type ghost">Segundo tipo opcional</span></div>
+        <div class="toggle" style="margin:0 0 12px"><button id="clearDefense" type="button">🧹 Limpar seleção</button></div>
+        <div class="type-grid" id="defenseGrid"></div>
+        <div class="result-grid">
+          <div class="result-card good"><h3>🎯 Fraqueza dupla</h3><p>Golpes que costumam machucar demais esse conjunto de tipos.</p><div class="badges" id="weak4"></div><div class="empty" id="weak4Empty" hidden>Sem fraqueza dupla aqui.</div></div>
+          <div class="result-card good"><h3>💥 Fraquezas</h3><p>Tipos de golpe que entram com vantagem.</p><div class="badges" id="weak2"></div><div class="empty" id="weak2Empty" hidden>Escolha ao menos um tipo.</div></div>
+          <div class="result-card warn"><h3>🛡️ Resistências</h3><p>Golpes que o defensor tende a segurar melhor.</p><div class="badges" id="resist2"></div><div class="empty" id="resist2Empty" hidden>Escolha ao menos um tipo.</div></div>
+          <div class="result-card warn"><h3>🔒 Resistência dupla</h3><p>Casos em que o dano costuma ficar bem amortecido.</p><div class="badges" id="resist4"></div><div class="empty" id="resist4Empty" hidden>Sem resistência dupla aqui.</div></div>
+          <div class="result-card special" style="grid-column:1/-1"><h3>🚫 Quase não entra</h3><p>Equivale aos cenários de imunidade clássica. No Pokémon GO, trate como situações de resistência extrema.</p><div class="badges" id="immuneDefense"></div><div class="empty" id="immuneDefenseEmpty" hidden>Nenhum caso especial aqui.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <details class="nx-accordion" open data-nx-group="type-info">
+      <summary><span class="nx-summary-main"><span>📘</span><span class="nx-summary-copy"><span class="nx-summary-title">Dicas rápidas para ler tipagens sem complicar</span><span class="nx-summary-sub">Uma tradução do sistema para linguagem humana</span></span></span><span class="nx-summary-side"><span class="nx-count">3 pontos</span><span class="nx-chevron">⌄</span></span></summary>
+      <div class="nx-body">
+        <div class="legend">
+          <div class="item"><b>1. Pense primeiro no atacante</b><small>Se você quer derrubar algo rápido, olhe a aba <strong>Atacando</strong> e procure o que é <strong>muito bom contra</strong> o alvo.</small></div>
+          <div class="item"><b>2. Depois confirme as resistências</b><small>Se o golpe aparecer como <strong>funciona pior contra</strong>, normalmente vale trocar de tipo para não desperdiçar dano.</small></div>
+          <div class="item"><b>3. Tipagem dupla muda muito</b><small>Na aba <strong>Defendendo</strong>, combinar dois tipos pode criar <strong>fraqueza dupla</strong> ou <strong>resistência dupla</strong>.</small></div>
+        </div>
+        <div class="nx-note">Regra prática do GO Nexus: use esta página como um guia rápido de vantagem e desvantagem. O Pokémon GO aplica multiplicadores próprios, mas a leitura estratégica continua a mesma.</div>
+      </div>
+    </details>
+
+    <details class="nx-accordion" data-nx-group="type-info">
+      <summary><span class="nx-summary-main"><span>🧩</span><span class="nx-summary-copy"><span class="nx-summary-title">Resumo rápido por tipo</span><span class="nx-summary-sub">Abra só se quiser uma cola visual mais completa</span></span></span><span class="nx-summary-side"><span class="nx-count">18 tipos</span><span class="nx-chevron">⌄</span></span></summary>
+      <div class="nx-body"><div class="quick-table" id="quickTable"></div></div>
+    </details>
+  </section>
+</main>
+<go-nexus-footer></go-nexus-footer>
+<script>
+const TYPES=[
+  {id:'normal',name:'Normal',color:'#9ca3af'},
+  {id:'fire',name:'Fogo',color:'#f97316'},
+  {id:'water',name:'Água',color:'#3b82f6'},
+  {id:'electric',name:'Elétrico',color:'#facc15'},
+  {id:'grass',name:'Planta',color:'#22c55e'},
+  {id:'ice',name:'Gelo',color:'#67e8f9'},
+  {id:'fighting',name:'Lutador',color:'#ef4444'},
+  {id:'poison',name:'Veneno',color:'#a855f7'},
+  {id:'ground',name:'Terrestre',color:'#c08457'},
+  {id:'flying',name:'Voador',color:'#60a5fa'},
+  {id:'psychic',name:'Psíquico',color:'#fb7185'},
+  {id:'bug',name:'Inseto',color:'#84cc16'},
+  {id:'rock',name:'Pedra',color:'#ca8a04'},
+  {id:'ghost',name:'Fantasma',color:'#818cf8'},
+  {id:'dragon',name:'Dragão',color:'#6366f1'},
+  {id:'dark',name:'Sombrio',color:'#6b7280'},
+  {id:'steel',name:'Aço',color:'#94a3b8'},
+  {id:'fairy',name:'Fada',color:'#f472b6'}
+];
+const TYPE_MAP=Object.fromEntries(TYPES.map(t=>[t.id,t]));
+const CHART={
+ normal:{rock:.5,ghost:0,steel:.5},
+ fire:{fire:.5,water:.5,grass:2,ice:2,bug:2,rock:.5,dragon:.5,steel:2},
+ water:{fire:2,water:.5,grass:.5,ground:2,rock:2,dragon:.5},
+ electric:{water:2,electric:.5,grass:.5,ground:0,flying:2,dragon:.5},
+ grass:{fire:.5,water:2,grass:.5,poison:.5,ground:2,flying:.5,bug:.5,rock:2,dragon:.5,steel:.5},
+ ice:{fire:.5,water:.5,grass:2,ice:.5,ground:2,flying:2,dragon:2,steel:.5},
+ fighting:{normal:2,ice:2,poison:.5,flying:.5,psychic:.5,bug:.5,rock:2,ghost:0,dark:2,steel:2,fairy:.5},
+ poison:{grass:2,poison:.5,ground:.5,rock:.5,ghost:.5,steel:0,fairy:2},
+ ground:{fire:2,electric:2,grass:.5,poison:2,flying:0,bug:.5,rock:2,steel:2},
+ flying:{electric:.5,grass:2,fighting:2,bug:2,rock:.5,steel:.5},
+ psychic:{fighting:2,poison:2,psychic:.5,dark:0,steel:.5},
+ bug:{fire:.5,grass:2,fighting:.5,poison:.5,flying:.5,psychic:2,ghost:.5,dark:2,steel:.5,fairy:.5},
+ rock:{fire:2,ice:2,fighting:.5,ground:.5,flying:2,bug:2,steel:.5},
+ ghost:{normal:0,psychic:2,ghost:2,dark:.5},
+ dragon:{steel:.5,dragon:2,fairy:0},
+ dark:{fighting:.5,psychic:2,ghost:2,dark:.5,fairy:.5},
+ steel:{fire:.5,water:.5,electric:.5,ice:2,rock:2,steel:.5,fairy:2},
+ fairy:{fire:.5,fighting:2,poison:.5,dragon:2,dark:2,steel:.5}
+};
+const byId=id=>document.getElementById(id);
+const eff=(atk,def)=>CHART[atk]?.[def] ?? 1;
+function typeBadge(typeId){const t=TYPE_MAP[typeId];return `<span class="badge" style="background:${alpha(t.color,.12)};border-color:${alpha(t.color,.3)};color:#fff">${t.name}</span>`;}
+function miniType(id, target){const el=byId(target); if(!id){el.textContent=target==='def2'?'Segundo tipo opcional':'Escolha um tipo';el.className='mini-type ghost';el.style.background='';el.style.borderColor='';return;} const t=TYPE_MAP[id];el.textContent=t.name;el.className='mini-type';el.style.background=`linear-gradient(135deg, ${alpha(t.color,.88)}, ${alpha(t.color,.66)})`;el.style.borderColor=alpha('#ffffff',.18);}
+function alpha(hex,a){if(hex.startsWith('#')){let h=hex.slice(1);if(h.length===3)h=[...h].map(x=>x+x).join('');const r=parseInt(h.slice(0,2),16),g=parseInt(h.slice(2,4),16),b=parseInt(h.slice(4,6),16);return `rgba(${r},${g},${b},${a})`; } return hex;}
+function renderTypeGrid(rootId, activeId, onClick, multi=[]){const root=byId(rootId);root.innerHTML=TYPES.map(t=>`<button type="button" class="type-btn ${(Array.isArray(activeId)?activeId.includes(t.id):activeId===t.id)?'active':''}" data-type="${t.id}" style="background:linear-gradient(180deg,${alpha(t.color,.28)},${alpha(t.color,.16)});border-color:${alpha(t.color,.34)}">${t.name}</button>`).join('');root.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>onClick(btn.dataset.type)))}
+let currentAttack='fire'; let defenseSelection=['water',null];
+function renderAttack(){renderTypeGrid('attackGrid', currentAttack, id=>{currentAttack=id;renderAttack();}); const t=TYPE_MAP[currentAttack]; const sel=byId('attackSelected'); sel.textContent=t.name; sel.className='mini-type'; sel.style.background=`linear-gradient(135deg, ${alpha(t.color,.88)}, ${alpha(t.color,.65)})`; sel.style.borderColor=alpha('#fff',.18);
+  const good=[],bad=[],immune=[]; TYPES.forEach(def=>{const m=eff(currentAttack,def.id); if(m===2) good.push(def.id); else if(m===0) immune.push(def.id); else if(m<1) bad.push(def.id);});
+  fillList('attackGood','attackGoodEmpty',good); fillList('attackBad','attackBadEmpty',bad); fillList('attackImmune','attackImmuneEmpty',immune);
+  byId('attackSuperCount').textContent=good.length; byId('attackResistCount').textContent=bad.length + immune.length;
+}
+function fillList(listId, emptyId, arr){byId(listId).innerHTML=arr.map(typeBadge).join(''); byId(emptyId).hidden=arr.length>0;}
+function renderDefense(){renderTypeGrid('defenseGrid', defenseSelection.filter(Boolean), id=>{if(defenseSelection[0]===id){defenseSelection=[null, defenseSelection[1]===id?null:defenseSelection[1]];} else if(defenseSelection[1]===id){defenseSelection[1]=null;} else if(!defenseSelection[0]) defenseSelection[0]=id; else if(!defenseSelection[1]) defenseSelection[1]=id; else defenseSelection=[id,null]; if(defenseSelection[0]===null && defenseSelection[1]) defenseSelection=[defenseSelection[1],null]; renderDefense();}, defenseSelection);
+  miniType(defenseSelection[0],'def1'); miniType(defenseSelection[1],'def2');
+  const def1=defenseSelection[0], def2=defenseSelection[1];
+  if(!def1){['weak4','weak2','resist2','resist4','immuneDefense'].forEach(id=>fillList(id,id+'Empty',[])); return;}
+  const weak4=[],weak2=[],resist2=[],resist4=[],immune=[];
+  TYPES.forEach(atk=>{const m=eff(atk.id,def1)*(def2?eff(atk.id,def2):1); if(m===0) immune.push(atk.id); else if(m>=4) weak4.push(atk.id); else if(m>1) weak2.push(atk.id); else if(m<=0.25) resist4.push(atk.id); else if(m<1) resist2.push(atk.id);});
+  fillList('weak4','weak4Empty',weak4); fillList('weak2','weak2Empty',weak2); fillList('resist2','resist2Empty',resist2); fillList('resist4','resist4Empty',resist4); fillList('immuneDefense','immuneDefenseEmpty',immune);
+}
+function buildQuickTable(){const box=byId('quickTable'); box.innerHTML=TYPES.map(t=>{const good=[],bad=[],immune=[]; TYPES.forEach(def=>{const m=eff(t.id,def.id); if(m===2) good.push(TYPE_MAP[def.id].name); else if(m===0) immune.push(TYPE_MAP[def.id].name); else if(m<1) bad.push(TYPE_MAP[def.id].name);}); return `<div class="quick-type"><h4><span class="mini-type" style="background:linear-gradient(135deg, ${alpha(t.color,.88)}, ${alpha(t.color,.65)});border-color:${alpha('#fff',.18)}">${t.name}</span></h4><div class="line"><b>Muito bom contra</b>${good.join(', ')||'—'}</div><div class="line"><b>Funciona pior contra</b>${bad.join(', ')||'—'}</div><div class="line"><b>Caso especial</b>${immune.join(', ')||'—'}</div></div>`;}).join('');}
+function setMode(mode){const attack=mode==='attack'; byId('attackMode').classList.toggle('active',attack); byId('attackMode').hidden=!attack; byId('defenseMode').classList.toggle('active',!attack); byId('defenseMode').hidden=attack; byId('attackTab').classList.toggle('active',attack); byId('attackTab').setAttribute('aria-selected',attack); byId('defenseTab').classList.toggle('active',!attack); byId('defenseTab').setAttribute('aria-selected',!attack);}
+byId('attackTab').addEventListener('click',()=>setMode('attack')); byId('defenseTab').addEventListener('click',()=>setMode('defense')); byId('clearDefense').addEventListener('click',()=>{defenseSelection=[null,null]; renderDefense();});
+renderAttack(); renderDefense(); buildQuickTable();
+</script>
+<script src="nav.js"></script>
+</body></html>

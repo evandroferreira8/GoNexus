@@ -124,3 +124,15 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 ## Ajuste visual extra
 
 - Aba **Quiz do Companheiro** recebeu título mais forte e brilho visual mais evidente para destacar a experiência.
+
+
+## Refinamento profundo do resultado
+- Arte do companheiro usa PNGs transparentes individuais em alta qualidade, sem recorte quadrado do sprite sheet.
+- Resultado no site ganhou mais respiro, aura limpa e hierarquia refinada.
+- Card 1080×1350 passou a ser full-bleed, sem quadro externo, com composição mais editorial e espaçamento equilibrado.
+
+
+## Ovo — orientação de interação
+- O primeiro toque agora revela uma mensagem explícita pedindo um novo toque.
+- O segundo toque avisa que o ovo está prestes a eclodir e orienta o terceiro toque.
+- O aviso funciona também em telas touch e mostra progresso visual 1/3 e 2/3.

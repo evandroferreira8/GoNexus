@@ -262,6 +262,11 @@
         darkrai:{name:'Darkrai',type:'Mítico',title:'O mistério profundo',traits:['Profundidade','Reserva','Intensidade'],glow:'168,85,247',gradient:['#6d28d9','#312e81'],desc:'Você é mais intenso do que parece à primeira vista. Prefere profundidade a superficialidade e costuma perceber nuances que passam despercebidas.',share:'Meu companheiro do GO Nexus é Darkrai 🌙 · profundidade, reserva e intensidade.'}
       };
 
+      const companionAssetMap={
+        lugia:'assets/companion/lugia.png',ho_oh:'assets/companion/ho_oh.png',rayquaza:'assets/companion/rayquaza.png',suicune:'assets/companion/suicune.png',
+        mew:'assets/companion/mew.png',celebi:'assets/companion/celebi.png',jirachi:'assets/companion/jirachi.png',darkrai:'assets/companion/darkrai.png'
+      };
+      const companionArt=(key,cls='')=>`<img ${cls?`class="${cls}"`:''} loading="eager" src="${companionAssetMap[key]}" alt="${companionProfiles[key]?.name||key}">`;
       const companionPriority=['lugia','ho_oh','rayquaza','suicune','mew','celebi','jirachi','darkrai'];
       const companionQuestions=[
         {q:'Em um evento do Pokémon GO, qual papel combina mais com você?',options:[
@@ -331,7 +336,7 @@
         .egg[data-stage="3"]{filter:drop-shadow(0 0 20px rgba(250,204,21,.34))}.egg[data-stage="3"] .egg-art{filter:brightness(1.2) saturate(1.12);transform:scale(1.04)}.egg[data-stage="3"] .cracks{opacity:1}
         @keyframes eggWake1{0%,100%{transform:rotate(0) scale(1)}25%{transform:rotate(-3deg) scale(1.02)}50%{transform:rotate(3deg) scale(1.03)}75%{transform:rotate(-2deg) scale(1.015)}}
         @keyframes eggWake2{0%,100%{transform:rotate(0) scale(1)}18%{transform:rotate(-4deg) scale(1.025)}36%{transform:rotate(4deg) scale(1.045)}54%{transform:rotate(-3deg) scale(1.04)}72%{transform:rotate(3deg) scale(1.03)}}
-        .egg-hint{opacity:0;visibility:hidden;transform:translateY(5px);transition:opacity .2s,transform .2s,visibility .2s;max-width:185px;padding:8px 10px;border-radius:12px;border:1px solid rgba(55,75,110,.65);background:rgba(7,17,31,.93);color:#a9b9cc;font-size:.72rem;line-height:1.45;box-shadow:0 14px 30px rgba(0,0,0,.28)}.egg-dock:hover .egg-hint,.egg-dock:focus-within .egg-hint{opacity:1;visibility:visible;transform:none}.egg-hint b{color:#fff3bf}
+        .egg-hint{opacity:0;visibility:hidden;transform:translateY(5px) scale(.98);transition:opacity .22s,transform .22s,visibility .22s;max-width:220px;padding:10px 12px;border-radius:14px;border:1px solid rgba(79,103,144,.72);background:linear-gradient(145deg,rgba(8,20,36,.97),rgba(6,15,28,.98));color:#b6c6d9;font-size:.74rem;line-height:1.48;box-shadow:0 16px 34px rgba(0,0,0,.34),0 0 18px rgba(56,189,248,.06);pointer-events:none}.egg-dock:hover .egg-hint,.egg-dock:focus-within .egg-hint,.egg-dock.prompt .egg-hint{opacity:1;visibility:visible;transform:none}.egg-hint b{display:block;margin-bottom:2px;color:#fff3bf;font-size:.78rem}.egg-hint .hint-progress{display:inline-flex;align-items:center;gap:5px;margin-top:7px;color:#8fb8d2;font-size:.66rem;font-weight:850;letter-spacing:.02em}.egg-hint .hint-progress i{display:block;width:5px;height:5px;border-radius:50%;background:#47617e;box-shadow:none}.egg-hint .hint-progress i.on{background:#fde68a;box-shadow:0 0 8px rgba(250,204,21,.5)}
 
         .flash{position:fixed;inset:0;z-index:1690;display:none;place-items:center;background:radial-gradient(circle at center,rgba(250,204,21,.12),rgba(5,9,24,.9) 58%,rgba(3,6,18,.97));backdrop-filter:blur(9px)}.flash.show{display:grid;animation:flashFade 2.65s ease forwards}.flash-stage{position:relative;width:min(430px,82vw);aspect-ratio:1/1;display:grid;place-items:center}.flash-ring{position:absolute;inset:3%;border-radius:50%;background:conic-gradient(from 0deg,transparent,rgba(250,204,21,.26),transparent 14%,rgba(134,239,172,.18),transparent 32%,rgba(56,189,248,.16),transparent 52%,rgba(250,204,21,.24),transparent 72%);filter:blur(8px);animation:spinRing 4.6s linear infinite}.flash-egg{position:relative;z-index:2;width:76%;height:76%;object-fit:contain;filter:drop-shadow(0 0 22px rgba(250,204,21,.42)) drop-shadow(0 0 18px rgba(134,239,172,.2));animation:hatchEgg 2.35s ease forwards}.flash-arceus{position:absolute;z-index:1;width:66%;height:66%;object-fit:contain;opacity:0;filter:drop-shadow(0 0 22px rgba(250,204,21,.28));animation:arceusReveal 2.35s ease forwards}.flash-crack{position:absolute;z-index:3;width:44%;height:46%;top:29%;left:28%;opacity:0;background:linear-gradient(135deg,transparent 0 22%,#fff 23% 25%,transparent 26% 43%,#fff 44% 46%,transparent 47% 63%,#fff 64% 66%,transparent 67%);filter:drop-shadow(0 0 8px white);animation:crackReveal 2.35s ease forwards}
         @keyframes hatchEgg{0%{transform:scale(.82);opacity:0}12%{opacity:1}35%{transform:scale(.95) rotate(-2deg)}50%{transform:scale(1.04) rotate(2deg)}67%{transform:scale(1.08);opacity:1}82%,100%{transform:scale(1.2);opacity:0}}
@@ -372,23 +377,24 @@
         .quiz-option-badge{width:29px;height:29px;flex:0 0 29px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,rgba(56,189,248,.16),rgba(139,92,246,.18));border:1px solid rgba(96,165,250,.3);color:#d7e9ff;font-size:.78rem;font-weight:900}
         .quiz-option-text{font-size:.86rem;line-height:1.5;color:#e7eff8}
         .quiz-meta{margin-top:12px;color:#8ea4be;font-size:.75rem;line-height:1.55}
-        .result-card{position:relative;overflow:hidden}
-        .result-card::before{content:'';position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--c1,#38bdf8),var(--c2,#8b5cf6),#facc15)}
-        .result-top{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center}
-        .result-art{position:relative;min-height:150px;display:grid;place-items:center;border-radius:20px;border:1px solid rgba(49,69,103,.55);background:radial-gradient(circle at center,rgba(255,255,255,.06),transparent 62%),linear-gradient(180deg,rgba(10,20,36,.98),rgba(8,17,31,.98))}
-        .result-art::before{content:'';position:absolute;width:112px;height:112px;border-radius:50%;background:radial-gradient(circle,rgba(var(--glow,56,189,248),.28),rgba(var(--glow,56,189,248),.08) 45%,transparent 72%);filter:blur(3px)}
-        .result-art img,.result-art .sprite-frame{position:relative;z-index:1;width:118px;height:118px;--sprite-scale:1.05;filter:drop-shadow(0 10px 16px rgba(0,0,0,.32)) drop-shadow(0 0 15px rgba(var(--glow,56,189,248),.28))}
-        .result-kicker{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#dbe8f8;font-size:.7rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
-        .result-copy h4{margin:10px 0 3px;font-size:1.48rem;line-height:1.08}
-        .result-copy .subtitle{margin:0;color:#fde68a;font-size:.86rem;font-weight:800}
-        .result-copy p{margin:10px 0 0;color:#a5b8cf;font-size:.86rem;line-height:1.62}
-        .trait-list{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 0;padding:0;list-style:none}
-        .trait-list li{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.05);color:#eef6ff;font-size:.78rem;font-weight:850}
-        .result-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-        .result-btn{appearance:none;border:1px solid rgba(70,96,138,.82);border-radius:14px;background:linear-gradient(135deg,rgba(16,33,57,.98),rgba(11,22,40,.98));color:#f5f9ff;padding:12px 14px;font-size:.82rem;font-weight:900;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
-        .result-btn:hover,.result-btn:focus-visible{transform:translateY(-1px);border-color:rgba(96,165,250,.72);box-shadow:0 12px 24px rgba(0,0,0,.18),0 0 18px rgba(96,165,250,.12)}
-        .result-btn.primary{background:linear-gradient(135deg,rgba(29,78,216,.95),rgba(124,58,237,.95));border-color:rgba(147,197,253,.42)}
-        .result-note{margin-top:10px;color:#8398b2;font-size:.72rem;line-height:1.5}
+        .result-card{position:relative;overflow:hidden;border:1px solid rgba(67,88,122,.68);border-radius:28px;background:radial-gradient(circle at 50% 4%,rgba(var(--glow,56,189,248),.08),transparent 30%),linear-gradient(160deg,rgba(9,22,40,.985),rgba(6,15,28,.99));padding:28px 28px 24px;box-shadow:0 24px 55px rgba(0,0,0,.22)}
+        .result-card::before{content:'';position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,var(--c1,#38bdf8) 20%,#facc15 50%,var(--c2,#8b5cf6) 80%,transparent);opacity:.9}
+        .result-top{display:grid;grid-template-columns:230px minmax(0,1fr);gap:32px;align-items:center}
+        .result-art{position:relative;min-height:230px;display:grid;place-items:center;background:transparent;border:0;border-radius:0;isolation:isolate}
+        .result-art::before{content:'';position:absolute;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(var(--glow,56,189,248),.30),rgba(var(--glow,56,189,248),.11) 42%,transparent 72%);filter:blur(7px);z-index:-1}
+        .result-art::after{content:'';position:absolute;width:172px;height:172px;border-radius:50%;border:1px solid rgba(var(--glow,56,189,248),.20);box-shadow:0 0 30px rgba(var(--glow,56,189,248),.10);z-index:-1}
+        .result-art img.companion-result-art{position:relative;z-index:1;width:190px;height:190px;object-fit:contain;filter:drop-shadow(0 18px 20px rgba(0,0,0,.32)) drop-shadow(0 0 16px rgba(var(--glow,56,189,248),.20));transform:translateZ(0)}
+        .result-kicker{display:inline-flex;align-items:center;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);color:#dbe8f8;font-size:.69rem;font-weight:900;letter-spacing:.055em;text-transform:uppercase}
+        .result-copy h4{margin:13px 0 4px;font-size:1.72rem;line-height:1.05;letter-spacing:-.025em}
+        .result-copy .subtitle{margin:0;color:#fde68a;font-size:.94rem;font-weight:850}
+        .result-copy p{margin:13px 0 0;color:#a9bbd0;font-size:.88rem;line-height:1.7;max-width:650px}
+        .trait-list{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0;padding:0;list-style:none}
+        .trait-list li{padding:8px 12px;border-radius:999px;border:1px solid rgba(var(--glow,56,189,248),.18);background:rgba(var(--glow,56,189,248),.055);color:#eef6ff;font-size:.76rem;font-weight:850}
+        .result-actions{display:grid;grid-template-columns:1.35fr 1fr 1fr auto;gap:10px;margin-top:25px;padding-top:20px;border-top:1px solid rgba(77,98,130,.34)}
+        .result-btn{appearance:none;min-height:48px;border:1px solid rgba(70,96,138,.72);border-radius:14px;background:rgba(10,24,43,.76);color:#f5f9ff;padding:12px 14px;font-size:.8rem;font-weight:900;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease}
+        .result-btn:hover,.result-btn:focus-visible{transform:translateY(-1px);border-color:rgba(96,165,250,.7);background:rgba(15,32,56,.92);box-shadow:0 10px 22px rgba(0,0,0,.16),0 0 16px rgba(96,165,250,.09)}
+        .result-btn.primary{background:linear-gradient(135deg,#2859e8,#7138e8);border-color:rgba(167,139,250,.52);box-shadow:0 12px 25px rgba(67,56,202,.17)}
+        .result-note{margin:12px 2px 0;color:#7f94ad;font-size:.69rem;line-height:1.55}
         .companion-intro{padding:20px 20px 18px;background:radial-gradient(circle at 88% 18%,rgba(250,204,21,.09),transparent 28%),radial-gradient(circle at 12% 12%,rgba(56,189,248,.12),transparent 26%),linear-gradient(145deg,rgba(9,22,40,.98),rgba(8,17,31,.99))}
         .companion-intro::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 0 46%,rgba(255,255,255,.025) 48%,transparent 50%)}
         .companion-intro h4{font-size:1.22rem;letter-spacing:-.015em}.companion-intro p{max-width:820px}
@@ -408,23 +414,23 @@
           .arceus-stage{min-height:142px}.arceus-stage::before{width:124px;height:124px}.arceus-stage img{max-width:132px;max-height:132px}
           .hero-copy .eyebrow{font-size:.66rem;padding:5px 9px}.hero-copy h2{font-size:1.72rem;margin:8px 0 6px}.hero-copy p{font-size:.82rem;line-height:1.52;max-width:none}
           .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:0 18px 14px}.tab{padding:9px 8px;font-size:.76rem;min-width:0;white-space:nowrap}
-          .panel{padding:0 18px 22px}.panel-title{align-items:flex-start;flex-direction:column;gap:7px;margin-bottom:11px}.panel-title h3{font-size:1rem}.panel-title p{font-size:.75rem;line-height:1.45;margin-top:3px}.micro{display:inline-flex;align-items:center;align-self:flex-start;padding:5px 8px;border:1px solid rgba(56,189,248,.18);border-radius:999px;background:rgba(56,189,248,.055);font-size:.66rem;line-height:1.25;color:#9dc8df}.quiz-options{grid-template-columns:1fr}.result-top{grid-template-columns:1fr}.result-art{min-height:132px}.result-copy{text-align:center}.trait-list{justify-content:center}.result-actions{flex-direction:column}.result-btn{width:100%}.companion-intro{padding:14px 14px 15px}
+          .panel{padding:0 18px 22px}.panel-title{align-items:flex-start;flex-direction:column;gap:7px;margin-bottom:11px}.panel-title h3{font-size:1rem}.panel-title p{font-size:.75rem;line-height:1.45;margin-top:3px}.micro{display:inline-flex;align-items:center;align-self:flex-start;padding:5px 8px;border:1px solid rgba(56,189,248,.18);border-radius:999px;background:rgba(56,189,248,.055);font-size:.66rem;line-height:1.25;color:#9dc8df}.quiz-options{grid-template-columns:1fr}.result-card{padding:22px 18px 18px}.result-top{grid-template-columns:1fr;gap:8px}.result-art{min-height:190px}.result-art::before{width:170px;height:170px}.result-art::after{width:154px;height:154px}.result-art img.companion-result-art{width:170px;height:170px}.result-copy{text-align:center;padding:0 4px}.result-copy p{margin-left:auto;margin-right:auto}.trait-list{justify-content:center}.result-actions{grid-template-columns:1fr;margin-top:21px;padding-top:18px}.result-btn{width:100%}.companion-intro{padding:14px 14px 15px}
           .legend-grid{grid-template-columns:1fr;gap:12px}.legend-group{padding:12px 12px 13px;overflow:visible}.legend-title{font-size:.82rem;margin-bottom:10px}.legend-orbit{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;overflow:visible;padding:0}.legend-orbit .cosmic-node:last-child:nth-child(odd){grid-column:1/-1;width:min(180px,100%);justify-self:center}
           .origin-row{gap:8px}.origin-row:not(:first-child){display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.origin-row:not(:first-child) .cosmic-node:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:min(180px,100%)}
           .cosmic-node{width:100%;min-width:0;padding:10px 7px;border-radius:16px}.cosmic-node.god{width:164px;padding:13px 9px}.cosmic-node.mini,.cosmic-node.myth-mini{width:100%;padding:10px 7px}.cosmic-node img{width:72px;height:72px}.cosmic-node .sprite-frame{width:72px;height:72px;--sprite-scale:.643}.cosmic-node.mini img,.cosmic-node.myth-mini img{width:70px;height:70px}.cosmic-node.mini .sprite-frame,.cosmic-node.myth-mini .sprite-frame{width:70px;height:70px;--sprite-scale:.625}.cosmic-node span,.cosmic-node.mini span,.cosmic-node.myth-mini span{font-size:.77rem;min-height:1.9em;display:flex;align-items:center;justify-content:center}.cosmic-node small{font-size:.61rem}
           .myth-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.myth-grid .cosmic-node:last-child:nth-child(odd){grid-column:1/-1;width:min(180px,100%);justify-self:center}
         }
         @media(max-width:520px){
-          .egg-dock{left:9px;bottom:9px}.egg{width:68px;height:68px}.egg-hint{display:none}.overlay{padding:7px}.cosmos{width:100%;max-height:95vh;border-radius:20px}
+          .egg-dock{left:9px;bottom:9px}.egg{width:68px;height:68px}.egg-hint{position:absolute;left:0;bottom:78px;width:min(270px,calc(100vw - 18px));max-width:none;padding:10px 12px;font-size:.72rem}.overlay{padding:7px}.cosmos{width:100%;max-height:95vh;border-radius:20px}
           .cosmic-hero{grid-template-columns:102px minmax(0,1fr);gap:12px;padding:18px 12px 10px}.arceus-stage{min-height:112px}.arceus-stage::before{width:96px;height:96px}.arceus-stage img{max-width:108px;max-height:108px}
           .hero-copy{text-align:left;padding-right:28px}.hero-copy .eyebrow{font-size:.6rem;padding:4px 7px;letter-spacing:.04em}.hero-copy h2{font-size:1.48rem;margin:7px 0 5px;line-height:1.08}.hero-copy p{font-size:.75rem;line-height:1.45;color:#aebed0}.hero-copy strong{display:inline;color:#f5e9bd}
           .tabs{padding:0 10px 11px;gap:6px}.tab{font-size:.7rem;padding:8px 5px;border-radius:10px}
-          .panel{padding:0 10px 16px}.panel-title{margin-bottom:10px;gap:6px}.panel-title h3{font-size:.96rem}.panel-title p{font-size:.72rem}.micro{font-size:.62rem;padding:4px 7px}.quiz-card,.result-card{padding:13px}.quiz-question{font-size:1rem}.quiz-option{padding:12px 11px}.quiz-option-text{font-size:.82rem}.companion-intro h4{font-size:1rem}.companion-intro p{font-size:.78rem}.result-copy h4{font-size:1.26rem}.result-copy p{font-size:.8rem}.result-art img,.result-art .sprite-frame{width:106px;height:106px}
+          .panel{padding:0 10px 16px}.panel-title{margin-bottom:10px;gap:6px}.panel-title h3{font-size:.96rem}.panel-title p{font-size:.72rem}.micro{font-size:.62rem;padding:4px 7px}.quiz-card,.result-card{padding:13px}.quiz-question{font-size:1rem}.quiz-option{padding:12px 11px}.quiz-option-text{font-size:.82rem}.companion-intro h4{font-size:1rem}.companion-intro p{font-size:.78rem}.result-copy h4{font-size:1.26rem}.result-copy p{font-size:.8rem}.result-art img.companion-result-art{width:158px;height:158px}.result-art{min-height:178px}
           .origin-map{padding:10px;border-radius:18px}.origin-row{gap:7px}.cosmic-node.god{width:150px}.cosmic-node span,.cosmic-node.mini span,.cosmic-node.myth-mini span{font-size:.75rem}.cosmic-node small{font-size:.59rem}
           .legend-group{padding:11px;border-radius:18px}.legend-title{font-size:.79rem}.legend-orbit{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.myth-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.cosmic-node.myth-mini{width:100%}
           .poke-popover{width:min(300px,calc(100vw - 20px));grid-template-columns:56px 1fr;padding:10px 11px;border-radius:15px}.poke-popover img,.poke-popover .sprite-frame{width:54px;height:54px}.poke-popover .sprite-frame{--sprite-scale:.482}.poke-popover strong{font-size:.82rem}.poke-popover p{font-size:.72rem;line-height:1.45}
         }
-        @media(hover:none),(pointer:coarse){.egg-hint{display:none!important}.egg-dock{max-width:86px}.egg{touch-action:manipulation}}
+        @media(hover:none),(pointer:coarse){.egg-dock{max-width:86px}.egg{touch-action:manipulation}.egg-hint{display:block;opacity:0;visibility:hidden}.egg-dock.prompt .egg-hint{opacity:1;visibility:visible;transform:none}}
         @media(prefers-reduced-motion:reduce){.egg-art,.egg-aura,.flash,.flash-ring,.flash-egg,.flash-arceus,.flash-crack,.cosmic-node,.cosmic-node img{animation:none!important;transition:none!important}}
       </style>
 
@@ -435,7 +441,7 @@
           <img class="egg-art" src="${EGG_DATA}" alt="">
           <span class="cracks" aria-hidden="true"></span>
         </button>
-        <div class="egg-hint"><b>Um ovo incomum...</b><br>Parece um ovo de Pokémon GO, mas suas cores lembram Arceus.</div>
+        <div class="egg-hint" aria-live="polite"><b data-egg-hint-title>Um ovo incomum...</b><span data-egg-hint-text>Parece reagir à sua presença. Talvez valha a pena tocar nele.</span><span class="hint-progress" aria-hidden="true"><i data-hint-dot="1"></i><i data-hint-dot="2"></i><i data-hint-dot="3"></i><span data-hint-count>0/3</span></span></div>
       </div>
 
       <div class="flash" aria-hidden="true"><div class="flash-stage"><span class="flash-ring"></span><img class="flash-arceus" src="${ARCEUS_DATA}" alt=""><img class="flash-egg" src="${EGG_DATA}" alt=""><span class="flash-crack"></span></div></div>
@@ -498,13 +504,30 @@
       const tabs=[...root.querySelectorAll('.tab')];
       const panels=[...root.querySelectorAll('.panel')];
       const popover=root.querySelector('[data-popover]');
+      const eggDock=root.querySelector('.egg-dock');
+      const eggHintTitle=root.querySelector('[data-egg-hint-title]');
+      const eggHintText=root.querySelector('[data-egg-hint-text]');
+      const eggHintCount=root.querySelector('[data-hint-count]');
+      const eggHintDots=[...root.querySelectorAll('[data-hint-dot]')];
       let activeNode=null;
       let clicks=0,revealed=false,flashTimer=null,openTimer=null;
 
       const setStage=stage=>{egg.dataset.stage=String(stage);};
+      const updateEggHint=(stage)=>{
+        const messages={
+          0:{title:'Um ovo incomum...',text:'Parece reagir à sua presença. Talvez valha a pena tocar nele.'},
+          1:{title:'O ovo respondeu!',text:'Algo se moveu lá dentro. Toque mais uma vez.'},
+          2:{title:'Está prestes a eclodir...',text:'As rachaduras aumentaram. Toque outra vez para revelar o segredo.'}
+        };
+        const msg=messages[stage]||messages[0];
+        eggHintTitle.textContent=msg.title;eggHintText.textContent=msg.text;
+        eggHintCount.textContent=`${stage}/3`;
+        eggHintDots.forEach((dot,index)=>dot.classList.toggle('on',index<stage));
+        if(stage>0&&stage<3)eggDock.classList.add('prompt');else eggDock.classList.remove('prompt');
+      };
       const openCosmos=()=>{overlay.classList.add('open');close.focus();};
       const reveal=()=>{
-        revealed=true;setStage(3);flash.classList.add('show');
+        revealed=true;setStage(3);updateEggHint(3);flash.classList.add('show');
         clearTimeout(flashTimer);clearTimeout(openTimer);
         openTimer=setTimeout(openCosmos,2100);
         flashTimer=setTimeout(()=>flash.classList.remove('show'),2700);
@@ -512,8 +535,8 @@
       egg.addEventListener('click',()=>{
         if(revealed){openCosmos();return;}
         clicks++;
-        if(clicks===1){setStage(1);}
-        else if(clicks===2){setStage(2);}
+        if(clicks===1){setStage(1);updateEggHint(1);egg.setAttribute('aria-label','O ovo reagiu. Toque mais uma vez.');}
+        else if(clicks===2){setStage(2);updateEggHint(2);egg.setAttribute('aria-label','O ovo está prestes a eclodir. Toque outra vez para revelar o segredo.');}
         else reveal();
       });
       const closeCosmos=()=>{overlay.classList.remove('open');popover.classList.remove('show');activeNode?.classList.remove('selected');activeNode=null;};
@@ -539,36 +562,34 @@
       const computeCompanionResult=()=>{const scores={};companionState.answers.forEach((answerIndex,questionIndex)=>{const option=companionQuestions[questionIndex]?.options?.[answerIndex];if(!option)return;Object.entries(option.scores).forEach(([key,value])=>{scores[key]=(scores[key]||0)+value;});});return resultPriority(scores);};
       const companionProgress=(step,total)=>`<div class="quiz-progress"><span>Pergunta ${step} de ${total}</span><div class="quiz-track" aria-hidden="true"><div class="quiz-fill" style="width:${Math.round(step/total*100)}%"></div></div></div>`;
       const renderQuestion=()=>{const q=companionQuestions[companionState.step];companionQuizHost.innerHTML=`<div class="quiz-card">${companionProgress(companionState.step+1,companionQuestions.length)}<h4 class="quiz-question">${q.q}</h4><div class="quiz-options">${q.options.map((option,index)=>`<button class="quiz-option" type="button" data-answer="${index}"><span class="quiz-option-badge">${String.fromCharCode(65+index)}</span><span class="quiz-option-text">${option.text}</span></button>`).join('')}</div><div class="quiz-meta">Escolha a alternativa que mais combina com você. O resultado aparece ao final com um card próprio para compartilhar.</div></div>`;};
-      const renderResult=key=>{const profile=companionProfiles[key];companionQuizHost.innerHTML=`<div class="result-card" style="--c1:${profile.gradient[0]};--c2:${profile.gradient[1]};--glow:${profile.glow}"><div class="result-top"><div class="result-art" style="--glow:${profile.glow}">${img(key,'companion-result-art')}</div><div class="result-copy"><span class="result-kicker">✦ Companheiro encontrado · ${profile.type}</span><h4>${profile.name}</h4><p class="subtitle">${profile.title}</p><p>${profile.desc}</p><ul class="trait-list">${profile.traits.map(trait=>`<li>${trait}</li>`).join('')}</ul></div></div><div class="result-actions"><button class="result-btn primary" type="button" data-companion-action="share">📤 Compartilhar resultado</button><button class="result-btn" type="button" data-companion-action="save">🖼️ Salvar card</button><button class="result-btn" type="button" data-companion-action="copy">📋 Copiar texto</button><button class="result-btn" type="button" data-companion-action="reset">↻ Refazer</button></div><div class="result-note">O card é criado no seu próprio navegador. No celular, o botão de compartilhar usa o menu nativo quando disponível.</div></div>`;};
+      const renderResult=key=>{const profile=companionProfiles[key];companionQuizHost.innerHTML=`<div class="result-card" style="--c1:${profile.gradient[0]};--c2:${profile.gradient[1]};--glow:${profile.glow}"><div class="result-top"><div class="result-art" style="--glow:${profile.glow}">${companionArt(key,'companion-result-art')}</div><div class="result-copy"><span class="result-kicker">✦ Companheiro encontrado · ${profile.type}</span><h4>${profile.name}</h4><p class="subtitle">${profile.title}</p><p>${profile.desc}</p><ul class="trait-list">${profile.traits.map(trait=>`<li>${trait}</li>`).join('')}</ul></div></div><div class="result-actions"><button class="result-btn primary" type="button" data-companion-action="share">📤 Compartilhar resultado</button><button class="result-btn" type="button" data-companion-action="save">🖼️ Salvar card</button><button class="result-btn" type="button" data-companion-action="copy">📋 Copiar texto</button><button class="result-btn" type="button" data-companion-action="reset">↻ Refazer</button></div><div class="result-note">O card é criado no seu próprio navegador. No celular, o botão de compartilhar usa o menu nativo quando disponível.</div></div>`;};
       const renderCompanionQuiz=()=>{if(!companionQuizHost)return;if(companionState.result)renderResult(companionState.result);else renderQuestion();};
       const roundedRect=(ctx,x,y,w,h,r)=>{const radius=Math.min(r,w/2,h/2);ctx.beginPath();ctx.moveTo(x+radius,y);ctx.arcTo(x+w,y,x+w,y+h,radius);ctx.arcTo(x+w,y+h,x,y+h,radius);ctx.arcTo(x,y+h,x,y,radius);ctx.arcTo(x,y,x+w,y,radius);ctx.closePath();};
       const wrapText=(ctx,text,x,y,maxWidth,lineHeight,color)=>{ctx.fillStyle=color;const words=text.split(/\s+/);let line='';let currentY=y;for(const word of words){const test=line?`${line} ${word}`:word;if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,currentY);line=word;currentY+=lineHeight;}else{line=test;}}if(line)ctx.fillText(line,x,currentY);return currentY;};
       const buildCompanionCard=async key=>{
         const profile=companionProfiles[key];
-        const canvas=document.createElement('canvas');
-        canvas.width=1080;canvas.height=1350;
-        const ctx=canvas.getContext('2d');
-        const W=canvas.width,H=canvas.height;
-        ctx.fillStyle='#06101d';ctx.fillRect(0,0,W,H);
-        const bg=ctx.createLinearGradient(0,0,W,H);bg.addColorStop(0,profile.gradient[0]);bg.addColorStop(.5,'#07111f');bg.addColorStop(1,profile.gradient[1]);ctx.globalAlpha=.22;ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);ctx.globalAlpha=1;
-        for(let i=0;i<34;i++){const x=(i*173)%W,y=(i*263)%H,r=2+(i%3);ctx.fillStyle=`rgba(255,255,255,${.035+(i%4)*.012})`;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
-        roundedRect(ctx,54,54,972,1242,48);ctx.fillStyle='rgba(7,17,31,.9)';ctx.fill();ctx.strokeStyle='rgba(148,163,184,.24)';ctx.lineWidth=2;ctx.stroke();
-        const top=ctx.createLinearGradient(84,84,996,540);top.addColorStop(0,profile.gradient[0]);top.addColorStop(1,profile.gradient[1]);ctx.save();roundedRect(ctx,84,84,912,470,38);ctx.clip();ctx.fillStyle=top;ctx.fillRect(84,84,912,470);const haze=ctx.createRadialGradient(820,280,40,820,280,260);haze.addColorStop(0,'rgba(255,255,255,.22)');haze.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=haze;ctx.fillRect(84,84,912,470);ctx.restore();
-        ctx.fillStyle='rgba(255,255,255,.96)';ctx.font='800 32px Inter, Arial, sans-serif';ctx.fillText('GO NEXUS',124,142);ctx.fillStyle='rgba(255,255,255,.78)';ctx.font='600 25px Inter, Arial, sans-serif';ctx.fillText('Meu companheiro Lendário ou Mítico é…',124,184);
-        ctx.fillStyle='#fff';ctx.font='900 78px Inter, Arial, sans-serif';ctx.fillText(profile.name.toUpperCase(),124,300);
-        ctx.fillStyle='#fff4bc';ctx.font='800 34px Inter, Arial, sans-serif';ctx.fillText(profile.title,124,350);
-        roundedRect(ctx,124,386,168,46,23);ctx.fillStyle='rgba(7,17,31,.28)';ctx.fill();ctx.fillStyle='rgba(255,255,255,.92)';ctx.font='800 23px Inter, Arial, sans-serif';ctx.fillText(profile.type,151,417);
-        const centerX=824,centerY=325;const aura=ctx.createRadialGradient(centerX,centerY,30,centerX,centerY,190);aura.addColorStop(0,`rgba(${profile.glow},.58)`);aura.addColorStop(.52,`rgba(${profile.glow},.18)`);aura.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=aura;ctx.beginPath();ctx.arc(centerX,centerY,195,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(255,255,255,.24)';ctx.lineWidth=3;ctx.beginPath();ctx.arc(centerX,centerY,156,0,Math.PI*2);ctx.stroke();
-        if(key==='arceus'){const art=await loadImage(ARCEUS_DATA);ctx.drawImage(art,704,205,240,240);}else if(SPRITE_POS[key]){const sheet=await getSpriteSheet();const [sx,sy]=SPRITE_POS[key];ctx.imageSmoothingEnabled=false;ctx.drawImage(sheet,sx,sy,112,112,704,205,240,240);ctx.imageSmoothingEnabled=true;}
-        roundedRect(ctx,84,592,912,562,34);ctx.fillStyle='rgba(255,255,255,.045)';ctx.fill();ctx.strokeStyle='rgba(148,163,184,.12)';ctx.lineWidth=1.5;ctx.stroke();
-        ctx.fillStyle='#f8fbff';ctx.font='800 30px Inter, Arial, sans-serif';ctx.fillText('Sua energia no GO Nexus',124,658);
-        let tx=124,ty=711;ctx.font='800 25px Inter, Arial, sans-serif';for(const trait of profile.traits){const width=ctx.measureText(trait).width+48;if(tx+width>930){tx=124;ty+=62;}roundedRect(ctx,tx,ty-32,width,46,23);ctx.fillStyle=`rgba(${profile.glow},.1)`;ctx.fill();ctx.strokeStyle=`rgba(${profile.glow},.32)`;ctx.lineWidth=1.5;ctx.stroke();ctx.fillStyle='#eff6ff';ctx.fillText(trait,tx+24,ty-2);tx+=width+12;}
-        ctx.fillStyle='#c9d7e8';ctx.font='500 31px Inter, Arial, sans-serif';wrapText(ctx,profile.desc,124,826,800,47,'#c9d7e8');
-        roundedRect(ctx,124,1046,832,2,1);ctx.fillStyle='rgba(148,163,184,.18)';ctx.fill();
-        ctx.fillStyle='#93c5fd';ctx.font='800 27px Inter, Arial, sans-serif';ctx.fillText('Descubra o seu companheiro no GO Nexus',124,1106);
-        ctx.fillStyle='#8ea3be';ctx.font='500 22px Inter, Arial, sans-serif';ctx.fillText(shareUrl,124,1148);
-        ctx.fillStyle='rgba(255,255,255,.58)';ctx.font='500 20px Inter, Arial, sans-serif';ctx.fillText('Quiz lúdico · resultado baseado nas suas escolhas',124,1234);
-        ctx.fillStyle='rgba(255,255,255,.8)';ctx.font='800 20px Inter, Arial, sans-serif';ctx.textAlign='right';ctx.fillText('GO NEXUS',956,1234);ctx.textAlign='left';
+        const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1350;
+        const ctx=canvas.getContext('2d'),W=canvas.width,H=canvas.height;
+        ctx.fillStyle='#07111f';ctx.fillRect(0,0,W,H);
+        const bg=ctx.createLinearGradient(0,0,W,H);bg.addColorStop(0,'#07111f');bg.addColorStop(.58,'#091426');bg.addColorStop(1,'#07101d');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+        const glow1=ctx.createRadialGradient(100,70,0,100,70,520);glow1.addColorStop(0,profile.gradient[0]+'55');glow1.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow1;ctx.fillRect(0,0,W,H);
+        const glow2=ctx.createRadialGradient(1000,1290,0,1000,1290,540);glow2.addColorStop(0,profile.gradient[1]+'44');glow2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow2;ctx.fillRect(0,0,W,H);
+        for(let i=0;i<28;i++){const x=(i*193)%W,y=(i*277)%H,r=1.4+(i%3);ctx.fillStyle=`rgba(255,255,255,${.025+(i%4)*.01})`;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}
+        const hero=ctx.createLinearGradient(70,80,1010,570);hero.addColorStop(0,profile.gradient[0]);hero.addColorStop(1,profile.gradient[1]);roundedRect(ctx,70,76,940,500,38);ctx.fillStyle=hero;ctx.fill();
+        const heroShade=ctx.createLinearGradient(70,76,1010,576);heroShade.addColorStop(0,'rgba(0,0,0,.02)');heroShade.addColorStop(1,'rgba(4,10,20,.12)');ctx.fillStyle=heroShade;roundedRect(ctx,70,76,940,500,38);ctx.fill();
+        ctx.fillStyle='rgba(255,255,255,.96)';ctx.font='800 30px Inter, Arial, sans-serif';ctx.fillText('GO NEXUS',116,142);
+        ctx.fillStyle='rgba(255,255,255,.80)';ctx.font='600 24px Inter, Arial, sans-serif';ctx.fillText('MEU COMPANHEIRO LENDÁRIO OU MÍTICO',116,184);
+        ctx.fillStyle='#fff';ctx.font='900 76px Inter, Arial, sans-serif';ctx.fillText(profile.name.toUpperCase(),116,300);
+        ctx.fillStyle='rgba(255,249,214,.98)';ctx.font='800 34px Inter, Arial, sans-serif';ctx.fillText(profile.title,116,350);
+        roundedRect(ctx,116,389,156,48,24);ctx.fillStyle='rgba(5,12,25,.23)';ctx.fill();ctx.fillStyle='#fff';ctx.font='800 24px Inter, Arial, sans-serif';ctx.fillText(profile.type,140,421);
+        const art=await loadImage(companionAssetMap[key]);const cx=830,cy=320;const aura=ctx.createRadialGradient(cx,cy,20,cx,cy,190);aura.addColorStop(0,'rgba(255,255,255,.25)');aura.addColorStop(.42,`rgba(${profile.glow},.20)`);aura.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=aura;ctx.beginPath();ctx.arc(cx,cy,190,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(255,255,255,.24)';ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,154,0,Math.PI*2);ctx.stroke();ctx.drawImage(art,690,180,280,280);
+        ctx.fillStyle='#f7fbff';ctx.font='800 34px Inter, Arial, sans-serif';ctx.fillText('Sua energia',116,680);
+        let tx=116,ty=734;ctx.font='800 25px Inter, Arial, sans-serif';for(const trait of profile.traits){const width=ctx.measureText(trait).width+48;if(tx+width>940){tx=116;ty+=58;}roundedRect(ctx,tx,ty-34,width,48,24);ctx.fillStyle=`rgba(${profile.glow},.08)`;ctx.fill();ctx.strokeStyle=`rgba(${profile.glow},.25)`;ctx.lineWidth=1.5;ctx.stroke();ctx.fillStyle='#f3f7fd';ctx.fillText(trait,tx+24,ty-2);tx+=width+12;}
+        ctx.font='500 31px Inter, Arial, sans-serif';wrapText(ctx,profile.desc,116,852,840,47,'#cbd8e8');
+        ctx.strokeStyle='rgba(128,150,184,.22)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(116,1062);ctx.lineTo(964,1062);ctx.stroke();
+        ctx.fillStyle='#93c5fd';ctx.font='800 28px Inter, Arial, sans-serif';ctx.fillText('Descubra o seu companheiro',116,1122);
+        ctx.fillStyle='#9aacbf';ctx.font='500 23px Inter, Arial, sans-serif';ctx.fillText('evandroferreira8.github.io/GoNexus/',116,1164);
+        ctx.fillStyle='rgba(255,255,255,.56)';ctx.font='600 21px Inter, Arial, sans-serif';ctx.fillText('Quiz lúdico · resultado baseado nas suas escolhas',116,1254);ctx.textAlign='right';ctx.fillStyle='rgba(255,255,255,.82)';ctx.font='800 22px Inter, Arial, sans-serif';ctx.fillText('GO NEXUS',964,1254);ctx.textAlign='left';
         return new Promise(resolve=>canvas.toBlob(blob=>resolve({blob,canvas}),'image/png'));
       };
       const companionShareText=key=>`${companionProfiles[key].share}

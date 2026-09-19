@@ -8,7 +8,7 @@
     { file: "efeitos-aventura.html", icon: "⚡", label: "Efeitos Aventura", desc: "Custos, duração e efeitos" },
     { file: "poeira-estelar.html", icon: "✨", label: "Poeira Estelar", desc: "Pokémon com Poeira aumentada" },
     { file: "evolucoes-especiais.html", icon: "🧬", label: "Evoluções Especiais", desc: "Pré-requisitos para evoluir" },
-    { file: "formas-especiais.html", icon: "🔄", label: "Formas Especiais", desc: "Fusões e mudanças de forma" },
+    { file: "formas-especiais.html", icon: "🔄", label: "Formas e Variações", desc: "Fusões, formas e Shinies" },
     { file: "central-mega.html", icon: "🔷", label: "Central Mega", desc: "Megas, energia e Meganíveis" },
     { file: "central-max.html", icon: "🔴", label: "Central Max", desc: "Dinamax, Gigamax e Max" },
     { file: "tipagens.html", icon: "🛡️", label: "Tipagens", desc: "Fortes, fracos e resistências" },
@@ -53,6 +53,7 @@
             <nav class="nav" aria-label="Navegação principal">
               <a class="navlink${current==='index.html'?' active':''}" href="index.html"${current==='index.html'?' aria-current="page"':''}>🏠 <span>Início</span></a>
               <details class="toolmenu${inTools?' active':''}"><summary>🧰 <span>Ferramentas</span> <span class="chev">▼</span></summary><div class="menu">${toolLinks}</div></details>
+              <a class="navlink${current==='quiz.html'?' active':''}" href="quiz.html"${current==='quiz.html'?' aria-current="page"':''}>🎮 <span>Quiz</span></a>
               <a class="navlink" href="${FEEDBACK}" target="_blank" rel="noopener noreferrer">💬 <span>Feedback</span></a>
             </nav>
           </div>

@@ -1,51 +1,43 @@
-# GO Nexus — Tipagens + Poképaradas
+# GO Nexus — Quiz + Formas e Variações
 
-Versão do GO Nexus com duas novas áreas:
+Versão consolidada do GO Nexus com **10 ferramentas**, uma área especial de **Quiz** no cabeçalho e nova seção educativa sobre **Pokémon Brilhantes**.
 
-- **Tipagens** — guia visual para entender vantagens, desvantagens, fraquezas e resistências.
-- **Poképaradas** — guia prático para indicação de Wayspots / Poképaradas sem complicar.
+## Novidades desta versão
 
-## O que foi feito
+### 🎮 Quiz GO Nexus
+- Página nova: `quiz.html`.
+- **80 perguntas**, em referência aos 80 níveis do Pokémon GO.
+- 8 perguntas para cada uma das 10 ferramentas do site.
+- Dois modos:
+  - Rodada rápida: 10 perguntas sorteadas.
+  - Desafio dos 80 níveis: todas as 80 perguntas.
+- Feedback explicativo após cada resposta.
+- Visual e áreas de toque pensados para celular.
 
-### 1) Nova página: `tipagens.html`
-- Visual mais forte e chamativo, alinhado com a identidade já usada no GO Nexus.
-- Dois modos de consulta:
-  - **Atacando**: mostra contra quem cada tipo é forte ou fraco.
-  - **Defendendo**: mostra fraquezas e resistências de tipos simples e duplos.
-- Botões grandes para toque no celular.
-- Resumo rápido por tipo em sanfona para reduzir rolagem.
+### ✨ Formas Especiais e Variações Visuais
+A antiga página **Formas Especiais** passa a ser apresentada como **Formas e Variações** no menu e na Home.
 
-### 2) Nova página: `pokeparadas.html`
-- Explica o básico da indicação de Poképaradas / Wayspots.
-- Traz visão prática de critérios, passo a passo, boas práticas e erros comuns.
-- Inclui um analisador rápido do tipo “Esse lugar tem cara de Poképarada?”.
-- Estrutura em sanfonas para mostrar só o que a pessoa quiser abrir.
+A página agora possui três áreas:
+- Fusões
+- Mudanças de Forma
+- Variações Visuais
 
-### 3) Atualização da navegação
-- As duas novas páginas entraram no menu compartilhado em `nav.js`.
-- A página inicial (`index.html`) ganhou cartões novos e agora mostra **10 ferramentas**.
+A área de Variações Visuais explica Pokémon Brilhantes (Shinies), deixando explícito que **Shiny não é uma forma diferente**, mas uma variação visual rara.
 
-### 4) Ajustes de acessibilidade e celular
-- Texto-base maior nas páginas novas.
-- Botões e áreas clicáveis maiores.
-- Layout pensado para diminuir rolagem excessiva.
-- Sanfonas para esconder conteúdo secundário até o clique.
+### Probabilidades de Shiny
+O GO Nexus separa rigorosamente:
+- **informação oficial**, como disponibilidade de Shiny e anúncios de “chance aumentada”;
+- **estimativas comunitárias**, que não são tratadas como taxas oficiais.
 
-## Arquivos principais novos
-- `tipagens.html`
-- `pokeparadas.html`
+A página inclui:
+- exemplos de probabilidade acumulada para leigos;
+- explicação de por que “1 em 512” não significa garantia no encontro 512;
+- calculadora interativa de chance acumulada;
+- fontes oficiais do Pokémon GO e referências comunitárias identificadas como estimativas.
 
-## Observação
-As informações da página de Poképaradas foram organizadas como **guia prático**, não como promessa de aprovação. A análise final continua dependendo dos critérios do Wayfarer e das regras de inclusão do Pokémon GO.
+## Navegação
+O cabeçalho agora mostra:
 
-## Revisão de acessibilidade móvel
+**Início · Ferramentas · Quiz · Feedback**
 
-Esta versão também recebeu uma passada global de leitura no celular:
-
-- texto corrido com alvo de **16 px ou mais** em telas estreitas;
-- textos auxiliares e metadados com alvo de **14 px ou mais**;
-- campos e botões com texto maior e área de toque mínima próxima de **44 px**;
-- foco de teclado mais visível;
-- cabeçalhos e espaçamentos verticais mais compactos para reduzir rolagem;
-- a Central Mega ganhou um único bloco compacto para os três passos iniciais no celular;
-- a Central Max também recebeu uma abertura mais densa, sem sacrificar legibilidade.
+O Quiz é uma experiência transversal às 10 ferramentas e, por isso, não entra na contagem das ferramentas da Home.

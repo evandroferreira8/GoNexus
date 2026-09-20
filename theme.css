@@ -1,0 +1,163 @@
+/*
+  GO Nexus — sistema de temas
+  Tema escuro continua sendo o padrão.
+  O tema claro foi desenhado como uma paleta própria, não como inversão automática.
+  Revisão de contraste: 20/09/2026.
+*/
+html{color-scheme:dark;background:#07111f}
+html[data-theme="light"]{color-scheme:light;--bg:#f4f7fb;--card:#ffffff;--card2:#f8fbff;--panel:#ffffff;--line:#c7d3e2;--text:#172033;--muted:#52657c;--blue:#0284c7;--violet:#7c3aed;--pink:#db2777;--green:#059669;--yellow:#b7791f;--red:#dc2626;background:#f4f7fb}
+html[data-theme="dark"]{color-scheme:dark;--bg:#07111f;--card:#101c30;--card2:#0b1729;--panel:#0d1b2f;--line:#334863;--text:#f8fafc;--muted:#a9b8ca;background:#07111f}
+
+html[data-theme="dark"] body{color:#f8fafc!important;background:radial-gradient(circle at 14% 0,rgba(56,189,248,.13),transparent 29%),radial-gradient(circle at 88% 5%,rgba(139,92,246,.14),transparent 28%),#07111f!important}
+html[data-theme="light"] body{color:#172033!important;background:radial-gradient(circle at 14% -2%,rgba(14,165,233,.12),transparent 30%),radial-gradient(circle at 88% 3%,rgba(124,58,237,.09),transparent 28%),#f4f7fb!important}
+
+html[data-theme="dark"] :where(.lead,.small,.sub,.hint,.note,.details,.updated,.meta,.mini,.searchhint,.search-help,.news-status,.news-open,.section-title p,.news-head p,.about p,.tool p,.quick,.flow div,.compare p,.difficulty-note,.move p,.diff small,.footnote,.sourcebox,.langhelp,.group-count,.cost,.remain,.kind,.rule,.helper,.match-note,.poke-status,.poke-summary,.context-card p,.analysis-card p,.weather-result p,.weather-types,.challenge-copy p,.challenge-feedback,.quick-type .line,.legend small,.stat span,.source-link){color:#a9b8ca!important}
+html[data-theme="dark"] :where(.nx-summary-sub,.nx-body-intro,.nx-note){color:#9fb1c7!important}
+html[data-theme="dark"] :where(.section-title h2,.news-head h2,.about h2,.tool h3,.panel h2,.panel h3,.card h2,.card h3,.fact h3,.context-card h3,.analysis-card h3,.quick-type h4,.weather-result h3,.challenge-copy h2){color:#f7fafc}
+
+html[data-theme="light"] :where(h1,h2,h3,h4,h5,h6,strong,b,label,.answer,.result-value,.selected-name,.name,.pname,.pokemon,.news-title,.search-result b,.nx-summary-title){color:#172033}
+html[data-theme="light"] :where(.lead,.small,.sub,.hint,.note,.details,.updated,.meta,.mini,.searchhint,.search-help,.news-status,.news-open,.section-title p,.news-head p,.about p,.tool p,.quick,.flow div,.compare p,.difficulty-note,.move p,.diff small,.footnote,.sourcebox,.langhelp,.group-count,.cost,.remain,.kind,.rule,.helper,.match-note,.poke-status,.poke-summary,.context-card p,.analysis-card p,.weather-result p,.weather-types,.challenge-copy p,.challenge-feedback,.quick-type .line,.legend small,.stat span){color:#52657c!important}
+html[data-theme="light"] a:not(.tool):not(.news-card):not(.search-result):not(.btn):not(.feedbackbtn){color:#0369a1}
+html[data-theme="light"] ::selection{background:#bae6fd;color:#0f172a}
+
+html[data-theme="dark"] :where(.tool,.card,.panel,.fact,.about,.news-card,.search-results,.compare article,.flow div,.diff,.move,.calc,.calc-line,.max-pill,.level,.energy,.step,.list-grid>*,.mega-row,.row,.side,.pack,.wallet,.walletitem,.coin-balance-box,.feedbackbox,.info,.pokemon,.box,.family,.formvisual,.rule,.ditto-card,.ditto-fact,.ditto-game,.group,.calculator,.selected-box,.tip,.check,.result,.result-card,.quick-type,.context-card,.analysis-card,.weather-btn,.weather-result,.challenge,.challenge-art,.poke-profile,.poke-visual,.type-btn,.combat-tab,.legend .item,.stat,.search-card){border-color:#334863!important}
+html[data-theme="dark"] :where(.tool,.card,.panel,.fact,.about,.news-card,.search-results,.compare article,.diff,.move,.calc,.calc-line,.level,.energy,.step,.row,.side,.pack,.wallet,.walletitem,.feedbackbox,.pokemon,.box,.family,.formvisual,.rule,.ditto-card,.group,.calculator,.selected-box,.result-card,.quick-type,.context-card,.analysis-card,.weather-result,.challenge,.challenge-art,.poke-profile,.poke-visual,.legend .item,.stat,.search-card){box-shadow:0 12px 28px rgba(0,0,0,.12)}
+
+html[data-theme="light"] :where(.tool,.card,.panel,.fact,.about,.news-card,.search-results,.compare article,.flow div,.diff,.move,.calc,.calc-line,.max-pill,.level,.energy,.step,.list-grid>*,.mega-row,.row,.side,.pack,.wallet,.walletitem,.coin-balance-box,.feedbackbox,.info,.pokemon,.box,.family,.formvisual,.rule,.ditto-card,.ditto-fact,.ditto-game,.group,.calculator,.selected-box,.tip,.check,.result,.result-card,.quick-type,.context-card,.analysis-card,.weather-btn,.weather-result,.challenge,.challenge-art,.poke-profile,.poke-visual,.type-btn,.combat-tab,.legend .item,.stat,.search-card){border-color:#c7d3e2!important}
+html[data-theme="light"] :where(.tool,.card,.panel,.fact,.about,.news-card,.search-results,.compare article,.diff,.move,.calc,.calc-line,.level,.energy,.step,.row,.side,.pack,.wallet,.walletitem,.feedbackbox,.pokemon,.box,.family,.formvisual,.rule,.ditto-card,.group,.calculator,.selected-box,.result-card,.quick-type,.context-card,.analysis-card,.weather-result,.challenge,.challenge-art,.poke-profile,.poke-visual,.legend .item,.stat,.search-card){background:#fff!important;box-shadow:0 10px 26px rgba(42,61,86,.08)!important}
+html[data-theme="light"] :where(.tool-icon,.search-result .ico,.flow div,.max-pill,.diff,.move,.calc,.calc-line,.row,.side,.pack,.walletitem,.pricegrid input,.poke-visual,.analysis-card,.result-card,.quick-type,.legend .item,.stat,.challenge-art,.weather-result,.offense-line,.empty,.ghost,.selected-strip,.search-examples button){background:#f8fbff!important}
+html[data-theme="light"] :where(.about,.feedbackbox,.wallet,.coin-balance-box,.poke-profile,.context-card,.weather-btn,.combat-tab){background:linear-gradient(180deg,#ffffff,#f8fbff)!important}
+
+html[data-theme="dark"] :where(input,select,textarea,.global-search,.search input,.poke-search input,.calc-line select){background:#091629!important;color:#f8fafc!important;border-color:#3b516f!important}
+html[data-theme="dark"] :where(input,textarea)::placeholder{color:#8195ad!important;opacity:1}
+html[data-theme="light"] :where(input,select,textarea,.global-search,.search input,.poke-search input,.calc-line select){background:#fff!important;color:#172033!important;border-color:#b8c7d9!important;box-shadow:none}
+html[data-theme="light"] :where(input,textarea)::placeholder{color:#71849a!important;opacity:1}
+html[data-theme="light"] :where(input,select,textarea,.global-search,.search input,.poke-search input,.calc-line select):focus{border-color:#0ea5e9!important;box-shadow:0 0 0 4px rgba(14,165,233,.12)!important}
+html[data-theme="light"] :where(.search-clear,.search-icon){color:#52657c!important}
+
+html[data-theme="light"] .badge{border-color:#b8dff1!important;background:#edf8fd!important;color:#03698f!important}
+html[data-theme="light"] .stat{background:#fff!important;border-color:#c7d3e2!important;color:#52657c!important}
+html[data-theme="light"] .global-search{background:linear-gradient(180deg,#ffffff,#f8fbff)!important}
+html[data-theme="light"] .search-results{background:#fff!important}
+html[data-theme="light"] .search-result{color:#172033!important;border-color:#d9e2ec!important}
+html[data-theme="light"] .search-result:hover,html[data-theme="light"] .search-result:focus-visible{background:#f1f7fc!important}
+html[data-theme="light"] .search-result small{color:#5d7087!important}
+html[data-theme="light"] .tool{background:linear-gradient(180deg,#ffffff,#f8fbff)!important}
+html[data-theme="light"] .tool:hover{border-color:#9fb5cd!important;box-shadow:0 16px 34px rgba(42,61,86,.12),0 0 0 1px rgba(14,165,233,.04)!important}
+html[data-theme="light"] .tool-icon{color:#172033}
+html[data-theme="light"] .go,html[data-theme="light"] .news-source,html[data-theme="light"] .news-kicker{color:#0369a1!important}
+html[data-theme="light"] .news-media{background:linear-gradient(135deg,#e6f3fb,#eee9ff)!important}
+html[data-theme="light"] .news-media::after{background:linear-gradient(transparent,rgba(255,255,255,.08))!important}
+html[data-theme="light"] .news-nav button{background:#fff!important;color:#172033!important;border-color:#c7d3e2!important}
+html[data-theme="light"] .quick{border-color:#d7e0ea!important}
+
+html[data-theme="dark"] details.nx-accordion{background:rgba(10,22,39,.94)!important;border-color:#334863!important}
+html[data-theme="dark"] details.nx-accordion[open]{background:#0c1a2e!important;border-color:#45607f!important}
+html[data-theme="dark"] details.nx-accordion>summary{color:#eef5ff!important}
+html[data-theme="dark"] details.nx-accordion>summary:hover{background:rgba(255,255,255,.035)!important}
+html[data-theme="dark"] .nx-summary-title{color:#f1f5f9!important}
+html[data-theme="dark"] .nx-count{background:#091629!important;color:#a9b8ca!important;border-color:#3a506d!important}
+html[data-theme="dark"] .nx-chevron{color:#91a5bd!important;background:rgba(255,255,255,.045)!important}
+html[data-theme="dark"] .nx-body{border-color:#324762!important}
+
+html[data-theme="light"] details.nx-accordion{background:#fff!important;border-color:#c7d3e2!important;box-shadow:0 8px 22px rgba(42,61,86,.06)!important}
+html[data-theme="light"] details.nx-accordion[open]{background:#fff!important;border-color:#9fb5cd!important;box-shadow:0 12px 28px rgba(42,61,86,.09)!important}
+html[data-theme="light"] details.nx-accordion>summary{color:#172033!important}
+html[data-theme="light"] details.nx-accordion>summary:hover{background:#f5f9fd!important}
+html[data-theme="light"] .nx-summary-title{color:#172033!important}
+html[data-theme="light"] .nx-summary-sub{color:#5c6f86!important}
+html[data-theme="light"] .nx-count{background:#f3f7fb!important;color:#52657c!important;border-color:#c4d1df!important}
+html[data-theme="light"] .nx-chevron{color:#52657c!important;background:#f1f5f9!important}
+html[data-theme="light"] details.nx-accordion[open] .nx-chevron{color:#0369a1!important}
+html[data-theme="light"] .nx-body{border-color:#dbe3ec!important}
+html[data-theme="light"] .nx-pill{background:#f6f9fc!important;border-color:#cbd6e2!important;color:#334155!important}
+html[data-theme="light"] .nx-pill strong{color:#172033!important}
+html[data-theme="light"] .nx-pill.good{background:#ecfdf5!important;border-color:#a7e7cc!important;color:#047857!important}
+html[data-theme="light"] .nx-pill.future{background:#fffbeb!important;border-color:#f5d98b!important;color:#9a6700!important}
+html[data-theme="light"] .nx-compact-item{background:#f8fbff!important;border-color:#cbd6e2!important;color:#334155!important}
+html[data-theme="light"] .nx-compact-item b{color:#172033!important}
+html[data-theme="light"] .nx-note{background:#eff6ff!important;color:#496078!important;border-color:#60a5fa!important}
+
+html[data-theme="light"] .brasil-note,html[data-theme="light"] .info{background:#eff7ff!important;border-color:#b8d6ef!important;color:#334e68!important}
+html[data-theme="light"] .warning{background:#fff8e6!important;border-color:#e7cf91!important;color:#6b5317!important}
+html[data-theme="light"] .saving{background:#ecfdf5!important;border-color:#a7e7cc!important}
+html[data-theme="light"] .saving span{color:#276c5a!important}
+html[data-theme="light"] .saving strong{color:#047857!important}
+html[data-theme="light"] .btn.secondary{background:#eef3f8!important;color:#26384d!important;border-color:#b9c8d8!important}
+html[data-theme="light"] .btn.clearbtn{background:#fff1f3!important;color:#9f1239!important;border-color:#fecdd3!important}
+html[data-theme="light"] .remove{background:#fff1f2!important;color:#be123c!important;border-color:#fecdd3!important}
+
+html[data-theme="light"] .max-pill{background:#f8fbff!important;color:#334155!important}
+html[data-theme="light"] .max-pill.good{color:#047857!important;border-color:#a7e7cc!important;background:#ecfdf5!important}
+html[data-theme="light"] .max-pill.future{color:#9a6700!important;border-color:#f5d98b!important;background:#fffbeb!important}
+html[data-theme="light"] .max-pill.off{color:#64748b!important}
+html[data-theme="light"] .difficulty-note,html[data-theme="light"] .note{background:#f8fbff!important;color:#52657c!important}
+html[data-theme="light"] .diff b span{color:#be123c!important}
+html[data-theme="light"] .flow i{color:#be123c!important}
+
+html[data-theme="light"] :where(.pokemon,.family,.box,.formvisual,.card){color:#172033}
+html[data-theme="light"] :where(.chip,.tag,.pill,.badge){border-color:#c4d2e1}
+html[data-theme="light"] .chip{background:#f3f7fb!important;color:#334155!important}
+html[data-theme="light"] .tag{background:#eef3f8!important;color:#334155!important}
+html[data-theme="light"] .note,html[data-theme="light"] .info{color:#496078!important}
+html[data-theme="light"] .energy,html[data-theme="light"] .costs,html[data-theme="light"] .cost,html[data-theme="light"] .remain{color:#52657c!important}
+
+html[data-theme="light"] [class~="bg-slate-900"]{background:#fff!important}
+html[data-theme="light"] [class~="text-white"]{color:#172033!important}
+html[data-theme="light"] [class~="text-slate-400"]{color:#52657c!important}
+html[data-theme="light"] [class~="text-indigo-400"],html[data-theme="light"] [class~="text-indigo-300"]{color:#5b21b6!important}
+html[data-theme="light"] [class~="border-slate-700/60"]{border-color:#c7d3e2!important}
+html[data-theme="light"] [class~="bg-indigo-600"]{background:#4f46e5!important;color:#fff!important}
+
+html[data-theme="light"] .langbox,html[data-theme="light"] .sourcebox{background:#fff!important;border-color:#c7d3e2!important;color:#172033!important}
+html[data-theme="light"] .langbtn{color:#334155!important;border-color:#c7d3e2!important;background:#f8fbff!important}
+html[data-theme="light"] .langbtn.active{color:#fff!important;background:linear-gradient(135deg,#2563eb,#7c3aed)!important}
+html[data-theme="light"] .altcmd,html[data-theme="light"] code,html[data-theme="light"] .font-mono{background:#f1f5f9!important;color:#334155!important}
+
+html[data-theme="light"] .group-head,html[data-theme="light"] .group-body,html[data-theme="light"] .pokemon-grid .pokemon,html[data-theme="light"] .selected-box,html[data-theme="light"] .calculator{border-color:#c7d3e2!important}
+html[data-theme="light"] .group-head{background:#fff!important;color:#172033!important}
+html[data-theme="light"] .group-body{background:#f8fbff!important}
+
+html[data-theme="light"] .good{background:#ecfdf5!important;border-color:#a7e7cc!important}
+html[data-theme="light"] .warn{background:#fffbeb!important;border-color:#f5d98b!important}
+html[data-theme="light"] .bad,html[data-theme="light"] .wrong{background:#fff1f2!important;border-color:#fecdd3!important}
+html[data-theme="light"] .special{background:#f5f3ff!important;border-color:#d8ccff!important}
+html[data-theme="light"] .good :where(p,span,small){color:#276c5a}
+html[data-theme="light"] .warn :where(p,span,small){color:#785f1d}
+html[data-theme="light"] .bad :where(p,span,small),html[data-theme="light"] .wrong :where(p,span,small){color:#8f2442}
+html[data-theme="light"] .cat-btn,html[data-theme="light"] .check,html[data-theme="light"] .step{background:#fff!important;border-color:#c7d3e2!important;color:#172033!important}
+html[data-theme="light"] .cat-btn.active{background:#eff6ff!important;border-color:#93c5fd!important}
+html[data-theme="light"] .answers .ans{background:#fff!important;color:#172033!important;border-color:#c7d3e2!important}
+html[data-theme="light"] .answers .ans:hover{background:#f5f9fd!important}
+html[data-theme="light"] .answers .ans.correct{background:#ecfdf5!important;border-color:#86d8b8!important}
+html[data-theme="light"] .answers .ans.wrong{background:#fff1f2!important;border-color:#fecdd3!important}
+
+html[data-theme="light"] .combat-tab{color:#52657c!important}
+html[data-theme="light"] .combat-tab:hover,html[data-theme="light"] .combat-tab:focus-visible{color:#172033!important}
+html[data-theme="light"] .combat-tab.active{color:#172033!important;background:linear-gradient(135deg,rgba(37,99,235,.10),rgba(124,58,237,.08))!important;border-color:#9fb5cd!important}
+html[data-theme="light"] .type-btn{color:#172033!important;background:linear-gradient(180deg,#fff,#f8fbff)!important;border-color:#c7d3e2!important}
+html[data-theme="light"] .type-btn::after{background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0))!important}
+html[data-theme="light"] .ghost{color:#64748b!important;border-color:#c7d3e2!important}
+html[data-theme="light"] .mini-type,html[data-theme="light"] .type-pill{color:#fff!important}
+html[data-theme="light"] .poke-status.error{background:#fff1f2!important;color:#9f1239!important;border-color:#fecdd3!important}
+html[data-theme="light"] .challenge-option{background:#fff!important;color:#172033!important;border-color:#c7d3e2!important}
+html[data-theme="light"] .challenge-option.correct{background:#ecfdf5!important;border-color:#86d8b8!important}
+html[data-theme="light"] .challenge-option.wrong{background:#fff1f2!important;border-color:#fecdd3!important}
+html[data-theme="light"] .weather-btn{color:#172033!important}
+html[data-theme="light"] .weather-btn.active{border-color:#8fb0d2!important;box-shadow:0 0 0 3px rgba(14,165,233,.08)!important}
+html[data-theme="light"] .source-link,html[data-theme="light"] .challenge-next{color:#0369a1!important}
+
+html[data-theme="light"] .btn:not(.secondary):not(.clearbtn),html[data-theme="light"] .feedbackbtn,html[data-theme="light"] .poke-search button{color:#fff!important}
+html[data-theme="light"] :where(button,a){-webkit-tap-highlight-color:transparent}
+html[data-theme="light"] :where(button,.btn,.feedbackbtn):focus-visible{outline-color:#0284c7!important}
+
+html[data-theme="dark"] :where(hr,.nx-body,.quick,.hero,.details,.compare,.topbar){border-color:#334863}
+html[data-theme="light"] :where(hr,.nx-body,.quick,.hero,.details,.compare,.topbar){border-color:#d4dee9!important}
+
+@media (prefers-contrast:more){
+  html[data-theme="dark"]{--line:#4b6382;--muted:#c1ccda}
+  html[data-theme="light"]{--line:#9eb0c5;--muted:#3e536c}
+  html[data-theme="dark"] :where(.lead,.small,.sub,.hint,.note,.details,.updated,.meta,.mini,.searchhint,.search-help){color:#c1ccda!important}
+  html[data-theme="light"] :where(.lead,.small,.sub,.hint,.note,.details,.updated,.meta,.mini,.searchhint,.search-help){color:#3e536c!important}
+}
+@media (prefers-reduced-motion:reduce){html *{transition:none!important}}

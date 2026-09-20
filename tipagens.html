@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f">
-<title>Tipagens | GO Nexus</title>
-<meta name="description" content="Entenda tipagens no Pokémon GO de forma visual: veja contra quem cada tipo é forte, fraco e resistente, com foco em leitura rápida no celular.">
+<title>Central de Combate | GO Nexus</title>
+<meta name="description" content="Analise Pokémon, fraquezas, resistências, estratégia de Reides e Batalhas Max, clima e tipagens no Pokémon GO.">
 <style>
 :root{--bg:#07111f;--panel:#0b1729;--line:#263653;--text:#f8fafc;--muted:#9fb0c7;--blue:#38bdf8;--violet:#8b5cf6;--pink:#ec4899;--green:#34d399;--yellow:#facc15}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 14% 0,rgba(56,189,248,.14),transparent 28%),radial-gradient(circle at 88% 4%,rgba(139,92,246,.16),transparent 26%),var(--bg);color:var(--text);font:17px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
@@ -18,20 +18,87 @@
 .meter{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}.stat{padding:14px;border:1px solid #273a57;border-radius:16px;background:#081526}.stat strong{display:block;font-size:1.18rem}.stat span{display:block;color:#8ca0b7;font-size:.86rem;line-height:1.45;margin-top:2px}
 .legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.legend .item{padding:12px;border:1px solid #263a57;border-radius:16px;background:#081526}.legend b{display:block;font-size:.95rem}.legend small{display:block;margin-top:5px;color:#89a0ba;font-size:.82rem;line-height:1.5}
 .quick-table{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding-top:12px}.quick-type{padding:13px;border:1px solid #263a57;border-radius:15px;background:#081526}.quick-type h4{margin:0 0 9px;font-size:1rem;display:flex;align-items:center;gap:8px}.quick-type .line{margin-top:8px;color:#8ea0b8;font-size:.86rem;line-height:1.55}.quick-type .line b{display:block;color:#dce7f5;font-size:.81rem;margin-bottom:4px}
+
+.combat-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:4px 0 16px}.combat-tab{min-height:52px;padding:11px 14px;border:1px solid #30435f;border-radius:16px;background:linear-gradient(180deg,#0b192c,#091526);color:#aebed1;font:850 .93rem/1.2 inherit;cursor:pointer;transition:.18s}.combat-tab:hover,.combat-tab:focus-visible{border-color:#4b6898;color:#fff;transform:translateY(-1px)}.combat-tab.active{color:#fff;border-color:#5976ad;background:linear-gradient(135deg,rgba(37,99,235,.30),rgba(124,58,237,.28));box-shadow:0 0 0 1px rgba(125,211,252,.06),0 0 24px rgba(99,102,241,.10)}
+.combat-panel{display:none}.combat-panel.active{display:block}.analyzer-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);gap:14px}.search-card{padding:18px}.poke-search{display:flex;gap:9px;margin-top:13px}.poke-search input{min-width:0;flex:1;height:52px;padding:0 15px;border:1px solid #385071;border-radius:14px;background:#071526;color:#fff;font:inherit;font-size:1rem;outline:none}.poke-search input:focus{border-color:#60a5fa;box-shadow:0 0 0 4px rgba(56,189,248,.08)}.poke-search button{min-height:52px;padding:0 18px;border:1px solid #4d67a2;border-radius:14px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;font:900 .92rem/1 inherit;cursor:pointer}.search-examples{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.search-examples button{padding:6px 9px;border:1px solid #2d405d;border-radius:999px;background:#091526;color:#9db0c8;font:750 .76rem/1 inherit;cursor:pointer}
+.poke-status{margin-top:13px;padding:13px;border:1px dashed #334866;border-radius:15px;color:#8fa3bd;font-size:.9rem}.poke-status.error{border-style:solid;border-color:rgba(248,113,113,.28);background:rgba(127,29,29,.08);color:#fecaca}.poke-result[hidden]{display:none}.poke-result{margin-top:14px;display:grid;gap:12px}.poke-profile{display:grid;grid-template-columns:178px minmax(0,1fr);gap:17px;align-items:center;padding:16px;border:1px solid #2a3e5c;border-radius:20px;background:radial-gradient(circle at 10% 20%,rgba(56,189,248,.09),transparent 28%),linear-gradient(180deg,#0b192c,#081526)}.poke-visual{position:relative;min-height:178px;display:grid;place-items:center;border:1px solid rgba(78,105,149,.45);border-radius:22px;background:radial-gradient(circle,rgba(99,102,241,.16),transparent 58%),#081526}.poke-visual img{width:158px;height:158px;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(0,0,0,.34))}.poke-copy h2{margin:0;font-size:1.65rem;line-height:1.05}.poke-dex{margin-top:5px;color:#6f85a0;font-size:.78rem;font-weight:850}.poke-types{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.type-pill{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.13);color:#fff;font-size:.84rem;font-weight:900}.poke-summary{margin-top:10px;color:#a7b7ca;font-size:.9rem;line-height:1.55}
+.analysis-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.analysis-card{padding:14px;border:1px solid #273b59;border-radius:17px;background:#081526}.analysis-card.wide{grid-column:1/-1}.analysis-card h3{margin:0 0 7px;font-size:.98rem}.analysis-card p{margin:0;color:#91a4bd;font-size:.86rem;line-height:1.55}.analysis-card .badges{margin-top:10px}.match-note{margin-top:9px;color:#7188a4;font-size:.76rem;line-height:1.5}.offense-lines{display:grid;gap:8px;margin-top:10px}.offense-line{padding:9px 10px;border:1px solid #243752;border-radius:12px;background:#091629;color:#a9bbcf;font-size:.8rem;line-height:1.45}.offense-line b{color:#fff}
+.context-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.context-card{padding:15px;border:1px solid #2a3e5b;border-radius:18px;background:linear-gradient(180deg,rgba(13,27,46,.98),rgba(8,19,35,.98))}.context-card h3{margin:0 0 7px;font-size:1rem}.context-card p{margin:0;color:#98aac0;font-size:.85rem;line-height:1.58}.context-card strong{color:#fff}.source-link{display:inline-flex;margin-top:9px;color:#7dd3fc;font-size:.75rem;font-weight:800;text-decoration:none}
+.challenge{padding:18px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:17px;align-items:center}.challenge-art{min-height:145px;display:grid;place-items:center;border:1px solid #2b3f5e;border-radius:20px;background:radial-gradient(circle,rgba(139,92,246,.14),transparent 58%),#081526}.challenge-art img{width:132px;height:132px;object-fit:contain;filter:drop-shadow(0 12px 15px rgba(0,0,0,.32))}.challenge-copy h2{margin:0;font-size:1.08rem}.challenge-copy p{margin:5px 0 0;color:#94a7bf;font-size:.86rem}.challenge-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:12px}.challenge-option{min-height:44px;padding:8px;border:1px solid #30435f;border-radius:12px;background:#091526;color:#fff;font:850 .8rem/1.2 inherit;cursor:pointer}.challenge-option.correct{border-color:rgba(52,211,153,.55);background:rgba(52,211,153,.12)}.challenge-option.wrong{border-color:rgba(248,113,113,.45);background:rgba(248,113,113,.09)}.challenge-feedback{min-height:22px;margin-top:9px;color:#a9bad0;font-size:.8rem;line-height:1.5}.challenge-next{margin-top:8px;border:0;background:transparent;color:#7dd3fc;font:850 .78rem/1 inherit;cursor:pointer;padding:5px 0}
+.weather-intro{padding:18px}.weather-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:13px}.weather-btn{min-height:92px;padding:12px 10px;border:1px solid #2e4362;border-radius:17px;background:linear-gradient(180deg,#0c1a2e,#081526);color:#e8f0fa;cursor:pointer;text-align:left;transition:.18s}.weather-btn:hover,.weather-btn:focus-visible{transform:translateY(-1px);border-color:#4e6f9f}.weather-btn.active{border-color:#6b83b5;box-shadow:0 0 0 1px rgba(125,211,252,.07),0 0 20px rgba(56,189,248,.08)}.weather-icon{display:block;font-size:1.35rem}.weather-name{display:block;margin-top:5px;font-size:.86rem;font-weight:900}.weather-types{display:block;margin-top:3px;color:#8fa5bf;font-size:.73rem;line-height:1.35}.weather-result{margin-top:13px;padding:15px;border:1px solid #2b3f5d;border-radius:18px;background:#081526}.weather-result h3{margin:0 0 6px;font-size:1rem}.weather-result p{margin:0;color:#98abc1;font-size:.87rem;line-height:1.58}
+
 @media(max-width:980px){.type-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.result-grid,.legend,.meter,.quick-table{grid-template-columns:1fr}}
 @media(max-width:640px){body{font-size:18px}.shell{width:min(100% - 18px,1120px)}.hero{padding-top:30px}.hero h1{font-size:2.4rem}.lead{font-size:1.02rem}.panel.pad{padding:14px}.section-head h2{font-size:1.15rem}.type-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.type-btn{min-height:56px;font-size:.96rem}.toggle button{flex:1}.result-card{padding:13px}.badge{font-size:.86rem;padding:8px 12px;min-height:36px}}
+
+@media(max-width:860px){.analyzer-grid{grid-template-columns:1fr}.challenge{grid-template-columns:120px minmax(0,1fr)}.challenge-art{min-height:120px}.challenge-art img{width:108px;height:108px}.weather-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.combat-tabs{grid-template-columns:1fr;gap:7px}.combat-tab{min-height:48px;font-size:.92rem}.poke-search{display:grid;grid-template-columns:1fr}.poke-search button{width:100%}.poke-profile{grid-template-columns:112px minmax(0,1fr);gap:12px;padding:13px}.poke-visual{min-height:112px;border-radius:18px}.poke-visual img{width:104px;height:104px}.poke-copy h2{font-size:1.36rem}.poke-summary{font-size:.88rem}.analysis-cards,.context-grid{grid-template-columns:1fr}.analysis-card.wide{grid-column:auto}.challenge{grid-template-columns:1fr;padding:15px}.challenge-art{min-height:124px}.challenge-options{grid-template-columns:repeat(2,minmax(0,1fr))}.weather-grid{grid-template-columns:1fr 1fr}.weather-btn{min-height:88px;padding:11px}.search-card,.weather-intro{padding:15px}}
+@media(max-width:390px){.poke-profile{grid-template-columns:1fr;text-align:center}.poke-types{justify-content:center}.poke-visual{min-height:138px}.poke-visual img{width:126px;height:126px}.weather-grid{grid-template-columns:1fr}.challenge-options{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <go-nexus-header></go-nexus-header>
 <main class="shell">
   <section class="hero">
-    <span class="eyebrow">🛡️ Guia visual de combate</span>
-    <h1><span class="grad">Tipagens</span></h1>
-    <p class="lead">Uma área feita para ser direta: escolha um tipo e veja, de forma visual, <strong>contra quem ele funciona bem</strong>, <strong>contra quem ele sofre</strong> e quais são as <strong>fraquezas e resistências</strong> mais importantes no Pokémon GO.</p>
-    <div class="hero-meta"><span>Leitura rápida</span><span>Botões grandes para celular</span><span>Sem tabela confusa logo de cara</span></div>
+    <span class="eyebrow">🛡️ Análise, tipagens e clima</span>
+    <h1>Central de <span class="grad">Combate</span></h1>
+    <p class="lead">Digite um Pokémon e veja <strong>fraquezas, resistências, tipos ofensivos, clima favorável</strong> e uma leitura rápida para <strong>Reides e Batalhas Max</strong>. A tabela de tipagens continua disponível para consultas manuais.</p>
+    <div class="hero-meta"><span>Analisador de Pokémon</span><span>18 tipos</span><span>Clima e bônus</span></div>
   </section>
 
+  <nav class="combat-tabs" aria-label="Áreas da Central de Combate">
+    <button class="combat-tab active" type="button" data-combat-tab="analyzer" aria-selected="true">🔎 Analisar Pokémon</button>
+    <button class="combat-tab" type="button" data-combat-tab="types" aria-selected="false">🛡️ Tabela de Tipagens</button>
+    <button class="combat-tab" type="button" data-combat-tab="weather" aria-selected="false">🌦️ Clima e Bônus</button>
+  </nav>
+
+  <section class="combat-panel active" id="analyzerPanel">
+    <div class="analyzer-grid">
+      <section class="panel search-card">
+        <div class="section-head"><div><h2>Digite um Pokémon</h2><p>O analisador busca a espécie, combina as tipagens e traduz o resultado para situações comuns de combate.</p></div></div>
+        <form class="poke-search" id="pokeSearchForm">
+          <input id="pokeSearchInput" type="search" autocomplete="off" spellcheck="false" placeholder="Ex.: Charizard, Garchomp, Mewtwo…" aria-label="Nome do Pokémon">
+          <button type="submit">Analisar</button>
+        </form>
+        <div class="search-examples" aria-label="Exemplos rápidos"><button type="button" data-poke-example="Charizard">Charizard</button><button type="button" data-poke-example="Gyarados">Gyarados</button><button type="button" data-poke-example="Garchomp">Garchomp</button><button type="button" data-poke-example="Mewtwo">Mewtwo</button></div>
+        <div class="poke-status" id="pokeStatus">Pesquise um Pokémon para começar. A imagem usa o mesmo banco de artes oficiais já empregado em outras ferramentas do GO Nexus.</div>
+        <div class="poke-result" id="pokeResult" hidden>
+          <div class="poke-profile">
+            <div class="poke-visual"><img id="pokeImage" alt=""></div>
+            <div class="poke-copy"><h2 id="pokeName">—</h2><div class="poke-dex" id="pokeDex">—</div><div class="poke-types" id="pokeTypes"></div><p class="poke-summary" id="pokeSummary"></p></div>
+          </div>
+          <div class="analysis-cards">
+            <article class="analysis-card good"><h3>🎯 Mais vulnerável a</h3><p>Quando a combinação de tipos amplia a fraqueza, ela aparece primeiro.</p><div class="badges" id="pokeDoubleWeak"></div></article>
+            <article class="analysis-card good"><h3>💥 Também é fraco contra</h3><p>Tipos de golpe que entram com vantagem.</p><div class="badges" id="pokeWeak"></div></article>
+            <article class="analysis-card warn"><h3>🛡️ Resiste a</h3><p>Tipos de golpe que tendem a render menos dano.</p><div class="badges" id="pokeResist"></div></article>
+            <article class="analysis-card special"><h3>🔒 Resistências fortes</h3><p>Combinações que amortecem ainda mais o dano no modelo do Pokémon GO.</p><div class="badges" id="pokeStrongResist"></div></article>
+            <article class="analysis-card wide"><h3>⚔️ Se atacar com golpes dos próprios tipos</h3><p>Isso mostra quais tipos podem ser pressionados pelos STABs naturais da espécie. O desempenho real depende dos golpes que o Pokémon tiver.</p><div class="offense-lines" id="pokeOffense"></div></article>
+          </div>
+          <div class="context-grid">
+            <article class="context-card"><h3>⚔️ Em Reides</h3><p id="raidAdvice">—</p></article>
+            <article class="context-card"><h3>🔴 Em Batalhas Max</h3><p id="maxAdvice">—</p><a class="source-link" href="https://pokemongo.com/pt-BR/max-pokemon-battle" target="_blank" rel="noopener">Como funcionam as Batalhas Max ↗</a></article>
+            <article class="context-card"><h3>🌦️ Clima favorável</h3><p id="weatherAdvice">—</p><button class="challenge-next" id="openWeatherFromPokemon" type="button">Ver Clima e Bônus →</button></article>
+            <article class="context-card"><h3>ℹ️ Escopo da análise</h3><p>O GO Nexus analisa <strong>tipagem</strong>. Ele não compara IV, nível, golpes, DPS ou disponibilidade atual de uma espécie como Chefe de Reide ou Chefe Max.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel challenge">
+        <div class="challenge-art"><img id="challengeImage" alt=""></div>
+        <div class="challenge-copy"><div class="eyebrow" style="font-size:.68rem;padding:5px 8px">🎯 Desafio rápido</div><h2 id="challengeTitle">Você sabe explorar a fraqueza?</h2><p id="challengeQuestion"></p><div class="challenge-options" id="challengeOptions"></div><div class="challenge-feedback" id="challengeFeedback" aria-live="polite"></div><button class="challenge-next" id="challengeNext" type="button">Outro desafio →</button></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="combat-panel" id="weatherPanel" hidden>
+    <section class="panel weather-intro">
+      <div class="section-head"><div><h2>Clima e Bônus</h2><p>Escolha o clima mostrado dentro do Pokémon GO. Cada condição fortalece determinados tipos, influencia encontros e pode aumentar a Poeira Estelar de capturas fortalecidas.</p></div></div>
+      <div class="weather-grid" id="weatherGrid"></div>
+      <div class="weather-result" id="weatherResult"><h3>Escolha o clima do jogo</h3><p>O resultado aparecerá aqui. O clima exibido pelo Pokémon GO pode, às vezes, divergir do clima real.</p></div>
+      <a class="source-link" href="https://niantic.helpshift.com/hc/pt/6-pokemon-go/faq/53-what-are-weather-boosts/?l=pt-br" target="_blank" rel="noopener">Fonte oficial sobre fortalecimento por clima ↗</a>
+    </section>
+  </section>
+
+  <section class="combat-panel" id="typesPanel" hidden>
   <section class="stage">
     <section class="panel pad">
       <div class="section-head">
@@ -88,6 +155,7 @@
       <summary><span class="nx-summary-main"><span>🧩</span><span class="nx-summary-copy"><span class="nx-summary-title">Resumo rápido por tipo</span><span class="nx-summary-sub">Abra só se quiser uma cola visual mais completa</span></span></span><span class="nx-summary-side"><span class="nx-count">18 tipos</span><span class="nx-chevron">⌄</span></span></summary>
       <div class="nx-body"><div class="quick-table" id="quickTable"></div></div>
     </details>
+  </section>
   </section>
 </main>
 <go-nexus-footer></go-nexus-footer>
@@ -157,7 +225,172 @@ function renderDefense(){renderTypeGrid('defenseGrid', defenseSelection.filter(B
 function buildQuickTable(){const box=byId('quickTable'); box.innerHTML=TYPES.map(t=>{const good=[],bad=[],immune=[]; TYPES.forEach(def=>{const m=eff(t.id,def.id); if(m===2) good.push(TYPE_MAP[def.id].name); else if(m===0) immune.push(TYPE_MAP[def.id].name); else if(m<1) bad.push(TYPE_MAP[def.id].name);}); return `<div class="quick-type"><h4><span class="mini-type" style="background:linear-gradient(135deg, ${alpha(t.color,.88)}, ${alpha(t.color,.65)});border-color:${alpha('#fff',.18)}">${t.name}</span></h4><div class="line"><b>Muito bom contra</b>${good.join(', ')||'—'}</div><div class="line"><b>Funciona pior contra</b>${bad.join(', ')||'—'}</div><div class="line"><b>Caso especial</b>${immune.join(', ')||'—'}</div></div>`;}).join('');}
 function setMode(mode){const attack=mode==='attack'; byId('attackMode').classList.toggle('active',attack); byId('attackMode').hidden=!attack; byId('defenseMode').classList.toggle('active',!attack); byId('defenseMode').hidden=attack; byId('attackTab').classList.toggle('active',attack); byId('attackTab').setAttribute('aria-selected',attack); byId('defenseTab').classList.toggle('active',!attack); byId('defenseTab').setAttribute('aria-selected',!attack);}
 byId('attackTab').addEventListener('click',()=>setMode('attack')); byId('defenseTab').addEventListener('click',()=>setMode('defense')); byId('clearDefense').addEventListener('click',()=>{defenseSelection=[null,null]; renderDefense();});
+
 renderAttack(); renderDefense(); buildQuickTable();
+
+const WEATHER=[
+  {id:'sunny',icon:'☀️',name:'Ensolarado / limpo',types:['grass','fire','ground']},
+  {id:'rainy',icon:'🌧️',name:'Chuvoso',types:['water','electric','bug']},
+  {id:'partly',icon:'⛅',name:'Parcialmente nublado',types:['normal','rock']},
+  {id:'cloudy',icon:'☁️',name:'Nublado',types:['fairy','fighting','poison']},
+  {id:'windy',icon:'💨',name:'Ventando',types:['flying','dragon','psychic']},
+  {id:'snow',icon:'❄️',name:'Neve',types:['ice','steel']},
+  {id:'fog',icon:'🌫️',name:'Névoa',types:['dark','ghost']}
+];
+const POKE_ALIASES={
+  'mr mime':'mr-mime','mime jr':'mime-jr','farfetchd':'farfetchd','ho oh':'ho-oh','type null':'type-null',
+  'nidoran femea':'nidoran-f','nidoran f':'nidoran-f','nidoran macho':'nidoran-m','nidoran m':'nidoran-m',
+  'giratina origem':'giratina-origin','giratina origin':'giratina-origin','shaymin ceu':'shaymin-sky',
+  'tornadus therian':'tornadus-therian','thundurus therian':'thundurus-therian','landorus therian':'landorus-therian',
+  'kyurem branco':'kyurem-white','white kyurem':'kyurem-white','kyurem preto':'kyurem-black','black kyurem':'kyurem-black',
+  'charizard mega x':'charizard-mega-x','mega charizard x':'charizard-mega-x','charizard mega y':'charizard-mega-y','mega charizard y':'charizard-mega-y',
+  'mewtwo mega x':'mewtwo-mega-x','mega mewtwo x':'mewtwo-mega-x','mewtwo mega y':'mewtwo-mega-y','mega mewtwo y':'mewtwo-mega-y',
+  'necrozma dusk mane':'necrozma-dusk','necrozma juba crepuscular':'necrozma-dusk','necrozma dawn wings':'necrozma-dawn','necrozma asas da aurora':'necrozma-dawn',
+  'zacian coroado':'zacian-crowned','zacian crowned':'zacian-crowned','zamazenta coroado':'zamazenta-crowned','zamazenta crowned':'zamazenta-crowned'
+};
+const COMBAT_CHALLENGES=[
+  {name:'Charizard',dex:6,answer:'rock',options:['rock','water','electric','ground'],why:'Pedra explora Fogo e Voador ao mesmo tempo, criando a fraqueza mais forte desta combinação.'},
+  {name:'Gyarados',dex:130,answer:'electric',options:['electric','rock','grass','ice'],why:'Elétrico acerta Água e Voador com vantagem, por isso se destaca contra Gyarados.'},
+  {name:'Garchomp',dex:445,answer:'ice',options:['ice','fairy','dragon','water'],why:'Gelo explora Dragão e Terrestre ao mesmo tempo, tornando-se a maior vulnerabilidade de Garchomp.'},
+  {name:'Tyranitar',dex:248,answer:'fighting',options:['fighting','water','ground','fairy'],why:'Lutador é vantajoso contra Pedra e Sombrio, criando uma fraqueza combinada muito forte.'},
+  {name:'Swampert',dex:260,answer:'grass',options:['grass','electric','ice','ground'],why:'Planta é vantajoso contra Água e Terrestre, por isso é a fraqueza que mais pesa contra Swampert.'},
+  {name:'Scizor',dex:212,answer:'fire',options:['fire','rock','electric','flying'],why:'Fogo é vantajoso contra Inseto e Aço ao mesmo tempo, criando a grande fraqueza de Scizor.'},
+  {name:'Dragonite',dex:149,answer:'ice',options:['ice','fairy','dragon','rock'],why:'Gelo é vantajoso contra Dragão e Voador ao mesmo tempo, sendo a maior vulnerabilidade de Dragonite.'},
+  {name:'Abomasnow',dex:460,answer:'fire',options:['fire','fighting','rock','flying'],why:'Fogo acerta Grama e Gelo com vantagem, tornando-se a fraqueza mais intensa de Abomasnow.'}
+];
+let analyzedPokemon=null, activeWeather=null, currentChallenge=-1;
+
+function cleanPokemonQuery(value){
+  return (value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim().replace(/[.'’]/g,'').replace(/♀/g,' femea').replace(/♂/g,' macho').replace(/\s+/g,' ');
+}
+function apiPokemonName(value){
+  const cleaned=cleanPokemonQuery(value);
+  return POKE_ALIASES[cleaned] || cleaned.replace(/\s+/g,'-');
+}
+function titlePokemon(value){
+  return (value||'').split('-').map(function(x){return x ? x.charAt(0).toUpperCase()+x.slice(1) : x;}).join(' ').replace('Ho Oh','Ho-Oh').replace('Mr Mime','Mr. Mime').replace('Mime Jr','Mime Jr.');
+}
+function goEff(atk,def){
+  const base=eff(atk,def);
+  if(base===2)return 1.6;
+  if(base===0.5)return 0.625;
+  if(base===0)return 0.390625;
+  return 1;
+}
+function defensiveProfile(types){
+  return TYPES.map(function(atk){
+    let mult=1;
+    types.forEach(function(def){mult*=goEff(atk.id,def);});
+    return {id:atk.id,mult:mult};
+  }).sort(function(a,b){return b.mult-a.mult;});
+}
+function combatBadge(id,label){
+  const x=TYPE_MAP[id]; if(!x)return '';
+  return '<span class="badge" style="background:'+alpha(x.color,.12)+';border-color:'+alpha(x.color,.3)+'">'+(label||x.name)+'</span>';
+}
+function fillCombatBadges(id,items,emptyText){
+  const el=byId(id);
+  el.innerHTML=items.length?items.map(function(x){return combatBadge(x.id);}).join(''):'<span class="match-note">'+emptyText+'</span>';
+}
+function weatherForTypes(types){
+  return WEATHER.filter(function(w){return types.some(function(t){return w.types.includes(t);});});
+}
+function pokeArtwork(data){
+  const art=data && data.sprites && data.sprites.other && data.sprites.other['official-artwork'] && data.sprites.other['official-artwork'].front_default;
+  const home=data && data.sprites && data.sprites.other && data.sprites.other.home && data.sprites.other.home.front_default;
+  return art || home || (data && data.sprites && data.sprites.front_default) || '';
+}
+async function analyzePokemon(raw){
+  const status=byId('pokeStatus'), result=byId('pokeResult');
+  const name=apiPokemonName(raw);
+  if(!name){status.className='poke-status error';status.textContent='Digite o nome de um Pokémon.';result.hidden=true;return;}
+  status.className='poke-status';status.textContent='Buscando '+raw+'…';result.hidden=true;
+  try{
+    const res=await fetch('https://pokeapi.co/api/v2/pokemon/'+encodeURIComponent(name));
+    if(!res.ok)throw new Error('not-found');
+    const data=await res.json();
+    const types=data.types.map(function(x){return x.type.name;}).filter(function(x){return TYPE_MAP[x];});
+    if(!types.length)throw new Error('type-missing');
+    const profile=defensiveProfile(types);
+    const doubleWeak=profile.filter(function(x){return x.mult>1.61;});
+    const weak=profile.filter(function(x){return x.mult>1.001&&x.mult<=1.61;});
+    const strongResist=profile.filter(function(x){return x.mult<0.6249;});
+    const resist=profile.filter(function(x){return x.mult<.999&&x.mult>=0.6249;});
+    analyzedPokemon={name:titlePokemon(data.name),dex:data.id,types:types,profile:profile};
+    byId('pokeName').textContent=analyzedPokemon.name;
+    byId('pokeDex').textContent='#'+String(data.id).padStart(4,'0');
+    const img=byId('pokeImage'); img.src=pokeArtwork(data); img.alt=analyzedPokemon.name;
+    byId('pokeTypes').innerHTML=types.map(function(id){const x=TYPE_MAP[id];return '<span class="type-pill" style="background:linear-gradient(135deg,'+alpha(x.color,.82)+','+alpha(x.color,.58)+');border-color:'+alpha(x.color,.35)+'">'+x.name+'</span>';}).join('');
+    const headline=doubleWeak.length ? 'Tem uma vulnerabilidade especialmente forte a '+doubleWeak.map(function(x){return TYPE_MAP[x.id].name;}).join(', ')+'.' : weak.length ? 'Suas fraquezas principais são '+weak.map(function(x){return TYPE_MAP[x.id].name;}).join(', ')+'.' : 'A combinação de tipos não apresenta fraqueza comum nesta leitura.';
+    byId('pokeSummary').textContent=headline;
+    fillCombatBadges('pokeDoubleWeak',doubleWeak,'Sem fraqueza combinada especialmente forte.');
+    fillCombatBadges('pokeWeak',weak,'Nenhuma fraqueza adicional.');
+    fillCombatBadges('pokeResist',resist,'Sem resistências simples.');
+    fillCombatBadges('pokeStrongResist',strongResist,'Sem resistência combinada especialmente forte.');
+    byId('pokeOffense').innerHTML=types.map(function(atk){
+      const targets=TYPES.filter(function(def){return goEff(atk,def.id)>1;}).map(function(def){return def.name;});
+      return '<div class="offense-line"><b>'+TYPE_MAP[atk].name+'</b> → '+(targets.join(', ')||'sem vantagem de tipo')+'</div>';
+    }).join('');
+    const best=(doubleWeak.length?doubleWeak:weak);
+    byId('raidAdvice').innerHTML=best.length ? 'Priorize golpes do tipo <strong>'+best.map(function(x){return TYPE_MAP[x.id].name;}).join(', ')+'</strong>. '+(doubleWeak.length?'A tipagem combinada cria uma fraqueza especialmente valiosa para acelerar o dano.':'Esses tipos entram com vantagem contra a combinação defensiva.') : 'Não há uma fraqueza comum destacada; nesse caso, golpes, nível e desempenho individual ganham ainda mais peso.';
+    byId('maxAdvice').innerHTML=best.length ? 'As fraquezas de tipo continuam importantes: <strong>'+best.map(function(x){return TYPE_MAP[x.id].name;}).join(', ')+'</strong> são a primeira referência. Em Batalhas Max, só Pokémon Max elegíveis entram no time; em Dinamax, o primeiro Movimento Max segue o tipo do ataque ágil, enquanto Gigamax pode ter um Movimento G-Max próprio.' : 'Use a tipagem como ponto de partida, mas lembre que apenas Pokémon Max elegíveis participam. O primeiro Movimento Max de um Dinamax segue o tipo do ataque ágil; Gigamax pode ter um G-Max próprio.';
+    const climates=weatherForTypes(types);
+    byId('weatherAdvice').innerHTML=climates.length ? 'Os tipos deste Pokémon recebem fortalecimento em: <strong>'+climates.map(function(w){return w.icon+' '+w.name;}).join(' · ')+'</strong>.' : 'Nenhum clima padrão corresponde à tipagem retornada.';
+    status.textContent='Análise pronta. Os resultados abaixo são focados em tipagem, não em DPS ou golpes específicos.';
+    result.hidden=false;
+    updateWeatherResult();
+  }catch(e){
+    analyzedPokemon=null;result.hidden=true;status.className='poke-status error';status.textContent='Não encontrei esse nome. Tente a espécie base ou uma forma conhecida, como “Giratina Origem” ou “Mega Charizard X”.';
+    updateWeatherResult();
+  }
+}
+function setCombatTab(name){
+  document.querySelectorAll('.combat-tab').forEach(function(btn){const on=btn.dataset.combatTab===name;btn.classList.toggle('active',on);btn.setAttribute('aria-selected',on?'true':'false');});
+  [['analyzer','analyzerPanel'],['types','typesPanel'],['weather','weatherPanel']].forEach(function(pair){const el=byId(pair[1]);const on=pair[0]===name;el.classList.toggle('active',on);el.hidden=!on;});
+}
+document.querySelectorAll('.combat-tab').forEach(function(btn){btn.addEventListener('click',function(){setCombatTab(btn.dataset.combatTab);});});
+byId('pokeSearchForm').addEventListener('submit',function(e){e.preventDefault();analyzePokemon(byId('pokeSearchInput').value);});
+document.querySelectorAll('[data-poke-example]').forEach(function(btn){btn.addEventListener('click',function(){byId('pokeSearchInput').value=btn.dataset.pokeExample;analyzePokemon(btn.dataset.pokeExample);});});
+byId('openWeatherFromPokemon').addEventListener('click',function(){setCombatTab('weather');byId('weatherPanel').scrollIntoView({behavior:'smooth',block:'start'});});
+
+function renderWeather(){
+  byId('weatherGrid').innerHTML=WEATHER.map(function(w){
+    return '<button type="button" class="weather-btn '+(activeWeather===w.id?'active':'')+'" data-weather="'+w.id+'"><span class="weather-icon">'+w.icon+'</span><span class="weather-name">'+w.name+'</span><span class="weather-types">'+w.types.map(function(id){return TYPE_MAP[id].name;}).join(' · ')+'</span></button>';
+  }).join('');
+  byId('weatherGrid').querySelectorAll('button').forEach(function(btn){btn.addEventListener('click',function(){activeWeather=btn.dataset.weather;renderWeather();updateWeatherResult();});});
+}
+function updateWeatherResult(){
+  const box=byId('weatherResult');
+  const w=WEATHER.find(function(x){return x.id===activeWeather;});
+  if(!w){box.innerHTML='<h3>Escolha o clima do jogo</h3><p>O resultado aparecerá aqui. O clima exibido pelo Pokémon GO pode, às vezes, divergir do clima real.</p>';return;}
+  let extra='';
+  if(analyzedPokemon){
+    const matched=analyzedPokemon.types.filter(function(t){return w.types.includes(t);});
+    extra=matched.length ? '<p style="margin-top:9px"><strong>'+analyzedPokemon.name+' está fortalecido por este clima</strong> porque possui '+matched.map(function(t){return TYPE_MAP[t].name;}).join(' e ')+'.</p>' : '<p style="margin-top:9px">'+analyzedPokemon.name+' não recebe fortalecimento de tipo neste clima.</p>';
+  }
+  box.innerHTML='<h3>'+w.icon+' '+w.name+'</h3><p>Tipos fortalecidos: <strong>'+w.types.map(function(t){return TYPE_MAP[t].name;}).join(', ')+'</strong>. Esses tipos podem aparecer com mais frequência, ter movimentos fortalecidos em batalha e conceder Poeira Estelar extra quando a captura estiver fortalecida pelo clima.</p>'+extra;
+}
+renderWeather();
+
+function artByDex(dex){return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+dex+'.png';}
+function newChallenge(){
+  let next=Math.floor(Math.random()*COMBAT_CHALLENGES.length);
+  if(COMBAT_CHALLENGES.length>1&&next===currentChallenge)next=(next+1)%COMBAT_CHALLENGES.length;
+  currentChallenge=next;
+  const q=COMBAT_CHALLENGES[next];
+  byId('challengeImage').src=artByDex(q.dex);byId('challengeImage').alt=q.name;
+  byId('challengeQuestion').textContent=q.name+' apareceu como chefe. Qual tipo você escolheria para explorar a maior fraqueza?';
+  byId('challengeFeedback').textContent='';
+  byId('challengeOptions').innerHTML=q.options.map(function(id){const x=TYPE_MAP[id];return '<button type="button" class="challenge-option" data-answer="'+id+'" style="border-color:'+alpha(x.color,.32)+'">'+x.name+'</button>';}).join('');
+  byId('challengeOptions').querySelectorAll('button').forEach(function(btn){btn.addEventListener('click',function(){
+    byId('challengeOptions').querySelectorAll('button').forEach(function(b){b.disabled=true;b.classList.toggle('correct',b.dataset.answer===q.answer);});
+    if(btn.dataset.answer!==q.answer)btn.classList.add('wrong');
+    byId('challengeFeedback').textContent=(btn.dataset.answer===q.answer?'Acertou. ':'Quase. ')+q.why;
+  });});
+}
+byId('challengeNext').addEventListener('click',newChallenge);
+newChallenge();
+
 </script>
 <script src="nav.js"></script>
 </body></html>

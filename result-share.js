@@ -38,18 +38,22 @@
     function wrap(text,width,size,weight=500){font(size,weight);const result=[];for(const paragraph of String(text).split('\n')){let line='';for(const word of paragraph.split(/\s+/)){// Also wrap unusually long user-entered words.
       for(const part of (ctx.measureText(word).width>width?[...word]:[word])){const next=line?(part===word?line+' '+part:line+part):part;if(line&&ctx.measureText(next).width>width){result.push(line);line=part;}else line=next;}}
       if(line)result.push(line);}return result;}
-    const title=wrap(data.title,art?690:952,48,850);
+    const title=wrap(data.title,art?690:952,92,950);
     const blocks=data.sections.filter(s=>s.text).map(s=>({...s,labels:wrap(s.label.toLocaleUpperCase('pt-BR'),888,23,750),lines:wrap(s.text,888,32)}));
     const note=wrap(data.note,952,24);
-    const start=190+Math.max(title.length*60,art?160:0)+35;
+    const start=260+Math.max(title.length*108,art?210:0)+52;
     const blocksHeight=blocks.reduce((h,b)=>h+40+b.labels.length*31+b.lines.length*44+28,0);
     canvas.height=Math.max(1080,start+blocksHeight+note.length*34+210);
     if(canvas.height>16000)throw new Error('O resultado ficou muito grande. Reduza a quantidade de itens para criar o card.');
     const gradient=ctx.createLinearGradient(0,0,1080,canvas.height);gradient.addColorStop(0,'#122b47');gradient.addColorStop(1,'#07111f');ctx.fillStyle=gradient;ctx.fillRect(0,0,1080,canvas.height);
     const stripe=ctx.createLinearGradient(0,0,1080,0);stripe.addColorStop(0,'#38bdf8');stripe.addColorStop(.5,'#8b5cf6');stripe.addColorStop(1,'#ec4899');ctx.fillStyle=stripe;ctx.fillRect(0,0,1080,10);
     const draw=(t,x,y,size,color='#f8fafc',weight=500)=>{font(size,weight);ctx.fillStyle=color;ctx.fillText(t,x,y);};
-    draw('GO NEXUS',64,82,32,'#7dd3fc',900);draw(data.subtitle,64,129,24,'#b8c8dc');
-    title.forEach((l,i)=>draw(l,64,211+i*60,48,'#fff',850));if(art)ctx.drawImage(art,816,155,200,200);
+    ctx.fillStyle='#38bdf8';ctx.fillRect(64,50,188,6);draw('GO NEXUS',64,104,46,'#7dd3fc',950);draw(data.subtitle,64,151,25,'#b8c8dc');
+    ctx.fillStyle='#163653';ctx.fillRect(48,184,720,Math.max(126,title.length*108+32));
+    draw('POKÉMON ANALISADO',72,220,22,'#7dd3fc',850);
+    title.forEach((l,i)=>draw(l,72,312+i*108,92,'#fff',950));
+    ctx.fillStyle='#38bdf8';ctx.fillRect(72,330+title.length*108,Math.min(430,ctx.measureText(title[0]||'').width),8);
+    if(art)ctx.drawImage(art,816,155,200,200);
     let y=start;
     blocks.forEach(b=>{const height=40+b.labels.length*31+b.lines.length*44;ctx.fillStyle='#142b45';ctx.fillRect(64,y,952,height);let lineY=y+36;b.labels.forEach(l=>{draw(l,90,lineY,23,'#7dd3fc',750);lineY+=31;});lineY+=10;b.lines.forEach(l=>{draw(l,90,lineY,32);lineY+=44;});y+=height+28;});
     note.forEach(l=>{draw(l,64,y+22,24,'#b8c8dc');y+=34;});

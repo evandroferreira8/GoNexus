@@ -21,7 +21,7 @@
 <main class="shell">
 <section class="hero"><span class="badge">Central GO Nexus</span><h1>Seu atalho para o<br><span class="grad">Pokémon GO</span></h1><p>Guias e ferramentas diretas para pesquisar, calcular e entender mecânicas do jogo sem precisar caçar a informação em vários lugares.</p><div class="stats"><span class="stat">10 ferramentas</span><span class="stat">Quiz com 80 perguntas</span><span class="stat">Feito para celular</span></div></section>
 
-<link rel="stylesheet" href="feature-news.css?v=1">
+<link rel="stylesheet" href="feature-news.css?v=1"><link rel="stylesheet" href="daily-pokemon.css?v=1">
 <section class="nx-updates" id="featureUpdates" aria-labelledby="featureUpdatesTitle" aria-roledescription="carrossel"></section>
 <script src="feature-news.js?v=1"></script>
 <section class="search-zone" aria-labelledby="globalSearchTitle">
@@ -52,6 +52,7 @@
 <a class="tool" href="central-max.html" style="--accent:linear-gradient(90deg,#fb7185,#f472b6,#8b5cf6)"><div class="tool-icon">🔴</div><h3>Central Max</h3><p>Consulte Pokémon Dinamax, formas Gigamax disponíveis e não lançadas e calcule o custo dos Movimentos Max.</p><span class="go">Abrir Central Max →</span></a>
 </div></section>
 
+<section class="daily-pokemon" id="dailyPokemon" aria-labelledby="dailyPokemonTitle"></section>
 <section class="news-section" aria-labelledby="newsTitle">
   <div class="news-head"><div><h2 id="newsTitle">📰 Eventos e novidades</h2><p>As cinco publicações mais recentes do site oficial do Pokémon GO.</p></div><a class="news-source" href="https://pokemongo.com/pt-BR/news" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a></div>
   <div class="news-frame">
@@ -86,5 +87,5 @@ document.getElementById('newsPrev').addEventListener('click',()=>slideNews(-1));
 const badge=document.getElementById('megaHomeBadge');const now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate()),release=new Date(2026,8,19),diff=Math.round((release-today)/86400000);if(diff===0){badge.textContent='Hoje'}else if(diff<0){badge.textContent='Atualizado';badge.classList.remove('tomorrow')}
 </script>
 <script src="nav.js?v=20260920-dark-final"></script>
-<script src="theme.js?v=20260920-dark"></script>
+<script src="theme.js?v=20260920-dark"></script><script src="daily-pokemon.js?v=1"></script>
 </body></html>

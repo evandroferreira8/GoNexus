@@ -48,7 +48,7 @@
     const names = [lines(r.frm, 400, 36, 800), lines(r.to, 400, 36, 800)];
     const requirements = r.reqs.map(t => lines(t, 860, 32));
     const notes = r.note ? lines(r.note, 888, 27) : [];
-    const nameEnd = 460 + Math.max(...names.map(n => n.length)) * 44;
+    const nameEnd = 500 + Math.max(...names.map(n => n.length)) * 56;
     const reqStart = nameEnd + 144;
     const noteStart = reqStart + requirements.reduce((n, l) => n + l.length * 44 + 24, 0);
     const footerStart = noteStart + (notes.length ? notes.length * 38 + 48 : 10) + 30;
@@ -61,8 +61,9 @@
     accent.addColorStop(0, '#38bdf8'); accent.addColorStop(.5, '#8b5cf6'); accent.addColorStop(1, '#ec4899');
     ctx.fillStyle = accent; ctx.fillRect(0, 0, 1080, 10);
     function text(t, x, y, size, color = '#f8fafc', weight = 500) { font(size, weight); ctx.fillStyle = color; ctx.fillText(t, x, y); }
-    text('GO NEXUS', 64, 80, 32, '#7dd3fc', 900);
-    text('GUIA DE EVOLUÇÃO • POKÉMON GO', 64, 124, 23, '#a6b8ce', 700);
+    ctx.fillStyle='#38bdf8';ctx.fillRect(64, 46, 188, 6);
+    text('GO NEXUS', 64, 104, 46, '#7dd3fc', 950);
+    text('GUIA DE EVOLUÇÃO • POKÉMON GO', 64, 151, 24, '#a6b8ce', 700);
     [r.frm, r.to].forEach((name, i) => {
       const center = i ? 790 : 290;
       ctx.fillStyle = '#142e4b'; ctx.beginPath(); ctx.arc(center, 304, 136, 0, Math.PI * 2); ctx.fill();
@@ -70,7 +71,7 @@
       else { ctx.textAlign = 'center'; text('?', center, 340, 90, '#7dd3fc'); }
       ctx.textAlign = 'center';
       text(`#${String(i ? r.dex_to : r.dex_from).padStart(4, '0')}`, center, 169, 22, '#9ab0c9', 700);
-      names[i].forEach((line, j) => text(line, center, 470 + j * 44, 36, '#fff', 800));
+      names[i].forEach((line, j) => text(line, center, 520 + j * 66, 54, '#fff', 950));
       ctx.textAlign = 'left';
     });
     text('→', 510, 325, 58, '#7dd3fc', 700);

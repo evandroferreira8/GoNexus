@@ -16,9 +16,6 @@
 
     document.querySelectorAll("go-nexus-header, go-nexus-footer").forEach((el) => {
       el.setAttribute("data-theme", "dark");
-      if (el.shadowRoot) {
-        el.shadowRoot.querySelectorAll(".theme-toggle").forEach((button) => button.remove());
-      }
     });
   }
 

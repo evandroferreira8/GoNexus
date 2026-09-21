@@ -21,7 +21,7 @@
   };
   const entries=configs[page]; if(!entries)return;
   const style=document.createElement('style');
-  style.textContent=`.nx-result-share{display:block;width:100%;margin-top:15px;padding:12px 16px;border:1px solid #487398;border-radius:12px;background:#15324c;color:#c9ecff;font:700 .88rem system-ui;cursor:pointer}.nx-result-share:disabled{opacity:.5;cursor:not-allowed}.nx-result-share:hover:not(:disabled){background:#214c6d}.nx-result-share:focus-visible,.nx-result-dialog :focus-visible{outline:3px solid #7dd3fc;outline-offset:3px}.nx-result-dialog{width:min(520px,calc(100% - 24px));max-height:92dvh;overflow:auto;padding:20px;border:1px solid #456086;border-radius:20px;background:#0b1729;color:#f8fafc;font-family:system-ui}.nx-result-dialog::backdrop{background:#020817cc}.nx-result-dialog header{display:flex;align-items:center;justify-content:space-between;gap:10px}.nx-result-dialog h2{margin:0;font-size:1.2rem}.nx-result-dialog img{display:block;width:100%;height:auto;border-radius:12px;margin-top:16px}.nx-result-dialog p{font-size:.85rem;color:#b8c8dc;line-height:1.5}.nx-result-dialog button,.nx-result-dialog a{font:inherit;cursor:pointer}.nx-result-close{border:0;background:transparent;color:#fff;padding:10px}.nx-result-actions{display:flex;gap:10px;flex-wrap:wrap}.nx-result-actions button,.nx-result-actions a{flex:1;padding:12px;border:1px solid #456086;border-radius:10px;background:#17314f;color:#fff;text-align:center;text-decoration:none}.nx-result-actions button{background:#2563eb}.nx-result-dialog [hidden]{display:none!important}`;
+  style.textContent=`.nx-result-share{display:block;width:100%;margin-top:15px;padding:12px 16px;border:1px solid #487398;border-radius:12px;background:#15324c;color:#c9ecff;font:700 .88rem system-ui;cursor:pointer}.nx-result-share:disabled{opacity:.5;cursor:not-allowed}.nx-result-share:hover:not(:disabled){background:#214c6d}.nx-result-share:focus-visible,.nx-result-dialog :focus-visible{outline:3px solid #7dd3fc;outline-offset:3px}.nx-result-dialog{width:min(520px,calc(100% - 24px));max-height:92dvh;overflow:auto;padding:20px;border:1px solid #456086;border-radius:20px;background:#0b1729;color:#f8fafc;font-family:system-ui}.nx-result-dialog::backdrop{background:#020817cc}.nx-result-dialog header{display:flex;align-items:center;justify-content:space-between;gap:10px}.nx-result-dialog h2{margin:0;font-size:1.2rem}.nx-result-dialog img{display:block;width:100%;height:auto;border-radius:12px;margin-top:16px}.nx-result-dialog p{font-size:.85rem;color:#b8c8dc;line-height:1.5}.nx-result-dialog button,.nx-result-dialog a{font:inherit;cursor:pointer}.nx-result-close{border:0;background:transparent;color:#fff;padding:10px}.nx-result-actions{display:flex;gap:10px;flex-wrap:wrap;position:sticky;bottom:-20px;padding:12px 0 0;background:linear-gradient(transparent,#0b1729 30%)}.nx-result-actions button,.nx-result-actions a{flex:1;padding:12px;border:1px solid #456086;border-radius:10px;background:#17314f;color:#fff;text-align:center;text-decoration:none}.nx-result-actions button{background:#2563eb}.nx-result-dialog [hidden]{display:none!important}@media(max-width:480px){.nx-result-dialog{padding:15px}.nx-result-actions{bottom:-15px;gap:8px}.nx-result-actions button,.nx-result-actions a{min-height:46px}}`;
   document.head.append(style);
   const dialog=document.createElement('dialog');dialog.className='nx-result-dialog';dialog.setAttribute('aria-labelledby','nx-result-title');
   dialog.innerHTML='<header><h2 id="nx-result-title">Seu card está quase pronto</h2><button type="button" class="nx-result-close" aria-label="Fechar">✕</button></header><img hidden alt="Prévia do resultado"><p role="status" aria-live="polite"></p><div class="nx-result-actions"><button type="button" hidden>Compartilhar</button><a hidden>Baixar imagem</a></div>';
@@ -38,10 +38,12 @@
     function wrap(text,width,size,weight=500){font(size,weight);const result=[];for(const paragraph of String(text).split('\n')){let line='';for(const word of paragraph.split(/\s+/)){// Also wrap unusually long user-entered words.
       for(const part of (ctx.measureText(word).width>width?[...word]:[word])){const next=line?(part===word?line+' '+part:line+part):part;if(line&&ctx.measureText(next).width>width){result.push(line);line=part;}else line=next;}}
       if(line)result.push(line);}return result;}
-    const title=wrap(data.title,art?690:952,92,950);
+    const titleSize=data.title.length>22?72:(data.title.length>15?82:92);
+    const title=wrap(data.title,art?690:952,titleSize,950);
     const blocks=data.sections.filter(s=>s.text).map(s=>({...s,labels:wrap(s.label.toLocaleUpperCase('pt-BR'),888,23,750),lines:wrap(s.text,888,32)}));
     const note=wrap(data.note,952,24);
-    const start=260+Math.max(title.length*108,art?210:0)+52;
+    const titleLine=titleSize+16;
+    const start=260+Math.max(title.length*titleLine,art?210:0)+52;
     const blocksHeight=blocks.reduce((h,b)=>h+40+b.labels.length*31+b.lines.length*44+28,0);
     canvas.height=Math.max(1080,start+blocksHeight+note.length*34+210);
     if(canvas.height>16000)throw new Error('O resultado ficou muito grande. Reduza a quantidade de itens para criar o card.');
@@ -49,10 +51,10 @@
     const stripe=ctx.createLinearGradient(0,0,1080,0);stripe.addColorStop(0,'#38bdf8');stripe.addColorStop(.5,'#8b5cf6');stripe.addColorStop(1,'#ec4899');ctx.fillStyle=stripe;ctx.fillRect(0,0,1080,10);
     const draw=(t,x,y,size,color='#f8fafc',weight=500)=>{font(size,weight);ctx.fillStyle=color;ctx.fillText(t,x,y);};
     ctx.fillStyle='#38bdf8';ctx.fillRect(64,50,188,6);draw('GO NEXUS',64,104,46,'#7dd3fc',950);draw(data.subtitle,64,151,25,'#b8c8dc');
-    ctx.fillStyle='#163653';ctx.fillRect(48,184,720,Math.max(126,title.length*108+32));
+    ctx.fillStyle='#163653';ctx.fillRect(48,184,720,Math.max(126,title.length*titleLine+32));
     draw('POKÉMON ANALISADO',72,220,22,'#7dd3fc',850);
-    title.forEach((l,i)=>draw(l,72,312+i*108,92,'#fff',950));
-    ctx.fillStyle='#38bdf8';ctx.fillRect(72,330+title.length*108,Math.min(430,ctx.measureText(title[0]||'').width),8);
+    title.forEach((l,i)=>draw(l,72,312+i*titleLine,titleSize,'#fff',950));
+    ctx.fillStyle='#38bdf8';ctx.fillRect(72,330+title.length*titleLine,Math.min(430,ctx.measureText(title[0]||'').width),8);
     if(art)ctx.drawImage(art,816,155,200,200);
     let y=start;
     blocks.forEach(b=>{const height=40+b.labels.length*31+b.lines.length*44;ctx.fillStyle='#142b45';ctx.fillRect(64,y,952,height);let lineY=y+36;b.labels.forEach(l=>{draw(l,90,lineY,23,'#7dd3fc',750);lineY+=31;});lineY+=10;b.lines.forEach(l=>{draw(l,90,lineY,32);lineY+=44;});y+=height+28;});
@@ -81,3 +83,4 @@
     const target=byId(entries[0].after);const details=target.closest('details');if(details)details.open=true;
   }
 })();
+

@@ -35,7 +35,7 @@
 }
 </style><link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=20260920-dark">
 </head><body class="page-formas"><go-nexus-header></go-nexus-header><main class="shell">
-<section class="hero"><div class="eyebrow">🔄 Transformações e variações</div><h1>Formas Especiais <span class="grad">e Variações Visuais</span></h1><p class="lead">Fusões, Mudanças de Forma, Ditto e Pokémon Brilhantes em um só lugar — com explicações diretas e pequenas experiências interativas para entender cada mecânica.</p><div class="updated">Revisado em 19 de setembro de 2026</div></section>
+<section class="hero"><div class="eyebrow">🔄 Transformações e variações</div><h1>Formas Especiais <span class="grad">e Variações Visuais</span></h1><p class="lead">Fusões, Mudanças de Forma, Ditto e Pokémon Brilhantes em um só lugar — com explicações diretas e pequenas experiências interativas para entender cada mecânica.</p><div class="updated">Dados conferidos em 21 de setembro de 2026</div></section>
 <div class="switch" role="tablist" aria-label="Tipo de conteúdo"><button class="tab active" data-tab="fusion" role="tab" aria-selected="true">🧩 Fusões</button><button class="tab" data-tab="forms" role="tab" aria-selected="false">🔄 Mudanças de Forma</button><button class="tab ditto-tab" data-tab="ditto" role="tab" aria-selected="false">🟣 Ditto e Disfarces</button><button class="tab" data-tab="visual" role="tab" aria-selected="false">✨ Variações Visuais</button></div>
 
 <section class="panel active" id="fusion" role="tabpanel"><div class="intro"><strong>Fusão:</strong> combina dois Pokémon e consome Energia de Fusão e Doces. Separar é gratuito, mas o custo da Fusão não diminui com o tempo. Portanto, se você separar e quiser fundir novamente, precisará pagar o custo integral outra vez.</div>
@@ -133,3 +133,4 @@ const shinyRate=document.getElementById('shinyRate'),shinyTries=document.getElem
 document.querySelectorAll('.energy-input').forEach(input=>{const box=input.parentElement.querySelector('.remain');const update=()=>{const need=Number(input.dataset.need)||1000;const have=Math.max(0,Number(input.value)||0);const left=Math.max(0,need-have);if(left===0){box.textContent='Quantidade suficiente';box.classList.add('ok')}else{box.textContent=`Faltam ${left.toLocaleString('pt-BR')}`;box.classList.remove('ok')}};input.addEventListener('input',update);update()});
 </script><script src="nav.js?v=20260920-dark-final"></script>
 <script src="theme.js?v=20260920-dark"></script></body></html>
+

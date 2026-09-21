@@ -19,7 +19,7 @@ header{padding:25px 0 18px;text-align:center}.brand{font-size:1.7rem;font-weight
 @media(max-width:430px){.art{border-right:0;border-bottom:1px solid rgba(var(--rgb),.25)}}
 </style>
 <script id="go-nexus-theme-init">(()=>{try{const t=localStorage.getItem("go-nexus-theme");document.documentElement.dataset.theme=t==="light"?"light":"dark";document.documentElement.style.colorScheme=document.documentElement.dataset.theme}catch(_){document.documentElement.dataset.theme="dark"}})();</script>
-<link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=20260920-2">
+<link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=20260920-3">
 </head><body>
 <go-nexus-header></go-nexus-header>
 <main class="wrap"><section class="hero"><b>GUIA INTERATIVO</b><h1>Efeitos Aventura</h1><p>Bônus temporários ativados usando ataques específicos fora de batalha. Encontre rapidamente um Pokémon, ataque ou tipo de benefício.</p></section>
@@ -78,5 +78,5 @@ function run(){let n=0,s=q.value.trim().toLowerCase();cards.forEach(c=>{let show
 q.addEventListener("input",run);chips.forEach(b=>b.addEventListener("click",()=>{f=b.dataset.f;chips.forEach(x=>x.classList.toggle("on",x===b));run()}));document.querySelectorAll(".details").forEach(b=>b.addEventListener("click",()=>{let c=b.closest(".card");c.classList.toggle("open");b.textContent=c.classList.contains("open")?"Ocultar detalhes":"Custos e detalhes"}));
 </script>
 <script src="nav.js"></script>
-<script src="theme.js?v=20260920-2"></script>
+<script src="theme.js?v=20260920-3"></script>
 </body></html>

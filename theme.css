@@ -238,3 +238,270 @@ html[data-theme="dark"] :where(.nx-body,.quick,.details,.topbar,.family-head,.gr
 html[data-theme="light"] :where(.nx-body,.quick,.details,.topbar,.family-head,.group-head,.group-body){
   border-color:#c3cfdd!important;
 }
+
+/* ===== Tema claro v2 — textura, contraste e profundidade ===== */
+/*
+  Direção visual:
+  - claro azulado, nunca branco puro;
+  - texto principal mais escuro e texto secundário mais firme;
+  - superfícies com textura quase imperceptível e profundidade;
+  - degradês/acento preservados onde fazem parte da identidade da ferramenta;
+  - Poeira Estelar mantém as cores dinâmicas de cada grupo e Pokémon.
+*/
+html[data-theme="light"]{
+  --bg:#eaf0f7;
+  --card:#f7fafe;
+  --card2:#edf3f9;
+  --panel:#f4f8fc;
+  --line:#a7b8cb;
+  --text:#111827;
+  --muted:#3f536a;
+  --blue:#0369a1;
+  --violet:#6d28d9;
+  --pink:#be185d;
+  --green:#047857;
+  --yellow:#8a5a0a;
+  --red:#b91c1c;
+  background:#eaf0f7;
+}
+
+html[data-theme="light"] body{
+  color:#111827!important;
+  background:
+    radial-gradient(circle at 10% -8%,rgba(14,165,233,.17),transparent 27rem),
+    radial-gradient(circle at 91% -3%,rgba(124,58,237,.12),transparent 31rem),
+    linear-gradient(rgba(255,255,255,.22) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.18) 1px,transparent 1px),
+    linear-gradient(180deg,#eef4fa 0%,#e8eff7 54%,#edf3f8 100%)!important;
+  background-size:auto,auto,28px 28px,28px 28px,auto!important;
+}
+
+html[data-theme="light"] :where(
+  h1,h2,h3,h4,h5,h6,strong,b,label,.answer,.result-value,.selected-name,.name,.pname,
+  .pokemon,.news-title,.search-result b,.nx-summary-title,.amount,.family-name,.tool-title
+){
+  color:#111827!important;
+}
+
+html[data-theme="light"] :where(
+  .lead,.small,.sub,.hint,.note,.details,.updated,.meta,.mini,.searchhint,.search-help,
+  .news-status,.news-open,.section-title p,.news-head p,.about p,.tool p,.quick,.flow div,
+  .compare p,.difficulty-note,.move p,.diff small,.footnote,.sourcebox,.langhelp,.group-count,
+  .cost,.remain,.kind,.rule,.helper,.match-note,.poke-status,.poke-summary,.context-card p,
+  .analysis-card p,.weather-result p,.weather-types,.challenge-copy p,.challenge-feedback,
+  .quick-type .line,.legend small,.stat span,.formula,.result-label,.placeholder,footer,
+  .dex,.op,.arrow,.source-list,.source-list li,.summary-side,.group-chev,.cat
+){
+  color:#3f536a!important;
+}
+
+/* Superfícies: menos branco puro, mais material e separação visual. */
+html[data-theme="light"] :where(
+  .tool,.card,.panel,.fact,.about,.news-card,.search-results,.compare article,.diff,.move,
+  .calc,.calc-line,.level,.energy,.step,.row,.side,.pack,.wallet,.walletitem,.feedbackbox,
+  .box,.family,.formvisual,.rule,.ditto-card,.calculator,.selected-box,.result-card,
+  .quick-type,.context-card,.analysis-card,.weather-result,.challenge,.challenge-art,
+  .poke-profile,.poke-visual,.legend .item,.stat,.search-card
+):not(.group):not(.pokemon){
+  background:
+    radial-gradient(circle at 92% 4%,rgba(59,130,246,.055),transparent 36%),
+    linear-gradient(155deg,rgba(255,255,255,.94),rgba(239,245,251,.93))!important;
+  border-color:#a7b8cb!important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.82) inset,
+    0 12px 28px rgba(30,51,77,.09)!important;
+}
+
+html[data-theme="light"] :where(
+  .tool-icon,.search-result .ico,.flow div,.max-pill,.pricegrid input,.offense-line,
+  .empty,.ghost,.selected-strip,.search-examples button,.nx-compact-item
+){
+  background:
+    linear-gradient(155deg,rgba(248,251,255,.96),rgba(232,240,248,.94))!important;
+  border-color:#b4c3d3!important;
+}
+
+html[data-theme="light"] :where(.about,.feedbackbox,.wallet,.coin-balance-box,.poke-profile,.context-card,.weather-btn,.combat-tab){
+  background:
+    radial-gradient(circle at 100% 0,rgba(37,99,235,.055),transparent 42%),
+    linear-gradient(180deg,rgba(250,252,255,.96),rgba(235,242,249,.96))!important;
+}
+
+/* Campos: cinza-azulado suave para que não desapareçam no cartão. */
+html[data-theme="light"] :where(input,select,textarea,.global-search,.search input,.poke-search input,.calc-line select){
+  background:#f4f8fc!important;
+  color:#111827!important;
+  border-color:#9fb2c7!important;
+  box-shadow:inset 0 1px 2px rgba(30,51,77,.035)!important;
+}
+html[data-theme="light"] :where(input,textarea)::placeholder{
+  color:#61758c!important;
+}
+html[data-theme="light"] :where(input,select,textarea,.global-search,.search input,.poke-search input,.calc-line select):focus{
+  background:#fff!important;
+  border-color:#0284c7!important;
+  box-shadow:0 0 0 4px rgba(14,165,233,.13),0 7px 20px rgba(30,51,77,.06)!important;
+}
+
+/* Acordeões e blocos internos com leitura mais firme. */
+html[data-theme="light"] details.nx-accordion{
+  background:
+    linear-gradient(155deg,rgba(250,252,255,.96),rgba(236,243,250,.95))!important;
+  border-color:#a9bacd!important;
+  box-shadow:0 9px 22px rgba(30,51,77,.07)!important;
+}
+html[data-theme="light"] details.nx-accordion[open]{
+  background:
+    radial-gradient(circle at 96% 0,rgba(14,165,233,.06),transparent 40%),
+    linear-gradient(155deg,#fbfdff,#edf4fa)!important;
+  border-color:#8fa7bf!important;
+  box-shadow:0 14px 30px rgba(30,51,77,.10)!important;
+}
+html[data-theme="light"] details.nx-accordion>summary:hover{background:rgba(219,232,244,.55)!important}
+html[data-theme="light"] .nx-summary-sub{color:#465c74!important}
+html[data-theme="light"] .nx-note{
+  background:linear-gradient(135deg,#e9f4ff,#eef3ff)!important;
+  color:#35516e!important;
+  border-color:#7fb2df!important;
+}
+
+/* Home e cards de ferramentas: um leve acento de cor no topo evita o aspecto "planilha branca". */
+html[data-theme="light"] .tool{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 90% -10%,rgba(124,58,237,.065),transparent 42%),
+    radial-gradient(circle at 10% 0,rgba(14,165,233,.055),transparent 38%),
+    linear-gradient(155deg,rgba(252,253,255,.97),rgba(237,244,250,.95))!important;
+}
+html[data-theme="light"] .tool::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:3px;
+  background:linear-gradient(90deg,rgba(14,165,233,.72),rgba(124,58,237,.64),rgba(219,39,119,.54));
+  opacity:.68;
+  pointer-events:none;
+}
+html[data-theme="light"] .tool:hover{
+  border-color:#8ea7c0!important;
+  box-shadow:0 18px 36px rgba(30,51,77,.13),0 0 0 1px rgba(14,165,233,.05)!important;
+}
+
+/* Poeira Estelar — preservar a personalidade da página no tema claro. */
+html[data-theme="light"] .eyebrow{
+  color:#3f6212!important;
+  background:linear-gradient(135deg,rgba(190,242,100,.38),rgba(163,230,53,.16))!important;
+  border-color:rgba(77,124,15,.34)!important;
+}
+html[data-theme="light"] h1 span{
+  background:linear-gradient(90deg,#4d7c0f,#0f766e,#0369a1);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent!important;
+}
+html[data-theme="light"] .group{
+  background:
+    radial-gradient(circle at 4% 0,rgba(var(--glow),.18),transparent 38%),
+    linear-gradient(150deg,rgba(252,253,255,.97),rgba(234,241,248,.95) 68%)!important;
+  border-color:rgba(var(--glow),.56)!important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.85) inset,
+    0 10px 24px rgba(30,51,77,.08),
+    0 0 20px rgba(var(--glow),.055)!important;
+}
+html[data-theme="light"] .group[open]{
+  border-color:rgba(var(--glow),.72)!important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.9) inset,
+    0 14px 30px rgba(30,51,77,.10),
+    0 0 25px rgba(var(--glow),.09)!important;
+}
+html[data-theme="light"] .group-head{
+  background:linear-gradient(90deg,rgba(var(--glow),.08),rgba(255,255,255,.08))!important;
+  border-color:rgba(var(--glow),.27)!important;
+}
+html[data-theme="light"] .group-body{
+  background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(var(--glow),.025))!important;
+  border-color:rgba(var(--glow),.24)!important;
+}
+html[data-theme="light"] .dust-icon{
+  background:rgba(var(--glow),.16)!important;
+  border-color:rgba(var(--glow),.48)!important;
+  box-shadow:0 0 18px rgba(var(--glow),.10)!important;
+}
+html[data-theme="light"] .group-count{
+  background:rgba(255,255,255,.58)!important;
+  border-color:rgba(var(--glow),.38)!important;
+  color:#40556d!important;
+}
+html[data-theme="light"] .group-chev{color:#506780!important}
+html[data-theme="light"] .quick-values span{
+  background:rgba(248,251,255,.76)!important;
+  color:#344a61!important;
+  border-color:#aebfd0!important;
+}
+
+html[data-theme="light"] .pokemon{
+  color:#111827!important;
+  background:
+    radial-gradient(circle at 50% 12%,rgba(var(--poke),.12),transparent 54%),
+    linear-gradient(165deg,rgba(252,253,255,.97),rgba(233,240,247,.96))!important;
+  border-color:rgba(var(--poke),.45)!important;
+  box-shadow:0 7px 18px rgba(30,51,77,.055)!important;
+}
+html[data-theme="light"] .pokemon:hover,
+html[data-theme="light"] .pokemon.selected{
+  border-color:rgba(var(--poke),.82)!important;
+  box-shadow:0 12px 24px rgba(30,51,77,.10),0 0 22px rgba(var(--poke),.12)!important;
+}
+html[data-theme="light"] .pokemon .mini{color:#4b6077!important}
+
+html[data-theme="light"] .calculator{
+  background:
+    radial-gradient(circle at 7% 0,rgba(139,92,246,.16),transparent 38%),
+    radial-gradient(circle at 95% 12%,rgba(56,189,248,.10),transparent 34%),
+    linear-gradient(150deg,rgba(250,252,255,.97),rgba(235,241,249,.96))!important;
+  border-color:rgba(109,40,217,.42)!important;
+  box-shadow:0 16px 38px rgba(54,38,101,.10),0 0 28px rgba(109,40,217,.06)!important;
+}
+html[data-theme="light"] .selected-box,
+html[data-theme="light"] .toggle,
+html[data-theme="light"] .event-row{
+  background:linear-gradient(155deg,#f9fbfe,#eaf1f8)!important;
+  border-color:#a8bacd!important;
+}
+html[data-theme="light"] .event-row select{background:#f8fbff!important;color:#111827!important;border-color:#9fb2c7!important}
+html[data-theme="light"] .selected-base{color:#4d7c0f!important}
+html[data-theme="light"] .result{
+  background:
+    radial-gradient(circle at 50% 0,rgba(163,230,53,.14),transparent 65%),
+    linear-gradient(180deg,#f7fbf1,#edf4e7)!important;
+  border-color:rgba(77,124,15,.35)!important;
+  box-shadow:0 0 24px rgba(77,124,15,.07)!important;
+}
+html[data-theme="light"] .result-value{color:#3f6212!important}
+
+/* Separação entre grandes áreas sem linhas agressivas. */
+html[data-theme="light"] :where(.feedback,footer,.hero,.details,.compare,.topbar){
+  border-color:#b8c7d7!important;
+}
+html[data-theme="light"] .feedback{
+  background:linear-gradient(180deg,rgba(237,243,249,.46),rgba(229,237,246,.72))!important;
+}
+html[data-theme="light"] footer{
+  background:rgba(228,236,245,.58)!important;
+}
+
+/* Mobile: manter profundidade sem pesar e preservar respiro. */
+@media(max-width:700px){
+  html[data-theme="light"] body{
+    background:
+      radial-gradient(circle at 12% -2%,rgba(14,165,233,.14),transparent 20rem),
+      radial-gradient(circle at 95% 2%,rgba(124,58,237,.09),transparent 22rem),
+      linear-gradient(180deg,#eef4fa,#e8eff7)!important;
+  }
+  html[data-theme="light"] :where(.tool,.card,.panel,.group,.calculator,.news-card,.about){
+    box-shadow:0 8px 20px rgba(30,51,77,.075)!important;
+  }
+}

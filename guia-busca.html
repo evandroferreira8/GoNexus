@@ -164,6 +164,6 @@ search.addEventListener('input',render);
 document.querySelectorAll('.copy-static').forEach(b=>b.addEventListener('click',async()=>{const original=b.textContent;const cmd=lang==='pt'?b.dataset.copyPt:b.dataset.copyEn;try{await navigator.clipboard.writeText(cmd);b.textContent='✓ Copiado';setTimeout(()=>b.textContent=original,1200)}catch{}}));
 render();updateStaticCopy();
 </script>
-<script src="nav.js?v=20260920-6"></script>
+<script src="nav.js?v=20260920-dark-final"></script>
 <script src="theme.js?v=20260920-dark"></script>
 </body></html>

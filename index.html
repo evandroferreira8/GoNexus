@@ -80,7 +80,7 @@ searchInput.addEventListener('input',searchSite);searchInput.addEventListener('k
 const newsTrack=document.getElementById('newsTrack'), newsStatus=document.getElementById('newsStatus');
 function safeText(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function renderNews(data){const items=(data&&Array.isArray(data.items)?data.items:[]).slice(0,5);if(!items.length)return;newsTrack.innerHTML=items.map(item=>`<a class="news-card" href="${safeText(item.url)}" target="_blank" rel="noopener noreferrer"><div class="news-media">${item.image?`<img src="${safeText(item.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</div><div class="news-body"><span class="news-kicker">Pokémon GO oficial</span><div class="news-title">${safeText(item.title)}</div><div class="news-open">Abrir notícia ↗</div></div></a>`).join('');if(data.updated_at){const d=new Date(data.updated_at);if(!Number.isNaN(d.getTime()))newsStatus.textContent='Última verificação: '+new Intl.DateTimeFormat('pt-BR',{dateStyle:'short',timeStyle:'short'}).format(d)+'.'}}
-renderNews(NEWS_FALLBACK);fetch('news.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(renderNews).catch(()=>{newsStatus.textContent='Exibindo a última atualização salva no GO Nexus.'});
+fetch('news.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(renderNews).catch(()=>{renderNews(NEWS_FALLBACK);newsStatus.textContent='Exibindo a última atualização salva no GO Nexus.'});
 function slideNews(dir){const card=newsTrack.querySelector('.news-card');const amount=card?card.getBoundingClientRect().width+10:320;newsTrack.scrollBy({left:dir*amount,behavior:'smooth'})}
 document.getElementById('newsPrev').addEventListener('click',()=>slideNews(-1));document.getElementById('newsNext').addEventListener('click',()=>slideNews(1));
 
@@ -89,3 +89,4 @@ const badge=document.getElementById('megaHomeBadge');const now=new Date(),today=
 <script src="nav.js?v=20260920-dark-final"></script>
 <script src="theme.js?v=20260920-dark"></script><script src="daily-pokemon.js?v=1"></script>
 </body></html>
+

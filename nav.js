@@ -506,7 +506,194 @@
         }
         @media(hover:none),(pointer:coarse){.egg-dock{max-width:86px}.egg{touch-action:manipulation}.egg-hint{display:block;opacity:0;visibility:hidden}.egg-dock.prompt .egg-hint{opacity:1;visibility:visible;transform:none}}
         @media(prefers-reduced-motion:reduce){.egg-art,.egg-aura,.flash,.flash-ring,.flash-egg,.flash-arceus,.flash-crack,.cosmic-node,.cosmic-node img{animation:none!important;transition:none!important}}
-      </style>
+      
+        /* GO NEXUS COSMIC LIGHT v6 */
+        :host-context(html[data-theme="light"]) .overlay{
+          background:rgba(223,232,242,.82);
+          backdrop-filter:blur(12px) saturate(.92);
+        }
+        :host-context(html[data-theme="light"]) .cosmos{
+          color:#132033;
+          border-color:#a9bbce;
+          background:
+            radial-gradient(circle at 50% -8%,rgba(250,204,21,.10),transparent 25%),
+            radial-gradient(circle at 88% 5%,rgba(236,72,153,.065),transparent 25%),
+            radial-gradient(circle at 10% 16%,rgba(56,189,248,.085),transparent 25%),
+            linear-gradient(180deg,#f7fafc,#eaf1f7);
+          box-shadow:0 30px 70px rgba(38,54,75,.22),0 0 0 1px rgba(255,255,255,.65) inset;
+        }
+        :host-context(html[data-theme="light"]) .cosmos::before{
+          opacity:.28;
+          background-image:
+            radial-gradient(circle at 10% 10%,#5d7088 0 1px,transparent 1.4px),
+            radial-gradient(circle at 68% 18%,#7b8ba0 0 1px,transparent 1.4px),
+            radial-gradient(circle at 28% 56%,#60758f 0 1px,transparent 1.4px),
+            radial-gradient(circle at 82% 70%,#7b8ba0 0 1px,transparent 1.4px),
+            radial-gradient(circle at 45% 83%,#60758f 0 1px,transparent 1.4px);
+        }
+        :host-context(html[data-theme="light"]) .close{
+          border-color:#aebfd0;
+          background:#f8fbfe;
+          color:#263a50;
+          box-shadow:0 5px 14px rgba(30,49,72,.07);
+        }
+        :host-context(html[data-theme="light"]) .close:hover{
+          border-color:#8ea5bd;
+          background:#edf4f9;
+        }
+        :host-context(html[data-theme="light"]) .arceus-stage::before{
+          border-color:rgba(180,140,0,.28);
+          box-shadow:0 0 32px rgba(250,204,21,.10),inset 0 0 28px rgba(56,189,248,.055);
+        }
+        :host-context(html[data-theme="light"]) .arceus-stage img{
+          filter:drop-shadow(0 10px 16px rgba(44,54,68,.18)) drop-shadow(0 0 10px rgba(195,147,0,.14));
+        }
+        :host-context(html[data-theme="light"]) .hero-copy .eyebrow{
+          border-color:rgba(170,128,0,.28);
+          background:rgba(250,204,21,.13);
+          color:#775a00;
+        }
+        :host-context(html[data-theme="light"]) .hero-copy h2{
+          color:#101827;
+        }
+        :host-context(html[data-theme="light"]) .hero-copy p{
+          color:#4d6178;
+        }
+        :host-context(html[data-theme="light"]) .hero-copy strong{
+          color:#5b4700;
+        }
+        :host-context(html[data-theme="light"]) .tab{
+          border-color:#b3c3d3;
+          background:linear-gradient(155deg,#f8fbfe,#eaf1f7);
+          color:#42576f;
+          box-shadow:none;
+        }
+        :host-context(html[data-theme="light"]) .tab:hover,
+        :host-context(html[data-theme="light"]) .tab:focus-visible{
+          border-color:#8fa7bf;
+          color:#1a3047;
+          box-shadow:0 8px 18px rgba(30,49,72,.08);
+        }
+        :host-context(html[data-theme="light"]) .tab.active{
+          color:#17253a;
+          border-color:#8da7c2;
+          background:linear-gradient(135deg,rgba(37,99,235,.11),rgba(124,58,237,.10));
+          box-shadow:0 0 0 1px rgba(255,255,255,.55) inset,0 6px 16px rgba(72,84,140,.08);
+        }
+        :host-context(html[data-theme="light"]) .tab-companion{
+          color:#263b56;
+          border-color:#a8b8cf;
+          background:linear-gradient(135deg,rgba(56,189,248,.10),rgba(139,92,246,.10));
+        }
+        :host-context(html[data-theme="light"]) .tab-companion::after{opacity:.20}
+        :host-context(html[data-theme="light"]) .tab.active.tab-companion{
+          color:#17253a;
+          border-color:#8ca5c1;
+          background:linear-gradient(135deg,rgba(59,130,246,.14),rgba(124,58,237,.15));
+          box-shadow:0 7px 18px rgba(68,76,135,.09);
+        }
+        :host-context(html[data-theme="light"]) .panel-title h3,
+        :host-context(html[data-theme="light"]) .companion-intro h4,
+        :host-context(html[data-theme="light"]) .quiz-question{
+          color:#142236;
+        }
+        :host-context(html[data-theme="light"]) .panel-title p,
+        :host-context(html[data-theme="light"]) .micro{
+          color:#5d728a;
+        }
+        :host-context(html[data-theme="light"]) .origin-map{
+          border-color:#afc0d1;
+          background:
+            radial-gradient(circle at 50% 0,rgba(56,189,248,.055),transparent 48%),
+            linear-gradient(180deg,#f8fbfe,#eaf1f7);
+          box-shadow:0 8px 20px rgba(30,49,72,.055);
+        }
+        :host-context(html[data-theme="light"]) .down{color:#2584ad;opacity:.78}
+        :host-context(html[data-theme="light"]) .legend-group{
+          border-color:#afc0d1;
+          background:linear-gradient(180deg,#f9fbfd,#ecf2f7);
+          box-shadow:0 7px 18px rgba(30,49,72,.05);
+        }
+        :host-context(html[data-theme="light"]) .legend-title{color:#22364c}
+        :host-context(html[data-theme="light"]) .cosmic-node{
+          color:#17253a;
+          border-color:rgba(var(--node-glow),.42);
+          background:
+            radial-gradient(circle at 50% 12%,rgba(var(--node-glow),.11),transparent 55%),
+            linear-gradient(180deg,#fbfdff,#edf3f8);
+          box-shadow:0 8px 20px rgba(30,49,72,.07),0 0 12px rgba(var(--node-glow),.045);
+        }
+        :host-context(html[data-theme="light"]) .cosmic-node::before{
+          background:radial-gradient(circle,rgba(var(--node-glow),.13) 0%,rgba(var(--node-glow),.05) 48%,transparent 73%);
+        }
+        :host-context(html[data-theme="light"]) .cosmic-node:hover,
+        :host-context(html[data-theme="light"]) .cosmic-node:focus-visible{
+          border-color:rgba(var(--node-glow),.70);
+          box-shadow:0 10px 22px rgba(30,49,72,.09),0 0 17px rgba(var(--node-glow),.12);
+        }
+        :host-context(html[data-theme="light"]) .cosmic-node.selected{
+          border-color:rgba(var(--node-glow),.82);
+          box-shadow:0 10px 22px rgba(30,49,72,.09),0 0 0 1px rgba(var(--node-glow),.12),0 0 20px rgba(var(--node-glow),.14);
+        }
+        :host-context(html[data-theme="light"]) .cosmic-node img,
+        :host-context(html[data-theme="light"]) .cosmic-node .sprite-frame{
+          filter:drop-shadow(0 7px 9px rgba(30,49,72,.15)) drop-shadow(0 0 7px rgba(var(--node-glow),.15));
+        }
+        :host-context(html[data-theme="light"]) .cosmic-node span{color:#17253a}
+        :host-context(html[data-theme="light"]) .cosmic-node small{color:#5d7188}
+        :host-context(html[data-theme="light"]) .poke-popover{
+          border-color:rgba(var(--pop-glow),.54);
+          background:linear-gradient(145deg,#fbfdff,#edf3f8);
+          box-shadow:0 16px 36px rgba(30,49,72,.16),0 0 18px rgba(var(--pop-glow),.10);
+        }
+        :host-context(html[data-theme="light"]) .poke-popover strong{color:#17253a}
+        :host-context(html[data-theme="light"]) .poke-popover p{color:#51667e}
+        :host-context(html[data-theme="light"]) .poke-popover::after{
+          background:#f2f6fa;
+          border-left-color:rgba(var(--pop-glow),.52);
+          border-top-color:rgba(var(--pop-glow),.52);
+        }
+        :host-context(html[data-theme="light"]) details.sources{
+          border-color:#b5c5d5;
+          background:linear-gradient(180deg,#f8fbfe,#eef4f8);
+        }
+        :host-context(html[data-theme="light"]) details.sources summary{color:#385068}
+        :host-context(html[data-theme="light"]) .source-body{
+          border-color:#c5d1dd;
+          color:#52677f;
+        }
+        :host-context(html[data-theme="light"]) .source-body a{color:#0369a1}
+        :host-context(html[data-theme="light"]) .companion-intro,
+        :host-context(html[data-theme="light"]) .quiz-card,
+        :host-context(html[data-theme="light"]) .result-card{
+          border-color:#afc0d1;
+          background:
+            radial-gradient(circle at 92% 0,rgba(139,92,246,.055),transparent 36%),
+            linear-gradient(150deg,#fafcff,#edf3f8);
+          box-shadow:0 10px 24px rgba(30,49,72,.07);
+        }
+        :host-context(html[data-theme="light"]) .quiz-chip{
+          border-color:rgba(170,128,0,.27);
+          background:rgba(250,204,21,.13);
+          color:#775a00;
+        }
+        :host-context(html[data-theme="light"]) .companion-intro p,
+        :host-context(html[data-theme="light"]) .quiz-progress span{color:#536980}
+        :host-context(html[data-theme="light"]) .quiz-track{background:#dfe7ef}
+        :host-context(html[data-theme="light"]) .quiz-option{
+          border-color:#b4c4d4;
+          background:linear-gradient(155deg,#f8fbfe,#eaf1f7);
+          color:#263a50;
+          box-shadow:none;
+        }
+        :host-context(html[data-theme="light"]) .quiz-option:hover,
+        :host-context(html[data-theme="light"]) .quiz-option:focus-visible{
+          border-color:#91a9c1;
+          background:linear-gradient(155deg,#fbfdff,#e8f1f8);
+          box-shadow:0 7px 17px rgba(30,49,72,.07);
+        }
+        /* END GO NEXUS COSMIC LIGHT v6 */
+</style>
 
       <div class="egg-dock">
         <button class="egg" data-stage="0" type="button" aria-label="Ovo de Pokémon GO com as cores de Arceus">

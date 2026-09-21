@@ -327,7 +327,7 @@ const resultCard=document.querySelector('.result');const answerNode=document.get
 const glowObserver=new MutationObserver(()=>{const t=answerNode.textContent.toLowerCase();if(t.includes('combo é mais barato')){resultCard.style.setProperty('--result-rgb','52,211,153');resultCard.style.boxShadow='0 0 28px rgba(52,211,153,.16)'}else if(t.includes('separado é mais barato')){resultCard.style.setProperty('--result-rgb','248,113,113');resultCard.style.boxShadow='0 0 28px rgba(248,113,113,.15)'}else{resultCard.style.setProperty('--result-rgb','56,189,248');resultCard.style.boxShadow='0 0 24px rgba(56,189,248,.10)'}});glowObserver.observe(answerNode,{childList:true,characterData:true,subtree:true});
 </script>
 
-<script src="nav.js"></script>
+<script src="nav.js?v=20260920-6"></script>
 <script src="theme.js?v=20260920-6"></script>
 </body>
 </html>

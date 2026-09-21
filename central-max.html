@@ -138,6 +138,6 @@ function costBetween(cur,target,canLock){let c={mp:0,candy:0,xl:0};if(target<=cu
 function updateCalc(){let total={mp:0,candy:0,xl:0},invalid=false;['attack','guard','spirit'].forEach(move=>{const cur=Number(document.querySelector(`.current[data-move="${move}"]`).value),tar=Number(document.querySelector(`.target[data-move="${move}"]`).value);if(tar<cur)invalid=true;const c=costBetween(cur,tar,move!=='attack');Object.keys(total).forEach(k=>total[k]+=c[k])});$('#maxAnswer').innerHTML=invalid?'<b>Atenção:</b> um objetivo está abaixo do nível atual; essa linha é tratada como custo zero.':`Você precisará de <b>${total.mp.toLocaleString('pt-BR')} Partículas Max</b>, <b>${total.candy.toLocaleString('pt-BR')} Doces</b> e <b>${total.xl.toLocaleString('pt-BR')} Doces GG</b>.`}
 $('#search').addEventListener('input',render);document.querySelectorAll('.current,.target').forEach(s=>s.addEventListener('change',updateCalc));render();updateCalc();
 </script>
-<script src="nav.js?v=20260920-6"></script>
+<script src="nav.js?v=20260920-dark-final"></script>
 <script src="theme.js?v=20260920-dark"></script>
 </body></html>

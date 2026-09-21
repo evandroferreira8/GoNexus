@@ -93,6 +93,6 @@ function setupEnergyCalc(){const star=MEGAS.find(m=>m.name==='Mega Staraptor');c
 function updateLevel(){const n=Math.max(0,Math.floor(Number($('#megaDone').value)||0)),box=$('#levelAnswer');if(n>=30)box.innerHTML='<b>Nível Máximo alcançado.</b> Se essa Mega for elegível ao Super Nível Máximo, a progressão seguinte usa Megaenergia adicional.';else if(n>=7)box.innerHTML=`Você está no <b>Nível Alto</b>. Faltam <b>${30-n}</b> Megaevoluções válidas para o Nível Máximo.`;else if(n>=1)box.innerHTML=`Você está no <b>Nível Base</b>. Faltam <b>${7-n}</b> para o Nível Alto e <b>${30-n}</b> para o Nível Máximo.`;else box.innerHTML='A primeira Megaevolução desbloqueia o <b>Nível Base</b>.';}
 $('#search').addEventListener('input',render);$('#megaDone').addEventListener('input',updateLevel);setupEvent();render();setupEnergyCalc();updateLevel();
 </script>
-<script src="nav.js?v=20260920-6"></script>
+<script src="nav.js?v=20260920-dark-final"></script>
 <script src="theme.js?v=20260920-dark"></script>
 </body></html>

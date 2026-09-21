@@ -848,3 +848,45 @@ html[data-theme="light"] body.page-stardust .formula{color:#647457!important}
   html[data-theme="light"] body.page-stardust .hero{padding-top:32px!important}
   html[data-theme="light"] body.page-stardust .calculator{border-radius:22px!important}
 }
+
+/* ===== GO NEXUS — hotfix estrutural v6.1 ===== */
+/* Home: .group é seção estrutural, não cartão. */
+html[data-theme="light"] body.page-home section.group{
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  padding:0!important;
+}
+html[data-theme="light"] body.page-home section.group::before,
+html[data-theme="light"] body.page-home section.group::after{display:none!important}
+
+/* Calculadora: título e referência em proporção mais equilibrada. */
+html[data-theme="light"] body.page-calculadora>header.wrap h1{
+  font-size:clamp(3rem,6.6vw,5.4rem)!important;
+  letter-spacing:-.055em!important;
+}
+html[data-theme="light"] body.page-calculadora details.nx-accordion>summary{
+  min-height:74px!important;
+  height:auto!important;
+  padding:14px 18px!important;
+}
+html[data-theme="light"] body.page-calculadora .nx-summary-main{
+  gap:11px!important;
+}
+html[data-theme="light"] body.page-calculadora .nx-summary-title{
+  font-size:.98rem!important;
+}
+html[data-theme="light"] body.page-calculadora .nx-summary-sub{
+  margin-top:2px!important;
+  font-size:.8rem!important;
+}
+@media(max-width:700px){
+  html[data-theme="light"] body.page-calculadora>header.wrap h1{
+    font-size:clamp(2.55rem,13vw,4rem)!important;
+  }
+  html[data-theme="light"] body.page-calculadora details.nx-accordion>summary{
+    min-height:62px!important;
+    padding:12px 14px!important;
+  }
+}

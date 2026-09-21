@@ -136,6 +136,6 @@ function renderButtons(active){grid.innerHTML=CATEGORIES.map(c=>`<button type="b
 function showCategory(id){renderButtons(id); const c=CATEGORIES.find(x=>x.id===id); result.innerHTML=`<div class="top"><h3>${c.label}</h3><span class="status ${c.status}">${c.title}</span></div><p>${c.desc}</p><div class="tips">${c.tips.map(t=>`<div class="tip"><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div>`;}
 renderButtons();
 </script>
-<script src="nav.js?v=20260920-6"></script>
+<script src="nav.js?v=20260920-dark-final"></script>
 <script src="theme.js?v=20260920-dark"></script>
 </body></html>

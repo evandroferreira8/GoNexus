@@ -161,3 +161,80 @@ html[data-theme="light"] :where(hr,.nx-body,.quick,.hero,.details,.compare,.topb
   html[data-theme="light"] :where(.lead,.small,.sub,.hint,.note,.details,.updated,.meta,.mini,.searchhint,.search-help){color:#3e536c!important}
 }
 @media (prefers-reduced-motion:reduce){html *{transition:none!important}}
+
+
+/* ===== Revisão profunda de contraste e hierarquia ===== */
+/* Contornos neutros: visíveis sem competir com os acentos coloridos. */
+html[data-theme="dark"] :where(
+  .tool,.card,.panel,.fact,.about,.news-card,.search-results,.compare article,.flow div,
+  .diff,.move,.calc,.calc-line,.level,.energy,.step,.mega-row,.row,.side,.pack,.wallet,
+  .walletitem,.coin-balance-box,.feedbackbox,.info,.pokemon,.box,.family,.formvisual,
+  .rule,.ditto-card,.ditto-fact,.ditto-game,.group,.calculator,.selected-box,.tip,.check,
+  .result,.result-card,.quick-type,.context-card,.analysis-card,.weather-btn,.weather-result,
+  .challenge,.challenge-art,.poke-profile,.poke-visual,.type-btn,.combat-tab,.legend .item,
+  .stat,.search-card
+):not(.good):not(.warn):not(.bad):not(.special):not(.wrong){
+  border-color:#3b526f!important;
+}
+html[data-theme="light"] :where(
+  .tool,.card,.panel,.fact,.about,.news-card,.search-results,.compare article,.flow div,
+  .diff,.move,.calc,.calc-line,.level,.energy,.step,.mega-row,.row,.side,.pack,.wallet,
+  .walletitem,.coin-balance-box,.feedbackbox,.info,.pokemon,.box,.family,.formvisual,
+  .rule,.ditto-card,.ditto-fact,.ditto-game,.group,.calculator,.selected-box,.tip,.check,
+  .result,.result-card,.quick-type,.context-card,.analysis-card,.weather-btn,.weather-result,
+  .challenge,.challenge-art,.poke-profile,.poke-visual,.type-btn,.combat-tab,.legend .item,
+  .stat,.search-card
+):not(.good):not(.warn):not(.bad):not(.special):not(.wrong){
+  border-color:#afbed0!important;
+}
+
+/* Textos secundários que estavam discretos demais no tema escuro. */
+html[data-theme="dark"] :where(
+  .dex,.op,.arrow,.source-list,.source-list li,.source-list a,.pokeart.img-missing::after,
+  .summary-side,.group-chev,.searchbox svg,.clear,.cat,.kind,.remain,.cost,.updated,
+  .searchhint,.footnote,.news-status,.news-open,.quick-values span
+){
+  color:#a5b6ca!important;
+}
+html[data-theme="light"] :where(
+  .dex,.op,.arrow,.source-list,.source-list li,.pokeart.img-missing::after,
+  .summary-side,.group-chev,.searchbox svg,.clear,.cat,.kind,.remain,.cost,.updated,
+  .searchhint,.footnote,.news-status,.news-open,.quick-values span
+){
+  color:#556a82!important;
+}
+
+/* Estados semânticos: evita que uma classe de texto herde fundo de cartão. */
+html[data-theme="light"] strong.warn{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  color:#a16207!important;
+}
+html[data-theme="light"] .pill.good{background:#ecfdf5!important;border-color:#9edfc4!important;color:#047857!important}
+html[data-theme="light"] .pill.warn,
+html[data-theme="light"] .status.warn{background:#fffbeb!important;border-color:#efd586!important;color:#8a6508!important}
+html[data-theme="light"] .pill.bad{background:#fff1f2!important;border-color:#f8bbc5!important;color:#a3123f!important}
+html[data-theme="dark"] .pill.good{color:#9deec8!important}
+html[data-theme="dark"] .pill.warn,
+html[data-theme="dark"] .status.warn{color:#f5d76e!important}
+html[data-theme="dark"] .pill.bad{color:#fda4af!important}
+
+/* Campos e botões ganham limites claros em ambos os temas. */
+html[data-theme="dark"] :where(input,select,textarea,.global-search,.search input,.poke-search input,.calc-line select){
+  border-color:#415a78!important;
+}
+html[data-theme="light"] :where(input,select,textarea,.global-search,.search input,.poke-search input,.calc-line select){
+  border-color:#aabbd0!important;
+}
+html[data-theme="light"] :where(.news-nav button,.cat-btn,.challenge-option,.answers .ans,.search-examples button){
+  border-color:#afbed0!important;
+}
+
+/* Rodapés, divisórias e conteúdos internos não somem no fundo. */
+html[data-theme="dark"] :where(.nx-body,.quick,.details,.topbar,.family-head,.group-head,.group-body){
+  border-color:#3b526f!important;
+}
+html[data-theme="light"] :where(.nx-body,.quick,.details,.topbar,.family-head,.group-head,.group-body){
+  border-color:#c3cfdd!important;
+}

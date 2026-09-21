@@ -890,3 +890,523 @@ html[data-theme="light"] body.page-calculadora .nx-summary-sub{
     padding:12px 14px!important;
   }
 }
+
+/* ===== GO NEXUS — revisão final clara v8 ===== */
+/*
+  Camada final, escopada por página.
+  Evita o conflito entre os estilos escuros históricos de cada ferramenta
+  e os overrides genéricos do tema claro.
+*/
+html[data-theme="light"]{
+  --nx8-bg:#e9f0f7;
+  --nx8-surface:#f6f9fc;
+  --nx8-surface-2:#edf3f8;
+  --nx8-surface-3:#e7eef5;
+  --nx8-line:#a9bbcd;
+  --nx8-line-soft:#c0cedc;
+  --nx8-text:#142033;
+  --nx8-mid:#40566e;
+  --nx8-soft:#60758c;
+  --nx8-blue:#075985;
+  --nx8-violet:#5b21b6;
+  --nx8-shadow:0 10px 26px rgba(30,49,72,.075);
+}
+
+/* Hierarquia tipográfica: menos "tudo em negrito". */
+html[data-theme="light"] :where(
+  .eyebrow,.badge,.chip,.tab,.btn,.feedbackbtn,.combat-tab,.challenge-option,
+  .langbtn,.go,.new,.nx-summary-title,.family-count,.kind,.tag,.cost,.step,
+  .amount,.group-count,.details,.source-link,.searchhint
+){font-weight:700!important}
+html[data-theme="light"] :where(
+  .tool h3,.card h3,.panel h2,.panel h3,.family-head h2,.poke-copy h2,
+  .challenge-copy h2,.weather-result h3,.feedback h2
+){font-weight:750!important}
+
+/* Feedback: mesma linguagem visual em todas as ferramentas. */
+html[data-theme="light"] :where(.feedback a,.feedback .btn,.feedbackbtn){
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  min-height:42px!important;padding:10px 15px!important;border-radius:12px!important;
+  background:linear-gradient(135deg,#1d4ed8,#6d28d9)!important;
+  color:#fff!important;border:1px solid rgba(30,64,175,.28)!important;
+  box-shadow:0 8px 18px rgba(30,64,175,.13)!important;
+  font-weight:700!important;text-decoration:none!important;
+}
+
+/* =========================
+   EFEITOS AVENTURA
+   ========================= */
+html[data-theme="light"] body.page-effects .hero{
+  background:
+    radial-gradient(circle at 86% 10%,rgba(124,58,237,.10),transparent 40%),
+    radial-gradient(circle at 8% 100%,rgba(14,165,233,.10),transparent 42%),
+    linear-gradient(150deg,#f5f8fc,#e7eef6)!important;
+  border:1px solid #a8b9cc!important;
+  box-shadow:var(--nx8-shadow)!important;
+}
+html[data-theme="light"] body.page-effects .hero b{
+  color:#4c1d95!important;font-weight:750!important;
+}
+html[data-theme="light"] body.page-effects .hero h1{color:var(--nx8-text)!important}
+html[data-theme="light"] body.page-effects .hero p{color:#40566e!important}
+html[data-theme="light"] body.page-effects .controls{gap:12px!important}
+html[data-theme="light"] body.page-effects input{
+  background:#f4f8fb!important;color:var(--nx8-text)!important;border-color:#a8bbce!important;
+}
+html[data-theme="light"] body.page-effects .chip{
+  background:#eef3f8!important;color:#334b63!important;border-color:#b2c2d2!important;
+}
+html[data-theme="light"] body.page-effects .chip:hover{
+  background:#e5edf5!important;color:#17263a!important;border-color:#91a8bf!important;
+}
+html[data-theme="light"] body.page-effects .chip.on{
+  background:linear-gradient(135deg,#2563eb,#6d28d9)!important;
+  color:#fff!important;border-color:#5b6fba!important;
+  box-shadow:0 6px 14px rgba(79,70,229,.13)!important;
+}
+html[data-theme="light"] body.page-effects .card{
+  background:
+    radial-gradient(circle at 3% 0,rgba(var(--rgb),.11),transparent 44%),
+    linear-gradient(155deg,#f8fafc,#eaf1f7)!important;
+  border-color:rgba(var(--rgb),.43)!important;
+  box-shadow:0 8px 20px rgba(30,49,72,.065),0 0 16px rgba(var(--rgb),.045)!important;
+}
+html[data-theme="light"] body.page-effects .card:hover{
+  border-color:rgba(var(--rgb),.72)!important;
+  box-shadow:0 13px 27px rgba(30,49,72,.10),0 0 20px rgba(var(--rgb),.075)!important;
+}
+html[data-theme="light"] body.page-effects .art{
+  background:
+    radial-gradient(circle,rgba(var(--rgb),.14),transparent 68%),
+    linear-gradient(180deg,#eef4f9,#e5edf5)!important;
+  border-color:rgba(var(--rgb),.25)!important;
+}
+html[data-theme="light"] body.page-effects .art img{
+  filter:drop-shadow(0 7px 9px rgba(30,49,72,.16)) drop-shadow(0 0 7px rgba(var(--rgb),.18))!important;
+}
+html[data-theme="light"] body.page-effects .card:hover .art img{
+  filter:drop-shadow(0 8px 10px rgba(30,49,72,.18)) drop-shadow(0 0 9px rgba(var(--rgb),.24))!important;
+}
+html[data-theme="light"] body.page-effects .pokemon{
+  color:#3d2f75!important;font-weight:750!important;
+}
+html[data-theme="light"] body.page-effects .content h2{color:#172033!important}
+html[data-theme="light"] body.page-effects .content p,
+html[data-theme="light"] body.page-effects .more{color:#40566e!important}
+html[data-theme="light"] body.page-effects .badge{
+  color:#34266c!important;background:rgba(var(--rgb),.10)!important;
+  border-color:rgba(var(--rgb),.30)!important;
+}
+html[data-theme="light"] body.page-effects .stats div{
+  background:#edf3f8!important;border-color:#b6c5d4!important;
+}
+html[data-theme="light"] body.page-effects small{color:#5b7087!important}
+html[data-theme="light"] body.page-effects .stats strong{color:#172033!important}
+html[data-theme="light"] body.page-effects .details{
+  color:#4c1d95!important;font-weight:700!important;
+}
+html[data-theme="light"] body.page-effects details.nx-accordion .nx-body ul{
+  color:#40566e!important;
+}
+html[data-theme="light"] body.page-effects .feedback{
+  background:
+    radial-gradient(circle at 100% 0,rgba(124,58,237,.07),transparent 44%),
+    linear-gradient(155deg,#f6f9fc,#e9f0f6)!important;
+  border-color:#aebfd0!important;box-shadow:var(--nx8-shadow)!important;
+}
+html[data-theme="light"] body.page-effects .feedback p{color:#40566e!important}
+
+/* =========================
+   POEIRA ESTELAR — só os pontos pedidos
+   ========================= */
+html[data-theme="light"] body.page-stardust .hero>.note{
+  margin:14px auto 18px!important;padding:0!important;
+  border:0!important;border-radius:0!important;background:transparent!important;
+  box-shadow:none!important;color:#4c6178!important;
+}
+html[data-theme="light"] body.page-stardust .group-head{
+  padding-right:18px!important;
+}
+html[data-theme="light"] body.page-stardust .summary-side{
+  gap:10px!important;padding-right:2px!important;
+}
+html[data-theme="light"] body.page-stardust .group-chev{
+  width:30px!important;height:30px!important;display:grid!important;place-items:center!important;
+  flex:0 0 30px!important;border-radius:9px!important;
+  background:rgba(255,255,255,.48)!important;border:1px solid rgba(var(--glow),.24)!important;
+}
+
+/* =========================
+   EVOLUÇÕES ESPECIAIS
+   ========================= */
+html[data-theme="light"] body.page-evolutions .eyebrow{
+  color:#075985!important;background:#e7f4fb!important;border-color:#9fcbe0!important;
+}
+html[data-theme="light"] body.page-evolutions .lead{color:#40566e!important}
+html[data-theme="light"] body.page-evolutions .updated{color:#60758c!important}
+html[data-theme="light"] body.page-evolutions .controls{
+  background:rgba(238,244,249,.94)!important;border-color:#a9bbcd!important;
+  box-shadow:0 10px 24px rgba(30,49,72,.075)!important;
+}
+html[data-theme="light"] body.page-evolutions #search,
+html[data-theme="light"] body.page-evolutions .clear{
+  background:#f7fafd!important;color:#172033!important;border-color:#aebfd0!important;
+}
+html[data-theme="light"] body.page-evolutions .clear{font-weight:700!important}
+html[data-theme="light"] body.page-evolutions .chip{
+  background:#eaf1f7!important;color:#3f556c!important;border-color:#afc0d1!important;
+}
+html[data-theme="light"] body.page-evolutions .chip:hover{
+  background:#e2ebf3!important;color:#172033!important;border-color:#91a8bf!important;
+}
+html[data-theme="light"] body.page-evolutions .chip.active{
+  background:linear-gradient(135deg,#2563eb,#6d28d9)!important;color:#fff!important;
+  border-color:#5f73bd!important;box-shadow:0 5px 14px rgba(79,70,229,.12)!important;
+}
+html[data-theme="light"] body.page-evolutions .count,
+html[data-theme="light"] body.page-evolutions .hint{color:#52677e!important}
+html[data-theme="light"] body.page-evolutions .count strong{color:#172033!important}
+html[data-theme="light"] body.page-evolutions .card{
+  background:
+    radial-gradient(circle at 95% 0,rgba(56,189,248,.055),transparent 38%),
+    linear-gradient(158deg,#f8fafc,#eaf1f7)!important;
+  border-color:#a9bbcd!important;box-shadow:var(--nx8-shadow)!important;
+}
+html[data-theme="light"] body.page-evolutions .pokeart{
+  background:radial-gradient(circle at 50% 30%,rgba(56,189,248,.12),transparent 48%),#e8f0f7!important;
+  border-color:#b0c0d0!important;box-shadow:inset 0 1px rgba(255,255,255,.6)!important;
+}
+html[data-theme="light"] body.page-evolutions .pokeart img{
+  filter:drop-shadow(0 8px 9px rgba(30,49,72,.18))!important;
+}
+html[data-theme="light"] body.page-evolutions .name{color:#172033!important;font-weight:750!important}
+html[data-theme="light"] body.page-evolutions .arrow{color:#536b84!important}
+html[data-theme="light"] body.page-evolutions .cost{
+  color:#74540c!important;background:#fff5d9!important;border-color:#dfc47c!important;
+}
+html[data-theme="light"] body.page-evolutions .tag{
+  color:#3f556c!important;background:#e8eff6!important;border-color:#b1c1d1!important;
+}
+html[data-theme="light"] body.page-evolutions .reqs li{color:#31475e!important}
+html[data-theme="light"] body.page-evolutions .note{
+  background:#e9eefb!important;color:#465d77!important;border-color:#788ec5!important;
+}
+html[data-theme="light"] body.page-evolutions .info,
+html[data-theme="light"] body.page-evolutions .feedback{
+  background:linear-gradient(155deg,#f6f9fc,#e9f0f6)!important;
+  border-color:#aebfd0!important;box-shadow:var(--nx8-shadow)!important;
+}
+html[data-theme="light"] body.page-evolutions .info p,
+html[data-theme="light"] body.page-evolutions .feedback p,
+html[data-theme="light"] body.page-evolutions .source-list{color:#40566e!important}
+html[data-theme="light"] body.page-evolutions details.nx-accordion .nx-body>p{
+  color:#40566e!important;
+}
+
+/* =========================
+   FORMAS E VARIAÇÕES
+   ========================= */
+html[data-theme="light"] body.page-formas .eyebrow{
+  color:#5b21b6!important;background:#f0eafd!important;border-color:#c4afe9!important;
+}
+html[data-theme="light"] body.page-formas .lead{color:#40566e!important}
+html[data-theme="light"] body.page-formas .updated{color:#60758c!important}
+html[data-theme="light"] body.page-formas .tab{
+  background:#eaf1f7!important;color:#3f556c!important;border-color:#aebfd0!important;
+  box-shadow:none!important;
+}
+html[data-theme="light"] body.page-formas .tab:hover{background:#e2ebf3!important;color:#172033!important}
+html[data-theme="light"] body.page-formas .tab.active{
+  background:linear-gradient(135deg,#2563eb,#6d28d9)!important;color:#fff!important;
+  border-color:#5f73bd!important;box-shadow:0 6px 15px rgba(79,70,229,.13)!important;
+}
+html[data-theme="light"] body.page-formas .ditto-tab:not(.active){
+  background:linear-gradient(135deg,#f3edfd,#e9f1fb)!important;
+  color:#5b397c!important;border-color:#c6b5dd!important;
+}
+html[data-theme="light"] body.page-formas .intro,
+html[data-theme="light"] body.page-formas .family,
+html[data-theme="light"] body.page-formas .rule,
+html[data-theme="light"] body.page-formas .sources{
+  background:linear-gradient(155deg,#f7fafd,#eaf1f7)!important;
+  border-color:#aebfd0!important;color:#172033!important;
+  box-shadow:var(--nx8-shadow)!important;
+}
+html[data-theme="light"] body.page-formas .intro,
+html[data-theme="light"] body.page-formas .family-head p,
+html[data-theme="light"] body.page-formas .rule p,
+html[data-theme="light"] body.page-formas .sources p{color:#40566e!important}
+html[data-theme="light"] body.page-formas .family-head:after{
+  background:#e2eaf2!important;color:#4e6680!important;border:1px solid #bccada!important;
+}
+html[data-theme="light"] body.page-formas .family-count{
+  background:#e7eef5!important;color:#425970!important;border-color:#adbed0!important;
+}
+html[data-theme="light"] body.page-formas .card{
+  background:
+    radial-gradient(circle at 95% 0,rgba(99,102,241,.06),transparent 38%),
+    linear-gradient(158deg,#f8fafc,#e9f0f6)!important;
+  border-color:#a9bbcd!important;box-shadow:var(--nx8-shadow)!important;
+}
+html[data-theme="light"] body.page-formas .pname,
+html[data-theme="light"] body.page-formas .result .pname{color:#172033!important}
+html[data-theme="light"] body.page-formas .art img{
+  filter:drop-shadow(0 8px 9px rgba(30,49,72,.18))!important;
+}
+html[data-theme="light"] body.page-formas .kind,
+html[data-theme="light"] body.page-formas .cost,
+html[data-theme="light"] body.page-formas .box,
+html[data-theme="light"] body.page-formas .remain{
+  background:#e8eff6!important;color:#3f556c!important;border-color:#afc0d1!important;
+}
+html[data-theme="light"] body.page-formas .box strong{color:#172033!important}
+html[data-theme="light"] body.page-formas .box p,
+html[data-theme="light"] body.page-formas .note{color:#40566e!important}
+html[data-theme="light"] body.page-formas .repeat{
+  background:#e8f7f1!important;border-color:#a9d9c5!important;
+}
+html[data-theme="light"] body.page-formas .repeat strong{color:#176b50!important}
+html[data-theme="light"] body.page-formas .warning{
+  background:#fff6df!important;border-color:#e4c982!important;
+}
+html[data-theme="light"] body.page-formas .warning strong{color:#755716!important}
+html[data-theme="light"] body.page-formas .calc input{
+  background:#f6f9fc!important;color:#172033!important;border-color:#aebfd0!important;
+}
+
+/* Ditto no claro: manter personalidade sem voltar a uma ilha preta. */
+html[data-theme="light"] body.page-formas .ditto-explain,
+html[data-theme="light"] body.page-formas .ditto-tip,
+html[data-theme="light"] body.page-formas .ditto-game{
+  background:
+    radial-gradient(circle at 92% 0,rgba(168,85,247,.09),transparent 36%),
+    linear-gradient(155deg,#f7f9fd,#e9eff7)!important;
+  border-color:#b3a9c9!important;box-shadow:var(--nx8-shadow)!important;
+}
+html[data-theme="light"] body.page-formas .ditto-kicker{
+  color:#5b2185!important;background:#efe7f8!important;border-color:#c9b1dd!important;
+}
+html[data-theme="light"] body.page-formas .ditto-explain p,
+html[data-theme="light"] body.page-formas .ditto-tip p,
+html[data-theme="light"] body.page-formas .ditto-tip .tipline,
+html[data-theme="light"] body.page-formas .ditto-game-head p{color:#40566e!important}
+html[data-theme="light"] body.page-formas .ditto-tip strong{color:#172033!important}
+html[data-theme="light"] body.page-formas .ditto-card{
+  background:linear-gradient(160deg,#f7f9fc,#e8eef6)!important;
+  color:#172033!important;border-color:#b4bfd0!important;
+  box-shadow:0 7px 17px rgba(30,49,72,.065)!important;
+}
+html[data-theme="light"] body.page-formas .ditto-card img{
+  filter:drop-shadow(0 8px 9px rgba(30,49,72,.17))!important;
+}
+html[data-theme="light"] body.page-formas .ditto-card.checked{
+  background:#e3eaf1!important;border-color:#bcc8d5!important;
+}
+html[data-theme="light"] body.page-formas .ditto-card.found{
+  background:radial-gradient(circle at 50% 35%,rgba(168,85,247,.15),transparent 52%),linear-gradient(160deg,#f7f1fb,#e9e3f2)!important;
+}
+html[data-theme="light"] body.page-formas .ditto-card.found.shiny{
+  background:radial-gradient(circle at 50% 35%,rgba(34,211,238,.15),transparent 52%),linear-gradient(160deg,#eef9fb,#e3f0f4)!important;
+}
+html[data-theme="light"] body.page-formas .ditto-status,
+html[data-theme="light"] body.page-formas .ditto-fact{
+  background:#e9f0f6!important;border-color:#afc0d1!important;
+}
+html[data-theme="light"] body.page-formas .ditto-status strong,
+html[data-theme="light"] body.page-formas .ditto-fact b{color:#172033!important}
+html[data-theme="light"] body.page-formas .ditto-status p,
+html[data-theme="light"] body.page-formas .ditto-fact p,
+html[data-theme="light"] body.page-formas .ditto-disclaimer{color:#40566e!important}
+
+/* =========================
+   CENTRAL MEGA
+   ========================= */
+html[data-theme="light"] body.page-mega .eyebrow{
+  color:#5b21b6!important;background:#f0eafd!important;border-color:#c3afe6!important;
+}
+html[data-theme="light"] body.page-mega .lead,
+html[data-theme="light"] body.page-mega .updated{color:#40566e!important}
+html[data-theme="light"] body.page-mega .core article{
+  background:linear-gradient(155deg,#f6f9fc,#e9f0f6)!important;
+  border-color:#aebfd0!important;box-shadow:0 6px 16px rgba(30,49,72,.05)!important;
+}
+html[data-theme="light"] body.page-mega .step{color:#172033!important}
+html[data-theme="light"] body.page-mega .step i{
+  color:#075985!important;background:#e7f2f9!important;border-color:#9fbfd2!important;
+}
+html[data-theme="light"] body.page-mega .core p{color:#40566e!important}
+html[data-theme="light"] body.page-mega .event{
+  background:linear-gradient(135deg,#fff6df,#eeeafa)!important;
+  border-color:#d7c58c!important;color:#172033!important;
+}
+html[data-theme="light"] body.page-mega .event span{color:#536980!important}
+html[data-theme="light"] body.page-mega .event .date{
+  background:#f4e5af!important;color:#654c0c!important;
+}
+html[data-theme="light"] body.page-mega .search input{
+  background:#f6f9fc!important;color:#172033!important;border-color:#aebfd0!important;
+}
+html[data-theme="light"] body.page-mega .search span,
+html[data-theme="light"] body.page-mega .searchhint{color:#526980!important}
+html[data-theme="light"] body.page-mega .mega-row,
+html[data-theme="light"] body.page-mega .level,
+html[data-theme="light"] body.page-mega .calc,
+html[data-theme="light"] body.page-mega .answer{
+  background:linear-gradient(155deg,#f6f9fc,#e8eff6)!important;
+  border-color:#aebfd0!important;box-shadow:none!important;
+}
+html[data-theme="light"] body.page-mega .mega-row .name,
+html[data-theme="light"] body.page-mega .level b,
+html[data-theme="light"] body.page-mega .calc h3,
+html[data-theme="light"] body.page-mega .answer b{color:#172033!important}
+html[data-theme="light"] body.page-mega .mega-row .note,
+html[data-theme="light"] body.page-mega .level small,
+html[data-theme="light"] body.page-mega .calc p,
+html[data-theme="light"] body.page-mega .answer,
+html[data-theme="light"] body.page-mega .footnote,
+html[data-theme="light"] body.page-mega .sources p{color:#40566e!important}
+html[data-theme="light"] body.page-mega .tag{
+  background:#e5edf5!important;color:#425a72!important;border-color:#b1c1d1!important;
+}
+html[data-theme="light"] body.page-mega .tag.energy{
+  background:#fff4d4!important;color:#71520a!important;border-color:#dec374!important;
+}
+html[data-theme="light"] body.page-mega .tag.super{
+  background:#efe9fb!important;color:#5b21b6!important;border-color:#c8b4e7!important;
+}
+html[data-theme="light"] body.page-mega .level strong{color:#5b21b6!important}
+html[data-theme="light"] body.page-mega select,
+html[data-theme="light"] body.page-mega input[type=number]{
+  background:#f9fbfd!important;color:#172033!important;border-color:#a8bbcd!important;
+}
+html[data-theme="light"] body.page-mega label{color:#40566e!important}
+html[data-theme="light"] body.page-mega .answer.ok{
+  background:#e8f7f1!important;border-color:#a8d8c5!important;
+}
+
+/* =========================
+   CENTRAL DE COMBATE
+   ========================= */
+html[data-theme="light"] body.page-combat .eyebrow{
+  color:#075985!important;background:#e7f4fb!important;border-color:#9fcbe0!important;
+}
+html[data-theme="light"] body.page-combat .lead{color:#40566e!important}
+html[data-theme="light"] body.page-combat .hero-meta span{
+  background:#e9f0f6!important;color:#40566e!important;border-color:#afc0d1!important;
+  font-weight:650!important;
+}
+html[data-theme="light"] body.page-combat .combat-tab{
+  background:linear-gradient(180deg,#f3f7fa,#e8eff5)!important;
+  color:#40566e!important;border-color:#aebfd0!important;box-shadow:none!important;
+}
+html[data-theme="light"] body.page-combat .combat-tab:hover{
+  color:#172033!important;background:#e4edf5!important;border-color:#8fa8c0!important;
+}
+html[data-theme="light"] body.page-combat .combat-tab.active{
+  background:linear-gradient(135deg,#2563eb,#6d28d9)!important;
+  color:#fff!important;border-color:#536bb6!important;
+  box-shadow:0 6px 16px rgba(79,70,229,.13)!important;
+}
+html[data-theme="light"] body.page-combat .panel,
+html[data-theme="light"] body.page-combat .search-card,
+html[data-theme="light"] body.page-combat .challenge,
+html[data-theme="light"] body.page-combat .weather-intro{
+  background:
+    radial-gradient(circle at 96% 0,rgba(56,189,248,.045),transparent 36%),
+    linear-gradient(158deg,#f7fafc,#eaf1f7)!important;
+  border-color:#a9bbcd!important;box-shadow:var(--nx8-shadow)!important;
+}
+html[data-theme="light"] body.page-combat .section-head p,
+html[data-theme="light"] body.page-combat .poke-status,
+html[data-theme="light"] body.page-combat .poke-summary,
+html[data-theme="light"] body.page-combat .challenge-copy p,
+html[data-theme="light"] body.page-combat .challenge-feedback{color:#40566e!important}
+html[data-theme="light"] body.page-combat .search-examples button{
+  background:#e8eff6!important;color:#40566e!important;border-color:#afc0d1!important;
+}
+html[data-theme="light"] body.page-combat .poke-search button{
+  background:linear-gradient(135deg,#2563eb,#6d28d9)!important;color:#fff!important;
+  border-color:#5269b2!important;font-weight:750!important;
+}
+html[data-theme="light"] body.page-combat .poke-status{
+  background:#edf3f8!important;border-color:#aabccc!important;
+}
+html[data-theme="light"] body.page-combat .poke-profile,
+html[data-theme="light"] body.page-combat .poke-visual,
+html[data-theme="light"] body.page-combat .challenge-art{
+  background:radial-gradient(circle,rgba(99,102,241,.10),transparent 58%),#e8eff6!important;
+  border-color:#adbed0!important;
+}
+html[data-theme="light"] body.page-combat .poke-visual img,
+html[data-theme="light"] body.page-combat .challenge-art img{
+  filter:drop-shadow(0 9px 11px rgba(30,49,72,.18))!important;
+}
+html[data-theme="light"] body.page-combat .analysis-card,
+html[data-theme="light"] body.page-combat .context-card,
+html[data-theme="light"] body.page-combat .result-card,
+html[data-theme="light"] body.page-combat .weather-result,
+html[data-theme="light"] body.page-combat .weather-btn{
+  background:linear-gradient(158deg,#f5f8fb,#e8eff6)!important;
+  border-color:#aebfd0!important;box-shadow:none!important;
+}
+html[data-theme="light"] body.page-combat .analysis-card.good,
+html[data-theme="light"] body.page-combat .result-card.good{
+  background:linear-gradient(158deg,#eff9f5,#e5f2ec)!important;border-color:#a7d3c1!important;
+}
+html[data-theme="light"] body.page-combat .analysis-card.warn,
+html[data-theme="light"] body.page-combat .result-card.warn{
+  background:linear-gradient(158deg,#fff9ea,#f5edd8)!important;border-color:#dcc98e!important;
+}
+html[data-theme="light"] body.page-combat .analysis-card.special,
+html[data-theme="light"] body.page-combat .result-card.special{
+  background:linear-gradient(158deg,#f5f1fb,#ebe5f5)!important;border-color:#c9bae1!important;
+}
+html[data-theme="light"] body.page-combat .analysis-card p,
+html[data-theme="light"] body.page-combat .context-card p,
+html[data-theme="light"] body.page-combat .result-card p,
+html[data-theme="light"] body.page-combat .weather-result p,
+html[data-theme="light"] body.page-combat .weather-types{color:#40566e!important}
+html[data-theme="light"] body.page-combat .context-card strong{color:#172033!important}
+html[data-theme="light"] body.page-combat .offense-line{
+  background:#e7eef5!important;color:#40566e!important;border-color:#b0c0d0!important;
+}
+html[data-theme="light"] body.page-combat .offense-line b{color:#172033!important}
+html[data-theme="light"] body.page-combat .weather-btn{color:#172033!important}
+html[data-theme="light"] body.page-combat .weather-btn.active{
+  background:linear-gradient(155deg,#e6f1fb,#e9e7f8)!important;
+  border-color:#799abd!important;box-shadow:0 0 0 3px rgba(37,99,235,.07)!important;
+}
+html[data-theme="light"] body.page-combat .challenge-option{
+  background:#e8eff6!important;color:#172033!important;border-color:#afc0d1!important;
+}
+html[data-theme="light"] body.page-combat .challenge-option.correct{
+  background:#e5f5ed!important;border-color:#88c9ad!important;
+}
+html[data-theme="light"] body.page-combat .challenge-option.wrong{
+  background:#fae9ed!important;border-color:#e0a9b5!important;
+}
+html[data-theme="light"] body.page-combat .selected-strip>span[style]{
+  color:#526980!important;
+}
+html[data-theme="light"] body.page-combat .ghost{
+  background:#e6edf4!important;color:#526980!important;border-color:#afc0d1!important;
+}
+/* Preserve texto branco somente nas pílulas coloridas de tipo. */
+html[data-theme="light"] body.page-combat :where(.mini-type:not(.ghost),.type-pill,.badge[style*="background"]){
+  color:#fff!important;
+}
+
+/* Páginas que já estavam boas: apenas suavizar peso, sem redesenhar. */
+html[data-theme="light"] body.page-max :where(.eyebrow,.badge,.tag,.btn,.nx-summary-title),
+html[data-theme="light"] body.page-stops :where(.eyebrow,.badge,.tag,.btn,.nx-summary-title),
+html[data-theme="light"] body.page-search :where(.badge,.langbtn,.nx-summary-title),
+html[data-theme="light"] body.page-quiz :where(.badge,.btn,.nx-summary-title){
+  font-weight:700!important;
+}
+
+/* Pequeno respiro no celular para setas/controles de borda. */
+@media(max-width:600px){
+  html[data-theme="light"] body.page-stardust .group-head{padding-right:14px!important}
+  html[data-theme="light"] body.page-effects .hero{padding:20px!important}
+  html[data-theme="light"] body.page-effects .card{grid-template-columns:100px minmax(0,1fr)!important}
+}

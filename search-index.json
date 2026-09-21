@@ -75,5 +75,27 @@
     "description": "Analise um Pokémon, veja fraquezas, resistências, tipos ofensivos, clima favorável e orientação para Reides e Batalhas Max.",
     "content": "Central de Combate Pokémon GO. Analisar Pokémon por nome, imagem, tipagem, fraqueza dupla, fraquezas, resistências, resistência forte, tipos ofensivos, Reides, Batalhas Max, Dinamax, Gigamax, clima e bônus. Tabela visual de 18 tipos. Clima ensolarado, chuvoso, parcialmente nublado, nublado, ventando, neve e névoa. Desafio rápido de tipagens.",
     "search": "Central de Combate Pokémon GO. Analisar Pokémon por nome, imagem, tipagem, fraqueza dupla, fraquezas, resistências, resistência forte, tipos ofensivos, Reides, Batalhas Max, Dinamax, Gigamax, clima e bônus. Tabela visual de 18 tipos. Clima ensolarado, chuvoso, parcialmente nublado, nublado, ventando, neve e névoa. Desafio rápido de tipagens. Tipagens forte fraco super efetivo defesa ataque Charizard Gyarados Garchomp Mewtwo clima weather raid max battle"
+  },
+  {
+    "title": "Novidades do GO Nexus",
+    "url": "index.html#featureUpdates",
+    "description": "Carrossel com os cinco recursos mais recentes do site.",
+    "content": "Novidades do GO Nexus carrossel recursos recentes cards compartilhamento Pokémon do dia eventos e notícias",
+    "search": "Novidades do GO Nexus carrossel recursos recentes cards compartilhamento Pokémon do dia eventos notícias"
+  },
+  {
+    "title": "Pokémon do dia",
+    "url": "index.html#dailyPokemon",
+    "description": "Veja uma análise rotativa de um Pokémon, seus tipos, vantagens e recursos Max.",
+    "content": "Pokémon do dia tipos bom contra Dinamax Gigamax análise rotativa",
+    "search": "Pokémon do dia tipos bom contra Dinamax Gigamax análise rotativa"
+  },
+  {
+    "title": "Criar card para compartilhar",
+    "url": "tipagens.html?novidade=cards",
+    "description": "Transforme resultados de consultas e calculadoras em uma imagem pronta para compartilhar.",
+    "content": "card compartilhamento resultado imagem GO Nexus compartilhar baixar",
+    "search": "card compartilhamento resultado imagem GO Nexus compartilhar baixar"
   }
 ]
+

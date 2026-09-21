@@ -120,6 +120,7 @@ function card(r){
     <div class="tags">${tags}</div>
     <ul class="reqs">${r.reqs.map(x=>`<li>${x}</li>`).join('')}</ul>
     ${r.note?`<p class="note">${r.note}</p>`:''}
+    <button type="button" class="nx-create-card" data-share-route="${routes.indexOf(r)}">Criar card para compartilhar</button>
   </article>`;
 }
 function render(){
@@ -148,5 +149,6 @@ renderFilters();render();
 </script>
 <script src="nav.js?v=20260920-dark-final"></script>
 <script src="theme.js?v=20260920-dark"></script>
+<script src="evolution-share.js?v=1"></script>
 </body>
 </html>

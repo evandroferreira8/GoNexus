@@ -15,39 +15,6 @@
     { file: "pokeparadas.html", icon: "📍", label: "Poképaradas", desc: "Como solicitar sem complicar" }
   ];
 
-
-  const THEME_KEY = "go-nexus-theme";
-
-  function readTheme(){
-    try{
-      const saved=localStorage.getItem(THEME_KEY);
-      return saved==="light" ? "light" : "dark";
-    }catch(_){
-      return "dark";
-    }
-  }
-
-  function applyTheme(theme,persist=true){
-    const next=theme==="light" ? "light" : "dark";
-    document.documentElement.dataset.theme=next;
-    document.documentElement.style.colorScheme=next;
-    const meta=document.querySelector('meta[name="theme-color"]');
-    if(meta) meta.setAttribute("content",next==="light" ? "#f4f7fb" : "#07111f");
-    document.querySelectorAll("go-nexus-header,go-nexus-footer").forEach(el=>el.dataset.theme=next);
-    if(persist){
-      try{localStorage.setItem(THEME_KEY,next)}catch(_){}
-    }
-    document.dispatchEvent(new CustomEvent("gonexus-themechange",{detail:{theme:next}}));
-    return next;
-  }
-
-  function toggleTheme(){
-    return applyTheme(document.documentElement.dataset.theme==="light" ? "dark" : "light");
-  }
-
-  applyTheme(readTheme(),false);
-  window.GONexusTheme={get:()=>document.documentElement.dataset.theme||readTheme(),set:applyTheme,toggle:toggleTheme};
-
   const baseStyles = `
     :host, *, *::before, *::after { box-sizing: border-box; }
     :host { display:block; width:100%; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
@@ -61,7 +28,6 @@
   class GoNexusHeader extends HTMLElement {
     connectedCallback(){
       if(this.shadowRoot) return;
-      this.dataset.theme=document.documentElement.dataset.theme||readTheme();
       const current=currentFile();
       const inTools=TOOLS.some(x=>x.file===current);
       const toolLinks=TOOLS.map(page=>{
@@ -78,19 +44,6 @@
           nav{display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.navlink,summary{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:8px 12px;border:1px solid #2d3b55;border-radius:12px;background:transparent;color:#cbd5e1;text-decoration:none;font-size:.84rem;font-weight:800;line-height:1.2;white-space:nowrap;cursor:pointer;transition:.18s}.navlink:hover,summary:hover{background:#111b30;border-color:#415374;color:#fff}.navlink.active,details.toolmenu.active>summary{background:#141e34;border-color:#435777;color:#fff;box-shadow:0 0 18px rgba(56,189,248,.12)}.navlink:focus-visible,summary:focus-visible,.menu a:focus-visible{outline:2px solid #38bdf8;outline-offset:2px}
           details{position:relative}summary{list-style:none}summary::-webkit-details-marker{display:none}.chev{font-size:.7rem;color:#7f91ad;transition:transform .18s}details[open] .chev{transform:rotate(180deg)}
           .menu{position:absolute;right:0;top:calc(100% + 9px);width:350px;max-height:min(70vh,620px);overflow:auto;padding:8px;border:1px solid #30415f;border-radius:16px;background:#091426;box-shadow:0 20px 50px rgba(0,0,0,.42);display:grid;gap:4px}.menu::before{content:"";position:absolute;top:-6px;right:35px;width:11px;height:11px;background:#091426;border-left:1px solid #30415f;border-top:1px solid #30415f;transform:rotate(45deg)}.menu a{position:relative;display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:11px;color:#cbd5e1;text-decoration:none;border:1px solid transparent}.menu a:hover{background:#101e35;border-color:#263b5c;color:white}.menu a.active{background:linear-gradient(135deg,rgba(37,99,235,.18),rgba(124,58,237,.16));border-color:#3b5076;color:white}.tool-icon{width:24px;text-align:center;font-size:1.05rem}.tool-copy{display:grid;gap:2px}.tool-copy strong{font-size:.82rem}.tool-copy small{font-size:.69rem;color:#7f91ad;font-weight:600}
-          .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:8px 12px;border:1px solid #2d3b55;border-radius:12px;background:#0b1628;color:#dbe7f4;font:800 .84rem/1.2 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;white-space:nowrap;cursor:pointer;transition:.18s}.theme-toggle:hover{background:#13223a;border-color:#4b6288;color:#fff}.theme-toggle:focus-visible{outline:2px solid #38bdf8;outline-offset:2px}.theme-icon{font-size:1rem;line-height:1}
-          :host([data-theme="light"]) header{background:rgba(248,250,252,.97);border-bottom-color:#d8e1ec;box-shadow:0 8px 30px rgba(35,55,85,.10)}
-          :host([data-theme="light"]) .brand{color:#172033}:host([data-theme="light"]) .brand .nexus{filter:drop-shadow(0 0 7px rgba(99,102,241,.12))}
-          :host([data-theme="light"]) .subtitle{color:#64748b}
-          :host([data-theme="light"]) .navlink,:host([data-theme="light"]) summary{border-color:#d4deeb;color:#334155;background:rgba(255,255,255,.62)}
-          :host([data-theme="light"]) .navlink:hover,:host([data-theme="light"]) summary:hover{background:#eef4fb;border-color:#b9c9dc;color:#0f172a}
-          :host([data-theme="light"]) .navlink.active,:host([data-theme="light"]) details.toolmenu.active>summary{background:#edf3ff;border-color:#aebed7;color:#172033;box-shadow:0 0 18px rgba(56,189,248,.08)}
-          :host([data-theme="light"]) .chev{color:#64748b}
-          :host([data-theme="light"]) .menu{border-color:#cfdbe9;background:#fff;box-shadow:0 20px 50px rgba(35,55,85,.16)}
-          :host([data-theme="light"]) .menu::before{background:#fff;border-left-color:#cfdbe9;border-top-color:#cfdbe9}
-          :host([data-theme="light"]) .menu a{color:#334155}:host([data-theme="light"]) .menu a:hover{background:#f1f5f9;border-color:#d7e0eb;color:#0f172a}:host([data-theme="light"]) .menu a.active{background:linear-gradient(135deg,rgba(37,99,235,.10),rgba(124,58,237,.08));border-color:#c0cce0;color:#172033}
-          :host([data-theme="light"]) .tool-copy small{color:#64748b}
-          :host([data-theme="light"]) .theme-toggle{background:#fff;border-color:#cbd7e5;color:#334155}:host([data-theme="light"]) .theme-toggle:hover{background:#eef4fb;border-color:#aebfd4;color:#0f172a}
           @media(max-width:760px){.bar{align-items:flex-start;flex-direction:column;gap:13px;padding:16px 14px}.subtitle{white-space:normal;font-size:.84rem}.nav{width:100%;justify-content:flex-start;flex-wrap:wrap}.menu{left:0;right:auto;width:min(350px,calc(100vw - 28px))}.menu::before{left:90px;right:auto}}
           @media(max-width:420px){.brand{font-size:1.18rem}.subtitle{font-size:.82rem}.navlink,summary{min-height:40px;padding:8px 10px;font-size:.82rem}.menu a{padding:10px 10px}}
         </style>
@@ -102,22 +55,10 @@
               <details class="toolmenu${inTools?' active':''}"><summary>🧰 <span>Ferramentas</span> <span class="chev">▼</span></summary><div class="menu">${toolLinks}</div></details>
               <a class="navlink${current==='quiz.html'?' active':''}" href="quiz.html"${current==='quiz.html'?' aria-current="page"':''}>🎮 <span>Quiz</span></a>
               <a class="navlink" href="${FEEDBACK}" target="_blank" rel="noopener noreferrer">💬 <span>Feedback</span></a>
-              <button class="theme-toggle" type="button" aria-label="Ativar modo claro" title="Alternar entre modo escuro e claro"><span class="theme-icon" aria-hidden="true">☀️</span><span class="theme-label">Claro</span></button>
             </nav>
           </div>
         </header>`;
       const details=root.querySelector('details');
-      const themeButton=root.querySelector('.theme-toggle');
-      const syncThemeButton=()=>{
-        const light=document.documentElement.dataset.theme==="light";
-        this.dataset.theme=light?"light":"dark";
-        themeButton.querySelector('.theme-icon').textContent=light?"🌙":"☀️";
-        themeButton.querySelector('.theme-label').textContent=light?"Escuro":"Claro";
-        themeButton.setAttribute("aria-label",light?"Ativar modo escuro":"Ativar modo claro");
-      };
-      syncThemeButton();
-      themeButton.addEventListener("click",toggleTheme);
-      document.addEventListener("gonexus-themechange",syncThemeButton);
       root.addEventListener('keydown',e=>{if(e.key==='Escape'&&details.open){details.open=false;details.querySelector('summary').focus();}});
       document.addEventListener('click',e=>{if(details.open && !this.contains(e.target) && !details.contains(e.composedPath()[0])) details.open=false;});
     }
@@ -126,22 +67,13 @@
   class GoNexusFooter extends HTMLElement {
     connectedCallback(){
       if(this.shadowRoot) return;
-      this.dataset.theme=document.documentElement.dataset.theme||readTheme();
       const root=this.attachShadow({mode:"open"});
-      root.innerHTML=`<style>${baseStyles}footer{width:100%;margin:48px 0 0;border-top:1px solid #182238;background:transparent;color:#718096;text-align:center}.inner{width:min(1180px,100%);margin:0 auto;padding:24px 20px 32px;font-size:.85rem;font-weight:500;line-height:1.68}strong{color:#94a3b8;font-weight:800}.line{margin:0}:host([data-theme="light"]) footer{border-top-color:#d8e1ec;color:#64748b}:host([data-theme="light"]) strong{color:#334155}@media(max-width:560px){footer{margin-top:38px}.inner{padding:21px 14px 27px;font-size:.82rem;line-height:1.72}}</style><footer><div class="inner"><p class="line"><strong>GO Nexus</strong></p><p class="line">Desenvolvido por <strong>DelorisNyx</strong> · Código de amizade: <strong>8596 0928 0640</strong></p><p class="line">© 2026 · Todos os direitos reservados.</p><p class="line">Projeto independente e não oficial. Pokémon e Pokémon GO pertencem aos seus respectivos titulares.</p></div></footer>`;
-      document.addEventListener("gonexus-themechange",e=>{this.dataset.theme=e.detail.theme});
+      root.innerHTML=`<style>${baseStyles}footer{width:100%;margin:48px 0 0;border-top:1px solid #182238;background:transparent;color:#718096;text-align:center}.inner{width:min(1180px,100%);margin:0 auto;padding:24px 20px 32px;font-size:.85rem;font-weight:500;line-height:1.68}strong{color:#94a3b8;font-weight:800}.line{margin:0}@media(max-width:560px){footer{margin-top:38px}.inner{padding:21px 14px 27px;font-size:.82rem;line-height:1.72}}</style><footer><div class="inner"><p class="line"><strong>GO Nexus</strong></p><p class="line">Desenvolvido por <strong>DelorisNyx</strong> · Código de amizade: <strong>8596 0928 0640</strong></p><p class="line">© 2026 · Todos os direitos reservados.</p><p class="line">Projeto independente e não oficial. Pokémon e Pokémon GO pertencem aos seus respectivos titulares.</p></div></footer>`;
     }
   }
 
   if(!customElements.get('go-nexus-header')) customElements.define('go-nexus-header',GoNexusHeader);
   if(!customElements.get('go-nexus-footer')) customElements.define('go-nexus-footer',GoNexusFooter);
-
-  if(!document.getElementById('go-nexus-light-theme')){
-    const lightStyle=document.createElement('style');
-    lightStyle.id='go-nexus-light-theme';
-    lightStyle.textContent="\nhtml[data-theme=\"light\"]{\n  --bg:#f4f7fb!important;\n  --panel:#ffffff!important;\n  --panel2:#f8fafc!important;\n  --card:#ffffff!important;\n  --card2:#f8fafc!important;\n  --line:#d5dfec!important;\n  --text:#172033!important;\n  --muted:#5f7088!important;\n  --shadow:0 18px 50px rgba(35,55,85,.10)!important;\n  color-scheme:light;\n}\nhtml[data-theme=\"light\"] body{\n  background:\n    radial-gradient(circle at 14% 0,rgba(56,189,248,.10),transparent 30%),\n    radial-gradient(circle at 88% 4%,rgba(139,92,246,.08),transparent 28%),\n    #f4f7fb!important;\n  color:#172033!important;\n}\nhtml[data-theme=\"light\"] :is(.card,.panel,.tool,.news-card,.about,.compare article,.core,.group,.pokemon,.calculator,.intro,.family,.box,.fact,.step,.result-card,.legend .item,.quick-type,.context-card,.analysis-card,.poke-profile,.weather-result,.feedbackbox,.feedback,.ditto-explain,.ditto-tip,.ditto-game,.ditto-card,.rule,.sources,.langbox,.selected-box){\n  background:#ffffff!important;\n  border-color:#d5dfec!important;\n  box-shadow:0 10px 28px rgba(35,55,85,.07);\n}\nhtml[data-theme=\"light\"] :is(input,select,textarea,#search,.global-search,.search-results,.search-result .ico,.tool-icon,.news-nav button,.row,.side,.pack,.wallet,.walletitem,.coin-balance-box,.flow div,.search input,.max-pill,.diff,.move,.calc,.calc-line,.calc-line select,.mega-row,.level,.chip,.art,.stats div,.controls,.clear,.pokeart,.tag,.empty,.tab,.family-count,.kind,.cost,.calc input,.remain,.quick-values span,.event-row,.event-row select,.check,.num,.cat-btn,.tip,.mode,.progress,.ans,.toggle,.toggle button,.ghost,.combat-tab,.poke-search input,.search-examples button,.poke-visual,.offense-line,.challenge-art,.challenge-option,.weather-btn){\n  background:#f8fafc!important;\n  border-color:#d3deeb!important;\n  color:#1f2d42!important;\n  box-shadow:none;\n}\nhtml[data-theme=\"light\"] :is(.global-search,.search input,.poke-search input,input,select,textarea)::placeholder{color:#8796aa!important}\nhtml[data-theme=\"light\"] .search-results{background:#ffffff!important;box-shadow:0 18px 42px rgba(35,55,85,.13)!important}\nhtml[data-theme=\"light\"] .search-result{border-bottom-color:#e1e8f1!important}\nhtml[data-theme=\"light\"] .search-result:hover,\nhtml[data-theme=\"light\"] .search-result:focus-visible{background:#f1f5f9!important}\nhtml[data-theme=\"light\"] :is(.lead,.updated,.small,.search-help,.section-title p,.news-head p,.news-open,.news-status,.tool p,.about p,.quick,.compare p,.diff small,.move p,.helper,.result-card p,.legend small,.quick-type .line,.poke-summary,.analysis-card p,.match-note,.context-card p,.challenge-copy p,.challenge-feedback,.weather-types,.weather-result p,.wallet-title span,.walletitem span,.walletitem small,.hint,.details,.pack span,.hero .sub,.hero .kicker){\n  color:#607188!important;\n}\nhtml[data-theme=\"light\"] :is(.card,.panel,.tool,.news-card,.about,.compare,.flow,.core,.group,.pokemon,.calculator,.family,.box,.fact,.step,.result-card,.context-card,.analysis-card,.poke-profile,.weather-result,.feedbackbox,.ditto-card) :is(h1,h2,h3,h4,b,strong){\n  color:#172033;\n}\nhtml[data-theme=\"light\"] :is(.info,.brasil-note){\n  background:#eef7ff!important;\n  border-color:#bfd7ee!important;\n  color:#31516f!important;\n}\nhtml[data-theme=\"light\"] .warning{\n  background:#fff8e6!important;\n  border-color:#e9d39a!important;\n  color:#765a12!important;\n}\nhtml[data-theme=\"light\"] .saving{\n  background:#edf9f5!important;\n  border-color:#b7dfd1!important;\n}\nhtml[data-theme=\"light\"] .saving span{color:#497568!important}\nhtml[data-theme=\"light\"] :is(.good,.challenge-option.correct){\n  background:rgba(16,185,129,.08)!important;\n  border-color:rgba(5,150,105,.26)!important;\n}\nhtml[data-theme=\"light\"] :is(.warn,.challenge-option.wrong){\n  background:rgba(245,158,11,.08)!important;\n  border-color:rgba(217,119,6,.24)!important;\n}\nhtml[data-theme=\"light\"] .special{\n  background:rgba(124,58,237,.07)!important;\n  border-color:rgba(109,40,217,.22)!important;\n}\nhtml[data-theme=\"light\"] .news-media{\n  background:linear-gradient(135deg,#e7eef8,#eee9fb)!important;\n}\nhtml[data-theme=\"light\"] .news-media::after{\n  background:linear-gradient(transparent,rgba(37,50,75,.16))!important;\n}\nhtml[data-theme=\"light\"] .news-skeleton{\n  border-color:#d5dfec!important;\n  background:linear-gradient(90deg,#eef2f7 25%,#e3eaf3 37%,#eef2f7 63%)!important;\n  background-size:400% 100%!important;\n}\nhtml[data-theme=\"light\"] .price-focus input{\n  background:#ffffff!important;\n  border-color:#7bb7ee!important;\n  box-shadow:0 0 0 3px rgba(56,189,248,.10),0 0 22px rgba(56,189,248,.12)!important;\n}\nhtml[data-theme=\"light\"] .sitebar{background:rgba(248,250,252,.94)!important;border-bottom-color:#d5dfec!important}\nhtml[data-theme=\"light\"] details.nx-accordion{\n  background:#ffffff!important;\n  border-color:#d5dfec!important;\n  box-shadow:0 10px 28px rgba(35,55,85,.06)!important;\n}\nhtml[data-theme=\"light\"] details.nx-accordion[open]{\n  background:#ffffff!important;\n  border-color:#bdcbe0!important;\n  box-shadow:0 14px 32px rgba(35,55,85,.09)!important;\n}\nhtml[data-theme=\"light\"] details.nx-accordion>summary{color:#172033!important}\nhtml[data-theme=\"light\"] details.nx-accordion>summary:hover{background:#f8fafc!important}\nhtml[data-theme=\"light\"] .nx-summary-title{color:#172033!important}\nhtml[data-theme=\"light\"] .nx-summary-sub{color:#64748b!important}\nhtml[data-theme=\"light\"] .nx-count,\nhtml[data-theme=\"light\"] .nx-chevron,\nhtml[data-theme=\"light\"] .nx-pill,\nhtml[data-theme=\"light\"] .nx-compact-item{\n  background:#f8fafc!important;\n  border-color:#d6e0ec!important;\n  color:#52647b!important;\n}\nhtml[data-theme=\"light\"] .nx-pill strong,\nhtml[data-theme=\"light\"] .nx-compact-item b{color:#172033!important}\nhtml[data-theme=\"light\"] .nx-body{border-top-color:#e0e7f0!important}\nhtml[data-theme=\"light\"] .nx-note{background:#eef6ff!important;color:#526b84!important}\nhtml[data-theme=\"light\"] .type-btn,\nhtml[data-theme=\"light\"] .type-pill,\nhtml[data-theme=\"light\"] .mini-type{color:#fff!important}\nhtml[data-theme=\"light\"] :focus-visible{outline-color:#0284c7!important}\n";
-    document.head.appendChild(lightStyle);
-  }
 
   if(!document.getElementById('go-nexus-shared-ui')){
     const style=document.createElement('style');
@@ -506,194 +438,7 @@
         }
         @media(hover:none),(pointer:coarse){.egg-dock{max-width:86px}.egg{touch-action:manipulation}.egg-hint{display:block;opacity:0;visibility:hidden}.egg-dock.prompt .egg-hint{opacity:1;visibility:visible;transform:none}}
         @media(prefers-reduced-motion:reduce){.egg-art,.egg-aura,.flash,.flash-ring,.flash-egg,.flash-arceus,.flash-crack,.cosmic-node,.cosmic-node img{animation:none!important;transition:none!important}}
-      
-        /* GO NEXUS COSMIC LIGHT v6 */
-        :host-context(html[data-theme="light"]) .overlay{
-          background:rgba(223,232,242,.82);
-          backdrop-filter:blur(12px) saturate(.92);
-        }
-        :host-context(html[data-theme="light"]) .cosmos{
-          color:#132033;
-          border-color:#a9bbce;
-          background:
-            radial-gradient(circle at 50% -8%,rgba(250,204,21,.10),transparent 25%),
-            radial-gradient(circle at 88% 5%,rgba(236,72,153,.065),transparent 25%),
-            radial-gradient(circle at 10% 16%,rgba(56,189,248,.085),transparent 25%),
-            linear-gradient(180deg,#f7fafc,#eaf1f7);
-          box-shadow:0 30px 70px rgba(38,54,75,.22),0 0 0 1px rgba(255,255,255,.65) inset;
-        }
-        :host-context(html[data-theme="light"]) .cosmos::before{
-          opacity:.28;
-          background-image:
-            radial-gradient(circle at 10% 10%,#5d7088 0 1px,transparent 1.4px),
-            radial-gradient(circle at 68% 18%,#7b8ba0 0 1px,transparent 1.4px),
-            radial-gradient(circle at 28% 56%,#60758f 0 1px,transparent 1.4px),
-            radial-gradient(circle at 82% 70%,#7b8ba0 0 1px,transparent 1.4px),
-            radial-gradient(circle at 45% 83%,#60758f 0 1px,transparent 1.4px);
-        }
-        :host-context(html[data-theme="light"]) .close{
-          border-color:#aebfd0;
-          background:#f8fbfe;
-          color:#263a50;
-          box-shadow:0 5px 14px rgba(30,49,72,.07);
-        }
-        :host-context(html[data-theme="light"]) .close:hover{
-          border-color:#8ea5bd;
-          background:#edf4f9;
-        }
-        :host-context(html[data-theme="light"]) .arceus-stage::before{
-          border-color:rgba(180,140,0,.28);
-          box-shadow:0 0 32px rgba(250,204,21,.10),inset 0 0 28px rgba(56,189,248,.055);
-        }
-        :host-context(html[data-theme="light"]) .arceus-stage img{
-          filter:drop-shadow(0 10px 16px rgba(44,54,68,.18)) drop-shadow(0 0 10px rgba(195,147,0,.14));
-        }
-        :host-context(html[data-theme="light"]) .hero-copy .eyebrow{
-          border-color:rgba(170,128,0,.28);
-          background:rgba(250,204,21,.13);
-          color:#775a00;
-        }
-        :host-context(html[data-theme="light"]) .hero-copy h2{
-          color:#101827;
-        }
-        :host-context(html[data-theme="light"]) .hero-copy p{
-          color:#4d6178;
-        }
-        :host-context(html[data-theme="light"]) .hero-copy strong{
-          color:#5b4700;
-        }
-        :host-context(html[data-theme="light"]) .tab{
-          border-color:#b3c3d3;
-          background:linear-gradient(155deg,#f8fbfe,#eaf1f7);
-          color:#42576f;
-          box-shadow:none;
-        }
-        :host-context(html[data-theme="light"]) .tab:hover,
-        :host-context(html[data-theme="light"]) .tab:focus-visible{
-          border-color:#8fa7bf;
-          color:#1a3047;
-          box-shadow:0 8px 18px rgba(30,49,72,.08);
-        }
-        :host-context(html[data-theme="light"]) .tab.active{
-          color:#17253a;
-          border-color:#8da7c2;
-          background:linear-gradient(135deg,rgba(37,99,235,.11),rgba(124,58,237,.10));
-          box-shadow:0 0 0 1px rgba(255,255,255,.55) inset,0 6px 16px rgba(72,84,140,.08);
-        }
-        :host-context(html[data-theme="light"]) .tab-companion{
-          color:#263b56;
-          border-color:#a8b8cf;
-          background:linear-gradient(135deg,rgba(56,189,248,.10),rgba(139,92,246,.10));
-        }
-        :host-context(html[data-theme="light"]) .tab-companion::after{opacity:.20}
-        :host-context(html[data-theme="light"]) .tab.active.tab-companion{
-          color:#17253a;
-          border-color:#8ca5c1;
-          background:linear-gradient(135deg,rgba(59,130,246,.14),rgba(124,58,237,.15));
-          box-shadow:0 7px 18px rgba(68,76,135,.09);
-        }
-        :host-context(html[data-theme="light"]) .panel-title h3,
-        :host-context(html[data-theme="light"]) .companion-intro h4,
-        :host-context(html[data-theme="light"]) .quiz-question{
-          color:#142236;
-        }
-        :host-context(html[data-theme="light"]) .panel-title p,
-        :host-context(html[data-theme="light"]) .micro{
-          color:#5d728a;
-        }
-        :host-context(html[data-theme="light"]) .origin-map{
-          border-color:#afc0d1;
-          background:
-            radial-gradient(circle at 50% 0,rgba(56,189,248,.055),transparent 48%),
-            linear-gradient(180deg,#f8fbfe,#eaf1f7);
-          box-shadow:0 8px 20px rgba(30,49,72,.055);
-        }
-        :host-context(html[data-theme="light"]) .down{color:#2584ad;opacity:.78}
-        :host-context(html[data-theme="light"]) .legend-group{
-          border-color:#afc0d1;
-          background:linear-gradient(180deg,#f9fbfd,#ecf2f7);
-          box-shadow:0 7px 18px rgba(30,49,72,.05);
-        }
-        :host-context(html[data-theme="light"]) .legend-title{color:#22364c}
-        :host-context(html[data-theme="light"]) .cosmic-node{
-          color:#17253a;
-          border-color:rgba(var(--node-glow),.42);
-          background:
-            radial-gradient(circle at 50% 12%,rgba(var(--node-glow),.11),transparent 55%),
-            linear-gradient(180deg,#fbfdff,#edf3f8);
-          box-shadow:0 8px 20px rgba(30,49,72,.07),0 0 12px rgba(var(--node-glow),.045);
-        }
-        :host-context(html[data-theme="light"]) .cosmic-node::before{
-          background:radial-gradient(circle,rgba(var(--node-glow),.13) 0%,rgba(var(--node-glow),.05) 48%,transparent 73%);
-        }
-        :host-context(html[data-theme="light"]) .cosmic-node:hover,
-        :host-context(html[data-theme="light"]) .cosmic-node:focus-visible{
-          border-color:rgba(var(--node-glow),.70);
-          box-shadow:0 10px 22px rgba(30,49,72,.09),0 0 17px rgba(var(--node-glow),.12);
-        }
-        :host-context(html[data-theme="light"]) .cosmic-node.selected{
-          border-color:rgba(var(--node-glow),.82);
-          box-shadow:0 10px 22px rgba(30,49,72,.09),0 0 0 1px rgba(var(--node-glow),.12),0 0 20px rgba(var(--node-glow),.14);
-        }
-        :host-context(html[data-theme="light"]) .cosmic-node img,
-        :host-context(html[data-theme="light"]) .cosmic-node .sprite-frame{
-          filter:drop-shadow(0 7px 9px rgba(30,49,72,.15)) drop-shadow(0 0 7px rgba(var(--node-glow),.15));
-        }
-        :host-context(html[data-theme="light"]) .cosmic-node span{color:#17253a}
-        :host-context(html[data-theme="light"]) .cosmic-node small{color:#5d7188}
-        :host-context(html[data-theme="light"]) .poke-popover{
-          border-color:rgba(var(--pop-glow),.54);
-          background:linear-gradient(145deg,#fbfdff,#edf3f8);
-          box-shadow:0 16px 36px rgba(30,49,72,.16),0 0 18px rgba(var(--pop-glow),.10);
-        }
-        :host-context(html[data-theme="light"]) .poke-popover strong{color:#17253a}
-        :host-context(html[data-theme="light"]) .poke-popover p{color:#51667e}
-        :host-context(html[data-theme="light"]) .poke-popover::after{
-          background:#f2f6fa;
-          border-left-color:rgba(var(--pop-glow),.52);
-          border-top-color:rgba(var(--pop-glow),.52);
-        }
-        :host-context(html[data-theme="light"]) details.sources{
-          border-color:#b5c5d5;
-          background:linear-gradient(180deg,#f8fbfe,#eef4f8);
-        }
-        :host-context(html[data-theme="light"]) details.sources summary{color:#385068}
-        :host-context(html[data-theme="light"]) .source-body{
-          border-color:#c5d1dd;
-          color:#52677f;
-        }
-        :host-context(html[data-theme="light"]) .source-body a{color:#0369a1}
-        :host-context(html[data-theme="light"]) .companion-intro,
-        :host-context(html[data-theme="light"]) .quiz-card,
-        :host-context(html[data-theme="light"]) .result-card{
-          border-color:#afc0d1;
-          background:
-            radial-gradient(circle at 92% 0,rgba(139,92,246,.055),transparent 36%),
-            linear-gradient(150deg,#fafcff,#edf3f8);
-          box-shadow:0 10px 24px rgba(30,49,72,.07);
-        }
-        :host-context(html[data-theme="light"]) .quiz-chip{
-          border-color:rgba(170,128,0,.27);
-          background:rgba(250,204,21,.13);
-          color:#775a00;
-        }
-        :host-context(html[data-theme="light"]) .companion-intro p,
-        :host-context(html[data-theme="light"]) .quiz-progress span{color:#536980}
-        :host-context(html[data-theme="light"]) .quiz-track{background:#dfe7ef}
-        :host-context(html[data-theme="light"]) .quiz-option{
-          border-color:#b4c4d4;
-          background:linear-gradient(155deg,#f8fbfe,#eaf1f7);
-          color:#263a50;
-          box-shadow:none;
-        }
-        :host-context(html[data-theme="light"]) .quiz-option:hover,
-        :host-context(html[data-theme="light"]) .quiz-option:focus-visible{
-          border-color:#91a9c1;
-          background:linear-gradient(155deg,#fbfdff,#e8f1f8);
-          box-shadow:0 7px 17px rgba(30,49,72,.07);
-        }
-        /* END GO NEXUS COSMIC LIGHT v6 */
-</style>
+      </style>
 
       <div class="egg-dock">
         <button class="egg" data-stage="0" type="button" aria-label="Ovo de Pokémon GO com as cores de Arceus">

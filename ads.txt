@@ -1,0 +1,3 @@
+# Troque esta linha pela entrada oficial fornecida no painel do Google AdSense.
+# Exemplo de formato:
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

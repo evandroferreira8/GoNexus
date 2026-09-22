@@ -19,7 +19,16 @@
     });
   }
 
+  function loadMonetization() {
+    if (document.querySelector('script[src^="monetization.js"]')) return;
+    const script = document.createElement("script");
+    script.src = "monetization.js?v=20260922";
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
   enforceDarkTheme();
+  loadMonetization();
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", enforceDarkTheme, { once: true });

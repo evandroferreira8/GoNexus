@@ -34,6 +34,6 @@
     document.addEventListener("DOMContentLoaded", enforceDarkTheme, { once: true });
   }
 
-  const observer = new MutationObserver(enforceDarkTheme);
-  observer.observe(document.documentElement, { childList: true, subtree: true });
+  // O tema é aplicado no carregamento e novamente após o DOM estar pronto.
+  // Observar cada atualização da página gerava trabalho extra desnecessário.
 })();

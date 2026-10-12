@@ -69,6 +69,26 @@ try{
           await tab.keyboard.press('Escape');
         }
         if(errors.length)throw new Error(errors.join(' | '));
+        // Regressão visual: identidade clara consistente e conteúdo visível.
+        const hero=tab.locator('main .hero').first();
+        if(await hero.count()){
+          const heroStyle=await hero.evaluate(el=>{
+            const s=getComputedStyle(el),h=el.querySelector('h1');
+            return {bg:s.backgroundColor,image:s.backgroundImage,title:h?getComputedStyle(h).color:null};
+          });
+          assert.equal(heroStyle.bg,'rgb(255, 255, 255)',file+' hero ainda usa fundo escuro');
+          assert.equal(heroStyle.image,'none',file+' hero ainda usa gradiente legado');
+          if(heroStyle.title)assert.equal(heroStyle.title,'rgb(11, 31, 59)',file+' título do hero com contraste incorreto');
+        }
+        const ads=await tab.locator('.gnx-ad-wrap').count();
+        if(ads){
+          assert.ok(await tab.locator('.gnx-ad-wrap').evaluateAll(elements=>elements.every(el=>getComputedStyle(el).display==='none')),file+' contém banner promocional visível');
+        }
+        if(file==='efeitos-aventura.html'){
+          assert.equal(await tab.locator('.chip.on').first().evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(37, 99, 235)','Filtro selecionado deve se destacar');
+          assert.equal(await tab.locator('.grid .card').first().evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(255, 255, 255)','Cards devem ter fundo claro');
+          assert.equal(await tab.locator('.hero h1').first().isVisible(),true,'Título deve estar visível');
+        }
         if(file==='index.html'){
           assert.equal(await tab.locator('.gn-v2-card').count(),10,'A home deve mostrar as dez ferramentas');
           assert.ok(await tab.locator('.gn-v2-card').first().locator('p').innerText().then(v=>v.length<50),'Cards mobile devem ser concisos');

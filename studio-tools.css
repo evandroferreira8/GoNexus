@@ -1,0 +1,323 @@
+/*
+NEXUS STUDIO 2.1 — SCOPED MODULE MIGRATION
+All rules scoped to body[data-studio-page], no generic component
+selectors affecting the rest of the site.
+Source: 15-page legacy inventory versus original commit 676614b.
+*/
+html[data-theme="light"] body[data-studio-page]{
+ --bg:#f8f9fb;--panel:#fff;--panel2:#eff5fc;--card:#fff;--card2:#f2f6fd;
+ --line:#dce5f1;--text:#152c4b;--muted:#526782;
+ --blue:#2563eb;--green:#16735a;--red:#ae3a4a;--yellow:#88600a;
+ --violet:#6257b7;--pink:#a94487;--accent:#2563eb;
+}
+html[data-theme="light"] body[data-studio-page] main{
+ color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page] main > section.hero,
+html[data-theme="light"] body[data-studio-page] main > header.hero{
+ background:#fff!important;
+ background-image:none!important;
+ color:#122a4a!important;
+ border:1px solid #dce5f1!important;
+ border-left:4px solid #fecb2f!important;
+ border-radius:18px!important;
+ box-shadow:0 5px 18px #162f5210!important;
+ text-align:left!important;
+ padding:25px 27px!important;
+ margin:5px 0 19px!important;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero :is(h1,h2,h3){
+ color:#0b1f3b!important;
+ text-shadow:none!important;
+ font:750 clamp(2.05rem,5vw,3.65rem)/1.12 var(--gn-title)!important;
+ margin:8px 0 9px!important;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero :is(p,.lead){
+ color:#526782!important;
+ text-shadow:none!important;
+ font-size:clamp(.91rem,1.4vw,1rem)!important;
+ line-height:1.55!important;
+ text-align:left!important;
+ margin:0 0 9px!important;
+ max-width:770px;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero :is(.eyebrow,.updated,b:first-child){
+ color:#245db9!important;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero .eyebrow,
+html[data-theme="light"] body[data-studio-page] main > .hero > b:first-child{
+ display:inline-block;
+ font:600 .72rem/1.5 var(--gn-code)!important;
+ letter-spacing:.01em!important;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero .hero-meta{
+ justify-content:flex-start;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero .hero-meta span{
+ background:#eef4fd;color:#315b97;border-color:#d7e4f6;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero .updated{
+ color:#526782!important;
+ border-color:#dce5f1;
+ background:#f0f5fc;
+ padding:6px 10px;
+ border-radius:9px;
+ font-size:.76rem!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(
+ .panel,.card,.fact,.box,.calc,.calc-line,.row,.wallet,.walletitem,
+ .info,.feedback,.core article,.event,.compare article,.flow>div,.group,
+ .quick-type,.context-card,.analysis-card,.weather-result,.challenge,
+ .search-result-card,.poke-profile,.result-card,.searchbox,
+ .mega-row,.pack,.family,.formvisual,.energy,.list-grid>*,.tier,.step,
+ .pokemon,.diff,.move,.coin-balance-box,.price-focus,.current-level,
+ .search-builder,.selected-box,.type-card,.mode,.quiz,.progress,
+ .result,.tool,.about,.stat,.sourcebox
+){
+ background-color:#fff!important;
+ background-image:none!important;
+ border-color:#dce5f1!important;
+ box-shadow:0 5px 19px #17314f0d!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.panel,.card,.fact,.box,.calc,.calc-line,.info,.feedback,.core article,.event,.compare article,.row,.search-builder,.mode){
+ border-radius:15px;
+}
+html[data-theme="light"] body[data-studio-page] :is(h1,h2,h3,h4,.question,.answer,.label,.level,.score){
+ color:#0b1f3b;
+}
+html[data-theme="light"] body[data-studio-page] :is(
+ p,small,.lead,.sub,.note,.hint,.description,.desc,.updated,
+ .details,.helper,.muted,.meta,.tip,.footnote,.sourcebox,
+ .weather-types,.weather-result p,.info li
+){color:#526782}
+html[data-theme="light"] body[data-studio-page] :is(input,select,textarea){
+ background:#fff!important;
+ background-image:none!important;
+ color:#0b1f3b!important;
+ border:1px solid #c6d5e8!important;
+ border-radius:11px!important;
+ min-height:42px;
+}
+html[data-theme="light"] body[data-studio-page] :is(input,textarea)::placeholder{
+ color:#607491!important;opacity:1;
+}
+html[data-theme="light"] body[data-studio-page] :is(.searchbox,.fields,.toolbar,.controls,.filters){
+ color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page] :is(.chip,.filter,.filter-btn,.tab,.combat-tab,.weather-btn,.level-btn,.mode){
+ color:#244767;
+ background:#fff;
+ background-image:none;
+ border-color:#cad8e9;
+}
+html[data-theme="light"] body[data-studio-page] :is(
+ .chip.on,.chip.active,.filter.active,.filter-btn.active,.tab.active,.combat-tab.active,
+ .weather-btn.active,.level-btn.active,.mode.active,
+ button[aria-selected="true"],button[aria-pressed="true"]
+){
+ background:#e5efff!important;
+ background-image:none!important;
+ color:#1b4fb4!important;
+ border-color:#7ca5e6!important;
+ box-shadow:0 0 0 1px #bdd2f7 inset!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.btn.primary,.btn-primary,.primary-btn,.next,.sb-copy,.action-btn,.button-primary){
+ background:#2563eb!important;
+ background-image:none!important;
+ color:#fff!important;
+ border-color:#2563eb!important;
+ border-radius:11px;
+}
+html[data-theme="light"] body[data-studio-page] :is(.btn.primary,.btn-primary,.primary-btn,.next,.sb-copy,.action-btn,.button-primary):hover{
+ background:#174bb8!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.eyebrow,.badge,.tag,.chip,.updated){
+ letter-spacing:.01em;
+}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion{
+ background:#fff!important;
+ background-image:none!important;
+ border:1px solid #dce5f1!important;
+ border-radius:14px!important;
+}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion>summary{
+ color:#132d4d!important;
+ background:#fff!important;
+ font-weight:700;
+}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion[open]>summary{
+ background:#f0f5fd!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.nx-summary-title,.nx-body){
+ color:#142e4d!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.nx-summary-sub,.nx-body-intro,.nx-note){
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.nx-count,.nx-pill,.nx-chevron){
+ background:#eff4fc!important;
+ color:#26569c!important;
+ border-color:#d5e1f2!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.badge,.tag,.pill){
+ border-color:#d5e1f2;
+}
+html[data-theme="light"] body[data-studio-page] :is(.pill.good,.status.good){color:#106d51!important}
+html[data-theme="light"] body[data-studio-page] :is(.pill.bad,.status.bad){color:#ab3547!important}
+html[data-theme="light"] body[data-studio-page] :is(.pill.warn,.status.warn){color:#805707!important}
+html[data-theme="light"] body[data-studio-page] :is(.stat,.big,.score,.result-value,.total){
+ color:#174fba;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.card,.panel,.fact,.info,.feedback,.calc,.calc-line,.box,.row,.quiz,.group,.family,.result,.search-builder) :is(h2,h3,h4,label,strong,b){
+ color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.card,.panel,.fact,.info,.feedback,.calc,.calc-line,.box,.row,.quiz,.group,.family,.result,.search-builder) :is(p,small,li){
+ color:#526782;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.card,.panel,.fact,.info,.feedback,.calc,.calc-line,.box,.row,.quiz,.group,.family,.result,.search-builder) a{
+ color:#2159ca;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.card,.panel,.fact,.info,.feedback,.calc,.calc-line,.box,.row,.quiz,.group,.family,.result,.search-builder) a:hover{
+ text-decoration:underline;
+}
+/* --- Specialty: combat & type analysis, preserve semantic type swatches --- */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.analyzer-card,.weather-btn,.weather-result,.challenge,.challenge-art,.poke-profile,.quick-type,.type-btn,.combat-tab){
+ background:#fff!important;background-image:none!important;color:#173453!important;
+ border-color:#d5e2f1!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.combat-tab.active,.weather-btn.active,.type-btn.active){
+ color:#1752ba!important;background:#e6efff!important;border-color:#7da9ed!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.weather-types,.weather-result p,.challenge-copy p){color:#526782!important}
+/* --- Specialty: stardust --- */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > .hero .toolbar{
+ margin-top:17px;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.pokemon,.item,.group,.calculator,.bonus,.result,.selected-box){
+ background:#fff!important;background-image:none!important;color:#152c4b!important;border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.summary,.result,.total,.amount){color:#174fba}
+/* --- Specialty: Mega and Max --- */
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(.core article,.event,.step,.energy,.level,.mega-card,.mega-row,.card,.panel,.searchbox){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] :is(.compare article,.flow div,.calc,.calc-line,.card,.panel,.step,.level,.max-pill){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .calc-line label{color:#536b88!important}
+html[data-theme="light"] body[data-studio-page="central-max"] .calc-line select{
+ background:#fff!important;color:#152c4b!important;border-color:#c6d5e8!important;min-height:42px;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] #maxAnswer{
+ background:#edf4ff!important;color:#143e7d!important;border-radius:12px;
+}
+/* --- Specialty: evolution and forms, keep JS show/hide and tab states --- */
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] :is(.card,.filter,.badge,.summary,.controls,.searchrow,.searchbox){
+ background:#fff!important;background-image:none!important;border-color:#d9e5f3!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] :is(.card,.group,.info,.intro,.panel.active,.fusion,.family,.formvisual,.ditto-card,.ditto-fact,.ditto-game){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;color:#152c4b;
+}
+/* Do not override .panel{display:none}; .panel.active{display:block} */
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab.active{
+ background:#e8f1ff!important;color:#1954bb!important;
+}
+/* --- Specialty: Efeitos Aventura --- */
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] :is(.controls,.grid .card,.info,.feedback){
+ border-color:#dce5f1!important;color:#132f4d;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card{
+ background:#fff!important;background-image:none!important;
+ border:1px solid #dce5f1!important;
+ box-shadow:0 3px 12px #1a355012!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .art{
+ background:radial-gradient(circle,#e2ecfb,#f4f7fd)!important;
+ border-color:#dce5f1;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .pokemon{color:#285bac!important}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .content h2{color:#0b1f3b!important}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .content p{color:#526782!important}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .badge{
+ background:#edf4ff!important;color:#2456b1!important;border-color:#d5e2f7!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip{
+ min-height:43px;background:#fff!important;color:#244767!important;border-color:#d1dfef!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip.on{
+ background:#2563eb!important;color:#fff!important;border-color:#2563eb!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] :is(.info,.feedback){background:#fff!important}
+/* --- Specialty: Quiz --- */
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.mode,.quiz,.card,.topbar,.answers button,.feedback,.progress){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.mode b,.question,.score,.level){color:#122f52!important}
+html[data-theme="light"] body[data-studio-page="quiz"] .mode span{color:#526782!important}
+html[data-theme="light"] body[data-studio-page="quiz"] .answers button:hover{
+ background:#edf4ff!important;border-color:#8baeed!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .answers button.selected{
+ background:#e6f0ff!important;color:#154bac!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.feedback,.cat){color:#526782}
+/* --- Specialty: guide / Tailwind generated markup --- */
+html[data-theme="light"] body[data-studio-page="guia-busca"]{
+ --nx:#2563eb;--nx2:#547fd0;--nx3:#b85a83;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] #app :is(.card,.rounded-2xl,.rounded-xl),
+html[data-theme="light"] body[data-studio-page="guia-busca"] #guia-iv :is(.rounded-xl,.rounded-2xl){
+ background-color:#fff!important;background-image:none!important;
+ color:#152c4b!important;border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.text-white,.text-slate-100,.text-slate-200,.text-slate-300,.text-slate-400){
+ color:#284666!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.bg-slate-900,.bg-slate-800,.bg-slate-950,.bg-gray-900){
+ background:#fff!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.search-builder,.sb-result,.sb-field input,.sb-field select,.sb-chip){
+ background:#fff!important;background-image:none!important;
+ color:#152c4b!important;border-color:#cddbec!important;
+ box-shadow:none!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.sb-chip.active,.sb-chip[aria-pressed="true"]){
+ background:#e6efff!important;color:#1950b4!important;border-color:#8fb2f0!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.sb-result){
+ color:#1950b4!important;background:#f2f6fd!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.search-builder-intro,.sb-field label,.sb-group-title,.sb-feedback){
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .sb-copy:not(:disabled){
+ background:#2563eb!important;color:#fff!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] #app :is(button[aria-selected="true"],.active){
+ color:#174fb4!important;
+}
+/* --- Institutional --- */
+html[data-theme="light"] body:is([data-studio-page="privacidade"],[data-studio-page="termos"],[data-studio-page="anuncie"]) :is(.panel,.card){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] .card.featured{
+ background:#eff5ff!important;
+}
+@media(max-width:680px){
+ html[data-theme="light"] body[data-studio-page] main > section.hero,
+ html[data-theme="light"] body[data-studio-page] main > header.hero{
+  padding:18px 17px!important;margin:3px 0 14px!important;
+ }
+ html[data-theme="light"] body[data-studio-page] main > .hero h1{
+  font-size:clamp(2rem,8vw,3rem)!important;
+ }
+ html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chips{
+  display:flex;flex-wrap:nowrap;overflow-x:auto;gap:7px;padding-bottom:6px;
+ }
+ html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip{
+  flex:0 0 auto;padding:9px 13px;
+ }
+ html[data-theme="light"] body[data-studio-page="guia-busca"] :is(#app,#guia-iv){
+  width:min(100% - 24px,768px);padding-left:0;padding-right:0;
+ }
+}

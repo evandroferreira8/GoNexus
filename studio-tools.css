@@ -321,3 +321,118 @@ html[data-theme="light"] body[data-studio-page="anuncie"] .card.featured{
   width:min(100% - 24px,768px);padding-left:0;padding-right:0;
  }
 }
+
+
+/* CONTRAST CORRECTIONS: grounded in captured 360/390/1365 screenshots. */
+html[data-theme="light"] body[data-studio-page="tipagens"] main > .hero :is(strong,b){
+ color:#183b68!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .poke-search button[type="submit"]{
+ background:#2563eb!important;background-image:none!important;color:#fff!important;
+ border:1px solid #174bb8!important;min-height:44px;border-radius:11px;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-next{
+ background:#fff!important;background-image:none!important;color:#2055bd!important;
+ border:1px solid #9bb8e9!important;min-height:42px;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.langbox,.langswitch,.langtop,.langtitle){
+ background:#fff!important;background-image:none!important;color:#172f4c!important;
+ border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbox{
+ padding:15px;border:1px solid #dce5f1;border-radius:14px;box-shadow:0 3px 12px #11294d0b;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langswitch{
+ background:#edf3fd!important;border:1px solid #d7e3f3;border-radius:11px;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn{
+ color:#375575!important;background:transparent!important;border-color:transparent!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn.active{
+ color:#1649ae!important;background:#fff!important;border-color:#aac4ee!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langhelp,
+html[data-theme="light"] body[data-studio-page="guia-busca"] header p.text-slate-400{
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.sourcebadge,.sourcebadge.advanced){
+ color:#875706!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] #add{
+ background:#2563eb!important;color:#fff!important;border:1px solid #2563eb!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .comparebox .side{
+ background:#f0f5fd!important;border-color:#dae5f3!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .comparebox .side :is(span,strong){
+ color:#234263!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.group-count,.note,.group small){
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(.tag.super,.tag.super-max){
+ color:#59449f!important;background:#f0eafd!important;border:1px solid #d8cdf0!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(.event span,.news span,.event p){
+ color:#536984!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .compare article b,
+html[data-theme="light"] body[data-studio-page="central-max"] .flow strong{
+ color:#102b4a!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .flow > div{
+ background:#fff!important;color:#27415e!important;border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .flow > div strong,
+html[data-theme="light"] body[data-studio-page="central-max"] .flow > div b{
+ color:#14365a!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] :is(.sources p,.sources a,.sourcebox p,.footnote,.reference p,.reference a){
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] :is(.sources a,.sources p,.reference a,.reference p){
+ color:#2157b9!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .info li{
+ color:#435a76!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .feedback a{
+ color:#fff!important;background:#2563eb!important;border:1px solid #2563eb!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .check{
+ background:#fff!important;background-image:none!important;border:1px solid #dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .check b{
+ color:#16395e!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .step-list .step span{
+ color:#465d7a!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .mode strong{
+ color:#2059b7!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .mode:hover strong{
+ color:#184594!important;
+}
+html[data-theme="light"] body:is([data-studio-page="privacidade"],[data-studio-page="termos"],[data-studio-page="anuncie"]) .back{
+ color:#2259bb!important;text-decoration:none;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] :is(.metric span,.metric strong){
+ color:#143556!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] .metric span{
+ background:#f1f6fd!important;border:1px solid #dce6f3!important;border-radius:10px;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] :is(.tag,.tag.featured){
+ color:#1f56b7!important;background:#e7f0ff!important;border-color:#cdddf4!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] .cta{
+ background:#2563eb!important;color:#fff!important;border-color:#2563eb!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] :is(.price,.price small,.metric strong){
+ color:#163962!important;
+}
+/* Fine-grained light panels avoid dark areas from legacy standalone templates. */
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.search-builder,.langbox,.langswitch){
+ box-shadow:0 4px 16px #0b2a4b0b!important;
+}

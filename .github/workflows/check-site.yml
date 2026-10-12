@@ -2,7 +2,7 @@ name: Verificar ferramentas GO Nexus
 
 on:
   push:
-    branches: [main]
+    branches: [main, go-nexus-v2-redesign]
     paths:
       - '*.html'
       - '*.js'

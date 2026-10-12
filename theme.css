@@ -69,7 +69,7 @@ html[data-theme="light"] :where(.hero-meta span,.stat,.pill,.tag,.chip,.badge,.m
 html[data-theme="light"] :where(.pill.good,.status.good){color:#0e7656!important}
 html[data-theme="light"] :where(.pill.bad,.status.bad){color:#b33443!important}
 html[data-theme="light"] :where(.pill.warn,.status.warn){color:#8b5900!important}
-html[data-theme="light"] :where(.switch .tab,.combat-tabs .combat-tab,.type-btn,.weather-btn,.filter-btn,.tab,.mode,.level){
+html[data-theme="light"] :where(.switch .tab,.combat-tabs .combat-tab,.weather-btn,.filter-btn,.tab,.mode,.level){
  color:#1a3c65!important;background:#fff!important;border-color:#dce4ef!important;
 }
 html[data-theme="light"] :where(.switch .tab.active,.combat-tabs .combat-tab.active,.tab.active,.mode:hover){

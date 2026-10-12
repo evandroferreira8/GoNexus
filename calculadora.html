@@ -264,6 +264,13 @@ function cheapestCoins(target){
 }
 
 function calc(){
+ const quantities=[...document.querySelectorAll("#items .row .qty")];
+ if(quantities.some(input=>!Number.isFinite(Number(input.value))||Number(input.value)>250||Number(input.value)<0)){
+  $("answer").textContent="Revise a quantidade dos itens";
+  $("answerSub").textContent="Informe de 0 a 250 unidades por item.";
+  $("separate").textContent="—";$("saving").textContent="—";$("explain").textContent="A calculadora limita quantidades excessivas para evitar travamentos.";
+  $("details").textContent="";$("wallet").hidden=true;return;
+ }
  let total=0,unpriced=0,unpricedKinds=[],purchaseDetails=[];
  document.querySelectorAll(".row").forEach(r=>{
   const item=catalog.find(x=>x.id===r.querySelector(".sel").value),q=Math.max(0,parseInt(r.querySelector(".qty").value)||0);if(!q)return;
@@ -274,6 +281,20 @@ function calc(){
  });
  const mode=$("currency").value,price=currentPrice();
  $("combo").textContent=mode==="brl"?brl(price):coins(price);
+ if(!Number.isFinite(price)||price<=0){
+  $("separate").textContent="—";$("saving").textContent="—";$("savingLabel").textContent="COMPARAÇÃO";
+  $("answer").textContent="Informe o preço da oferta";
+  $("answerSub").textContent="Preencha o preço da caixa antes de comparar.";
+  $("explain").textContent="A economia só será calculada depois que o preço da oferta for informado.";
+  $("details").textContent="Os itens sem preço individual não entram na conta.";
+  $("wallet").hidden=true;return;
+ }
+ if(price>(mode==="coins"?50000:10000)||total>50000||currentOwnedCoins()>50000){
+  $("answer").textContent="Valor acima do limite de cálculo";
+  $("answerSub").textContent="Confira os valores e reduza a quantidade para continuar.";
+  $("separate").textContent="—";$("saving").textContent="—";$("explain").textContent="Por segurança, esta simulação aceita até 50 mil Pokémoedas e R$ 10 mil por oferta.";
+  $("details").textContent="";$("wallet").hidden=true;return;
+ }
  updateWallet(total,price);
  if(total<=0){
    $("separate").textContent="—";$("saving").textContent="—";$("answer").textContent="Não há itens com preço individual";$("answerSub").textContent="Os itens sem preço oficial continuam listados, mas não podem ser comparados diretamente.";$("explain").textContent="Adicione ao menos um item com preço individual conhecido para fazer a comparação.";$("details").textContent=unpricedKinds.length?"Sem preço individual: "+unpricedKinds.join(", "):"";return;

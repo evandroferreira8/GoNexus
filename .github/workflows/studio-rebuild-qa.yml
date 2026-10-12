@@ -1,0 +1,43 @@
+name: Nexus Studio rebuild — visual quality gate
+
+on:
+  push:
+    branches: [nexus-studio-rebuild-audited]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nexus-studio-rebuild-qa
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Iniciar servidor local
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/gonexus.log 2>&1 &
+          sleep 2
+      - name: Regressão funcional existente
+        run: node scripts/smoke-test.mjs
+      - name: Contraste, alinhamento, scroll e navegação
+        run: node scripts/studio-visual-qa.mjs
+      - name: Anexar capturas e dados para análise
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nexus-studio-qa-capturas
+          path: audit-results/studio-rebuild/
+          retention-days: 14
+          if-no-files-found: warn

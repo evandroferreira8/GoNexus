@@ -128,3 +128,13 @@
  #gnx-egg-placeholder button,#gnx-egg-placeholder button img{width:50px!important;height:50px!important}
 }
 @media(prefers-reduced-motion:reduce){.page-home .gn-v2-card:hover{transform:none}}
+
+
+/* Correct light Studio contrast inside the shared feature-news module. */
+.page-home #featureUpdates .nx-update p,
+.page-home #featureUpdates .nx-update small,
+.page-home #featureUpdates .nx-update .nx-update-desc{color:#526782!important}
+.page-home #featureUpdates .nx-update strong,
+.page-home #featureUpdates .nx-update b,
+.page-home #featureUpdates .nx-update a{color:#2055b9!important}
+.page-home #featureUpdates .nx-update{background:#f3f7fd!important}

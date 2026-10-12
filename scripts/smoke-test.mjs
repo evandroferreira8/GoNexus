@@ -68,6 +68,7 @@ try{
           assert.doesNotMatch(await tab.locator('#answer').innerText(),/Informe o preço/i);
         }
         if(file==='central-max.html'){
+          await tab.evaluate(()=>{document.getElementById('maxAnswer').closest('details').open=true;});
           await tab.locator('.current[data-move="attack"]').selectOption('3');
           await tab.locator('.target[data-move="attack"]').selectOption('1');
           await tab.locator('.target[data-move="guard"]').selectOption('2');

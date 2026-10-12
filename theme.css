@@ -10,6 +10,7 @@ html[data-theme="light"]{
  --gn-yellow:#fecb2f;--gn-font:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
  --gn-title:'Outfit','DM Sans',system-ui,sans-serif;
  --gn-code:'IBM Plex Mono',ui-monospace,monospace;
+ --gn-display:var(--gn-title);--gn-mono:var(--gn-code);
  /* Bridge legacy variables. Scoped behind html attribute, stronger than
     the legacy :root declarations in each tool without altering their logic. */
  --bg:#f8f9fb;--panel:#fff;--panel2:#f0f5fc;--card:#fff;--card2:#f0f5fc;

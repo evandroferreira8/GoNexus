@@ -512,3 +512,18 @@ html[data-theme="light"] body[data-studio-page="central-mega"] :is(#megaAnswer,#
 html[data-theme="light"] body[data-studio-page="central-mega"] .answer.ok{
  background:#ebf8f2!important;border-color:#9bd5ba!important;color:#166849!important;
 }
+
+
+/* The search guide's Tailwind input is generated after page load. Anchor it by ID. */
+html[data-theme="light"] body[data-studio-page="guia-busca"] #search{
+ background:#fff!important;background-image:none!important;
+ border:1px solid #c5d7ed!important;color:#0b1f3b!important;
+ box-shadow:0 3px 10px rgba(17,47,86,.045)!important;
+ border-radius:12px!important;min-height:48px;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] #search::placeholder{
+ color:#56718d!important;opacity:1;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] #search:focus{
+ border-color:#2563eb!important;outline:2px solid #a4c2f8!important;outline-offset:1px;
+}

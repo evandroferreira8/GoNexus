@@ -1,7 +1,37 @@
+# GO Nexus 2.0 — Nexus Studio / Mobile First
+
+**Identidade aprovada em 12/10/2026:** Nexus Studio, substituindo a paleta Field System anterior.
+
+## Identidade visual adotada
+- **Off-white:** `#f8f9fb`, base predominante.
+- **Azul-marinho:** `#0b1f3b`, texto e elementos estruturais.
+- **Azul Studio:** `#2563eb`, ações, navegação e destaques.
+- **Amarelo sinal:** `#fecb2f`, indicadores e botões secundários.
+- **Tipografia:** Outfit nos títulos, DM Sans nos textos e IBM Plex Mono em metadados.
+- **Estilo:** editorial, cards brancos, ícones vetoriais, contraste alto, poucos efeitos.
+
+## Decisão mobile-first
+- Cabeçalho compacto, botão de ferramentas e navegação inferior com **Início / Ferramentas / Novidades / Quiz**.
+- Busca visível no início da página, sem exigir rolagem.
+- Cards de uma linha, título forte, marca visual e seta — áreas clicáveis amplas.
+- Textos introdutórios reduzidos; detalhes permanecem nas ferramentas.
+- Mesma identidade nas páginas internas, sem remover cálculos, filtros ou recursos.
+- Experiência cósmica permanece opcional; recursos pesados só carregam após interação.
+
+## Critérios de aceite
+- Dez ferramentas disponíveis e links válidos.
+- 80 perguntas do quiz preservadas.
+- Busca, notícias, Central Max e calculadora devem passar nos testes de regressão.
+- Layout sem rolagem horizontal em 360px, 390px e desktop.
+- Navegação inferior funcional no celular; menu de ferramentas acessível por toque/teclado.
+- Política de privacidade e atribuições mantidas.
+
+---
+
 # GO Nexus 2.0 — revisão estratégica e sistema de identidade
 
 **Data:** 12 de outubro de 2026  
-**Nome da direção visual:** Field System  
+**Direção visual original:** Field System (substituída por Nexus Studio)  
 **Status:** reformulação de arquitetura de informação e design, sem romper funcionalidades existentes.
 
 ## Diagnóstico

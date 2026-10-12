@@ -70,7 +70,7 @@ try{
         }
         if(errors.length)throw new Error(errors.join(' | '));
         // Regressão visual: identidade clara consistente e conteúdo visível.
-        const hero=tab.locator('main .hero').first();
+        const hero=tab.locator('main > .hero').first();
         if(await hero.count()){
           const heroStyle=await hero.evaluate(el=>{
             const s=getComputedStyle(el),h=el.querySelector('h1');

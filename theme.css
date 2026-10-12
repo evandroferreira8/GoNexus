@@ -102,3 +102,36 @@ html[data-theme="dark"] :where(.nx-accordion,.panel,.card,.calculator,.group,.fa
 .gnx-ad-wrap{display:none!important}
 .gn-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:19px 0 -7px;color:#a9c6b6;font:600 11px/1.5 var(--gn-mono);letter-spacing:.02em}
 .gn-breadcrumb a{color:#c5f277;text-decoration:none}.gn-breadcrumb a:hover{text-decoration:underline}.gn-breadcrumb .gn-slash{color:#658679}.gn-breadcrumb .gn-current{color:#dcebdc}
+
+
+/* Ferramentas internas também seguem o novo ritmo editorial */
+html[data-theme="dark"] body:not(.page-home) :where(.hero){
+ text-align:left!important;border-bottom:1px solid #37564f!important;
+ padding:33px 0 25px!important;margin-bottom:18px!important;
+}
+html[data-theme="dark"] body:not(.page-home) :where(.hero h1){
+ font-size:clamp(2.7rem,5.7vw,4.85rem)!important;max-width:880px;
+ margin-top:10px!important;margin-bottom:16px!important;
+}
+html[data-theme="dark"] body:not(.page-home) :where(.hero .lead,.hero p.lead){
+ max-width:760px!important;color:#c0d1c8!important;font-size:1.02rem!important;
+}
+html[data-theme="dark"] body:not(.page-home) :where(.hero .eyebrow,.hero .badge){
+ color:#c5f277!important;font:600 11px/1.5 var(--gn-mono)!important;
+ text-transform:uppercase;letter-spacing:.055em!important;
+}
+html[data-theme="dark"] :where(.btn:not(.secondary):not(.clearbtn),.btn-primary,.btn.main,.button-primary){
+ background:#c5f277!important;border-color:#c5f277!important;color:#11221d!important;font-weight:800!important;
+}
+html[data-theme="dark"] :where(.btn:not(.secondary):not(.clearbtn),.btn-primary,.button-primary):hover{
+ background:#e2ffa6!important;
+}
+html[data-theme="dark"] :where(input:focus,select:focus,textarea:focus,.global-search:focus){
+ border-color:#a8cf94!important;outline-color:#c5f277!important;
+}
+html[data-theme="dark"] :where(.updated){color:#adc6b7!important}
+html[data-theme="dark"] :where(.nx-note,.info){border-left-color:#719b7c!important}
+@media(max-width:640px){
+ html[data-theme="dark"] body:not(.page-home) :where(.hero){padding:23px 0!important}
+ html[data-theme="dark"] body:not(.page-home) :where(.hero h1){font-size:clamp(2.4rem,10vw,3.5rem)!important}
+}

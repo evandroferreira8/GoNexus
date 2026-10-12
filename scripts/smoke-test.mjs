@@ -63,7 +63,8 @@ try{
           assert.equal(await tab.locator('.news-card').count(),5,'Carrossel de notícias');
           assert.ok(await tab.locator('#gnx-egg-placeholder button').count(),'Ovo acessível sem conteúdo pesado');
           await tab.locator('#gnx-egg-placeholder button').click();
-          await tab.locator('go-nexus-cosmic-egg').waitFor({timeout:15000});
+          await tab.locator('go-nexus-cosmic-egg').waitFor({state:'attached',timeout:15000});
+          await tab.locator('go-nexus-cosmic-egg').locator('.egg').waitFor({state:'visible',timeout:15000});
           assert.ok(await tab.locator('go-nexus-cosmic-egg').evaluate(el=>!!el.shadowRoot?.querySelector('.egg')),'Experiência secreta carregada');
         }
         if(file==='calculadora.html'){

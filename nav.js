@@ -204,6 +204,24 @@ details{position:relative}summary{list-style:none}summary::-webkit-details-marke
   };
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mountBackToTop,{once:true});else mountBackToTop();
 
+  const mountBreadcrumb=()=>{
+    const page=currentFile();
+    if(page==='index.html'||document.querySelector('.gn-breadcrumb'))return;
+    const main=document.querySelector('main');
+    if(!main)return;
+    const match=TOOLS.find(tool=>tool.file===page);
+    const title=match?.label||({'quiz.html':'Quiz GO Nexus','anuncie.html':'Anuncie','privacidade.html':'Privacidade','termos.html':'Termos de Uso'}[page]||'GO Nexus');
+    const crumbs=document.createElement('div');
+    crumbs.className='gn-breadcrumb';
+    const link=document.createElement('a');
+    link.href='index.html#ferramentas';link.textContent='Todas as ferramentas';
+    const slash=document.createElement('span');slash.className='gn-slash';slash.textContent='/';
+    const label=document.createElement('span');label.className='gn-current';label.textContent=title;
+    crumbs.append(link,slash,label);
+    main.prepend(crumbs);
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mountBreadcrumb,{once:true});else mountBreadcrumb();
+
   const initAccordions=()=>{
     const all=[...document.querySelectorAll('details.nx-accordion[data-nx-group]')];
     all.forEach(d=>{

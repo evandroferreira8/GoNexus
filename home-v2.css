@@ -46,8 +46,8 @@
 .page-home .gn-card-mark{width:62px;height:62px;flex:0 0 62px;border:1px solid #cce0f4;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--card-top,#163864),var(--card-bottom,#2b65c8));color:#fff}
 .page-home .gn-card-mark svg{width:29px;height:29px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
 .page-home .gn-card-content{display:flex;flex-direction:column;justify-content:center;min-width:0;flex:1}
-.page-home .gn-v2-card h3{font:700 .97rem/1.21 var(--gn-display)!important;color:#0b1f3b!important;margin:0 0 3px;letter-spacing:-.018em!important}
-.page-home .gn-v2-card p{font-size:.77rem;color:#536984!important;line-height:1.34;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0}
+.page-home .gn-v2-card h3{font:700 1.04rem/1.21 var(--gn-display)!important;color:#0b1f3b!important;margin:0 0 3px;letter-spacing:-.018em!important}
+.page-home .gn-v2-card p{font-size:.84rem;color:#536984!important;line-height:1.34;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0}
 .page-home .gn-card-action{flex:0 0 28px;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#fecb2f;color:#102541;font-size:17px;font-weight:700}
 .page-home .gn-v2-card.featured{border-color:#c8d8f1}
 .page-home .gn-overline{font:600 10px/1.3 var(--gn-mono);color:#1e5ad0}

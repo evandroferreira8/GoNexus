@@ -97,3 +97,149 @@ html[data-theme="light"] body{padding-bottom:74px!important}
  html[data-theme="light"] :where(.card,.panel){min-width:0}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+
+
+/* Nexus Studio — patch de integração para páginas legadas, 12/10/2026.
+   Nunca colocar texto azul-marinho sobre hero com gradiente escuro. */
+html[data-theme="light"] body:not(.page-home) .hero {
+  background:#fff !important;
+  background-image:none !important;
+  border:1px solid #dce5f2 !important;
+  border-left:4px solid #fecb2f !important;
+  border-radius:17px !important;
+  box-shadow:0 5px 19px rgba(15,45,85,.035) !important;
+  padding:22px 25px !important;
+  margin:0 0 17px !important;
+  color:#0b1f3b !important;
+}
+html[data-theme="light"] body:not(.page-home) .hero :is(h1,h2,h3,strong,b){
+  color:#0b1f3b !important;
+  text-shadow:none !important;
+}
+html[data-theme="light"] body:not(.page-home) .hero :is(p,.lead,.sub){
+  color:#4e6380 !important;
+  text-shadow:none !important;
+}
+html[data-theme="light"] body:not(.page-home) .hero .grad{
+  color:#2563eb !important;
+  -webkit-text-fill-color:#2563eb !important;
+}
+/* Links de navegação acima do hero sem sobreposição. */
+html[data-theme="light"] .gn-breadcrumb{
+  margin:15px 0 14px !important;
+  line-height:1.6 !important;
+}
+html[data-theme="light"] :where(main.wrap,main.shell)> .gn-breadcrumb:first-child{
+  position:relative;
+  z-index:1;
+}
+/* "Anuncie no GO Nexus" duplicado era um elemento promocional injetado no
+   conteúdo (não uma unidade real do AdSense). Preservar integração AdSense. */
+html[data-theme="light"] .gnx-ad-wrap{
+  display:none !important;
+}
+/* Efeitos Aventura: corrigir também cartões, filtros e painéis expandidos. */
+html[data-theme="light"] .page-effects .hero b{
+  display:inline-flex !important;
+  font:700 .73rem/1.5 var(--gn-mono) !important;
+  letter-spacing:.03em !important;
+  color:#1d56c2 !important;
+}
+html[data-theme="light"] .page-effects .hero h1{
+  font:750 clamp(2.05rem,5vw,3.5rem)/1.12 var(--gn-display) !important;
+  margin:6px 0 9px !important;
+}
+html[data-theme="light"] .page-effects .hero p{
+  max-width:670px !important;
+  font-size:.96rem !important;
+}
+html[data-theme="light"] .page-effects .controls{
+  align-items:center;
+  margin:14px 0 18px;
+}
+html[data-theme="light"] .page-effects .chips{
+  gap:7px;
+}
+html[data-theme="light"] .page-effects .chip{
+  background:#fff !important;
+  color:#25486f !important;
+  border:1px solid #d5e1f0 !important;
+  border-radius:99px !important;
+  min-height:43px;
+}
+html[data-theme="light"] .page-effects .chip.on{
+  background:#2563eb !important;
+  border-color:#2563eb !important;
+  color:#fff !important;
+}
+html[data-theme="light"] .page-effects .grid .card{
+  border:1px solid #dbe5f2 !important;
+  border-radius:15px !important;
+  background:#fff !important;
+  box-shadow:0 4px 15px rgba(14,45,84,.045) !important;
+}
+html[data-theme="light"] .page-effects .grid .card:hover{
+  border-color:#a7bfe4 !important;
+  box-shadow:0 7px 22px rgba(14,45,84,.1) !important;
+}
+html[data-theme="light"] .page-effects .art{
+  background:radial-gradient(circle,rgba(var(--rgb),.16),#edf3fb 83%) !important;
+  border-color:#dce5f2 !important;
+}
+html[data-theme="light"] .page-effects .art img{
+  filter:drop-shadow(0 5px 7px rgba(38,56,85,.14)) !important;
+}
+html[data-theme="light"] .page-effects .pokemon{
+  color:#295bb0 !important;
+  letter-spacing:.02em !important;
+}
+html[data-theme="light"] .page-effects .content h2{
+  color:#0b1f3b !important;
+  font-family:var(--gn-display) !important;
+  font-weight:700 !important;
+}
+html[data-theme="light"] .page-effects .content p,
+html[data-theme="light"] .page-effects .more,
+html[data-theme="light"] .page-effects small{
+  color:#4f6480 !important;
+}
+html[data-theme="light"] .page-effects .badge{
+  background:#eef3fc !important;
+  border:1px solid #d9e4f5 !important;
+  color:#1e4ea0 !important;
+  box-shadow:none !important;
+}
+html[data-theme="light"] .page-effects .details{
+  color:#1d56c7 !important;
+}
+html[data-theme="light"] .page-effects .stats div{
+  background:#f3f7fd !important;
+  border-color:#dbe5f2 !important;
+}
+html[data-theme="light"] .page-effects .stats strong{
+  color:#0b1f3b !important;
+}
+html[data-theme="light"] .page-effects .info,
+html[data-theme="light"] .page-effects .feedback{
+  background:#fff !important;
+  border-color:#dce5f2 !important;
+}
+html[data-theme="light"] .page-effects .info li,
+html[data-theme="light"] .page-effects .feedback p{
+  color:#4f6480 !important;
+}
+html[data-theme="light"] .page-effects .feedback a{
+  background:#2563eb !important;
+  color:#fff !important;
+}
+/* Garantir leitura no celular mesmo com componentes antigos. */
+@media(max-width:680px){
+ html[data-theme="light"] body:not(.page-home) .hero{
+   padding:17px 18px !important;
+   margin-bottom:16px !important;
+ }
+ html[data-theme="light"] .page-effects .controls{grid-template-columns:1fr !important}
+ html[data-theme="light"] .page-effects .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:5px}
+ html[data-theme="light"] .page-effects .chip{flex:0 0 auto;padding:10px 14px}
+ html[data-theme="light"] .page-effects .grid .card{min-height:146px}
+}

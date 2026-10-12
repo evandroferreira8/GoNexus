@@ -19,9 +19,10 @@
 @media(max-width:980px){.grid4,.check-grid,.category-grid,.tips{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){body{font-size:18px}.shell{width:min(100% - 18px,1120px)}.hero{padding-top:30px}.hero h1{font-size:2.35rem}.lead{font-size:1.02rem}.grid4,.check-grid,.category-grid,.tips{grid-template-columns:1fr}.panel.pad{padding:14px}.step{grid-template-columns:40px 1fr}.num{width:40px;height:40px}.cat-btn{min-height:54px;font-size:.95rem}}
 </style>
-<link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-contrast-r2">
+<link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-v3-safe">
+<link rel="stylesheet" href="studio-tools.css?v=studio-v3-safe">
 </head>
-<body class="page-stops">
+<body class="page-stops" data-studio-page="pokeparadas">
 <go-nexus-header></go-nexus-header>
 <main class="shell">
   <section class="hero">
@@ -137,6 +138,6 @@ function renderButtons(active){grid.innerHTML=CATEGORIES.map(c=>`<button type="b
 function showCategory(id){renderButtons(id); const c=CATEGORIES.find(x=>x.id===id); result.innerHTML=`<div class="top"><h3>${c.label}</h3><span class="status ${c.status}">${c.title}</span></div><p>${c.desc}</p><div class="tips">${c.tips.map(t=>`<div class="tip"><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div>`;}
 renderButtons();
 </script>
-<script src="nav.js?v=studio-20261012"></script>
-<script src="theme.js?v=studio-20261012"></script>
+<script src="nav.js?v=studio-v3-egg"></script>
+<script src="theme.js?v=studio-v3-safe"></script>
 </body></html>

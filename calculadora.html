@@ -53,9 +53,10 @@ input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,2
 .result{--result-rgb:56,189,248}.result .hero{background:radial-gradient(circle at 50% 0,rgba(var(--result-rgb),.12),transparent 70%)}.saving{transition:.25s}
 .feedbackbtn{background:linear-gradient(135deg,#2563eb,#7c3aed);box-shadow:0 0 18px rgba(99,102,241,.2)}
 </style>
-<link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-contrast-r2">
+<link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-v3-safe">
+<link rel="stylesheet" href="studio-tools.css?v=studio-v3-safe">
 </head>
-<body class="page-calculadora">
+<body class="page-calculadora" data-studio-page="calculadora">
 <go-nexus-header></go-nexus-header>
 
 <header class="wrap">
@@ -348,8 +349,8 @@ const resultCard=document.querySelector('.result');const answerNode=document.get
 const glowObserver=new MutationObserver(()=>{const t=answerNode.textContent.toLowerCase();if(t.includes('combo é mais barato')){resultCard.style.setProperty('--result-rgb','52,211,153');resultCard.style.boxShadow='0 0 28px rgba(52,211,153,.16)'}else if(t.includes('separado é mais barato')){resultCard.style.setProperty('--result-rgb','248,113,113');resultCard.style.boxShadow='0 0 28px rgba(248,113,113,.15)'}else{resultCard.style.setProperty('--result-rgb','56,189,248');resultCard.style.boxShadow='0 0 24px rgba(56,189,248,.10)'}});glowObserver.observe(answerNode,{childList:true,characterData:true,subtree:true});
 </script>
 
-<script src="nav.js?v=studio-20261012"></script>
-<script src="theme.js?v=studio-20261012"></script>
+<script src="nav.js?v=studio-v3-egg"></script>
+<script src="theme.js?v=studio-v3-safe"></script>
 <script src="result-share.js?v=1"></script>
 </body>
 </html>

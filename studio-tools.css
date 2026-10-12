@@ -495,3 +495,20 @@ html[data-theme="light"] body[data-studio-page="anuncie"] main > .hero .eyebrow{
  border:1px solid #cddff6!important;border-radius:999px!important;
  padding:5px 9px!important;
 }
+
+/* Final contrast edge cases: event bonus control + Mega result panels. */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .event-row{
+ background:#f2f6fd!important;border:1px solid #d6e2f2!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .event-row>span{
+ color:#254663!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(#megaAnswer,#levelAnswer){
+ background:#edf4ff!important;border:1px solid #cadefa!important;color:#284667!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(#megaAnswer,#levelAnswer) b{
+ color:#153f83!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .answer.ok{
+ background:#ebf8f2!important;border-color:#9bd5ba!important;color:#166849!important;
+}

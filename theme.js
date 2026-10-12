@@ -3,16 +3,16 @@
 
   const root = document.documentElement;
 
-  function enforceDarkTheme() {
-    root.dataset.theme = "dark";
-    root.style.colorScheme = "dark";
+  function enforceStudioTheme() {
+    root.dataset.theme = "light";
+    root.style.colorScheme = "light";
 
     try {
       localStorage.removeItem("go-nexus-theme");
     } catch (_) {}
 
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", "#0b171b");
+    if (meta) meta.setAttribute("content", "#f8f9fb");
 
     document.querySelectorAll("go-nexus-header, go-nexus-footer").forEach((el) => {
       el.setAttribute("data-theme", "dark");
@@ -27,11 +27,11 @@
     document.head.appendChild(script);
   }
 
-  enforceDarkTheme();
+  enforceStudioTheme();
   loadMonetization();
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", enforceDarkTheme, { once: true });
+    document.addEventListener("DOMContentLoaded", enforceStudioTheme, { once: true });
   }
 
   // O tema é aplicado no carregamento e novamente após o DOM estar pronto.

@@ -49,11 +49,20 @@ try{
     await photo(tab,v.name+'-'+screen.name+'-ovo-rolagem');
     await tab.locator('#gnx-egg-placeholder button').first().click({force:true});
     try{
-      await tab.locator('go-nexus-cosmic-egg').waitFor({state:'attached',timeout:17000});
-      await tab.waitForTimeout(300);
-      const modal=await tab.locator('go-nexus-cosmic-egg').locator('.overlay').isVisible().catch(()=>false);
-      records.push({...base,state:'abrir experiência do ovo',modalVisible:modal});
+      const widget=tab.locator('go-nexus-cosmic-egg');
+      await widget.waitFor({state:'attached',timeout:17000});
+      // O ovo ORIGINAL precisa de 3 toques; o carregador automático já deu o primeiro.
+      await widget.locator('.egg').click({force:true});
+      await widget.locator('.egg').click({force:true});
+      await widget.locator('.overlay.open').waitFor({state:'visible',timeout:8000});
+      const modal=await widget.locator('.overlay.open').isVisible();
+      records.push({...base,state:'abrir experiência do ovo após três toques',modalVisible:modal});
       await photo(tab,v.name+'-'+screen.name+'-ovo-aberto');
+      const close=widget.locator('.close');
+      if(await close.count()){
+        await close.first().click();
+        records.push({...base,state:'fechar experiência do ovo',closed:!(await widget.locator('.overlay.open').isVisible())});
+      }
     }catch(e){warnings.push({...base,problem:'Ovo não abriu experiência',details:String(e.message).slice(0,180)})}
    }else records.push({...base,state:'ovo',present:false});
    if(screen.name==='celular'){

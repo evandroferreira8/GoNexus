@@ -98,3 +98,7 @@ html[data-theme="dark"] :where(.nx-accordion,.panel,.card,.calculator,.group,.fa
 @media(prefers-contrast:more){
  html[data-theme="dark"]{--gn-muted:#e1eee7;--gn-line:#7faaa0}
 }
+/* Separar publicidade automática do fluxo editorial; não forçar promoções internas na interface */
+.gnx-ad-wrap{display:none!important}
+.gn-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:19px 0 -7px;color:#a9c6b6;font:600 11px/1.5 var(--gn-mono);letter-spacing:.02em}
+.gn-breadcrumb a{color:#c5f277;text-decoration:none}.gn-breadcrumb a:hover{text-decoration:underline}.gn-breadcrumb .gn-slash{color:#658679}.gn-breadcrumb .gn-current{color:#dcebdc}

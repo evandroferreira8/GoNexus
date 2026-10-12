@@ -14,9 +14,7 @@
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", "#f8f9fb");
 
-    document.querySelectorAll("go-nexus-header, go-nexus-footer").forEach((el) => {
-      el.setAttribute("data-theme", "dark");
-    });
+    // Header/footer use the same light design tokens as the page.
   }
 
   function loadMonetization() {

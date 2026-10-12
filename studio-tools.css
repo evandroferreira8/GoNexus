@@ -436,3 +436,62 @@ html[data-theme="light"] body[data-studio-page="anuncie"] :is(.price,.price smal
 html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.search-builder,.langbox,.langswitch){
  box-shadow:0 4px 16px #0b2a4b0b!important;
 }
+
+
+/* Round 2 — exact remaining mismatches measured in all three viewports. */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .toggle{
+ background:#f2f6fd!important;border:1px solid #d6e2f2!important;
+ color:#152c4b!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .toggle span,
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .toggle small{
+ color:#254663!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .nx-pill.future,
+html[data-theme="light"] body[data-studio-page="central-mega"] .nx-pill.future strong,
+html[data-theme="light"] body[data-studio-page="central-mega"] .level :is(b,strong,small){
+ color:#234466!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .level{
+ background:#fff!important;border:1px solid #dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .mega-row{
+ background:#f4f7fc!important;border:1px solid #d9e3f1!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .mega-row :is(.name,.note){
+ color:#284462!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .mega-row .tag.energy{
+ background:#fff7df!important;color:#74510c!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .source-list a,
+html[data-theme="light"] body[data-studio-page="central-mega"] .nx-body a{
+ color:#2259b5!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .difficulty-note,
+html[data-theme="light"] body[data-studio-page="central-max"] .difficulty-note :is(b,strong){
+ color:#274763!important;background:#f4f7fc!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .calc p{
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .nx-body p,
+html[data-theme="light"] body[data-studio-page="central-max"] .nx-body a{
+ color:#2156af!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .nx-body p,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .source-list a{
+ color:#345472!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .nx-body li,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .nx-body ul{
+ color:#415b79!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .check span{
+ color:#415d79!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] main > .hero .eyebrow{
+ background:#e9f2ff!important;color:#2059b4!important;
+ border:1px solid #cddff6!important;border-radius:999px!important;
+ padding:5px 9px!important;
+}

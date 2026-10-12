@@ -95,7 +95,15 @@
   <summary><span class="nx-summary-main"><span>🧮</span><span class="nx-summary-copy"><span class="nx-summary-title">Calculadora de Movimentos Max</span><span class="nx-summary-sub">Some Partículas Max, Doces e Doces GG necessários para melhorar seus movimentos</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary>
   <div class="nx-body">
     <div class="calc">
-      <div class="calc-grid">
+      <label for="maxCandyGroup" style="display:block;margin-bottom:10px;font-weight:700">Grupo de custo dos Doces
+ <select id="maxCandyGroup" style="display:block;width:100%;margin-top:6px;padding:10px;color:#fff;background:#101f37;border:1px solid #476080;border-radius:10px">
+ <option value="A">Grupo A · 50 / 100 / 40 Doces GG</option>
+ <option value="B">Grupo B · 60 / 110 / 45 Doces GG</option>
+ <option value="C">Grupo C · 70 / 120 / 50 Doces GG</option>
+ <option value="D">Grupo D · 80 / 130 / 55 Doces GG</option>
+ </select></label>
+ <p style="font-size:.82rem;color:#b6c9e2;margin:0 0 15px">Os custos variam conforme a espécie. Confira no jogo o grupo correspondente. Eternatus e outros Pokémon com custos especiais não estão contemplados.</p>
+ <div class="calc-grid">
         <div class="calc-line"><b>💥 Ataque Max</b><label>Atual</label><select class="current" data-move="attack"><option value="1">Nível 1</option><option value="2">Nível 2</option><option value="3">Nível 3</option></select><label>Objetivo</label><select class="target" data-move="attack"><option value="1">Nível 1</option><option value="2">Nível 2</option><option value="3">Nível 3</option></select></div>
         <div class="calc-line"><b>🛡️ Guarda Max</b><label>Atual</label><select class="current" data-move="guard"><option value="0">Bloqueada</option><option value="1">Nível 1</option><option value="2">Nível 2</option><option value="3">Nível 3</option></select><label>Objetivo</label><select class="target" data-move="guard"><option value="0">Bloqueada</option><option value="1">Nível 1</option><option value="2">Nível 2</option><option value="3">Nível 3</option></select></div>
         <div class="calc-line"><b>💚 Espírito Max</b><label>Atual</label><select class="current" data-move="spirit"><option value="0">Bloqueado</option><option value="1">Nível 1</option><option value="2">Nível 2</option><option value="3">Nível 3</option></select><label>Objetivo</label><select class="target" data-move="spirit"><option value="0">Bloqueado</option><option value="1">Nível 1</option><option value="2">Nível 2</option><option value="3">Nível 3</option></select></div>
@@ -134,9 +142,31 @@ function render(){
   $('#dynAvailableCount').textContent=DYNAMAX.length;$('#dynFutureCount').textContent=FUTURE.length;$('#gAvailableCount').textContent=G_AVAILABLE.length;$('#gUnavailableCount').textContent=G_UNAVAILABLE.length;
   if(q){$('#dynAvailableBox').open=da.length>0;$('#dynFutureBox').open=df.length>0;$('#gAvailableBox').open=ga.length>0;$('#gUnavailableBox').open=gu.length>0;}
 }
-const steps={unlock:{mp:400,candy:50,xl:0},l12:{mp:600,candy:100,xl:0},l23:{mp:800,candy:0,xl:40}};
-function costBetween(cur,target,canLock){let c={mp:0,candy:0,xl:0};if(target<=cur)return c;if(canLock&&cur===0&&target>=1)Object.keys(c).forEach(k=>c[k]+=steps.unlock[k]);const start=Math.max(cur,1);if(start<2&&target>=2)Object.keys(c).forEach(k=>c[k]+=steps.l12[k]);if(start<3&&target>=3)Object.keys(c).forEach(k=>c[k]+=steps.l23[k]);return c}
-function updateCalc(){let total={mp:0,candy:0,xl:0},invalid=false;['attack','guard','spirit'].forEach(move=>{const cur=Number(document.querySelector(`.current[data-move="${move}"]`).value),tar=Number(document.querySelector(`.target[data-move="${move}"]`).value);if(tar<cur)invalid=true;const c=costBetween(cur,tar,move!=='attack');Object.keys(total).forEach(k=>total[k]+=c[k])});$('#maxAnswer').innerHTML=invalid?'<b>Atenção:</b> um objetivo está abaixo do nível atual; essa linha é tratada como custo zero.':`Você precisará de <b>${total.mp.toLocaleString('pt-BR')} Partículas Max</b>, <b>${total.candy.toLocaleString('pt-BR')} Doces</b> e <b>${total.xl.toLocaleString('pt-BR')} Doces GG</b>.`}
+const candyGroups={A:{unlock:50,l12:100,l23:40},B:{unlock:60,l12:110,l23:45},C:{unlock:70,l12:120,l23:50},D:{unlock:80,l12:130,l23:55}};
+const steps={unlock:{mp:400},l12:{mp:600},l23:{mp:800}};
+function costBetween(cur,target,canLock,group){
+ const c={mp:0,candy:0,xl:0},candies=candyGroups[group]||candyGroups.A;
+ if(target<=cur)return c;
+ if(canLock&&cur===0&&target>=1){c.mp+=steps.unlock.mp;c.candy+=candies.unlock;}
+ const start=Math.max(cur,1);
+ if(start<2&&target>=2){c.mp+=steps.l12.mp;c.candy+=candies.l12;}
+ if(start<3&&target>=3){c.mp+=steps.l23.mp;c.xl+=candies.l23;}
+ return c;
+}
+function updateCalc(){
+ const total={mp:0,candy:0,xl:0}, invalid=[],names={attack:'Ataque Max',guard:'Guarda Max',spirit:'Espírito Max'};
+ const group=document.getElementById('maxCandyGroup').value;
+ ['attack','guard','spirit'].forEach(move=>{
+  const cur=Number(document.querySelector('.current[data-move="'+move+'"]').value);
+  const tar=Number(document.querySelector('.target[data-move="'+move+'"]').value);
+  if(tar<cur){invalid.push(names[move]);return;}
+  const cost=costBetween(cur,tar,move!=='attack',group);
+  Object.keys(total).forEach(k=>total[k]+=cost[k]);
+ });
+ const warning=invalid.length?'<div style="margin-bottom:8px;color:#ffcf93"><b>Atenção:</b> objetivo abaixo do nível atual em '+invalid.join(', ')+'. Esses movimentos foram excluídos da soma.</div>':'';
+ document.getElementById('maxAnswer').innerHTML=warning+'Para os movimentos válidos, você precisará de <b>'+total.mp.toLocaleString('pt-BR')+' Partículas Max</b>, <b>'+total.candy.toLocaleString('pt-BR')+' Doces</b> e <b>'+total.xl.toLocaleString('pt-BR')+' Doces GG</b>.';
+}
+document.getElementById('maxCandyGroup').addEventListener('change',updateCalc);
 $('#search').addEventListener('input',render);document.querySelectorAll('.current,.target').forEach(s=>s.addEventListener('change',updateCalc));render();updateCalc();
 </script>
 <script src="nav.js?v=20260920-dark-final"></script>

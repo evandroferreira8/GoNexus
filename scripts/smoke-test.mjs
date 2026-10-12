@@ -39,7 +39,7 @@ console.log('Arquivos inspecionados:',pages.length,'HTML e',checkedScripts,'JS.'
 
 const browser=await chromium.launch({headless:true});
 try{
-  for(const viewport of [{width:1365,height:850},{width:390,height:844}]){
+  for(const viewport of [{width:1365,height:850},{width:390,height:844},{width:360,height:780}]){
     const context=await browser.newContext({viewport});
     await context.route('**/*',route=> {
       const url=route.request().url();
@@ -55,10 +55,30 @@ try{
         await tab.waitForTimeout(180);
         const title=await tab.title();
         assert.ok(title,file+' sem título');
+        assert.equal(await tab.locator('html').getAttribute('data-theme'),'light',file+' deve usar o tema Studio');
+        assert.equal(await tab.evaluate(()=>getComputedStyle(document.body).backgroundColor),'rgb(248, 249, 251)',file+' fundo claro');
+        const header=tab.locator('go-nexus-header');
+        assert.ok(await header.count(),'Cabeçalho ausente');
+        if(viewport.width<=768){
+          const bottom=header.locator('.mobile-bottom');
+          assert.equal(await bottom.evaluate(el=>getComputedStyle(el).display),'grid','Navegação inferior deve estar visível');
+          assert.equal(await bottom.locator('a').count(),4,'Navegação inferior com quatro destinos');
+          const menu=header.locator('details.toolmenu');
+          await menu.locator('summary').click();
+          assert.ok(await menu.locator('.menu a').first().isVisible(),'Menu não abre no celular');
+          await tab.keyboard.press('Escape');
+        }
         if(errors.length)throw new Error(errors.join(' | '));
         if(file==='index.html'){
           assert.equal(await tab.locator('.gn-v2-card').count(),10,'A home deve mostrar as dez ferramentas');
-          assert.ok(await tab.locator('.gn-hero h1').textContent().then(t=>t.includes('Mais jogo')),'Hero 2.0 presente');
+          assert.ok(await tab.locator('.gn-v2-card').first().locator('p').innerText().then(v=>v.length<50),'Cards mobile devem ser concisos');
+          if(viewport.width<=768){
+            const normal=await tab.locator('.gn-v2-card p').first().evaluate(el=>getComputedStyle(el).whiteSpace);
+            assert.equal(normal,'nowrap','Descrições dos cards precisam caber em uma linha');
+          }
+          assert.equal(await tab.locator('.gn-search-area').isVisible(),true,'Busca da home visível');
+          
+          assert.ok(await tab.locator('.gn-hero h1').textContent().then(t=>t.includes('Jogue com mais')),'Hero Studio presente');
           assert.ok(await tab.locator('go-nexus-header').evaluate(e=>e.shadowRoot?.querySelector('.brand')?.textContent?.includes('2.0')),'Marca 2.0 na navegação');
           const overflow=await tab.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
           assert.ok(overflow<=2,'Página inicial causa rolagem horizontal: '+overflow+' px');

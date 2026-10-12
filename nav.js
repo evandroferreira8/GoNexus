@@ -1,6 +1,12 @@
 (() => {
   "use strict";
 
+  if(!document.querySelector('link[rel="icon"]')){
+    const icon=document.createElement('link');
+    icon.rel='icon';icon.type='image/svg+xml';icon.href='favicon.svg?v=2';
+    document.head.appendChild(icon);
+  }
+
   const FEEDBACK = "https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor";
   const TOOLS = [
     { file: "guia-busca.html", icon: "🔎", label: "Guia de Busca", desc: "Filtros e comandos de pesquisa" },

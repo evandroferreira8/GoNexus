@@ -138,3 +138,8 @@
 .page-home #featureUpdates .nx-update b,
 .page-home #featureUpdates .nx-update a{color:#2055b9!important}
 .page-home #featureUpdates .nx-update{background:#f3f7fd!important}
+
+
+.page-home #dailyPokemon .daily-head p{
+ color:#526782!important;
+}

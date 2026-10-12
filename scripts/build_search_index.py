@@ -27,10 +27,9 @@ def main() -> None:
         content = " ".join(soup.stripped_strings)
         if content:
             item["content"] = content[:8000]
-            # Mantém nomes e comandos provenientes dos dados JavaScript, não
-            # presentes no HTML estático. Atualiza o texto realmente visível.
-            previous_search = item.get("search", "")
-            item["search"] = (content + " " + previous_search)[:55000]
+            # Não modifica "search": ela já inclui dados dinâmicos extraídos
+            # do JavaScript que não estão visíveis no HTML inicial.
+            item.setdefault("search", content)
     INDEX.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 

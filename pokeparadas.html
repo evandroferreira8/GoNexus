@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="light">
 <head>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1181520921367951" crossorigin="anonymous"></script>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8f9fb">
 <title>Poképaradas | GO Nexus</title>
 <meta name="description" content="Guia visual do GO Nexus para solicitar Poképaradas: quem pode indicar, o que ajuda, o que reprova e exemplos práticos sem complicar.">
 <style>
@@ -19,7 +19,7 @@
 @media(max-width:980px){.grid4,.check-grid,.category-grid,.tips{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){body{font-size:18px}.shell{width:min(100% - 18px,1120px)}.hero{padding-top:30px}.hero h1{font-size:2.35rem}.lead{font-size:1.02rem}.grid4,.check-grid,.category-grid,.tips{grid-template-columns:1fr}.panel.pad{padding:14px}.step{grid-template-columns:40px 1fr}.num{width:40px;height:40px}.cat-btn{min-height:54px;font-size:.95rem}}
 </style>
-<link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=20260920-dark">
+<link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-20261012">
 </head>
 <body class="page-stops">
 <go-nexus-header></go-nexus-header>
@@ -137,6 +137,6 @@ function renderButtons(active){grid.innerHTML=CATEGORIES.map(c=>`<button type="b
 function showCategory(id){renderButtons(id); const c=CATEGORIES.find(x=>x.id===id); result.innerHTML=`<div class="top"><h3>${c.label}</h3><span class="status ${c.status}">${c.title}</span></div><p>${c.desc}</p><div class="tips">${c.tips.map(t=>`<div class="tip"><b>${t[0]}</b><span>${t[1]}</span></div>`).join('')}</div>`;}
 renderButtons();
 </script>
-<script src="nav.js?v=20260920-dark-final"></script>
-<script src="theme.js?v=20260920-dark"></script>
+<script src="nav.js?v=studio-20261012"></script>
+<script src="theme.js?v=studio-20261012"></script>
 </body></html>

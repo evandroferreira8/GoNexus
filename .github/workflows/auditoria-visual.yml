@@ -42,6 +42,8 @@ jobs:
           sleep 2
       - name: Capturar e comparar 15 paginas, 3 viewports, 2 versoes
         run: node auditoria/auditar-visual.mjs
+      - name: Registrar estados de componentes e interações
+        run: node auditoria/auditar-estados.mjs
       - name: Anexar evidencias e relatorio
         if: always()
         uses: actions/upload-artifact@v4

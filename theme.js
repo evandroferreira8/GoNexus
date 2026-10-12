@@ -20,7 +20,7 @@
   function loadMonetization() {
     if (document.querySelector('script[src^="monetization.js"]')) return;
     const script = document.createElement("script");
-    script.src = "monetization.js?v=20260922";
+    script.src = "monetization.js?v=studio-v3-no-placeholders";
     script.defer = true;
     document.head.appendChild(script);
   }

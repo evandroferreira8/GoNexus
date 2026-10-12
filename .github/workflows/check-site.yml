@@ -2,7 +2,7 @@ name: Verificar ferramentas GO Nexus
 
 on:
   push:
-    branches: [main, go-nexus-v2-redesign, nexus-studio-mobile-20261012]
+    branches: [main, go-nexus-v2-redesign, nexus-studio-mobile-20261012, fix-nexus-studio-contrast-sponsors-20261012]
     paths:
       - '*.html'
       - '*.js'

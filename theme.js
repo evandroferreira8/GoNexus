@@ -12,7 +12,7 @@
     } catch (_) {}
 
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", "#07111f");
+    if (meta) meta.setAttribute("content", "#0b171b");
 
     document.querySelectorAll("go-nexus-header, go-nexus-footer").forEach((el) => {
       el.setAttribute("data-theme", "dark");

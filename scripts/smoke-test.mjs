@@ -7,6 +7,7 @@ import { chromium } from 'playwright';
 const root = process.cwd();
 const pages = fs.readdirSync(root).filter(name=>name.endsWith('.html'));
 const failures = [];
+assert.ok(fs.statSync('nav.js').size < 450000, 'Navegação deve permanecer leve');
 let checkedScripts = 0;
 
 for (const filename of fs.readdirSync(root).filter(name=>name.endsWith('.js'))) {
@@ -60,6 +61,10 @@ try{
           assert.ok(await tab.locator('.search-result').count()>0,'Busca não retornou Ditto');
           await tab.locator('.news-card').first().waitFor({timeout:5000});
           assert.equal(await tab.locator('.news-card').count(),5,'Carrossel de notícias');
+          assert.ok(await tab.locator('#gnx-egg-placeholder button').count(),'Ovo acessível sem conteúdo pesado');
+          await tab.locator('#gnx-egg-placeholder button').click();
+          await tab.locator('go-nexus-cosmic-egg').waitFor({timeout:15000});
+          assert.ok(await tab.locator('go-nexus-cosmic-egg').evaluate(el=>!!el.shadowRoot?.querySelector('.egg')),'Experiência secreta carregada');
         }
         if(file==='calculadora.html'){
           await tab.locator('#answer').waitFor();

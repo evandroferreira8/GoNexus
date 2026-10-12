@@ -1,245 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
-/* GO NEXUS — Nexus Studio 2.0 | mobile-first light identity */
-:root,html[data-theme="light"]{
+/* NEXUS STUDIO 2.1 — foundation only.
+   Component styles live in studio-tools.css, scoped per page.
+   NO global .card/.panel/.hero/.mode rules, NO wildcard !important. */
+html[data-theme="light"]{
  color-scheme:light;
- --bg:#f8f9fb;--panel:#fff;--panel2:#f1f5fa;--card:#fff;--card2:#f1f5fa;
- --line:#dce4ef;--text:#0b1f3b;--muted:#50627d;--accent:#2563eb;
- --blue:#2563eb;--violet:#6558b9;--pink:#bd5892;--yellow:#fecb2f;--green:#147d64;
- --gn-ink:#0b1f3b;--gn-blue:#2563eb;--gn-blue-dark:#1748b7;--gn-yellow:#fecb2f;
- --gn-bg:#f8f9fb;--gn-card:#fff;--gn-subtle:#f0f4fb;--gn-border:#dce4ef;
- --gn-muted:#50627d;--gn-font:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
- --gn-display:'Outfit','DM Sans',system-ui,sans-serif;
- --gn-mono:'IBM Plex Mono',ui-monospace,monospace;
- color:#0b1f3b;background:#f8f9fb;
+ --gn-bg:#f8f9fb;--gn-surface:#fff;--gn-ink:#0b1f3b;
+ --gn-text:#152c4b;--gn-muted:#526782;--gn-edge:#dce5f1;
+ --gn-soft:#f0f5fc;--gn-blue:#2563eb;--gn-blue-active:#174bb8;
+ --gn-yellow:#fecb2f;--gn-font:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+ --gn-title:'Outfit','DM Sans',system-ui,sans-serif;
+ --gn-code:'IBM Plex Mono',ui-monospace,monospace;
+ /* Bridge legacy variables. Scoped behind html attribute, stronger than
+    the legacy :root declarations in each tool without altering their logic. */
+ --bg:#f8f9fb;--panel:#fff;--panel2:#f0f5fc;--card:#fff;--card2:#f0f5fc;
+ --line:#dce5f1;--text:#152c4b;--muted:#526782;
+ --blue:#2563eb;--violet:#635ab5;--pink:#ad5087;
+ --green:#17765a;--red:#b43a4b;--yellow:#8b6200;
+ --accent:#2563eb;--bad:#ad3243;--warn:#926307;
 }
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:18px}
-html[data-theme="light"] body{color:#0b1f3b!important;background:#f8f9fb!important;font:400 16px/1.54 var(--gn-font)!important;min-width:0;-webkit-font-smoothing:antialiased}
-html[data-theme="light"] :where(h1,h2,h3,h4,.brand,.daily-name,.result-value,.section-title h2){
- font-family:var(--gn-display)!important;letter-spacing:-.035em;color:#0b1f3b!important;
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+html[data-theme="light"] body{
+ background:#f8f9fb!important;
+ color:#152c4b!important;
+ font-family:var(--gn-font)!important;
+ -webkit-font-smoothing:antialiased;
 }
-html[data-theme="light"] :where(h1){font-weight:750!important;line-height:1.09!important;letter-spacing:-.047em!important}
-html[data-theme="light"] :where(h2,h3){line-height:1.2}
-html[data-theme="light"] :where(p,li,label,button,input,select,textarea){font-family:var(--gn-font)!important}
-html[data-theme="light"] :where(p,li){line-height:1.55}
-html[data-theme="light"] :where(.eyebrow,.updated,.meta,.badge,.gn-overline,.gn-num,.news-kicker,.daily-kicker,.nx-count,.step i){font-family:var(--gn-mono)!important;letter-spacing:.01em}
-html[data-theme="light"] :where(.grad){color:#2563eb!important;background:none!important;-webkit-text-fill-color:#2563eb!important;filter:none!important}
-html[data-theme="light"] :where(.lead,.sub,.small,.hint,.note,.details,.updated,.meta,.mini,.searchhint,.search-help,.news-status,.news-open,.section-title p,.news-head p,.about p,.tool p,.quick,.flow div,.compare p,.difficulty-note,.move p,.diff small,.footnote,.sourcebox,.langhelp,.group-count,.cost,.remain,.kind,.rule,.helper,.match-note,.poke-status,.poke-summary,.context-card p,.analysis-card p,.weather-result p,.weather-types,.challenge-copy p,.challenge-feedback,.quick-type .line,.legend small,.stat span,.source-link,.nx-summary-sub,.nx-body-intro,.nx-note){
- color:#50627d!important;
+html[data-theme="light"] body :is(h1,h2,h3,h4){
+ font-family:var(--gn-title);
+ letter-spacing:-.028em;
 }
-html[data-theme="light"] :where(.shell,.wrap){max-width:1180px}
-html[data-theme="light"] :where(.card,.panel,.fact,.about,.tool,.news-card,.search-results,.compare article,.diff,.move,.calc,.calc-line,.level,.energy,.step,.mega-row,.row,.side,.pack,.wallet,.walletitem,.coin-balance-box,.feedbackbox,.info,.pokemon,.box,.family,.formvisual,.rule,.ditto-card,.ditto-fact,.ditto-game,.group,.calculator,.selected-box,.tip,.check,.result,.result-card,.quick-type,.context-card,.analysis-card,.weather-result,.challenge,.challenge-art,.poke-profile,.poke-visual,.stat,.search-card,.searchbox,.mode,.quiz,.answer,.answers button,.topbar,.fields,.list-grid>*,.item,.search-card,.type-card,.mega-card,.max-card,.form-card,.event-card,.sourcebox,.section-card){
- background-color:#fff!important;background-image:none!important;
- border-color:#dce4ef!important;
- box-shadow:0 4px 17px rgba(12,33,62,.035)!important;
+html[data-theme="light"] body :is(input,select,textarea,button){
+ font-family:var(--gn-font);
 }
-html[data-theme="light"] :where(.card,.panel,.fact,.tool,.news-card,.row,.box,.group,.result-card,.search-card,.mode){border-radius:16px!important}
-html[data-theme="light"] :where(.hero){text-align:left!important;border-color:#e0e7f0!important}
-html[data-theme="light"] body:not(.page-home) :where(.hero){
- padding:28px 0 21px!important;margin-bottom:12px!important;border-bottom:1px solid #e5ebf4!important;
+html[data-theme="light"] body :is(input,select,textarea,button,a,summary):focus-visible{
+ outline:3px solid #2563eb!important;outline-offset:2px!important;
 }
-html[data-theme="light"] body:not(.page-home) :where(.hero h1){
- font-size:clamp(2.15rem,5vw,3.85rem)!important;margin:8px 0 12px!important;
+html[data-theme="light"] body :is(.grad){
+ color:#2563eb!important;background:none!important;
+ -webkit-text-fill-color:#2563eb!important;
 }
-html[data-theme="light"] body:not(.page-home) :where(.hero .lead){max-width:690px!important;margin:0!important;font-size:.95rem!important;color:#50627d!important}
-html[data-theme="light"] :where(.eyebrow,.hero .badge){display:inline-flex;align-items:center;color:#1c53c5!important;background:#eaf1ff!important;border:1px solid #d8e5fc!important;border-radius:999px;padding:5px 10px;font-size:.68rem!important;font-weight:650!important}
-html[data-theme="light"] :where(.card,.panel,.fact,.about,.result,.result-card,.row,.wallet,.info,.quiz,.sourcebox) :where(h1,h2,h3,h4,label){color:#0b1f3b!important}
-html[data-theme="light"] :where(.card,.panel,.fact,.about,.result,.result-card,.row,.wallet,.info,.quiz,.sourcebox) :where(p,small,li){color:#50627d!important}
-html[data-theme="light"] :where(.card,.panel,.fact,.about,.result,.result-card,.row,.wallet,.info,.quiz,.sourcebox) :where(strong,b){color:#183451}
-html[data-theme="light"] :where(input,select,textarea,.global-search,.search input,.poke-search input,.calc-line select,.searchbox input){
- border:1px solid #c8d5e7!important;background:#fff!important;color:#0b1f3b!important;
- border-radius:11px!important;font-family:var(--gn-font)!important;min-height:44px;
+html[data-theme="light"] body .gn-breadcrumb{
+ display:flex;align-items:center;flex-wrap:wrap;gap:9px;
+ margin:18px 0 12px;padding:0;font:500 .76rem/1.6 var(--gn-code);
+ color:#536c8e;
 }
-html[data-theme="light"] :where(input,textarea)::placeholder{color:#62748f!important;opacity:1}
-html[data-theme="light"] :where(a){text-underline-offset:3px}
-html[data-theme="light"] :where(a:not(.gn-v2-card):not(.gn-action):not(.news-card):not(.tool):not(.mode):not(.back)){color:#1e59cf}
-html[data-theme="light"] :where(button,input,select,textarea,a,summary):focus-visible{outline:3px solid #2563eb!important;outline-offset:2px!important}
-html[data-theme="light"] :where(.btn,.button-primary,.btn-primary){border-radius:11px!important}
-html[data-theme="light"] :where(.nx-accordion){background:#fff!important;border:1px solid #dce4ef!important;border-radius:14px!important;box-shadow:none!important}
-html[data-theme="light"] details.nx-accordion[open]{background:#fff!important;border-color:#a9c2ec!important}
-html[data-theme="light"] details.nx-accordion>summary{color:#0b1f3b!important;background:#fff!important;font:700 .9rem var(--gn-font)!important}
-html[data-theme="light"] details.nx-accordion>summary:hover{background:#f2f6fd!important}
-html[data-theme="light"] :where(.nx-summary-title,.nx-body){color:#0b1f3b!important}
-html[data-theme="light"] :where(.nx-count,.nx-pill,.nx-chevron){border-color:#d5dfed!important;background:#f2f6fd!important;color:#294b76!important}
-html[data-theme="light"] :where(.nx-body,.quick,.details,hr,.topbar,.family-head,.group-head,.group-body){border-color:#e1e8f2!important}
-html[data-theme="light"] :where(.updated,.footnote,.sourcebox,.note){font-size:.8rem!important;line-height:1.55!important}
-html[data-theme="light"] :where(.hero-meta span,.stat,.pill,.tag,.chip,.badge,.max-pill,.nx-pill){
- background:#f1f5fb!important;border-color:#dbe5f2!important;color:#244362!important;
+html[data-theme="light"] body .gn-breadcrumb a{color:#2159ca;text-decoration:none}
+html[data-theme="light"] body .gn-breadcrumb a:hover{text-decoration:underline}
+html[data-theme="light"] body .gn-breadcrumb .gn-slash{color:#a2afc1}
+html[data-theme="light"] body .gn-breadcrumb .gn-current{color:#395274}
+html[data-theme="light"] body .gn-back-to-top{
+ position:fixed;right:13px;bottom:83px;z-index:900;
+ display:grid;place-items:center;padding:0 10px;min-height:48px;min-width:48px;
+ border-radius:999px;border:1px solid #bfcfe5;background:#fff;
+ box-shadow:0 6px 25px #132d4c22;color:#1652b5;
+ font:700 .75rem var(--gn-font);cursor:pointer;
 }
-html[data-theme="light"] :where(.pill.good,.status.good){color:#0e7656!important}
-html[data-theme="light"] :where(.pill.bad,.status.bad){color:#b33443!important}
-html[data-theme="light"] :where(.pill.warn,.status.warn){color:#8b5900!important}
-html[data-theme="light"] :where(.switch .tab,.combat-tabs .combat-tab,.weather-btn,.filter-btn,.tab,.mode,.level){
- color:#1a3c65!important;background:#fff!important;border-color:#dce4ef!important;
-}
-html[data-theme="light"] :where(.switch .tab.active,.combat-tabs .combat-tab.active,.tab.active,.mode:hover){
- color:#134bb5!important;background:#eaf1ff!important;border-color:#8bacf4!important;
-}
-html[data-theme="light"] :where(.result .score,.big,.answer,.question,.result-value,.calc-total,.total){color:#0b1f3b}
-html[data-theme="light"] :where(.hero-meta,.gn-breadcrumb){color:#50627d!important}
-html[data-theme="light"] .gn-breadcrumb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:14px 0 -6px;font:500 .72rem var(--gn-mono)}
-html[data-theme="light"] .gn-breadcrumb a{color:#2563eb!important;text-decoration:none}
-html[data-theme="light"] .gn-breadcrumb .gn-slash{color:#9aa9bc}
-html[data-theme="light"] .gn-breadcrumb .gn-current{color:#395675}
-/* Dark embedded result controls retain adequate contrast where tool explicitly requires colored surfaces. */
-html[data-theme="light"] :where(.next,.btn.primary,.primary-btn,.action-btn,.run-btn,.calculate,.calc-btn){background:#2563eb!important;color:#fff!important;border-color:#2563eb!important}
-html[data-theme="light"] :where(.result .big,.score,.positive){color:#1650b5}
-.gn-back-to-top{position:fixed;right:13px;bottom:83px;z-index:1400;display:grid;place-items:center;min-width:49px;min-height:49px;border:1px solid #c7d7ef;border-radius:999px;background:#fff;color:#164fac;font:750 12px var(--gn-font);box-shadow:0 4px 18px #122d4a1b;cursor:pointer}
-.gn-back-to-top[hidden]{display:none!important}
-.gn-back-to-top:hover{background:#eaf1ff}
+html[data-theme="light"] body .gn-back-to-top[hidden]{display:none!important}
+html[data-theme="light"] body .gn-back-to-top:hover{background:#ebf2ff}
 html[data-theme="light"] body{padding-bottom:74px!important}
-@media(min-width:769px){html[data-theme="light"] body{padding-bottom:0!important}.gn-back-to-top{bottom:18px}}
-@media(max-width:768px){
- html[data-theme="light"] :where(.shell,.wrap){width:min(100% - 28px,1180px)}
- html[data-theme="light"] :where(.hero){padding-top:18px!important}
- html[data-theme="light"] :where(.hero h1){font-size:clamp(2rem,8.2vw,3rem)!important}
- html[data-theme="light"] :where(.mode,.tab,.combat-tab){min-height:44px}
- html[data-theme="light"] :where(.card,.panel){min-width:0}
+@media(min-width:769px){
+ html[data-theme="light"] body{padding-bottom:0!important}
+ html[data-theme="light"] body .gn-back-to-top{bottom:17px}
 }
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
-
-
-/* Nexus Studio — patch de integração para páginas legadas, 12/10/2026.
-   Nunca colocar texto azul-marinho sobre hero com gradiente escuro. */
-html[data-theme="light"] body:not(.page-home) .hero {
-  background:#fff !important;
-  background-image:none !important;
-  border:1px solid #dce5f2 !important;
-  border-left:4px solid #fecb2f !important;
-  border-radius:17px !important;
-  box-shadow:0 5px 19px rgba(15,45,85,.035) !important;
-  padding:22px 25px !important;
-  margin:0 0 17px !important;
-  color:#0b1f3b !important;
+@media(max-width:640px){
+ html[data-theme="light"] body .gn-breadcrumb{margin:10px 0 12px;font-size:.69rem}
 }
-html[data-theme="light"] body:not(.page-home) .hero :is(h1,h2,h3,strong,b){
-  color:#0b1f3b !important;
-  text-shadow:none !important;
-}
-html[data-theme="light"] body:not(.page-home) .hero :is(p,.lead,.sub){
-  color:#4e6380 !important;
-  text-shadow:none !important;
-}
-html[data-theme="light"] body:not(.page-home) .hero .grad{
-  color:#2563eb !important;
-  -webkit-text-fill-color:#2563eb !important;
-}
-/* Links de navegação acima do hero sem sobreposição. */
-html[data-theme="light"] .gn-breadcrumb{
-  margin:15px 0 14px !important;
-  line-height:1.6 !important;
-}
-html[data-theme="light"] :where(main.wrap,main.shell)> .gn-breadcrumb:first-child{
-  position:relative;
-  z-index:1;
-}
-/* "Anuncie no GO Nexus" duplicado era um elemento promocional injetado no
-   conteúdo (não uma unidade real do AdSense). Preservar integração AdSense. */
-html[data-theme="light"] .gnx-ad-wrap{
-  display:none !important;
-}
-/* Efeitos Aventura: corrigir também cartões, filtros e painéis expandidos. */
-html[data-theme="light"] .page-effects .hero b{
-  display:inline-flex !important;
-  font:700 .73rem/1.5 var(--gn-mono) !important;
-  letter-spacing:.03em !important;
-  color:#1d56c2 !important;
-}
-html[data-theme="light"] .page-effects .hero h1{
-  font:750 clamp(2.05rem,5vw,3.5rem)/1.12 var(--gn-display) !important;
-  margin:6px 0 9px !important;
-}
-html[data-theme="light"] .page-effects .hero p{
-  max-width:670px !important;
-  font-size:.96rem !important;
-}
-html[data-theme="light"] .page-effects .controls{
-  align-items:center;
-  margin:14px 0 18px;
-}
-html[data-theme="light"] .page-effects .chips{
-  gap:7px;
-}
-html[data-theme="light"] .page-effects .chip{
-  background:#fff !important;
-  color:#25486f !important;
-  border:1px solid #d5e1f0 !important;
-  border-radius:99px !important;
-  min-height:43px;
-}
-html[data-theme="light"] .page-effects .chip.on{
-  background:#2563eb !important;
-  border-color:#2563eb !important;
-  color:#fff !important;
-}
-html[data-theme="light"] .page-effects .grid .card{
-  border:1px solid #dbe5f2 !important;
-  border-radius:15px !important;
-  background:#fff !important;
-  box-shadow:0 4px 15px rgba(14,45,84,.045) !important;
-}
-html[data-theme="light"] .page-effects .grid .card:hover{
-  border-color:#a7bfe4 !important;
-  box-shadow:0 7px 22px rgba(14,45,84,.1) !important;
-}
-html[data-theme="light"] .page-effects .art{
-  background:radial-gradient(circle,rgba(var(--rgb),.16),#edf3fb 83%) !important;
-  border-color:#dce5f2 !important;
-}
-html[data-theme="light"] .page-effects .art img{
-  filter:drop-shadow(0 5px 7px rgba(38,56,85,.14)) !important;
-}
-html[data-theme="light"] .page-effects .pokemon{
-  color:#295bb0 !important;
-  letter-spacing:.02em !important;
-}
-html[data-theme="light"] .page-effects .content h2{
-  color:#0b1f3b !important;
-  font-family:var(--gn-display) !important;
-  font-weight:700 !important;
-}
-html[data-theme="light"] .page-effects .content p,
-html[data-theme="light"] .page-effects .more,
-html[data-theme="light"] .page-effects small{
-  color:#4f6480 !important;
-}
-html[data-theme="light"] .page-effects .badge{
-  background:#eef3fc !important;
-  border:1px solid #d9e4f5 !important;
-  color:#1e4ea0 !important;
-  box-shadow:none !important;
-}
-html[data-theme="light"] .page-effects .details{
-  color:#1d56c7 !important;
-}
-html[data-theme="light"] .page-effects .stats div{
-  background:#f3f7fd !important;
-  border-color:#dbe5f2 !important;
-}
-html[data-theme="light"] .page-effects .stats strong{
-  color:#0b1f3b !important;
-}
-html[data-theme="light"] .page-effects .info,
-html[data-theme="light"] .page-effects .feedback{
-  background:#fff !important;
-  border-color:#dce5f2 !important;
-}
-html[data-theme="light"] .page-effects .info li,
-html[data-theme="light"] .page-effects .feedback p{
-  color:#4f6480 !important;
-}
-html[data-theme="light"] .page-effects .feedback a{
-  background:#2563eb !important;
-  color:#fff !important;
-}
-/* Garantir leitura no celular mesmo com componentes antigos. */
-@media(max-width:680px){
- html[data-theme="light"] body:not(.page-home) .hero{
-   padding:17px 18px !important;
-   margin-bottom:16px !important;
- }
- html[data-theme="light"] .page-effects .controls{grid-template-columns:1fr !important}
- html[data-theme="light"] .page-effects .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:5px}
- html[data-theme="light"] .page-effects .chip{flex:0 0 auto;padding:10px 14px}
- html[data-theme="light"] .page-effects .grid .card{min-height:146px}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }

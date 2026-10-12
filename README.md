@@ -84,7 +84,7 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 
 ## Easter egg cósmico — versão corrigida e auditada
 
-- As imagens do easter egg agora ficam **embutidas no próprio `nav.js`** em um sprite otimizado. Isso elimina falhas de caminho/404 ao publicar pelo GitHub Pages e dispensa a pasta `assets/easter-egg`.
+- As imagens da experiência cósmica foram separadas do `nav.js`. O ovo continua visível, mas as artes completas só carregam no primeiro toque, por meio de `cosmos.js` e cinco arquivos `cosmos-assets-*.js`. Os caminhos são relativos, compatíveis com GitHub Pages.
 - Corrigido o comportamento do balão do ovo em telas touch: ele não permanece aberto sobre o conteúdo da página.
 - Refinado o alinhamento do cabeçalho da experiência cósmica em desktop e mobile.
 - As informações dos Pokémon continuam aparecendo junto ao Pokémon selecionado, em popover contextual.
@@ -156,7 +156,20 @@ A busca também indexa o texto usado para montar listas dinâmicas em JavaScript
 
 
 ## Correção de imagens e exportação
-- Artes do quiz Companheiro agora ficam incorporadas no `nav.js`, eliminando dependência de `assets/companion/`.
+- As artes do quiz Companheiro são mantidas nos arquivos `cosmos-assets-*.js`, carregados somente quando a experiência cósmica é aberta.
 - Artes do minijogo Ditto ficam incorporadas em `formas-especiais.html`, eliminando dependência de `assets/ditto/`.
 - Salvamento do card foi reforçado para navegadores móveis, com geração em PNG validada antes do download.
 - Removido um bloco antigo de CSS que voltava a colocar moldura pesada atrás da arte do companheiro.
+
+## Auditoria e manutenção — 12/10/2026
+
+- **Vale a Caixa?**: o resultado exige preço preenchido; limites de quantidade e valor evitam travamentos.
+- **Central Max**: custo dos Doces com seleção por grupos A–D; níveis objetivos inferiores ao atual não escondem o total das outras linhas. Os custos excepcionais (por exemplo, Eternatus) não são calculados pelo modelo padrão.
+- **Busca**: padronizada a tag portuguesa de traje.
+- **Notícias**: fluxo oficial restaurado em `.github/workflows/update-news.yml`. Roda duas vezes ao dia, pode ser acionado manualmente e preserva os últimos dados se a fonte estiver indisponível.
+- **Busca global**: `scripts/build_search_index.py` atualiza textos visíveis e preserva palavras-chave dinâmicas; não duplica o conteúdo a cada execução.
+- **Publicação**: a rotina `.github/workflows/check-site.yml` testa sintaxe, caminhos locais e interações em telas de computador e celular por meio do Playwright.
+- **Publicidade**: o carregador evita reinjetar o script do AdSense quando ele já está na página.
+- **Desempenho**: `nav.js` foi reduzido em aproximadamente 84% ao separar a experiência cósmica; a observação global contínua do tema foi removida.
+
+O conteúdo editorial de Pokémon GO pode mudar conforme novos eventos e versões do jogo. A atualização automática de notícias não substitui a conferência manual de listas de Pokémon, valores de itens e mecânicas especiais.

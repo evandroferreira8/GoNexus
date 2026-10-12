@@ -204,7 +204,7 @@
         .sprite-frame{position:relative;display:block;width:84px;height:84px;overflow:hidden;flex:0 0 auto;--sprite-scale:.75}
         .sprite-sheet{position:absolute;left:50%;top:50%;width:112px;height:112px;background-image:url("${SPRITE_DATA}");background-size:1120px 1008px;background-repeat:no-repeat;background-position:var(--sx) var(--sy);transform:translate(-50%,-50%) scale(var(--sprite-scale));transform-origin:center;pointer-events:none}
         .missing-art{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;color:#fde68a;background:rgba(250,204,21,.08);font-size:1.35rem}
-        .egg-dock{position:fixed;left:13px;bottom:13px;z-index:1600;display:flex;align-items:flex-end;gap:9px;max-width:calc(100vw - 26px)}
+        .egg-dock{position:fixed;left:11px;bottom:16px;z-index:840;display:flex;align-items:flex-end;gap:9px;max-width:calc(100vw - 22px)}
         .egg{width:76px;height:76px;position:relative;border:0;background:transparent;padding:0;cursor:pointer;transition:transform .28s ease,filter .28s ease;filter:drop-shadow(0 8px 18px rgba(0,0,0,.36)) drop-shadow(0 0 10px rgba(250,204,21,.16))}
         .egg:hover{transform:translateY(-2px) scale(1.035);filter:drop-shadow(0 8px 18px rgba(0,0,0,.36)) drop-shadow(0 0 14px rgba(250,204,21,.28)) drop-shadow(0 0 18px rgba(134,239,172,.14))}
         .egg:focus-visible{outline:2px solid #facc15;outline-offset:4px;border-radius:50%}
@@ -315,7 +315,19 @@
         }
         @media(hover:none),(pointer:coarse){.egg-dock{max-width:86px}.egg{touch-action:manipulation}.egg-hint{display:block;opacity:0;visibility:hidden}.egg-dock.prompt .egg-hint{opacity:1;visibility:visible;transform:none}}
         @media(prefers-reduced-motion:reduce){.egg-art,.egg-aura,.flash,.flash-ring,.flash-egg,.flash-arceus,.flash-crack,.cosmic-node,.cosmic-node img{animation:none!important;transition:none!important}}
-      </style>
+      
+        /* Nexus Studio 2.1: intact original egg image, no fixed speech bubble. */
+        .egg-dock .egg-hint{display:none!important}
+        .egg-dock .egg{width:60px;height:60px;filter:drop-shadow(0 5px 9px rgba(12,34,62,.24))}
+        .egg-dock .egg-art{width:100%;height:100%}
+        .egg-dock .egg-aura,.egg-dock .egg-stars{pointer-events:none}
+        @media(max-width:768px){
+          .egg-dock{left:11px!important;bottom:calc(87px + env(safe-area-inset-bottom))!important}
+          .egg-dock .egg{width:55px;height:55px}
+          .overlay{padding:6px}
+          .cosmos{max-height:86vh;max-width:98vw}
+        }
+</style>
 
       <div class="egg-dock">
         <button class="egg" data-stage="0" type="button" aria-label="Ovo de Pokémon GO com as cores de Arceus">

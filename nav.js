@@ -180,14 +180,15 @@ details.toolmenu>summary::-webkit-details-marker{display:none}
   // A experiência opcional é carregada somente no primeiro toque.
   // O ovo permanece visível sem baixar os sprites e as artes do quiz em cada página.
   window.__GO_NEXUS_BASE_STYLES=baseStyles;
-  const LITE_EGG_IMAGE='data:image/svg+xml,'+encodeURIComponent("<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"76\" height=\"76\" viewBox=\"0 0 76 76\"><ellipse cx=\"38\" cy=\"39\" rx=\"26\" ry=\"32\" fill=\"#dcf6c3\" stroke=\"#8dbba1\" stroke-width=\"3\"/><path d=\"M18 33c8-15 31-22 42-7\" fill=\"none\" stroke=\"#87be9a\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M23 51c9 9 20 9 29 2\" fill=\"none\" stroke=\"#b4d18b\" stroke-width=\"4\" stroke-linecap=\"round\"/><circle cx=\"39\" cy=\"37\" r=\"8\" fill=\"#c5f277\" stroke=\"#6b9784\" stroke-width=\"3\"/></svg>");
+  const LITE_EGG_IMAGE='egg-original.png?v=studio-20261012-restored';
   const mountLazyEgg=()=>{
     if(currentFile()!=='index.html')return;
     if(document.getElementById('gnx-egg-placeholder') || document.querySelector('go-nexus-cosmic-egg'))return;
     const wrap=document.createElement('div');
     wrap.id='gnx-egg-placeholder';
-    wrap.style.cssText='position:fixed;left:13px;bottom:13px;z-index:1600;display:flex;align-items:flex-end;gap:9px;max-width:calc(100vw - 26px);font-family:Inter,system-ui,sans-serif';
-    wrap.innerHTML='<button type="button" aria-label="Descobrir o segredo do ovo Pokémon" style="display:block;flex-shrink:0;width:76px;height:76px;border:0;padding:0;background:transparent;cursor:pointer;filter:drop-shadow(0 8px 14px rgba(0,0,0,.38))"><img alt="" width="76" height="76" src="'+LITE_EGG_IMAGE+'" style="width:76px;height:76px;object-fit:contain"></button><div style="background:#091527;border:1px solid #314462;color:#dcecff;border-radius:14px;padding:9px 12px;max-width:190px;font-size:12px;line-height:1.4;box-shadow:0 8px 22px #0007"><strong>Um ovo incomum...</strong><div data-lazy-status>Parece reagir à sua presença.</div></div>';
+    wrap.style.cssText='position:fixed;left:11px;bottom:calc(85px + env(safe-area-inset-bottom));z-index:840;width:58px;height:58px;font-family:DM Sans,system-ui,sans-serif';
+    if(!matchMedia('(max-width:768px)').matches)wrap.style.bottom='16px';
+    wrap.innerHTML='<button type="button" title="Toque três vezes para revelar uma surpresa" aria-label="Descobrir o ovo misterioso do GO Nexus" style="display:block;width:58px;height:58px;border:0;padding:0;background:transparent;cursor:pointer;filter:drop-shadow(0 4px 9px rgba(13,39,65,.20))"><img alt="" width="58" height="58" src="'+LITE_EGG_IMAGE+'" style="width:58px;height:58px;object-fit:contain"></button><span data-lazy-status role="status" style="position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Ovo misterioso.</span>';
     const button=wrap.querySelector('button'), status=wrap.querySelector('[data-lazy-status]');
     const loadScript=src=>new Promise((resolve,reject)=>{
       const script=document.createElement('script');

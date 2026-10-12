@@ -45,45 +45,56 @@
         <style>
           ${baseStyles}
           
-header{width:100%;position:relative;z-index:120;background:rgba(11,25,28,.98);border-bottom:1px solid #2d4a48}
-.bar{width:min(1220px,100%);min-height:84px;margin:auto;padding:17px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.identity{display:flex;align-items:center;gap:12px;flex:0 0 auto;min-width:0}
-.mark{width:47px;height:47px;flex:none;border-radius:13px;display:grid;place-items:center;border:1px solid #93ba81;background:#c5f277}
-.mark svg{width:31px;height:31px}
-.brand-wrap{display:grid;gap:2px}
-.brand{display:inline-flex;align-items:baseline;gap:5px;color:#f4f5ec;text-decoration:none;font:700 1.32rem/1.1 'Outfit',system-ui,sans-serif;letter-spacing:-.05em}
-.brand .nexus{color:#f4f5ec}
-.brand .version{font:600 9px/1 'IBM Plex Mono',monospace;color:#a4c996;align-self:start}
-.subtitle{color:#9fbab1;font-size:.72rem;line-height:1.35;font-weight:500;white-space:nowrap}
-nav{display:flex;align-items:center;justify-content:flex-end;gap:7px;min-width:0}
-.navlink,summary{display:inline-flex;align-items:center;gap:7px;justify-content:center;min-height:43px;padding:10px 14px;border:1px solid transparent;border-radius:11px;background:transparent;color:#d9e8dd;text-decoration:none;font-size:.83rem;font-weight:650;line-height:1.2;white-space:nowrap;cursor:pointer}
-.navlink:hover,summary:hover{background:#1a3636;color:#fff;border-color:#45655e}
-.navlink.active,details.toolmenu.active>summary{background:#243d38;color:#c5f277;border-color:#547267}
-.navlink.cta{background:#c5f277;border-color:#c5f277;color:#132421;font-weight:800}
-.navlink.cta:hover{background:#e2ffa6;color:#10221e}
-.navlink:focus-visible,summary:focus-visible,.menu a:focus-visible{outline:3px solid #c5f277;outline-offset:3px}
-details{position:relative}summary{list-style:none}summary::-webkit-details-marker{display:none}
-.chev{font-size:.68rem;color:#a9c4b7;transition:transform .18s}details[open] .chev{transform:rotate(180deg)}
-.menu{position:absolute;right:0;top:calc(100% + 10px);width:min(540px,calc(100vw - 30px));max-height:min(76vh,680px);overflow:auto;padding:11px;border:1px solid #4b6d62;border-radius:18px;background:#11282b;box-shadow:0 24px 54px #020e108c;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;z-index:200}
-.menu a{display:flex;align-items:center;gap:11px;padding:13px 10px;border-radius:12px;color:#e1ede2;text-decoration:none;border:1px solid transparent;min-width:0}
-.menu a:hover{background:#1d3b38;border-color:#5b796c}
-.menu a.active{background:#254037;border-color:#7a9a78}
-.tool-icon{display:grid;place-items:center;flex:0 0 35px;width:35px;height:35px;border:1px solid #46685a;border-radius:10px;background:#203b36;text-align:center;font-size:1rem}
-.tool-copy{display:grid;gap:2px;min-width:0}.tool-copy strong{font-size:.83rem;line-height:1.25}.tool-copy small{font-size:.7rem;color:#afc4b7;font-weight:500;line-height:1.35;white-space:normal}
-@media(max-width:1020px){.subtitle{display:none}.navlink{padding:9px 10px}}
-@media(max-width:760px){
- .bar{min-height:0;flex-direction:column;align-items:stretch;padding:14px 14px 11px;gap:12px}
- .identity{gap:10px}.mark{width:39px;height:39px}.mark svg{width:27px;height:27px}
- nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;width:100%}
- .navlink,summary{min-width:0;width:100%;min-height:43px;padding:8px 5px;font-size:.76rem;border:1px solid #34534d;background:#142b2b}
- details.toolmenu{position:static}
- .menu{left:14px;right:14px;top:calc(100% - 3px);width:calc(100vw - 28px)}
+
+header{width:100%;background:#fff;border-bottom:1px solid #e2e8f2;position:relative;z-index:800}
+.bar{width:min(1190px,100%);min-height:68px;padding:10px 20px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.identity{display:flex;align-items:center;gap:10px;min-width:0}
+.mark{width:43px;height:43px;display:grid;place-items:center;flex:none;border-radius:50%;background:#fecb2f;border:2px solid #0b1f3b;box-shadow:0 0 0 4px #edf2fa}
+.mark svg{width:30px;height:30px}
+.brand-wrap{display:flex;flex-direction:column;gap:1px}
+.brand{font:800 1.37rem/1.03 'Outfit',sans-serif;letter-spacing:-.04em;color:#0b1f3b;text-decoration:none;display:flex;align-items:baseline;gap:4px;white-space:nowrap}
+.brand .nexus{color:#0b1f3b}.brand .version{font:800 .85rem 'Outfit',sans-serif;color:#2563eb}
+.subtitle{color:#667993;font-size:.7rem;line-height:1.2;font-weight:600}
+nav.nav{display:flex;align-items:center;gap:5px}
+.navlink,details.toolmenu>summary{display:flex;align-items:center;justify-content:center;min-height:43px;padding:10px 14px;border:0;border-radius:10px;background:transparent;color:#284366;cursor:pointer;font:700 .84rem 'DM Sans',sans-serif;text-decoration:none;white-space:nowrap}
+.navlink.active{color:#1c55ca;background:#eaf1ff}
+.navlink.cta{background:#2563eb;color:#fff}
+.navlink.cta.active,.navlink.cta:hover{background:#1748b7;color:#fff}
+.navlink:hover,details.toolmenu>summary:hover{background:#edf3fb;color:#0b1f3b}
+.navlink:focus-visible,summary:focus-visible,.menu a:focus-visible{outline:3px solid #2563eb;outline-offset:2px}
+details.toolmenu{position:relative}
+details.toolmenu>summary{list-style:none;gap:6px}
+details.toolmenu>summary::-webkit-details-marker{display:none}
+.chev{font-size:.75rem;color:#2563eb}
+.menu{position:absolute;right:0;top:calc(100% + 13px);z-index:900;width:min(520px,calc(100vw - 32px));max-height:min(73vh,650px);overflow-y:auto;padding:10px;background:#fff;border:1px solid #d5e0f1;border-radius:17px;box-shadow:0 20px 60px #12294523;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.menu a{display:flex;align-items:center;gap:10px;min-width:0;padding:10px;border-radius:10px;text-decoration:none;color:#0b1f3b;border:1px solid transparent}
+.menu a:hover,.menu a.active{background:#eef4ff;border-color:#d2e1fc}
+.tool-icon{width:35px;height:35px;flex:0 0 35px;border-radius:9px;background:#eaf1ff;color:#1e5de0;display:grid;place-items:center;font-size:1rem}
+.tool-copy{min-width:0;display:flex;flex-direction:column;gap:2px}
+.tool-copy strong{font-size:.83rem;color:#0b1f3b;line-height:1.3}
+.tool-copy small{font-size:.69rem;color:#526781;line-height:1.3;white-space:normal}
+.mobile-bottom{display:none}
+@media(max-width:768px){
+ header{border-bottom:1px solid #e8edf5}
+ .bar{min-height:62px;padding:8px 16px}
+ .mark{width:39px;height:39px}.mark svg{width:25px;height:25px}
+ .brand{font-size:1.22rem}.subtitle{display:none}
+ nav.nav{display:block;margin-left:auto}
+ nav.nav>.navlink{display:none}
+ details.toolmenu>summary{min-height:44px;width:46px;border:1px solid #dce4f1;border-radius:12px;background:#f4f7fc;gap:0}
+ details.toolmenu>summary span:not(.chev){font-size:0;line-height:0}
+ details.toolmenu>summary span:not(.chev):before{content:"☰";font-size:21px;color:#16385f;line-height:1}
+ details.toolmenu>summary .chev{display:none}
+ .menu{position:absolute;right:0;top:calc(100% + 12px);width:min(355px,calc(100vw - 32px));max-height:min(68vh,620px);grid-template-columns:1fr}
+ .mobile-bottom{position:fixed;left:0;right:0;bottom:0;z-index:900;display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;padding:6px 7px calc(6px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #dce4ef;box-shadow:0 -8px 25px #102c4e12}
+ .mobile-bottom a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;border-radius:11px;color:#506784;text-decoration:none;font:700 10px/1.3 'DM Sans',sans-serif}
+ .mobile-bottom a.active{color:#1857d1;background:#ecf2ff}
+ .mobile-bottom a svg{height:21px;width:21px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 }
-@media(max-width:430px){.menu{grid-template-columns:1fr;max-height:66vh}.tool-copy strong{font-size:.86rem}.brand{font-size:1.2rem}}
         </style>
         <header>
           <div class="bar">
-            <div class="identity"><a class="mark" href="index.html" aria-label="GO Nexus — início"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="13.5" stroke="#122620" stroke-width="2.3"/><circle cx="20" cy="20" r="5.2" fill="#122620"/><path d="M20 1.8v9.2M20 29v9.2M1.8 20H11M29 20h9.2" stroke="#122620" stroke-width="2.3" stroke-linecap="round"/></svg></a><div class="brand-wrap"><a class="brand" href="index.html" aria-label="GO Nexus — início">GO <span class="nexus">NEXUS</span><span class="version">2.0</span></a><div class="subtitle">O seu centro de ferramentas Pokémon GO</div></div></div>
+            <div class="identity"><a class="mark" href="index.html" aria-label="GO Nexus — início"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="13.5" stroke="#0b1f3b" stroke-width="2.3"/><circle cx="20" cy="20" r="5.2" fill="#0b1f3b"/><path d="M4 20h32" stroke="#0b1f3b" stroke-width="2.3" stroke-linecap="round"/><circle cx="20" cy="20" r="3.1" fill="#fff"/></svg></a><div class="brand-wrap"><a class="brand" href="index.html" aria-label="GO Nexus — início">GO <span class="nexus">NEXUS</span><span class="version">2.0</span></a><div class="subtitle">O seu centro de ferramentas Pokémon GO</div></div></div>
             <nav class="nav" aria-label="Navegação principal">
               <a class="navlink${current==='index.html'?' active':''}" href="index.html"${current==='index.html'?' aria-current="page"':''}>Início</a>
               <details class="toolmenu${inTools?' active':''}"><summary><span>Ferramentas</span><span class="chev">⌄</span></summary><div class="menu">${toolLinks}</div></details>
@@ -91,7 +102,13 @@ details{position:relative}summary{list-style:none}summary::-webkit-details-marke
               <a class="navlink cta${current==='quiz.html'?' active':''}" href="quiz.html"${current==='quiz.html'?' aria-current="page"':''}>Quiz ↗</a>
             </nav>
           </div>
-        </header>`;
+        </header>
+        <nav class="mobile-bottom" aria-label="Navegação principal no celular">
+          <a href="index.html" class="${current==='index.html'?'active':''}" aria-label="Início"><svg viewBox="0 0 24 24"><path d="m3 11 9-7 9 7v9h-7v-6h-4v6H3z"/></svg><span>Início</span></a>
+          <a href="index.html#ferramentas" aria-label="Ferramentas"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg><span>Ferramentas</span></a>
+          <a href="index.html#novidades" aria-label="Novidades"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM7 9h4m-4 4h10m-10 3h10"/></svg><span>Novidades</span></a>
+          <a href="quiz.html" class="${current==='quiz.html'?'active':''}" aria-label="Quiz"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4.2 1.8c-.9.7-1.7 1.2-1.7 2.7m0 3.3h.01"/></svg><span>Quiz</span></a>
+        </nav>`;
       const details=root.querySelector('details');
       root.addEventListener('keydown',e=>{if(e.key==='Escape'&&details.open){details.open=false;details.querySelector('summary').focus();}});
       document.addEventListener('click',e=>{if(details.open && !this.contains(e.target) && !details.contains(e.composedPath()[0])) details.open=false;});
@@ -102,7 +119,7 @@ details{position:relative}summary{list-style:none}summary::-webkit-details-marke
     connectedCallback(){
       if(this.shadowRoot) return;
       const root=this.attachShadow({mode:"open"});
-      root.innerHTML=`<style>${baseStyles}footer{margin:60px 0 0;border-top:1px solid #385850;background:#0e2024;color:#bacbc3}.inner{width:min(1220px,100%);margin:auto;padding:35px 22px 38px}.top{display:flex;justify-content:space-between;gap:30px;align-items:start;margin-bottom:26px}.footer-title{font:700 1.55rem/1.1 'Outfit',system-ui,sans-serif;letter-spacing:-.045em;color:#f4f5ec}.footer-title b{color:#c5f277}.tag{font:500 11px 'IBM Plex Mono',monospace;color:#96b9a2;margin-top:6px}.links{display:flex;flex-wrap:wrap;gap:8px 21px}.links a{color:#d2e8d5;text-decoration:none;font-size:.85rem}.links a:hover{color:#c5f277}.bottom{border-top:1px solid #35534b;padding-top:18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.76rem;line-height:1.6;color:#98b0a8}.bottom strong{color:#d7e8d7}@media(max-width:670px){.top{flex-direction:column;gap:20px}.inner{padding:29px 16px}.links{gap:14px}.bottom{flex-direction:column;gap:4px}}</style><footer><div class="inner"><div class="top"><div><div class="footer-title">GO NEXUS <b>2.0</b></div><div class="tag">FIELD SYSTEM / UMA CENTRAL FEITA PARA JOGAR</div></div><nav class="links" aria-label="Informações do projeto"><a href="index.html">Início</a><a href="index.html#ferramentas">Ferramentas</a><a href="quiz.html">Quiz</a><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos</a><a href="anuncie.html">Anuncie</a><a href="${FEEDBACK}" target="_blank" rel="noopener noreferrer">Feedback ↗</a></nav></div><div class="bottom"><span>Projeto independente. Não afiliado às empresas responsáveis pelo Pokémon GO.</span><span>Desenvolvido por <strong>DelorisNyx</strong> · Código de amizade: <strong>8596 0928 0640</strong></span><span>© 2026 GO Nexus</span></div></div></footer>`;
+      root.innerHTML=`<style>${baseStyles}footer{border-top:1px solid #dce4ef;background:#f0f4fa;color:#536783;margin-top:50px}.inner{width:min(1180px,100%);margin:auto;padding:24px 18px 32px}.top{display:flex;justify-content:space-between;gap:24px;align-items:start;margin-bottom:20px}.footer-title{font:750 1.28rem 'Outfit',sans-serif;letter-spacing:-.03em;color:#0b1f3b}.footer-title b{color:#2563eb}.tag{font:500 .66rem 'IBM Plex Mono',monospace;color:#58708d;margin-top:4px}.links{display:flex;flex-wrap:wrap;gap:10px 18px}.links a{color:#234f95;text-decoration:none;font-size:.81rem}.bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;border-top:1px solid #dae3f0;padding-top:16px;font-size:.73rem;line-height:1.6}.bottom strong{color:#274567}@media(max-width:768px){.top{flex-direction:column;gap:17px}.inner{padding:23px 17px 29px}.bottom{flex-direction:column}.tag{letter-spacing:0}}</style><footer><div class="inner"><div class="top"><div><div class="footer-title">GO NEXUS <b>2.0</b></div><div class="tag">FIELD SYSTEM / UMA CENTRAL FEITA PARA JOGAR</div></div><nav class="links" aria-label="Informações do projeto"><a href="index.html">Início</a><a href="index.html#ferramentas">Ferramentas</a><a href="quiz.html">Quiz</a><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos</a><a href="anuncie.html">Anuncie</a><a href="${FEEDBACK}" target="_blank" rel="noopener noreferrer">Feedback ↗</a></nav></div><div class="bottom"><span>Projeto independente. Não afiliado às empresas responsáveis pelo Pokémon GO.</span><span>Desenvolvido por <strong>DelorisNyx</strong> · Código de amizade: <strong>8596 0928 0640</strong></span><span>© 2026 GO Nexus</span></div></div></footer>`;
     }
   }
 

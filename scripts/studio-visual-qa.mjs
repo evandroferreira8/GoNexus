@@ -41,7 +41,7 @@ for(const s of sizes){
      const egg=document.getElementById('gnx-egg-placeholder');
      const shadow=document.querySelector('go-nexus-cosmic-egg')?.shadowRoot;
      const floatEgg=shadow?.querySelector('.egg-dock');
-     const bubble=egg?.querySelector('[data-lazy-status]')?.parentElement;
+     const bubble=egg?.querySelector('[data-lazy-status]');
      const be=shadow?.querySelector('.egg-hint');
      const bottom=document.querySelector('go-nexus-header')?.shadowRoot?.querySelector('.mobile-bottom');
      const eggRect=egg?.getBoundingClientRect()??floatEgg?.getBoundingClientRect();
@@ -53,7 +53,7 @@ for(const s of sizes){
        failures,dark,heroBackground:hero?getComputedStyle(hero).backgroundColor:null,
        titleColor:title?getComputedStyle(title).color:null,
        eggPresent:!!egg||!!floatEgg,eggSource:egg?.querySelector('img')?.getAttribute('src')||'',
-       visibleBubble:!!bubble&&visible(bubble),cosmosBubble:!!be&&visible(be),
+       visibleBubble:!!bubble&&visible(bubble)&&bubble.getBoundingClientRect().width>15,cosmosBubble:!!be&&visible(be),
        eggOverNav:Math.round(overlap),visibleSponsors:[...document.querySelectorAll('.gnx-ad-wrap')].filter(visible).length,
        lightSurfaceCount:[...document.querySelectorAll('main .card,main .panel')].filter(visible).length};
    });

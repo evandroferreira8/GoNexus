@@ -57,6 +57,13 @@ try{
         assert.ok(title,file+' sem título');
         if(errors.length)throw new Error(errors.join(' | '));
         if(file==='index.html'){
+          assert.equal(await tab.locator('.gn-v2-card').count(),10,'A home deve mostrar as dez ferramentas');
+          assert.ok(await tab.locator('.gn-hero h1').textContent().then(t=>t.includes('Mais jogo')),'Hero 2.0 presente');
+          assert.ok(await tab.locator('go-nexus-header').evaluate(e=>e.shadowRoot?.querySelector('.brand')?.textContent?.includes('2.0')),'Marca 2.0 na navegação');
+          const overflow=await tab.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+          assert.ok(overflow<=2,'Página inicial causa rolagem horizontal: '+overflow+' px');
+          await tab.keyboard.press('Control+k');
+          assert.equal(await tab.locator('#globalSearch').evaluate(el=>document.activeElement===el),true,'Ctrl+K deve focar a busca global');
           await tab.locator('#globalSearch').fill('Ditto');
           assert.ok(await tab.locator('.search-result').count()>0,'Busca não retornou Ditto');
           await tab.locator('.news-card').first().waitFor({timeout:5000});
@@ -66,6 +73,9 @@ try{
           await tab.locator('go-nexus-cosmic-egg').waitFor({state:'attached',timeout:15000});
           await tab.locator('go-nexus-cosmic-egg').locator('.egg').waitFor({state:'visible',timeout:15000});
           assert.ok(await tab.locator('go-nexus-cosmic-egg').evaluate(el=>!!el.shadowRoot?.querySelector('.egg')),'Experiência secreta carregada');
+        }
+        if(file==='central-mega.html'){
+          assert.ok(await tab.locator('.gn-breadcrumb').count(),'Breadcrumb não exibido nas ferramentas');
         }
         if(file==='calculadora.html'){
           await tab.locator('#answer').waitFor();

@@ -1,0 +1,52 @@
+name: Auditoria comparativa visual - original x atual
+
+on:
+  push:
+    branches: [auditoria-regressao-visual]
+    paths:
+      - '.github/workflows/auditoria-visual.yml'
+      - 'auditoria/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: auditoria-comparativa-visual
+  cancel-in-progress: true
+
+jobs:
+  auditar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Obter versao atual e historico
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Preservar versao original
+        run: |
+          git worktree add --detach /tmp/gonexus-original 676614b53a49ca825e61cbdec35f53a8c00584ad
+      - name: Preparar navegador
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar Playwright
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Servir versoes lado a lado
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/gonexus-atual.log 2>&1 &
+          python3 -m http.server 8766 --bind 127.0.0.1 --directory /tmp/gonexus-original >/tmp/gonexus-original.log 2>&1 &
+          sleep 2
+      - name: Capturar e comparar 15 paginas, 3 viewports, 2 versoes
+        run: node auditoria/auditar-visual.mjs
+      - name: Anexar evidencias e relatorio
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-visual-original-versus-atual
+          path: audit-results/
+          if-no-files-found: warn
+          retention-days: 14

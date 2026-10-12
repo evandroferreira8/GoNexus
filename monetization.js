@@ -19,7 +19,7 @@
   }
 
   function loadAdSense() {
-    if (!configured || document.querySelector("script[data-go-nexus-adsense]")) return;
+    if (!configured || document.querySelector('script[src*="adsbygoogle.js"]')) return;
     const script = document.createElement("script");
     script.async = true;
     script.crossOrigin = "anonymous";

@@ -1,0 +1,47 @@
+name: Nexus Studio controls — palette audit
+
+on:
+  push:
+    branches: [nexus-studio-controls-20261012]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: studio-controls-audit
+  cancel-in-progress: true
+
+jobs:
+  auditar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install test browser
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start site
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/gn.log 2>&1 &
+          sleep 2
+      - name: Analyze all controls and generate visual evidence
+        run: node scripts/studio-controls-audit.mjs
+      - name: Core functional regression
+        run: node scripts/smoke-test.mjs
+      - name: All tools interaction regression
+        run: node scripts/studio-interaction-qa.mjs
+      - name: Visual regression
+        run: node scripts/studio-visual-qa.mjs
+      - name: Upload control evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: control-audit-evidence
+          path: audit-results/
+          retention-days: 14
+          if-no-files-found: warn

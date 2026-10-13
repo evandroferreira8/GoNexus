@@ -132,6 +132,38 @@ for(const s of sizes){
      await tab.screenshot({path:path.join(OUT,s.name+'-stardust-aligned.jpg'),type:'jpeg',quality:84,animations:'disabled'});
      console.log('STARDUST_ALIGNMENT '+JSON.stringify({viewport:s.name,alignment}));
    }
+   // Deep visual regression for Evolution routes: old navy image tiles were missed
+   // because previous screenshots did not expand and inspect this component.
+   if(file==='evolucoes-especiais.html'){
+     const routeSection=tab.locator('#grid details.nx-accordion').first();
+     await routeSection.evaluate(el=>{el.open=true});
+     const routeCard=routeSection.locator('.card').first();
+     await routeCard.waitFor({state:'visible',timeout:10000});
+     const visual=await routeCard.evaluate(el=>{
+       const box=el.querySelector('.pokeart'), img=box.querySelector('img');
+       const style=getComputedStyle(box);
+       const size=q=>parseFloat(getComputedStyle(el.querySelector(q)).fontSize);
+       return {root:parseFloat(getComputedStyle(document.documentElement).fontSize),
+         body:parseFloat(getComputedStyle(document.body).fontSize),
+         imageBackground:style.backgroundImage,imageColor:style.backgroundColor,
+         imageWidth:Math.round(box.getBoundingClientRect().width),
+         dexSize:size('.dex'),nameSize:size('.name'),
+         costSize:size('.cost'),tagSize:size('.tag'),
+         imgLoaded:!!img&&img.complete&&img.naturalWidth>0};
+     });
+     const color=visual.imageColor.match(/[\\d.]+/g)?.map(Number)||[];
+     if(visual.imageBackground!=='none'||color.length<3||color[0]<190||color[1]<190||color[2]<190)
+       errors.push('Evolution Pokémon artwork still sits on an old dark tile: '+JSON.stringify(visual));
+     if(s.width>=1000 && (visual.root<17.5||visual.dexSize<14||visual.costSize<14||visual.tagSize<14||visual.imageWidth<98))
+       errors.push('Evolution desktop typography/art dimensions too small: '+JSON.stringify(visual));
+     await routeCard.scrollIntoViewIfNeeded();
+     await tab.screenshot({path:path.join(OUT,s.name+'-evolution-open-route.jpg'),type:'jpeg',quality:86,animations:'disabled'});
+     console.log('EVOLUTION_STYLE '+JSON.stringify({viewport:s.name,visual}));
+   }
+   if(s.width>=1000){
+     const rootSize=await tab.evaluate(()=>parseFloat(getComputedStyle(document.documentElement).fontSize));
+     if(rootSize<17.5)errors.push('Desktop font root still too small: '+rootSize+'px');
+   }
    if(file==='efeitos-aventura.html'){
      const card=tab.locator('.grid .card').filter({hasText:'Zamazenta'}).first();
      await card.locator('.details').click();

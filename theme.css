@@ -1,27 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
 /* NEXUS STUDIO 2.1 — foundation only.
-   Component styles live in studio-tools.css, scoped per page.
+   Component styles live in nexus-studio.css, scoped per page.
    NO global .card/.panel/.hero/.mode rules, NO wildcard !important. */
 html[data-theme="light"]{
  color-scheme:light;
- --gn-bg:#f8f9fb;--gn-surface:#fff;--gn-ink:#0b1f3b;
- --gn-text:#152c4b;--gn-muted:#526782;--gn-edge:#dce5f1;
- --gn-soft:#f0f5fc;--gn-blue:#2563eb;--gn-blue-active:#174bb8;
+ --gn-bg:#edf2f9;--gn-section:#e5eefb;--gn-surface:#fff;--gn-ink:#0b1f3b;
+ --gn-text:#152c4b;--gn-muted:#435b7a;--gn-edge:#c6d6eb;
+ --gn-soft:#eaf2fe;--gn-shadow:0 8px 26px rgba(27,57,99,.09);--gn-blue:#2563eb;--gn-blue-active:#174bb8;
  --gn-yellow:#fecb2f;--gn-font:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
  --gn-title:'Outfit','DM Sans',system-ui,sans-serif;
  --gn-code:'IBM Plex Mono',ui-monospace,monospace;
  --gn-display:var(--gn-title);--gn-mono:var(--gn-code);
  /* Bridge legacy variables. Scoped behind html attribute, stronger than
     the legacy :root declarations in each tool without altering their logic. */
- --bg:#f8f9fb;--panel:#fff;--panel2:#f0f5fc;--card:#fff;--card2:#f0f5fc;
- --line:#dce5f1;--text:#152c4b;--muted:#526782;
+ --bg:var(--gn-bg);--panel:#fff;--panel2:var(--gn-section);--card:#fff;--card2:var(--gn-soft);
+ --line:var(--gn-edge);--text:#152c4b;--muted:var(--gn-muted);
  --blue:#2563eb;--violet:#635ab5;--pink:#ad5087;
  --green:#17765a;--red:#b43a4b;--yellow:#8b6200;
  --accent:#2563eb;--bad:#ad3243;--warn:#926307;
 }
 html{scroll-behavior:smooth;scroll-padding-top:24px}
 html[data-theme="light"] body{
- background:#f8f9fb!important;
+ background:var(--gn-bg)!important;
  color:#152c4b!important;
  font-family:var(--gn-font)!important;
  -webkit-font-smoothing:antialiased;

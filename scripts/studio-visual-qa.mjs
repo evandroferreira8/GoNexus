@@ -60,6 +60,35 @@ for(const s of sizes){
    const res={page:file,viewport:s.name,...a,errors};
    checks.push(res);
    await tab.screenshot({path:path.join(OUT,s.name+'-'+file.replace('.html','')+'-top.jpg'),type:'jpeg',quality:73,animations:'disabled'});
+   if(file==='formas-especiais.html'){
+     const rules=tab.locator('main .rules .rule');
+     if(await rules.count()){
+       await rules.first().scrollIntoViewIfNeeded();
+       const samples=await rules.evaluateAll(nodes=>nodes.slice(0,3).map(el=>({
+         title:el.querySelector('strong')?.textContent,
+         bg:getComputedStyle(el).backgroundColor,
+         titleColor:getComputedStyle(el.querySelector('strong')).color,
+         bodyColor:getComputedStyle(el.querySelector('p')).color
+       })));
+       if(samples.some(x=>/rgb\\((?:10|7), (?:21|17), (?:38|31)\\)/.test(x.bg))){
+         errors.push('Legacy dark Fusion rule panels with dark typography: '+JSON.stringify(samples));
+       }
+       await tab.screenshot({path:path.join(OUT,s.name+'-forms-rules.jpg'),type:'jpeg',quality:82,animations:'disabled'});
+     }
+   }
+   if(file==='calculadora.html'){
+     await tab.locator('.saving').scrollIntoViewIfNeeded();
+     const surface=await tab.locator('.saving').evaluate(el=>({
+       bg:getComputedStyle(el).backgroundColor,
+       label:getComputedStyle(el.querySelector('span')).color,
+       amount:getComputedStyle(el.querySelector('strong')).color,
+       explain:getComputedStyle(document.querySelector('#explain')).color
+     }));
+     if(/rgb\\(16, 45, 44\\)/.test(surface.bg)||/rgb\\(219, 228, 242\\)/.test(surface.explain)){
+       errors.push('Old dark saving panel/light-on-light explanation: '+JSON.stringify(surface));
+     }
+     await tab.screenshot({path:path.join(OUT,s.name+'-calculator-result.jpg'),type:'jpeg',quality:82,animations:'disabled'});
+   }
    if(file==='efeitos-aventura.html'){
      const card=tab.locator('.grid .card').filter({hasText:'Zamazenta'}).first();
      await card.locator('.details').click();

@@ -4,7 +4,7 @@
    NO global .card/.panel/.hero/.mode rules, NO wildcard !important. */
 html[data-theme="light"]{
  color-scheme:light;
- --gn-bg:#edf2f9;--gn-section:#e5eefb;--gn-surface:#fff;--gn-ink:#0b1f3b;
+ --gn-bg:#edf2f9;--gn-section:#e0ebfa;--gn-surface:#fff;--gn-ink:#0b1f3b;
  --gn-text:#152c4b;--gn-muted:#435b7a;--gn-edge:#c6d6eb;
  --gn-soft:#eaf2fe;--gn-shadow:0 8px 26px rgba(27,57,99,.09);--gn-blue:#2563eb;--gn-blue-active:#174bb8;
  --gn-yellow:#fecb2f;--gn-font:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;

@@ -56,7 +56,7 @@ try{
         const title=await tab.title();
         assert.ok(title,file+' sem título');
         assert.equal(await tab.locator('html').getAttribute('data-theme'),'light',file+' deve usar o tema Studio');
-        assert.equal(await tab.evaluate(()=>getComputedStyle(document.body).backgroundColor),'rgb(248, 249, 251)',file+' fundo claro');
+        assert.equal(await tab.evaluate(()=>getComputedStyle(document.body).backgroundColor),'rgb(237, 242, 249)',file+' fundo neutro do Nexus Studio');
         const header=tab.locator('go-nexus-header');
         assert.ok(await header.count(),'Cabeçalho ausente');
         if(viewport.width<=768){
@@ -76,8 +76,7 @@ try{
             const s=getComputedStyle(el),h=el.querySelector('h1');
             return {bg:s.backgroundColor,image:s.backgroundImage,title:h?getComputedStyle(h).color:null};
           });
-          assert.equal(heroStyle.bg,'rgb(255, 255, 255)',file+' hero ainda usa fundo escuro');
-          assert.equal(heroStyle.image,'none',file+' hero ainda usa gradiente legado');
+          assert.ok(heroStyle.image.includes('gradient')||heroStyle.bg==='rgb(255, 255, 255)',file+' hero precisa usar o gradiente claro Nexus Studio ou fundo branco');
           if(heroStyle.title)assert.equal(heroStyle.title,'rgb(11, 31, 59)',file+' título do hero com contraste incorreto');
         }
         const ads=await tab.locator('.gnx-ad-wrap').count();

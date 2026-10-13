@@ -214,6 +214,17 @@ for(const s of sizes){
        await dialog.evaluate(el=>el.close());
      }
    }
+
+   // Shared footer already contains policy links; monetization must not append a second set.
+   const footer=tab.locator('go-nexus-footer');
+   if(await footer.count()){
+     const duplicate=await footer.evaluate(el=>el.shadowRoot?.querySelectorAll('.gnx-policy-links').length||0);
+     if(duplicate>0)errors.push('Duplicate unstyled policy links injected in shared footer');
+     if(file==='formas-especiais.html'||file==='index.html'){
+       await footer.scrollIntoViewIfNeeded();
+       await tab.screenshot({path:path.join(OUT,s.name+'-'+file.replace('.html','')+'-footer.jpg'),type:'jpeg',quality:78});
+     }
+   }
    console.log('PAGEQA '+JSON.stringify({page:file,viewport:s.name,lowContrast:a.failures.length,samples:a.failures.slice(0,7),dark:a.dark.length,darkExamples:a.dark.slice(0,5),eggOverlap:a.eggOverNav,eggBubble:a.visibleBubble||a.cosmosBubble,overflow:Math.max(0,a.scrollWidth-a.viewport),errors:errors.slice(0,3)}));
   }catch(e){checks.push({page:file,viewport:s.name,crash:String(e.message)});console.log('PAGEQA_FAIL '+JSON.stringify({page:file,viewport:s.name,error:String(e.message).slice(0,420)}));}
   finally{await tab.close();}

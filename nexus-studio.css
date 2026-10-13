@@ -1402,3 +1402,11 @@ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-gro
   font-size:.79rem!important;
  }
 }
+
+/* Summary totals were still white-on-white from a legacy .count strong rule. */
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .summary .count{
+ color:#405d7f!important;font-size:max(.9rem,15px)!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .summary .count strong{
+ color:#174fba!important;font-size:1.05em!important;font-weight:850;
+}

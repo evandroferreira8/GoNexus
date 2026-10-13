@@ -104,6 +104,16 @@ for(const s of sizes){
    if(file==='efeitos-aventura.html'){
      const card=tab.locator('.grid .card').filter({hasText:'Zamazenta'}).first();
      await card.locator('.details').click();
+     // The stickers use native lazy loading; allow the browser to finish fetching
+     // before treating naturalWidth=0 as a broken resource. Capture failures after timeout.
+     await card.locator('.art img').evaluate(async img=>{
+       if(img.complete&&img.naturalWidth>0)return;
+       img.loading='eager';
+       await Promise.race([
+         img.decode().catch(()=>null),
+         new Promise(resolve=>setTimeout(resolve,6500))
+       ]);
+     });
      const panel=await card.locator('.stats > div').first().evaluate(el=>{
        const value=el.querySelector('strong'),label=el.querySelector('small');
        const bg=getComputedStyle(el).backgroundColor;

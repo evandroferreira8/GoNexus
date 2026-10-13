@@ -215,3 +215,74 @@ html[data-theme="light"] body.page-home #featureUpdates .nx-updates-controls but
 @media(prefers-reduced-motion:reduce){
  html[data-theme="light"] body[data-studio-page] main button{transition:none!important}
 }
+
+
+/* QA follow-up: restore meaning of the quiz's feedback choices. */
+html[data-theme="light"] body[data-studio-page="quiz"] #answers button.ans{
+ background:#fff!important;color:#173354!important;
+ border:1px solid #c8d8ec!important;
+ min-height:49px;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] #answers button.ans.correct{
+ background:#e7f5ed!important;color:#12603f!important;
+ border:2px solid #459d7a!important;
+ box-shadow:inset 4px 0 0 #238661!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] #answers button.ans.wrong{
+ background:#fff0f1!important;color:#913044!important;
+ border:2px solid #d07c8f!important;
+ box-shadow:inset 4px 0 0 #c05a71!important;
+}
+/* Green/red result states cannot be overwritten by old generic .answers rules. */
+html[data-theme="light"] body[data-studio-page="quiz"] #feedback.show{
+ background:#f2f6fc!important;color:#294765!important;
+ border:1px solid #ccdaec!important;border-radius:13px!important;
+}
+/* Delete individual lines: remove the original black-and-maroon buttons. */
+html[data-theme="light"] body[data-studio-page="calculadora"] .remove{
+ min-width:44px;min-height:44px;
+ background:#fff0f1!important;background-image:none!important;
+ color:#9d3447!important;border:1px solid #e9b7c1!important;
+ border-radius:11px!important;box-shadow:none!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .remove:hover{
+ background:#fce2e7!important;border-color:#d88798!important;
+}
+/* All export/share controls are lightweight secondary blue, never dark navy.
+   There can be dozens of these on the evolution catalog. */
+html[data-theme="light"] body[data-studio-page] main :is(.nx-result-share,.nx-create-card){
+ display:inline-flex;align-items:center;justify-content:center;gap:6px;
+ min-height:44px;
+ padding:9px 12px!important;
+ background:#eaf2ff!important;background-image:none!important;
+ color:#1b55b5!important;border:1px solid #b8cef2!important;
+ border-radius:10px!important;box-shadow:none!important;
+ font-weight:750!important;text-decoration:none!important;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.nx-result-share,.nx-create-card):hover{
+ background:#dceafe!important;color:#174b9d!important;border-color:#93b6ec!important;
+}
+/* Contrast and affordance of adventure effect disclosures. */
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .details{
+ min-height:42px!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .card.open .details{
+ min-height:42px!important;
+}
+/* Small pagination dots retain small marks but offer a touchable surface. */
+html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots{
+ display:flex;flex-wrap:wrap;gap:2px;
+}
+html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots button{
+ min-width:38px!important;min-height:38px!important;
+ padding:11px!important;
+ background:transparent!important;
+ border:1px solid transparent!important;
+ box-shadow:none!important;
+}
+html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots button[aria-current="true"]::after{
+ background:#225ed2!important;box-shadow:none!important;
+}
+html[data-theme="light"] body.page-home #featureUpdates .nx-updates-bottom{
+ flex-wrap:wrap;
+}

@@ -152,6 +152,79 @@ for(const s of sizes){
      const egg=tab.locator('#gnx-egg-placeholder');
      if(await egg.count()){await egg.locator('button').click({force:true});await tab.locator('go-nexus-cosmic-egg').waitFor({state:'attached',timeout:12000});const widget=tab.locator('go-nexus-cosmic-egg');await widget.locator('.egg').click({force:true});await widget.locator('.egg').click({force:true});await widget.locator('.overlay.open').waitFor({state:'visible',timeout:6000});await tab.screenshot({path:path.join(OUT,s.name+'-cosmos-open.jpg'),type:'jpeg',quality:70});}
    }
+
+   // Screenshot-derived regression cases. The previous QA only inspected top-level
+   // cards and therefore missed pale names, dark accordion children, and dialogs.
+   if(['tipagens.html','evolucoes-especiais.html','formas-especiais.html','guia-busca.html','calculadora.html','pokeparadas.html','central-mega.html'].includes(file)){
+     await tab.evaluate(()=>document.querySelectorAll('main details.nx-accordion').forEach(d=>{d.open=true;}));
+     const deep=await tab.evaluate(()=>{
+       const page=document.body.dataset.studioPage;
+       const watch={
+         'tipagens':['.legend .item b','.legend .item small','.quick-type b','.quick-type .line','.meter .stat span'],
+         'evolucoes-especiais':['.grid .card .name','.grid .card .cost','.grid .card .reqs li'],
+         'formas-especiais':['.grid .card .pname','.grid .card .cost'],
+         'guia-busca':['section.max-w-3xl > div.rounded-2xl h2','section.max-w-3xl > div.rounded-2xl p'],
+         'calculadora':['.info','.info.warning','.result .hero .answer'],
+         'pokeparadas':['.nx-compact-item b'],
+         'central-mega':['.event .date']
+       };
+       const rgb=s=>{let m=s?.match(/rgba?\(([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/);return m?[+m[1],+m[2],+m[3]]:null};
+       const lum=colors=>{let v=colors.map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return v[0]*.2126+v[1]*.7152+v[2]*.0722};
+       const backdrop=el=>{let node=el;for(let i=0;node&&i<15;node=node.parentElement,i++){
+         const cs=getComputedStyle(node),b=rgb(cs.backgroundColor),a=cs.backgroundColor.match(/[,\s]([\d.]+)\)$/)?.[1];
+         if(b&&(cs.backgroundColor.startsWith('rgb(')||a===undefined||+a>.95))return b;
+       }return [248,249,251]};
+       const failures=[];
+       for(const selector of watch[page]||[]){
+         const nodes=[...document.querySelectorAll(selector)].slice(0,8);
+         for(const node of nodes){let cs=getComputedStyle(node),r=node.getBoundingClientRect();
+           if(cs.display==='none'||cs.visibility==='hidden'||r.width<1||r.height<1)continue;
+           const fg=rgb(cs.color),bg=backdrop(node);
+           if(!fg)continue;
+           const ratio=(Math.max(lum(fg),lum(bg))+.05)/(Math.min(lum(fg),lum(bg))+.05);
+           if(ratio<4.5)failures.push({selector,text:node.textContent.trim().slice(0,36),ratio:+ratio.toFixed(2),fg,bg});
+         }
+       }
+       const layout=document.querySelector('main.wrap.layout');
+       if(page==='calculadora'&&layout&&innerWidth>=821){
+         const left=layout.querySelector(':scope > section')?.getBoundingClientRect();
+         const right=layout.querySelector(':scope > aside')?.getBoundingClientRect();
+         const name=layout.querySelector('#name')?.getBoundingClientRect();
+         if(left&&right&&left.x>=right.x)failures.push({selector:'main.layout',text:'Form must precede result on desktop'});
+         if(name&&name.width<140)failures.push({selector:'#name',text:'Name input crushed',width:name.width});
+       }
+       return {failures};
+     });
+     if(deep.failures.length)errors.push('Deep component contrast/layout '+JSON.stringify(deep.failures.slice(0,8)));
+     console.log('DEEPQA '+JSON.stringify({page:file,viewport:s.name,failures:deep.failures}));
+   }
+   if(['central-mega.html','central-max.html','poeira-estelar.html'].includes(file)){
+     const dialog=tab.locator('.nx-result-dialog');
+     if(await dialog.count()){
+       await dialog.evaluate(el=>el.showModal());
+       const modal=await dialog.evaluate(el=>({
+         title:getComputedStyle(el.querySelector('h2')).color,
+         bg:getComputedStyle(el).backgroundColor,
+         text:getComputedStyle(el.querySelector('p')).color
+       }));
+       if(!modal.bg.includes('255, 255, 255')||modal.title.includes('11, 31, 59')&&modal.bg.includes('11, 31, 59')){
+         errors.push('Sharing dialog retains legacy dark surface '+JSON.stringify(modal));
+       }
+       await tab.screenshot({path:path.join(OUT,s.name+'-'+file.replace('.html','')+'-share-modal.jpg'),type:'jpeg',quality:82});
+       await dialog.evaluate(el=>el.close());
+     }
+   }
+
+   // Shared footer already contains policy links; monetization must not append a second set.
+   const footer=tab.locator('go-nexus-footer');
+   if(await footer.count()){
+     const duplicate=await footer.evaluate(el=>el.shadowRoot?.querySelectorAll('.gnx-policy-links').length||0);
+     if(duplicate>0)errors.push('Duplicate unstyled policy links injected in shared footer');
+     if(file==='formas-especiais.html'||file==='index.html'){
+       await footer.scrollIntoViewIfNeeded();
+       await tab.screenshot({path:path.join(OUT,s.name+'-'+file.replace('.html','')+'-footer.jpg'),type:'jpeg',quality:78});
+     }
+   }
    console.log('PAGEQA '+JSON.stringify({page:file,viewport:s.name,lowContrast:a.failures.length,samples:a.failures.slice(0,7),dark:a.dark.length,darkExamples:a.dark.slice(0,5),eggOverlap:a.eggOverNav,eggBubble:a.visibleBubble||a.cosmosBubble,overflow:Math.max(0,a.scrollWidth-a.viewport),errors:errors.slice(0,3)}));
   }catch(e){checks.push({page:file,viewport:s.name,crash:String(e.message)});console.log('PAGEQA_FAIL '+JSON.stringify({page:file,viewport:s.name,error:String(e.message).slice(0,420)}));}
   finally{await tab.close();}

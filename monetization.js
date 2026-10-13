@@ -28,20 +28,10 @@
     document.head.appendChild(script);
   }
 
-  function addPolicyLinks() {
-    ready(() => {
-      const footer = document.querySelector("go-nexus-footer");
-      const target = footer?.shadowRoot?.querySelector(".inner") || document.querySelector("footer");
-      if (!target || target.querySelector(".gnx-policy-links")) return;
-      const links = document.createElement("p");
-      links.className = "gnx-policy-links";
-      links.innerHTML = '<a href="anuncie.html">Anuncie</a><a href="privacidade.html">Política de Privacidade</a><a href="termos.html">Termos de Uso</a>';
-      target.appendChild(links);
-    });
-  }
+  // Navigation already contains Anuncie/Privacidade/Termos in the shared footer.
+  // Do not append an unstyled second copy from the monetization loader.
 
   addAdSenseMeta();
-  addPolicyLinks();
   if (configured) loadAdSense();
   // No artificial sponsored cards. Official Google AdSense remains enabled.
 })();

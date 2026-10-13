@@ -746,3 +746,143 @@ html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .more{
     grid-template-columns:114px minmax(0,1fr);
   }
 }
+
+
+/* NEXUS STUDIO AUDIT 2026-10-13: component state contrast & layout.
+   Page-scoped repairs, not blanket recoloring of Pokémon types or export artwork. */
+html[data-theme="light"] body[data-studio-page] :is(.nx-compact-item,.nx-compact-grid>div){
+ background:#f1f5fc!important;background-image:none!important;color:#254361!important;
+ border:1px solid #d7e2f1!important;border-radius:12px;
+}
+html[data-theme="light"] body[data-studio-page] .nx-compact-item :is(b,strong,em){color:#153354!important}
+html[data-theme="light"] body[data-studio-page] .nx-note{
+ background:#f1f6fd!important;color:#435c7c!important;border-left-color:#4970b4!important
+}
+html[data-theme="light"] body[data-studio-page] .nx-body :is(.text-slate-300,.text-slate-400){color:#465f7e!important}
+/* Search-guide feedback uses a legacy dark Tailwind utility surface. */
+html[data-theme="light"] body[data-studio-page="guia-busca"] section.max-w-3xl>div.rounded-2xl{
+ background:#fff!important;background-image:none!important;color:#153353!important;
+ border:1px solid #dce5f1!important;box-shadow:0 8px 24px rgba(25,56,91,.075)!important
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] section.max-w-3xl>div.rounded-2xl :is(h2,p){color:#193858!important}
+html[data-theme="light"] body[data-studio-page="guia-busca"] section.max-w-3xl>div.rounded-2xl>a{
+ background:#2563eb!important;background-image:none!important;border:1px solid #1d55d0!important;
+ color:#fff!important;min-height:44px;text-decoration:none!important
+}
+/* Evolution: originally white names and pastel costs on an already white card. */
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card .name{color:#142f50!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card .dex{color:#536985!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card .cost{
+ background:#fff8e8!important;background-image:none!important;color:#795207!important;border:1px solid #eacb89!important
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card :is(.tag,.badge){
+ background:#edf4ff!important;background-image:none!important;color:#264c7d!important;border:1px solid #cddcf0!important
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card :is(.reqs li,.note){color:#435a78!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card .arrow{color:#2e5ca3!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .summary .count{color:#465f7e!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .feedback a{
+ color:#fff!important;background:#2563eb!important;background-image:none!important;border:1px solid #1d54cb!important
+}
+/* Form changes/fusions: the names and energy chips must stay readable. */
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .grid .card .pname{color:#173554!important}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .grid .card :is(.kind,.cost){
+ background:#edf4ff!important;background-image:none!important;color:#244c7d!important;border:1px solid #cedcf0!important
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .grid .card .cost :is(strong,b,span){color:#244c7d!important}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .family-count{
+ color:#254a80!important;background:#edf4ff!important;border-color:#cbdcf1!important
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] :is(.family-head p,.grid .card .note){color:#536b87!important}
+/* Combat: quick-reference panels previously retained light text or navy-on-navy. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.legend .item,.quick-type){
+ background:#f2f6fc!important;background-image:none!important;border:1px solid #d6e2f2!important;color:#1b395c!important
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.legend .item,.quick-type) :is(b,strong,h4){color:#173659!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.legend .item small,.quick-type p,.quick-type .line,.meter .stat span,.result-card .empty){color:#46617f!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge .challenge-copy .eyebrow{
+ background:#edf4ff!important;color:#2054ae!important;border:1px solid #cbdcf1!important
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge .challenge-next{
+ display:inline-flex;align-items:center;justify-content:center;
+ padding:10px 13px!important;margin-top:12px;background:#fff!important;
+ border:1px solid #a9c4eb!important;border-radius:10px!important;color:#1b53aa!important;
+ font-weight:750!important;min-height:44px;text-decoration:none!important
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-feedback{color:#526782!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .mode.active{
+ background:#f3f7fe!important;background-image:none!important;border:1px solid #d7e3f3!important;
+ border-radius:16px;padding:clamp(14px,2vw,22px)!important
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .mode.active .helper{color:#385574!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .selected-strip>span:first-child{color:#4b6483!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid{gap:8px!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid .type-btn{min-height:48px;padding:10px 8px;border-radius:12px}
+@media(min-width:900px){
+ html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+/* Box calculator: predictable columns even at zoom and intermediate widths. */
+@media(min-width:821px){
+ html[data-theme="light"] body[data-studio-page="calculadora"] main.wrap.layout{
+  display:grid!important;width:min(1120px,calc(100% - 28px))!important;
+  grid-template-columns:minmax(0,1.3fr) minmax(340px,.8fr)!important;gap:18px;direction:ltr!important
+ }
+ html[data-theme="light"] body[data-studio-page="calculadora"] main.wrap.layout>section{
+  grid-column:1!important;grid-row:1!important;min-width:0
+ }
+ html[data-theme="light"] body[data-studio-page="calculadora"] main.wrap.layout>aside{
+  grid-column:2!important;grid-row:1!important;min-width:0
+ }
+}
+@media(min-width:1001px){
+ html[data-theme="light"] body[data-studio-page="calculadora"] .fields{
+  grid-template-columns:minmax(160px,1fr) minmax(135px,170px) minmax(145px,180px)!important
+ }
+}
+@media(min-width:821px) and (max-width:1000px){
+ html[data-theme="light"] body[data-studio-page="calculadora"] .fields{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important
+ }
+ html[data-theme="light"] body[data-studio-page="calculadora"] .fields>div:first-child{grid-column:1/-1}
+}
+@media(max-width:820px){
+ html[data-theme="light"] body[data-studio-page="calculadora"] main.wrap.layout{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important
+ }
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .fields>div{min-width:0}
+html[data-theme="light"] body[data-studio-page="calculadora"] .fields label{line-height:1.35;color:#274565!important}
+html[data-theme="light"] body[data-studio-page="calculadora"] .info{
+ background:#f0f5fc!important;border-color:#d6e2f2!important;color:#3f5776!important
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .info.warning{
+ background:#fff7e8!important;border-color:#edd4a0!important;color:#6c510f!important
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .result .hero{
+ background:#f2f6fc!important;background-image:none!important
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .result .hero :is(.kicker,.answer,.sub){color:#173554!important}
+html[data-theme="light"] body[data-studio-page="calculadora"] .result .hero .sub{color:#526782!important}
+/* Small contextual labels on white panels. */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.result-label,.placeholder,.formula){color:#4a6380!important}
+html[data-theme="light"] body[data-studio-page="central-mega"] .event .date{color:#74510a!important}
+/* Sharing interface: light UI around the intentionally dark generated card art. */
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog{
+ color:#163252!important;background:#fff!important;background-image:none!important;
+ border:1px solid #cbd9ec!important;box-shadow:0 22px 65px rgba(11,31,59,.23)!important
+}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog header h2{color:#102b4b!important}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog p{color:#4c6481!important}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-close{
+ background:#eef4fc!important;border:1px solid #cedcf0!important;color:#16365b!important;
+ border-radius:10px!important;min-width:44px;min-height:44px
+}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-actions{
+ background:linear-gradient(transparent,#fff 32%)!important
+}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-actions button{
+ background:#2563eb!important;color:#fff!important;border-color:#2563eb!important
+}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-actions a{
+ background:#eaf2ff!important;color:#1c52a1!important;border-color:#a9c4ea!important
+}

@@ -101,6 +101,37 @@ for(const s of sizes){
      }
      await tab.screenshot({path:path.join(OUT,s.name+'-calculator-feedback.jpg'),type:'jpeg',quality:82,animations:'disabled'});
    }
+   if(file==='tipagens.html'){
+     await tab.locator('[data-combat-tab="types"]').click();
+     await tab.locator('#attackGrid .type-btn[data-type="poison"]').click();
+     const palette=await tab.evaluate(()=>{
+       const btn=id=>document.querySelector('#attackGrid .type-btn[data-type="'+id+'"]');
+       const style=el=>({bg:getComputedStyle(el).backgroundColor,fg:getComputedStyle(el).color,border:getComputedStyle(el).borderColor});
+       const pills=[...document.querySelectorAll('#attackGood .type-badge,#attackBad .type-badge')];
+       return {button:style(btn('poison')),fire:style(btn('fire')),water:style(btn('water')),
+         pill:pills.map(p=>({text:p.textContent,...style(p)})).slice(0,5)};
+     });
+     if(palette.button.bg===palette.fire.bg||palette.button.bg===palette.water.bg||palette.fire.bg===palette.water.bg)
+       errors.push('Combat type buttons lost their per-type backgrounds: '+JSON.stringify(palette));
+     if(palette.pill.some(p=>p.fg==='rgb(255, 255, 255)'))
+       errors.push('Type badges have unreadable white text on a light tinted background');
+     await tab.locator('#attackGrid').scrollIntoViewIfNeeded();
+     await tab.screenshot({path:path.join(OUT,s.name+'-combat-colored-types.jpg'),type:'jpeg',quality:84,animations:'disabled'});
+     console.log('TYPE_PALETTE '+JSON.stringify({viewport:s.name,palette}));
+   }
+   if(file==='poeira-estelar.html'){
+     const alignment=await tab.evaluate(()=>{
+       const rect=e=>{const r=e.getBoundingClientRect();return {x:Math.round(r.x),right:Math.round(r.right),width:Math.round(r.width)}};
+       return {hero:rect(document.querySelector('main > section.hero.wrap')),group:rect(document.querySelector('main > section.wrap')),
+          breadcrumb:rect(document.querySelector('main > .gn-breadcrumb')),width:innerWidth};
+     });
+     if(Math.abs(alignment.hero.x-alignment.group.x)>3||Math.abs(alignment.breadcrumb.x-alignment.group.x)>3)
+       errors.push('Stardust hero/breadcrumb misaligned with groups: '+JSON.stringify(alignment));
+     if(alignment.hero.x<0||alignment.hero.right>alignment.width+2)
+       errors.push('Stardust hero extends outside viewport');
+     await tab.screenshot({path:path.join(OUT,s.name+'-stardust-aligned.jpg'),type:'jpeg',quality:84,animations:'disabled'});
+     console.log('STARDUST_ALIGNMENT '+JSON.stringify({viewport:s.name,alignment}));
+   }
    if(file==='efeitos-aventura.html'){
      const card=tab.locator('.grid .card').filter({hasText:'Zamazenta'}).first();
      await card.locator('.details').click();

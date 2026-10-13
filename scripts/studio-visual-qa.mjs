@@ -151,7 +151,7 @@ for(const s of sizes){
          costSize:size('.cost'),tagSize:size('.tag'),
          imgLoaded:!!img&&img.complete&&img.naturalWidth>0};
      });
-     const color=visual.imageColor.match(/[\\d.]+/g)?.map(Number)||[];
+     const color=visual.imageColor.match(/\d+/g)?.map(Number)||[];
      if(visual.imageBackground!=='none'||color.length<3||color[0]<190||color[1]<190||color[2]<190)
        errors.push('Evolution Pokémon artwork still sits on an old dark tile: '+JSON.stringify(visual));
      if(s.width>=1000 && (visual.root<17.5||visual.dexSize<14||visual.costSize<14||visual.tagSize<14||visual.imageWidth<98))

@@ -18,7 +18,7 @@ for(const test of tests){
  try{
   await page.goto('http://127.0.0.1:8765/'+test.file,{waitUntil:'domcontentloaded',timeout:35000});
   const button=page.locator(test.trigger).first();
-  await button.waitFor({timeout:12000});
+  await button.waitFor({state:'attached',timeout:12000});
   await button.evaluate(el=>{const details=el.closest('details');if(details)details.open=true;});
   await button.click();
   const dialog=page.locator(test.dialog);

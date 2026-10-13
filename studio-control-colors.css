@@ -12,7 +12,7 @@ html[data-theme="light"]{
  --ctl-muted:#4c6582;
  --ctl-line:#c8d8ec;
  --ctl-white:#fff;
- --ctl-blue:#225ed2;
+ --ctl-blue:#2563eb;
  --ctl-blue-strong:#1852ba;
  --ctl-blue-pale:#eaf2ff;
  --ctl-yellow:#fecb2f;
@@ -285,4 +285,16 @@ html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots button[a
 }
 html[data-theme="light"] body.page-home #featureUpdates .nx-updates-bottom{
  flex-wrap:wrap;
+}
+
+/* Full-color quiz feedback remains legible after answers become disabled. */
+html[data-theme="light"] body[data-studio-page="quiz"] #answers button.ans:is(.correct,.wrong):disabled{
+ opacity:1!important;
+}
+html[data-theme="light"] body[data-studio-page] main details:not(.nx-accordion)>summary{
+ min-height:43px;
+}
+/* Large enough target for carousel page dots without magnifying the dots. */
+html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots button{
+ min-width:42px!important;min-height:42px!important;
 }

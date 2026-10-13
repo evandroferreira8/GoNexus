@@ -35,6 +35,8 @@ jobs:
         run: node scripts/studio-visual-qa.mjs
       - name: Testar filtros, formulários, cálculos e abas em todas as ferramentas
         run: node scripts/studio-interaction-qa.mjs
+      - name: Inspecionar a arte PNG de compartilhamento
+        run: node scripts/studio-export-qa.mjs
       - name: Arquivar código-fonte para revisão local independente
         if: always()
         run: |

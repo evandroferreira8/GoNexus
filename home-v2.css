@@ -1,7 +1,7 @@
 /* Nexus Studio 2.0 — MOBILE FIRST */
-.page-home{color:#0b1f3b;background:#f8f9fb}
+.page-home{color:#0b1f3b;background:var(--gn-bg)}
 .page-home .shell{width:min(1180px,calc(100% - 26px));margin:auto}
-.page-home .gn-hero{position:relative;overflow:hidden;margin:15px 0 20px;padding:26px 20px 24px;border-radius:23px;background:linear-gradient(140deg,#f7faff 0%,#e5efff 73%,#dceafc 100%);border:1px solid #dce6f6;isolation:isolate}
+.page-home .gn-hero{position:relative;overflow:hidden;margin:15px 0 20px;padding:26px 20px 24px;border-radius:23px;background:linear-gradient(140deg,#f7faff 0%,#e5efff 73%,#dceafc 100%);border:1px solid #bdd0ed;box-shadow:0 12px 30px rgba(21,52,97,.075);isolation:isolate}
 .page-home .gn-hero-content{position:relative;z-index:2;max-width:760px}
 .page-home .gn-kicker{display:inline-flex;align-items:center;gap:8px;color:#2d5da7;font:600 10px/1.4 var(--gn-mono);text-transform:uppercase;letter-spacing:.025em}
 .page-home .gn-kicker:before{content:"";display:block;width:18px;height:3px;border-radius:4px;background:#fecb2f}
@@ -34,14 +34,14 @@
 .page-home .search-result small{display:block;font-size:.74rem;color:#566b86;line-height:1.35}
 .page-home .search-result .arrow{color:#2563eb}
 .page-home .search-empty{padding:15px;color:#536a87}
-.page-home .gn-section{padding:10px 0 22px;scroll-margin-top:14px}
+.page-home .gn-section{padding:17px 15px 21px;margin:0 0 16px;scroll-margin-top:14px;background:var(--gn-section);border:1px solid var(--gn-edge);border-radius:21px;box-shadow:0 7px 23px rgba(24,58,103,.06)}
 .page-home .gn-section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 0 12px}
 .page-home .gn-section-head h2{font:700 clamp(1.3rem,3.3vw,1.85rem)/1.13 var(--gn-display)!important;letter-spacing:-.032em!important;color:#0b1f3b!important;margin:0}
 .page-home .gn-section-sub{display:none}
 .page-home .gn-section-link{flex:none;display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:750;color:#2563eb;text-decoration:none;white-space:nowrap}
 .page-home .gn-section-head h2:before{content:"";display:inline-block;width:14px;height:4px;margin-right:9px;vertical-align:middle;transform:translateY(-3px);border-radius:4px;background:#fecb2f}
 .page-home .gn-grid{display:grid;grid-template-columns:1fr;gap:8px}
-.page-home .gn-v2-card{position:relative;display:flex;align-items:center;gap:13px;min-height:84px;padding:11px 12px;border:1px solid #e0e6f0;border-radius:14px;background:#fff;color:#0b1f3b;text-decoration:none;box-shadow:0 3px 11px #192f5210;min-width:0;transition:transform .18s,box-shadow .18s,border-color .18s}
+.page-home .gn-v2-card{position:relative;display:flex;align-items:center;gap:13px;min-height:84px;padding:11px 12px;border:1px solid #c4d5ec;border-radius:14px;background:#fff;color:#0b1f3b;text-decoration:none;box-shadow:0 6px 17px #192f5219;min-width:0;transition:transform .18s,box-shadow .18s,border-color .18s}
 .page-home .gn-v2-card:hover{transform:translateY(-2px);border-color:#acc7f8;box-shadow:0 9px 21px #15386416}
 .page-home .gn-card-mark{width:62px;height:62px;flex:0 0 62px;border:1px solid #cce0f4;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,var(--card-top,#163864),var(--card-bottom,#2b65c8));color:#fff}
 .page-home .gn-card-mark svg{width:29px;height:29px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
@@ -52,12 +52,12 @@
 .page-home .gn-v2-card.featured{border-color:#c8d8f1}
 .page-home .gn-overline{font:600 10px/1.3 var(--gn-mono);color:#1e5ad0}
 .page-home .gn-two-lanes{display:grid;grid-template-columns:1fr;gap:10px}
-.page-home .gn-explore-card{display:flex;align-items:center;gap:13px;border:1px solid #e0e6f0;border-radius:14px;background:#fff;padding:14px}
+.page-home .gn-explore-card{display:flex;align-items:center;gap:13px;border:1px solid #c4d5ec;border-radius:14px;background:#fff;padding:14px;box-shadow:0 6px 17px #192f5217}
 .page-home .gn-explore-icon{display:grid;place-items:center;width:56px;height:56px;flex:0 0 56px;border-radius:12px;background:#fff2cf;color:#926600;font-size:25px}
 .page-home .gn-explore-card h3{font:700 1rem/1.25 var(--gn-display)!important;color:#0b1f3b!important;margin:1px 0 3px}
 .page-home .gn-explore-card p{font-size:.76rem;color:#586d86!important;line-height:1.35;margin:0}
 .page-home .gn-explore-card a{margin-left:auto;text-decoration:none;color:#164ebc;font-size:1.3rem;font-weight:700;padding:8px}
-.page-home #dailyPokemon{margin:0;padding:13px;background:#fff!important;border:1px solid #e0e6f0!important;border-radius:14px!important;box-shadow:none!important;min-width:0}
+.page-home #dailyPokemon{margin:0;padding:13px;background:#fff!important;border:1px solid #c4d5ec!important;border-radius:14px!important;box-shadow:0 6px 17px #192f5217!important;min-width:0}
 .page-home #dailyPokemon .daily-art{width:82px;height:82px;background:#edf3fd;border-color:#d4e0f1;border-radius:14px}
 .page-home #dailyPokemon .daily-pokemon-main{grid-template-columns:82px 1fr;gap:12px;margin-top:12px}
 .page-home #dailyPokemon .daily-name{font-size:1.3rem;color:#0b1f3b}
@@ -66,7 +66,7 @@
 .page-home #dailyPokemon .daily-meta{font-size:.77rem;color:#536781}
 .page-home #dailyPokemon .daily-tag{background:#eef4fd;color:#1c4b99;border-color:#d7e2f4}
 .page-home #dailyPokemon .daily-pokemon-actions a,.page-home #dailyPokemon .daily-pokemon-actions button{background:#2563eb;border-color:#2563eb;color:#fff;font-weight:700}
-.page-home #featureUpdates{padding:16px;background:#fff!important;border:1px solid #e0e6f0!important;border-radius:14px;box-shadow:none;margin:0}
+.page-home #featureUpdates{padding:16px;background:#fff!important;border:1px solid #c4d5ec!important;border-radius:14px;box-shadow:0 6px 17px #192f5217;margin:0}
 .page-home #featureUpdates:before{background:#fecb2f;height:3px}
 .page-home #featureUpdates .nx-updates-kicker{color:#2563eb}
 .page-home #featureUpdates :where(h2,h3){color:#0b1f3b!important}
@@ -97,7 +97,7 @@
 @media(min-width:650px){
  .page-home .shell{width:min(1180px,calc(100% - 42px))}
  .page-home .gn-hero{padding:38px 40px;margin:23px 0 32px}
- .page-home .gn-section{padding:13px 0 30px}
+ .page-home .gn-section{padding:21px 21px 25px}
  .page-home .gn-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
  .page-home .gn-card-mark{width:78px;height:78px;flex-basis:78px}.page-home .gn-card-mark svg{width:35px;height:35px}
  .page-home .gn-v2-card{min-height:105px;padding:13px}
@@ -109,7 +109,7 @@
 @media(min-width:980px){
  .page-home .gn-hero{margin-top:26px;min-height:300px;padding:47px 52px}
  .page-home .gn-hero-visual{opacity:.65}
- .page-home .gn-section{padding:15px 0 34px}
+ .page-home .gn-section{padding:24px 25px 29px}
  .page-home .gn-section-head{margin-bottom:15px}
  .page-home .gn-section-sub{display:block;color:#667993;font-size:.85rem;margin:3px 0 0}
  .page-home .gn-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
@@ -148,7 +148,7 @@
 /* The egg is now a normal Explore card: no overlay, no obstructed cards. */
 .page-home .gn-explore-card.gn-cosmic-card{
  display:flex;align-items:center;gap:13px;min-height:86px;
- background:#fff!important;border:1px solid #e0e6f0;
+ background:#fff!important;border:1px solid #c4d5ec;
  border-radius:14px;padding:12px 15px;
  max-width:none;box-shadow:0 3px 11px #192f5210;
 }

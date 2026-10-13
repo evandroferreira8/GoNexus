@@ -69,3 +69,22 @@ html[data-theme="light"] body{padding-bottom:74px!important}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
+
+/* Readable desktop typography. Before this change desktop remained 16px
+   while mobile received an 18px root size from accessibility styles. */
+@media(min-width:769px){
+ html[data-theme="light"]{font-size:18px;text-size-adjust:100%}
+ html[data-theme="light"] body[data-studio-page] main{
+  font-size:1rem;line-height:1.58;
+ }
+ html[data-theme="light"] body[data-studio-page] main :is(input,select,textarea,button){
+  font-size:max(.92rem,16px);
+ }
+ html[data-theme="light"] body[data-studio-page] main :is(
+  small,.eyebrow,.updated,.hint,.meta,.kind,.tag,.cost,.badge,.dex,.note,.chip,.source-list,
+  .nx-summary-sub,.nx-count,.gn-current
+ ){
+  font-size:max(.8rem,14px)!important;line-height:1.45;
+ }
+ html[data-theme="light"] body .gn-breadcrumb{font-size:max(.8rem,14px)!important}
+}

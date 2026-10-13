@@ -1,0 +1,1322 @@
+/* NEXUS STUDIO / Single owner of tool components & control states. */
+/* Shared light accordion components — previously injected with dark colors by nav.js. */
+html[data-theme="light"] body[data-studio-page] details.nx-accordion{border:1px solid #dce5f1;border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 7px 24px #17314f0d}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion+details.nx-accordion{margin-top:9px}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion[open]{border-color:#b9cce5;background:#fff}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:58px;padding:13px 16px;color:#142e4d;font:700 .93rem/1.35 var(--gn-font);user-select:none}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion>summary::-webkit-details-marker{display:none}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion>summary:hover{background:#eef4fc}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion>summary:focus-visible{outline:3px solid #2563eb;outline-offset:-3px}
+html[data-theme="light"] body[data-studio-page] .nx-summary-main{display:flex;align-items:center;gap:10px;min-width:0}
+html[data-theme="light"] body[data-studio-page] .nx-summary-copy{min-width:0}
+html[data-theme="light"] body[data-studio-page] .nx-summary-title{display:block;color:#142e4d}
+html[data-theme="light"] body[data-studio-page] .nx-summary-sub{display:block;margin-top:2px;color:#526782;font-size:.77rem;font-weight:650;white-space:normal}
+html[data-theme="light"] body[data-studio-page] .nx-summary-side{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+html[data-theme="light"] body[data-studio-page] .nx-count{display:inline-flex;align-items:center;justify-content:center;min-width:31px;padding:4px 8px;border:1px solid #d5e1f2;border-radius:999px;background:#eff4fc;color:#26569c;font-size:.71rem;font-weight:800}
+html[data-theme="light"] body[data-studio-page] .nx-chevron{width:24px;height:24px;display:grid;place-items:center;border-radius:8px;color:#617995;transition:transform .18s,color .18s;background:#f0f5fc}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion[open] .nx-chevron{transform:rotate(180deg);color:#2159ca}
+html[data-theme="light"] body[data-studio-page] .nx-body{padding:0 16px 16px;border-top:1px solid #dce5f1}
+html[data-theme="light"] body[data-studio-page] .nx-body>.nx-body-intro{margin:14px 0 12px;color:#526782;font-size:.84rem;line-height:1.62}
+html[data-theme="light"] body[data-studio-page] .nx-pills{display:flex;flex-wrap:wrap;gap:7px;padding-top:12px}
+html[data-theme="light"] body[data-studio-page] .nx-pill{display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border:1px solid #d0deef;border-radius:999px;background:#f0f5fc;color:#254c7d;font-size:.78rem;font-weight:780;line-height:1.25}
+html[data-theme="light"] body[data-studio-page] .nx-pill strong{color:#1a416d}
+html[data-theme="light"] body[data-studio-page] .nx-pill.good{border-color:#aad9c4;background:#e7f7ef;color:#126045}
+html[data-theme="light"] body[data-studio-page] .nx-pill.future{border-color:#ead097;background:#fff8e7;color:#825709}
+html[data-theme="light"] body[data-studio-page] .nx-pill.muted{color:#526782;background:#f0f5fc}
+html[data-theme="light"] body[data-studio-page] .nx-compact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;padding-top:12px}
+html[data-theme="light"] body[data-studio-page] .nx-compact-item{padding:10px 11px;border:1px solid #d7e2f1;border-radius:12px;background:#f1f5fc;color:#254361;font-size:.79rem;line-height:1.48}
+html[data-theme="light"] body[data-studio-page] .nx-compact-item b{color:#153354}
+html[data-theme="light"] body[data-studio-page] .nx-note{margin-top:10px;padding:10px 12px;border-left:2px solid #4970b4;border-radius:0 9px 9px 0;background:#f1f6fd;color:#435c7c;font-size:.79rem;line-height:1.57}
+@media(max-width:560px){
+html[data-theme="light"] body[data-studio-page] details.nx-accordion>summary{min-height:54px;padding:12px 13px;gap:9px;font-size:.9rem}
+html[data-theme="light"] body[data-studio-page] .nx-summary-sub{display:none}
+html[data-theme="light"] body[data-studio-page] .nx-body{padding:0 13px 13px}
+html[data-theme="light"] body[data-studio-page] .nx-count{padding:3px 7px}
+html[data-theme="light"] body[data-studio-page] .nx-compact-grid{grid-template-columns:1fr}
+html[data-theme="light"] body[data-studio-page] .nx-pill{font-size:.76rem}
+}
+/* Surfaces and modules */
+/*
+NEXUS STUDIO 2.1 — SCOPED MODULE MIGRATION
+All rules scoped to body[data-studio-page], no generic component
+selectors affecting the rest of the site.
+Source: 15-page legacy inventory versus original commit 676614b.
+*/
+html[data-theme="light"] body[data-studio-page]{
+ --bg:#f8f9fb;--panel:#fff;--panel2:#eff5fc;--card:#fff;--card2:#f2f6fd;
+ --line:#dce5f1;--text:#152c4b;--muted:#526782;
+ --blue:#2563eb;--green:#16735a;--red:#ae3a4a;--yellow:#88600a;
+ --violet:#6257b7;--pink:#a94487;--accent:#2563eb;
+}
+html[data-theme="light"] body[data-studio-page] main{
+ color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page] main > section.hero,
+html[data-theme="light"] body[data-studio-page] main > header.hero{
+ background:#fff!important;
+ background-image:none!important;
+ color:#122a4a!important;
+ border:1px solid #dce5f1!important;
+ border-left:4px solid #fecb2f!important;
+ border-radius:18px!important;
+ box-shadow:0 5px 18px #162f5210!important;
+ text-align:left!important;
+ padding:25px 27px!important;
+ margin:5px 0 19px!important;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero :is(h1,h2,h3){
+ color:#0b1f3b!important;
+ text-shadow:none!important;
+ font:750 clamp(2.05rem,5vw,3.65rem)/1.12 var(--gn-title)!important;
+ margin:8px 0 9px!important;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero :is(p,.lead){
+ color:#526782!important;
+ text-shadow:none!important;
+ font-size:clamp(.91rem,1.4vw,1rem)!important;
+ line-height:1.55!important;
+ text-align:left!important;
+ margin:0 0 9px!important;
+ max-width:770px;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero :is(.eyebrow,.updated,b:first-child){
+ color:#245db9!important;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero .eyebrow,
+html[data-theme="light"] body[data-studio-page] main > .hero > b:first-child{
+ display:inline-block;
+ font:600 .72rem/1.5 var(--gn-code)!important;
+ letter-spacing:.01em!important;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero .hero-meta{
+ justify-content:flex-start;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero .hero-meta span{
+ background:#eef4fd;color:#315b97;border-color:#d7e4f6;
+}
+html[data-theme="light"] body[data-studio-page] main > .hero .updated{
+ color:#526782!important;
+ border-color:#dce5f1;
+ background:#f0f5fc;
+ padding:6px 10px;
+ border-radius:9px;
+ font-size:.76rem!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(
+ .panel,.card,.fact,.box,.calc,.calc-line,.row,.wallet,.walletitem,
+ .info,.feedback,.core article,.event,.compare article,.flow>div,.group,
+ .quick-type,.context-card,.analysis-card,.weather-result,.challenge,
+ .search-result-card,.poke-profile,.result-card,.searchbox,
+ .mega-row,.pack,.family,.formvisual,.energy,.list-grid>*,.tier,.step,
+ .pokemon,.diff,.move,.coin-balance-box,.price-focus,.current-level,
+ .search-builder,.selected-box,.type-card,.mode,.quiz,.progress,
+ .result,.tool,.about,.stat,.sourcebox
+){
+ background-color:#fff!important;
+ background-image:none!important;
+ border-color:#dce5f1!important;
+ box-shadow:0 5px 19px #17314f0d!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.panel,.card,.fact,.box,.calc,.calc-line,.info,.feedback,.core article,.event,.compare article,.row,.search-builder,.mode){
+ border-radius:15px;
+}
+html[data-theme="light"] body[data-studio-page] :is(h1,h2,h3,h4,.question,.answer,.label,.level,.score){
+ color:#0b1f3b;
+}
+html[data-theme="light"] body[data-studio-page] :is(
+ p,small,.lead,.sub,.note,.hint,.description,.desc,.updated,
+ .details,.helper,.muted,.meta,.tip,.footnote,.sourcebox,
+ .weather-types,.weather-result p,.info li
+){color:#526782}
+html[data-theme="light"] body[data-studio-page] :is(input,select,textarea){
+ background:#fff!important;
+ background-image:none!important;
+ color:#0b1f3b!important;
+ border:1px solid #c6d5e8!important;
+ border-radius:11px!important;
+ min-height:42px;
+}
+html[data-theme="light"] body[data-studio-page] :is(input,textarea)::placeholder{
+ color:#607491!important;opacity:1;
+}
+html[data-theme="light"] body[data-studio-page] :is(.searchbox,.fields,.toolbar,.controls,.filters){
+ color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page] :is(.chip,.filter,.filter-btn,.tab,.combat-tab,.weather-btn,.level-btn,.mode){
+ color:#244767;
+ background:#fff;
+ background-image:none;
+ border-color:#cad8e9;
+}
+html[data-theme="light"] body[data-studio-page] :is(
+ .chip.on,.chip.active,.filter.active,.filter-btn.active,.tab.active,.combat-tab.active,
+ .weather-btn.active,.level-btn.active,.mode.active,
+ button[aria-selected="true"],button[aria-pressed="true"]
+){
+ background:#e5efff!important;
+ background-image:none!important;
+ color:#1b4fb4!important;
+ border-color:#7ca5e6!important;
+ box-shadow:0 0 0 1px #bdd2f7 inset!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.btn.primary,.btn-primary,.primary-btn,.next,.sb-copy,.action-btn,.button-primary){
+ background:#2563eb!important;
+ background-image:none!important;
+ color:#fff!important;
+ border-color:#2563eb!important;
+ border-radius:11px;
+}
+html[data-theme="light"] body[data-studio-page] :is(.btn.primary,.btn-primary,.primary-btn,.next,.sb-copy,.action-btn,.button-primary):hover{
+ background:#174bb8!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.eyebrow,.badge,.tag,.chip,.updated){
+ letter-spacing:.01em;
+}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion{
+ background:#fff!important;
+ background-image:none!important;
+ border:1px solid #dce5f1!important;
+ border-radius:14px!important;
+}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion>summary{
+ color:#132d4d!important;
+ background:#fff!important;
+ font-weight:700;
+}
+html[data-theme="light"] body[data-studio-page] details.nx-accordion[open]>summary{
+ background:#f0f5fd!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.nx-summary-title,.nx-body){
+ color:#142e4d!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.nx-summary-sub,.nx-body-intro,.nx-note){
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.nx-count,.nx-pill,.nx-chevron){
+ background:#eff4fc!important;
+ color:#26569c!important;
+ border-color:#d5e1f2!important;
+}
+html[data-theme="light"] body[data-studio-page] :is(.badge,.tag,.pill){
+ border-color:#d5e1f2;
+}
+html[data-theme="light"] body[data-studio-page] :is(.pill.good,.status.good){color:#106d51!important}
+html[data-theme="light"] body[data-studio-page] :is(.pill.bad,.status.bad){color:#ab3547!important}
+html[data-theme="light"] body[data-studio-page] :is(.pill.warn,.status.warn){color:#805707!important}
+html[data-theme="light"] body[data-studio-page] :is(.stat,.big,.score,.result-value,.total){
+ color:#174fba;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.card,.panel,.fact,.info,.feedback,.calc,.calc-line,.box,.row,.quiz,.group,.family,.result,.search-builder) :is(h2,h3,h4,label,strong,b){
+ color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.card,.panel,.fact,.info,.feedback,.calc,.calc-line,.box,.row,.quiz,.group,.family,.result,.search-builder) :is(p,small,li){
+ color:#526782;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.card,.panel,.fact,.info,.feedback,.calc,.calc-line,.box,.row,.quiz,.group,.family,.result,.search-builder) a{
+ color:#2159ca;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.card,.panel,.fact,.info,.feedback,.calc,.calc-line,.box,.row,.quiz,.group,.family,.result,.search-builder) a:hover{
+ text-decoration:underline;
+}
+/* --- Specialty: combat & type analysis, preserve semantic type swatches --- */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.analyzer-card,.weather-btn,.weather-result,.challenge,.challenge-art,.poke-profile,.quick-type,.type-btn,.combat-tab){
+ background:#fff!important;background-image:none!important;color:#173453!important;
+ border-color:#d5e2f1!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.combat-tab.active,.weather-btn.active,.type-btn.active){
+ color:#1752ba!important;background:#e6efff!important;border-color:#7da9ed!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.weather-types,.weather-result p,.challenge-copy p){color:#526782!important}
+/* --- Specialty: stardust --- */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > .hero .toolbar{
+ margin-top:17px;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.pokemon,.item,.group,.calculator,.bonus,.result,.selected-box){
+ background:#fff!important;background-image:none!important;color:#152c4b!important;border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.summary,.result,.total,.amount){color:#174fba}
+/* --- Specialty: Mega and Max --- */
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(.core article,.event,.step,.energy,.level,.mega-card,.mega-row,.card,.panel,.searchbox){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] :is(.compare article,.flow div,.calc,.calc-line,.card,.panel,.step,.level,.max-pill){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .calc-line label{color:#536b88!important}
+html[data-theme="light"] body[data-studio-page="central-max"] .calc-line select{
+ background:#fff!important;color:#152c4b!important;border-color:#c6d5e8!important;min-height:42px;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] #maxAnswer{
+ background:#edf4ff!important;color:#143e7d!important;border-radius:12px;
+}
+/* --- Specialty: evolution and forms, keep JS show/hide and tab states --- */
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] :is(.card,.filter,.badge,.summary,.controls,.searchrow,.searchbox){
+ background:#fff!important;background-image:none!important;border-color:#d9e5f3!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] :is(.card,.group,.info,.intro,.panel.active,.fusion,.family,.formvisual,.ditto-card,.ditto-fact,.ditto-game){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;color:#152c4b;
+}
+/* Do not override .panel{display:none}; .panel.active{display:block} */
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab.active{
+ background:#e8f1ff!important;color:#1954bb!important;
+}
+/* Legacy nested panels: keep light-theme typography paired with light surfaces. */
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .rule{
+  background:#f2f6fc!important;
+  background-image:none!important;
+  color:#152c4b!important;
+  border:1px solid #d8e3f1!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .rule strong{
+  color:#15365a!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .rule p{
+  color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .saving{
+  background:#e6f5ee!important;
+  background-image:none!important;
+  border:1px solid #add9c4!important;
+  color:#124d3b!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .saving span{
+  color:#265d4d!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .saving strong{
+  color:#096946!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] :is(.explain,.details){
+  color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .wallet{
+  background:#f0f5fc!important;
+  background-image:none!important;
+  color:#152c4b!important;
+  border-color:#d5e2f1!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .walletitem{
+  background:#fff!important;
+  background-image:none!important;
+  border-color:#d5e2f1!important;
+  color:#152c4b!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .walletitem :is(span,small){
+  color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .walletitem strong.ok{color:#136d4d!important}
+html[data-theme="light"] body[data-studio-page="calculadora"] .walletitem strong.warn{color:#875e06!important}
+
+html[data-theme="light"] body[data-studio-page="calculadora"] .feedbackbox{
+  background:#fff!important;
+  background-image:none!important;
+  border:1px solid #dce5f1!important;
+  color:#152c4b!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .feedbackbox h2{
+  color:#14365a!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .feedbackbox p{
+  color:#526782!important;
+}
+
+/* --- Specialty: Efeitos Aventura --- */
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] :is(.controls,.grid .card,.info,.feedback){
+ border-color:#dce5f1!important;color:#132f4d;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card{
+ background:#fff!important;background-image:none!important;
+ border:1px solid #dce5f1!important;
+ box-shadow:0 3px 12px #1a355012!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .art{
+ background:radial-gradient(circle,#e2ecfb,#f4f7fd)!important;
+ border-color:#dce5f1;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .pokemon{color:#285bac!important}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .content h2{color:#0b1f3b!important}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .content p{color:#526782!important}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .badge{
+ background:#edf4ff!important;color:#2456b1!important;border-color:#d5e2f7!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip{
+ min-height:43px;background:#fff!important;color:#244767!important;border-color:#d1dfef!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip.on{
+ background:#2563eb!important;color:#fff!important;border-color:#2563eb!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] :is(.info,.feedback){background:#fff!important}
+/* --- Specialty: Quiz --- */
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.mode,.quiz,.card,.topbar,.answers button,.feedback,.progress){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;color:#152c4b;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.mode b,.question,.score,.level){color:#122f52!important}
+html[data-theme="light"] body[data-studio-page="quiz"] .mode span{color:#526782!important}
+html[data-theme="light"] body[data-studio-page="quiz"] .answers button:hover{
+ background:#edf4ff!important;border-color:#8baeed!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .answers button.selected{
+ background:#e6f0ff!important;color:#154bac!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.feedback,.cat){color:#526782}
+/* --- Specialty: guide / Tailwind generated markup --- */
+html[data-theme="light"] body[data-studio-page="guia-busca"]{
+ --nx:#2563eb;--nx2:#547fd0;--nx3:#b85a83;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] #app :is(.card,.rounded-2xl,.rounded-xl),
+html[data-theme="light"] body[data-studio-page="guia-busca"] #guia-iv :is(.rounded-xl,.rounded-2xl){
+ background-color:#fff!important;background-image:none!important;
+ color:#152c4b!important;border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.text-white,.text-slate-100,.text-slate-200,.text-slate-300,.text-slate-400){
+ color:#284666!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.bg-slate-900,.bg-slate-800,.bg-slate-950,.bg-gray-900){
+ background:#fff!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.search-builder,.sb-result,.sb-field input,.sb-field select,.sb-chip){
+ background:#fff!important;background-image:none!important;
+ color:#152c4b!important;border-color:#cddbec!important;
+ box-shadow:none!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.sb-chip.active,.sb-chip[aria-pressed="true"]){
+ background:#e6efff!important;color:#1950b4!important;border-color:#8fb2f0!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.sb-result){
+ color:#1950b4!important;background:#f2f6fd!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.search-builder-intro,.sb-field label,.sb-group-title,.sb-feedback){
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .sb-copy:not(:disabled){
+ background:#2563eb!important;color:#fff!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] #app :is(button[aria-selected="true"],.active){
+ color:#174fb4!important;
+}
+/* --- Institutional --- */
+html[data-theme="light"] body:is([data-studio-page="privacidade"],[data-studio-page="termos"],[data-studio-page="anuncie"]) :is(.panel,.card){
+ background:#fff!important;background-image:none!important;border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] .card.featured{
+ background:#eff5ff!important;
+}
+@media(max-width:680px){
+ html[data-theme="light"] body[data-studio-page] main > section.hero,
+ html[data-theme="light"] body[data-studio-page] main > header.hero{
+  padding:18px 17px!important;margin:3px 0 14px!important;
+ }
+ html[data-theme="light"] body[data-studio-page] main > .hero h1{
+  font-size:clamp(2rem,8vw,3rem)!important;
+ }
+ html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chips{
+  display:flex;flex-wrap:nowrap;overflow-x:auto;gap:7px;padding-bottom:6px;
+ }
+ html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip{
+  flex:0 0 auto;padding:9px 13px;
+ }
+ html[data-theme="light"] body[data-studio-page="guia-busca"] :is(#app,#guia-iv){
+  width:min(100% - 24px,768px);padding-left:0;padding-right:0;
+ }
+}
+
+
+/* CONTRAST CORRECTIONS: grounded in captured 360/390/1365 screenshots. */
+html[data-theme="light"] body[data-studio-page="tipagens"] main > .hero :is(strong,b){
+ color:#183b68!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .poke-search button[type="submit"]{
+ background:#2563eb!important;background-image:none!important;color:#fff!important;
+ border:1px solid #174bb8!important;min-height:44px;border-radius:11px;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-next{
+ background:#fff!important;background-image:none!important;color:#2055bd!important;
+ border:1px solid #9bb8e9!important;min-height:42px;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.langbox,.langswitch,.langtop,.langtitle){
+ background:#fff!important;background-image:none!important;color:#172f4c!important;
+ border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbox{
+ padding:15px;border:1px solid #dce5f1;border-radius:14px;box-shadow:0 3px 12px #11294d0b;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langswitch{
+ background:#edf3fd!important;border:1px solid #d7e3f3;border-radius:11px;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn{
+ color:#375575!important;background:transparent!important;border-color:transparent!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn.active{
+ color:#1649ae!important;background:#fff!important;border-color:#aac4ee!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langhelp,
+html[data-theme="light"] body[data-studio-page="guia-busca"] header p.text-slate-400{
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.sourcebadge,.sourcebadge.advanced){
+ color:#875706!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] #add{
+ background:#2563eb!important;color:#fff!important;border:1px solid #2563eb!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .comparebox .side{
+ background:#f0f5fd!important;border-color:#dae5f3!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .comparebox .side :is(span,strong){
+ color:#234263!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.group-count,.note,.group small){
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(.tag.super,.tag.super-max){
+ color:#59449f!important;background:#f0eafd!important;border:1px solid #d8cdf0!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(.event span,.news span,.event p){
+ color:#536984!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .compare article b,
+html[data-theme="light"] body[data-studio-page="central-max"] .flow strong{
+ color:#102b4a!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .flow > div{
+ background:#fff!important;color:#27415e!important;border-color:#dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .flow > div strong,
+html[data-theme="light"] body[data-studio-page="central-max"] .flow > div b{
+ color:#14365a!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] :is(.sources p,.sources a,.sourcebox p,.footnote,.reference p,.reference a){
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] :is(.sources a,.sources p,.reference a,.reference p){
+ color:#2157b9!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .info li{
+ color:#435a76!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .feedback a{
+ color:#fff!important;background:#2563eb!important;border:1px solid #2563eb!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .check{
+ background:#fff!important;background-image:none!important;border:1px solid #dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .check b{
+ color:#16395e!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .step-list .step span{
+ color:#465d7a!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .mode strong{
+ color:#2059b7!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .mode:hover strong{
+ color:#184594!important;
+}
+html[data-theme="light"] body:is([data-studio-page="privacidade"],[data-studio-page="termos"],[data-studio-page="anuncie"]) .back{
+ color:#2259bb!important;text-decoration:none;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] :is(.metric span,.metric strong){
+ color:#143556!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] .metric span{
+ background:#f1f6fd!important;border:1px solid #dce6f3!important;border-radius:10px;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] :is(.tag,.tag.featured){
+ color:#1f56b7!important;background:#e7f0ff!important;border-color:#cdddf4!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] .cta{
+ background:#2563eb!important;color:#fff!important;border-color:#2563eb!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] :is(.price,.price small,.metric strong){
+ color:#163962!important;
+}
+/* Fine-grained light panels avoid dark areas from legacy standalone templates. */
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.search-builder,.langbox,.langswitch){
+ box-shadow:0 4px 16px #0b2a4b0b!important;
+}
+
+
+/* Round 2 — exact remaining mismatches measured in all three viewports. */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .toggle{
+ background:#f2f6fd!important;border:1px solid #d6e2f2!important;
+ color:#152c4b!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .toggle span,
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .toggle small{
+ color:#254663!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .nx-pill.future,
+html[data-theme="light"] body[data-studio-page="central-mega"] .nx-pill.future strong,
+html[data-theme="light"] body[data-studio-page="central-mega"] .level :is(b,strong,small){
+ color:#234466!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .level{
+ background:#fff!important;border:1px solid #dce5f1!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .mega-row{
+ background:#f4f7fc!important;border:1px solid #d9e3f1!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .mega-row :is(.name,.note){
+ color:#284462!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .mega-row .tag.energy{
+ background:#fff7df!important;color:#74510c!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .source-list a,
+html[data-theme="light"] body[data-studio-page="central-mega"] .nx-body a{
+ color:#2259b5!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .difficulty-note,
+html[data-theme="light"] body[data-studio-page="central-max"] .difficulty-note :is(b,strong){
+ color:#274763!important;background:#f4f7fc!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .calc p{
+ color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="central-max"] .nx-body p,
+html[data-theme="light"] body[data-studio-page="central-max"] .nx-body a{
+ color:#2156af!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .nx-body p,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .source-list a{
+ color:#345472!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .nx-body li,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .nx-body ul{
+ color:#415b79!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .check span{
+ color:#415d79!important;
+}
+html[data-theme="light"] body[data-studio-page="anuncie"] main > .hero .eyebrow{
+ background:#e9f2ff!important;color:#2059b4!important;
+ border:1px solid #cddff6!important;border-radius:999px!important;
+ padding:5px 9px!important;
+}
+
+/* Final contrast edge cases: event bonus control + Mega result panels. */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .event-row{
+ background:#f2f6fd!important;border:1px solid #d6e2f2!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .event-row>span{
+ color:#254663!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(#megaAnswer,#levelAnswer){
+ background:#edf4ff!important;border:1px solid #cadefa!important;color:#284667!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] :is(#megaAnswer,#levelAnswer) b{
+ color:#153f83!important;
+}
+html[data-theme="light"] body[data-studio-page="central-mega"] .answer.ok{
+ background:#ebf8f2!important;border-color:#9bd5ba!important;color:#166849!important;
+}
+
+
+/* The search guide's Tailwind input is generated after page load. Anchor it by ID. */
+html[data-theme="light"] body[data-studio-page="guia-busca"] #search{
+ background:#fff!important;background-image:none!important;
+ border:1px solid #c5d7ed!important;color:#0b1f3b!important;
+ box-shadow:0 3px 10px rgba(17,47,86,.045)!important;
+ border-radius:12px!important;min-height:48px;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] #search::placeholder{
+ color:#56718d!important;opacity:1;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] #search:focus{
+ border-color:#2563eb!important;outline:2px solid #a4c2f8!important;outline-offset:1px;
+}
+
+
+/* Adventure effect cards: one authoritative responsive implementation.
+   Legacy inline dark backgrounds are reset only within this module. */
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:start;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card{
+  grid-template-columns:minmax(100px,29%) minmax(0,1fr);
+  min-width:0;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .art{
+  min-width:0;
+  overflow:hidden;
+  align-items:flex-start!important;
+  justify-content:center;
+  padding-top:20px;
+  border-right:1px solid #dce5f1;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .art img{
+  flex:0 0 auto;
+  align-self:flex-start;
+  width:min(100%,136px);
+  max-width:100%;
+  height:148px;
+  max-height:none;
+  object-fit:contain;
+  object-position:center top;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .content{
+  min-width:0;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .stats{
+  gap:6px;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .stats > div{
+  background:#f0f5fc!important;
+  background-image:none!important;
+  border:1px solid #d5e2f1!important;
+  border-radius:9px;
+  padding:8px 10px;
+  min-width:0;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .stats small{
+  color:#526782!important;
+  font-size:.69rem;
+  line-height:1.35;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .stats strong{
+  color:#142f50!important;
+  font-size:.87rem;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card.open .details{
+  background:#eaf2ff!important;
+  color:#1b51b1!important;
+  border-color:#bad1f4!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .more{
+  color:#526782!important;
+  border-top:1px solid #dce5f1!important;
+}
+@media(max-width:850px){
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+/* Card architecture, mobile-first: never leave effect details in a narrow side rail.
+   Desktop retains two columns; mobile gets an image/title row and full-width details. */
+@media(max-width:680px){
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card{
+    grid-template-columns:minmax(116px,32%) minmax(0,1fr);
+    column-gap:0;
+    align-items:start;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .content{
+    display:contents;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .art{
+    grid-column:1;grid-row:1;
+    min-height:136px;
+    height:100%;
+    display:flex;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:10px!important;
+    border-right:1px solid #dce5f1;
+    border-bottom:1px solid #dce5f1;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .art img{
+    display:block!important;
+    align-self:center!important;
+    width:100%!important;
+    max-width:150px!important;
+    height:130px!important;
+    max-height:none!important;
+    object-fit:contain!important;
+    object-position:center center!important;
+    transform:none!important;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .top{
+    grid-column:2;grid-row:1;
+    padding:15px 13px 12px;
+    align-self:center;
+    align-items:flex-start;
+    min-width:0;
+    flex-wrap:wrap;
+    gap:7px;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .top > div{
+    min-width:0;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .top .pokemon{
+    line-height:1.45;
+    overflow-wrap:anywhere;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .top h2{
+    font-size:1.04rem!important;
+    line-height:1.25;
+    margin-top:5px;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .content > p{
+    grid-column:1/-1;grid-row:2;
+    padding:11px 14px 3px;
+    font-size:.87rem!important;
+    line-height:1.5!important;
+    margin:0!important;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .stats{
+    grid-column:1/-1;grid-row:3;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px;
+    margin:9px 12px 0;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .stats > div:last-child{
+    grid-column:1/-1;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .details{
+    grid-column:1/-1;grid-row:4;
+    justify-content:center;
+    margin:11px 12px 12px;
+    padding:12px!important;
+    min-height:44px!important;
+    text-align:center;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .more{
+    grid-column:1/-1;grid-row:5;
+    padding:12px 14px 16px;
+    margin:0;
+    line-height:1.55;
+  }
+}
+@media(max-width:430px){
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card{
+    grid-template-columns:114px minmax(0,1fr);
+  }
+}
+
+
+/* NEXUS STUDIO AUDIT 2026-10-13: component state contrast & layout.
+   Page-scoped repairs, not blanket recoloring of Pokémon types or export artwork. */
+html[data-theme="light"] body[data-studio-page] :is(.nx-compact-item,.nx-compact-grid>div){
+ background:#f1f5fc!important;background-image:none!important;color:#254361!important;
+ border:1px solid #d7e2f1!important;border-radius:12px;
+}
+html[data-theme="light"] body[data-studio-page] .nx-compact-item :is(b,strong,em){color:#153354!important}
+html[data-theme="light"] body[data-studio-page] .nx-note{
+ background:#f1f6fd!important;color:#435c7c!important;border-left-color:#4970b4!important
+}
+html[data-theme="light"] body[data-studio-page] .nx-body :is(.text-slate-300,.text-slate-400){color:#465f7e!important}
+/* Search-guide feedback uses a legacy dark Tailwind utility surface. */
+html[data-theme="light"] body[data-studio-page="guia-busca"] section.max-w-3xl>div.rounded-2xl{
+ background:#fff!important;background-image:none!important;color:#153353!important;
+ border:1px solid #dce5f1!important;box-shadow:0 8px 24px rgba(25,56,91,.075)!important
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] section.max-w-3xl>div.rounded-2xl :is(h2,p){color:#193858!important}
+html[data-theme="light"] body[data-studio-page="guia-busca"] section.max-w-3xl>div.rounded-2xl>a{
+ background:#2563eb!important;background-image:none!important;border:1px solid #1d55d0!important;
+ color:#fff!important;min-height:44px;text-decoration:none!important
+}
+/* Evolution: originally white names and pastel costs on an already white card. */
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card .name{color:#142f50!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card .dex{color:#536985!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card .cost{
+ background:#fff8e8!important;background-image:none!important;color:#795207!important;border:1px solid #eacb89!important
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card :is(.tag,.badge){
+ background:#edf4ff!important;background-image:none!important;color:#264c7d!important;border:1px solid #cddcf0!important
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card :is(.reqs li,.note){color:#435a78!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .grid .card .arrow{color:#2e5ca3!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .summary .count{color:#465f7e!important}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .feedback a{
+ color:#fff!important;background:#2563eb!important;background-image:none!important;border:1px solid #1d54cb!important
+}
+/* Form changes/fusions: the names and energy chips must stay readable. */
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .grid .card .pname{color:#173554!important}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .grid .card :is(.kind,.cost){
+ background:#edf4ff!important;background-image:none!important;color:#244c7d!important;border:1px solid #cedcf0!important
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .grid .card .cost :is(strong,b,span){color:#244c7d!important}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .family-count{
+ color:#254a80!important;background:#edf4ff!important;border-color:#cbdcf1!important
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] :is(.family-head p,.grid .card .note){color:#536b87!important}
+/* Combat: quick-reference panels previously retained light text or navy-on-navy. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.legend .item,.quick-type){
+ background:#f2f6fc!important;background-image:none!important;border:1px solid #d6e2f2!important;color:#1b395c!important
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.legend .item,.quick-type) :is(b,strong,h4){color:#173659!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.legend .item small,.quick-type p,.quick-type .line,.meter .stat span,.result-card .empty){color:#46617f!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge .challenge-copy .eyebrow{
+ background:#edf4ff!important;color:#2054ae!important;border:1px solid #cbdcf1!important
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge .challenge-next{
+ display:inline-flex;align-items:center;justify-content:center;
+ padding:10px 13px!important;margin-top:12px;background:#fff!important;
+ border:1px solid #a9c4eb!important;border-radius:10px!important;color:#1b53aa!important;
+ font-weight:750!important;min-height:44px;text-decoration:none!important
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-feedback{color:#526782!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .mode.active{
+ background:#f3f7fe!important;background-image:none!important;border:1px solid #d7e3f3!important;
+ border-radius:16px;padding:clamp(14px,2vw,22px)!important
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .mode.active .helper{color:#385574!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .selected-strip>span:first-child{color:#4b6483!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid{gap:8px!important}
+html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid .type-btn{min-height:48px;padding:10px 8px;border-radius:12px}
+@media(min-width:900px){
+ html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+/* Box calculator: predictable columns even at zoom and intermediate widths. */
+@media(min-width:821px){
+ html[data-theme="light"] body[data-studio-page="calculadora"] main.wrap.layout{
+  display:grid!important;width:min(1120px,calc(100% - 28px))!important;
+  grid-template-columns:minmax(0,1.3fr) minmax(340px,.8fr)!important;gap:18px;direction:ltr!important
+ }
+ html[data-theme="light"] body[data-studio-page="calculadora"] main.wrap.layout>section{
+  grid-column:1!important;grid-row:1!important;min-width:0
+ }
+ html[data-theme="light"] body[data-studio-page="calculadora"] main.wrap.layout>aside{
+  grid-column:2!important;grid-row:1!important;min-width:0
+ }
+}
+@media(min-width:1001px){
+ html[data-theme="light"] body[data-studio-page="calculadora"] .fields{
+  grid-template-columns:minmax(160px,1fr) minmax(135px,170px) minmax(145px,180px)!important
+ }
+}
+@media(min-width:821px) and (max-width:1000px){
+ html[data-theme="light"] body[data-studio-page="calculadora"] .fields{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important
+ }
+ html[data-theme="light"] body[data-studio-page="calculadora"] .fields>div:first-child{grid-column:1/-1}
+}
+@media(max-width:820px){
+ html[data-theme="light"] body[data-studio-page="calculadora"] main.wrap.layout{
+  display:grid!important;grid-template-columns:minmax(0,1fr)!important
+ }
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .fields>div{min-width:0}
+html[data-theme="light"] body[data-studio-page="calculadora"] .fields label{line-height:1.35;color:#274565!important}
+html[data-theme="light"] body[data-studio-page="calculadora"] .info{
+ background:#f0f5fc!important;border-color:#d6e2f2!important;color:#3f5776!important
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .info.warning{
+ background:#fff7e8!important;border-color:#edd4a0!important;color:#6c510f!important
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .result .hero{
+ background:#f2f6fc!important;background-image:none!important
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .result .hero :is(.kicker,.answer,.sub){color:#173554!important}
+html[data-theme="light"] body[data-studio-page="calculadora"] .result .hero .sub{color:#526782!important}
+/* Small contextual labels on white panels. */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.result-label,.placeholder,.formula){color:#4a6380!important}
+html[data-theme="light"] body[data-studio-page="central-mega"] .event .date{color:#74510a!important}
+/* Sharing interface: light UI around the intentionally dark generated card art. */
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog{
+ color:#163252!important;background:#fff!important;background-image:none!important;
+ border:1px solid #cbd9ec!important;box-shadow:0 22px 65px rgba(11,31,59,.23)!important
+}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog header h2{color:#102b4b!important}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog p{color:#4c6481!important}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-close{
+ background:#eef4fc!important;border:1px solid #cedcf0!important;color:#16365b!important;
+ border-radius:10px!important;min-width:44px;min-height:44px
+}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-actions{
+ background:linear-gradient(transparent,#fff 32%)!important
+}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-actions button{
+ background:#2563eb!important;color:#fff!important;border-color:#2563eb!important
+}
+html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-actions a{
+ background:#eaf2ff!important;color:#1c52a1!important;border-color:#a9c4ea!important
+}
+
+
+/* STUDIO COMPONENT FIX — Pokémon-type palette and stardust alignment.
+   Keep colored tokens readable on the light theme; selected type retains its hue. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(
+ .type-grid .type-btn,.badges .type-badge,.selected-strip .mini-type:not(.ghost),
+ .quick-table .mini-type,.poke-types .type-pill
+){
+ background:color-mix(in srgb,var(--type-color) 19%,#fff)!important;
+ background-image:none!important;
+ color:color-mix(in srgb,var(--type-color) 34%,#102b4a)!important;
+ border:1px solid color-mix(in srgb,var(--type-color) 55%,#fff)!important;
+ box-shadow:none!important;
+ text-shadow:none!important;
+ font-weight:800;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(#attackGrid,#defenseGrid) button.type-btn.active{
+ background:color-mix(in srgb,var(--type-color) 34%,#fff)!important;
+ color:color-mix(in srgb,var(--type-color) 34%,#102b4a)!important;
+ border:2px solid color-mix(in srgb,var(--type-color) 86%,#254665)!important;
+ box-shadow:0 0 0 2px color-mix(in srgb,var(--type-color) 15%,transparent)!important;
+ transform:none!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid .type-btn:not(.active):hover{
+ background:color-mix(in srgb,var(--type-color) 29%,#fff)!important;
+ border-color:var(--type-color)!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.badges .type-badge,.selected-strip .mini-type,.poke-types .type-pill){
+ min-height:37px;align-items:center;justify-content:center;
+ padding:7px 12px;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .selected-strip .mini-type.ghost{
+ background:#f0f5fc!important;color:#526782!important;
+ border:1px dashed #c5d6eb!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option{
+ background:#fff!important;background-image:none!important;
+ color:#173354!important;border:1px solid #c5d7ef!important;
+ min-height:46px;box-shadow:none!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option:hover:not(:disabled){
+ background:#eaf2ff!important;border-color:#7ea9e4!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option.correct{
+ background:#e0f5e9!important;color:#11643e!important;border:2px solid #38a073!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option.wrong{
+ background:#fff0f1!important;color:#923044!important;border:2px solid #d47b90!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option:disabled{
+ opacity:1!important;
+}
+/* Full-width page hero is itself a centered .wrap; a generic margin reset
+   caused it to hug the left screen edge while group cards stayed centered. */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > section.hero.wrap{
+ display:block;width:min(1180px,calc(100% - 32px))!important;
+ max-width:100%;margin:12px auto 19px!important;
+ border-left:1px solid #dce5f1!important;
+ padding:clamp(17px,3vw,27px)!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > .gn-breadcrumb{
+ width:min(1180px,calc(100% - 32px));
+ max-width:100%;
+ margin:14px auto 12px!important;
+ padding:0;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > section.hero.wrap .toolbar{
+ width:100%;max-width:850px;margin:18px 0 10px!important;
+ grid-template-columns:minmax(0,1fr) minmax(168px,auto);
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .quick-values span{
+ background:#eef4fc!important;color:#284769!important;
+ border:1px solid #cbdcf1!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.toggle,.event-row){
+ background:#f1f6fd!important;background-image:none!important;
+ border:1px solid #d7e2f1!important;color:#173554!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.toggle,.event-row) :is(small,span){
+ color:#395778!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .group-count{
+ background:#eef4fc!important;color:#315776!important;border-color:#cee0f2!important;
+}
+@media(max-width:800px){
+ html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > section.hero.wrap .toolbar{
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+}
+@media(max-width:500px){
+ html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > :is(section.hero.wrap,.gn-breadcrumb){
+  width:calc(100% - 20px)!important;
+ }
+}
+
+/* Shared controls */
+/*
+  GO NEXUS 2.2 / Nexus Studio
+  Hierarquia de cores dos controles (mobile-first).
+  Branco = navegação/opção; azul = ação; azul preenchido = seleção;
+  âmbar = destaque/descoberta; verde = seleção de categorias orientativas;
+  coral suave = limpar/reiniciar.
+  Nunca substituir cores de tipos Pokémon, acertos/erros do quiz, ou
+  estados de jogo específicos.
+*/
+html[data-theme="light"]{
+ --ctl-ink:#173354;
+ --ctl-muted:#4c6582;
+ --ctl-line:#c8d8ec;
+ --ctl-white:#fff;
+ --ctl-blue:#2563eb;
+ --ctl-blue-strong:#1852ba;
+ --ctl-blue-pale:#eaf2ff;
+ --ctl-yellow:#fecb2f;
+ --ctl-teal:#0d766d;
+ --ctl-teal-pale:#e5f6f2;
+ --ctl-coral:#9d3447;
+ --ctl-coral-pale:#fff0f1;
+}
+html[data-theme="light"] body[data-studio-page] main :is(button,select,a.cta,a.feedbackbtn):focus-visible,
+html[data-theme="light"] body.page-home :is(button,a.gn-v2-card,a.gn-explore-card):focus-visible{
+ outline:3px solid var(--ctl-blue)!important;
+ outline-offset:3px!important;
+}
+html[data-theme="light"] body[data-studio-page] main button:not(:disabled){
+ cursor:pointer;
+ transition:background-color .14s ease,border-color .14s ease,box-shadow .14s ease,color .14s ease;
+}
+html[data-theme="light"] body[data-studio-page] main button:disabled{
+ cursor:not-allowed;opacity:.60;
+}
+@media (hover:hover){
+ html[data-theme="light"] body[data-studio-page] main :is(button,.btn,a.cta):not(:disabled):hover{
+  box-shadow:0 3px 12px rgba(17,52,101,.10);
+ }
+}
+/* Ordinary selectors and navigation-style buttons. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.toggle button,.search-examples button,.weather-btn,.challenge-next,#clearDefense),
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.langbtn,.cat>button),
+html[data-theme="light"] body[data-studio-page="calculadora"] .btn.secondary,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] :is(.chip,.clear),
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip,
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn,
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.mode,#answers button){
+ background:#fff!important;background-image:none!important;
+ color:var(--ctl-ink)!important;
+ border:1px solid var(--ctl-line)!important;
+ box-shadow:0 2px 8px rgba(13,45,81,.045)!important;
+ min-height:44px;
+}
+@media(hover:hover){
+ html[data-theme="light"] body[data-studio-page="tipagens"] :is(.toggle button,.search-examples button,.weather-btn,.challenge-next,#clearDefense):not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.langbtn,.cat>button):not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="calculadora"] .btn.secondary:not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] :is(.chip,.clear):not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab:not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip:not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn:not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="quiz"] :is(.mode,#answers button):not(:disabled):hover{
+  background:#eaf2ff!important;background-image:none!important;
+  color:#174da9!important;border-color:#8cafe5!important;
+ }
+}
+/* Selected tools, tabs, filter chips, language switch, and weather. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(
+ .toggle button.active,.weather-btn.active,.combat-tab.active,
+ .toggle button[aria-selected="true"],.type-btn.active:not([style*="background"])
+),
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn.active,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .chip.active,
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab.active,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip.on{
+ background:var(--ctl-blue)!important;
+ background-image:none!important;
+ color:#fff!important;
+ border-color:var(--ctl-blue)!important;
+ box-shadow:0 2px 10px rgba(30,81,171,.17)!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.combat-tab,.weather-btn,.toggle button),
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .chip,
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip{
+ min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .combat-tab{
+ background:#fff!important;background-image:none!important;color:#173354!important;
+ border:1px solid var(--ctl-line)!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .combat-tab.active,
+html[data-theme="light"] body[data-studio-page="tipagens"] .combat-tab[aria-selected="true"]{
+ background:var(--ctl-blue)!important;color:#fff!important;border-color:var(--ctl-blue)!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .weather-btn.active :is(span,b,strong),
+html[data-theme="light"] body[data-studio-page="tipagens"] .combat-tab.active :is(span,b,strong),
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn.active :is(span,b,strong),
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .chip.active :is(span,b,strong),
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab.active :is(span,b,strong){
+ color:inherit!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langswitch{
+ background:#eff5fd!important;border:1px solid #d9e5f3!important;border-radius:13px!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn.active{
+ border-radius:10px!important;
+}
+/* Primary actions: bold blue with accessible white lettering. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.poke-search button[type="submit"],.search-card button[type="submit"]),
+html[data-theme="light"] body[data-studio-page="calculadora"] :is(.btn:not(.secondary):not(.clearbtn),.feedbackbtn,#add),
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .btn,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .nx-create-card,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .feedback a,
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.result button,.next),
+html[data-theme="light"] body[data-studio-page="anuncie"] .cta{
+ background:var(--ctl-blue)!important;
+ background-image:none!important;
+ color:#fff!important;
+ border:1px solid var(--ctl-blue)!important;
+ box-shadow:0 4px 13px rgba(34,94,210,.17)!important;
+ min-height:44px;
+ border-radius:11px;
+}
+@media(hover:hover){
+ html[data-theme="light"] body[data-studio-page="tipagens"] .poke-search button[type="submit"]:hover,
+ html[data-theme="light"] body[data-studio-page="calculadora"] :is(.btn:not(.secondary):not(.clearbtn),.feedbackbtn,#add):hover,
+ html[data-theme="light"] body[data-studio-page="poeira-estelar"] .btn:hover,
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .nx-create-card:hover,
+ html[data-theme="light"] body[data-studio-page="quiz"] :is(.result button,.next):hover,
+ html[data-theme="light"] body[data-studio-page="anuncie"] .cta:hover{
+  background:var(--ctl-blue-strong)!important;border-color:var(--ctl-blue-strong)!important;
+ }
+}
+/* Reset/clear is visibly secondary, not a dark maroon action. */
+html[data-theme="light"] body[data-studio-page="calculadora"] .btn.clearbtn,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .clear,
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .ditto-reset,
+html[data-theme="light"] body[data-studio-page="tipagens"] #clearDefense{
+ background:var(--ctl-coral-pale)!important;background-image:none!important;
+ color:var(--ctl-coral)!important;
+ border:1px solid #e9b7c1!important;
+ box-shadow:none!important;
+ border-radius:11px!important;min-height:44px;
+}
+@media(hover:hover){
+ html[data-theme="light"] body[data-studio-page="calculadora"] .btn.clearbtn:hover,
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .clear:hover,
+ html[data-theme="light"] body[data-studio-page="formas-especiais"] .ditto-reset:hover,
+ html[data-theme="light"] body[data-studio-page="tipagens"] #clearDefense:hover{
+  background:#fce2e7!important;border-color:#d88798!important;color:#8b263a!important;
+ }
+}
+/* Exploration categories use an intentional teal selected state. */
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn.active{
+ background:var(--ctl-teal)!important;background-image:none!important;
+ color:#fff!important;border-color:var(--ctl-teal)!important;
+ box-shadow:0 4px 15px rgba(13,118,109,.13)!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn.active :is(span,strong,b){color:inherit!important}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn:not(.active):hover{
+ background:var(--ctl-teal-pale)!important;color:#125f55!important;border-color:#8ac6ba!important;
+}
+/* Ditto gets a subtle yellow recognition cue, but follows shared tab states. */
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .ditto-tab:not(.active){
+ border-left:4px solid var(--ctl-yellow)!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .ditto-tab::after{
+ display:none!important;
+}
+/* Adventure effect details are real disclosure buttons, not gray-on-gray. */
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .details{
+ display:inline-flex;align-items:center;
+ background:#eaf2ff!important;background-image:none!important;
+ border:1px solid #bad1f4!important;border-radius:9px!important;
+ padding:8px 11px!important;color:#1b51b1!important;
+ min-height:40px;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .card.open .details{
+ background:#e2f2ec!important;color:#126c58!important;border-color:#a6d8c5!important;
+}
+/* Quiz mode actions have a small amber marker. The actual game answer
+   correctness colors remain owned by quiz.html (green/red as applicable). */
+html[data-theme="light"] body[data-studio-page="quiz"] .mode{
+ position:relative;border-radius:16px!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .mode::before{
+ content:"";position:absolute;inset:12px auto 12px 0;width:4px;
+ border-radius:0 4px 4px 0;background:var(--ctl-yellow);
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .result button{
+ min-height:46px;
+}
+/* Main page buttons stay compact and purposeful; avoid changing card layout. */
+html[data-theme="light"] body.page-home :is(.gn-search-button,.news-nav button,#featureUpdates button){
+ min-width:44px;min-height:44px;
+}
+html[data-theme="light"] body.page-home .gn-search-button{
+ background:var(--ctl-blue)!important;color:#fff!important;
+}
+html[data-theme="light"] body.page-home .news-nav button{
+ background:#fff!important;color:#2057bc!important;border:1px solid #cadbf0!important;
+}
+html[data-theme="light"] body.page-home #featureUpdates .nx-updates-controls button{
+ background:#eaf2ff!important;color:#2258bc!important;border:1px solid #bdd3f5!important;
+}
+@media(max-width:680px){
+ html[data-theme="light"] body[data-studio-page] main :is(
+ .chip,.combat-tab,.weather-btn,.cat-btn,.langbtn,.clear,.challenge-next,.ditto-reset
+ ){min-height:44px}
+}
+/* Don't override system reduced-motion preferences. */
+@media(prefers-reduced-motion:reduce){
+ html[data-theme="light"] body[data-studio-page] main button{transition:none!important}
+}
+
+
+/* QA follow-up: restore meaning of the quiz's feedback choices. */
+html[data-theme="light"] body[data-studio-page="quiz"] #answers button.ans{
+ background:#fff!important;color:#173354!important;
+ border:1px solid #c8d8ec!important;
+ min-height:49px;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] #answers button.ans.correct{
+ background:#e7f5ed!important;color:#12603f!important;
+ border:2px solid #459d7a!important;
+ box-shadow:inset 4px 0 0 #238661!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] #answers button.ans.wrong{
+ background:#fff0f1!important;color:#913044!important;
+ border:2px solid #d07c8f!important;
+ box-shadow:inset 4px 0 0 #c05a71!important;
+}
+/* Green/red result states cannot be overwritten by old generic .answers rules. */
+html[data-theme="light"] body[data-studio-page="quiz"] #feedback.show{
+ background:#f2f6fc!important;color:#294765!important;
+ border:1px solid #ccdaec!important;border-radius:13px!important;
+}
+/* Delete individual lines: remove the original black-and-maroon buttons. */
+html[data-theme="light"] body[data-studio-page="calculadora"] .remove{
+ min-width:44px;min-height:44px;
+ background:#fff0f1!important;background-image:none!important;
+ color:#9d3447!important;border:1px solid #e9b7c1!important;
+ border-radius:11px!important;box-shadow:none!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .remove:hover{
+ background:#fce2e7!important;border-color:#d88798!important;
+}
+/* All export/share controls are lightweight secondary blue, never dark navy.
+   There can be dozens of these on the evolution catalog. */
+html[data-theme="light"] body[data-studio-page] main :is(.nx-result-share,.nx-create-card){
+ display:inline-flex;align-items:center;justify-content:center;gap:6px;
+ min-height:44px;
+ padding:9px 12px!important;
+ background:#eaf2ff!important;background-image:none!important;
+ color:#1b55b5!important;border:1px solid #b8cef2!important;
+ border-radius:10px!important;box-shadow:none!important;
+ font-weight:750!important;text-decoration:none!important;
+}
+html[data-theme="light"] body[data-studio-page] main :is(.nx-result-share,.nx-create-card):hover{
+ background:#dceafe!important;color:#174b9d!important;border-color:#93b6ec!important;
+}
+/* Contrast and affordance of adventure effect disclosures. */
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .details{
+ min-height:42px!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .card.open .details{
+ min-height:42px!important;
+}
+/* Small pagination dots retain small marks but offer a touchable surface. */
+html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots{
+ display:flex;flex-wrap:wrap;gap:2px;
+}
+html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots button{
+ min-width:38px!important;min-height:38px!important;
+ padding:11px!important;
+ background:transparent!important;
+ border:1px solid transparent!important;
+ box-shadow:none!important;
+}
+html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots button[aria-current="true"]::after{
+ background:#225ed2!important;box-shadow:none!important;
+}
+html[data-theme="light"] body.page-home #featureUpdates .nx-updates-bottom{
+ flex-wrap:wrap;
+}
+
+/* Full-color quiz feedback remains legible after answers become disabled. */
+html[data-theme="light"] body[data-studio-page="quiz"] #answers button.ans:is(.correct,.wrong):disabled{
+ opacity:1!important;
+}
+html[data-theme="light"] body[data-studio-page] main details:not(.nx-accordion)>summary{
+ min-height:43px;
+}
+/* Large enough target for carousel page dots without magnifying the dots. */
+html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots button{
+ min-width:42px!important;min-height:42px!important;
+}

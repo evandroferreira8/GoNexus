@@ -19,7 +19,7 @@ body{background:radial-gradient(circle at 18% -10%,rgba(56,189,248,.13),transpar
 </style>
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-v3-safe">
 <link rel="stylesheet" href="search-builder.css?v=1">
-<link rel="stylesheet" href="nexus-studio.css?v=clean-20261013a">
+<link rel="stylesheet" href="nexus-studio.css?v=studio-clean-20261013b">
 </head><body class="page-search" data-studio-page="guia-busca">
 <go-nexus-header></go-nexus-header>
 <header class="max-w-3xl mx-auto px-4 pt-9 pb-7 text-center">
@@ -172,7 +172,7 @@ search.addEventListener('input',render);
 document.querySelectorAll('.copy-static').forEach(b=>b.addEventListener('click',async()=>{const original=b.textContent;const cmd=lang==='pt'?b.dataset.copyPt:b.dataset.copyEn;try{await navigator.clipboard.writeText(cmd);b.textContent='✓ Copiado';setTimeout(()=>b.textContent=original,1200)}catch{}}));
 render();updateStaticCopy();
 </script>
-<script src="nav.js?v=studio-v3-egg"></script>
+<script src="nav.js?v=studio-clean-20261013b"></script>
 <script src="theme.js?v=studio-v4-policy-links"></script>
 <script src="search-builder.js?v=1"></script>
 </body></html>

@@ -55,39 +55,39 @@
     canvas.height = Math.max(1080, footerStart + 192);
     ctx = canvas.getContext('2d');
     const bg = ctx.createLinearGradient(0, 0, 1080, canvas.height);
-    bg.addColorStop(0, '#102440'); bg.addColorStop(1, '#07111f');
+    bg.addColorStop(0, '#ffffff'); bg.addColorStop(1, '#f0f5fc');
     ctx.fillStyle = bg; ctx.fillRect(0, 0, 1080, canvas.height);
     const accent = ctx.createLinearGradient(0, 0, 1080, 0);
-    accent.addColorStop(0, '#38bdf8'); accent.addColorStop(.5, '#8b5cf6'); accent.addColorStop(1, '#ec4899');
+    accent.addColorStop(0, '#2563eb'); accent.addColorStop(.8, '#2563eb'); accent.addColorStop(1, '#fecb2f');
     ctx.fillStyle = accent; ctx.fillRect(0, 0, 1080, 10);
-    function text(t, x, y, size, color = '#f8fafc', weight = 500) { font(size, weight); ctx.fillStyle = color; ctx.fillText(t, x, y); }
-    ctx.fillStyle='#38bdf8';ctx.fillRect(64, 46, 188, 6);
-    text('GO NEXUS', 64, 104, 46, '#7dd3fc', 950);
-    text('GUIA DE EVOLUÇÃO • POKÉMON GO', 64, 151, 24, '#a6b8ce', 700);
+    function text(t, x, y, size, color = '#152c4b', weight = 500) { font(size, weight); ctx.fillStyle = color; ctx.fillText(t, x, y); }
+    ctx.fillStyle='#fecb2f';ctx.fillRect(64, 46, 52, 10);
+    text('GO NEXUS', 64, 104, 46, '#0b1f3b', 900);
+    text('NEXUS STUDIO  /  GUIA DE EVOLUÇÃO', 64, 151, 24, '#46617f', 700);
     [r.frm, r.to].forEach((name, i) => {
       const center = i ? 790 : 290;
-      ctx.fillStyle = '#142e4b'; ctx.beginPath(); ctx.arc(center, 304, 136, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#eaf2ff'; ctx.beginPath(); ctx.arc(center, 304, 136, 0, Math.PI * 2); ctx.fill();
       if (arts[i]) ctx.drawImage(arts[i], center - 124, 180, 248, 248);
-      else { ctx.textAlign = 'center'; text('?', center, 340, 90, '#7dd3fc'); }
+      else { ctx.textAlign = 'center'; text('?', center, 340, 90, '#245bb1'); }
       ctx.textAlign = 'center';
-      text(`#${String(i ? r.dex_to : r.dex_from).padStart(4, '0')}`, center, 169, 22, '#9ab0c9', 700);
-      names[i].forEach((line, j) => text(line, center, 520 + j * 66, 54, '#fff', 950));
+      text(`#${String(i ? r.dex_to : r.dex_from).padStart(4, '0')}`, center, 169, 22, '#526782', 700);
+      names[i].forEach((line, j) => text(line, center, 520 + j * 66, 54, '#0b1f3b', 900));
       ctx.textAlign = 'left';
     });
-    text('→', 510, 325, 58, '#7dd3fc', 700);
-    text(r.candy == null ? '999 Moedas de Gimmighoul' : `${r.candy} Doces`, 64, nameEnd + 54, 34, '#fde68a', 800);
-    text('REQUISITOS', 64, nameEnd + 110, 23, '#9ab0c9', 800);
+    text('→', 510, 325, 58, '#2563eb', 700);
+    text(r.candy == null ? '999 Moedas de Gimmighoul' : `${r.candy} Doces`, 64, nameEnd + 54, 34, '#855b09', 800);
+    text('REQUISITOS', 64, nameEnd + 110, 23, '#245bb1', 800);
     let y = reqStart;
-    requirements.forEach(ls => { text('✓', 64, y, 32, '#34d399', 800); ls.forEach(l => { text(l, 112, y, 32); y += 44; }); y += 24; });
+    requirements.forEach(ls => { text('✓', 64, y, 32, '#16835d', 800); ls.forEach(l => { text(l, 112, y, 32); y += 44; }); y += 24; });
     if (notes.length) {
-      ctx.fillStyle = '#16243c'; ctx.fillRect(64, noteStart - 10, 952, notes.length * 38 + 38);
-      notes.forEach((l, i) => text(l, 86, noteStart + 25 + i * 38, 27, '#b8c8dc'));
+      ctx.fillStyle = '#eaf2ff'; ctx.fillRect(64, noteStart - 10, 952, notes.length * 38 + 38);
+      notes.forEach((l, i) => text(l, 86, noteStart + 25 + i * 38, 27, '#385574'));
     }
     const bottom = canvas.height - 180;
-    ctx.fillStyle = '#314761'; ctx.fillRect(64, bottom, 952, 1);
-    text('Mais guias e ferramentas no GO Nexus', 64, bottom + 54, 30, '#f8fafc', 700);
-    text('evandroferreira8.github.io/GoNexus/', 64, bottom + 99, 29, '#7dd3fc', 600);
-    text('Requisitos permanentes • Confira as condições no jogo.', 64, bottom + 143, 22, '#9ab0c9');
+    ctx.fillStyle = '#d5e1f2'; ctx.fillRect(64, bottom, 952, 1);
+    text('Mais guias e ferramentas no GO Nexus', 64, bottom + 54, 30, '#152c4b', 700);
+    text('evandroferreira8.github.io/GoNexus/', 64, bottom + 99, 29, '#2159ca', 600);
+    text('Requisitos permanentes • Confira as condições no jogo.', 64, bottom + 143, 22, '#526782');
     const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
     if (!blob) throw new Error('PNG unavailable');
     return { blob, missingArt: arts.some(a => !a) };

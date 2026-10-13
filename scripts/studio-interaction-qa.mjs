@@ -65,11 +65,11 @@ for(const width of [390,1365]){
    assert.match(await page.locator('#maxAnswer').innerText(),/Atenção/i);
  });
  await check(width,'evolucoes-especiais.html',async page=>{
-   assert.ok(await page.locator('#grid').children().count()>0);
+   assert.ok(await page.locator('#grid > *').count()>0);
    await page.locator('#search').fill('Eevee');
    await page.locator('#clear').click();
    assert.equal(await page.locator('#search').inputValue(),'');
-   assert.ok(await page.locator('#grid').children().count()>0);
+   assert.ok(await page.locator('#grid > *').count()>0);
  });
  await check(width,'formas-especiais.html',async page=>{
    await page.locator('.switch .tab[data-tab="ditto"]').click();

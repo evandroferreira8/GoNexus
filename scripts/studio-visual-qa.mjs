@@ -168,10 +168,10 @@ for(const s of sizes){
          'pokeparadas':['.nx-compact-item b'],
          'central-mega':['.event .date']
        };
-       const rgb=s=>{let m=s?.match(/rgba?\\(([\\d.]+)[,\\s]+([\\d.]+)[,\\s]+([\\d.]+)/);return m?[+m[1],+m[2],+m[3]]:null};
+       const rgb=s=>{let m=s?.match(/rgba?\(([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/);return m?[+m[1],+m[2],+m[3]]:null};
        const lum=colors=>{let v=colors.map(x=>x/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return v[0]*.2126+v[1]*.7152+v[2]*.0722};
        const backdrop=el=>{let node=el;for(let i=0;node&&i<15;node=node.parentElement,i++){
-         const cs=getComputedStyle(node),b=rgb(cs.backgroundColor),a=cs.backgroundColor.match(/[,\\s]([\\d.]+)\\)$/)?.[1];
+         const cs=getComputedStyle(node),b=rgb(cs.backgroundColor),a=cs.backgroundColor.match(/[,\s]([\d.]+)\)$/)?.[1];
          if(b&&(cs.backgroundColor.startsWith('rgb(')||a===undefined||+a>.95))return b;
        }return [248,249,251]};
        const failures=[];

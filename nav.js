@@ -186,9 +186,8 @@ details.toolmenu>summary::-webkit-details-marker{display:none}
     if(document.getElementById('gnx-egg-placeholder') || document.querySelector('go-nexus-cosmic-egg'))return;
     const wrap=document.createElement('div');
     wrap.id='gnx-egg-placeholder';
-    wrap.style.cssText='position:fixed;left:11px;bottom:calc(85px + env(safe-area-inset-bottom));z-index:840;width:58px;height:58px;font-family:DM Sans,system-ui,sans-serif';
-    if(!matchMedia('(max-width:768px)').matches)wrap.style.bottom='16px';
-    wrap.innerHTML='<button type="button" title="Toque três vezes para revelar uma surpresa" aria-label="Descobrir o ovo misterioso do GO Nexus" style="display:block;width:58px;height:58px;border:0;padding:0;background:transparent;cursor:pointer;filter:drop-shadow(0 4px 9px rgba(13,39,65,.20))"><img alt="" width="58" height="58" src="'+LITE_EGG_IMAGE+'" style="width:58px;height:58px;object-fit:contain"></button><span data-lazy-status role="status" style="position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Ovo misterioso.</span>';
+    wrap.className='gn-explore-card gn-cosmic-card';
+    wrap.innerHTML='<button type="button" title="Toque três vezes para revelar uma surpresa" aria-label="Descobrir o ovo misterioso do GO Nexus" style="display:block;width:58px;height:58px;border:0;padding:0;background:transparent;cursor:pointer;filter:drop-shadow(0 4px 9px rgba(13,39,65,.20))"><img alt="" width="58" height="58" src="'+LITE_EGG_IMAGE+'" style="width:58px;height:58px;object-fit:contain"></button><span class="gn-cosmic-copy"><strong>Ovo misterioso</strong><small>Toque e descubra.</small></span><span data-lazy-status role="status" style="position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Ovo misterioso.</span>';
     const button=wrap.querySelector('button'), status=wrap.querySelector('[data-lazy-status]');
     const loadScript=src=>new Promise((resolve,reject)=>{
       const script=document.createElement('script');
@@ -211,7 +210,8 @@ details.toolmenu>summary::-webkit-details-marker{display:none}
         console.warn('GO Nexus: a experiência opcional não pôde carregar.',error);
       }
     });
-    document.body.appendChild(wrap);
+    const slot=document.querySelector('#explorar .gn-two-lanes');
+    (slot||document.body).appendChild(wrap);
   };
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mountLazyEgg,{once:true});else mountLazyEgg();
 

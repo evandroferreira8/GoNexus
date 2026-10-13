@@ -2,7 +2,7 @@ name: Nexus Studio rebuild — visual quality gate
 
 on:
   push:
-    branches: [nexus-studio-rebuild-audited, 'fix/studio-effects-contrast-20261012', 'fix/studio-effects-card-image-layout-20261012']
+    branches: [nexus-studio-rebuild-audited, 'fix/studio-effects-contrast-20261012', 'fix/studio-effects-card-image-layout-20261012', 'fix/visual-audit-all-modules-20261013']
   workflow_dispatch:
 
 permissions:

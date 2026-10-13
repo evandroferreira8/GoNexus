@@ -53,6 +53,7 @@ for(const width of [390,1365]){
    assert.equal(await page.locator('#eventBonus').inputValue(),'2');
  });
  await check(width,'central-mega.html',async page=>{
+   await page.evaluate(()=>{document.getElementById('megaHave').closest('details').open=true;});
    assert.ok(await page.locator('#availableList .mega-row').count()>5);
    await page.locator('#megaHave').fill('9999');
    assert.match(await page.locator('#megaAnswer').innerText(),/Energia suficiente/i);
@@ -91,6 +92,7 @@ for(const width of [390,1365]){
    assert.ok(await page.locator('.grid .card:not(.hide)').count()>=await visible.count());
  });
  await check(width,'pokeparadas.html',async page=>{
+   await page.evaluate(()=>{document.getElementById('categoryGrid').closest('details').open=true;});
    await page.locator('.cat-btn').first().waitFor();
    assert.ok(await page.locator('.cat-btn').count()>=2);
    await page.locator('.cat-btn').nth(1).click();

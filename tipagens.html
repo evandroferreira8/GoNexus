@@ -44,6 +44,9 @@
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
 <style id="combat-interface-refinement">
 /* Central de Combate: ajustes restritos a esta página, sem alterar cálculos */
+/* Mobile: o grid não pode herdar largura mínima dos painéis internos. */
+@media(max-width:860px){.page-combat .analyzer-grid{grid-template-columns:minmax(0,1fr)}.page-combat .analyzer-grid>.panel,.page-combat .challenge-copy{min-width:0}}
+
 /* Correção de largura em celulares de 360 px: manter conteúdo dentro dos cards */
 @media(max-width:390px){
  .page-combat .analyzer-grid,.page-combat .search-card,.page-combat .poke-result,.page-combat .poke-profile,.page-combat .poke-copy,.page-combat .analysis-cards,.page-combat .analysis-card,.page-combat .context-grid,.page-combat .context-card{min-width:0;max-width:100%}

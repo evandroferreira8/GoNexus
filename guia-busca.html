@@ -20,6 +20,30 @@ body{background:radial-gradient(circle at 18% -10%,rgba(56,189,248,.13),transpar
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <link rel="stylesheet" href="search-builder.css?v=1">
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
+<style id="guide-compact-layout">
+/* Guia de Busca: layout compacto, sem alterar pesquisa, tradução ou cópia */
+.page-search>header{padding-top:22px!important;padding-bottom:16px!important;max-width:1050px!important}
+.page-search>header>h1{font-size:clamp(1.55rem,3vw,2rem);line-height:1.2}
+.page-search>header>p{margin-top:5px!important;margin-bottom:14px!important;font-size:.96rem}
+.page-search #search{min-height:52px}
+.page-search .langbox{margin-top:9px;padding:8px 12px;border-radius:12px;box-shadow:none}
+.page-search .langtop{gap:8px}
+.page-search .langtitle{font-size:.82rem}
+.page-search .langhelp{display:none}
+.page-search .langswitch{padding:3px}
+.page-search .langbtn{min-width:95px;padding:8px 12px}
+.page-search .search-builder-toggle{margin-top:12px;text-align:left;border:1px solid var(--studio-border,#c6d4e7);border-radius:14px;background:var(--studio-surface,#fff);overflow:hidden}
+.page-search .search-builder-toggle>summary{list-style:none;cursor:pointer;min-height:52px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:800}
+.page-search .search-builder-toggle>summary::-webkit-details-marker{display:none}
+.page-search .search-builder-toggle>summary:after{content:'+';font-size:1.35rem;font-weight:500;line-height:1}
+.page-search .search-builder-toggle[open]>summary:after{content:'−'}
+.page-search .sb-toggle-hint{margin-left:auto;font-size:.76rem;font-weight:500;opacity:.75}
+.page-search .search-builder-toggle .search-builder{border:0;border-top:1px solid var(--studio-border,#c6d4e7);border-radius:0;box-shadow:none;margin:0;padding:16px;background:transparent;max-width:none}
+.page-search #app{max-width:1050px!important}
+.page-search #app .cat{margin-bottom:12px}
+.page-search #guia-iv{max-width:1050px!important}
+@media(max-width:600px){.page-search>header{padding-top:16px!important;padding-bottom:12px!important}.page-search .langtop{flex-direction:row;align-items:center;justify-content:space-between}.page-search .langswitch{width:auto}.page-search .langbtn{min-width:0;padding:8px 10px}.page-search .sb-toggle-hint{font-size:.69rem}.page-search .search-builder-toggle>summary{padding:10px 12px}}
+</style>
 </head><body class="page-search" data-studio-page="guia-busca">
 <go-nexus-header></go-nexus-header>
 <header class="max-w-3xl mx-auto px-4 pt-9 pb-7 text-center">
@@ -30,7 +54,9 @@ body{background:radial-gradient(circle at 18% -10%,rgba(56,189,248,.13),transpar
     <div class="langtop"><div class="langtitle">🌐 Idioma do Pokémon GO</div><div class="langswitch"><button type="button" class="langbtn" data-lang="pt">Português</button><button type="button" class="langbtn" data-lang="en">English</button></div></div>
     <p class="langhelp">O comando exibido e o botão de copiar seguem o idioma selecionado. A busca do GO Nexus reconhece os termos nos dois idiomas. Português é o padrão.</p>
   </div>
+  <details class="search-builder-toggle" id="searchBuilderToggle"><summary><span>🧩 Montar busca personalizada</span><span class="sb-toggle-hint">Opcional · toque para abrir</span></summary>
   <section class="search-builder" id="searchBuilder" aria-labelledby="searchBuilderTitle"></section>
+  </details>
   <details class="nx-accordion mt-5 text-left" data-nx-group="guide-info"><summary><span class="nx-summary-main"><span>⚠️</span><span class="nx-summary-copy"><span class="nx-summary-title text-amber-300">Os filtros acompanham o idioma do jogo</span><span class="nx-summary-sub">Veja por que alguns comandos mudam em Português e English</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary><div class="nx-body"><p class="text-sm text-slate-300 mt-3">Vários termos são localizados pelo Pokémon GO. Por exemplo, <code>evolve&amp;evolvenew</code> em inglês corresponde a <code>evoluir&amp;evoluirnovo</code> em português. Os comandos podem ser adicionados, alterados ou removidos sem aviso prévio.</p><div class="sourcebox">Os filtros principais foram revisados com a Central de Ajuda oficial do Pokémon GO em português e inglês. Filtros avançados ou mais recentes que ainda não aparecem na documentação oficial são sinalizados no guia.</div></div></details>
 </header>
 <main id="app" class="max-w-3xl mx-auto px-4 space-y-4"></main>

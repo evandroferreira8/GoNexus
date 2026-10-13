@@ -46,6 +46,22 @@
 .page-mega .mega-region-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.page-mega #unavailableList .mega-region-items .nx-pill{min-height:42px}
 @media(max-width:760px){.page-mega .mega-region-items{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:470px){.page-mega .mega-region-items{grid-template-columns:1fr}}
 [data-theme="dark"] .page-mega .mega-region-title{color:#a7cbff;border-color:#334b6c}[data-theme="dark"] .page-mega .mega-region-title small{background:#152741;color:#cce0ff;border-color:#355275}
+
+/* Cabeçalhos regionais expansíveis, com alinhamento isolado do tema geral */
+.page-mega #availableList .mega-region,.page-mega #unavailableList .mega-region{display:block;margin:8px 0 10px;border:1px solid #cddbef;border-radius:13px;overflow:hidden;background:#fff}
+.page-mega #availableList .mega-region-title,.page-mega #unavailableList .mega-region-title{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;min-height:54px!important;margin:0!important;padding:12px 16px!important;border:0!important;list-style:none!important;cursor:pointer;font-size:1rem!important;line-height:1.4!important;font-weight:850!important;color:#174881!important;background:#f3f7fd!important;box-sizing:border-box!important}
+.page-mega .mega-region-title::-webkit-details-marker{display:none}
+.page-mega .mega-region-name{display:block;min-width:0;line-height:1.4}
+.page-mega .mega-region-meta{display:inline-flex;align-items:center;gap:12px;flex:0 0 auto}
+.page-mega .mega-region-title small{display:inline-flex!important;align-items:center;justify-content:center;min-width:32px;min-height:29px;margin:0!important;padding:4px 9px!important;border:1px solid #cbdaf2;border-radius:99px;background:#e9f1fc;color:#23549a;font-size:.8rem!important;line-height:1.2!important}
+.page-mega .mega-region-chevron{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .18s;margin-right:4px;margin-top:-4px}
+.page-mega .mega-region[open] .mega-region-chevron{transform:rotate(225deg);margin-top:4px}
+.page-mega .mega-region[open]>.mega-region-title{border-bottom:1px solid #d3e0f1!important}
+.page-mega .mega-region-items{padding:12px;gap:8px}
+.page-mega .mega-region-title:focus-visible{outline:3px solid #2563eb;outline-offset:-3px}
+[data-theme="dark"] .page-mega #availableList .mega-region,[data-theme="dark"] .page-mega #unavailableList .mega-region{background:#101e31;border-color:#355071}
+[data-theme="dark"] .page-mega #availableList .mega-region-title,[data-theme="dark"] .page-mega #unavailableList .mega-region-title{background:#172b47!important;color:#e1ecfc!important}
+[data-theme="dark"] .page-mega .mega-region[open]>.mega-region-title{border-bottom-color:#355071!important}
 </style>
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
@@ -115,7 +131,7 @@ const MEGA_REGION_ORDER=Object.keys(MEGA_REGIONS);
 const MEGA_SPECIES=Object.entries(MEGA_REGIONS).flatMap(([region,names],regionIndex)=>names.map((base,index)=>({base,region,regionIndex,index}))).sort((a,b)=>b.base.length-a.base.length);
 function megaOrigin(name){return MEGA_SPECIES.find(x=>name==='Mega '+x.base||name.startsWith('Mega '+x.base+' '))||{region:'Outras',regionIndex:99,index:999};}
 function megaRegionSort(a,b){const aa=megaOrigin(typeof a==='string'?a:a.name),bb=megaOrigin(typeof b==='string'?b:b.name);return aa.regionIndex-bb.regionIndex||aa.index-bb.index||(typeof a==='string'?a:a.name).localeCompare(typeof b==='string'?b:b.name,'pt-BR');}
-function megaGrouped(items,draw){const groups=new Map();items.forEach(x=>{const region=megaOrigin(typeof x==='string'?x:x.name).region;if(!groups.has(region))groups.set(region,[]);groups.get(region).push(x)});return [...groups].map(([region,values])=>'<div class="mega-region"><div class="mega-region-title">'+region+' <small>'+values.length+'</small></div><div class="mega-region-items">'+values.map(draw).join('')+'</div></div>').join('');}
+function megaGrouped(items,draw){const groups=new Map();items.forEach(x=>{const region=megaOrigin(typeof x==='string'?x:x.name).region;if(!groups.has(region))groups.set(region,[]);groups.get(region).push(x)});const searching=Boolean($('#search')?.value.trim());return [...groups].map(([region,values])=>'<details class="mega-region"'+(searching?' open':'')+'><summary class="mega-region-title"><span class="mega-region-name">'+region+'</span><span class="mega-region-meta"><small>'+values.length+'</small><span class="mega-region-chevron" aria-hidden="true"></span></span></summary><div class="mega-region-items">'+values.map(draw).join('')+'</div></details>').join('');}
 const $=s=>document.querySelector(s);
 const localDay=()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())};
 const releaseDay=new Date(2026,8,19);

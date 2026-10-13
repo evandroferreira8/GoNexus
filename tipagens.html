@@ -42,6 +42,25 @@
 </style>
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
+<style id="combat-interface-refinement">
+/* Central de Combate: ajustes restritos a esta página, sem alterar cálculos */
+.page-combat .hero{padding:20px 0 13px}.page-combat .hero h1{font-size:clamp(1.9rem,4vw,2.8rem);margin:8px 0}.page-combat .lead{font-size:.96rem;line-height:1.48}.page-combat .hero-meta{margin-top:8px}.page-combat .hero-meta span{font-size:.77rem;padding:4px 10px}
+.page-combat .combat-tabs{gap:8px;margin:7px 0 12px}.page-combat .combat-tab{background:#fff;color:#174681;border:1px solid #bdd1ee;min-height:48px;border-radius:12px;font-weight:850;box-shadow:none}.page-combat .combat-tab.active{background:#2563eb;color:#fff;border-color:#2563eb;box-shadow:0 4px 12px rgba(37,99,235,.15)}.page-combat .combat-tab:hover:not(.active){background:#eaf2ff;color:#154584;border-color:#6d9be2}
+.page-combat .search-card{padding:14px}.page-combat .section-head{margin-bottom:8px}.page-combat .section-head p{font-size:.86rem}.page-combat .poke-search{margin-top:8px}.page-combat .poke-search button{background:#2563eb;color:#fff;border-color:#1d4ed8}.page-combat .search-examples button{background:#eef4ff;color:#1d4f91;border-color:#c5d7ee;font-size:.82rem;padding:8px 11px}
+.page-combat .poke-result{gap:9px}.page-combat .poke-profile{padding:12px;gap:12px}.page-combat .poke-visual{min-height:130px}.page-combat .poke-visual img{height:125px;width:125px}
+.page-combat .analysis-cards{gap:8px}.page-combat .analysis-card{padding:12px;border-color:#b9cfe9;background:#fff}.page-combat .analysis-card h3{font-size:.98rem;color:#102f5e}.page-combat .analysis-card p{color:#476183;font-size:.83rem;line-height:1.38}.page-combat .analysis-card .empty,.page-combat .match-note{color:#536c8a}.page-combat .analysis-card .badges{gap:6px;margin-top:7px}.page-combat .analysis-card .badge{color:#183e72;border-color:#bdd0ec;background:#eaf2ff}
+.page-combat .analysis-card.good{border-left:4px solid #229c75}.page-combat .analysis-card.warn{border-left:4px solid #d89b28}.page-combat .analysis-card.special{border-left:4px solid #4478d4}
+.page-combat .poke-summary,.page-combat .poke-dex{color:#4a6689}.page-combat .type-pill{color:#163c70;border-color:#bfd1ea;background:#e9f1ff}.page-combat .poke-profile{background:#fff;border-color:#c1d4ec}
+.page-combat .combat-more{border:1px solid #c4d6ec;border-radius:13px;background:#fff;overflow:hidden}.page-combat .combat-more>summary{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;padding:12px 14px;color:#174681;font-size:.9rem;font-weight:850;list-style:none}.page-combat .combat-more>summary::-webkit-details-marker{display:none}.page-combat .combat-more>summary span{font-size:.76rem;color:#2967bd;white-space:nowrap}.page-combat .combat-more[open]>summary{border-bottom:1px solid #d2dfef}.page-combat .combat-more .context-grid{padding:10px}.page-combat .context-card{background:#f7faff;border-color:#c7d7eb}.page-combat .context-card h3{color:#173b70}.page-combat .context-card p{color:#465e7e}
+.page-combat .challenge-option,.page-combat .challenge-next,.page-combat .toggle button{background:#eaf2ff;color:#174c8c;border:1px solid #b4cbed;border-radius:11px;padding:9px 12px}.page-combat .challenge-option:hover,.page-combat .challenge-next:hover{background:#dceaff}.page-combat .challenge-next{font-size:.85rem;min-height:39px}.page-combat .challenge-option.correct{background:#d9f6e6;color:#0b6847;border-color:#62b795}.page-combat .challenge-option.wrong{background:#fee9e8;color:#962e33;border-color:#e59ea1}
+.page-combat .challenge-feedback{color:#425e80}.page-combat .challenge-copy p{color:#476183}
+@media(max-width:860px){.page-combat .challenge{display:grid;grid-template-columns:85px minmax(0,1fr);gap:10px;padding:12px}.page-combat .challenge-art{min-height:85px}.page-combat .challenge-art img{width:78px;height:78px}}
+@media(max-width:640px){.page-combat .hero{padding-top:15px}.page-combat .hero-meta{display:none}.page-combat .combat-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.page-combat .combat-tab{font-size:.77rem;padding:8px 5px;min-height:52px}.page-combat .poke-search{display:flex;gap:7px}.page-combat .poke-search button{width:auto;min-width:98px;padding:0 10px}.page-combat .poke-profile{grid-template-columns:104px minmax(0,1fr)}.page-combat .poke-visual{min-height:104px}.page-combat .poke-visual img{height:100px;width:100px}.page-combat .poke-copy h2{font-size:1.38rem}.page-combat .analysis-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.page-combat .analysis-card{padding:10px}.page-combat .analysis-card h3{font-size:.86rem}.page-combat .analysis-card p{font-size:.76rem}.page-combat .analysis-card.wide{grid-column:1/-1}.page-combat .challenge{grid-template-columns:75px minmax(0,1fr)}.page-combat .challenge-art{min-height:75px}.page-combat .challenge-art img{width:72px;height:72px}}
+@media(max-width:390px){.page-combat .analysis-cards{grid-template-columns:1fr}.page-combat .poke-profile{grid-template-columns:96px minmax(0,1fr);text-align:left}.page-combat .poke-types{justify-content:flex-start}.page-combat .challenge{grid-template-columns:1fr}.page-combat .combat-tab{font-size:.7rem}}
+[data-theme="dark"] .page-combat .combat-tab:not(.active),[data-theme="dark"] .page-combat .analysis-card,[data-theme="dark"] .page-combat .combat-more,[data-theme="dark"] .page-combat .poke-profile{background:#14253d;color:#e3edfb;border-color:#38577c}
+[data-theme="dark"] .page-combat .analysis-card h3,[data-theme="dark"] .page-combat .combat-more>summary,[data-theme="dark"] .page-combat .context-card h3{color:#e3edfb}
+[data-theme="dark"] .page-combat .analysis-card p,[data-theme="dark"] .page-combat .poke-summary,[data-theme="dark"] .page-combat .poke-dex{color:#b2c6e1}
+</style>
 </head>
 <body class="page-combat" data-studio-page="tipagens">
 <go-nexus-header></go-nexus-header>
@@ -81,12 +100,12 @@
             <article class="analysis-card special"><h3>🔒 Resistências fortes</h3><p>Combinações que amortecem ainda mais o dano no modelo do Pokémon GO.</p><div class="badges" id="pokeStrongResist"></div></article>
             <article class="analysis-card wide"><h3>⚔️ Se atacar com golpes dos próprios tipos</h3><p>Isso mostra quais tipos podem ser pressionados pelos STABs naturais da espécie. O desempenho real depende dos golpes que o Pokémon tiver.</p><div class="offense-lines" id="pokeOffense"></div></article>
           </div>
-          <div class="context-grid">
+          <details class="combat-more"><summary>Estratégias para Reides, Batalhas Max e clima <span>Ver detalhes</span></summary><div class="context-grid">
             <article class="context-card"><h3>⚔️ Em Reides</h3><p id="raidAdvice">—</p></article>
             <article class="context-card"><h3>🔴 Em Batalhas Max</h3><p id="maxAdvice">—</p><a class="source-link" href="https://pokemongo.com/pt-BR/max-pokemon-battle" target="_blank" rel="noopener">Como funcionam as Batalhas Max ↗</a></article>
             <article class="context-card"><h3>🌦️ Clima favorável</h3><p id="weatherAdvice">—</p><button class="challenge-next" id="openWeatherFromPokemon" type="button">Ver Clima e Bônus →</button></article>
             <article class="context-card"><h3>ℹ️ Escopo da análise</h3><p>O GO Nexus analisa <strong>tipagem</strong>. Ele não compara IV, nível, golpes, DPS ou disponibilidade atual de uma espécie como Chefe de Reide ou Chefe Max.</p></article>
-          </div>
+          </div></details>
         </div>
       </section>
 
@@ -147,7 +166,7 @@
       </div>
     </section>
 
-    <details class="nx-accordion" open data-nx-group="type-info">
+    <details class="nx-accordion" data-nx-group="type-info">
       <summary><span class="nx-summary-main"><span>📘</span><span class="nx-summary-copy"><span class="nx-summary-title">Dicas rápidas para ler tipagens sem complicar</span><span class="nx-summary-sub">Uma tradução do sistema para linguagem humana</span></span></span><span class="nx-summary-side"><span class="nx-count">3 pontos</span><span class="nx-chevron">⌄</span></span></summary>
       <div class="nx-body">
         <div class="legend">

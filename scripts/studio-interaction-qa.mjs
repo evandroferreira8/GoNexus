@@ -6,6 +6,7 @@ async function check(width,file,fn){
  const context=await browser.newContext({viewport:{width,height:width<600?844:850},reducedMotion:'reduce',locale:'pt-BR'});
  await context.route('**/*',route=>route.request().url().startsWith('http://127.0.0.1:8765/')?route.continue():route.abort());
  const page=await context.newPage(),pageErrors=[];
+ page.setDefaultTimeout(6500);
  page.on('pageerror',e=>pageErrors.push(e.message));
  try{
   await page.goto('http://127.0.0.1:8765/'+file,{waitUntil:'domcontentloaded',timeout:30000});

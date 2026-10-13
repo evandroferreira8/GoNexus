@@ -22,7 +22,7 @@ for(const s of sizes){
    if(file==='index.html'){
      const layers=await tab.evaluate(()=>{
        const read=s=>getComputedStyle(document.querySelector(s)).backgroundColor;
-       const rgb=c=>(c.match(/\\d+/g)||[]).slice(0,3).map(Number);
+       const rgb=c=>(c.match(/\d+/g)||[]).slice(0,3).map(Number);
        const delta=(a,b)=>rgb(a).reduce((n,v,i)=>n+Math.abs(v-rgb(b)[i]),0);
        const body=read('body'),section=read('main .gn-section'),card=read('main .gn-section .gn-v2-card');
        return {body,section,card,outerGap:delta(body,section),innerGap:delta(section,card),

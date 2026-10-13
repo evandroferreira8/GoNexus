@@ -7,6 +7,8 @@
   <meta name="description" content="GO Nexus — consulte Pokémon que concedem Poeira Estelar extra na captura e calcule bônus.">
   <title>Poeira Estelar | GO Nexus</title>
   <style>
+@layer legacy {
+
     :root{
       --bg:#070b17;--panel:#0d1425;--panel2:#111a2e;--text:#f8fafc;--muted:#9ca9bf;
       --line:#23304a;--blue:#38bdf8;--violet:#8b5cf6;--pink:#ec4899;--green:#a3e635;
@@ -98,10 +100,11 @@
       header{position:relative}.calc-grid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}.quick-values{justify-content:flex-start}}
     @media(max-width:500px){.wrap{width:min(100% - 20px,1180px)}.hero{padding-top:44px}.pokemon-grid{grid-template-columns:repeat(2,1fr)}
       .pokemon img{width:82px;height:82px}.calculator{padding:16px}.selected-box img{width:85px;height:85px}nav a{font-size:.8rem;padding:8px}}
-  </style>
+  
+}
+</style>
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-v3-safe">
-<link rel="stylesheet" href="studio-tools.css?v=studio-types-20261013-03">
-<link rel="stylesheet" href="studio-control-colors.css?v=20261012-01">
+<link rel="stylesheet" href="nexus-studio.css?v=clean-20261013a">
 </head>
 <body class="page-stardust" data-studio-page="poeira-estelar">
 <go-nexus-header></go-nexus-header>

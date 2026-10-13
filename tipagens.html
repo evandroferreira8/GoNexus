@@ -6,6 +6,8 @@
 <title>Central de Combate | GO Nexus</title>
 <meta name="description" content="Analise Pokémon, fraquezas, resistências, estratégia de Reides e Batalhas Max, clima e tipagens no Pokémon GO.">
 <style>
+@layer legacy {
+
 :root{--bg:#07111f;--panel:#0b1729;--line:#263653;--text:#f8fafc;--muted:#9fb0c7;--blue:#38bdf8;--violet:#8b5cf6;--pink:#ec4899;--green:#34d399;--yellow:#facc15}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 14% 0,rgba(56,189,248,.14),transparent 28%),radial-gradient(circle at 88% 4%,rgba(139,92,246,.16),transparent 26%),var(--bg);color:var(--text);font:17px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
 .shell{width:min(1120px,calc(100% - 26px));margin:auto}.hero{text-align:center;padding:38px 0 20px}.eyebrow{display:inline-flex;padding:7px 12px;border:1px solid rgba(56,189,248,.24);border-radius:999px;background:rgba(56,189,248,.08);color:#bae6fd;font-size:.82rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase}.hero h1{margin:13px 0 10px;font-size:clamp(2.15rem,6vw,4rem);line-height:1.04;letter-spacing:-.05em}.grad{display:inline-block;padding:.06em .035em .09em;margin:-.06em -.035em -.09em;background:linear-gradient(90deg,#38bdf8,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{max-width:820px;margin:auto;color:#b7c5d8;font-size:1.03rem;line-height:1.68}.lead strong{color:#fff}.hero-meta{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px}.hero-meta span{padding:7px 10px;border:1px solid #2b3d58;border-radius:999px;background:#0a1526;color:#9fb0c6;font-size:.8rem;font-weight:780}
@@ -35,10 +37,11 @@
 @media(max-width:860px){.analyzer-grid{grid-template-columns:1fr}.challenge{grid-template-columns:120px minmax(0,1fr)}.challenge-art{min-height:120px}.challenge-art img{width:108px;height:108px}.weather-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.combat-tabs{grid-template-columns:1fr;gap:7px}.combat-tab{min-height:48px;font-size:.92rem}.poke-search{display:grid;grid-template-columns:1fr}.poke-search button{width:100%}.poke-profile{grid-template-columns:112px minmax(0,1fr);gap:12px;padding:13px}.poke-visual{min-height:112px;border-radius:18px}.poke-visual img{width:104px;height:104px}.poke-copy h2{font-size:1.36rem}.poke-summary{font-size:.88rem}.analysis-cards,.context-grid{grid-template-columns:1fr}.analysis-card.wide{grid-column:auto}.challenge{grid-template-columns:1fr;padding:15px}.challenge-art{min-height:124px}.challenge-options{grid-template-columns:repeat(2,minmax(0,1fr))}.weather-grid{grid-template-columns:1fr 1fr}.weather-btn{min-height:88px;padding:11px}.search-card,.weather-intro{padding:15px}}
 @media(max-width:390px){.poke-profile{grid-template-columns:1fr;text-align:center}.poke-types{justify-content:center}.poke-visual{min-height:138px}.poke-visual img{width:126px;height:126px}.weather-grid{grid-template-columns:1fr}.challenge-options{grid-template-columns:1fr}}
+
+}
 </style>
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-v3-safe">
-<link rel="stylesheet" href="studio-tools.css?v=studio-types-20261013-03">
-<link rel="stylesheet" href="studio-control-colors.css?v=20261012-01">
+<link rel="stylesheet" href="nexus-studio.css?v=clean-20261013a">
 </head>
 <body class="page-combat" data-studio-page="tipagens">
 <go-nexus-header></go-nexus-header>

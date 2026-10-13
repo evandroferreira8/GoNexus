@@ -1,0 +1,3 @@
+# GO Nexus — identidade visual e manutenção
+
+`theme.css` é a base de tokens e fontes. `nexus-studio.css` é o único dono de estilos de componentes, acordeões e estados de controle, substituindo `studio-tools.css` e `studio-control-colors.css` (que serão eliminados ao fim da migração). O CSS embutido de origem fica em `@layer legacy` para servir como fallback de geometria sem competir com estilos Studio. `nav.js` implementa lógica e navegação, sem inserir estilos de acordeões antigos. Cards PNG usam `result-share.js` e `evolution-share.js` e exigem auditoria de canvas. Não acrescentar novas folhas de remendos; alterar os componentes na fonte única e validar estado expandido, celular e computador.

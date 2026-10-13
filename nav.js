@@ -126,28 +126,7 @@ details.toolmenu>summary::-webkit-details-marker{display:none}
   if(!customElements.get('go-nexus-header')) customElements.define('go-nexus-header',GoNexusHeader);
   if(!customElements.get('go-nexus-footer')) customElements.define('go-nexus-footer',GoNexusFooter);
 
-  if(!document.getElementById('go-nexus-shared-ui')){
-    const style=document.createElement('style');
-    style.id='go-nexus-shared-ui';
-    style.textContent=`
-      details.nx-accordion{border:1px solid #263653;border-radius:16px;background:rgba(9,20,36,.82);overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.10);transition:border-color .18s,box-shadow .18s,background .18s}
-      details.nx-accordion+details.nx-accordion{margin-top:9px}
-      details.nx-accordion[open]{border-color:#3c5276;background:rgba(10,23,41,.94);box-shadow:0 0 0 1px rgba(56,189,248,.025),0 14px 34px rgba(0,0,0,.15),0 0 24px rgba(56,189,248,.045)}
-      details.nx-accordion>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:58px;padding:13px 16px;color:#e6edf7;font:800 .93rem/1.35 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;user-select:none}
-      details.nx-accordion>summary::-webkit-details-marker{display:none}
-      details.nx-accordion>summary:hover{background:rgba(255,255,255,.018)}
-      details.nx-accordion>summary:focus-visible{outline:2px solid #38bdf8;outline-offset:-2px}
-      .nx-summary-main{display:flex;align-items:center;gap:10px;min-width:0}.nx-summary-copy{min-width:0}.nx-summary-title{display:block;color:#eef5ff}.nx-summary-sub{display:block;margin-top:2px;color:#71849d;font-size:.77rem;font-weight:650;white-space:normal}
-      .nx-summary-side{display:flex;align-items:center;gap:9px;flex:0 0 auto}.nx-count{display:inline-flex;align-items:center;justify-content:center;min-width:31px;padding:4px 8px;border:1px solid #30435f;border-radius:999px;background:#071526;color:#91a5bf;font-size:.71rem;font-weight:900}.nx-chevron{width:24px;height:24px;display:grid;place-items:center;border-radius:8px;color:#7288a6;transition:transform .18s,color .18s;background:rgba(255,255,255,.025)}details.nx-accordion[open] .nx-chevron{transform:rotate(180deg);color:#7dd3fc}
-      .nx-body{padding:0 16px 16px;border-top:1px solid rgba(47,65,94,.55)}.nx-body>.nx-body-intro{margin:14px 0 12px;color:#8fa2ba;font-size:.84rem;line-height:1.62}
-      .nx-pills{display:flex;flex-wrap:wrap;gap:7px;padding-top:12px}.nx-pill{display:inline-flex;align-items:center;gap:5px;padding:6px 10px;border:1px solid #293d59;border-radius:999px;background:#081629;color:#c5d1df;font-size:.78rem;font-weight:780;line-height:1.25}.nx-pill strong{color:#fff}.nx-pill.good{border-color:rgba(52,211,153,.24);background:rgba(52,211,153,.055);color:#9deec8}.nx-pill.future{border-color:rgba(250,204,21,.22);background:rgba(250,204,21,.055);color:#f5d76e}.nx-pill.muted{color:#8497ae;background:#081321}
-      .nx-compact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;padding-top:12px}.nx-compact-item{padding:10px 11px;border:1px solid #263a57;border-radius:12px;background:#081526;color:#cbd7e6;font-size:.79rem;line-height:1.48}.nx-compact-item b{color:#fff}.nx-note{margin-top:10px;padding:10px 12px;border-left:2px solid #49658f;border-radius:0 9px 9px 0;background:rgba(59,130,246,.055);color:#8fa2ba;font-size:.79rem;line-height:1.57}
-      @media(max-width:560px){details.nx-accordion>summary{min-height:54px;padding:12px 13px;gap:9px;font-size:.9rem}.nx-summary-sub{display:none}.nx-body{padding:0 13px 13px}.nx-count{padding:3px 7px}.nx-compact-grid{grid-template-columns:1fr}.nx-pill{font-size:.76rem}}
-    `;
-    document.head.appendChild(style);
-  }
-
-
+  // Presentation is defined only in nexus-studio.css. Navigation retains accordion interactions.
 
   // Acessibilidade móvel do GO Nexus: texto legível, alvos de toque confortáveis e menos espaço desperdiçado.
   if(!document.getElementById('go-nexus-mobile-a11y')){

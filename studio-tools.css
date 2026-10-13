@@ -527,3 +527,75 @@ html[data-theme="light"] body[data-studio-page="guia-busca"] #search::placeholde
 html[data-theme="light"] body[data-studio-page="guia-busca"] #search:focus{
  border-color:#2563eb!important;outline:2px solid #a4c2f8!important;outline-offset:1px;
 }
+
+
+/* NEXUS STUDIO / Adventure effects: repair the legacy dark disclosure panels.
+   Keep these rules page-scoped; do not globally recolor Pokémon types or other tools. */
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card{
+  grid-template-columns:minmax(100px,29%) minmax(0,1fr);
+  min-width:0;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .art{
+  min-width:0;
+  overflow:hidden;
+  border-right:1px solid #dce5f1;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .art img{
+  width:100%;
+  max-width:136px;
+  height:auto;
+  max-height:148px;
+  object-fit:contain;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .content{
+  min-width:0;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .stats{
+  gap:6px;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .stats > div{
+  background:#f0f5fc!important;
+  background-image:none!important;
+  border:1px solid #d5e2f1!important;
+  border-radius:9px;
+  padding:8px 10px;
+  min-width:0;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .stats small{
+  color:#526782!important;
+  font-size:.69rem;
+  line-height:1.35;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .stats strong{
+  color:#142f50!important;
+  font-size:.87rem;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card.open .details{
+  background:#eaf2ff!important;
+  color:#1b51b1!important;
+  border-color:#bad1f4!important;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .more{
+  color:#526782!important;
+  border-top:1px solid #dce5f1!important;
+}
+@media(max-width:850px){
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+@media(max-width:430px){
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card{
+    grid-template-columns:92px minmax(0,1fr);
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .art img{
+    max-width:92px;
+    max-height:125px;
+  }
+}

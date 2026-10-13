@@ -47,19 +47,39 @@
     const blocksHeight=blocks.reduce((h,b)=>h+40+b.labels.length*31+b.lines.length*44+28,0);
     canvas.height=Math.max(1080,start+blocksHeight+note.length*34+210);
     if(canvas.height>16000)throw new Error('O resultado ficou muito grande. Reduza a quantidade de itens para criar o card.');
-    const gradient=ctx.createLinearGradient(0,0,1080,canvas.height);gradient.addColorStop(0,'#122b47');gradient.addColorStop(1,'#07111f');ctx.fillStyle=gradient;ctx.fillRect(0,0,1080,canvas.height);
-    const stripe=ctx.createLinearGradient(0,0,1080,0);stripe.addColorStop(0,'#38bdf8');stripe.addColorStop(.5,'#8b5cf6');stripe.addColorStop(1,'#ec4899');ctx.fillStyle=stripe;ctx.fillRect(0,0,1080,10);
-    const draw=(t,x,y,size,color='#f8fafc',weight=500)=>{font(size,weight);ctx.fillStyle=color;ctx.fillText(t,x,y);};
-    ctx.fillStyle='#38bdf8';ctx.fillRect(64,50,188,6);draw('GO NEXUS',64,104,46,'#7dd3fc',950);draw(data.subtitle,64,151,25,'#b8c8dc');
-    ctx.fillStyle='#163653';ctx.fillRect(48,184,720,Math.max(126,title.length*titleLine+32));
-    draw('POKÉMON ANALISADO',72,220,22,'#7dd3fc',850);
-    title.forEach((l,i)=>draw(l,72,312+i*titleLine,titleSize,'#fff',950));
-    ctx.fillStyle='#38bdf8';ctx.fillRect(72,330+title.length*titleLine,Math.min(430,ctx.measureText(title[0]||'').width),8);
-    if(art)ctx.drawImage(art,816,155,200,200);
+    // Nexus Studio 2: light export artwork, independent of dialog styling.
+    ctx.fillStyle='#f8f9fb';ctx.fillRect(0,0,1080,canvas.height);
+    ctx.fillStyle='#2563eb';ctx.fillRect(0,0,1080,12);
+    ctx.fillStyle='#fecb2f';ctx.fillRect(0,12,1080,7);
+    const draw=(t,x,y,size,color='#142d4e',weight=500)=>{font(size,weight);ctx.fillStyle=color;ctx.fillText(t,x,y);};
+    ctx.fillStyle='#fecb2f';ctx.fillRect(64,48,50,10);
+    draw('GO NEXUS',64,116,49,'#0b1f3b',900);
+    draw('NEXUS STUDIO  /  '+data.subtitle,64,163,25,'#46617f',700);
+    ctx.fillStyle='#eaf2ff';ctx.fillRect(48,191,984,Math.max(130,title.length*titleLine+32));
+    const kicker=data.subtitle.includes('Central de Combate')?'POKÉMON ANALISADO':
+      data.subtitle.includes('Megaenergia')?'MEGAEVOLUÇÃO':
+      data.subtitle.includes('Poeira Estelar')?'POEIRA ESTELAR':
+      data.subtitle.includes('Central Max')?'MOVIMENTOS MAX':'SEU RESULTADO';
+    draw(kicker,72,230,24,'#235bb1',800);
+    title.forEach((l,i)=>draw(l,72,316+i*titleLine,titleSize,'#102b4b',900));
+    ctx.fillStyle='#2563eb';ctx.fillRect(72,335+title.length*titleLine,175,7);
+    if(art)ctx.drawImage(art,816,164,184,184);
     let y=start;
-    blocks.forEach(b=>{const height=40+b.labels.length*31+b.lines.length*44;ctx.fillStyle='#142b45';ctx.fillRect(64,y,952,height);let lineY=y+36;b.labels.forEach(l=>{draw(l,90,lineY,23,'#7dd3fc',750);lineY+=31;});lineY+=10;b.lines.forEach(l=>{draw(l,90,lineY,32);lineY+=44;});y+=height+28;});
-    note.forEach(l=>{draw(l,64,y+22,24,'#b8c8dc');y+=34;});
-    const bottom=canvas.height-138;ctx.fillStyle='#36506c';ctx.fillRect(64,bottom,952,1);draw('Mais guias e ferramentas no GO Nexus',64,bottom+53,30,'#fff',700);draw('evandroferreira8.github.io/GoNexus/',64,bottom+99,29,'#7dd3fc',600);
+    blocks.forEach(b=>{
+      const height=40+b.labels.length*31+b.lines.length*44;
+      ctx.fillStyle='#fff';ctx.fillRect(64,y,952,height);
+      ctx.strokeStyle='#d5e1f2';ctx.lineWidth=2;ctx.strokeRect(64,y,952,height);
+      let lineY=y+36;
+      b.labels.forEach(l=>{draw(l,90,lineY,23,'#245bb1',800);lineY+=31;});
+      lineY+=10;
+      b.lines.forEach(l=>{draw(l,90,lineY,32,'#142d4e',600);lineY+=44;});
+      y+=height+28;
+    });
+    note.forEach(l=>{draw(l,64,y+22,24,'#526782');y+=34;});
+    const bottom=canvas.height-138;
+    ctx.fillStyle='#d5e1f2';ctx.fillRect(64,bottom,952,2);
+    draw('Mais guias e ferramentas no GO Nexus',64,bottom+53,30,'#152c4b',750);
+    draw('evandroferreira8.github.io/GoNexus/',64,bottom+99,29,'#2159ca',650);
     const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw new Error('Não foi possível gerar a imagem. Tente novamente.');
     return {blob,missing:!!data.image&&!art};
   }

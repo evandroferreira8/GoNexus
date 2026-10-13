@@ -103,6 +103,11 @@ for(const width of [390,1365]){
    assert.ok(await page.locator('#answers button').count()>1);
    await page.locator('#answers button').first().click();
    assert.ok((await page.locator('#feedback').innerText()).length>0);
+   const correct=page.locator('#answers button.ans.correct');
+   assert.equal(await correct.count(),1,'Resposta correta deve ficar identificada');
+   assert.equal(await correct.evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(231, 245, 237)','Verde da resposta correta no quiz');
+   const wrong=page.locator('#answers button.ans.wrong');
+   if(await wrong.count())assert.equal(await wrong.first().evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(255, 240, 241)','Coral da resposta incorreta no quiz');
  });
 }
 await browser.close();

@@ -222,6 +222,52 @@ html[data-theme="light"] body[data-studio-page="formas-especiais"] :is(.card,.gr
 html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab.active{
  background:#e8f1ff!important;color:#1954bb!important;
 }
+/* Legacy nested panels: keep light-theme typography paired with light surfaces. */
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .rule{
+  background:#f2f6fc!important;
+  background-image:none!important;
+  color:#152c4b!important;
+  border:1px solid #d8e3f1!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .rule strong{
+  color:#15365a!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .rule p{
+  color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .saving{
+  background:#e6f5ee!important;
+  background-image:none!important;
+  border:1px solid #add9c4!important;
+  color:#124d3b!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .saving span{
+  color:#265d4d!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .saving strong{
+  color:#096946!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] :is(.explain,.details){
+  color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .wallet{
+  background:#f0f5fc!important;
+  background-image:none!important;
+  color:#152c4b!important;
+  border-color:#d5e2f1!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .walletitem{
+  background:#fff!important;
+  background-image:none!important;
+  border-color:#d5e2f1!important;
+  color:#152c4b!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .walletitem :is(span,small){
+  color:#526782!important;
+}
+html[data-theme="light"] body[data-studio-page="calculadora"] .walletitem strong.ok{color:#136d4d!important}
+html[data-theme="light"] body[data-studio-page="calculadora"] .walletitem strong.warn{color:#875e06!important}
+
 /* --- Specialty: Efeitos Aventura --- */
 html[data-theme="light"] body[data-studio-page="efeitos-aventura"] :is(.controls,.grid .card,.info,.feedback){
  border-color:#dce5f1!important;color:#132f4d;

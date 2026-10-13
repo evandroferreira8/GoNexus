@@ -886,3 +886,97 @@ html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-act
 html[data-theme="light"] body[data-studio-page] .nx-result-dialog .nx-result-actions a{
  background:#eaf2ff!important;color:#1c52a1!important;border-color:#a9c4ea!important
 }
+
+
+/* STUDIO COMPONENT FIX — Pokémon-type palette and stardust alignment.
+   Keep colored tokens readable on the light theme; selected type retains its hue. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(
+ .type-grid .type-btn,.badges .type-badge,.selected-strip .mini-type:not(.ghost),
+ .quick-table .mini-type,.poke-types .type-pill
+){
+ background:color-mix(in srgb,var(--type-color) 19%,#fff)!important;
+ background-image:none!important;
+ color:color-mix(in srgb,var(--type-color) 34%,#102b4a)!important;
+ border:1px solid color-mix(in srgb,var(--type-color) 55%,#fff)!important;
+ box-shadow:none!important;
+ text-shadow:none!important;
+ font-weight:800;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid .type-btn.active{
+ background:color-mix(in srgb,var(--type-color) 34%,#fff)!important;
+ color:color-mix(in srgb,var(--type-color) 34%,#102b4a)!important;
+ border:2px solid color-mix(in srgb,var(--type-color) 86%,#254665)!important;
+ box-shadow:0 0 0 2px color-mix(in srgb,var(--type-color) 15%,transparent)!important;
+ transform:none!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid .type-btn:not(.active):hover{
+ background:color-mix(in srgb,var(--type-color) 29%,#fff)!important;
+ border-color:var(--type-color)!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.badges .type-badge,.selected-strip .mini-type,.poke-types .type-pill){
+ min-height:37px;align-items:center;justify-content:center;
+ padding:7px 12px;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .selected-strip .mini-type.ghost{
+ background:#f0f5fc!important;color:#526782!important;
+ border:1px dashed #c5d6eb!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option{
+ background:#fff!important;background-image:none!important;
+ color:#173354!important;border:1px solid #c5d7ef!important;
+ min-height:46px;box-shadow:none!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option:hover:not(:disabled){
+ background:#eaf2ff!important;border-color:#7ea9e4!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option.correct{
+ background:#e0f5e9!important;color:#11643e!important;border:2px solid #38a073!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option.wrong{
+ background:#fff0f1!important;color:#923044!important;border:2px solid #d47b90!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .challenge-options .challenge-option:disabled{
+ opacity:1!important;
+}
+/* Full-width page hero is itself a centered .wrap; a generic margin reset
+   caused it to hug the left screen edge while group cards stayed centered. */
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > section.hero.wrap{
+ display:block;width:min(1180px,calc(100% - 32px))!important;
+ max-width:100%;margin:12px auto 19px!important;
+ border-left:1px solid #dce5f1!important;
+ padding:clamp(17px,3vw,27px)!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > .gn-breadcrumb{
+ width:min(1180px,calc(100% - 32px));
+ max-width:100%;
+ margin:14px auto 12px!important;
+ padding:0;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > section.hero.wrap .toolbar{
+ width:100%;max-width:850px;margin:18px 0 10px!important;
+ grid-template-columns:minmax(0,1fr) minmax(168px,auto);
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .quick-values span{
+ background:#eef4fc!important;color:#284769!important;
+ border:1px solid #cbdcf1!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.toggle,.event-row){
+ background:#f1f6fd!important;background-image:none!important;
+ border:1px solid #d7e2f1!important;color:#173554!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] :is(.toggle,.event-row) :is(small,span){
+ color:#395778!important;
+}
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .group-count{
+ background:#eef4fc!important;color:#315776!important;border-color:#cee0f2!important;
+}
+@media(max-width:800px){
+ html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > section.hero.wrap .toolbar{
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+}
+@media(max-width:500px){
+ html[data-theme="light"] body[data-studio-page="poeira-estelar"] main > :is(section.hero.wrap,.gn-breadcrumb){
+  width:calc(100% - 20px)!important;
+ }
+}

@@ -2,7 +2,7 @@ name: Nexus Studio rebuild — visual quality gate
 
 on:
   push:
-    branches: [nexus-studio-rebuild-audited, 'fix/studio-effects-contrast-20261012']
+    branches: [nexus-studio-rebuild-audited, 'fix/studio-effects-contrast-20261012', 'fix/studio-effects-card-image-layout-20261012']
   workflow_dispatch:
 
 permissions:
@@ -35,6 +35,20 @@ jobs:
         run: node scripts/studio-visual-qa.mjs
       - name: Testar filtros, formulários, cálculos e abas em todas as ferramentas
         run: node scripts/studio-interaction-qa.mjs
+      - name: Arquivar código-fonte para revisão local independente
+        if: always()
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from shutil import copy2
+          root=Path('audit-results/studio-rebuild/source')
+          for pat in ('*.html','*.css','*.js','*.json','scripts/*.mjs','scripts/*.py','.github/workflows/*.yml'):
+              for p in Path('.').glob(pat):
+                  if p.is_file():
+                      target=root/p
+                      target.parent.mkdir(parents=True,exist_ok=True)
+                      copy2(p,target)
+          PY
       - name: Anexar capturas e dados para análise
         if: always()
         uses: actions/upload-artifact@v4

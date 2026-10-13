@@ -60,9 +60,60 @@ for(const s of sizes){
    const res={page:file,viewport:s.name,...a,errors};
    checks.push(res);
    await tab.screenshot({path:path.join(OUT,s.name+'-'+file.replace('.html','')+'-top.jpg'),type:'jpeg',quality:73,animations:'disabled'});
+   if(file==='formas-especiais.html'){
+     const rules=tab.locator('main .rules .rule');
+     if(await rules.count()){
+       await rules.first().scrollIntoViewIfNeeded();
+       const samples=await rules.evaluateAll(nodes=>nodes.slice(0,3).map(el=>({
+         title:el.querySelector('strong')?.textContent,
+         bg:getComputedStyle(el).backgroundColor,
+         titleColor:getComputedStyle(el.querySelector('strong')).color,
+         bodyColor:getComputedStyle(el.querySelector('p')).color
+       })));
+       if(samples.some(x=>/rgb\\((?:10|7), (?:21|17), (?:38|31)\\)/.test(x.bg))){
+         errors.push('Legacy dark Fusion rule panels with dark typography: '+JSON.stringify(samples));
+       }
+       await tab.screenshot({path:path.join(OUT,s.name+'-forms-rules.jpg'),type:'jpeg',quality:82,animations:'disabled'});
+     }
+   }
+   if(file==='calculadora.html'){
+     await tab.locator('.saving').scrollIntoViewIfNeeded();
+     const surface=await tab.locator('.saving').evaluate(el=>({
+       bg:getComputedStyle(el).backgroundColor,
+       label:getComputedStyle(el.querySelector('span')).color,
+       amount:getComputedStyle(el.querySelector('strong')).color,
+       explain:getComputedStyle(document.querySelector('#explain')).color
+     }));
+     if(/rgb\\(16, 45, 44\\)/.test(surface.bg)||/rgb\\(219, 228, 242\\)/.test(surface.explain)){
+       errors.push('Old dark saving panel/light-on-light explanation: '+JSON.stringify(surface));
+     }
+     await tab.screenshot({path:path.join(OUT,s.name+'-calculator-result.jpg'),type:'jpeg',quality:82,animations:'disabled'});
+     const feedback=tab.locator('.feedbackbox');
+     await feedback.scrollIntoViewIfNeeded();
+     const feedbackPanel=await feedback.evaluate(el=>({
+       bg:getComputedStyle(el).backgroundColor,
+       gradient:getComputedStyle(el).backgroundImage,
+       title:getComputedStyle(el.querySelector('h2')).color,
+       caption:getComputedStyle(el.querySelector('p')).color
+     }));
+     if(feedbackPanel.gradient!=='none'||/rgb\\(20, 32, 57\\)/.test(feedbackPanel.bg)){
+       errors.push('Dark feedback panel still present in light theme: '+JSON.stringify(feedbackPanel));
+     }
+     await tab.screenshot({path:path.join(OUT,s.name+'-calculator-feedback.jpg'),type:'jpeg',quality:82,animations:'disabled'});
+   }
    if(file==='efeitos-aventura.html'){
      const card=tab.locator('.grid .card').filter({hasText:'Zamazenta'}).first();
      await card.locator('.details').click();
+     // The stickers use native lazy loading; allow the browser to finish fetching
+     // before treating naturalWidth=0 as a broken resource. Capture failures after timeout.
+     await card.locator('.art img').evaluate(async img=>{
+       if(img.complete&&img.naturalWidth>0)return;
+       img.loading='eager';
+       await Promise.race([
+         img.decode().catch(()=>null),
+         new Promise(resolve=>setTimeout(resolve,6500))
+       ]);
+     });
      const panel=await card.locator('.stats > div').first().evaluate(el=>{
        const value=el.querySelector('strong'),label=el.querySelector('small');
        const bg=getComputedStyle(el).backgroundColor;
@@ -74,8 +125,22 @@ for(const s of sizes){
      if(!panel.isOpen||/rgb\\(15, 23, 42\\)/.test(panel.bg)||panel.bg===panel.fg){
        errors.push('Cartão de efeito: painel expandido mantém fundo escuro ou texto ilegível '+JSON.stringify(panel));
      }
+     const layout=await card.evaluate(el=>{
+       const box=node=>{let r=node.getBoundingClientRect();return {x:Math.round(r.x),y:Math.round(r.y),w:Math.round(r.width),h:Math.round(r.height)}};
+       const img=el.querySelector('.art img');
+       return {card:box(el),art:box(el.querySelector('.art')),image:box(img),imageNatural:[img.naturalWidth,img.naturalHeight],details:box(el.querySelector('.details')),stats:box(el.querySelector('.stats'))};
+     });
+     if(s.width<=680&&layout.details.w<layout.card.w-45)errors.push('Disclosure still confined to a narrow column: '+JSON.stringify(layout));
+     if(layout.imageNatural[0]===0)errors.push('Card sticker failed to load: '+JSON.stringify(layout));
+     console.log('EFFECT_CARD_LAYOUT '+JSON.stringify({viewport:s.name,layout}));
      await card.scrollIntoViewIfNeeded();
      await tab.screenshot({path:path.join(OUT,s.name+'-efeitos-zamazenta-expanded.jpg'),type:'jpeg',quality:83,animations:'disabled'});
+   }
+   // Every page receives a mid-page screenshot; top-only audits missed states.
+   if(file!=='index.html'&&file!=='efeitos-aventura.html'){
+     await tab.evaluate(()=>window.scrollTo(0,Math.round(document.documentElement.scrollHeight*.52)));
+     await tab.waitForTimeout(90);
+     await tab.screenshot({path:path.join(OUT,s.name+'-'+file.replace('.html','')+'-middle.jpg'),type:'jpeg',quality:72,animations:'disabled'});
    }
    if(file==='index.html'||file==='efeitos-aventura.html'){
      await tab.evaluate(()=>window.scrollTo(0,Math.max(0,document.documentElement.scrollHeight*.48)));

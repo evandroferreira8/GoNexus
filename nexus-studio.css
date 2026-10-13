@@ -1339,4 +1339,66 @@ html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots button{
       @media(max-width:430px){
         html{font-size:18px}
       }
-    
+
+/* Evoluções Especiais — complete light card treatment, including Pokémon art.
+   Legacy .pokeart dark navy backgrounds were not covered by earlier migrations. */
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .pokeart{
+ width:104px;height:104px;max-width:100%;
+ display:grid;place-items:center;
+ background:#eef5fd!important;background-image:none!important;
+ color:#315b91!important;border:1px solid #cbdcf0!important;
+ border-radius:17px;box-shadow:0 5px 14px rgba(28,66,108,.075)!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .pokeart img{
+ width:98px;height:98px;max-width:100%;object-fit:contain;
+ filter:drop-shadow(0 5px 7px rgba(20,43,71,.13))!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .pokeart.img-missing{
+ background:#f1f5fa!important;color:#526782!important;
+ border:1px dashed #b8cce5!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .dex{
+ font-size:clamp(.79rem,.9vw,.9rem)!important;color:#4c6483!important;
+ font-weight:750;letter-spacing:.025em;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .name{
+ font-size:clamp(1.06rem,1.2vw,1.21rem)!important;line-height:1.3!important;
+ color:#132e50!important;font-weight:800;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .arrow{
+ color:#2a5caa!important;font-size:1.4rem!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .cost{
+ font-size:max(.84rem,14px)!important;line-height:1.4!important;
+ background:#fff8e9!important;color:#77500a!important;
+ border-color:#ebd3a3!important;padding:8px 11px;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .tag{
+ font-size:max(.78rem,14px)!important;line-height:1.3!important;
+ background:#edf4ff!important;color:#2a4c77!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .reqs li{
+ font-size:clamp(.88rem,1vw,1rem)!important;line-height:1.52!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .note{
+ font-size:max(.84rem,14px)!important;line-height:1.48!important;
+ background:#f0f5fc!important;color:#3f5b7d!important;
+ border-left-color:#8eb0dd!important;
+}
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .route{
+ align-items:start;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);
+}
+@media(max-width:460px){
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .pokeart{
+  width:86px;height:86px;border-radius:15px;
+ }
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .pokeart img{
+  width:82px;height:82px;
+ }
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .route{
+  grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr);gap:5px;
+ }
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .route-groups .card .dex{
+  font-size:.79rem!important;
+ }
+}

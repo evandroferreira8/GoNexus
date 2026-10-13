@@ -60,6 +60,23 @@ for(const s of sizes){
    const res={page:file,viewport:s.name,...a,errors};
    checks.push(res);
    await tab.screenshot({path:path.join(OUT,s.name+'-'+file.replace('.html','')+'-top.jpg'),type:'jpeg',quality:73,animations:'disabled'});
+   if(file==='efeitos-aventura.html'){
+     const card=tab.locator('.grid .card').filter({hasText:'Zamazenta'}).first();
+     await card.locator('.details').click();
+     const panel=await card.locator('.stats > div').first().evaluate(el=>{
+       const value=el.querySelector('strong'),label=el.querySelector('small');
+       const bg=getComputedStyle(el).backgroundColor;
+       const fg=getComputedStyle(value).color;
+       const labelFg=getComputedStyle(label).color;
+       const isOpen=getComputedStyle(el).display!=='none'&&el.getBoundingClientRect().height>0;
+       return {bg,fg,labelFg,isOpen};
+     });
+     if(!panel.isOpen||/rgb\\(15, 23, 42\\)/.test(panel.bg)||panel.bg===panel.fg){
+       errors.push('Cartão de efeito: painel expandido mantém fundo escuro ou texto ilegível '+JSON.stringify(panel));
+     }
+     await card.scrollIntoViewIfNeeded();
+     await tab.screenshot({path:path.join(OUT,s.name+'-efeitos-zamazenta-expanded.jpg'),type:'jpeg',quality:83,animations:'disabled'});
+   }
    if(file==='index.html'||file==='efeitos-aventura.html'){
      await tab.evaluate(()=>window.scrollTo(0,Math.max(0,document.documentElement.scrollHeight*.48)));
      await tab.waitForTimeout(100);

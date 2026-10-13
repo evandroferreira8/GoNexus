@@ -902,7 +902,7 @@ html[data-theme="light"] body[data-studio-page="tipagens"] :is(
  text-shadow:none!important;
  font-weight:800;
 }
-html[data-theme="light"] body[data-studio-page="tipagens"] .type-grid .type-btn.active{
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(#attackGrid,#defenseGrid) button.type-btn.active{
  background:color-mix(in srgb,var(--type-color) 34%,#fff)!important;
  color:color-mix(in srgb,var(--type-color) 34%,#102b4a)!important;
  border:2px solid color-mix(in srgb,var(--type-color) 86%,#254665)!important;

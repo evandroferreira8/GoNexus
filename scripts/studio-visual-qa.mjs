@@ -149,11 +149,13 @@ for(const s of sizes){
          imageWidth:Math.round(box.getBoundingClientRect().width),
          dexSize:size('.dex'),nameSize:size('.name'),
          costSize:size('.cost'),tagSize:size('.tag'),
+         summaryColor:getComputedStyle(document.querySelector('#count strong')).color,
          imgLoaded:!!img&&img.complete&&img.naturalWidth>0};
      });
      const color=visual.imageColor.match(/\d+/g)?.map(Number)||[];
      if(visual.imageBackground!=='none'||color.length<3||color[0]<190||color[1]<190||color[2]<190)
        errors.push('Evolution Pokémon artwork still sits on an old dark tile: '+JSON.stringify(visual));
+     if(visual.summaryColor==='rgb(255, 255, 255)') errors.push('Evolution summary count is white on white');
      if(s.width>=1000 && (visual.root<17.5||visual.dexSize<14||visual.costSize<14||visual.tagSize<14||visual.imageWidth<98))
        errors.push('Evolution desktop typography/art dimensions too small: '+JSON.stringify(visual));
      await routeCard.scrollIntoViewIfNeeded();

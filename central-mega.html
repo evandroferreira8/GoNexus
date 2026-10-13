@@ -23,6 +23,22 @@
 @media(max-width:600px){.shell{width:min(100% - 18px,1060px)}.hero{padding-top:24px;padding-bottom:14px}.hero h1{font-size:2.2rem}.lead{font-size:1rem}.updated{font-size:.8rem}.core{display:block;border:1px solid #263653;border-radius:17px;background:rgba(9,20,36,.8);overflow:hidden;margin:3px 0 10px}.core article{border:0;border-bottom:1px solid #263653;border-radius:0;background:transparent;padding:12px 13px}.core article:last-child{border-bottom:0}.step{font-size:.94rem}.step i{width:30px;height:30px;font-size:.78rem}.core p{font-size:.88rem;margin:5px 0 0 38px}.event{align-items:flex-start;margin-bottom:10px;padding:11px 12px}.event b{font-size:.92rem}.event span{font-size:.84rem}.toolbar{align-items:stretch;flex-direction:column;margin-top:10px}.searchhint{display:none}.search input{height:48px;font-size:1rem}.list-grid{grid-template-columns:1fr}.mega-row{padding:11px}.mega-row .name{font-size:.9rem}.mega-row .note{font-size:.8rem}.calc-grid{grid-template-columns:1fr}}
 
 }
+
+/* Central Mega: navegação orientada por tarefas; lógica original preservada */
+.page-mega .hero{padding:23px 0 12px}.page-mega .hero h1{font-size:clamp(1.9rem,4vw,2.7rem);margin:7px 0}.page-mega .lead{max-width:800px;line-height:1.5}.page-mega .updated{margin-top:8px}
+.page-mega .mega-shortcuts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 14px}
+.page-mega .mega-shortcuts a{display:inline-flex;align-items:center;justify-content:center;min-height:41px;padding:9px 14px;border:1px solid #c5d5ef;border-radius:11px;background:#fff;color:#194c96;font-size:.86rem;font-weight:800;text-decoration:none}
+.page-mega .mega-shortcuts a:first-child{background:#2563eb;color:#fff;border-color:#2563eb}.page-mega .mega-shortcuts a:hover{border-color:#2563eb;box-shadow:0 3px 10px rgba(37,99,235,.12)}
+.page-mega .mega-basics{margin:8px 0 12px;border:1px solid #c5d5ef;border-radius:13px;overflow:hidden;background:#fff}.page-mega .mega-basics>summary{cursor:pointer;padding:12px 16px;font-weight:800;list-style:none}.page-mega .mega-basics>summary::-webkit-details-marker{display:none}.page-mega .mega-basics>summary:after{content:'+';float:right;font-weight:700}.page-mega .mega-basics[open]>summary:after{content:'−'}.page-mega .mega-basics>summary span{margin-left:8px;font-weight:500;font-size:.79rem;opacity:.7}.page-mega .mega-basics .core{padding:0 12px 12px;margin:0}
+.page-mega .mega-unreleased-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:13px}.page-mega .mega-unreleased-grid .nx-pill{display:flex;align-items:center;min-height:43px;margin:0!important;padding:10px 12px!important;border-radius:10px!important;white-space:normal;line-height:1.35;font-size:.88rem;text-align:left;overflow-wrap:anywhere}
+.page-mega #unavailableBox .nx-body-intro{margin-top:2px;margin-bottom:12px;font-size:.88rem;line-height:1.5}.page-mega .stack{gap:12px}.page-mega .toolbar{margin-top:8px}.page-mega .search input{height:49px;font-size:.95rem}
+.page-mega .mega-row .name{font-size:.88rem}.page-mega .mega-row .note{font-size:.75rem}.page-mega .mega-row .tag{font-size:.7rem}.page-mega .mega-row{padding:12px}
+.page-mega .calc h3{font-size:1.02rem}.page-mega .calc p,.page-mega .calc label,.page-mega .answer{font-size:.87rem}.page-mega .calc select,.page-mega .calc input{min-height:44px;font-size:.95rem}
+.page-mega #availableBox,.page-mega #upcomingBox,.page-mega #unavailableBox,.page-mega #megaLevels,.page-mega #calculadorasMega{scroll-margin-top:85px}
+@media(max-width:760px){.page-mega .mega-unreleased-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.page-mega .mega-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.page-mega .mega-shortcuts a{font-size:.8rem;padding:9px 7px}.page-mega .mega-shortcuts a:first-child{grid-column:1/-1}.page-mega .mega-basics .core{padding:0 8px 8px}}
+@media(max-width:430px){.page-mega .mega-unreleased-grid{grid-template-columns:1fr}.page-mega .mega-basics>summary span{display:none}}
+[data-theme="dark"] .page-mega .mega-shortcuts a:not(:first-child),[data-theme="dark"] .page-mega .mega-basics{background:#101e31;color:#dceafe;border-color:#375171}
+
 </style>
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
@@ -36,15 +52,24 @@
   <p class="lead">Megaevolução é uma transformação temporária. O essencial é simples: obtenha Megaenergia, faça a primeira Megaevolução e aumente o Meganível daquele Pokémon para melhorar os bônus e reduzir o tempo de descanso.</p>
   <div class="updated">Base geral de setembro · Novidade de outubro verificada em 12/10/2026</div>
 </section>
-<section class="core" aria-label="Resumo da mecânica">
+<details class="mega-basics"><summary>Como funciona a Megaevolução <span>Guia rápido</span></summary><section class="core" aria-label="Resumo da mecânica">
   <article><div class="step"><i>1</i> Obtenha Megaenergia</div><p>Ela vem principalmente de Megarreides e de outras fontes liberadas pelo jogo.</p></article>
   <article><div class="step"><i>2</i> Faça a primeira Mega</div><p>A primeira transformação desbloqueia o ciclo de descanso daquele indivíduo e reduz custos futuros.</p></article>
   <article><div class="step"><i>3</i> Aumente o Meganível</div><p>Megaevoluir repetidamente melhora bônus de captura e reduz o período de descanso.</p></article>
-</section>
+</section></details>
 <section class="event" id="staraptorBanner"><div><b id="staraptorTitle">Mega Staraptor já está disponível</b><span id="staraptorText">A estreia aconteceu em 19 de setembro, das 14h às 17h, em Super Megarreides, com acesso ao Super Nível Máximo.</span></div><div class="date" id="staraptorDate">DISPONÍVEL</div></section>
+<nav class="mega-shortcuts" aria-label="Atalhos da Central Mega"><a href="#calculadorasMega">Calculadoras</a><a href="#availableBox">Disponíveis</a><a href="#upcomingBox">Próximas estreias</a><a href="#unavailableBox">Ainda não lançadas</a><a href="#megaLevels">Meganíveis</a></nav>
 <div class="toolbar"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Buscar uma Mega pelo nome…" aria-label="Buscar Mega"></label><div class="searchhint">A busca abre somente as listas com resultados.</div></div>
 
 <section class="stack">
+<details class="nx-accordion" id="calculadorasMega" data-nx-group="mega-info">
+  <summary><span class="nx-summary-main"><span>🧮</span><span class="nx-summary-copy"><span class="nx-summary-title">Calculadoras</span><span class="nx-summary-sub">Megaenergia inicial e progresso até o Nível Máximo</span></span></span><span class="nx-summary-side"><span class="nx-count">2</span><span class="nx-chevron">⌄</span></span></summary>
+  <div class="nx-body"><div class="calc-grid">
+    <div class="calc"><h3>Quanto falta de Megaenergia?</h3><p>Compare o que você tem com o custo da primeira Megaevolução.</p><label for="megaSelect">Megaevolução</label><select id="megaSelect"></select><label for="megaHave">Megaenergia que você tem</label><input id="megaHave" type="number" min="0" inputmode="numeric" value="0"><div class="answer" id="megaAnswer"></div></div>
+    <div class="calc"><h3>Quanto falta para o Nível Máximo?</h3><p>Informe quantas Megaevoluções aquele Pokémon já realizou.</p><label for="megaDone">Megaevoluções realizadas</label><input id="megaDone" type="number" min="0" inputmode="numeric" value="1"><div class="answer" id="levelAnswer"></div></div>
+  </div></div>
+</details>
+
 <details class="nx-accordion" id="availableBox" data-nx-group="mega-lists">
   <summary><span class="nx-summary-main"><span>✅</span><span class="nx-summary-copy"><span class="nx-summary-title">Megas disponíveis no Pokémon GO</span><span class="nx-summary-sub">Nome, custo inicial de Megaenergia e destaque de Super Nível Máximo</span></span></span><span class="nx-summary-side"><span class="nx-count" id="availableCount">0</span><span class="nx-chevron">⌄</span></span></summary>
   <div class="nx-body"><div class="list-grid" id="availableList"></div><div class="empty" id="availableEmpty" hidden>Nenhuma Mega disponível corresponde à busca.</div></div>
@@ -55,9 +80,9 @@
 </details>
 <details class="nx-accordion" id="unavailableBox" data-nx-group="mega-lists">
   <summary><span class="nx-summary-main"><span>◌</span><span class="nx-summary-copy"><span class="nx-summary-title">Megas ainda não disponíveis no Pokémon GO</span><span class="nx-summary-sub">Formas conhecidas que ainda não estrearam no jogo</span></span></span><span class="nx-summary-side"><span class="nx-count" id="unavailableCount">0</span><span class="nx-chevron">⌄</span></span></summary>
-  <div class="nx-body"><p class="nx-body-intro">A existência de uma Megaevolução em outros jogos não confirma quando — ou se — ela chegará ao Pokémon GO. Esta lista serve apenas para separar o que já existe do que ainda não estreou aqui.</p><div class="nx-pills" id="unavailableList"></div></div>
+  <div class="nx-body"><p class="nx-body-intro">A existência de uma Megaevolução em outros jogos não confirma quando — ou se — ela chegará ao Pokémon GO. Esta lista serve apenas para separar o que já existe do que ainda não estreou aqui.</p><div class="mega-unreleased-grid" id="unavailableList"></div></div>
 </details>
-<details class="nx-accordion" data-nx-group="mega-info">
+<details class="nx-accordion" id="megaLevels" data-nx-group="mega-info">
   <summary><span class="nx-summary-main"><span>📈</span><span class="nx-summary-copy"><span class="nx-summary-title">Como funcionam os Meganíveis</span><span class="nx-summary-sub">Base, Alto, Máximo e o novo Super Nível Máximo</span></span></span><span class="nx-summary-side"><span class="nx-count">4 níveis</span><span class="nx-chevron">⌄</span></span></summary>
   <div class="nx-body"><div class="level-grid">
     <div class="level"><b>Nível Base</b><small>Desbloqueado após a primeira Megaevolução. Descanso padrão de 7 dias.</small></div>
@@ -65,13 +90,6 @@
     <div class="level"><b>Nível Máximo</b><small>Alcançado após <strong>30</strong> Megaevoluções. Descanso de 3 dias e os melhores bônus tradicionais.</small></div>
     <div class="level"><b>Super Nível Máximo</b><small>Disponível apenas para Megas elegíveis. Exige primeiro chegar ao Nível Máximo e depois usar Megaenergia adicional; Megaevoluir sozinho não basta.</small></div>
   </div><div class="nx-note">O Meganível pertence ao Pokémon individual. Ele não é compartilhado automaticamente com outros exemplares da mesma espécie.</div></div>
-</details>
-<details class="nx-accordion" data-nx-group="mega-info">
-  <summary><span class="nx-summary-main"><span>🧮</span><span class="nx-summary-copy"><span class="nx-summary-title">Calculadoras</span><span class="nx-summary-sub">Megaenergia inicial e progresso até o Nível Máximo</span></span></span><span class="nx-summary-side"><span class="nx-count">2</span><span class="nx-chevron">⌄</span></span></summary>
-  <div class="nx-body"><div class="calc-grid">
-    <div class="calc"><h3>Quanto falta de Megaenergia?</h3><p>Compare o que você tem com o custo da primeira Megaevolução.</p><label for="megaSelect">Megaevolução</label><select id="megaSelect"></select><label for="megaHave">Megaenergia que você tem</label><input id="megaHave" type="number" min="0" inputmode="numeric" value="0"><div class="answer" id="megaAnswer"></div></div>
-    <div class="calc"><h3>Quanto falta para o Nível Máximo?</h3><p>Informe quantas Megaevoluções aquele Pokémon já realizou.</p><label for="megaDone">Megaevoluções realizadas</label><input id="megaDone" type="number" min="0" inputmode="numeric" value="1"><div class="answer" id="levelAnswer"></div></div>
-  </div></div>
 </details>
 <details class="nx-accordion sources" data-nx-group="mega-info">
   <summary><span class="nx-summary-main"><span>🔎</span><span class="nx-summary-copy"><span class="nx-summary-title">Fontes e observações</span><span class="nx-summary-sub">Onde os dados foram conferidos</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary>

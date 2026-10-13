@@ -88,6 +88,18 @@ for(const s of sizes){
        errors.push('Old dark saving panel/light-on-light explanation: '+JSON.stringify(surface));
      }
      await tab.screenshot({path:path.join(OUT,s.name+'-calculator-result.jpg'),type:'jpeg',quality:82,animations:'disabled'});
+     const feedback=tab.locator('.feedbackbox');
+     await feedback.scrollIntoViewIfNeeded();
+     const feedbackPanel=await feedback.evaluate(el=>({
+       bg:getComputedStyle(el).backgroundColor,
+       gradient:getComputedStyle(el).backgroundImage,
+       title:getComputedStyle(el.querySelector('h2')).color,
+       caption:getComputedStyle(el.querySelector('p')).color
+     }));
+     if(feedbackPanel.gradient!=='none'||/rgb\\(20, 32, 57\\)/.test(feedbackPanel.bg)){
+       errors.push('Dark feedback panel still present in light theme: '+JSON.stringify(feedbackPanel));
+     }
+     await tab.screenshot({path:path.join(OUT,s.name+'-calculator-feedback.jpg'),type:'jpeg',quality:82,animations:'disabled'});
    }
    if(file==='efeitos-aventura.html'){
      const card=tab.locator('.grid .card').filter({hasText:'Zamazenta'}).first();

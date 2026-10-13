@@ -1,0 +1,217 @@
+/*
+  GO NEXUS 2.2 / Nexus Studio
+  Hierarquia de cores dos controles (mobile-first).
+  Branco = navegação/opção; azul = ação; azul preenchido = seleção;
+  âmbar = destaque/descoberta; verde = seleção de categorias orientativas;
+  coral suave = limpar/reiniciar.
+  Nunca substituir cores de tipos Pokémon, acertos/erros do quiz, ou
+  estados de jogo específicos.
+*/
+html[data-theme="light"]{
+ --ctl-ink:#173354;
+ --ctl-muted:#4c6582;
+ --ctl-line:#c8d8ec;
+ --ctl-white:#fff;
+ --ctl-blue:#225ed2;
+ --ctl-blue-strong:#1852ba;
+ --ctl-blue-pale:#eaf2ff;
+ --ctl-yellow:#fecb2f;
+ --ctl-teal:#0d766d;
+ --ctl-teal-pale:#e5f6f2;
+ --ctl-coral:#9d3447;
+ --ctl-coral-pale:#fff0f1;
+}
+html[data-theme="light"] body[data-studio-page] main :is(button,select,a.cta,a.feedbackbtn):focus-visible,
+html[data-theme="light"] body.page-home :is(button,a.gn-v2-card,a.gn-explore-card):focus-visible{
+ outline:3px solid var(--ctl-blue)!important;
+ outline-offset:3px!important;
+}
+html[data-theme="light"] body[data-studio-page] main button:not(:disabled){
+ cursor:pointer;
+ transition:background-color .14s ease,border-color .14s ease,box-shadow .14s ease,color .14s ease;
+}
+html[data-theme="light"] body[data-studio-page] main button:disabled{
+ cursor:not-allowed;opacity:.60;
+}
+@media (hover:hover){
+ html[data-theme="light"] body[data-studio-page] main :is(button,.btn,a.cta):not(:disabled):hover{
+  box-shadow:0 3px 12px rgba(17,52,101,.10);
+ }
+}
+/* Ordinary selectors and navigation-style buttons. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.toggle button,.search-examples button,.weather-btn,.challenge-next,#clearDefense),
+html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.langbtn,.cat>button),
+html[data-theme="light"] body[data-studio-page="calculadora"] .btn.secondary,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] :is(.chip,.clear),
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip,
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn,
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.mode,#answers button){
+ background:#fff!important;background-image:none!important;
+ color:var(--ctl-ink)!important;
+ border:1px solid var(--ctl-line)!important;
+ box-shadow:0 2px 8px rgba(13,45,81,.045)!important;
+ min-height:44px;
+}
+@media(hover:hover){
+ html[data-theme="light"] body[data-studio-page="tipagens"] :is(.toggle button,.search-examples button,.weather-btn,.challenge-next,#clearDefense):not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="guia-busca"] :is(.langbtn,.cat>button):not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="calculadora"] .btn.secondary:not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] :is(.chip,.clear):not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab:not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip:not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn:not(:disabled):hover,
+ html[data-theme="light"] body[data-studio-page="quiz"] :is(.mode,#answers button):not(:disabled):hover{
+  background:#eaf2ff!important;background-image:none!important;
+  color:#174da9!important;border-color:#8cafe5!important;
+ }
+}
+/* Selected tools, tabs, filter chips, language switch, and weather. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(
+ .toggle button.active,.weather-btn.active,.combat-tab.active,
+ .toggle button[aria-selected="true"],.type-btn.active:not([style*="background"])
+),
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn.active,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .chip.active,
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab.active,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip.on{
+ background:var(--ctl-blue)!important;
+ background-image:none!important;
+ color:#fff!important;
+ border-color:var(--ctl-blue)!important;
+ box-shadow:0 2px 10px rgba(30,81,171,.17)!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.combat-tab,.weather-btn,.toggle button),
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .chip,
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .chip{
+ min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .combat-tab{
+ background:#fff!important;background-image:none!important;color:#173354!important;
+ border:1px solid var(--ctl-line)!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .combat-tab.active,
+html[data-theme="light"] body[data-studio-page="tipagens"] .combat-tab[aria-selected="true"]{
+ background:var(--ctl-blue)!important;color:#fff!important;border-color:var(--ctl-blue)!important;
+}
+html[data-theme="light"] body[data-studio-page="tipagens"] .weather-btn.active :is(span,b,strong),
+html[data-theme="light"] body[data-studio-page="tipagens"] .combat-tab.active :is(span,b,strong),
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn.active :is(span,b,strong),
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .chip.active :is(span,b,strong),
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .switch .tab.active :is(span,b,strong){
+ color:inherit!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langswitch{
+ background:#eff5fd!important;border:1px solid #d9e5f3!important;border-radius:13px!important;
+}
+html[data-theme="light"] body[data-studio-page="guia-busca"] .langbtn.active{
+ border-radius:10px!important;
+}
+/* Primary actions: bold blue with accessible white lettering. */
+html[data-theme="light"] body[data-studio-page="tipagens"] :is(.poke-search button[type="submit"],.search-card button[type="submit"]),
+html[data-theme="light"] body[data-studio-page="calculadora"] :is(.btn:not(.secondary):not(.clearbtn),.feedbackbtn,#add),
+html[data-theme="light"] body[data-studio-page="poeira-estelar"] .btn,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .nx-create-card,
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .feedback a,
+html[data-theme="light"] body[data-studio-page="quiz"] :is(.result button,.next),
+html[data-theme="light"] body[data-studio-page="anuncie"] .cta{
+ background:var(--ctl-blue)!important;
+ background-image:none!important;
+ color:#fff!important;
+ border:1px solid var(--ctl-blue)!important;
+ box-shadow:0 4px 13px rgba(34,94,210,.17)!important;
+ min-height:44px;
+ border-radius:11px;
+}
+@media(hover:hover){
+ html[data-theme="light"] body[data-studio-page="tipagens"] .poke-search button[type="submit"]:hover,
+ html[data-theme="light"] body[data-studio-page="calculadora"] :is(.btn:not(.secondary):not(.clearbtn),.feedbackbtn,#add):hover,
+ html[data-theme="light"] body[data-studio-page="poeira-estelar"] .btn:hover,
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .nx-create-card:hover,
+ html[data-theme="light"] body[data-studio-page="quiz"] :is(.result button,.next):hover,
+ html[data-theme="light"] body[data-studio-page="anuncie"] .cta:hover{
+  background:var(--ctl-blue-strong)!important;border-color:var(--ctl-blue-strong)!important;
+ }
+}
+/* Reset/clear is visibly secondary, not a dark maroon action. */
+html[data-theme="light"] body[data-studio-page="calculadora"] .btn.clearbtn,
+html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .clear,
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .ditto-reset,
+html[data-theme="light"] body[data-studio-page="tipagens"] #clearDefense{
+ background:var(--ctl-coral-pale)!important;background-image:none!important;
+ color:var(--ctl-coral)!important;
+ border:1px solid #e9b7c1!important;
+ box-shadow:none!important;
+ border-radius:11px!important;min-height:44px;
+}
+@media(hover:hover){
+ html[data-theme="light"] body[data-studio-page="calculadora"] .btn.clearbtn:hover,
+ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .clear:hover,
+ html[data-theme="light"] body[data-studio-page="formas-especiais"] .ditto-reset:hover,
+ html[data-theme="light"] body[data-studio-page="tipagens"] #clearDefense:hover{
+  background:#fce2e7!important;border-color:#d88798!important;color:#8b263a!important;
+ }
+}
+/* Exploration categories use an intentional teal selected state. */
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn.active{
+ background:var(--ctl-teal)!important;background-image:none!important;
+ color:#fff!important;border-color:var(--ctl-teal)!important;
+ box-shadow:0 4px 15px rgba(13,118,109,.13)!important;
+}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn.active :is(span,strong,b){color:inherit!important}
+html[data-theme="light"] body[data-studio-page="pokeparadas"] .cat-btn:not(.active):hover{
+ background:var(--ctl-teal-pale)!important;color:#125f55!important;border-color:#8ac6ba!important;
+}
+/* Ditto gets a subtle yellow recognition cue, but follows shared tab states. */
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .ditto-tab:not(.active){
+ border-left:4px solid var(--ctl-yellow)!important;
+}
+html[data-theme="light"] body[data-studio-page="formas-especiais"] .ditto-tab::after{
+ display:none!important;
+}
+/* Adventure effect details are real disclosure buttons, not gray-on-gray. */
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .details{
+ display:inline-flex;align-items:center;
+ background:#eaf2ff!important;background-image:none!important;
+ border:1px solid #bad1f4!important;border-radius:9px!important;
+ padding:8px 11px!important;color:#1b51b1!important;
+ min-height:40px;
+}
+html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .card.open .details{
+ background:#e2f2ec!important;color:#126c58!important;border-color:#a6d8c5!important;
+}
+/* Quiz mode actions have a small amber marker. The actual game answer
+   correctness colors remain owned by quiz.html (green/red as applicable). */
+html[data-theme="light"] body[data-studio-page="quiz"] .mode{
+ position:relative;border-radius:16px!important;
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .mode::before{
+ content:"";position:absolute;inset:12px auto 12px 0;width:4px;
+ border-radius:0 4px 4px 0;background:var(--ctl-yellow);
+}
+html[data-theme="light"] body[data-studio-page="quiz"] .result button{
+ min-height:46px;
+}
+/* Main page buttons stay compact and purposeful; avoid changing card layout. */
+html[data-theme="light"] body.page-home :is(.gn-search-button,.news-nav button,#featureUpdates button){
+ min-width:44px;min-height:44px;
+}
+html[data-theme="light"] body.page-home .gn-search-button{
+ background:var(--ctl-blue)!important;color:#fff!important;
+}
+html[data-theme="light"] body.page-home .news-nav button{
+ background:#fff!important;color:#2057bc!important;border:1px solid #cadbf0!important;
+}
+html[data-theme="light"] body.page-home #featureUpdates .nx-updates-controls button{
+ background:#eaf2ff!important;color:#2258bc!important;border:1px solid #bdd3f5!important;
+}
+@media(max-width:680px){
+ html[data-theme="light"] body[data-studio-page] main :is(
+ .chip,.combat-tab,.weather-btn,.cat-btn,.langbtn,.clear,.challenge-next,.ditto-reset
+ ){min-height:44px}
+}
+/* Don't override system reduced-motion preferences. */
+@media(prefers-reduced-motion:reduce){
+ html[data-theme="light"] body[data-studio-page] main button{transition:none!important}
+}

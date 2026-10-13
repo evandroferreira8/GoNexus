@@ -129,32 +129,7 @@ details.toolmenu>summary::-webkit-details-marker{display:none}
   // Presentation is defined only in nexus-studio.css. Navigation retains accordion interactions.
 
   // Acessibilidade móvel do GO Nexus: texto legível, alvos de toque confortáveis e menos espaço desperdiçado.
-  if(!document.getElementById('go-nexus-mobile-a11y')){
-    const a11y=document.createElement('style');
-    a11y.id='go-nexus-mobile-a11y';
-    a11y.textContent=`
-      :focus-visible{outline:2px solid #38bdf8!important;outline-offset:2px}
-      @media(max-width:700px){
-        html{font-size:18px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-        body{line-height:1.6}
-        main p, main li, main .lead, main .intro, main .info, main .explain, main .details, main .note, main .brasil-note{font-size:max(.89rem,16px)!important;line-height:1.62!important}
-        main label, main small, main .updated, main .meta, main .mini, main .searchhint, main .hint, main .footnote, main .kind, main .tag, main .cost, main .remain, main .group-count, main .quick-values span{font-size:max(.78rem,14px)!important;line-height:1.45!important}
-        main button, main input, main select, main textarea{font-size:max(.89rem,16px)!important}
-        main button, main select, main input:not([type="checkbox"]):not([type="radio"]), main textarea{min-height:44px}
-        main .hero{padding-top:24px!important;padding-bottom:14px!important}
-        main .hero h1, main h1{margin-top:10px!important;margin-bottom:8px!important}
-        main .eyebrow, main .badge{font-size:max(.78rem,14px)!important}
-        main .panel.pad, main .card, main .fact{scroll-margin-top:16px}
-      }
-      @media(max-width:430px){
-        html{font-size:18px}
-      }
-    `;
-    document.head.appendChild(a11y);
-  }
-
-
-
+  // Mobile accessibility rules are defined in nexus-studio.css, not injected by JavaScript.
 
   // A experiência opcional é carregada somente no primeiro toque.
   // O ovo permanece visível sem baixar os sprites e as artes do quiz em cada página.

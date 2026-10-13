@@ -34,6 +34,9 @@ for(const width of [390,1365]){
    assert.equal(await page.locator('.langbtn[data-lang="en"]').getAttribute('aria-pressed'),'true');
    await page.locator('.langbtn[data-lang="pt"]').click();
    assert.equal(await page.locator('.langbtn[data-lang="pt"]').getAttribute('aria-pressed'),'true');
+   // O construtor fica recolhido inicialmente para reduzir a rolagem; abrir como usuário.
+   await page.locator('#searchBuilderToggle > summary').click();
+   assert.equal(await page.locator('#sb-species').isVisible(),true);
    await page.locator('#sb-species').fill('Pikachu');
    assert.match((await page.locator('#sb-result').innerText()).toLowerCase(),/pikachu/);
    assert.equal(await page.locator('#sb-copy').isDisabled(),false);

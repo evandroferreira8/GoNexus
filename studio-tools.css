@@ -629,3 +629,95 @@ html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .art im
     width:100%;
   }
 }
+
+
+/* Card architecture, mobile-first: never leave effect details in a narrow side rail.
+   Desktop retains two columns; mobile gets an image/title row and full-width details. */
+@media(max-width:680px){
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card{
+    grid-template-columns:minmax(116px,32%) minmax(0,1fr);
+    column-gap:0;
+    align-items:start;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .content{
+    display:contents;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .art{
+    grid-column:1;grid-row:1;
+    min-height:136px;
+    height:100%;
+    display:flex;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:10px!important;
+    border-right:1px solid #dce5f1;
+    border-bottom:1px solid #dce5f1;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .art img{
+    display:block!important;
+    align-self:center!important;
+    width:100%!important;
+    max-width:150px!important;
+    height:130px!important;
+    max-height:none!important;
+    object-fit:contain!important;
+    object-position:center center!important;
+    transform:none!important;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .top{
+    grid-column:2;grid-row:1;
+    padding:15px 13px 12px;
+    align-self:center;
+    align-items:flex-start;
+    min-width:0;
+    flex-wrap:wrap;
+    gap:7px;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .top > div{
+    min-width:0;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .top .pokemon{
+    line-height:1.45;
+    overflow-wrap:anywhere;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .top h2{
+    font-size:1.04rem!important;
+    line-height:1.25;
+    margin-top:5px;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .content > p{
+    grid-column:1/-1;grid-row:2;
+    padding:11px 14px 3px;
+    font-size:.87rem!important;
+    line-height:1.5!important;
+    margin:0!important;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .stats{
+    grid-column:1/-1;grid-row:3;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px;
+    margin:9px 12px 0;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .stats > div:last-child{
+    grid-column:1/-1;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .details{
+    grid-column:1/-1;grid-row:4;
+    justify-content:center;
+    margin:11px 12px 12px;
+    padding:12px!important;
+    min-height:44px!important;
+    text-align:center;
+  }
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card .more{
+    grid-column:1/-1;grid-row:5;
+    padding:12px 14px 16px;
+    margin:0;
+    line-height:1.55;
+  }
+}
+@media(max-width:430px){
+  html[data-theme="light"] body[data-studio-page="efeitos-aventura"] .grid .card{
+    grid-template-columns:114px minmax(0,1fr);
+  }
+}

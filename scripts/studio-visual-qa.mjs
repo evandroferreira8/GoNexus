@@ -74,8 +74,22 @@ for(const s of sizes){
      if(!panel.isOpen||/rgb\\(15, 23, 42\\)/.test(panel.bg)||panel.bg===panel.fg){
        errors.push('Cartão de efeito: painel expandido mantém fundo escuro ou texto ilegível '+JSON.stringify(panel));
      }
+     const layout=await card.evaluate(el=>{
+       const box=node=>{let r=node.getBoundingClientRect();return {x:Math.round(r.x),y:Math.round(r.y),w:Math.round(r.width),h:Math.round(r.height)}};
+       const img=el.querySelector('.art img');
+       return {card:box(el),art:box(el.querySelector('.art')),image:box(img),imageNatural:[img.naturalWidth,img.naturalHeight],details:box(el.querySelector('.details')),stats:box(el.querySelector('.stats'))};
+     });
+     if(s.width<=680&&layout.details.w<layout.card.w-45)errors.push('Disclosure still confined to a narrow column: '+JSON.stringify(layout));
+     if(layout.imageNatural[0]===0)errors.push('Card sticker failed to load: '+JSON.stringify(layout));
+     console.log('EFFECT_CARD_LAYOUT '+JSON.stringify({viewport:s.name,layout}));
      await card.scrollIntoViewIfNeeded();
      await tab.screenshot({path:path.join(OUT,s.name+'-efeitos-zamazenta-expanded.jpg'),type:'jpeg',quality:83,animations:'disabled'});
+   }
+   // Every page receives a mid-page screenshot; top-only audits missed states.
+   if(file!=='index.html'&&file!=='efeitos-aventura.html'){
+     await tab.evaluate(()=>window.scrollTo(0,Math.round(document.documentElement.scrollHeight*.52)));
+     await tab.waitForTimeout(90);
+     await tab.screenshot({path:path.join(OUT,s.name+'-'+file.replace('.html','')+'-middle.jpg'),type:'jpeg',quality:72,animations:'disabled'});
    }
    if(file==='index.html'||file==='efeitos-aventura.html'){
      await tab.evaluate(()=>window.scrollTo(0,Math.max(0,document.documentElement.scrollHeight*.48)));

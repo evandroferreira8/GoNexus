@@ -56,6 +56,69 @@ input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,2
 .price-focus input{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,248,.10),0 0 24px rgba(56,189,248,.20)}
 .result{--result-rgb:56,189,248}.result .hero{background:radial-gradient(circle at 50% 0,rgba(var(--result-rgb),.12),transparent 70%)}.saving{transition:.25s}
 .feedbackbtn{background:linear-gradient(135deg,#2563eb,#7c3aed);box-shadow:0 0 18px rgba(99,102,241,.2)}
+
+/* Vale a Caixa? — fluxo compacto e independente das funções de cálculo. */
+body.page-calculadora .calc-intro{padding:22px 0 13px}
+body.page-calculadora .calc-intro h1{font-size:clamp(2.25rem,4.6vw,3.55rem);line-height:1.05;margin:7px 0 9px}
+body.page-calculadora .calc-intro .eyebrow{font-size:.76rem;letter-spacing:.07em}
+body.page-calculadora .calc-intro .lead{max-width:850px;font-size:1rem;line-height:1.45}
+body.page-calculadora .calc-reference-link{display:inline-block;color:#255bb1;font-size:.81rem;font-weight:700;margin-top:9px;text-decoration:none}
+body.page-calculadora .calc-reference-link:hover{text-decoration:underline}
+body.page-calculadora main.layout{padding-bottom:12px;align-items:start}
+body.page-calculadora .calc-workflow{display:grid;gap:12px;min-width:0;align-content:start}
+body.page-calculadora .calc-offer-card,body.page-calculadora .calc-items-card{padding:17px 18px}
+body.page-calculadora .calc-workflow .titlebar{gap:12px;margin-bottom:13px}
+body.page-calculadora .calc-workflow h2{font-size:1.15rem}
+body.page-calculadora .calc-offer-card .coin-balance-box{margin-top:10px;padding:12px;align-items:center;gap:12px}
+body.page-calculadora .calc-offer-card .coin-balance-box .field{flex:1 1 190px}
+body.page-calculadora .calc-offer-card .coin-balance-box .hint{flex:2 1 220px;font-size:.78rem;line-height:1.4}
+body.page-calculadora .calc-items-card .items{gap:8px}
+body.page-calculadora .calc-items-card .row{padding:9px}
+body.page-calculadora .result .hero{padding:17px 16px}
+body.page-calculadora .result .hero .answer{font-size:clamp(1.15rem,2vw,1.42rem);margin:7px 0 4px}
+body.page-calculadora .result .compare{padding:15px}
+body.page-calculadora .result .comparebox{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:6px}
+body.page-calculadora .result .side{min-width:0;padding:10px 9px;border-radius:12px}
+body.page-calculadora .result .side span{font-size:.68rem;font-weight:800;line-height:1.25}
+body.page-calculadora .result .side strong{font-size:clamp(1rem,1.5vw,1.25rem);overflow-wrap:anywhere}
+body.page-calculadora .result .saving{margin-top:10px;padding:12px}
+body.page-calculadora .result .explain{margin-top:10px;font-size:.86rem;line-height:1.5}
+body.page-calculadora .calc-breakdown{margin-top:12px;padding:0;border:1px solid #d2dfef;border-radius:12px;overflow:hidden}
+body.page-calculadora .calc-breakdown summary{padding:11px 12px;color:#20539a;background:#f2f6fc;font-size:.84rem;line-height:1.4}
+body.page-calculadora .calc-breakdown .details{margin:0;padding:12px;font-size:.82rem;border-top:1px solid #d2dfef}
+body.page-calculadora .calc-notes{margin:8px auto 22px;scroll-margin-top:15px}
+body.page-calculadora .calc-notes>h2{font-size:1rem;margin:0 0 10px}
+body.page-calculadora .calc-notes-card{overflow:hidden}
+body.page-calculadora .calc-notes-card>details{padding:0;margin:0;border-top:1px solid #d3deee}
+body.page-calculadora .calc-notes-card>details:first-child{border-top:0}
+body.page-calculadora .calc-notes-card>details>summary{padding:13px 16px;line-height:1.4;min-height:50px}
+body.page-calculadora .calc-notes-card>details:not(.nx-accordion)>:not(summary){margin:8px 16px 16px}
+body.page-calculadora .calc-notes-card .packs{margin:10px 16px 16px}
+body.page-calculadora .calc-notes-card .pricegrid{margin:10px 16px 16px}
+body.page-calculadora .calc-notes-card .nx-accordion .nx-body{padding:0 14px 13px}
+body.page-calculadora .calc-workflow .clearbtn{font-size:.82rem;padding:10px 12px}
+@media(max-width:820px){
+ body.page-calculadora .calc-intro{padding:16px 0 12px}
+ body.page-calculadora .layout{gap:12px}
+ body.page-calculadora .calc-workflow{gap:10px}
+ body.page-calculadora .result{position:static}
+}
+@media(max-width:560px){
+ body.page-calculadora .calc-intro h1{font-size:clamp(2.1rem,10vw,2.8rem)}
+ body.page-calculadora .calc-offer-card,body.page-calculadora .calc-items-card{padding:14px}
+ body.page-calculadora .fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ body.page-calculadora .fields>div:first-child{grid-column:1/-1}
+ body.page-calculadora .calc-offer-card .coin-balance-box .field,body.page-calculadora .calc-offer-card .coin-balance-box .hint{flex-basis:100%}
+ body.page-calculadora .titlebar h2{font-size:1.04rem}
+ body.page-calculadora .result .comparebox{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+ body.page-calculadora .result .side strong{font-size:1.12rem}
+ body.page-calculadora .result .compare{padding:13px}
+}
+@media(max-width:350px){body.page-calculadora .fields{grid-template-columns:minmax(0,1fr)}body.page-calculadora .fields>div:first-child{grid-column:auto}}
+html[data-theme="dark"] body.page-calculadora .calc-reference-link{color:#a7d0ff}
+html[data-theme="dark"] body.page-calculadora .calc-breakdown{border-color:#31486a}
+html[data-theme="dark"] body.page-calculadora .calc-breakdown summary{background:#152841;color:#d5e7ff}
+html[data-theme="dark"] body.page-calculadora .calc-breakdown .details{border-color:#31486a}
 </style>
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
@@ -63,17 +126,15 @@ input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,2
 <body class="page-calculadora" data-studio-page="calculadora">
 <go-nexus-header></go-nexus-header>
 
-<header class="wrap">
+<header class="wrap calc-intro">
   <div class="eyebrow">Calculadora de ofertas • Pokémon GO</div>
   <h1>Vale a Caixa?</h1>
-  <p class="lead">Descubra se uma caixa ou combo compensa comparando o preço da oferta com o preço dos mesmos itens comprados separadamente na loja.</p>
+  <p class="lead">Compare a oferta com o custo dos mesmos itens comprados separadamente.</p>
+  <a class="calc-reference-link" href="#calc-notes">Preços de referência: Brasil · setembro/2026 ↓</a>
 </header>
-<div class="wrap"><details class="nx-accordion" data-nx-group="calc-info"><summary><span class="nx-summary-main"><span>🇧🇷</span><span class="nx-summary-copy"><span class="nx-summary-title">Referência Brasil · setembro de 2026</span><span class="nx-summary-sub">Preços, Pokémoedas e regras comerciais usados no cálculo</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary><div class="nx-body"><p class="small" style="margin:12px 0 0">Os preços, pacotes de Pokémoedas e demais informações comerciais usados nesta calculadora têm como referência a loja brasileira do Pokémon GO e valores em reais (R$), quando aplicável. Os valores podem mudar sem aviso prévio.</p></div></details></div>
-
-
 <main class="wrap layout">
-<section>
-  <div class="card pad">
+<section class="calc-workflow">
+  <div class="card pad calc-offer-card">
     <div class="titlebar"><h2>1. Informe a oferta</h2><button class="btn clearbtn" id="clear">↻ Limpar tudo</button></div>
     <div class="fields">
       <div><label>Nome da caixa</label><input id="name" placeholder="Ex.: Caixa de Reides"></div>
@@ -85,29 +146,20 @@ input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,2
         <label class="balance-label" for="ownedCoins">🪙 Pokémoedas que você já tem</label>
         <input id="ownedCoins" inputmode="numeric" autocomplete="off" placeholder="0" aria-describedby="ownedCoinsHint">
       </div>
-      <p class="hint" id="ownedCoinsHint">Informe seu saldo atual. A calculadora mostra quanto falta para comprar o combo e, se necessário, a combinação mais barata de pacotes de Pokémoedas para completar o saldo.</p>
+      <p class="hint" id="ownedCoinsHint">Opcional. Informe seu saldo para descobrir quanto falta e os pacotes necessários.</p>
     </div>
 
-    <div class="titlebar" style="margin-top:25px">
-      <div><h2>2. O que vem na caixa?</h2><div class="small">Adicione cada item e sua quantidade.</div></div>
+  </div>
+  <div class="card pad calc-items-card">
+    <div class="titlebar">
+      <div><h2>2. O que vem na caixa?</h2><div class="small">Escolha os itens e informe as quantidades.</div></div>
       <button class="btn" id="add">+ Adicionar item</button>
     </div>
     <div class="items" id="items"></div>
-    <details class="nx-accordion" data-nx-group="calc-info" style="margin-top:14px"><summary><span class="nx-summary-main"><span>ℹ️</span><span class="nx-summary-copy"><span class="nx-summary-title">Como a calculadora trata exceções</span><span class="nx-summary-sub">Itens sem preço individual e restrições da loja brasileira</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary><div class="nx-body"><div class="info" style="margin-top:12px"><strong>Itens sem preço individual:</strong> MTs, MTs Elite, Doces Raros e outros itens podem aparecer em combos sem possuir um preço individual oficial em Pokémoedas. Eles ficam visíveis na oferta, mas <strong>não são usados para aumentar artificialmente o valor da caixa</strong>. Por isso, quando houver itens assim, a vantagem real do combo pode ser maior do que a calculada.</div><div class="info warning"><strong>Brasil:</strong> Incubadoras e Superincubadoras pagas estão sujeitas às restrições atualmente aplicadas à loja brasileira. Os preços e conteúdos da loja podem mudar sem aviso prévio.</div></div></details>
+
   </div>
 
-  <div class="card coinpacks">
-    <details>
-      <summary>Pacotes de Pokémoedas usados no cálculo em R$</summary>
-      <div class="small" style="margin-top:8px">Valores da Web Store brasileira informados em setembro de 2026. O site procura automaticamente a combinação mais barata de pacotes que forneça moedas suficientes.</div>
-      <div class="packs" id="packs"></div>
-    </details>
-    <details>
-      <summary>Preços individuais usados</summary>
-      <div class="small" style="margin-top:8px">Estes são os preços e pacotes observados na loja do jogo. A calculadora escolhe automaticamente a combinação mais barata para a quantidade informada. “Sem preço” significa que o item não entra no cálculo principal.</div>
-      <div class="pricegrid" id="pricegrid"></div>
-    </details>
-  </div>
+
 </section>
 
 <aside>
@@ -119,9 +171,9 @@ input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,2
   </div>
   <div class="compare">
     <div class="comparebox">
-      <div class="side"><span>COMPRANDO O COMBO</span><strong id="combo">—</strong></div>
+      <div class="side"><span>COMBO</span><strong id="combo">—</strong></div>
       <div class="vs">VS.</div>
-      <div class="side"><span>COMPRANDO SEPARADAMENTE</span><strong id="separate">—</strong></div>
+      <div class="side"><span>ITENS SEPARADOS</span><strong id="separate">—</strong></div>
     </div>
     <div class="wallet" id="wallet" hidden aria-live="polite">
       <div class="wallet-title"><strong>🪙 Seu saldo</strong><span>considerando o preço do combo</span></div>
@@ -132,11 +184,29 @@ input:focus,select:focus{border-color:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,2
       <strong id="saving">—</strong>
     </div>
     <div class="explain" id="explain">Monte a oferta para descobrir qual opção custa menos.</div>
-    <div class="details" id="details"></div>
+    <details class="calc-breakdown"><summary>Ver como os preços foram calculados</summary><div class="details" id="details"></div></details>
   </div>
 </div>
 </aside>
 </main>
+
+<section class="wrap calc-notes" id="calc-notes" aria-label="Preços e critérios usados na calculadora">
+  <h2>Preços e critérios do cálculo</h2>
+  <div class="card calc-notes-card">
+<details class="nx-accordion" data-nx-group="calc-info"><summary><span class="nx-summary-main"><span>🇧🇷</span><span class="nx-summary-copy"><span class="nx-summary-title">Referência Brasil · setembro de 2026</span><span class="nx-summary-sub">Preços, Pokémoedas e regras comerciais usados no cálculo</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary><div class="nx-body"><p class="small" style="margin:12px 0 0">Os preços, pacotes de Pokémoedas e demais informações comerciais usados nesta calculadora têm como referência a loja brasileira do Pokémon GO e valores em reais (R$), quando aplicável. Os valores podem mudar sem aviso prévio.</p></div></details>
+<details>
+      <summary>Pacotes de Pokémoedas usados no cálculo em R$</summary>
+      <div class="small" style="margin-top:8px">Valores da Web Store brasileira informados em setembro de 2026. O site procura automaticamente a combinação mais barata de pacotes que forneça moedas suficientes.</div>
+      <div class="packs" id="packs"></div>
+    </details>
+    <details>
+      <summary>Preços individuais usados</summary>
+      <div class="small" style="margin-top:8px">Estes são os preços e pacotes observados na loja do jogo. A calculadora escolhe automaticamente a combinação mais barata para a quantidade informada. “Sem preço” significa que o item não entra no cálculo principal.</div>
+      <div class="pricegrid" id="pricegrid"></div>
+    </details>
+    <details class="nx-accordion" data-nx-group="calc-info"><summary><span class="nx-summary-main"><span>ℹ️</span><span class="nx-summary-copy"><span class="nx-summary-title">Como a calculadora trata exceções</span><span class="nx-summary-sub">Itens sem preço individual e restrições da loja brasileira</span></span></span><span class="nx-summary-side"><span class="nx-chevron">⌄</span></span></summary><div class="nx-body"><div class="info" style="margin-top:12px"><strong>Itens sem preço individual:</strong> MTs, MTs Elite, Doces Raros e outros itens podem aparecer em combos sem possuir um preço individual oficial em Pokémoedas. Eles ficam visíveis na oferta, mas <strong>não são usados para aumentar artificialmente o valor da caixa</strong>. Por isso, quando houver itens assim, a vantagem real do combo pode ser maior do que a calculada.</div><div class="info warning"><strong>Brasil:</strong> Incubadoras e Superincubadoras pagas estão sujeitas às restrições atualmente aplicadas à loja brasileira. Os preços e conteúdos da loja podem mudar sem aviso prévio.</div></div></details>
+  </div>
+</section>
 
 <section class="wrap feedback"><div class="feedbackbox"><h2>Ajude a melhorar o GO Nexus</h2><p>Encontrou algum erro, informação desatualizada ou tem uma sugestão? Envie seu feedback para ajudar a manter as ferramentas atualizadas.</p><a class="feedbackbtn" href="https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer">💬 Enviar feedback</a></div></section>
 

@@ -17,6 +17,38 @@ for(const s of sizes){
   try{
    await tab.goto(url+file,{waitUntil:'domcontentloaded',timeout:40000});
    await tab.waitForTimeout(170);
+   // Product hierarchy contract: visible separation between page, section and card.
+   // This checks rendered CSS, not declarations that can be overwritten by legacy rules.
+   if(file==='index.html'){
+     const layers=await tab.evaluate(()=>{
+       const read=s=>getComputedStyle(document.querySelector(s)).backgroundColor;
+       const rgb=c=>(c.match(/\\d+/g)||[]).slice(0,3).map(Number);
+       const delta=(a,b)=>rgb(a).reduce((n,v,i)=>n+Math.abs(v-rgb(b)[i]),0);
+       const body=read('body'),section=read('main .gn-section'),card=read('main .gn-section .gn-v2-card');
+       return {body,section,card,outerGap:delta(body,section),innerGap:delta(section,card),
+        sectionBorder:getComputedStyle(document.querySelector('main .gn-section')).borderColor};
+     });
+     if(layers.outerGap<18||layers.innerGap<35)
+       errors.push('Home surface hierarchy too flat: '+JSON.stringify(layers));
+     await tab.locator('main .gn-section').first().scrollIntoViewIfNeeded();
+     await tab.screenshot({path:path.join(OUT,s.name+'-home-layered-sections.jpg'),type:'jpeg',quality:82,animations:'disabled'});
+     await tab.evaluate(()=>window.scrollTo(0,0));
+     console.log('HOME_LAYERS '+JSON.stringify({viewport:s.name,...layers}));
+   }
+   if(['tipagens.html','evolucoes-especiais.html','poeira-estelar.html'].includes(file)){
+     const layers=await tab.evaluate(()=>{
+       const hero=document.querySelector('main > section.hero');
+       const section=document.querySelector('main > :is(.controls,.route-groups,.combat-panel.active)');
+       const child=section?.querySelector('.card,.panel,details.nx-accordion');
+       return {heroGradient:hero?getComputedStyle(hero).backgroundImage:'not found',
+          outerBackground:section?getComputedStyle(section).backgroundColor:'not found',
+          cardBackground:child?getComputedStyle(child).backgroundColor:'not found'};
+     });
+     if(layers.heroGradient!=='not found'&&!layers.heroGradient.includes('gradient'))
+       errors.push('Tool header lacks a distinct light-blue gradient: '+JSON.stringify(layers));
+     console.log('TOOL_LAYERS '+JSON.stringify({page:file,viewport:s.name,...layers}));
+   }
+
    const a=await tab.evaluate(()=>{
      function rgba(x){let a=x?.match(/rgba?\(([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)(?:[,\s/]+([\d.]+))?\)/);return a?[Number(a[1]),Number(a[2]),Number(a[3]),a[4]===undefined?1:Number(a[4])]:null;}
      function lum(col){let c=col.map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return c[0]*.2126+c[1]*.7152+c[2]*.0722;}

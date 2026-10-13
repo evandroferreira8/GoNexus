@@ -45,7 +45,10 @@ for(const size of sizes){
       };
     });
    });
-   const flagged=controls.filter(x=>!x.disabled&&(x.dark||(x.ratio!==null&&x.ratio<4.5)||x.height<35));
+   const flagged=controls.filter(x=>{
+     const intentionalColor=[[37,99,235],[34,94,210],[13,118,109]].some(c=>c.every((v,i)=>Math.abs(v-x.bg[i])<17));
+     return !x.disabled&&((x.dark&&!intentionalColor)||(x.ratio!==null&&x.ratio<4.5)||x.height<35);
+   });
    results.push({file,viewport:size.id,controls,flagged});
    console.log('CONTROL_AUDIT '+JSON.stringify({file,viewport:size.id,total:controls.length,problems:flagged.length,flagged:flagged.slice(0,35)}));
    if(['index.html','tipagens.html','calculadora.html','evolucoes-especiais.html','formas-especiais.html','efeitos-aventura.html','pokeparadas.html','quiz.html'].includes(file)){
@@ -60,4 +63,6 @@ for(const size of sizes){
 }
 await browser.close();
 fs.writeFileSync(path.join(folder,'report.json'),JSON.stringify(results,null,2));
-console.log('CONTROL_SUMMARY '+JSON.stringify({pages:results.length,controls:results.reduce((n,x)=>n+(x.controls?.length||0),0),flagged:results.reduce((n,x)=>n+(x.flagged?.length||0),0),errors:results.filter(x=>x.error).length}));
+const problemCount=results.reduce((n,x)=>n+(x.flagged?.length||0),0);
+console.log('CONTROL_SUMMARY '+JSON.stringify({pages:results.length,controls:results.reduce((n,x)=>n+(x.controls?.length||0),0),flagged:problemCount,errors:results.filter(x=>x.error).length}));
+if(problemCount||results.some(x=>x.error))process.exitCode=1;

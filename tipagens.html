@@ -44,6 +44,17 @@
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
 <style id="combat-interface-refinement">
 /* Central de Combate: ajustes restritos a esta página, sem alterar cálculos */
+/* Correção de largura em celulares de 360 px: manter conteúdo dentro dos cards */
+@media(max-width:390px){
+ .page-combat .analyzer-grid,.page-combat .search-card,.page-combat .poke-result,.page-combat .poke-profile,.page-combat .poke-copy,.page-combat .analysis-cards,.page-combat .analysis-card,.page-combat .context-grid,.page-combat .context-card{min-width:0;max-width:100%}
+ .page-combat .poke-profile{grid-template-columns:88px minmax(0,1fr);gap:9px;padding:10px}
+ .page-combat .poke-visual{min-width:0;min-height:88px}
+ .page-combat .poke-visual img{width:84px;height:84px;max-width:100%}
+ .page-combat .poke-copy h2,.page-combat .poke-summary,.page-combat .analysis-card p,.page-combat .offense-line{overflow-wrap:anywhere}
+ .page-combat .poke-copy .nx-result-share{max-width:100%;min-width:0;overflow-wrap:anywhere}
+ .page-combat .poke-search input{min-width:0;width:100%}
+}
+
 /* Arte, leitura ofensiva e botão de exportação: contraste coerente no tema claro */
 .page-combat .poke-visual{background:linear-gradient(145deg,#f3f8ff,#e7f0fc);border:1px solid #c4d7ef;box-shadow:inset 0 1px 0 #fff}
 .page-combat .poke-visual img{filter:drop-shadow(0 6px 10px rgba(30,57,90,.14))}

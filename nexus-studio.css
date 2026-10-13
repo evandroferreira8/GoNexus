@@ -1320,3 +1320,23 @@ html[data-theme="light"] body[data-studio-page] main details:not(.nx-accordion)>
 html[data-theme="light"] body.page-home #featureUpdates .nx-update-dots button{
  min-width:42px!important;min-height:42px!important;
 }
+
+/* SHARED MOBILE ACCESSIBILITY — static and cacheable, no JavaScript style injection. */
+
+      :focus-visible{outline:2px solid #38bdf8!important;outline-offset:2px}
+      @media(max-width:700px){
+        html{font-size:18px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+        body{line-height:1.6}
+        main p, main li, main .lead, main .intro, main .info, main .explain, main .details, main .note, main .brasil-note{font-size:max(.89rem,16px)!important;line-height:1.62!important}
+        main label, main small, main .updated, main .meta, main .mini, main .searchhint, main .hint, main .footnote, main .kind, main .tag, main .cost, main .remain, main .group-count, main .quick-values span{font-size:max(.78rem,14px)!important;line-height:1.45!important}
+        main button, main input, main select, main textarea{font-size:max(.89rem,16px)!important}
+        main button, main select, main input:not([type="checkbox"]):not([type="radio"]), main textarea{min-height:44px}
+        main .hero{padding-top:24px!important;padding-bottom:14px!important}
+        main .hero h1, main h1{margin-top:10px!important;margin-bottom:8px!important}
+        main .eyebrow, main .badge{font-size:max(.78rem,14px)!important}
+        main .panel.pad, main .card, main .fact{scroll-margin-top:16px}
+      }
+      @media(max-width:430px){
+        html{font-size:18px}
+      }
+    

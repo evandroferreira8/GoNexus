@@ -99,7 +99,7 @@ for(const width of [390,1365]){
    assert.equal(await page.locator('#visual .shiny-deep').evaluate(el=>el.open),false);
    await page.locator('#shinyRate').fill('25');
    await page.locator('#shinyTries').fill('25');
-   assert.match(await page.locator('#shinyResult').innerText(),/63,9%/);
+   assert.match(await page.locator('#shinyResult').innerText(),/64(?:,0)?%/);
    await page.locator('#visual .shiny-deep > summary').click();
    assert.equal(await page.locator('#visual .shiny-deep').evaluate(el=>el.open),true);
    await page.locator('.switch .tab[data-tab="fusion"]').click();

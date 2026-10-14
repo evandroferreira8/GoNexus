@@ -81,7 +81,11 @@ for(const width of [390,1365]){
    assert.equal(await page.locator('#ditto').isVisible(),true);
    assert.equal(await page.locator('#dittoDisguiseList [role="listitem"]').count(),11);
    assert.equal(await page.locator('#dittoPlay').evaluate(el=>el.open),false);
+   await page.screenshot({path:'audit-results/studio-rebuild/'+width+'-ditto-consulta.jpg',type:'jpeg',quality:84,animations:'disabled'});
+   const colors=await page.locator('#ditto .ditto-explain').evaluate(el=>({bg:getComputedStyle(el).backgroundColor,title:getComputedStyle(el.querySelector('h2')).color}));
+   assert.notEqual(colors.title,colors.bg,'Título do Ditto não pode ter cor igual ao fundo');
    await page.locator('#dittoPlay > summary').click();
+   await page.screenshot({path:'audit-results/studio-rebuild/'+width+'-ditto-jogo.jpg',type:'jpeg',quality:84,animations:'disabled'});
    assert.equal(await page.locator('#dittoPlay').evaluate(el=>el.open),true);
    await page.locator('#dittoGrid .ditto-card').first().click();
    assert.match(await page.locator('#dittoAttempts').innerText(),/1 tentativa/);

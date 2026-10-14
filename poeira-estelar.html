@@ -105,15 +105,98 @@
 </style>
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
+
+<style id="stardust-compact-layout">
+/* Página Poeira Estelar: layout de consulta compacto e responsivo.
+   As faixas mantêm os details nativos; seleção, filtros e matemática permanecem no script original. */
+body.page-stardust main > section.hero.wrap{padding:20px 24px 18px!important;margin:12px auto 14px!important}
+body.page-stardust main .hero .eyebrow{font-size:.74rem;letter-spacing:.045em;padding:6px 10px;color:#2054a7;background:#edf4ff;border:1px solid #cbdcf2}
+body.page-stardust main .hero h1{font-size:clamp(2.05rem,4.3vw,3.4rem);letter-spacing:-.04em;line-height:1.12;margin:8px 0}
+body.page-stardust main .hero h1 span{background:none;-webkit-text-fill-color:#2563eb;color:#2563eb}
+body.page-stardust main .hero .lead{max-width:850px;margin:0;color:#46617e;font-size:.99rem;line-height:1.48}
+body.page-stardust main > section.hero.wrap .toolbar{max-width:none;grid-template-columns:minmax(0,1fr) minmax(174px,220px);margin:13px 0 0!important;gap:9px}
+body.page-stardust main .hero .search input,body.page-stardust main .hero .toolbar select{height:46px;border-radius:12px;font-size:.92rem}
+body.page-stardust main .hero .search:before{top:6px}
+body.page-stardust .stardust-workspace{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(315px,.85fr);gap:14px;align-items:start}
+body.page-stardust .stardust-selector{min-width:0}
+body.page-stardust .stardust-section-head{margin:0 0 10px}
+body.page-stardust .stardust-section-head h2{color:#112e56;margin:0 0 3px;font-size:1.13rem;line-height:1.3}
+body.page-stardust .stardust-section-head p{color:#536c89;margin:0;font-size:.84rem;line-height:1.45}
+body.page-stardust #groups.groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start;padding-bottom:0}
+body.page-stardust #groups .group{min-width:0;margin:0;border-radius:12px;box-shadow:none;overflow:hidden;background:#fff;border:1px solid #c8d8ed}
+body.page-stardust #groups .group[open]{grid-column:1/-1;border-color:#8bb0e7;box-shadow:0 3px 12px rgba(37,99,235,.08)}
+body.page-stardust #groups .group-head{min-height:53px;margin:0;padding:9px 11px;gap:5px;align-items:center}
+body.page-stardust #groups .group-title{min-width:0;gap:0}
+body.page-stardust #groups .amount{color:#174a92;font-size:1.13rem;line-height:1.25}
+body.page-stardust #groups .amount small{display:block;color:#5b7391;font-size:.66rem;line-height:1.3;font-weight:650}
+body.page-stardust #groups .summary-side{flex:none;gap:7px}
+body.page-stardust #groups .group-count{font-size:.72rem;font-weight:800;color:#2358a2;background:#eef4fd;border:1px solid #cddcf0;border-radius:50px;min-width:26px;min-height:25px;padding:3px 5px;text-align:center}
+body.page-stardust #groups .group-chev{font-size:.86rem;color:#315c98}
+body.page-stardust #groups .group[open] .group-head{background:#eef5ff}
+body.page-stardust #groups .group-body{padding:10px 12px 12px;border-color:#d7e3f3}
+body.page-stardust #groups .quick-values{padding:0 0 10px;gap:6px}
+body.page-stardust #groups .quick-values span{font-size:.72rem;padding:5px 7px}
+body.page-stardust #groups .pokemon-grid{grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:9px}
+body.page-stardust #groups .pokemon{border-radius:12px;padding:9px 7px 8px}
+body.page-stardust #groups .pokemon img{width:74px;height:74px;filter:drop-shadow(0 5px 7px rgba(19,48,86,.15))}
+body.page-stardust #groups .pokemon strong{font-size:.86rem;margin-top:4px}
+body.page-stardust #groups .pokemon .mini{color:#49698f}
+body.page-stardust .calculator{position:sticky;top:76px;margin:0 0 12px;border-radius:16px;padding:16px;box-shadow:0 5px 16px rgba(20,49,86,.07)}
+body.page-stardust .calculator h2{font-size:1.15rem;margin:0 0 4px}
+body.page-stardust .calculator .sub{font-size:.84rem;line-height:1.4;margin:0 0 12px}
+body.page-stardust .calculator .calc-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+body.page-stardust .calculator .selected-box{min-height:82px;padding:10px 12px;gap:10px;border-radius:12px}
+body.page-stardust .calculator .selected-box img{width:70px;height:70px}
+body.page-stardust .calculator .selected-name{font-size:1rem}
+body.page-stardust .calculator .selected-base{font-size:.9rem}
+body.page-stardust .calculator .controls{gap:7px}
+body.page-stardust .calculator .toggle,body.page-stardust .calculator .event-row{padding:9px 11px;border-radius:11px;font-size:.86rem}
+body.page-stardust .calculator .result{padding:13px;margin-top:11px;border-radius:12px;box-shadow:none}
+body.page-stardust .calculator .result-value{font-size:clamp(1.65rem,3vw,2.2rem)}
+body.page-stardust .calculator .result-label{font-size:.8rem}
+body.page-stardust .stardust-method-wrap{margin:5px auto 20px}
+body.page-stardust .stardust-method{border:1px solid #cbdcf0;border-radius:12px;background:#fff;overflow:hidden}
+body.page-stardust .stardust-method summary{padding:12px 15px;color:#1b529a;font-size:.86rem;font-weight:800;cursor:pointer}
+body.page-stardust .stardust-method .note{margin:0;padding:0 15px 15px;max-width:none;font-size:.83rem;line-height:1.55;color:#4e6482}
+body.page-stardust .stardust-method .note a{text-decoration:underline;color:#2156aa}
+body.page-stardust .feedback{padding:25px 0}
+@media(max-width:830px){
+ body.page-stardust .stardust-workspace{grid-template-columns:minmax(0,1fr)}
+ body.page-stardust .calculator{position:static}
+}
+@media(max-width:560px){
+ body.page-stardust main > section.hero.wrap{padding:16px!important;margin:8px auto 13px!important}
+ body.page-stardust main .hero h1{font-size:clamp(2rem,9vw,2.55rem)}
+ body.page-stardust main > section.hero.wrap .toolbar{grid-template-columns:minmax(0,1fr)!important;gap:7px;margin-top:11px!important}
+ body.page-stardust #groups.groups{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ body.page-stardust #groups .group-head{padding:8px 10px}
+ body.page-stardust #groups .group-count{min-width:24px;min-height:24px}
+ body.page-stardust #groups .pokemon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:350px){
+ body.page-stardust #groups .group-count{display:none}
+ body.page-stardust #groups .group-head{padding:8px}
+}
+html[data-theme="dark"] body.page-stardust .stardust-section-head h2{color:#e1ebfb}
+html[data-theme="dark"] body.page-stardust .stardust-section-head p{color:#b5c8e3}
+html[data-theme="dark"] body.page-stardust #groups .group{background:#14253d;border-color:#375477}
+html[data-theme="dark"] body.page-stardust #groups .amount{color:#e2efff}
+html[data-theme="dark"] body.page-stardust #groups .amount small{color:#adc1db}
+html[data-theme="dark"] body.page-stardust #groups .group[open] .group-head{background:#203858}
+html[data-theme="dark"] body.page-stardust .stardust-method{background:#15263c;border-color:#375477}
+html[data-theme="dark"] body.page-stardust .stardust-method summary{color:#d6e7ff}
+html[data-theme="dark"] body.page-stardust .stardust-method .note{color:#b8cbe1}
+</style>
+
 </head>
 <body class="page-stardust" data-studio-page="poeira-estelar">
 <go-nexus-header></go-nexus-header>
 
 <main>
   <section class="hero wrap">
-    <div class="eyebrow">✨ GUIA + CALCULADORA</div>
+    <div class="eyebrow">GUIA E CALCULADORA · POKÉMON GO</div>
     <h1>Poeira <span>Estelar</span></h1>
-    <p class="lead">Encontre os Pokémon da lista que concedem Poeira Estelar extra na captura e simule os bônus de clima, Pedaço de Estrela e eventos.</p>
+    <p class="lead">Consulte Pokémon com Poeira Estelar extra e simule os bônus de captura.</p>
     <div class="toolbar">
       <div class="search"><input id="search" type="search" placeholder="Pesquisar Pokémon..." autocomplete="off" aria-label="Pesquisar Pokémon"></div>
       <select id="groupFilter" aria-label="Filtrar por quantidade de Poeira Estelar">
@@ -122,12 +205,15 @@
         <option value="950">950</option><option value="1000">1.000</option><option value="1200">1.200</option><option value="2100">2.100</option>
       </select>
     </div>
-    <p class="note">Valores de captura base compilados a partir das referências comunitárias <a href="https://pokemongohub.net/post/guide/stardust-values/" target="_blank" rel="noopener">Pokémon GO Hub — Stardust</a> e <a href="https://www.serebii.net/pokemongo/stardust.shtml" target="_blank" rel="noopener">Serebii — Stardust</a>. Bônus ativos podem alterar o total; o bônus de clima não se aplica a encontros de pesquisa. Dados conferidos em 21 de setembro de 2026.</p>
+
   </section>
 
-  <section class="wrap">
-    <div id="groups" class="groups"></div>
-    <div id="empty" class="empty">Nenhum Pokémon encontrado com esse filtro.</div>
+  <section class="wrap stardust-workspace">
+    <div class="stardust-selector">
+      <div class="stardust-section-head"><h2>Escolha o valor de Poeira Estelar</h2><p>Abra uma faixa e selecione o Pokémon para calcular os bônus.</p></div>
+      <div id="groups" class="groups"></div>
+      <div id="empty" class="empty">Nenhum Pokémon encontrado com esse filtro.</div>
+    </div>
 
     <section class="calculator" id="calculator">
       <h2>Calculadora de captura</h2>
@@ -151,6 +237,9 @@
       </div>
     </section>
   </section>
+  <div class="wrap stardust-method-wrap"><details class="stardust-method"><summary>Fontes dos valores e regras dos bônus</summary>
+        <p class="note">Valores de captura base compilados a partir das referências comunitárias <a href="https://pokemongohub.net/post/guide/stardust-values/" target="_blank" rel="noopener">Pokémon GO Hub — Stardust</a> e <a href="https://www.serebii.net/pokemongo/stardust.shtml" target="_blank" rel="noopener">Serebii — Stardust</a>. Bônus ativos podem alterar o total; o bônus de clima não se aplica a encontros de pesquisa. Dados conferidos em 21 de setembro de 2026.</p>
+  </details></div>
 
   <section class="feedback">
     <div class="wrap">
@@ -207,8 +296,8 @@ function render(){
     const weather=Math.floor(g.base*1.25),star=Math.floor(g.base*1.5),both=Math.floor(g.base*1.25*1.5);
     section.innerHTML=`
       <summary class="group-head">
-        <div class="group-title"><div class="dust-icon">✨</div><div class="amount">${fmt(g.base)} <small>Poeira Estelar</small></div></div>
-        <div class="summary-side"><span class="group-count">${g.pokemon.length} Pokémon</span><span class="group-chev">⌄</span></div>
+        <div class="group-title"><div class="amount">${fmt(g.base)} <small>Poeira Estelar</small></div></div>
+        <div class="summary-side"><span class="group-count" aria-label="${g.pokemon.length} Pokémon">${g.pokemon.length}</span><span class="group-chev">⌄</span></div>
       </summary>
       <div class="group-body">
         <div class="quick-values"><span>Clima: ${fmt(weather)}</span><span>Pedaço: ${fmt(star)}</span><span>Clima + Pedaço: ${fmt(both)}</span></div>
@@ -221,6 +310,11 @@ function render(){
       b.innerHTML=`<img src="${imageFor(p)}" alt="${p[0]}" loading="lazy"><strong>${p[0]}</strong><div class="mini">✨ ${fmt(g.base)}</div>`;
       b.addEventListener("click",()=>selectPokemon(p,g,b));
       grid.appendChild(b);
+    });
+    section.addEventListener("toggle",()=>{
+      if(!section.open)return;
+      const searching=Boolean(document.getElementById("search").value.trim())||document.getElementById("groupFilter").value!=="all";
+      if(!searching)groupEl.querySelectorAll(".group").forEach(other=>{if(other!==section)other.open=false});
     });
     groupEl.appendChild(section);
   });

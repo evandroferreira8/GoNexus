@@ -92,6 +92,16 @@ for(const width of [390,1365]){
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+2));
    await page.locator('.switch .tab[data-tab="visual"]').click();
    assert.equal(await page.locator('#visual').isVisible(),true);
+   assert.equal(await page.locator('#visual .shiny-compare').count(),3);
+   assert.equal(await page.locator('#visual .shiny-pair img').count(),6);
+   const shinyImages=await page.locator('#visual .shiny-pair img').evaluateAll(images=>images.map(img=>img.getAttribute('src')));
+   assert.equal(shinyImages.filter(src=>src.includes('/shiny/')).length,3);
+   assert.equal(await page.locator('#visual .shiny-deep').evaluate(el=>el.open),false);
+   await page.locator('#shinyRate').fill('25');
+   await page.locator('#shinyTries').fill('25');
+   assert.match(await page.locator('#shinyResult').innerText(),/63,9%/);
+   await page.locator('#visual .shiny-deep > summary').click();
+   assert.equal(await page.locator('#visual .shiny-deep').evaluate(el=>el.open),true);
    await page.locator('.switch .tab[data-tab="fusion"]').click();
    assert.equal(await page.locator('#fusion').isVisible(),true);
  });

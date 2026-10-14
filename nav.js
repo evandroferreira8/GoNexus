@@ -65,7 +65,10 @@ nav.nav{display:flex;align-items:center;gap:5px}
 details.toolmenu{position:relative}
 details.toolmenu>summary{list-style:none;gap:6px}
 details.toolmenu>summary::-webkit-details-marker{display:none}
-.chev{font-size:.75rem;color:#2563eb}
+.chev{display:grid;place-items:center;flex:none;width:30px;height:30px;position:relative;border:1px solid #c6d7ef;border-radius:3px;background:#edf4ff;font-size:0;color:transparent}
+.chev::after{content:"";width:9px;height:9px;border-right:2px solid #1954aa;border-bottom:2px solid #1954aa;transform:translateY(-2px) rotate(45deg);transition:transform .18s}
+details.toolmenu[open] .chev::after{transform:translateY(2px) rotate(225deg)}
+details.toolmenu>summary:hover .chev{background:#dceaff;border-color:#8db1e5}
 .menu{position:absolute;right:0;top:calc(100% + 13px);z-index:900;width:min(520px,calc(100vw - 32px));max-height:min(73vh,650px);overflow-y:auto;padding:10px;background:#fff;border:1px solid #d5e0f1;border-radius:17px;box-shadow:0 20px 60px #12294523;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
 .menu a{display:flex;align-items:center;gap:10px;min-width:0;padding:10px;border-radius:10px;text-decoration:none;color:#0b1f3b;border:1px solid transparent}
 .menu a:hover,.menu a.active{background:#eef4ff;border-color:#d2e1fc}
@@ -97,7 +100,7 @@ details.toolmenu>summary::-webkit-details-marker{display:none}
             <div class="identity"><a class="mark" href="index.html" aria-label="GO Nexus — início"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="13.5" stroke="#0b1f3b" stroke-width="2.3"/><circle cx="20" cy="20" r="5.2" fill="#0b1f3b"/><path d="M4 20h32" stroke="#0b1f3b" stroke-width="2.3" stroke-linecap="round"/><circle cx="20" cy="20" r="3.1" fill="#fff"/></svg></a><div class="brand-wrap"><a class="brand" href="index.html" aria-label="GO Nexus — início">GO <span class="nexus">NEXUS</span><span class="version">2.0</span></a><div class="subtitle">O seu centro de ferramentas Pokémon GO</div></div></div>
             <nav class="nav" aria-label="Navegação principal">
               <a class="navlink${current==='index.html'?' active':''}" href="index.html"${current==='index.html'?' aria-current="page"':''}>Início</a>
-              <details class="toolmenu${inTools?' active':''}"><summary><span>Ferramentas</span><span class="chev">⌄</span></summary><div class="menu">${toolLinks}</div></details>
+              <details class="toolmenu${inTools?' active':''}"><summary><span>Ferramentas</span><span class="chev" aria-hidden="true"></span></summary><div class="menu">${toolLinks}</div></details>
               <a class="navlink" href="index.html#novidades">Novidades</a>
               <a class="navlink cta${current==='quiz.html'?' active':''}" href="quiz.html"${current==='quiz.html'?' aria-current="page"':''}>Quiz ↗</a>
             </nav>

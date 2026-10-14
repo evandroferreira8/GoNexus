@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-10-12T21:32:10+00:00",
+  "updated_at": "2026-10-14T01:16:23+00:00",
   "items": [
+    {
+      "title": "Um brilho assustador nos aguarda no Dia de Super Megarreides: Chandelure!",
+      "url": "https://pokemongo.com/pt-BR/news/chandelure-super-mega-raid-day-2026",
+      "image": "https://lh3.googleusercontent.com/6P6KzIHu36YynVJ4Bn6-2y_98P8qbfr5VP6aBOsIC83pPQ6NifL2ZrIWrF12RCzi-yJzdpuVsboYspq5mfkvph2B5OJslcoYMaHnNM8ua8og"
+    },
     {
       "title": "Atualizações na jogabilidade e melhorias na experiência do Pokémon GO",
       "url": "https://pokemongo.com/pt-BR/news/pgo-gameplay-update-oct-2026",
@@ -21,11 +26,6 @@
       "title": "Emergindo das marés esquecidas, Uxie, Mesprit e Azelf fazem sua estreia como Dinamax.",
       "url": "https://pokemongo.com/pt-BR/news/dynamax-uxie-mesprit-azelf-max-battle-day-2026",
       "image": "https://lh3.googleusercontent.com/lKvMVkt13VprgaVCCdWqglwACCNc_F4rLJMuuZg_MqZSHjDIkEm3dldHcnyv7OPdDmJYAdfYC9xZef00Jfna7R1B8QJLLBMOigqW_89obec"
-    },
-    {
-      "title": "Explore sob a luz das estrelas durante chuvas de meteoros para ter a chance de encontrar Minior.",
-      "url": "https://pokemongo.com/pt-BR/news/minior-meteor-showers-2026",
-      "image": "https://lh3.googleusercontent.com/u0gcBk4WxvszF4cKKAseYnVDOT8ombVKElMwM2f8545aa98EHjJADmhiyJ6EGXDRhLSlJn6SE4ESV6WVVRLfuQUTIM5Hx7wsKN80mLYxW4rt"
     }
   ]
 }

@@ -79,6 +79,13 @@ for(const width of [390,1365]){
  await check(width,'formas-especiais.html',async page=>{
    await page.locator('.switch .tab[data-tab="ditto"]').click();
    assert.equal(await page.locator('#ditto').isVisible(),true);
+   assert.equal(await page.locator('#dittoDisguiseList [role="listitem"]').count(),11);
+   assert.equal(await page.locator('#dittoPlay').evaluate(el=>el.open),false);
+   await page.locator('#dittoPlay > summary').click();
+   assert.equal(await page.locator('#dittoPlay').evaluate(el=>el.open),true);
+   await page.locator('#dittoGrid .ditto-card').first().click();
+   assert.match(await page.locator('#dittoAttempts').innerText(),/1 tentativa/);
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+2));
    await page.locator('.switch .tab[data-tab="visual"]').click();
    assert.equal(await page.locator('#visual').isVisible(),true);
    await page.locator('.switch .tab[data-tab="fusion"]').click();

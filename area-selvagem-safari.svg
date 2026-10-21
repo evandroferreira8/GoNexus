@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title">
+<title id="title">Esfera dourada temática da exploração da Área Selvagem GO</title>
+<defs>
+<radialGradient id="glow"><stop stop-color="#ffe5a0" stop-opacity=".78"/><stop offset=".58" stop-color="#ffbc42" stop-opacity=".27"/><stop offset="1" stop-color="#ffbc42" stop-opacity="0"/></radialGradient>
+<linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ceeafa"/><stop offset=".24" stop-color="#3c7eac"/><stop offset=".65" stop-color="#0b2742"/><stop offset=".9" stop-color="#78b1ca"/><stop offset="1" stop-color="#16354c"/></linearGradient>
+<radialGradient id="front" cx=".28" cy=".13" r=".9"><stop stop-color="#fff1b1"/><stop offset=".38" stop-color="#ffd566"/><stop offset=".78" stop-color="#ec9d2b"/><stop offset="1" stop-color="#a96321"/></radialGradient>
+<linearGradient id="lower" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#203c56"/><stop offset=".5" stop-color="#0a233b"/><stop offset="1" stop-color="#375e7b"/></linearGradient>
+<radialGradient id="button"><stop stop-color="#fffef1"/><stop offset=".65" stop-color="#e4f4ff"/><stop offset="1" stop-color="#82adc4"/></radialGradient>
+<filter id="shadow" x="-30%" y="-30%" width="170%" height="170%"><feGaussianBlur stdDeviation="22"/></filter>
+<filter id="shine"><feGaussianBlur stdDeviation="5"/></filter>
+<clipPath id="ball"><circle cx="400" cy="390" r="227"/></clipPath>
+</defs>
+<circle cx="400" cy="390" r="350" fill="url(#glow)"/>
+<circle cx="400" cy="390" r="308" fill="none" stroke="#e4ce8a" stroke-opacity=".24" stroke-width="2" stroke-dasharray="6 18"/>
+<circle cx="400" cy="390" r="274" fill="none" stroke="#9fc0e3" stroke-opacity=".4" stroke-width="2"/>
+<circle cx="400" cy="390" r="259" fill="none" stroke="#9fc0e3" stroke-opacity=".16" stroke-width="20"/>
+<path d="M165 420q220 110 470-4" stroke="#ffce6c" stroke-opacity=".16" stroke-width="23" fill="none" filter="url(#shine)"/>
+<ellipse cx="411" cy="638" rx="221" ry="31" fill="#000c21" opacity=".8" filter="url(#shadow)"/>
+<circle cx="400" cy="390" r="240" fill="url(#rim)"/>
+<g clip-path="url(#ball)">
+ <circle cx="400" cy="390" r="226" fill="url(#front)"/>
+ <path d="M150 420 Q400 376 650 420 L650 700 150 700Z" fill="url(#lower)"/>
+ <path d="M180 390 Q393 365 624 388 L630 426 Q390 414 174 429Z" fill="#07182b"/>
+ <path d="M185 397Q400 381 616 398" stroke="#a9d4e8" stroke-opacity=".65" stroke-width="4" fill="none"/>
+ <path d="M220 285q85-143 260-124" stroke="#fffef1" stroke-opacity=".65" stroke-width="18" stroke-linecap="round" fill="none" filter="url(#shine)"/>
+ <path d="M220 300q64-125 164-131" stroke="#fff8d1" stroke-opacity=".57" stroke-width="11" stroke-linecap="round" fill="none"/>
+ <path d="M255 244q60-51 98-55" stroke="#fff" stroke-opacity=".9" stroke-width="5" stroke-linecap="round" fill="none"/>
+ <path d="M230 540q78 63 159 69" stroke="#b9e4fc" stroke-opacity=".14" stroke-width="19" stroke-linecap="round" fill="none"/>
+ <g fill="none" stroke="#a7def9" stroke-opacity=".12" stroke-width="2"><path d="M198 500 600 555M215 560 587 610M230 610 554 660"/></g>
+</g>
+<circle cx="400" cy="390" r="86" fill="#0b273e" stroke="#6ca6c8" stroke-width="11"/>
+<circle cx="400" cy="390" r="63" fill="url(#button)" stroke="#d8eefa" stroke-width="13"/>
+<circle cx="400" cy="390" r="37" fill="#eef6f7" stroke="#bdd7e7" stroke-width="5"/>
+<path d="m376 389 16 15 32-35" fill="none" stroke="#437c9e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#ffe69d" opacity=".95"><path d="m183 176 5 19 19 5-19 5-5 19-5-19-19-5 19-5Z"/><path d="m652 199 5 15 15 5-15 5-5 15-5-15-15-5 15-5Z"/><circle cx="628" cy="552" r="5"/><circle cx="148" cy="378" r="4"/></g>
+<g fill="none" stroke="#a7d6f2" stroke-width="2" stroke-opacity=".6"><path d="M135 340h45M157 319v43M610 303h54M637 276v54"/></g>
+</svg>

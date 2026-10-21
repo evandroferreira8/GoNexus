@@ -40,7 +40,7 @@
  if(typeof isMobile.addEventListener==="function")isMobile.addEventListener("change",queueUpdate);
  queueUpdate();
  if(topButton)topButton.addEventListener("click",()=>{
-   window.scrollTo({top:0,behavior:reduceMotion.matches?"instant":"smooth"});
+   window.scrollTo({top:0,behavior:reduceMotion.matches?"auto":"smooth"});
  });
  if(perks&&paid){
    perks.addEventListener("click",()=>{
@@ -90,6 +90,14 @@
    },{rootMargin:"0px 0px -7% 0px",threshold:.06});
    for(const el of pending){el.classList.add("wa-reveal-pending");observer.observe(el);}
    root.classList.add("wa-motion-ready");
+ }
+ // Suspend decorative animation when the relevant city zone leaves the screen.
+ if("IntersectionObserver" in window) {
+   const atmospheric=[document.querySelector(".wa-hero"),document.querySelector(".wa-capture-intro")].filter(Boolean);
+   const ambientObserver=new IntersectionObserver(entries=>{
+     entries.forEach(entry=>entry.target.classList.toggle("wa-ambient-paused",!entry.isIntersecting));
+   },{rootMargin:"100px 0px 100px 0px",threshold:0});
+   atmospheric.forEach(node=>ambientObserver.observe(node));
  }
  // Pause infinite ambient effects when the tab is hidden or user saves data.
  if(navigator.connection?.saveData)document.body.classList.add("wa-low-power");

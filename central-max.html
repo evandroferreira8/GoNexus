@@ -26,6 +26,7 @@
 <link id="go-nexus-theme-styles" rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
 <link rel="stylesheet" href="central-max-v3.css?v=20261020a">
+<link rel="stylesheet" href="central-max-accordions.css?v=20261021a">
 </head>
 <body class="page-max" data-studio-page="central-max">
 <go-nexus-header></go-nexus-header>
@@ -117,25 +118,27 @@
  <div class="mx3-search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Ex.: Metagross, Charizard, Gigamax…" aria-label="Pesquisar nas listas Max" autocomplete="off"></label><button type="button" class="mx3-shortcut" id="mx3ClearSearch" hidden>Limpar</button></div>
  <div class="mx3-search-shortcuts" aria-label="Abrir uma lista"><button type="button" class="mx3-shortcut" data-show="dynAvailableBox">Dinamax</button><button type="button" class="mx3-shortcut" data-show="gAvailableBox">Gigamax</button><button type="button" class="mx3-shortcut" data-show="dynFutureBox">Próximas estreias</button><button type="button" class="mx3-shortcut" data-show="gUnavailableBox">Ainda não estrearam</button></div>
  <p class="mx3-caution" id="mx3SearchStatus" role="status" aria-live="polite">Escolha uma lista ou pesquise pelo nome.</p>
- <div class="mx3-lists"><details class="nx-accordion" id="dynAvailableBox" data-nx-group="max-lists">
-  <summary><span class="nx-summary-main"><span>🔴</span><span class="nx-summary-copy"><span class="nx-summary-title">Dinamax disponíveis no Pokémon GO</span><span class="nx-summary-sub">Linhas ou grupos que já tiveram exemplares aptos ao sistema Max</span></span></span><span class="nx-summary-side"><span class="nx-count" id="dynAvailableCount">0</span><span class="nx-chevron">⌄</span></span></summary>
-  <div class="nx-body"><div class="pill-list" id="dynAvailableList"></div></div>
+ <div class="mx3-lists">
+<details class="mx3-accordion" id="dynAvailableBox" data-tone="dynamax">
+ <summary class="mx3-accordion-head"><span class="mx3-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M7 12h10"/></svg></span><span class="mx3-list-copy"><strong class="mx3-list-title">Dinamax já disponíveis</strong><span class="mx3-list-description">Espécies ou linhas com exemplares Dinamax que já estrearam.</span></span><span class="mx3-list-actions"><span class="mx3-list-count" id="dynAvailableCount">0</span><span class="mx3-list-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></span></summary>
+ <div class="mx3-accordion-body"><p class="mx3-list-feedback" id="dynAvailableStatus">Carregando espécies…</p><ul class="mx3-species-grid" id="dynAvailableList"></ul><button class="mx3-list-showmore" type="button" data-group="dynAvailableBox" id="dynAvailableMore" aria-controls="dynAvailableList" aria-expanded="false" hidden><span class="mx3-more-text">Mostrar todos</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
 </details>
 
-<details class="nx-accordion" id="dynFutureBox" data-nx-group="max-lists">
-  <summary><span class="nx-summary-main"><span>📅</span><span class="nx-summary-copy"><span class="nx-summary-title">Dinamax confirmados para chegar</span><span class="nx-summary-sub">Anunciados oficialmente para a temporada, sem inventar datas ainda não divulgadas</span></span></span><span class="nx-summary-side"><span class="nx-count" id="dynFutureCount">0</span><span class="nx-chevron">⌄</span></span></summary>
-  <div class="nx-body"><div class="pill-list" id="dynFutureList"></div></div>
+<details class="mx3-accordion" id="dynFutureBox" data-tone="future">
+ <summary class="mx3-accordion-head"><span class="mx3-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h3M8 17h5"/></svg></span><span class="mx3-list-copy"><strong class="mx3-list-title">Próximas estreias Dinamax</strong><span class="mx3-list-description">Anúncios e datas informados nas fontes da base.</span></span><span class="mx3-list-actions"><span class="mx3-list-count" id="dynFutureCount">0</span><span class="mx3-list-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></span></summary>
+ <div class="mx3-accordion-body"><p class="mx3-list-feedback" id="dynFutureStatus">Carregando espécies…</p><ul class="mx3-species-grid" id="dynFutureList"></ul><button class="mx3-list-showmore" type="button" data-group="dynFutureBox" id="dynFutureMore" aria-controls="dynFutureList" aria-expanded="false" hidden><span class="mx3-more-text">Mostrar todos</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
 </details>
 
-<details class="nx-accordion" id="gAvailableBox" data-nx-group="max-lists">
-  <summary><span class="nx-summary-main"><span>🟣</span><span class="nx-summary-copy"><span class="nx-summary-title">Gigamax disponíveis no Pokémon GO</span><span class="nx-summary-sub">Formas Gigamax que já estrearam no jogo</span></span></span><span class="nx-summary-side"><span class="nx-count" id="gAvailableCount">0</span><span class="nx-chevron">⌄</span></span></summary>
-  <div class="nx-body"><div class="pill-list" id="gAvailableList"></div></div>
+<details class="mx3-accordion" id="gAvailableBox" data-tone="gigamax">
+ <summary class="mx3-accordion-head"><span class="mx3-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 8v8l8 5 8-5V8l-8-5Z"/><path d="m4 8 8 5 8-5M12 13v8"/></svg></span><span class="mx3-list-copy"><strong class="mx3-list-title">Gigamax já disponíveis</strong><span class="mx3-list-description">Formas Gigamax que já estrearam no Pokémon GO.</span></span><span class="mx3-list-actions"><span class="mx3-list-count" id="gAvailableCount">0</span><span class="mx3-list-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></span></summary>
+ <div class="mx3-accordion-body"><p class="mx3-list-feedback" id="gAvailableStatus">Carregando espécies…</p><ul class="mx3-species-grid" id="gAvailableList"></ul><button class="mx3-list-showmore" type="button" data-group="gAvailableBox" id="gAvailableMore" aria-controls="gAvailableList" aria-expanded="false" hidden><span class="mx3-more-text">Mostrar todos</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
 </details>
 
-<details class="nx-accordion" id="gUnavailableBox" data-nx-group="max-lists">
-  <summary><span class="nx-summary-main"><span>◌</span><span class="nx-summary-copy"><span class="nx-summary-title">Gigamax ainda não disponíveis</span><span class="nx-summary-sub">Formas Gigamax conhecidas que ainda não estrearam no Pokémon GO</span></span></span><span class="nx-summary-side"><span class="nx-count" id="gUnavailableCount">0</span><span class="nx-chevron">⌄</span></span></summary>
-  <div class="nx-body"><div class="pill-list" id="gUnavailableList"></div></div>
-</details></div>
+<details class="mx3-accordion" id="gUnavailableBox" data-tone="unreleased">
+ <summary class="mx3-accordion-head"><span class="mx3-list-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7 7l10 10M17 7 7 17"/></svg></span><span class="mx3-list-copy"><strong class="mx3-list-title">Gigamax ainda não lançados</strong><span class="mx3-list-description">Formas conhecidas que ainda não estrearam no jogo.</span></span><span class="mx3-list-actions"><span class="mx3-list-count" id="gUnavailableCount">0</span><span class="mx3-list-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></span></summary>
+ <div class="mx3-accordion-body"><p class="mx3-list-feedback" id="gUnavailableStatus">Carregando espécies…</p><ul class="mx3-species-grid" id="gUnavailableList"></ul><button class="mx3-list-showmore" type="button" data-group="gUnavailableBox" id="gUnavailableMore" aria-controls="gUnavailableList" aria-expanded="false" hidden><span class="mx3-more-text">Mostrar todos</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+</details>
+</div>
  <p class="mx3-footnote">“Já estreou” não significa “disponível nas Batalhas Max hoje”. Listas históricas e anúncios conferidos em 12/10/2026; consulte os eventos atuais no jogo.</p>
 </section>
 
@@ -152,11 +155,8 @@
 </section>
 
 <section class="mx3-section mx3-more" aria-label="Informações complementares">
- <details><summary>Regras que vale lembrar</summary><div class="mx3-more-body"><p>Somente Pokémon aptos ao sistema Max participam das Batalhas Max. Pokémon já capturados normalmente não ganham Dinamax ou Gigamax apenas por evoluírem.</p><p>O tipo do Ataque Max comum depende do Ataque Ágil; já um Golpe G-Max é característico da espécie. Recompensas, chefes e disponibilidade mudam conforme os eventos.</p></div></details>
- <details><summary>Fontes e metodologia</summary><div class="mx3-more-body"><p>Mecânica e movimentos: Central de Ajuda oficial do Pokémon GO. As listas de estreias e custos tomam como base os registros anteriormente reunidos e podem mudar com novos eventos. Exemplos de equipe são ilustrativos, não rankings.</p>
-  <p><a href="https://niantic.helpshift.com/hc/pt-br/6-pokemon-go/faq/4797-collecting-max-particles-and-dynamaxing-or-gigantamaxing-pokemon-1729887059/" target="_blank" rel="noopener noreferrer">Central de Ajuda — Partículas e Movimentos Max ↗</a></p>
-  <p><a href="https://pokemongo.com/pt-BR/max-pokemon-battle" target="_blank" rel="noopener noreferrer">Pokémon GO — Batalhas Max ↗</a> · <a href="https://www.serebii.net/pokemongo/maxbattles.shtml" target="_blank" rel="noopener noreferrer">Serebii — registros de Batalhas Max ↗</a></p>
- </div></details>
+ <details><summary><span class="mx3-more-headcopy"><strong>Regras que vale lembrar</strong><small>O que pode mudar sua escolha na batalha</small></span><span class="mx3-list-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary><div class="mx3-more-body"><p>Somente Pokémon aptos ao sistema Max participam das Batalhas Max. Pokémon capturados normalmente não ganham Dinamax ou Gigamax apenas por evoluírem.</p><p>O tipo do Ataque Max comum depende do Ataque Ágil; um Golpe G-Max é característico da espécie. Recompensas, chefes e disponibilidade mudam conforme os eventos.</p></div></details>
+ <details><summary><span class="mx3-more-headcopy"><strong>Fontes e metodologia</strong><small>O que foi conferido e onde consultar</small></span><span class="mx3-list-arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary><div class="mx3-more-body"><p>Mecânica e movimentos conferidos com a documentação oficial. As listas seguem registros de estreias, não garantem disponibilidade no rodízio atual. Exemplos de equipe são ilustrativos, não rankings.</p><nav class="mx3-source-links" aria-label="Fontes da Central Max"><a href="https://niantic.helpshift.com/hc/pt-br/6-pokemon-go/faq/4797-collecting-max-particles-and-dynamaxing-or-gigantamaxing-pokemon-1729887059/" target="_blank" rel="noopener noreferrer">Partículas e movimentos Max ↗</a><a href="https://pokemongo.com/pt-BR/max-pokemon-battle" target="_blank" rel="noopener noreferrer">Batalhas Max — oficial ↗</a><a href="https://www.serebii.net/pokemongo/maxbattles.shtml" target="_blank" rel="noopener noreferrer">Serebii — registros Max ↗</a></nav></div></details>
 </section>
 </main>
 <go-nexus-footer></go-nexus-footer>
@@ -167,20 +167,7 @@ const G_AVAILABLE=["Venusaur", "Charizard", "Blastoise", "Butterfree", "Pikachu"
 const G_UNAVAILABLE=["Eevee", "Garbodor", "Melmetal", "Corviknight", "Orbeetle", "Drednaw", "Coalossal", "Flapple", "Appletun", "Sandaconda", "Centiskorch", "Hatterene", "Alcremie", "Copperajah", "Duraludon", "Urshifu — Golpe Decisivo", "Urshifu — Golpe Fluido"];
 const $=s=>document.querySelector(s);
 function norm(v){return (v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR')}
-function pill(name,cls=''){return `<span class="max-pill ${cls}">${name}</span>`}
-function render(){
-  const q=norm($('#search').value.trim());
-  const da=DYNAMAX.filter(n=>!q||norm(n).includes(q));
-  const df=FUTURE.filter(x=>!q||norm([x.name,x.note].join(' ')).includes(q));
-  const ga=G_AVAILABLE.filter(n=>!q||norm(n).includes(q));
-  const gu=G_UNAVAILABLE.filter(n=>!q||norm(n).includes(q));
-  $('#dynAvailableList').innerHTML=da.map(n=>pill(n,'good')).join('');
-  $('#dynFutureList').innerHTML=df.map(x=>pill(`${x.name} · ${x.note}`,'future')).join('');
-  $('#gAvailableList').innerHTML=ga.map(n=>pill(`Gigamax ${n}`,'good')).join('');
-  $('#gUnavailableList').innerHTML=gu.map(n=>pill(`Gigamax ${n}`,'off')).join('');
-  $('#dynAvailableCount').textContent=DYNAMAX.length;$('#dynFutureCount').textContent=FUTURE.length;$('#gAvailableCount').textContent=G_AVAILABLE.length;$('#gUnavailableCount').textContent=G_UNAVAILABLE.length;
-  if(q){$('#dynAvailableBox').open=da.length>0;$('#dynFutureBox').open=df.length>0;$('#gAvailableBox').open=ga.length>0;$('#gUnavailableBox').open=gu.length>0;}
-}
+function render(){ if(typeof window.maxHubRender==="function") window.maxHubRender(); }
 const candyGroups={A:{unlock:50,l12:100,l23:40},B:{unlock:60,l12:110,l23:45},C:{unlock:70,l12:120,l23:50},D:{unlock:80,l12:130,l23:55}};
 const steps={unlock:{mp:400},l12:{mp:600},l23:{mp:800}};
 function costBetween(cur,target,canLock,group){
@@ -212,5 +199,6 @@ $('#search').addEventListener('input',render);document.querySelectorAll('.curren
 <script src="theme.js?v=studio-v4-policy-links"></script>
 <script src="result-share.js?v=studio-clean-20261013"></script>
 <script src="central-max-v3.js?v=20261020a" defer></script>
+<script src="central-max-accordions.js?v=20261021a" defer></script>
 </body></html>
 

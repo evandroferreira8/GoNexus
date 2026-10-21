@@ -198,3 +198,18 @@ html[data-theme="dark"] body.page-wild .wa-meta span{border-color:#7899b5}
  body.page-wild .wa-finale{padding:21px 14px}
 }
 @media(prefers-reduced-motion:reduce){body.page-wild .wa-btn{transition:none}}
+
+/* Small finish: an unobtrusive live expedition status and clear touch targets. */
+body.page-wild .wa-countdown{
+ display:inline-flex;align-items:center;gap:7px;margin-top:16px;
+ font:800 .7rem/1.4 var(--gn-code,monospace);letter-spacing:.01em;
+ color:#ffe3a6;padding:6px 0;
+}
+body.page-wild .wa-countdown:before{content:"";width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#ffd37b;box-shadow:0 0 0 4px #ffd37b1b}
+body.page-wild .wa-mon img[hidden]{display:none}
+body.page-wild .wa-wrap :is(button,a,summary):focus-visible{outline:3px solid #3e84f1!important;outline-offset:3px}
+body.page-wild .wa-wrap .wa-showmore:hover{background:#d8eaff}
+@media(max-width:760px){
+ body.page-wild .wa-countdown{position:relative;z-index:3;font-size:.63rem;max-width:290px}
+ body.page-wild .wa-section-heading{margin-bottom:10px}
+}

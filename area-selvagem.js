@@ -18,11 +18,32 @@
  const SWITCHES = document.querySelectorAll("[data-day]");
  const dayPanels = {sat:$("waSaturday"),sun:$("waSunday")};
  const dayTitle = $("waDayTitle");
+
+ const mighty = {
+  sat:[[10114,"Exeggutor de Alola"],[212,"Scizor"],[330,"Flygon"],[365,"Walrein"],[376,"Metagross"],[395,"Empoleon"],[462,"Magnezone"],[534,"Conkeldurr"],[612,"Haxorus"]],
+  sun:[[184,"Azumarill"],[230,"Kingdra"],[306,"Aggron"],[598,"Ferrothorn"],[635,"Hydreigon"],[706,"Goodra"],[715,"Noivern"],[959,"Tinkaton"],[980,"Clodsire"]]
+ };
+ function renderMighty(day) {
+   const rail=$("waMightyList");
+   if(!rail)return;
+   const cards=mighty[day].map(([id,name])=>{
+     const item=document.createElement("div");item.className="wa-mighty-card";
+     const image=document.createElement("img");image.src=source+id+".png";image.alt="";image.loading="lazy";image.decoding="async";image.width=69;image.height=69;
+     image.addEventListener("error",()=>{image.hidden=true;});
+     const title=document.createElement("b");title.textContent=name;
+     item.append(image,title);
+     return item;
+   });
+   rail.replaceChildren(...cards);
+   rail.scrollLeft=0;
+ }
+
  function setDay(day) {
   if (!dayPanels[day]) return;
   SWITCHES.forEach(btn => btn.setAttribute("aria-pressed",String(btn.dataset.day === day)));
   Object.entries(dayPanels).forEach(([key,panel]) => {panel.hidden=key!==day;});
   dayTitle.textContent = day === "sat" ? "SÁBADO • 14 NOVEMBRO" : "DOMINGO • 15 NOVEMBRO";
+  renderMighty(day);
  }
  SWITCHES.forEach(btn => btn.addEventListener("click",()=>setDay(btn.dataset.day)));
  setDay("sat");

@@ -323,3 +323,32 @@
  body.page-wild :is(.wa-titan img,.wa-titan:after,.wa-titan-marker,.wa-capture-orb){animation:none!important;transition:none!important}
  body.page-wild .wa-motion-ready .wa-reveal-pending{opacity:1!important;transform:none!important;transition:none!important}
 }
+
+/* Optional interactions, correctly hidden from the unchanged desktop. */
+.wa-perks-toggle{display:none}
+.wa-top-button[hidden]{display:none!important}
+.wa-read-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:90;pointer-events:none;background:transparent}
+.wa-read-progress>span{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left center;background:linear-gradient(90deg,#67ceff,#fc3b95,#ffd17b);box-shadow:0 0 11px #ff4d9c80}
+@media(max-width:900px){
+ body.page-wild .wa-read-progress{height:4px}
+ body.page-wild .wa-top-button{transition:background-color .2s,transform .2s}
+ body.page-wild .wa-top-button:active{transform:scale(.94);background:#682d65}
+ body.page-wild .wa-switch button:active,body.page-wild .wa-showmore:active,body.page-wild .wa-perks-toggle:active{transform:scale(.985)}
+ body.page-wild .wa-perks-toggle{display:flex}
+ body.page-wild .wa-ticket-card.paid{scroll-margin-top:87px}
+ body.page-wild .wa-feature:not(.wa-feature-large) .wa-feature-content{position:relative;z-index:3}
+ body.page-wild .wa-feature:not(.wa-feature-large):before{content:"";position:absolute;z-index:2;inset:36% 0 0;background:linear-gradient(0deg,#091126e8,transparent)}
+ @media(prefers-reduced-motion:no-preference){
+  body.page-wild .wa-content-swap{animation:waSwapIn .32s cubic-bezier(.2,.7,.3,1) both}
+  body.page-wild .wa-read-progress>span{transition:transform .13s linear}
+ }
+}
+@keyframes waSwapIn{from{opacity:.4;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+body.page-wild.wa-paused :is(.wa-titan img,.wa-titan:after,.wa-titan-marker,.wa-capture-orb),
+body.page-wild.wa-low-power :is(.wa-titan img,.wa-titan:after,.wa-titan-marker,.wa-capture-orb){
+ animation-play-state:paused!important;
+}
+@media(prefers-reduced-motion:reduce){
+ body.page-wild .wa-content-swap{animation:none!important}
+ body.page-wild .wa-read-progress>span{transition:none!important}
+}

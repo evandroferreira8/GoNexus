@@ -4,8 +4,8 @@
 :root{color-scheme:dark;--night:#080b19;--deep:#0d1025;--panel:#151c35;--panel2:#1c2543;--ink:#f7f8ff;--muted:#c6cee3;--pink:#ff3893;--pink2:#ff7cba;--cyan:#79d6ff;--gold:#ffcc67;--line:#665273;--body: 'DM Sans',system-ui,sans-serif;--display:'Outfit','Arial Black',system-ui,sans-serif;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:#080b19!important}
-body.page-wild{margin:0;min-height:100vh;font:400 16px/1.5 var(--body);color:var(--ink)!important;background:#080b19!important;overflow-x:hidden;isolation:isolate}
-body.page-wild:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:linear-gradient(180deg,#080b19b3 0%,#0d0c22d6 45%,#090c1cec 100%),url('area-selvagem-max-city.svg') center top/cover no-repeat;opacity:.96}
+body.page-wild{margin:0;min-height:100vh;font:400 16px/1.5 var(--body);color:var(--ink)!important;background-color:#080b19!important;background-image:linear-gradient(180deg,#07091acc 0%,#100c28dc 48%,#080b19f5 100%),url("area-selvagem-max-city.svg")!important;background-size:cover,cover!important;background-repeat:no-repeat!important;background-position:center top!important;background-attachment:fixed!important;overflow-x:hidden;isolation:isolate}
+body.page-wild:before{content:none}
 body.page-wild:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 85% 20%,#fd147e24,transparent 42%),radial-gradient(ellipse at 2% 60%,#1ca9ee0b,transparent 40%)}
 body.page-wild button,body.page-wild input{font:inherit}
 body.page-wild button{cursor:pointer}
@@ -209,7 +209,7 @@ body.page-wild .wa-wrap p{margin:0;color:var(--muted)}
 }
 /* Mobile: visual identity stays, all controls are finger-friendly */
 @media(max-width:760px){
- body.page-wild:before{background-size:auto,auto 100vh;background-position:center,66% top}
+ body.page-wild{background-attachment:scroll!important;background-size:cover,auto 100vh!important;background-position:center top,66% top!important}
  .wa-wrap,.wa-maxbar-inner{width:calc(100% - 24px)!important}
  .wa-maxbar-inner{min-height:58px}
  .wa-maxbar-caption{display:none}

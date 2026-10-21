@@ -1,0 +1,67 @@
+/* Max World entry — the home banner is a narrow slice of the immersive microsite */
+html body.page-home .wa-home-banner{
+ position:relative;isolation:isolate;overflow:hidden;min-height:156px;
+ margin:-5px 0 21px;padding:22px clamp(18px,3.2vw,38px);
+ border:1px solid #e1429699;border-radius:16px;
+ background:
+  linear-gradient(90deg,#090a20fb 0%,#120e2ce8 30%,#230e337e 64%,#100e2d98),
+  url('area-selvagem-max-city.svg') 65% 55%/cover no-repeat!important;
+ box-shadow:0 13px 32px #170b3b42,inset 0 1px 0 #ffe4f525;
+}
+html body.page-home .wa-home-banner:before{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:linear-gradient(180deg,#ff439009 30%,#04082151 100%);
+}
+html body.page-home .wa-home-copy,html body.page-home .wa-home-enter{z-index:3}
+html body.page-home .wa-home-tag{
+ color:#ff98c2!important;font-size:.63rem;letter-spacing:.12em;
+}
+html body.page-home .wa-home-tag:before{
+ background:#ff3a89;box-shadow:0 0 10px #ff3678;
+}
+html body.page-home .wa-home-title{
+ font:900 clamp(1.55rem,3vw,2.2rem)/1.06 var(--gn-title,'Outfit',sans-serif)!important;
+ color:#fff!important;letter-spacing:-.045em;
+}
+html body.page-home .wa-home-title em{color:#ff61a0!important}
+html body.page-home .wa-home-line{color:#e2eafd!important;font-size:.84rem!important;max-width:580px}
+html body.page-home .wa-home-meta span{
+ background:#0c142fc5;border-color:#7a6baa;
+ color:#ecf3ff;font-size:.65rem;
+}
+html body.page-home .wa-home-enter{
+ background:linear-gradient(180deg,#ffe18b,#ffc448)!important;
+ color:#101c32!important;border:1px solid #ffe498;
+ box-shadow:0 6px 22px #11102c9e;
+ font-weight:850;
+}
+html body.page-home .wa-home-pokemon{
+ height:250px;width:250px;right:14%;top:-42px;opacity:.95;
+ filter:drop-shadow(0 0 20px #ff3386be) drop-shadow(10px 18px 6px #050818b9);
+}
+html body.page-home .wa-home-banner:after{
+ right:11%;top:-91px;width:295px;height:295px;
+ border:2px dashed #fe5499b0;
+ box-shadow:0 0 0 26px #ff358918,0 0 0 60px #ff35890d;
+}
+html body.page-home .wa-home-banner:hover{border-color:#ff7ab3}
+html body.page-home .wa-home-banner:focus-visible{outline:3px solid #ffbc65;outline-offset:4px}
+@media(max-width:760px){
+ html body.page-home .wa-home-banner{
+  padding:17px 15px 65px;min-height:206px;
+  background-position:center,65% 50%;
+ }
+ html body.page-home .wa-home-title{font-size:1.76rem!important}
+ html body.page-home .wa-home-line{font-size:.79rem!important;max-width:305px}
+ html body.page-home .wa-home-pokemon{width:185px;height:185px;right:-32px;top:-4px;opacity:.55}
+ html body.page-home .wa-home-enter{bottom:11px;left:15px;right:15px;min-height:45px}
+ html body.page-home .wa-home-meta{gap:5px}
+ html body.page-home .wa-home-meta span{font-size:.58rem;padding:5px 6px}
+}
+@media(max-width:370px){
+ html body.page-home .wa-home-banner{min-height:223px}
+ html body.page-home .wa-home-title{font-size:1.53rem!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html body.page-home .wa-home-enter{transition:none}
+}

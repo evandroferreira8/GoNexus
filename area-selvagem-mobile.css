@@ -352,3 +352,17 @@ body.page-wild.wa-low-power :is(.wa-titan img,.wa-titan:after,.wa-titan-marker,.
  body.page-wild .wa-content-swap{animation:none!important}
  body.page-wild .wa-read-progress>span{transition:none!important}
 }
+
+/* No desktop changes: progress and compact perks are exclusive to small screens. */
+@media(min-width:901px){.wa-read-progress,.wa-perks-toggle,.wa-top-button{display:none!important}}
+@media(max-width:900px){
+ body.page-wild.wa-low-power .wa-local-nav{
+  backdrop-filter:none;-webkit-backdrop-filter:none;background:#0c1127;
+ }
+ body.page-wild .wa-hero.wa-ambient-paused .wa-titan img,
+ body.page-wild .wa-hero.wa-ambient-paused .wa-titan:after,
+ body.page-wild .wa-hero.wa-ambient-paused .wa-titan-marker,
+ body.page-wild .wa-capture-intro.wa-ambient-paused .wa-capture-orb{
+  animation-play-state:paused!important;
+ }
+}

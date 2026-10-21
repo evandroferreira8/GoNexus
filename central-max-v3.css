@@ -202,3 +202,29 @@ html[data-theme="dark"] body.page-max .mx3-more .mx3-more-body a{color:#a9cdff}
  body.page-max .mx3-search-row{display:block}
 }
 @media(prefers-reduced-motion:reduce){body.page-max .mx3-start-card,body.page-max .mx3-hero-links a{transition:none!important}}
+
+/* Higher specificity than legacy Studio rules on Max components. */
+html[data-theme="light"] body.page-max[data-studio-page="central-max"] .mx3-reference .max-pill{
+ background:#eff5fd!important;color:#254870!important;border-color:#d4e3f2!important;
+}
+html[data-theme="light"] body.page-max[data-studio-page="central-max"] .mx3-reference .max-pill.future{
+ background:#fff6e6!important;color:#7b540f!important;border-color:#efdfb6!important;
+}
+html[data-theme="light"] body.page-max[data-studio-page="central-max"] .mx3-reference .max-pill.off{
+ background:#f0f2f7!important;color:#53657c!important;border-color:#d5dce8!important;
+}
+html[data-theme="light"] body.page-max[data-studio-page="central-max"] .mx3-calc .calc-line{
+ background:#f5f9ff!important;border-color:#d8e3f3!important;
+}
+html[data-theme="light"] body.page-max[data-studio-page="central-max"] .mx3-calc #maxAnswer{
+ background:#eaf2ff!important;color:#214a83!important;border-color:#afc9f2!important;
+}
+html[data-theme="dark"] body.page-max[data-studio-page="central-max"] .mx3-reference .max-pill{
+ background:#23405e!important;color:#e3edfc!important;border-color:#476581!important;
+}
+html[data-theme="dark"] body.page-max[data-studio-page="central-max"] .mx3-reference .max-pill.future{
+ background:#4d3e26!important;color:#f9e3af!important;border-color:#76633a!important;
+}
+html[data-theme="dark"] body.page-max[data-studio-page="central-max"] .mx3-reference .max-pill.off{
+ background:#293648!important;color:#b5c6d9!important;border-color:#3d526a!important;
+}

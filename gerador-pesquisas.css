@@ -81,14 +81,14 @@ html[data-theme="dark"] .page-generator .gp-panel .gp-field-label{color:#d1e1f7}
 html[data-theme="dark"] .page-generator #namesInput{background:#0d1c31;border-color:#3c5878;color:#f2f7ff}
 html[data-theme="dark"] .page-generator #namesInput::placeholder{color:#91a4bf}
 html[data-theme="dark"] .page-generator .gp-step{color:#a7caff}
-html[data-theme="dark"] .page-generator .gp-action-link,.page-generator .gp-guide-link{color:#5f9fff}
+html[data-theme="dark"] .page-generator .gp-action-link,html[data-theme="dark"] .page-generator .gp-guide-link{color:#8bb9ff}
 html[data-theme="dark"] .page-generator .gp-counter{background:#203d62;color:#b5d3ff}
 html[data-theme="dark"] .page-generator .gp-result-box{border-color:#315479;background:linear-gradient(150deg,#132d50,#14243b)}
 html[data-theme="dark"] .page-generator #searchOutput{color:#ebf4ff}
 html[data-theme="dark"] .page-generator .gp-result-overline{color:#a5bfdf}
 html[data-theme="dark"] .page-generator .gp-pill{background:#193451;color:#eff6ff;border-color:#355477}
 html[data-theme="dark"] .page-generator .gp-pill .gp-pill-no{color:#90beff}
-html[data-theme="dark"] .page-generator .gp-tip,.page-generator .gp-tip strong{color:var(--gp-muted)}
+html[data-theme="dark"] .page-generator .gp-tip,html[data-theme="dark"] .page-generator .gp-tip strong{color:var(--gp-muted)}
 html[data-theme="dark"] .page-generator .gp-tip-icon{background:#203c5f;color:#bdd8ff}
 html[data-theme="dark"] .page-generator .gp-alert-info{background:#42351a;border-color:#836520;color:#fce9b2}
 html[data-theme="dark"] .page-generator .gp-alert-error{background:#422625;border-color:#8e4b4b;color:#ffcec7}

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <link rel="stylesheet" href="nexus-studio.css?v=studio-depth-20261013a">
-<link rel="stylesheet" href="gerador-pesquisas.css?v=1">
+<link rel="stylesheet" href="gerador-pesquisas.css?v=2">
 </head>
 <body class="page-generator" data-studio-page="gerador-pesquisas">
 <go-nexus-header></go-nexus-header>
@@ -19,7 +19,7 @@
     <div class="gp-hero-copy">
       <span class="gp-eyebrow"><span class="gp-light-dot"></span> GO NEXUS / FERRAMENTA</span>
       <h1 id="gp-title">Uma lista.<br><em>Uma busca.</em></h1>
-      <p>Cole nomes ou números. Copie a pesquisa pronta para o Pokémon GO.</p>
+      <p>Do nome ao número. Ou do número ao Pokémon.</p>
       <div class="gp-process" aria-label="Cole, confira e copie"><span>01 <b>COLE</b></span><span aria-hidden="true">→</span><span>02 <b>CONFIRA</b></span><span aria-hidden="true">→</span><span>03 <b>COPIE</b></span></div>
     </div>
     <div class="gp-hero-visual" aria-hidden="true">
@@ -30,16 +30,20 @@
     </div>
   </section>
 
+  <div class="gp-mode-switch" role="group" aria-label="Escolha o tipo de consulta">
+    <button type="button" class="gp-mode-btn active" data-mode="search" aria-pressed="true"><span class="gp-mode-symbol" aria-hidden="true">A→#</span><span>Nome → Número</span></button>
+    <button type="button" class="gp-mode-btn" data-mode="reverse" aria-pressed="false"><span class="gp-mode-symbol" aria-hidden="true">#→A</span><span>Número → Nome</span></button>
+  </div>
   <section class="gp-workspace" aria-label="Gerador de buscas Pokémon">
     <div class="gp-panel gp-input-panel">
       <header class="gp-panel-head">
         <div><span class="gp-step">01 / ENTRADA</span><h2>Sua lista</h2></div>
         <button type="button" class="gp-action-link" id="sampleBtn">Ver exemplo <span aria-hidden="true">↗</span></button>
       </header>
-      <label class="gp-field-label" for="namesInput">Nomes ou números da Pokédex</label>
+      <label class="gp-field-label" for="namesInput" id="gpInputLabel">Nomes ou números da Pokédex</label>
       <textarea id="namesInput" rows="9" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Palkia Origin&#10;Reshiram&#10;Xerneas&#10;Dialga Origin&#10;Lugia" aria-describedby="gp-input-help"></textarea>
       <div class="gp-input-footer">
-        <span id="gp-input-help">Uma linha por Pokémon, ou separados por vírgulas.</span>
+        <span id="gp-input-help">Uma linha por Pokémon ou separados por vírgulas.</span>
         <button type="button" class="gp-clear" id="clearBtn" disabled aria-label="Limpar lista">Limpar <span aria-hidden="true">×</span></button>
       </div>
       <div class="gp-readiness" id="dataStatus" role="status"><span class="gp-status-dot"></span> Carregando Pokédex...</div>
@@ -47,11 +51,12 @@
 
     <div class="gp-panel gp-output-panel">
       <header class="gp-panel-head">
-        <div><span class="gp-step">02 / RESULTADO</span><h2>Pronto para o jogo</h2></div>
+        <div><span class="gp-step">02 / RESULTADO</span><h2 id="gpResultTitle">Pronto para o jogo</h2></div>
         <span class="gp-counter" id="resultCount">0 Pokémon</span>
       </header>
       <div class="gp-result-box">
-        <span class="gp-result-overline">SEQUÊNCIA DE PESQUISA</span>
+        <span class="gp-result-overline" id="gpOutputCaption">SEQUÊNCIA DE PESQUISA</span>
+        <div class="gp-spotlight" id="lookupSpotlight" hidden><span class="gp-spotlight-num" id="spotNumber"></span><strong id="spotName"></strong></div>
         <output id="searchOutput" aria-live="polite">Sua pesquisa aparece aqui.</output>
       </div>
       <button type="button" id="copyBtn" class="gp-copy" disabled><span class="gp-copy-icon" aria-hidden="true">▣</span> <span id="copyLabel">Copiar pesquisa</span><span class="gp-copy-arrow" aria-hidden="true">→</span></button>
@@ -65,12 +70,12 @@
   </section>
 
   <div class="gp-bottom">
-    <div class="gp-tip"><span class="gp-tip-icon" aria-hidden="true">⌕</span><p><strong>Onde colar?</strong> Pokémon GO → Armazenamento → Lupa.</p></div>
+    <div class="gp-tip"><span class="gp-tip-icon" aria-hidden="true">⌕</span><p id="gpBottomHint"><strong>Onde colar?</strong> Pokémon GO → Armazenamento → Lupa.</p></div>
     <a href="guia-busca.html" class="gp-guide-link">Conheça outros filtros <span aria-hidden="true">↗</span></a>
   </div>
 </main>
 <go-nexus-footer></go-nexus-footer>
 <script src="nav.js?v=studio-clean-20261013b"></script>
 <script src="theme.js?v=studio-v4-policy-links"></script>
-<script src="gerador-pesquisas.js?v=1" defer></script>
+<script src="gerador-pesquisas.js?v=2" defer></script>
 </body></html>

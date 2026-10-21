@@ -570,3 +570,55 @@ html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap :is(a,button,summ
   width:100%;
  }
 }
+
+/* Global mission is the bridge between the cinematic entrance and the city stations. */
+html body.page-wild[data-studio-page="area-selvagem"] .wa-mission{
+ position:relative;isolation:isolate;overflow:hidden;
+ display:grid;grid-template-columns:1fr auto;align-items:center;gap:5px 18px;
+ min-height:151px;padding:21px 26px;margin:15px 0 2px;
+ background:linear-gradient(90deg,#080e26f2 2%,#12152ac9 50%,#160c2a9c 100%),
+ url('area-selvagem-max-city.svg') 76% 64%/cover no-repeat;
+ border:1px solid #ad4b8fa3;border-radius:14px;
+ box-shadow:0 13px 29px #0006,inset 0 1px 0 #e380c419;
+}
+html body.page-wild[data-studio-page="area-selvagem"] .wa-mission:after{
+ content:"";position:absolute;inset:auto 0 0;height:4px;pointer-events:none;
+ background:linear-gradient(90deg,#fe3991,#ff75bd,#78beff);
+}
+html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-sign{
+ grid-column:1/-1;color:#8cddff!important;
+ font:850 .64rem/1.25 var(--gn-code,monospace);letter-spacing:.13em;
+}
+html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-sign span{
+ color:#fc509d!important;font-size:1.3rem;vertical-align:middle;margin-right:6px;
+}
+html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-main strong{
+ display:block;color:#fff!important;
+ font:850 clamp(1.25rem,2.5vw,1.9rem)/1.12 var(--gn-title,'Outfit',sans-serif)!important;
+ letter-spacing:-.035em;
+}
+html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-main p{
+ color:#d7e3f7!important;margin:6px 0 0;line-height:1.45;font-size:.8rem!important;
+ max-width:560px;
+}
+html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-action{
+ display:inline-flex;align-items:center;justify-content:center;gap:8px;
+ min-height:43px;padding:10px 14px;
+ border:1px solid #f7cb74;color:#ffdc91!important;border-radius:8px;
+ background:#17172dd9;text-decoration:none!important;
+ font-size:.78rem;font-weight:850;white-space:nowrap;
+}
+html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-action:hover{
+ background:#382342;
+}
+@media(max-width:760px){
+ html body.page-wild[data-studio-page="area-selvagem"] .wa-mission{
+  grid-template-columns:1fr;min-height:0;padding:16px;margin:12px 0 0;gap:7px;
+ }
+ html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-sign{grid-column:1}
+ html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-main strong{font-size:1.25rem!important}
+ html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-main p{font-size:.75rem!important}
+ html body.page-wild[data-studio-page="area-selvagem"] .wa-mission-action{
+  justify-self:start;min-height:42px;margin-top:3px;
+ }
+}

@@ -1,0 +1,34 @@
+/* Nexus Studio — Evento Área Selvagem GO 2026 / banner estreito */
+.page-home .wa-home-banner{
+ position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:16px;
+ overflow:hidden;min-height:159px;margin:-7px 0 20px;padding:23px clamp(17px,3.3vw,40px);
+ border:1px solid #42627f;border-radius:18px;
+ background:linear-gradient(90deg,#071d36 0%,rgba(7,29,54,.97) 28%,rgba(7,29,54,.39) 70%,rgba(7,29,54,.48) 100%),url('area-selvagem-city.svg') center 47%/cover no-repeat;
+ color:#fff!important;box-shadow:0 12px 28px #18375327;text-decoration:none!important;
+}
+.page-home .wa-home-banner:focus-visible{outline:3px solid #2563eb;outline-offset:3px}
+.page-home .wa-home-banner:hover .wa-home-enter{background:#ffe28f;transform:translateX(3px)}
+.page-home .wa-home-copy{min-width:0;position:relative;z-index:2;max-width:630px}
+.page-home .wa-home-tag{display:inline-flex;align-items:center;gap:9px;color:#ffd46e;font:800 .65rem var(--gn-code,monospace);letter-spacing:.12em}
+.page-home .wa-home-tag:before{content:"";width:4px;height:18px;border-radius:4px;background:#ffc84d;box-shadow:0 0 8px #f8ba5f88}
+.page-home .wa-home-title{display:block;margin:9px 0 5px;color:#fff!important;font:850 clamp(1.55rem,3vw,2.12rem)/1.06 var(--gn-title,'Outfit',sans-serif)!important;letter-spacing:-.04em!important}
+.page-home .wa-home-title em{font-style:normal;color:#ffd06a}
+.page-home .wa-home-line{display:block;color:#e5eff9!important;font-size:.84rem;line-height:1.4}
+.page-home .wa-home-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.page-home .wa-home-meta span{display:inline-flex;align-items:center;gap:5px;background:#09223cbb;border:1px solid #c5daf250;color:#f1f6ff;border-radius:6px;padding:5px 8px;font:800 .68rem var(--gn-code,monospace)}
+.page-home .wa-home-enter{display:flex;flex:none;align-items:center;justify-content:center;gap:9px;position:relative;z-index:4;min-height:48px;padding:12px 19px;border-radius:9px;background:#ffcf62;color:#132946!important;font-weight:850;font-size:.84rem;box-shadow:0 6px 17px #01172e80;transition:transform .15s,background .15s;white-space:nowrap}
+.page-home .wa-home-pokemon{position:absolute;z-index:1;pointer-events:none;right:14%;top:-41px;height:240px;width:240px;object-fit:contain;opacity:.90;filter:drop-shadow(2px 12px 12px #061220e0)}
+.page-home .wa-home-banner:after{content:"";position:absolute;pointer-events:none;right:10%;top:-124px;width:320px;height:320px;border-radius:50%;border:1px solid #ffe0a04f;box-shadow:0 0 0 28px #ffe1b10a,0 0 0 62px #ffe1b107}
+html[data-theme="dark"] .page-home .wa-home-banner{border-color:#537fa6}
+@media(max-width:760px){
+ .page-home .wa-home-banner{margin:-3px 0 17px;min-height:208px;padding:17px 15px 68px;align-items:start;border-radius:15px}
+ .page-home .wa-home-copy{max-width:100%}
+ .page-home .wa-home-title{font-size:1.75rem!important;margin:8px 0 5px}
+ .page-home .wa-home-line{max-width:340px;padding-right:22px}
+ .page-home .wa-home-pokemon{height:185px;width:185px;right:-33px;top:8px;opacity:.5}
+ .page-home .wa-home-enter{position:absolute;bottom:12px;left:15px;right:15px;width:auto;min-height:43px}
+ .page-home .wa-home-meta span{font-size:.61rem;padding:4px 6px}
+ .page-home .wa-home-tag{font-size:.59rem}
+}
+@media(max-width:360px){.page-home .wa-home-title{font-size:1.48rem!important}.page-home .wa-home-line{font-size:.76rem}.page-home .wa-home-meta{gap:5px}}
+@media(prefers-reduced-motion:reduce){.page-home .wa-home-enter{transition:none}}

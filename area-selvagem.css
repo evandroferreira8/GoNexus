@@ -213,3 +213,19 @@ body.page-wild .wa-wrap .wa-showmore:hover{background:#d8eaff}
  body.page-wild .wa-countdown{position:relative;z-index:3;font-size:.63rem;max-width:290px}
  body.page-wild .wa-section-heading{margin-bottom:10px}
 }
+
+/* Mighty Pokémon: short, swipeable by-day visual rail. */
+body.page-wild .wa-mighty-strip{margin-top:15px;border-top:1px solid #d7e4f3;padding-top:13px}
+body.page-wild .wa-mighty-heading{display:flex;align-items:baseline;justify-content:space-between;gap:9px;margin-bottom:9px}
+body.page-wild .wa-mighty-heading strong{font-size:.85rem;color:#183e65}
+body.page-wild .wa-mighty-heading span{font-size:.72rem;font-weight:700;color:#557393}
+body.page-wild .wa-mighty-track{display:flex;gap:8px;padding:2px 1px 10px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin}
+body.page-wild .wa-mighty-card{scroll-snap-align:start;flex:0 0 112px;min-width:0;min-height:113px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:9px 6px;border:1px solid #d2e0ef;border-radius:10px;background:#f2f7fd;text-align:center}
+body.page-wild .wa-mighty-card img{height:70px;width:70px;object-fit:contain}
+body.page-wild .wa-mighty-card img[hidden]{display:none}
+body.page-wild .wa-mighty-card b{color:#284d73;font-size:.69rem;line-height:1.23}
+html[data-theme="dark"] body.page-wild .wa-mighty-strip{border-color:#446483}
+html[data-theme="dark"] body.page-wild .wa-mighty-card{background:#223d59;border-color:#486887}
+html[data-theme="dark"] body.page-wild .wa-mighty-card b,html[data-theme="dark"] body.page-wild .wa-mighty-heading strong{color:#ecf6ff}
+html[data-theme="dark"] body.page-wild .wa-mighty-heading span{color:#b9d0e8}
+@media(max-width:520px){body.page-wild .wa-mighty-card{flex-basis:94px;min-height:105px}body.page-wild .wa-mighty-heading span{font-size:.62rem}}

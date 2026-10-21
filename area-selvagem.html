@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="area-selvagem-standalone.css?v=20261021d2">
+<link rel="stylesheet" href="area-selvagem-mobile.css?v=20261021m1">
 <style>html,body.page-wild{background-color:#080b19!important;color:#f7f8ff!important}body.page-wild .wa-wrap{color:#f7f8ff!important}body.page-wild .wa-section h2,body.page-wild .wa-hero h1,body.page-wild .wa-capture-intro h3{color:#fff!important}</style>
 
 
@@ -19,6 +20,7 @@
 
 </head>
 <body class="page-wild" data-studio-page="area-selvagem">
+<div class="wa-read-progress" aria-hidden="true"><span id="waProgressBar"></span></div>
 <header class="wa-maxbar"><div class="wa-maxbar-inner"><a href="index.html" class="wa-brand"><span class="wa-brand-mark"></span>GO NEXUS <b>2.0</b></a><span class="wa-maxbar-caption">ÁREA SELVAGEM GO · EDIÇÃO GLOBAL</span><a class="wa-maxbar-home" href="index.html" aria-label="Voltar ao GO Nexus">↗ <span>Voltar ao Nexus</span></a></div></header>
 <main class="wa-wrap" id="topo">
 <div class="wa-topline"><span class="wa-location-pulse">TRANSMISSÃO DO DISTRITO MAX</span><span>GLOBAL · 2026</span></div>
@@ -110,7 +112,8 @@
   </article>
   <article class="wa-ticket-card paid">
    <div class="wa-ticket-heading"><h3>Passe Global</h3><span class="wa-price">R$ 22,90</span></div><span class="wa-pass-label">ACESSO ESPECIAL · GLOBAL 2026</span>
-   <ul class="wa-checks"><li>Pesquisa especial: caminho Aço ou Dragão</li><li>Latias e Latios via Incenso</li><li>Unown D, I, L e W</li><li>Maior chance de Brilhantes*</li><li>Limite de 3.200 Partículas Max/dia</li><li>Até 6 passes de Reide grátis/dia</li><li>2× doces por captura</li><li>2× duração do Incenso</li><li>Mais chances de Ovos de 10 km</li><li>Até 6 retratos surpresa/dia</li><li>Módulos Atrair duram 2 horas</li><li>Até 6 trocas especiais/dia</li><li>50% do custo de Poeira nas trocas</li></ul>
+   <ul class="wa-checks" id="waPaidPerks"><li>Pesquisa especial: caminho Aço ou Dragão</li><li>Latias e Latios via Incenso</li><li>Unown D, I, L e W</li><li>Maior chance de Brilhantes*</li><li>Limite de 3.200 Partículas Max/dia</li><li>Até 6 passes de Reide grátis/dia</li><li>2× doces por captura</li><li>2× duração do Incenso</li><li>Mais chances de Ovos de 10 km</li><li>Até 6 retratos surpresa/dia</li><li>Módulos Atrair duram 2 horas</li><li>Até 6 trocas especiais/dia</li><li>50% do custo de Poeira nas trocas</li></ul>
+   <button type="button" class="wa-perks-toggle" id="waPerksToggle" aria-controls="waPaidPerks" aria-expanded="false">Ver todas as vantagens <span aria-hidden="true">↓</span></button>
    <a class="wa-btn" href="https://store.pokemongo.com/" target="_blank" rel="noopener noreferrer">Consultar ingresso oficial ↗</a>
   </article>
  </div>
@@ -148,7 +151,8 @@
 <section class="wa-finale"><h2>A cidade virou <em>selvagem.</em> Você está pronto?</h2><p>Do aço dos arranha-céus ao céu dos dragões: planeje seu fim de semana sem perder nenhum destaque.</p><div class="wa-buttons"><a class="wa-btn wa-btn-primary" href="https://pokemongo.com/pt-BR/gowildarea/global" target="_blank" rel="noopener noreferrer">Ver evento oficial ↗</a><a class="wa-btn" href="index.html">Voltar ao GO Nexus →</a></div></section>
 <footer class="wa-provenance"><span>GO Nexus é um projeto independente, sem afiliação oficial ao Pokémon GO. Arte urbana temática original; imagens de Pokémon via PokeAPI.</span><a href="#topo">↑ Voltar ao topo</a></footer>
 </main>
-
+<button type="button" class="wa-top-button" id="waTopButton" aria-label="Voltar ao topo da Área Selvagem" hidden>↑</button>
 <script src="area-selvagem.js?v=20261021a" defer></script>
+<script src="area-selvagem-mobile.js?v=20261021m1" defer></script>
 </body>
 </html>

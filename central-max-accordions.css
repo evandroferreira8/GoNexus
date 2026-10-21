@@ -60,6 +60,7 @@ body.page-max .mx3-reference .mx3-species-sub{
  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
  overflow-wrap:anywhere;
 }
+body.page-max .mx3-reference .mx3-species-sub{display:block;-webkit-line-clamp:unset;overflow:visible;}
 body.page-max .mx3-reference .mx3-species-note{display:block;font-size:.7rem;line-height:1.35;color:#566f8c}
 body.page-max .mx3-reference details.mx3-accordion[data-tone="future"] .mx3-species-card{min-height:105px;align-items:start}
 body.page-max .mx3-reference .mx3-no-results{padding:18px;border:1px dashed #b8cde7;border-radius:10px;background:#fff;text-align:center;color:#526b86;font-size:.83rem}

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" role="img" aria-labelledby="citytitle">
+<title id="citytitle">Cidade selvagem de aço, luzes e vegetação ao entardecer</title>
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2=".85" y2="1"><stop stop-color="#061b33"/><stop offset=".46" stop-color="#12365b"/><stop offset=".78" stop-color="#32729a"/><stop offset="1" stop-color="#b6bed0"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff5c2"/><stop offset=".6" stop-color="#ffcb66"/><stop offset="1" stop-color="#ff9850"/></linearGradient>
+ <linearGradient id="building" x1="0" y1="0" x2="1" y2=".35"><stop stop-color="#142f48"/><stop offset="1" stop-color="#071b33"/></linearGradient>
+ <linearGradient id="road" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#203e60"/><stop offset="1" stop-color="#020e22"/></linearGradient>
+ <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c4d9e9" stop-opacity="0"/><stop offset="1" stop-color="#c4d9e9" stop-opacity=".3"/></linearGradient>
+ <pattern id="windows" width="31" height="38" patternUnits="userSpaceOnUse"><rect width="31" height="38" fill="none"/><rect x="8" y="7" width="6" height="12" rx="1" fill="#72acd7" opacity=".5"/><rect x="19" y="7" width="5" height="12" rx="1" fill="#f7c477" opacity=".55"/></pattern>
+ <pattern id="farwins" width="22" height="28" patternUnits="userSpaceOnUse"><rect x="7" y="7" width="4" height="8" fill="#b7dbf9" opacity=".28"/></pattern>
+ <radialGradient id="moon"><stop stop-color="#ffd779" stop-opacity=".7"/><stop offset="1" stop-color="#ffd779" stop-opacity="0"/></radialGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="15"/></filter>
+</defs>
+<rect width="1600" height="800" fill="url(#sky)"/>
+<circle cx="1160" cy="170" r="310" fill="url(#moon)"/>
+<circle cx="1160" cy="167" r="144" fill="none" stroke="#f6cc79" stroke-width="2" stroke-opacity=".32" stroke-dasharray="6 14"/>
+<circle cx="1160" cy="167" r="111" fill="none" stroke="#ffdc99" stroke-opacity=".24" stroke-width="3"/>
+<path d="M0 382 146 346l68 22 83-61 125 61 112-47 106 48 116-61 136 59 142-81 149 54 133-32 170 63v180H0Z" fill="#6d91ab" opacity=".34"/>
+<g fill="#112d46" opacity=".58">
+ <path d="M0 342h82v-64h68v49h61v-97h54v82h84v-72h91v80h59v-104h70v115h68v-64h91v70h110v-150h74v144h58v-115h100v106h79v-148h78v144h104v-88h71v113h70v155H0Z"/>
+</g>
+<path d="M0 300h76v-104h50v-52h25v50h47v112h55v-75h50v-49h20v47h63v-129h46v-39h31v39h50v204h66v-119h48v-41h25v41h47v120h80V165h52v-69h26v69h66v141h88v-94h67v-45h25v45h59v86h70v-124h49v-59h26v59h57v148h50v-78h70v-62h28v62h47v57h60v240H0Z" fill="#1e4868" opacity=".8"/>
+<path d="M0 300h76v-104h50v-52h25v50h47v112h55v-75h50v-49h20v47h63v-129h46v-39h31v39h50v204h66v-119h48v-41h25v41h47v120h80V165h52v-69h26v69h66v141h88v-94h67v-45h25v45h59v86h70v-124h49v-59h26v59h57v148h50v-78h70v-62h28v62h47v57h60v240H0Z" fill="url(#farwins)" opacity=".65"/>
+<path d="M0 441h130V287h61v-70h55v70h60v183h78V228h51v-78h57v78h53v259h83V366h68v-89h46v89h79v84h83V308h60v-87h63v87h67v154h88V288h65v-99h69v99h51v151h98V337h56V264h51v73h65v118h127V800H0Z" fill="url(#building)"/>
+<path d="M0 441h130V287h61v-70h55v70h60v183h78V228h51v-78h57v78h53v259h83V366h68v-89h46v89h79v84h83V308h60v-87h63v87h67v154h88V288h65v-99h69v99h51v151h98V337h56V264h51v73h65v118h127V800H0Z" fill="url(#windows)" opacity=".7"/>
+<g stroke="#77a8cf" stroke-opacity=".25" fill="none" stroke-width="3">
+ <path d="M190 287v240M246 287v240M438 228v300M491 228v300M924 308v250M985 308v250M1186 287v270M1260 287v270"/>
+</g>
+<g fill="none" stroke="#f6c66b" stroke-opacity=".65">
+ <path d="M415 135h98"/><path d="M435 149h60"/><path d="M1190 175h130"/><path d="M1210 190h93"/>
+</g>
+<path d="M0 555q395-100 800-25t800-39v309H0Z" fill="#0a2741"/>
+<path d="M0 606q430-83 820-5t780-55v254H0Z" fill="#071a32"/>
+<path d="M0 644q480-22 790-14t810-40" fill="none" stroke="#ffcd71" stroke-width="11" opacity=".75" />
+<path d="M0 653q480-22 790-14t810-40" fill="none" stroke="#bfe8f7" stroke-width="3" opacity=".55"/>
+<path d="M600 800 870 572h95L1280 800Z" fill="url(#road)"/>
+<path d="M860 650 770 800M990 650l98 150" stroke="#f1ba66" stroke-width="4" stroke-dasharray="17 20" opacity=".72"/>
+<g fill="#07182b">
+ <path d="M0 800V520l85 31 36-48 40 39 42-29 75 69 54-27 63 60-15 185Z"/>
+ <path d="M1600 800V494l-80 36-46-52-52 54-52-18-65 62-70-17-84 98 17 143Z"/>
+</g>
+<g fill="#112e32" opacity=".95">
+ <path d="M0 649q66-81 110 3 74-60 114 9t120 11v128H0ZM1600 633q-64-61-125 26-72-50-125 25t-100 30v86h350Z"/>
+</g>
+<g stroke="#ffc97e" stroke-width="2" opacity=".4" fill="none">
+ <path d="M0 519q400-81 800-29t800-31"/><path d="M0 527q400-81 800-29t800-31"/>
+</g>
+<rect y="445" width="1600" height="235" fill="url(#haze)"/>
+</svg>

@@ -111,7 +111,7 @@
     const size = selected.length;
     output.textContent = latestQuery || "Sua pesquisa aparece aqui.";
     output.classList.toggle("empty", !latestQuery);
-    count.textContent = size + (size === 1 ? " Pokémon" : " Pokémon");
+    count.textContent = size + " Pokémon";
     copy.disabled = !latestQuery;
     copyLabel.textContent = "Copiar pesquisa";
     matches.hidden = !size;

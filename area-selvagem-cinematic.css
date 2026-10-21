@@ -1,0 +1,480 @@
+/* WILD DISTRICT — CINEMATIC EDITION
+   Dedicated visual layer loaded last; carefully scoped so Nexus Studio cannot
+   paint dark copy over night-time artwork. Mobile first behavior included. */
+html[data-theme="light"] body.page-wild[data-studio-page="area-selvagem"] {
+  background:
+    radial-gradient(ellipse at 75% 70px,#dfebff 0,transparent 35%),
+    repeating-linear-gradient(90deg,#769ac509 0px,#769ac509 1px,transparent 1px,transparent 76px),
+    #edf3fb!important;
+}
+/* Main urban gateway */
+body.page-wild[data-studio-page="area-selvagem"] .wa-hero{
+  min-height:570px;
+  background:
+    linear-gradient(90deg,#06172d 0%,#06172df2 26%,#0a2544d6 45%,#08274453 76%,#0d273f86 100%),
+    url('area-selvagem-city.svg') center 56%/cover no-repeat;
+  border:1px solid #234c70;
+  box-shadow:0 26px 70px #0a26433b,inset 0 -2px 0 #ffc96e44;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-hero:before{
+  content:"";position:absolute;pointer-events:none;inset:0;
+  background:
+    repeating-linear-gradient(0deg,transparent 0px,transparent 48px,#d9eeff05 48px,#d9eeff05 49px),
+    radial-gradient(ellipse at 79% 29%,#ffbd6322,transparent 42%);
+  z-index:0;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-hero:after{
+  content:"";position:absolute;inset:auto 0 0;height:8px;z-index:3;
+  background:repeating-linear-gradient(90deg,#ffcf68 0,#ffcf68 28px,#17354d 28px,#17354d 41px);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-hero-text{padding-top:52px;padding-bottom:99px;z-index:3}
+body.page-wild[data-studio-page="area-selvagem"] .wa-tag{color:#ffe2a2!important}
+body.page-wild[data-studio-page="area-selvagem"] .wa-titan img{
+  width:min(525px,126%);height:106%;right:-3%;bottom:-12px;
+  filter:drop-shadow(16px 23px 8px #071426a0) drop-shadow(0 0 34px #d7eef32b);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-titan:before{
+  border-color:#ffda8475;
+  box-shadow:0 0 0 34px #ffdb8110,0 0 0 95px #d1e8f009;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-titan-marker{
+  font-size:.7rem;padding:10px 13px;background:#ffd16c;box-shadow:0 9px 18px #05162d6a;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-hero-street{
+  position:absolute;z-index:4;bottom:23px;left:clamp(25px,4.3vw,62px);right:28px;
+  display:flex;align-items:center;gap:16px;
+  color:#a9c4de!important;font:850 .64rem/1.2 var(--gn-code,monospace);
+  letter-spacing:.09em;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-hero-street span{
+  display:inline-flex;align-items:center;gap:10px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-hero-street span:not(:last-child):after{
+  content:"";width:5px;height:5px;border-radius:50%;background:#ffcc6c;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-countdown{
+  margin-top:17px;padding:8px 11px;background:#071e36b8;
+  border:1px solid #ffd2804b;border-radius:7px;color:#ffe3aa!important;
+}
+/* Route-map navigation: an urban expressway rather than generic chips. */
+body.page-wild[data-studio-page="area-selvagem"] .wa-local-nav{
+  position:relative;gap:0;padding:11px 10px;margin:15px 0 5px;
+  border:1px solid #c1d4eb;border-radius:12px;background:#dfeaf7;
+  box-shadow:0 5px 18px #153b6311;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-local-nav a{
+  position:relative;display:inline-flex;gap:8px;border:0;
+  border-radius:8px;min-height:45px;padding:12px 15px;
+  background:transparent;color:#274d7a;font-size:.77rem;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-local-nav a:before{
+  content:"";flex:0 0 7px;width:7px;height:7px;align-self:center;border-radius:50%;
+  background:#ffbd43;box-shadow:0 0 0 3px #ffcf6b45;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-local-nav a:hover{
+  color:#143c72;background:#f4f8ff;
+}
+/* Section labels and atmosphere. */
+body.page-wild[data-studio-page="area-selvagem"] .wa-section{position:relative}
+body.page-wild[data-studio-page="area-selvagem"] .wa-section-heading{
+  position:relative;isolation:isolate;min-height:70px;margin:4px 0 16px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-section-heading:after{
+  content:"";position:absolute;z-index:-1;right:0;bottom:2px;width:35%;height:1px;
+  background:linear-gradient(90deg,transparent,#7fa4cd54);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  color:#295c9e!important;letter-spacing:.11em;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-eyebrow:before{
+  content:"";width:19px;height:4px;background:#edb63e;border-radius:3px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-section h2{
+  letter-spacing:-.045em;font-weight:850;font-size:clamp(1.65rem,3.55vw,2.36rem);
+}
+/* Showcase cards: materials, light, dimension, recognisable art. */
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-grid{gap:12px}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature{
+  min-height:245px;padding:20px 19px;border-radius:16px;
+  border:1px solid #c5d9f0;
+  box-shadow:0 12px 26px #13365416;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature:before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(148deg,#ffffff5c,transparent 40%),
+  repeating-linear-gradient(90deg,#1b5c9208 0px,#1b5c9208 1px,transparent 1px,transparent 37px);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large{
+  min-height:448px;border:1px solid #487991;
+  background:linear-gradient(145deg,#092843,#165479);
+  box-shadow:0 18px 35px #132c5055;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large:after{
+  opacity:.82;
+  background:linear-gradient(0deg,#051a32 0%,#051a32d1 16%,#051a3230 70%),
+    url('area-selvagem-city.svg') 57% center/cover;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large .wa-feature-image{
+  width:118%;height:115%;top:-12%;right:-25%;
+  object-position:54% 30%;opacity:.95;
+  filter:drop-shadow(10px 17px 12px #031d37a0);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature:not(.wa-feature-large) .wa-feature-image{
+  width:185px;height:185px;top:-12px;right:-16px;
+  opacity:.93;filter:drop-shadow(8px 11px 8px #143f6d29);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-small{
+  background:linear-gradient(142deg,#eef5ff 0%,#c7dbf1 100%);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-steel{
+  background:linear-gradient(142deg,#edf3fb 0%,#bfd4e6 100%);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-wild{
+  background:linear-gradient(142deg,#fff7e7 0%,#ffddb0 100%);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-content{z-index:2}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature:not(.wa-feature-large) .wa-feature-content{
+  padding:12px 0 0;max-width:88%;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature h3{font-size:clamp(1.12rem,2vw,1.49rem)}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large .wa-feature-kicker{
+  display:inline-flex;background:#ffd264;color:#122f4b!important;
+  padding:7px 10px;border-radius:7px;box-shadow:0 4px 10px #041d3672;
+}
+html[data-theme="light"] body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large :is(h3,p),
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large :is(h3,p){
+  color:#fff!important;text-shadow:0 2px 8px #061b2de8;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large h3{font-size:clamp(1.8rem,3.4vw,2.3rem);max-width:270px}
+/* City districts with characters looming over the skyline. */
+body.page-wild[data-studio-page="area-selvagem"] .wa-district{
+  position:relative;min-height:275px;padding:24px;overflow:hidden;
+  background:linear-gradient(105deg,#061b32fa,#134b6cc7 70%,#20577496),
+    url('area-selvagem-city.svg') 42% center/cover;
+  border:1px solid #31688b;
+  box-shadow:0 15px 30px #153e5d29;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-district.dragon{
+  background:linear-gradient(110deg,#0c2545fa,#233b6ed6 73%,#264a7c8a),
+    url('area-selvagem-city.svg') 76% center/cover;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-district .wa-district-art{
+  position:absolute;pointer-events:none;z-index:0;
+  right:-35px;bottom:-46px;width:255px;height:255px;object-fit:contain;
+  opacity:.8;filter:drop-shadow(14px 15px 12px #001427ba);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-district.dragon .wa-district-art{
+  right:-33px;bottom:-39px;width:266px;height:266px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-district > :not(.wa-district-art){position:relative;z-index:2}
+body.page-wild[data-studio-page="area-selvagem"] .wa-district h3{
+  max-width:68%;font-size:clamp(1.6rem,2.7vw,2.25rem);
+}
+html[data-theme="light"] body.page-wild[data-studio-page="area-selvagem"] .wa-district :is(h3,p),
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-district :is(h3,p){
+  color:#f5f9ff!important;text-shadow:0 2px 7px #001e39d9;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-district p{max-width:66%}
+body.page-wild[data-studio-page="area-selvagem"] .wa-district-preview{
+  padding:8px 0 0;margin-top:10px;max-width:70%;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-district-preview img{
+  background:#d7e8fb20;backdrop-filter:blur(3px);
+}
+/* Agenda as an information-rich city transit board. */
+body.page-wild[data-studio-page="area-selvagem"] .wa-day-shell{
+  position:relative;padding:0 19px 17px;overflow:hidden;
+  border:1px solid #afc6e1;box-shadow:0 13px 30px #1b446018;border-radius:15px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-day-shell:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:#ffbf4f;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-day-top{
+  margin:0 -19px 17px;padding:14px 19px 14px 24px;min-height:72px;
+  background:linear-gradient(105deg,#0c2a4c,#1b5182);
+  border-bottom:4px solid #f0c96e;
+}
+html[data-theme="light"] body.page-wild[data-studio-page="area-selvagem"] .wa-day-top .wa-day-lead,
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-day-top .wa-day-lead{
+  color:#f6faff!important;font:850 .88rem var(--gn-code,monospace);letter-spacing:.025em;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-day-top .wa-switch{
+  border-color:#ffffff4d;background:#071d36;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-day-top .wa-switch button{
+  color:#d5e7fb;min-height:40px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-day-top .wa-switch button[aria-pressed="true"]{
+  color:#142b45;background:#ffcd66;border-color:#ffcd66;box-shadow:none;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-encounter{
+  position:relative;min-height:205px;border-radius:12px;
+  background:linear-gradient(180deg,#e9f4ff,#f8fbff);
+  box-shadow:inset 0 2px 0 #ffffffbb;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-encounter img{height:131px;filter:drop-shadow(0 12px 10px #153c6130)}
+body.page-wild[data-studio-page="area-selvagem"] .wa-encounter small{
+  color:#2c5e99;background:#deebfc;border-radius:5px;padding:5px 7px;
+}
+/* BIG FIX + BIG UPGRADE: capture card is now a standalone diorama. */
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture{
+  grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+  align-items:stretch;gap:14px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro{
+  position:relative;isolation:isolate;display:flex;align-items:center;overflow:hidden;
+  min-height:345px;padding:34px 30px 34px;
+  background:
+    linear-gradient(90deg,#061a30 0%,#0c2b49f7 34%,#103451a6 72%,#16415c9c 100%),
+    url('area-selvagem-city.svg') 55% center/cover no-repeat;
+  border:1px solid #315e7a;border-radius:16px;
+  color:#fff;box-shadow:0 16px 38px #123f5c3b;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro:before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(0deg,#051a30c9,transparent 32%),
+    repeating-linear-gradient(90deg,#a5cbe70a 0 1px,transparent 1px 40px);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro:after{
+  content:"";position:absolute;z-index:2;pointer-events:none;inset:auto 0 0;
+  height:7px;background:repeating-linear-gradient(90deg,#ffce69 0 23px,#17354e 23px 34px);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-copy{
+  position:relative;z-index:4;max-width:65%;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-overline{
+  display:inline-flex;align-items:center;gap:8px;
+  color:#ffde91;font:850 .64rem/1.4 var(--gn-code,monospace);letter-spacing:.075em;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-overline:before{
+  content:"";width:20px;height:3px;background:#ffd26b;border-radius:5px;
+}
+html[data-theme="light"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro h3,
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro h3{
+  position:relative;margin:17px 0 13px;
+  font:850 clamp(1.8rem,3vw,2.5rem)/1.02 var(--gn-title,'Outfit',sans-serif)!important;
+  letter-spacing:-.04em;color:#fff!important;text-shadow:0 3px 12px #001b32c0;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro h3 em{
+  display:block;color:#ffcf75!important;font-style:normal;
+}
+html[data-theme="light"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro p,
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro p{
+  color:#e9f4ff!important;
+  font-size:.87rem!important;line-height:1.6!important;
+  margin:0 0 16px!important;max-width:360px;
+  text-shadow:0 2px 5px #051a2da6;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro .wa-capture-badge{
+  position:relative;display:flex;align-items:center;gap:10px;
+  margin-top:15px;max-width:385px;padding:10px 12px;line-height:1.35;
+  background:#ffce65;border:1px solid #ffdc92;border-radius:9px;
+  box-shadow:0 5px 15px #081e3680;
+  color:#142d48!important;font-size:.75rem;font-weight:850;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-badge>span:first-child{
+  width:22px;height:22px;flex:0 0 22px;display:grid;place-items:center;
+  border-radius:50%;background:#1a3b55;color:#ffce65;font:900 .8rem var(--gn-code,monospace);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-orb{
+  pointer-events:none;position:absolute;z-index:3;
+  width:320px;height:320px;right:-27px;top:48%;transform:translateY(-50%);
+  object-fit:contain;filter:drop-shadow(18px 20px 10px #021a31a3);
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-grain{
+  position:absolute;inset:15px;pointer-events:none;border:1px solid #bcd7eb17;border-radius:9px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-grid{
+  position:absolute;z-index:1;right:8%;top:6%;width:300px;height:300px;border-radius:50%;
+  border:1px dashed #ffcf6963;box-shadow:0 0 0 27px #ffcf690b;
+  pointer-events:none;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick{
+  gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div{
+  position:relative;isolation:isolate;padding:18px 16px;
+  justify-content:end;gap:6px;min-height:166px;border:1px solid #cad9ec;
+  background:linear-gradient(150deg,#fff,#e8f1ff);border-radius:13px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div:before{
+  content:"◇";font-size:2rem;line-height:1;color:#3e76ba;opacity:.53;
+  position:absolute;top:15px;right:15px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div:nth-child(2):before{content:"⌁";}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div:nth-child(3):before{content:"✧";}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div:nth-child(4):before{content:"◎";}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick b{
+  font-size:.88rem;font-weight:850;color:#173b60;
+}
+/* A rewards grid that reads like transit passes, not generic white boxes. */
+body.page-wild[data-studio-page="area-selvagem"] .wa-bonus{
+  position:relative;isolation:isolate;overflow:hidden;min-height:160px;
+  border-radius:12px;padding:17px;
+  background:linear-gradient(150deg,#fff,#edf5ff);
+  border:1px solid #d1dfed;box-shadow:0 5px 16px #1a48650c;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-bonus:after{
+  content:"";position:absolute;right:-28px;top:-29px;width:94px;height:94px;
+  border:1px solid #b5cee66b;border-radius:50%;box-shadow:0 0 0 13px #e6f2ff77;
+  z-index:-1;pointer-events:none;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-bonus-symbol{
+  width:45px;height:45px;border:1px solid #bfd7f1;
+  background:#e3effd;color:#205da4;border-radius:12px;font-size:1.4rem;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-bonus strong{
+  font-size:.89rem;color:#173b63;font-weight:850;
+}
+/* Tickets as an editorial split, with a warm city pass for the paid tier. */
+body.page-wild[data-studio-page="area-selvagem"] .wa-ticket{gap:14px}
+body.page-wild[data-studio-page="area-selvagem"] .wa-ticket-card{
+  position:relative;overflow:hidden;border-radius:14px;padding:24px;
+  box-shadow:0 9px 24px #173f6510;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-ticket-card.free{
+  background:linear-gradient(145deg,#fff,#edf4fc);border:1px solid #c7d7ed;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-ticket-card.paid{
+  background:linear-gradient(145deg,#fff6e1,#ffdf9c);
+  border:1px solid #ecc36c;box-shadow:0 11px 29px #b0893730;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-ticket-card.paid:before{
+  content:"";position:absolute;right:-35px;top:-60px;width:220px;height:220px;
+  border:2px dashed #bc8d3580;border-radius:50%;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-ticket-card.paid .wa-price{
+  box-shadow:0 4px 8px #a97b2f35;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-ticket .wa-checks li{font-size:.82rem;line-height:1.42}
+body.page-wild[data-studio-page="area-selvagem"] .wa-ticket .wa-checks li:before{
+  background:#f9e6b7;color:#755014;border-radius:6px;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-finale{
+  padding:39px 25px;border:1px solid #214a73;
+  background:linear-gradient(105deg,#071b33e8,#092846bc),
+    url('area-selvagem-city.svg') center 57%/cover;
+  box-shadow:0 14px 38px #0e2e4f38;
+}
+html[data-theme="light"] body.page-wild[data-studio-page="area-selvagem"] .wa-finale :is(h2,p),
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-finale :is(h2,p){
+  color:#fff!important;text-shadow:0 2px 6px #041c33b7;
+}
+/* Honest light/dark consistency, including previously dark-on-dark areas. */
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-local-nav{
+  background:#203750;border-color:#406284;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-local-nav a{color:#d6e9fb}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-day-shell{
+  background:#1b324d;border-color:#3d5c7b;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-encounter{
+  background:linear-gradient(160deg,#223e5d,#1a304a);border-color:#486784;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div{
+  background:linear-gradient(155deg,#253f5b,#1a3048);border-color:#426384;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick b{color:#eaf6ff!important}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-bonus{
+  background:linear-gradient(153deg,#263e5a,#182f4a);border-color:#446581;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-bonus strong{color:#edf6ff!important}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-ticket-card.free{
+  background:linear-gradient(150deg,#203956,#182d45);border-color:#456580;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-ticket-card.paid{
+  background:linear-gradient(149deg,#47371c,#2d2c28);border-color:#8a6935;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-feature:not(.wa-feature-large) :is(h3,.wa-feature-kicker){
+  color:#f0f6ff!important;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-feature:not(.wa-feature-large) p{
+  color:#d6e6f6!important;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-feature:not(.wa-feature-large){
+  border-color:#476581;background:linear-gradient(140deg,#213d5b,#1b324f);
+}
+@media(max-width:1020px){
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture{grid-template-columns:minmax(0,1fr)}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro{min-height:320px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-orb{right:8%;width:295px;height:295px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div{min-height:132px}
+}
+@media(max-width:760px){
+ body.page-wild[data-studio-page="area-selvagem"] .wa-hero{min-height:545px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-hero-text{padding:28px 20px 223px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-titan img{right:0;bottom:-8px;max-width:100%}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-hero-street{
+  bottom:18px;left:19px;right:19px;gap:8px;font-size:.51rem;flex-wrap:wrap;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-hero-street span{gap:5px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-section-heading:after{display:none}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-section h2{font-size:clamp(1.62rem,6.4vw,2.12rem)}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large{min-height:280px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large .wa-feature-image{
+  width:75%;height:116%;right:-12%;top:-16%;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-feature:not(.wa-feature-large){min-height:206px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-district{min-height:240px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-day-top{min-height:85px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro{min-height:360px;padding:27px 23px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-copy{max-width:61%}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-orb{width:260px;height:260px;right:-15px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div{min-height:140px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-bonus{min-height:149px}
+}
+@media(max-width:520px){
+ body.page-wild[data-studio-page="area-selvagem"] .wa-hero{min-height:560px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-titan{opacity:.85}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-hero-street span:nth-child(2){display:none}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-local-nav{padding:7px;gap:4px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-local-nav a{min-height:41px;padding:9px 11px;font-size:.72rem}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-feature:not(.wa-feature-large){min-height:184px;padding:12px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-feature:not(.wa-feature-large) .wa-feature-image{
+  width:110px;height:110px;top:-10px;right:-10px;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-feature:not(.wa-feature-large) .wa-feature-content{
+  max-width:100%;padding-top:18px;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-feature-large{min-height:280px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-district{min-height:208px;padding:18px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-district .wa-district-art{
+  width:170px;height:170px;right:-26px;bottom:-20px;opacity:.72;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-district h3{max-width:74%;font-size:1.55rem}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-district p{max-width:75%;font-size:.75rem}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-district-preview{max-width:100%;margin-top:10px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-district-preview img{width:40px;height:40px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-day-top{padding:13px 16px;min-height:112px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-day-top .wa-day-lead{font-size:.78rem!important}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro{
+  align-items:start;min-height:425px;padding:24px 19px;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-copy{max-width:100%}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-overline{font-size:.58rem}
+ html[data-theme="light"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro h3,
+ html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro h3{
+  max-width:92%;font-size:clamp(1.9rem,8vw,2.5rem)!important;
+ }
+ html[data-theme="light"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro p,
+ html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro p{
+  max-width:92%;font-size:.82rem!important;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-orb{
+  width:215px;height:215px;right:-29px;top:auto;bottom:-49px;transform:none;opacity:.79;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-grid{
+  width:215px;height:215px;right:-45px;top:auto;bottom:-43px;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-intro .wa-capture-badge{
+  max-width:270px;position:relative;z-index:5;font-size:.71rem;padding:9px 10px;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div{min-height:142px;padding:11px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-bonus{min-height:144px;padding:12px}
+ body.page-wild[data-studio-page="area-selvagem"] .wa-ticket-card{padding:17px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.page-wild[data-studio-page="area-selvagem"] .wa-hero-street *{transition:none!important}
+}

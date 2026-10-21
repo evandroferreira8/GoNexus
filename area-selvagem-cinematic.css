@@ -478,3 +478,45 @@ html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-fea
 @media(prefers-reduced-motion:reduce){
  body.page-wild[data-studio-page="area-selvagem"] .wa-hero-street *{transition:none!important}
 }
+
+/* Unified iconography: graphics now carry meaning instead of font glyphs. */
+body.page-wild[data-studio-page="area-selvagem"] .wa-bonus-symbol svg{
+  width:23px;height:23px;display:block;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick>div:before{
+  content:none!important;display:none!important;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick .wa-quick-icon{
+  display:grid;place-items:center;align-self:start;
+  width:47px;height:47px;border-radius:12px;
+  background:#dcecff;border:1px solid #c1d9f3;color:#2360a4;
+  margin-bottom:auto;
+}
+body.page-wild[data-studio-page="area-selvagem"] .wa-capture-quick .wa-quick-icon svg{
+  width:25px;height:25px;
+}
+html[data-theme="dark"] body.page-wild[data-studio-page="area-selvagem"] .wa-quick-icon{
+  background:#31587b!important;color:#d4e9ff!important;border-color:#6081a1!important;
+}
+@media(min-width:761px){
+ body.page-wild[data-studio-page="area-selvagem"] .wa-titan img{
+  animation:waLivingCity 11s ease-in-out infinite;
+ }
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-orb{
+  animation:waSphereHover 8.5s ease-in-out infinite;
+ }
+}
+@keyframes waLivingCity{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+@keyframes waSphereHover{
+  0%,100%{translate:0 0}
+  50%{translate:0 -8px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.page-wild[data-studio-page="area-selvagem"] .wa-titan img,
+ body.page-wild[data-studio-page="area-selvagem"] .wa-capture-orb{
+  animation:none!important;
+ }
+}

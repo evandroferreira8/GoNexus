@@ -46,17 +46,18 @@
     clear.hidden=!q;
     if(!q){status.textContent="Escolha uma lista ou pesquise pelo nome.";return}
     const lists=["dynAvailableList","dynFutureList","gAvailableList","gUnavailableList"];
-    const found=lists.reduce((n,id)=>n+document.getElementById(id).children.length,0);
+    const found=Number.isFinite(window.maxHubMatches) ? window.maxHubMatches : lists.reduce((n,id)=>n+document.getElementById(id).children.length,0);
     status.textContent=found?found+" resultado"+(found===1?"":"s")+" encontrado"+(found===1?"":"s")+".":"Nenhuma correspondência nesta base. Tente outro nome.";
   }
   search.addEventListener("input",updateStatus);
   clear.addEventListener("click",()=>{search.value="";search.dispatchEvent(new Event("input",{bubbles:true}));search.focus();});
   document.querySelectorAll(".mx3-shortcut").forEach(btn=>btn.addEventListener("click",()=>{
     const selected=btn.dataset.show;
+    if(search.value.trim()) { search.value=""; search.dispatchEvent(new Event("input",{bubbles:true})); }
     ["dynAvailableBox","dynFutureBox","gAvailableBox","gUnavailableBox"].forEach(id=>{
       document.getElementById(id).open=id===selected;
     });
-    document.getElementById("mx3Reference").scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"});
+    document.getElementById(selected).scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"});
     if(selected==="dynAvailableBox"||selected==="gAvailableBox")search.focus({preventScroll:true});
   }));
   updateStatus();

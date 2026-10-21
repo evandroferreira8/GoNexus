@@ -1,0 +1,139 @@
+/* CENTRAL MAX 3.1 — expanding discovery panels. Only this module. */
+body.page-max .mx3-reference .mx3-lists{display:grid;gap:10px}
+body.page-max .mx3-reference details.mx3-accordion{
+ --max-tone:#2767c1;--max-tint:#eef5ff;
+ border:1px solid #d0dff0;border-radius:14px;
+ background:#fff;overflow:hidden;box-shadow:0 3px 12px #23496d0b;
+ scroll-margin-top:16px;
+}
+body.page-max .mx3-reference details.mx3-accordion[data-tone="gigamax"]{--max-tone:#b06a1b;--max-tint:#fff2df}
+body.page-max .mx3-reference details.mx3-accordion[data-tone="future"]{--max-tone:#16836f;--max-tint:#e7f6f1}
+body.page-max .mx3-reference details.mx3-accordion[data-tone="unreleased"]{--max-tone:#61748c;--max-tint:#edf2f8}
+body.page-max .mx3-reference details.mx3-accordion[open]{border-color:#a7c3e5;box-shadow:0 9px 25px #174a7a18}
+body.page-max .mx3-reference .mx3-accordion-head{
+ display:flex;align-items:center;gap:13px;min-height:76px;padding:13px 16px;
+ cursor:pointer;list-style:none;background:#fff;user-select:none;
+ color:#183757;
+ transition:background .16s ease;
+}
+body.page-max .mx3-reference .mx3-accordion-head::-webkit-details-marker{display:none}
+body.page-max .mx3-reference .mx3-accordion-head:hover{background:#f4f8fd}
+body.page-max .mx3-reference details.mx3-accordion[open] .mx3-accordion-head{background:#f8fbff;border-bottom:1px solid #dae7f6}
+body.page-max .mx3-reference .mx3-accordion-head:focus-visible{outline:3px solid #266ad5;outline-offset:-4px}
+body.page-max .mx3-reference .mx3-list-icon{
+ flex:0 0 45px;width:45px;height:45px;display:grid;place-items:center;
+ border-radius:11px;background:var(--max-tint);color:var(--max-tone);
+}
+body.page-max .mx3-reference .mx3-list-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+body.page-max .mx3-reference .mx3-list-copy{flex:1;display:block;min-width:0}
+body.page-max .mx3-reference .mx3-list-title{display:block;color:#163555;font-weight:850;font-size:1rem;line-height:1.23}
+body.page-max .mx3-reference .mx3-list-description{display:block;color:#58728e;font-size:.77rem;font-weight:550;line-height:1.4;margin-top:5px}
+body.page-max .mx3-reference .mx3-list-actions{display:flex;align-items:center;gap:10px;flex:none}
+body.page-max .mx3-reference .mx3-list-count{display:grid;place-items:center;min-width:38px;height:29px;padding:3px 9px;border:1px solid #ccddf1;border-radius:8px;background:#eff5fd;color:#2e5a96;font-size:.77rem;font-weight:900;font-variant-numeric:tabular-nums}
+body.page-max .mx3-reference .mx3-list-arrow{
+ display:grid;place-items:center;flex:0 0 35px;width:35px;height:35px;
+ border:1px solid #cbddf0;border-radius:9px;background:#edf4fd;color:#2a61ae;
+}
+body.page-max .mx3-reference .mx3-list-arrow svg{width:17px;height:17px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s}
+body.page-max .mx3-reference details.mx3-accordion[open] .mx3-list-arrow{background:#245ec7;color:#fff;border-color:#245ec7}
+body.page-max .mx3-reference details.mx3-accordion[open] .mx3-list-arrow svg{transform:rotate(180deg)}
+body.page-max .mx3-reference .mx3-accordion-body{padding:15px;background:#f8fbff}
+body.page-max .mx3-reference .mx3-list-feedback{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 12px;color:#526a87;font-size:.75rem;line-height:1.4}
+body.page-max .mx3-reference .mx3-list-feedback strong{color:#183e70}
+body.page-max .mx3-reference .mx3-species-grid{list-style:none!important;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0!important;padding:0!important}
+body.page-max .mx3-reference .mx3-species-grid>li{min-width:0;margin:0;padding:0;list-style:none!important}
+body.page-max .mx3-reference .mx3-species-card{
+ min-width:0;min-height:92px;height:100%;display:flex;align-items:center;gap:10px;padding:9px;
+ border:1px solid #d7e3f1;border-radius:11px;background:#fff;
+ box-shadow:0 2px 6px #132f5408;
+}
+body.page-max .mx3-reference .mx3-species-art{
+ display:grid;place-items:center;width:73px;height:73px;flex:0 0 73px;
+ border-radius:9px;background:linear-gradient(155deg,var(--max-tint),#f7faff);
+}
+body.page-max .mx3-reference .mx3-species-art img{display:block;width:69px;height:69px;object-fit:contain;filter:drop-shadow(0 3px 4px #19364e20)}
+body.page-max .mx3-reference .mx3-species-copy{min-width:0;display:flex;flex-direction:column;align-items:start;gap:3px;line-height:1.3}
+body.page-max .mx3-reference .mx3-species-no{font:850 .63rem/1.2 var(--gn-code,monospace);color:#6484a9;letter-spacing:.025em}
+body.page-max .mx3-reference .mx3-species-name{max-width:100%;font-weight:850;font-size:.83rem;line-height:1.25;overflow-wrap:anywhere;color:#163959}
+body.page-max .mx3-reference .mx3-species-sub{
+ max-width:100%;font-size:.7rem;line-height:1.38;color:#5a718e;
+ display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+ overflow-wrap:anywhere;
+}
+body.page-max .mx3-reference .mx3-species-note{display:block;font-size:.7rem;line-height:1.35;color:#566f8c}
+body.page-max .mx3-reference details.mx3-accordion[data-tone="future"] .mx3-species-card{min-height:105px;align-items:start}
+body.page-max .mx3-reference .mx3-no-results{padding:18px;border:1px dashed #b8cde7;border-radius:10px;background:#fff;text-align:center;color:#526b86;font-size:.83rem}
+body.page-max .mx3-reference .mx3-list-showmore{
+ display:flex;align-items:center;justify-content:center;gap:9px;min-height:43px;
+ margin:13px auto 0;padding:10px 19px;border:1px solid #aec8e9;border-radius:9px;
+ background:#e9f2ff;color:#225bb5;font-size:.8rem;font-weight:850;cursor:pointer;
+}
+body.page-max .mx3-reference .mx3-list-showmore:hover{background:#dbeaff}
+body.page-max .mx3-reference .mx3-list-showmore:focus-visible{outline:3px solid #266ad5;outline-offset:3px}
+body.page-max .mx3-reference .mx3-list-showmore svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .16s}
+body.page-max .mx3-reference .mx3-list-showmore[aria-expanded="true"] svg{transform:rotate(180deg)}
+body.page-max .mx3-reference .mx3-list-showmore[hidden]{display:none}
+body.page-max .mx3-reference .mx3-shortcut[aria-pressed="true"]{background:#245fc7;color:#fff;border-color:#245fc7}
+body.page-max .mx3-more details{scroll-margin-top:16px}
+body.page-max .mx3-more details>summary{display:flex;align-items:center;gap:12px;justify-content:space-between;min-height:61px;padding:12px 15px;list-style:none}
+body.page-max .mx3-more details>summary::-webkit-details-marker{display:none}
+body.page-max .mx3-more details>summary:after{content:none!important;display:none!important}
+body.page-max .mx3-more .mx3-more-headcopy{display:flex;flex-direction:column;align-items:start;gap:3px;min-width:0}
+body.page-max .mx3-more .mx3-more-headcopy strong{font-size:.9rem;font-weight:850;color:#16395f}
+body.page-max .mx3-more .mx3-more-headcopy small{font-size:.73rem;color:#607792}
+body.page-max .mx3-more .mx3-list-arrow{flex:0 0 34px;width:34px;height:34px;display:grid;place-items:center;background:#eaf2fd;border:1px solid #cbddf0;border-radius:9px;color:#2461b6}
+body.page-max .mx3-more .mx3-list-arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .18s}
+body.page-max .mx3-more details[open] .mx3-list-arrow svg{transform:rotate(180deg)}
+body.page-max .mx3-more details[open]>summary{background:#f6faff;border-bottom:1px solid #dce8f5}
+body.page-max .mx3-more .mx3-more-body{padding:15px;color:#526985}
+body.page-max .mx3-more .mx3-source-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}
+body.page-max .mx3-more .mx3-source-links a{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:45px;padding:10px 12px;border:1px solid #d4e1f0;border-radius:8px;background:#f4f8ff;color:#1c59b1;text-decoration:none;font-size:.78rem;line-height:1.3;font-weight:800}
+body.page-max .mx3-more .mx3-source-links a:hover{background:#e7f1ff}
+html[data-theme="dark"] body.page-max .mx3-reference details.mx3-accordion{background:#172c45;border-color:#3a587a}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-accordion-head,
+html[data-theme="dark"] body.page-max .mx3-reference details.mx3-accordion[open] .mx3-accordion-head{background:#1c3451;color:#f1f7ff;border-color:#3f5e82}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-accordion-head:hover{background:#254260}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-list-title{color:#eef5ff}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-list-description{color:#b8cbe1}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-list-icon{background:#2b4a69;color:#d9eaff}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-list-count{background:#2c4666;border-color:#49698a;color:#e2f0ff}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-list-arrow{background:#2b4a70;border-color:#527296;color:#e3efff}
+html[data-theme="dark"] body.page-max .mx3-reference details.mx3-accordion[open] .mx3-list-arrow{background:#2e6dd1;border-color:#2e6dd1}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-accordion-body{background:#14263c}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-species-card{background:#1e3653;border-color:#3a587a}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-species-art{background:linear-gradient(155deg,#344d68,#253e5c)}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-species-name{color:#f0f6ff}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-species-no{color:#adc8e5}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-species-sub,
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-species-note{color:#c0d2e8}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-list-feedback{color:#b7cbe1}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-list-feedback strong{color:#e9f3ff}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-list-showmore{background:#294d7b;border-color:#5478a8;color:#e4f1ff}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-list-showmore:hover{background:#34609a}
+html[data-theme="dark"] body.page-max .mx3-reference .mx3-no-results{background:#223955;border-color:#537195;color:#d4e4f5}
+html[data-theme="dark"] body.page-max .mx3-more details[open]>summary{background:#203a57;border-color:#47617c}
+html[data-theme="dark"] body.page-max .mx3-more .mx3-more-headcopy strong{color:#edf7ff}
+html[data-theme="dark"] body.page-max .mx3-more .mx3-more-headcopy small{color:#bacfe5}
+html[data-theme="dark"] body.page-max .mx3-more .mx3-list-arrow{background:#2b4b70;border-color:#476c98;color:#eff5ff}
+html[data-theme="dark"] body.page-max .mx3-more .mx3-source-links a{background:#233e5e;border-color:#496889;color:#d6e9ff}
+@media(max-width:1060px){body.page-max .mx3-reference .mx3-species-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:740px){body.page-max .mx3-reference .mx3-species-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body.page-max .mx3-reference .mx3-accordion-head{padding:11px 12px;min-height:67px;gap:9px}
+ body.page-max .mx3-reference .mx3-list-icon{width:38px;height:38px;flex-basis:38px}
+ body.page-max .mx3-reference .mx3-list-title{font-size:.9rem}
+ body.page-max .mx3-reference .mx3-accordion-body{padding:11px}
+ body.page-max .mx3-reference .mx3-species-art{width:59px;height:59px;flex-basis:59px}
+ body.page-max .mx3-reference .mx3-species-art img{width:56px;height:56px}
+ body.page-max .mx3-reference .mx3-species-card{min-height:77px;padding:8px}
+ body.page-max .mx3-more .mx3-source-links{grid-template-columns:1fr}
+}
+@media(max-width:510px){
+ body.page-max .mx3-reference .mx3-species-grid{grid-template-columns:1fr}
+ body.page-max .mx3-reference .mx3-list-description{font-size:.7rem}
+ body.page-max .mx3-reference .mx3-list-count{min-width:31px;padding:3px 6px;font-size:.7rem}
+ body.page-max .mx3-reference .mx3-list-actions{gap:6px}
+ body.page-max .mx3-reference .mx3-list-arrow{flex-basis:31px;width:31px;height:31px}
+ body.page-max .mx3-reference .mx3-species-card{gap:12px;min-height:80px}
+ body.page-max .mx3-reference .mx3-list-icon{flex:0 0 35px;width:35px;height:35px}
+}
+@media(prefers-reduced-motion:reduce){body.page-max .mx3-reference .mx3-list-arrow svg,body.page-max .mx3-reference .mx3-accordion-head{transition:none}}

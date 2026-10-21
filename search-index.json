@@ -1,5 +1,11 @@
 [
   {
+    "title": "Gerador de Pesquisas",
+    "url": "gerador-pesquisas.html",
+    "description": "Cole nomes ou números de Pokémon e copie uma pesquisa pronta para o jogo.",
+    "content": "Pokédex lista de Pokémon para copiar buscar números da dex Dialga Origem Palkia Reshiram busca rápida gerador de pesquisas"
+  },
+  {
     "title": "Vale a Caixa?",
     "url": "calculadora.html",
     "description": "Compare o preço de uma caixa do Pokémon GO com o custo dos itens comprados separadamente.",

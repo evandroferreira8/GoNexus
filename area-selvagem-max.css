@@ -557,3 +557,28 @@ html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap :is(a,button,summ
  html body.page-wild[data-studio-page="area-selvagem"] .wa-feature,
  html body.page-wild[data-studio-page="area-selvagem"] .wa-titan img{animation:none!important;transition:none!important}
 }
+
+/* Small-screen safeguard: long GO title wraps instead of clipping at 320–390px. */
+@media(max-width:760px){
+ html body.page-wild[data-studio-page="area-selvagem"] .wa-hero h1>span{
+  white-space:normal!important;max-width:100%;
+ }
+ html body.page-wild[data-studio-page="area-selvagem"]{
+  background-size:cover,auto 100vh!important;
+ }
+ html body.page-wild[data-studio-page="area-selvagem"] .wa-hero .wa-buttons .wa-btn:only-child{
+  width:100%;
+ }
+}
+html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap img{
+ height:auto;max-width:100%;
+}
+html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap .wa-titan img,
+html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap .wa-feature-image,
+html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap .wa-district-art,
+html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap .wa-capture-orb,
+html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap .wa-mon img,
+html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap .wa-encounter img,
+html body.page-wild[data-studio-page="area-selvagem"] .wa-wrap .wa-mighty-card img{
+ height:revert;
+}

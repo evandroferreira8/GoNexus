@@ -66,10 +66,11 @@
  }
  function renderBiome() {
   const entries = activeBiome === "steel" ? steel : dragon;
-  const list = expanded ? entries : entries.slice(0,9);
+  const previewCount = window.matchMedia("(max-width: 600px)").matches ? 6 : 9;
+  const list = expanded ? entries : entries.slice(0,previewCount);
   speciesPanel.replaceChildren(...list.map(speciesCard));
   switchers.forEach(btn => btn.setAttribute("aria-pressed", String(btn.dataset.biome === activeBiome)));
-  const rest = entries.length - 9;
+  const rest = entries.length - previewCount;
   more.hidden=rest<=0;
   more.setAttribute("aria-expanded",String(expanded));
   more.textContent = expanded ? "Mostrar menos ↑" : "Mostrar todas ("+entries.length+") ↓";
@@ -89,6 +90,8 @@
   }
  });
  renderBiome();
+ const compactPreview=window.matchMedia("(max-width: 600px)");
+ if(typeof compactPreview.addEventListener==="function")compactPreview.addEventListener("change",renderBiome);
  const countdown=$("waCountdown");
  function refreshEventStatus(){
   const now=new Date();

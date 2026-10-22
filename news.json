@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-10-21T00:39:56+00:00",
+  "updated_at": "2026-10-22T00:42:56+00:00",
   "items": [
+    {
+      "title": "Dia Comunitário de novembro de 2026: Pawniard",
+      "url": "https://pokemongo.com/pt-BR/news/communityday-november-2026-pawniard",
+      "image": "https://lh3.googleusercontent.com/t5O4uk87m4uBdjNiiMgMq9nKNOkWyt3lNxwPc4dEqi8nL2ORXDgmO91Dc8orIGjysTupi4Jfr9F1FQq5jp36L68z7XZlddd8Kq-CSJQJEVfk"
+    },
     {
       "title": "Ganhe Pokémoedas ao avançar no Passe GO: novembro",
       "url": "https://pokemongo.com/pt-BR/news/go-pass-november-2026",
@@ -21,11 +26,6 @@
       "title": "Atualizações na jogabilidade e melhorias na experiência do Pokémon GO",
       "url": "https://pokemongo.com/pt-BR/news/pgo-gameplay-update-oct-2026",
       "image": "https://lh3.googleusercontent.com/YTWdPxzC8pivOHHqNqkA5VYuXBhfFinH38ENvIZ7f9LfkMDoyXrXRnh5kd-ibfKJHequDEp7sbd6Ahwnvh2ct8REj7kjdvJQkCkIXabrFikr"
-    },
-    {
-      "title": "Mega Sableye se fortalece e Greavard Brilhante faz sua estreia no Pokémon GO no Dia das Bruxas 2026 Parte II!",
-      "url": "https://pokemongo.com/pt-BR/news/halloween-part-2-2026",
-      "image": "https://lh3.googleusercontent.com/4QN-7EtDk7S7dxL9bKLbsUF7lbTaUTntnGzOG8qDk4xxOQFyY4dKt3tQQ2msv37JhacLDFrawLGXVAv_kv3tzE_kTXiIh_HbskFdKhNCHjlh"
     }
   ]
 }

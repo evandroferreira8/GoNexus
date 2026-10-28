@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-10-22T00:42:56+00:00",
+  "updated_at": "2026-10-28T16:41:53+00:00",
   "items": [
+    {
+      "title": "Esclarecimento sobre as caças aos selos dos eventos da Área Selvagem GO",
+      "url": "https://pokemongo.com/pt-BR/news/go-wild-area-stamp-rally-details-2026",
+      "image": "https://lh3.googleusercontent.com/1gLekpJ6ufDdk-OksjycvqaJIQREQ6qlsP5Lt8HoMhZyJTiwNVuV8mqI0n-fjF3N7hhOhSYoDnZ9qEJq2unSlISul2f4W87piqz23PKSspw"
+    },
     {
       "title": "Dia Comunitário de novembro de 2026: Pawniard",
       "url": "https://pokemongo.com/pt-BR/news/communityday-november-2026-pawniard",
@@ -21,11 +26,6 @@
       "title": "Um brilho assustador nos aguarda no Dia de Super Megarreides: Chandelure!",
       "url": "https://pokemongo.com/pt-BR/news/chandelure-super-mega-raid-day-2026",
       "image": "https://lh3.googleusercontent.com/6P6KzIHu36YynVJ4Bn6-2y_98P8qbfr5VP6aBOsIC83pPQ6NifL2ZrIWrF12RCzi-yJzdpuVsboYspq5mfkvph2B5OJslcoYMaHnNM8ua8og"
-    },
-    {
-      "title": "Atualizações na jogabilidade e melhorias na experiência do Pokémon GO",
-      "url": "https://pokemongo.com/pt-BR/news/pgo-gameplay-update-oct-2026",
-      "image": "https://lh3.googleusercontent.com/YTWdPxzC8pivOHHqNqkA5VYuXBhfFinH38ENvIZ7f9LfkMDoyXrXRnh5kd-ibfKJHequDEp7sbd6Ahwnvh2ct8REj7kjdvJQkCkIXabrFikr"
     }
   ]
 }

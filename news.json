@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-10-28T16:41:53+00:00",
+  "updated_at": "2026-10-29T01:50:57+00:00",
   "items": [
+    {
+      "title": "Todos os caminhos levam ao retorno de Eternatus durante o evento Trilhas Dinamax!",
+      "url": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026",
+      "image": "https://lh3.googleusercontent.com/1ZxNwH9PkuqgUPjvwhCrCNSTSDktinzgCcLJEkm4tu41LlE_7OdyfM4GkR9qd9atoN_Tairx5bQ6IxBBOULlCO29cCM4qTuvsE4dm-RFup0"
+    },
     {
       "title": "Esclarecimento sobre as caças aos selos dos eventos da Área Selvagem GO",
       "url": "https://pokemongo.com/pt-BR/news/go-wild-area-stamp-rally-details-2026",
@@ -21,11 +26,6 @@
       "title": "É hora de voltar à Natureza Selvagem para uma aventura com Pokémon dos tipos Aço e Dragão!",
       "url": "https://pokemongo.com/pt-BR/news/into-the-wild-2026",
       "image": "https://lh3.googleusercontent.com/xQzYXbxguNWaaSXG5thVM5x44Luvbb5Pi8rPlYSPIV6kePCzoS_5NWzlM0yzNGIVs1NzhXIPLcg2HKS0iuizGsHZUvSS_ZcemC5-i4My5yA"
-    },
-    {
-      "title": "Um brilho assustador nos aguarda no Dia de Super Megarreides: Chandelure!",
-      "url": "https://pokemongo.com/pt-BR/news/chandelure-super-mega-raid-day-2026",
-      "image": "https://lh3.googleusercontent.com/6P6KzIHu36YynVJ4Bn6-2y_98P8qbfr5VP6aBOsIC83pPQ6NifL2ZrIWrF12RCzi-yJzdpuVsboYspq5mfkvph2B5OJslcoYMaHnNM8ua8og"
     }
   ]
 }

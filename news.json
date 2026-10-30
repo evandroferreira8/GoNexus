@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-10-29T01:50:57+00:00",
+  "updated_at": "2026-10-30T01:59:34+00:00",
   "items": [
+    {
+      "title": "Comemorem com Treinadores notáveis no Brasil durante a Área Selvagem do Pokémon GO 2026: Global!",
+      "url": "https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil",
+      "image": "https://lh3.googleusercontent.com/N3BzNfgUnn7eGoGO-ZPKSzorwfmL1UUImFFbLtPsAcN_3RY0PGENWl8I2L2yuKFjWrfE7QYH551r1wEjxTAMpfXVHUET0Bs_avMhvS1o7Lme"
+    },
     {
       "title": "Todos os caminhos levam ao retorno de Eternatus durante o evento Trilhas Dinamax!",
       "url": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026",
@@ -21,11 +26,6 @@
       "title": "Ganhe Pokémoedas ao avançar no Passe GO: novembro",
       "url": "https://pokemongo.com/pt-BR/news/go-pass-november-2026",
       "image": "https://lh3.googleusercontent.com/2H2wVXVBCkoOjc8Swmtz67KAxNbWQMwkqSezJmyAOFnzlfervIkFR-rJJ6nZfqWtZmG4eXJwD7-Is2-TdjJXH2q2nAPFAk8lj7Lz_5TWtTYo"
-    },
-    {
-      "title": "É hora de voltar à Natureza Selvagem para uma aventura com Pokémon dos tipos Aço e Dragão!",
-      "url": "https://pokemongo.com/pt-BR/news/into-the-wild-2026",
-      "image": "https://lh3.googleusercontent.com/xQzYXbxguNWaaSXG5thVM5x44Luvbb5Pi8rPlYSPIV6kePCzoS_5NWzlM0yzNGIVs1NzhXIPLcg2HKS0iuizGsHZUvSS_ZcemC5-i4My5yA"
     }
   ]
 }

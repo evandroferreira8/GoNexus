@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0c2042">
 <meta name="description" content="Agenda GO Nexus: eventos do Pokémon GO e encontros presenciais da comunidade de Natal em novembro de 2026.">
-<title>Agenda GO · Novembro 2026 | GO Nexus</title>
+<title>Agenda GO · Eventos e encontros em Natal | GO Nexus</title>
 <link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <style>
 :root{--ag-ink:#10264a;--ag-blue:#255ed4;--ag-edge:#d8e1f1;--ag-soft:#f2f6fc;--ag-yellow:#ffd548;--ag-sub:#5e718e}
@@ -106,14 +106,14 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 <main class="ag-shell" id="topo">
   <div class="ag-hero">
     <div class="ag-kicker">GO NEXUS / AGENDA 2026</div>
-    <h1>Novembro <span>em jogo.</span></h1>
+    <h1 id="agHeroTitle">Novembro <span>em jogo.</span></h1>
     <p>Um quadro para descobrir o que acontece no Pokémon GO e onde a comunidade se encontra em Natal.</p>
-    <div class="ag-meta"><span>Novembro de 2026</span><span>Horário de Natal · UTC−3</span><span>Fontes oficiais</span></div>
+    <div class="ag-meta"><span id="agMetaMonth">Novembro de 2026</span><span>Horário de Natal · UTC−3</span><span>Fontes oficiais</span></div>
   </div>
   <div class="ag-body">
     <div class="ag-main">
       <section class="ag-panel" aria-labelledby="calendarioTitulo">
-        <div class="ag-heading"><div><h2 id="calendarioTitulo">Visão do mês</h2><p>Toque em uma data para ver o que está programado.</p></div><span class="ag-month">NOV / 2026</span></div>
+        <div class="ag-heading"><div><h2 id="calendarioTitulo">Visão do mês</h2><p>Toque em uma data para ver o que está programado.</p></div><span class="ag-month" id="agMonthText">NOV / 2026</span></div>
         <div class="ag-weekdays" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
         <div id="agDays" class="ag-days" role="group" aria-label="Dias de novembro de 2026"></div>
         <div class="ag-legend" aria-label="Legenda do calendário"><span><i></i>Natal</span><span class="evento"><i></i>Eventos</span><span class="reide"><i></i>Reides</span><span class="max"><i></i>Max</span><span class="comunidade"><i></i>Comunidade</span></div>
@@ -168,31 +168,30 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   var future=document.getElementById('agFuture'), clear=document.getElementById('agClear');
   var categories={natal:'Encontro em Natal',evento:'Evento',destaque:'Grande evento',reide:'Reide',max:'Batalha Max',comunidade:'Dia Comunitário'};
   var prio={natal:0,destaque:1,comunidade:2,max:3,reide:4,evento:5};
-  function today(){
-    return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Fortaleza',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()).split('/').reverse().join('-').replace(/^(\d\d)-(\d\d)-(\d{4})$/,'$3-$2-$1');
-  }
-  // The date formatter can return YYYY-MM-DD or MM/DD/YYYY depending on runtime.
   function localToday(){
     var parts=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Fortaleza',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
     var out={};parts.forEach(function(p){out[p.type]=p.value;});
     return out.year+'-'+out.month+'-'+out.day;
   }
-  var current=localToday();
+  var current=localToday(), month='2026-11', monthLong='novembro', monthShort='nov', monthAbbr='NOV';
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
   function dateNum(iso){return Number(iso.slice(8,10))}
-  function range(e){return e.start===e.end?dateNum(e.start)+' nov':dateNum(e.start)+'–'+dateNum(e.end)+' nov'}
+  function range(e){return e.start===e.end?dateNum(e.start)+' '+monthShort:dateNum(e.start)+'–'+dateNum(e.end)+' '+monthShort}
   function applies(e,date){return e.start<=date&&date<=e.end}
   function passed(e){return e.end<current}
   function kindMatches(e){if(selectedFilter==='todos')return true;if(selectedFilter==='evento')return ['evento','destaque','comunidade'].includes(e.kind);return e.kind===selectedFilter}
   function normal(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
   function drawDays(){
     var html='';
-    for(var day=1;day<=30;day++){
-      var iso='2026-11-'+String(day).padStart(2,'0');
+    var first=new Date(month+'-01T12:00:00Z').getUTCDay();
+    for(var blank=0;blank<first;blank++)html+='<span aria-hidden="true"></span>';
+    var total=new Date(Number(month.slice(0,4)),Number(month.slice(5,7)),0).getDate();
+    for(var day=1;day<=total;day++){
+      var iso=month+'-'+String(day).padStart(2,'0');
       var matches=data.filter(function(e){return applies(e,iso)});
       var kinds=Array.from(new Set(matches.map(function(e){return e.kind}))).sort(function(a,b){return (prio[a]||9)-(prio[b]||9)}).slice(0,3);
       var dots=kinds.map(function(k){return '<i class="ag-dot '+esc(k)+'"></i>'}).join('');
-      html+='<button type="button" data-day="'+iso+'" class="'+(matches.length?'':'no-event ')+(iso===current?'today':'')+'" aria-label="'+day+' de novembro, '+matches.length+' eventos" aria-pressed="'+(selectedDay===iso)+'"><span>'+day+'</span><span class="ag-dots" aria-hidden="true">'+dots+'</span></button>';
+      html+='<button type="button" data-day="'+iso+'" class="'+(matches.length?'':'no-event ')+(iso===current?'today':'')+'" aria-label="'+day+' de '+monthLong+', '+matches.length+' eventos" aria-pressed="'+(selectedDay===iso)+'"><span>'+day+'</span><span class="ag-dots" aria-hidden="true">'+dots+'</span></button>';
     }
     daysNode.innerHTML=html;
   }
@@ -219,7 +218,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       '<button class="ag-action add" type="button" data-add="'+esc(e.id)+'">+ Adicionar à agenda</button>'+
       '<button class="ag-action add" type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
     return '<article class="ag-event" data-kind="'+esc(e.kind)+'">'+
-      '<div class="ag-date"><span class="ag-day">'+dateNum(e.start)+'</span><span class="ag-mo">NOV</span></div>'+
+      '<div class="ag-date"><span class="ag-day">'+dateNum(e.start)+'</span><span class="ag-mo">'+monthAbbr+'</span></div>'+ 
       '<div class="ag-content"><div class="ag-event-head"><span class="ag-type">'+esc(categories[e.kind]||'Evento')+'</span>'+status(e)+'</div>'+
       '<h3>'+esc(e.title)+'</h3><div class="ag-when">'+meta+'</div><p>'+esc(e.description)+'</p>'+
       '<div class="ag-actions">'+links+'</div></div></article>';
@@ -236,7 +235,8 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   function nextDay(s){var d=new Date(s+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+1);return d.toISOString().slice(0,10)}
   function icsEscape(s){return String(s||'').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/[,;]/g,function(c){return '\\'+c})}
   function addCalendar(e){
-    var fields=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//GO Nexus//Agenda GO//PT-BR','CALSCALE:GREGORIAN','BEGIN:VEVENT','UID:'+e.id+'-2026@gonexus','DTSTAMP:20261031T120000Z','SUMMARY:'+icsEscape(e.title),'DESCRIPTION:'+icsEscape(e.description+' | Fonte: '+e.source)];
+    var stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
+    var fields=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//GO Nexus//Agenda GO//PT-BR','CALSCALE:GREGORIAN','BEGIN:VEVENT','UID:'+e.id+'-'+month+'@gonexus','DTSTAMP:'+stamp,'SUMMARY:'+icsEscape(e.title),'DESCRIPTION:'+icsEscape(e.description+' | Fonte: '+e.source)];
     if(e.location)fields.push('LOCATION:'+icsEscape(e.location));
     if(e.from&&e.to){
       fields.push('DTSTART;TZID=America/Fortaleza:'+icsDate(e.start)+'T'+e.from.replace(':','')+'00');
@@ -270,6 +270,15 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     if(btn.dataset.add)addCalendar(e);else share(e,btn);
   });
   fetch('agenda-eventos.json',{cache:'no-store'}).then(function(res){if(!res.ok)throw Error('Falha');return res.json()}).then(function(doc){
+    month=/^\d{4}-\d{2}$/.test(doc.month)?doc.month:month;
+    var d=new Date(month+'-01T12:00:00Z');
+    monthLong=new Intl.DateTimeFormat('pt-BR',{month:'long',timeZone:'UTC'}).format(d);
+    monthShort=new Intl.DateTimeFormat('pt-BR',{month:'short',timeZone:'UTC'}).format(d).replace('.','');
+    monthAbbr=monthShort.toUpperCase();
+    var title=monthLong.charAt(0).toUpperCase()+monthLong.slice(1);
+    document.getElementById('agHeroTitle').innerHTML=esc(title)+' <span>em jogo.</span>';
+    document.getElementById('agMetaMonth').textContent=title+' de '+month.slice(0,4);
+    document.getElementById('agMonthText').textContent=monthAbbr+' / '+month.slice(0,4);
     data=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind&&e.source}):[];
     render();
   }).catch(function(){count.textContent='Não foi possível carregar a agenda';list.innerHTML='<div class="ag-empty">Atualize a página para tentar novamente.</div>';drawDays()});

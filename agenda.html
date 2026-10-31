@@ -549,11 +549,182 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
  .agenda-page .ag-calendar-surface .ag-days .ag-tile-bars{align-self:flex-start;width:min(82%,33px);height:8px;margin:0 0 3px 4px;margin-top:auto;gap:2px}
  .agenda-page .ag-calendar-surface .ag-days .ag-tile-bar{border-radius:3px}
 }
+
+/* Desktop edge fix: chips must fit *inside* their calendar cell, never bleed past it. */
+.agenda-page .ag-calendar-surface .ag-days button{min-width:0;max-width:100%;overflow:hidden;box-sizing:border-box}
+.agenda-page .ag-calendar-surface .ag-day-chips{width:100%;min-width:0;box-sizing:border-box}
+.agenda-page .ag-calendar-surface .ag-day-chip{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow:hidden;text-overflow:ellipsis}
+.agenda-page .ag-calendar-surface .ag-days button .ag-tile-head{min-width:0;max-width:100%}
+.ag-m-app{display:none}
+/* A real mobile layout: one horizontal week strip + one selected-day agenda. */
+@media(max-width:720px){
+ .agenda-page .ag-shell{width:100%;max-width:580px;padding:0 12px 22px;box-sizing:border-box}
+ .agenda-page .ag-hero,.agenda-page .ag-month-panel,.agenda-page .ag-week-panel{display:none!important}
+ .agenda-page .ag-m-app{display:block;background:#fff;border:1px solid #dbe4f0;border-radius:20px;padding:16px 14px 13px;margin:11px 0 12px;box-shadow:0 6px 20px #1937580d;min-width:0}
+ .agenda-page .ag-body{display:block!important}
+ .agenda-page .ag-m-header{margin-bottom:13px}
+ .agenda-page .ag-m-overline{font-size:10px;letter-spacing:.13em;font-weight:900;color:#456da1;margin-bottom:6px}
+ .agenda-page .ag-m-overline span{color:#b8c4d4;margin:0 5px}
+ .agenda-page .ag-m-heading-row{display:flex;justify-content:space-between;align-items:end;gap:10px}
+ .agenda-page .ag-m-heading-row h1{margin:0!important;color:#142f54!important;font-size:29px!important;letter-spacing:-.065em;line-height:1.05;font-weight:850}
+ .agenda-page .ag-m-heading-row p{margin:5px 0 0;font-size:13px;font-weight:650;color:#627a97}
+ .agenda-page .ag-m-ufrn{color:#2d608e;font-weight:800;font-size:10px;line-height:1.24;padding:6px 8px;border-radius:7px;background:#e9f2ff;max-width:83px;text-align:center}
+ .agenda-page .ag-m-switch{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:#edf2f8;padding:4px;border-radius:11px;margin:14px 0}
+ .agenda-page .ag-m-switch button{min-height:42px;border:0;border-radius:8px;background:transparent;color:#5d7594;font-size:13px;font-weight:800;cursor:pointer}
+ .agenda-page .ag-m-switch button[aria-selected=true]{color:#124a9a;background:#fff;box-shadow:0 2px 8px #17375f19}
+ .agenda-page .ag-m-switch button:focus-visible,.agenda-page .ag-m-strip button:focus-visible,.agenda-page .ag-m-monthgrid button:focus-visible,.agenda-page .ag-m-weekbuttons button:focus-visible{outline:3px solid #2b66c8;outline-offset:2px}
+ .agenda-page .ag-m-weekbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:8px 0 12px}
+ .agenda-page #agMWeekRange{font-weight:800;color:#213e65;font-size:14px;letter-spacing:-.02em}
+ .agenda-page .ag-m-weekbuttons{display:flex;gap:5px;align-items:center}
+ .agenda-page .ag-m-weekbuttons button{height:34px;min-width:34px;padding:0 8px;border:1px solid #d9e4f2;border-radius:9px;background:#fff;color:#1d539f;font-size:22px;line-height:1;font-weight:700;cursor:pointer}
+ .agenda-page .ag-m-weekbuttons button#agMToday{font-size:11px;min-width:45px}
+ .agenda-page .ag-m-weekbuttons button:disabled{opacity:.35}
+ .agenda-page .ag-m-strip{display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 0 9px;scrollbar-width:thin;scrollbar-color:#c9d8ee transparent}
+ .agenda-page .ag-m-strip button{flex:0 0 76px;scroll-snap-align:start;display:flex;flex-direction:column;gap:3px;align-items:start;justify-content:start;min-height:98px;padding:11px 9px 9px;border:1px solid #dce5f1;border-radius:12px;background:#f7f9fd;color:#1f3b60;cursor:pointer;text-align:left;position:relative;min-width:0}
+ .agenda-page .ag-m-strip button[aria-pressed=true]{border:2px solid #296bd2;padding:10px 8px 8px;background:#eaf2ff;box-shadow:0 2px 7px #2e66bc14}
+ .agenda-page .ag-m-strip .ag-m-weekday{font-size:10px;letter-spacing:.04em;font-weight:800;color:#6f84a1}
+ .agenda-page .ag-m-strip .ag-m-date{font-size:24px;font-weight:850;letter-spacing:-.06em;line-height:1.07;color:#153f72}
+ .agenda-page .ag-m-strip .ag-m-hint{font-size:11px;font-weight:800;color:#3d618e;margin-top:1px;line-height:1.15;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+ .agenda-page .ag-m-strip .ag-m-datebar{position:absolute;bottom:0;left:9px;right:9px;height:5px;border-radius:4px 4px 0 0;background:#cbd7e8}
+ .agenda-page .ag-m-strip button[aria-pressed=true] .ag-m-datebar{left:8px;right:8px}
+ .agenda-page .ag-m-strip .ag-m-datebar[data-kind=max]{background:#d15ca2}
+ .agenda-page .ag-m-strip .ag-m-datebar[data-kind=reide]{background:#7762c1}
+ .agenda-page .ag-m-strip .ag-m-datebar[data-kind=holofote]{background:#dba43c}
+ .agenda-page .ag-m-strip .ag-m-datebar[data-kind=amizade],.agenda-page .ag-m-strip .ag-m-datebar[data-kind=natal],.agenda-page .ag-m-strip .ag-m-datebar[data-kind=comunidade]{background:#ddad3f}
+ .agenda-page .ag-m-strip .ag-m-datebar[data-kind=evento],.agenda-page .ag-m-strip .ag-m-datebar[data-kind=destaque]{background:#4d82c4}
+ .agenda-page .ag-m-strip button:disabled{opacity:.35}
+ .agenda-page .ag-m-swipe-hint{text-align:right;color:#76899e;font-size:11px;margin:0 0 13px}
+ .agenda-page .ag-m-monthintro{font-size:12px;color:#607a99;margin:0 0 13px}
+ .agenda-page .ag-m-weeknames,.agenda-page .ag-m-monthgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+ .agenda-page .ag-m-weeknames span{font-size:10px;text-align:center;font-weight:800;color:#7a91ac}
+ .agenda-page .ag-m-monthgrid{margin-top:7px}
+ .agenda-page .ag-m-monthgrid button{display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:4px;min-width:0;min-height:54px;padding:8px 2px 5px;border:1px solid #e0e8f2;background:#f7f9fd;border-radius:9px;color:#173c66;font-size:17px;font-weight:850;cursor:pointer}
+ .agenda-page .ag-m-monthgrid button[aria-pressed=true]{background:#e6f0ff;border:2px solid #2466ce;padding:7px 1px 4px}
+ .agenda-page .ag-m-monthgrid button.is-today{box-shadow:inset 0 0 0 1px #2d67cc}
+ .agenda-page .ag-m-monthgrid button:disabled{opacity:.5}
+ .agenda-page .ag-m-monthgrid .ag-m-monthbar{display:block;height:6px;width:22px;max-width:80%;border-radius:4px;background:#bfcfe2}
+ .agenda-page .ag-m-monthgrid .ag-m-monthbar[data-kind=max]{background:#cc5a9b}
+ .agenda-page .ag-m-monthgrid .ag-m-monthbar[data-kind=reide]{background:#7d65c0}
+ .agenda-page .ag-m-monthgrid .ag-m-monthbar[data-kind=holofote]{background:#dca23b}
+ .agenda-page .ag-m-monthgrid .ag-m-monthbar[data-kind=amizade],.agenda-page .ag-m-monthgrid .ag-m-monthbar[data-kind=comunidade],.agenda-page .ag-m-monthgrid .ag-m-monthbar[data-kind=natal]{background:#dca23b}
+ .agenda-page .ag-m-monthgrid .ag-m-monthbar[data-kind=evento],.agenda-page .ag-m-monthgrid .ag-m-monthbar[data-kind=destaque]{background:#5286c9}
+ .agenda-page .ag-m-monthgrid .ag-m-monthbar.none{opacity:0}
+ .agenda-page .ag-m-monthgrid .ag-m-blank{min-height:54px}
+ .agenda-page .ag-m-key{display:flex;flex-wrap:wrap;gap:9px 12px;margin:14px 0}
+ .agenda-page .ag-m-key span{display:flex;align-items:center;gap:5px;font-size:11px;color:#58728f;font-weight:700}
+ .agenda-page .ag-m-key i{display:inline-block;width:16px;height:6px;border-radius:5px;background:#5286c9}
+ .agenda-page .ag-m-key .ag-m-ki-local{background:#dca23b}
+ .agenda-page .ag-m-key .ag-m-ki-reide{background:#7d65c0}
+ .agenda-page .ag-m-key .ag-m-ki-max{background:#cc5a9b}
+ .agenda-page .ag-m-agenda{margin-top:16px;border-top:1px solid #e5ecf5;padding-top:17px}
+ .agenda-page .ag-m-dayheading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px}
+ .agenda-page .ag-m-heading-kicker{font-size:10px;letter-spacing:.11em;font-weight:850;color:#6b83a2;margin:0 0 4px}
+ .agenda-page .ag-m-dayheading h2{font-size:19px!important;line-height:1.15;letter-spacing:-.035em;color:#173459!important;margin:0!important}
+ .agenda-page .ag-m-daycount{flex:none;font-size:11px;font-weight:800;color:#285bb0;background:#eaf1fb;border-radius:99px;padding:6px 9px}
+ .agenda-page .ag-m-events{display:flex;flex-direction:column;gap:9px}
+ .agenda-page .ag-m-card{--m-accent:#3c7ac5;position:relative;min-width:0;background:#fff;border:1px solid #dee7f1;border-left:5px solid var(--m-accent);border-radius:12px;padding:13px 13px 11px;box-shadow:0 2px 9px #1432570a;overflow:hidden}
+ .agenda-page .ag-m-card[data-kind=max]{--m-accent:#c05ba6}
+ .agenda-page .ag-m-card[data-kind=reide],.agenda-page .ag-m-card[data-kind=mega]{--m-accent:#7960bf}
+ .agenda-page .ag-m-card[data-kind=holofote]{--m-accent:#d99935}
+ .agenda-page .ag-m-card[data-kind=amizade],.agenda-page .ag-m-card[data-kind=natal],.agenda-page .ag-m-card[data-kind=comunidade]{--m-accent:#d7a13b}
+ .agenda-page .ag-m-card-type{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--m-accent);margin-bottom:5px}
+ .agenda-page .ag-m-card h3{margin:0 0 9px!important;color:#173252!important;font-size:17px!important;font-weight:820;letter-spacing:-.03em;line-height:1.24;overflow-wrap:anywhere}
+ .agenda-page .ag-m-card-meta{display:flex;flex-wrap:wrap;gap:5px 10px;font-size:12px;font-weight:700;color:#536d8e}
+ .agenda-page .ag-m-card-meta span{white-space:normal}
+ .agenda-page .ag-m-confirm{margin:9px 0 0;font-size:11px;font-weight:700;color:#8b671d}
+ .agenda-page .ag-m-card details{margin-top:11px;padding-top:9px;border-top:1px solid #edf1f6}
+ .agenda-page .ag-m-card details summary{font-size:12px;font-weight:800;cursor:pointer;color:#2356a5}
+ .agenda-page .ag-m-card details p,.agenda-page .ag-m-card details li{font-size:12px;line-height:1.5;color:#526e90;margin:7px 0}
+ .agenda-page .ag-m-card details ul{padding-left:18px}
+ .agenda-page .ag-m-card-actions{display:flex;flex-wrap:wrap;gap:8px 12px;margin-top:12px}
+ .agenda-page .ag-m-card-actions a,.agenda-page .ag-m-card-actions button{border:0;background:none;padding:0;font-size:12px;font-weight:800;color:#215db8;text-decoration:none;cursor:pointer}
+ .agenda-page .ag-m-card-actions a:focus-visible,.agenda-page .ag-m-card-actions button:focus-visible{outline:2px solid #2566c7;outline-offset:3px}
+ .agenda-page .ag-m-empty{padding:18px;border:1px dashed #d0deed;background:#f7f9fd;border-radius:10px;font-size:13px;color:#627a99;text-align:center}
+ .agenda-page .ag-m-fold{border:1px solid #dce5f1;border-radius:12px;margin-top:11px;background:#f9fbff;overflow:hidden}
+ .agenda-page .ag-m-fold>summary{display:flex;gap:10px;align-items:center;padding:13px;list-style:none;cursor:pointer;color:#14345c}
+ .agenda-page .ag-m-fold>summary::-webkit-details-marker{display:none}
+ .agenda-page .ag-m-fold>summary span:nth-child(2){flex:1;min-width:0}
+ .agenda-page .ag-m-fold>summary b{display:block;font-size:13px}
+ .agenda-page .ag-m-fold>summary small{display:block;font-size:11px;margin-top:3px;color:#6883a1}
+ .agenda-page .ag-m-fold-icon{width:30px;height:30px;border-radius:8px;background:#e7effc;display:grid;place-items:center;font-size:18px;color:#2d62aa;flex:none}
+ .agenda-page .ag-m-caret{color:#7190ad;font-size:18px}
+ .agenda-page .ag-m-fold[open] .ag-m-caret{transform:rotate(180deg)}
+ .agenda-page .ag-m-overview-list,.agenda-page .ag-m-rotations{border-top:1px solid #e0e9f3;padding:8px 10px 12px;display:flex;flex-direction:column;gap:7px}
+ .agenda-page .ag-m-overview-list button{width:100%;display:flex;align-items:center;gap:9px;text-align:left;background:#fff;border:1px solid #e4ebf5;border-radius:9px;padding:9px 10px;min-height:49px;cursor:pointer;color:#244364}
+ .agenda-page .ag-m-overview-list button strong{font-size:12px;width:52px;flex:none}
+ .agenda-page .ag-m-overview-list button span{font-size:12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;min-width:0}
+ .agenda-page .ag-m-rotation{padding:8px 10px;border:1px solid #e4ebf4;border-radius:9px;background:#fff}
+ .agenda-page .ag-m-rotation summary{cursor:pointer;font-size:12px;color:#214a7e;font-weight:800}
+ .agenda-page .ag-m-rotation p{font-size:12px;line-height:1.45;color:#607996;margin:7px 0}
+ .agenda-page .ag-m-rotation a{font-size:11px;font-weight:800;color:#2a60ad}
+ .agenda-page .ag-m-footnote{font-size:11px;line-height:1.5;color:#7489a1;margin:14px 4px 0}
+ .agenda-page .ag-all-fold{margin-top:12px}
+ .agenda-page .ag-places{border-radius:14px}
+ .agenda-page .ag-side{margin-top:11px}
+ .agenda-page .ag-credits{font-size:10px;padding:0 14px;line-height:1.45;margin:14px 0 0}
+ [hidden]{display:none!important}
+}
+@media(max-width:340px){
+ .agenda-page .ag-shell{padding:0 8px 20px}
+ .agenda-page .ag-m-app{padding:12px 9px}
+ .agenda-page .ag-m-strip button{flex-basis:72px}
+ .agenda-page .ag-m-monthgrid button{min-height:49px}
+}
+
 </style>
 </head>
 <body class="agenda-page" data-studio-page>
 <go-nexus-header></go-nexus-header>
 <main class="ag-shell" id="topo">
+
+  <!-- Mobile uses its own hierarchy: week/day first, month as an explicit alternate view. -->
+  <section class="ag-m-app" id="agMobile" aria-labelledby="agMTitle">
+    <header class="ag-m-header">
+      <div class="ag-m-overline">GO NEXUS <span aria-hidden="true">/</span> NATAL • RN</div>
+      <div class="ag-m-heading-row">
+        <div><h1 id="agMTitle">Agenda GO</h1><p id="agMMonthLabel">Novembro de 2026</p></div>
+        <span class="ag-m-ufrn">Comunidade UFRN</span>
+      </div>
+    </header>
+    <div class="ag-m-switch" role="tablist" aria-label="Visualização do calendário">
+      <button id="agMTabWeek" type="button" role="tab" aria-selected="true" aria-controls="agMWeekPanel">Esta semana</button>
+      <button id="agMTabMonth" type="button" role="tab" aria-selected="false" aria-controls="agMMonthPanel">Mês inteiro</button>
+    </div>
+    <section id="agMWeekPanel" role="tabpanel" aria-labelledby="agMTabWeek">
+      <div class="ag-m-weekbar">
+        <span id="agMWeekRange" aria-live="polite">Semana de novembro</span>
+        <div class="ag-m-weekbuttons">
+          <button id="agMPrev" type="button" aria-label="Semana anterior">‹</button>
+          <button id="agMToday" type="button">Hoje</button>
+          <button id="agMNext" type="button" aria-label="Próxima semana">›</button>
+        </div>
+      </div>
+      <div id="agMWeekStrip" class="ag-m-strip" role="group" aria-label="Escolher um dia da semana"></div>
+      <p class="ag-m-swipe-hint">Deslize os dias para o lado para ver toda a semana</p>
+    </section>
+    <section id="agMMonthPanel" class="ag-m-monthpanel" role="tabpanel" aria-labelledby="agMTabMonth" hidden>
+      <p class="ag-m-monthintro">Escolha o dia no calendário. A programação aparece abaixo.</p>
+      <div class="ag-m-weeknames" aria-hidden="true"><span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span></div>
+      <div id="agMMonthGrid" class="ag-m-monthgrid" role="group" aria-label="Dias de novembro de 2026"></div>
+      <div class="ag-m-key"><span><i class="ag-m-ki-local"></i> Encontro</span><span><i class="ag-m-ki-reide"></i> Reide</span><span><i class="ag-m-ki-max"></i> Max</span><span><i class="ag-m-ki-evento"></i> Evento</span></div>
+    </section>
+    <section class="ag-m-agenda" aria-labelledby="agMDayTitle">
+      <div class="ag-m-dayheading">
+        <div><p class="ag-m-heading-kicker">PROGRAMAÇÃO DO DIA</p><h2 id="agMDayTitle">Selecione uma data</h2></div>
+        <span id="agMDayCount" class="ag-m-daycount">—</span>
+      </div>
+      <div id="agMEvents" class="ag-m-events" aria-live="polite"></div>
+    </section>
+    <details class="ag-m-fold" id="agMWeekOverview">
+      <summary><span class="ag-m-fold-icon">≡</span><span><b>Todos os dias da semana</b><small>Resumo dos sete dias</small></span><span class="ag-m-caret">⌄</span></summary>
+      <div id="agMWeekOverviewList" class="ag-m-overview-list"></div>
+    </details>
+    <details class="ag-m-fold" id="agMRotationFold">
+      <summary><span class="ag-m-fold-icon">◇</span><span><b>Reides, Megas e Batalhas Max</b><small id="agMRotationCount">Chefes disponíveis nesta semana</small></span><span class="ag-m-caret">⌄</span></summary>
+      <div id="agMRotations" class="ag-m-rotations"></div>
+    </details>
+    <p class="ag-m-footnote">CTEC, BCZM e Setor 2 são locais habituais dos encontros. A realização presencial depende de confirmação no Campfire.</p>
+  </section>
   <div class="ag-hero" aria-label="Agenda do mês">
     <div class="ag-kicker">GO NEXUS / AGENDA 2026</div>
     <h1 id="agHeroTitle">Novembro <span>em jogo.</span></h1>

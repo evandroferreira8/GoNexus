@@ -36,7 +36,6 @@ async function check(width, height) {
 
       await page.locator('#agMTabWeek').click();
       assert.equal(await page.locator('#agMWeekPanel').isVisible(), true);
-      await page.locator('#agMPrev').click();
       await page.locator('#agMWeekStrip [data-m-day="2026-11-18"]').click();
       await assert.match(await page.locator('#agMEvents').innerText(), /Hora Lendária/);
     } else {

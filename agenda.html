@@ -197,24 +197,204 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 .ag-routine-benefits summary{font-size:.73rem;color:#275aa8;font-weight:800;cursor:pointer;list-style-position:inside}
 .ag-routine-benefits ul{margin:7px 0 0;padding:0 0 0 17px;color:#526b8f;font-size:.72rem;line-height:1.45}
 .ag-routine-benefits li+li{margin-top:3px}
+
+/* AGENDA GO / EDIÇÃO COMPACTA — blocos próprios, sem interferir no restante do site */
+.agenda-page .ag-shell{width:min(1120px,calc(100% - 24px))}
+.agenda-page .ag-hero{margin:12px 0;padding:20px 25px 18px;border-radius:19px;box-shadow:0 8px 19px #13295116;background:linear-gradient(125deg,#10294b,#204c87)}
+.agenda-page .ag-hero:after{height:180px;width:180px;right:-70px;top:-100px;border-width:25px}
+.agenda-page .ag-hero h1{margin:4px 0 4px!important;font-size:clamp(1.85rem,4.2vw,2.6rem)!important;letter-spacing:-.04em}
+.agenda-page .ag-hero p{font-size:.82rem;line-height:1.35}
+.agenda-page .ag-kicker{font-size:.63rem}
+.agenda-page .ag-meta{margin-top:10px;gap:6px}
+.agenda-page .ag-meta span{font-size:.68rem;padding:4px 9px}
+.agenda-page .ag-body{grid-template-columns:minmax(0,1fr) 255px;gap:12px}
+.agenda-page .ag-panel{padding:16px 18px;border-radius:16px;box-shadow:none}
+.agenda-page .ag-panel+.ag-panel{margin-top:11px}
+.agenda-page .ag-heading{align-items:center;margin-bottom:12px}
+.agenda-page .ag-heading h2{font-size:1.3rem!important}
+.agenda-page .ag-heading p{display:none}
+.agenda-page .ag-month{font-size:.75rem}
+.agenda-page .ag-weekdays,.agenda-page .ag-days{gap:4px}
+.agenda-page .ag-days button{min-height:37px;border-radius:8px;font-size:.83rem;font-weight:800;gap:0}
+.agenda-page .ag-weekdays{margin-bottom:4px}
+.agenda-page .ag-weekdays span{font-size:.62rem}
+.agenda-page .ag-dots{margin-top:2px;height:4px}
+.agenda-page .ag-dot{width:4px;height:4px}
+.ag-month-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:11px;color:#687e99;font-size:.68rem;font-weight:700}
+.ag-month-legend span{display:flex;gap:5px;align-items:center}
+.ag-month-legend i{width:7px;height:7px;border-radius:50%;display:inline-block;background:#6285c5}
+.ag-month-legend .ag-legend-local{background:#dca019}
+.ag-month-legend .ag-legend-spot{background:#d956a5}
+.agenda-page .ag-week-panel{margin-top:10px}
+.agenda-page .ag-week-titlebar{margin-bottom:3px}
+.agenda-page .ag-week-caption{font-size:.62rem;margin-bottom:2px;letter-spacing:.07em}
+.agenda-page .ag-week-panel h2{font-size:1.32rem!important}
+.agenda-page .ag-week-range{margin:4px 0 10px;font-size:.76rem}
+.agenda-page .ag-week-sub{display:none}
+.agenda-page .ag-week-strip{display:none!important}
+.agenda-page .ag-week-tools button{min-height:34px;min-width:34px;padding:5px 9px;font-size:.72rem}
+.agenda-page .ag-week-note{font-size:.68rem;margin:10px 0 0;padding-top:8px}
+.ag-week-entries{display:grid;gap:4px}
+.ag-day-row{border:1px solid #e3eaf4;border-radius:11px;overflow:hidden;background:#fff}
+.ag-day-row.is-focus{border-color:#7fa5e8;box-shadow:0 0 0 2px #3674dc14}
+.ag-day-row.is-current .ag-day-brief-date{color:#1f63ca}
+.ag-day-row-toggle{background:transparent;border:0;display:grid;grid-template-columns:45px minmax(0,1fr) auto;gap:9px;align-items:center;min-height:44px;padding:6px 10px;width:100%;text-align:left;cursor:pointer;color:#152f54}
+.ag-day-row-toggle:hover{background:#f3f7fd}
+.ag-day-row-toggle:focus-visible{outline:3px solid #3d73d7;outline-offset:-3px}
+.ag-day-brief-date{display:flex;align-items:center;flex-direction:column;font-size:.67rem;line-height:1.05;font-weight:800;color:#667e9d}
+.ag-day-brief-date strong{font-size:1.13rem;color:#163a66}
+.ag-day-brief-main{min-width:0}
+.ag-day-brief-main strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.83rem;line-height:1.25}
+.ag-day-brief-main small{display:block;font-size:.67rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#687e9a;margin-top:2px}
+.ag-day-brief-right{display:flex;align-items:center;gap:7px;color:#7b8fa7;font-size:.72rem}
+.ag-count-tag{padding:3px 6px;background:#eff3fa;border-radius:7px;font-weight:800;font-size:.65rem;color:#567398}
+.ag-day-row.is-focus .ag-day-row-toggle{background:#eaf2ff}
+.ag-day-expanded{padding:8px 10px 12px;border-top:1px solid #d9e6f8;background:#f8fbff;display:grid;gap:7px}
+.ag-compact-event{--evc:#3270cf;background:#fff;border:1px solid #e1e9f4;border-left:3px solid var(--evc);border-radius:9px;padding:8px 10px;min-width:0}
+.ag-compact-event[data-kind=max]{--evc:#b94f9f}.ag-compact-event[data-kind=reide]{--evc:#7259bf}.ag-compact-event[data-kind=natal]{--evc:#d49b20}.ag-compact-event[data-kind=holofote]{--evc:#d5942a}.ag-compact-event[data-kind=amizade]{--evc:#18937f}.ag-compact-event[data-kind=comunidade]{--evc:#18937f}
+.ag-compact-event-head{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.ag-compact-event-head strong{font-size:.83rem;color:#173256;line-height:1.28}
+.ag-compact-event-type{font-size:.61rem;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:var(--evc)}
+.ag-compact-event-where{display:block;font-size:.72rem;color:#426084;margin:4px 0 0;line-height:1.3}
+.ag-compact-event-note{font-size:.68rem;font-weight:750;color:#92690d;margin:4px 0 0}
+.ag-mini-detail{margin:4px 0 0;border-top:1px solid #edf1f6}
+.ag-mini-detail summary{list-style:none;cursor:pointer;color:#205bb2;font-size:.7rem;font-weight:800;padding:7px 0 2px}
+.ag-mini-detail summary::-webkit-details-marker{display:none}
+.ag-mini-detail summary:after{content:"⌄";margin-left:5px}
+.ag-mini-detail[open] summary:after{content:"⌃"}
+.ag-mini-detail p,.ag-mini-detail li{font-size:.74rem;line-height:1.43;color:#536a87}
+.ag-mini-detail p{margin:7px 0}
+.ag-mini-detail ul{padding-left:16px;margin:7px 0}
+.ag-mini-action{display:flex;gap:13px;flex-wrap:wrap;margin:8px 0 0}
+.ag-mini-action button,.ag-mini-action a{background:none;border:0;color:#1d5cb7;font-size:.72rem;font-weight:800;padding:0;cursor:pointer;text-decoration:none}
+.ag-mini-action button:hover,.ag-mini-action a:hover{text-decoration:underline}
+.ag-fold{border:1px solid #d5e2f3;border-radius:12px;background:#f6f9ff;margin-top:10px;overflow:hidden}
+.ag-fold>summary{list-style:none;display:flex;align-items:center;gap:10px;padding:11px 12px;cursor:pointer;color:#163358}
+.ag-fold>summary::-webkit-details-marker{display:none}
+.ag-fold>summary:focus-visible{outline:3px solid #3a75cf;outline-offset:-3px}
+.ag-fold>summary>span:nth-child(2){flex:1;min-width:0}
+.ag-fold>summary b{font-size:.83rem}
+.ag-fold>summary small{display:block;font-size:.68rem;color:#677f9f;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ag-fold-icon{display:grid;place-items:center;width:34px;height:34px;flex:none;border-radius:9px;background:#e3efff;font-size:1.1rem;color:#2762b9}
+.ag-fold-arrow{display:block;transform:rotate(0deg);transition:transform .2s;font-size:1.2rem;color:#5e789b}
+.ag-fold[open] .ag-fold-arrow,.ag-places[open] .ag-fold-arrow{transform:rotate(180deg)}
+.ag-rotations-fold .ag-feature-grid{margin:0;padding:8px 10px 12px;display:grid;grid-template-columns:1fr 1fr;gap:6px;border-top:1px solid #d8e5f5}
+.ag-rotations-fold .ag-feature{border:1px solid #dce5f2;border-left:3px solid var(--fc);border-top:1px solid #dce5f2;background:#fff;padding:8px 10px}
+.ag-rotations-fold .ag-feature strong{font-size:.8rem;margin:3px 0}
+.ag-rotations-fold .ag-feature p{display:none}
+.ag-rotations-fold .ag-feature .ag-feature-date{font-size:.65rem;margin:2px 0}
+.ag-rotations-fold .ag-feature a{font-size:.68rem}
+.ag-all-fold{margin-top:10px;background:#fff}
+.ag-all-fold>.ag-all-panel{border:0!important;padding:12px!important;box-shadow:none!important;margin:0!important;border-top:1px solid #e2e9f3}
+.ag-all-fold .ag-filters{margin-bottom:8px}
+.ag-all-fold .ag-event{padding:9px;min-height:0;box-shadow:none}
+.ag-all-fold .ag-list{gap:5px}
+.ag-all-fold .ag-date{min-height:50px}
+.ag-all-fold .ag-day{font-size:1.35rem}
+.ag-all-fold .ag-event{grid-template-columns:50px minmax(0,1fr)}
+.ag-all-fold .ag-event h3{font-size:.88rem}
+.ag-all-fold .ag-event .ag-when{font-size:.67rem}
+.ag-all-fold .ag-event .ag-content p{font-size:.73rem}
+.ag-all-fold .ag-event .ag-actions{margin-top:6px}
+.ag-places{border:1px solid #d5e1f0;background:#fff;border-radius:16px;overflow:hidden}
+.ag-places>summary{display:flex;gap:10px;align-items:center;padding:13px 11px;list-style:none;cursor:pointer}
+.ag-places>summary::-webkit-details-marker{display:none}
+.ag-places>summary b{font-size:.85rem;color:#153760}
+.ag-places>summary small{display:block;color:#70839e;font-size:.68rem;margin-top:2px}
+.ag-places>summary>span:nth-child(2){flex:1}
+.ag-places-mark{display:grid;place-items:center;width:33px;height:33px;flex:none;border-radius:10px;background:#fff1ca;color:#a46e14;font-size:1.2rem;font-weight:900}
+.ag-places-content{border-top:1px solid #e9eef5;padding:10px 12px 13px}
+.ag-place-line{display:flex;flex-direction:column;gap:2px;margin-bottom:9px}
+.ag-place-line b{font-size:.78rem;color:#164f9f}
+.ag-place-line span{font-size:.73rem;color:#637b99}
+.ag-place-divider{height:1px;background:#e8edf5;margin:13px 0}
+.ag-places-content>p{font-size:.73rem;color:#6a7f96;line-height:1.45;margin:9px 0}
+.ag-places-event{display:flex;gap:7px;align-items:center;font-size:.74rem}
+.ag-places-event strong{font-size:1.12rem;color:#1e569e}
+.ag-places-location{font-size:.73rem;font-weight:750;color:#425f80;margin-top:5px}
+.ag-places-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.ag-places-links a{font-size:.72rem;color:#2460bd;font-weight:800;text-decoration:none}
+.ag-disclaimer{font-size:.7rem;color:#7588a2;margin:10px 2px}
+.ag-all-fold .ag-all-panel .ag-results-info{margin-bottom:7px}
+@media(max-width:900px){
+ .agenda-page .ag-body{display:flex;flex-direction:column;gap:10px}
+ .agenda-page .ag-main,.agenda-page .ag-side{width:100%;min-width:0}
+ .agenda-page .ag-hero{padding:17px 18px;border-radius:15px}
+ .agenda-page .ag-hero h1{font-size:2rem!important}
+ .agenda-page .ag-panel{padding:13px}
+ .agenda-page .ag-panel+.ag-panel{margin-top:9px}
+ .agenda-page .ag-days button{min-height:38px}
+ .ag-places-content{display:block}
+ .agenda-page .ag-week-note{line-height:1.4}
+}
+@media(max-width:520px){
+ .agenda-page .ag-shell{width:calc(100% - 16px)}
+ .agenda-page .ag-hero{margin:8px 0 10px;padding:13px 15px}
+ .agenda-page .ag-hero h1{font-size:1.72rem!important}
+ .agenda-page .ag-hero p{font-size:.73rem}
+ .agenda-page .ag-kicker{font-size:.59rem}
+ .agenda-page .ag-meta{margin-top:6px}
+ .agenda-page .ag-meta span{font-size:.61rem;padding:3px 7px}
+ .agenda-page .ag-panel{padding:11px;border-radius:12px}
+ .agenda-page .ag-heading{margin-bottom:8px}
+ .agenda-page .ag-heading h2{font-size:1.17rem!important}
+ .agenda-page .ag-weekdays,.agenda-page .ag-days{gap:3px}
+ .agenda-page .ag-days button{min-height:34px;border-radius:6px;font-size:.76rem}
+ .agenda-page .ag-week-titlebar{gap:5px}
+ .agenda-page .ag-week-panel h2{font-size:1.14rem!important}
+ .agenda-page .ag-week-tools{gap:3px}
+ .agenda-page .ag-week-tools button{min-height:30px;min-width:30px;padding:5px 7px;font-size:.68rem}
+ .agenda-page .ag-week-range{font-size:.73rem;margin:4px 0 7px}
+ .ag-day-row-toggle{min-height:42px;grid-template-columns:37px minmax(0,1fr) auto;gap:6px;padding:5px 7px}
+ .ag-day-brief-main strong{font-size:.78rem}
+ .ag-day-brief-main small{font-size:.65rem}
+ .ag-day-expanded{padding:8px}
+ .ag-rotations-fold .ag-feature-grid{grid-template-columns:1fr}
+ .agenda-page .ag-week-panel .ag-week-note{font-size:.65rem}
+ .ag-places>summary{padding:10px}
+}
+
+
+.ag-rotations-fold .ag-feature>summary{list-style:none;cursor:pointer;display:flex;gap:7px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.ag-rotations-fold .ag-feature>summary::-webkit-details-marker{display:none}
+.ag-rotations-fold .ag-feature>summary:focus-visible{outline:2px solid #205dc5;outline-offset:3px}
+.ag-rotations-fold .ag-feature>summary:after{content:"⌄";font-size:.85rem;color:#7288a7;margin-left:auto}
+.ag-rotations-fold .ag-feature[open]>summary:after{content:"⌃"}
+.ag-rotations-fold .ag-feature .ag-feature-detail{margin:8px 0 0;border-top:1px solid #edf0f6;padding-top:7px}
+.ag-rotations-fold .ag-feature .ag-feature-detail p{display:block;font-size:.71rem;line-height:1.42;margin:0;color:#566f8c}
+.ag-rotations-fold .ag-feature .ag-feature-detail a{display:inline-block;margin-top:7px}
+.agenda-page .ag-side{align-self:start}
+@media(min-width:901px){.ag-places{position:sticky;top:10px}}
+
+
+/* Calendário editorial: legível no desktop, minimalista no celular */
+@media(min-width:901px){
+ .agenda-page .ag-days button{align-items:flex-start;justify-content:flex-start;gap:3px;min-height:61px;padding:7px 9px;text-align:left}
+ .agenda-page .ag-days button>span:first-child{font-size:.92rem;line-height:1.1}
+ .agenda-page .ag-days button .ag-dots{justify-content:flex-start}
+ .ag-cell-name{display:block;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#71849f;font-size:.6rem;font-weight:650;line-height:1.2}
+ .agenda-page .ag-days button[aria-pressed=true] .ag-cell-name{color:#e5edff}
+}
+@media(max-width:900px){.ag-cell-name{display:none}}
+
 </style>
 </head>
 <body class="agenda-page" data-studio-page>
 <go-nexus-header></go-nexus-header>
 <main class="ag-shell" id="topo">
-  <div class="ag-hero">
+  <div class="ag-hero" aria-label="Agenda do mês">
     <div class="ag-kicker">GO NEXUS / AGENDA 2026</div>
     <h1 id="agHeroTitle">Novembro <span>em jogo.</span></h1>
-    <p>Um quadro para descobrir o que acontece no Pokémon GO e onde a comunidade se encontra em Natal.</p>
-    <div class="ag-meta"><span id="agMetaMonth">Novembro de 2026</span><span>Horário de Natal · UTC−3</span><span>Fontes oficiais</span></div>
+    <p>Eventos do jogo e encontros na UFRN, sem complicação.</p>
+    <div class="ag-meta"><span id="agMetaMonth">Novembro de 2026</span><span>Horário de Natal · UTC−3</span></div>
   </div>
   <div class="ag-body">
     <div class="ag-main">
-      <section class="ag-panel" aria-labelledby="calendarioTitulo">
-        <div class="ag-heading"><div><h2 id="calendarioTitulo">Visão do mês</h2><p>Toque em uma data para ver o que está programado.</p></div><span class="ag-month" id="agMonthText">NOV / 2026</span></div>
+      <section class="ag-panel ag-month-panel" aria-labelledby="calendarioTitulo">
+        <div class="ag-heading"><div><h2 id="calendarioTitulo">Calendário</h2><p>Escolha um dia para ver a semana.</p></div><span class="ag-month" id="agMonthText">NOV / 2026</span></div>
         <div class="ag-weekdays" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
         <div id="agDays" class="ag-days" role="group" aria-label="Dias de novembro de 2026"></div>
-        <div class="ag-legend" aria-label="Legenda do calendário"><span><i></i>Natal</span><span class="evento"><i></i>Eventos</span><span class="reide"><i></i>Reides</span><span class="max"><i></i>Max</span><span class="comunidade"><i></i>Comunidade</span><span class="holofote"><i></i>Holofote</span><span class="amizade"><i></i>Amizade</span></div>
+        <div class="ag-month-legend" aria-label="Legenda"><span><i class="ag-legend-local"></i> Encontro</span><span><i class="ag-legend-game"></i> Evento do jogo</span><span><i class="ag-legend-spot"></i> Destaque</span></div>
       </section>
 
       <section class="ag-panel ag-week-panel" id="agWeekSection" aria-labelledby="agWeekTitle">
@@ -226,16 +406,20 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
             <button type="button" id="agNextWeek" aria-label="Próxima semana" title="Próxima semana">→</button>
           </div>
         </div>
-        <p class="ag-week-sub">Veja os eventos do jogo e os encontros habituais da UFRN. Selecione uma semana para conhecer os destaques e locais.</p>
+        <p class="ag-week-sub">Toque no dia para ver o que acontece, onde e quando.</p>
         <div class="ag-week-range" id="agWeekRange" aria-live="polite">Programação da semana</div>
-        <div class="ag-week-strip" id="agWeekStrip" role="group" aria-label="Dias da semana"></div>
-        <div id="agWeekSpecialNote" class="ag-week-warning" hidden>Durante 9 a 15 de novembro, a programação especial substitui algumas Descobertas Diárias. Não presuma que os encontros semanais habituais ocorrerão: confirme no Campfire.</div>
-        <div class="ag-feature-head"><h3>Em destaque na semana</h3><small>Rotações do jogo · não são encontros</small></div>
-        <div id="agWeekFeatures" class="ag-feature-grid" aria-live="polite"></div>
+        <div class="ag-week-strip" id="agWeekStrip" role="group" aria-label="Dias da semana" hidden></div>
         <div class="ag-week-entries" id="agWeekEntries" aria-live="polite"></div>
-        <p class="ag-week-note"><b>Locais habituais não significam encontros confirmados.</b> Os temas divulgados no Campfire ajudam a planejar; confirme horário e criação do encontro com a comunidade antes de sair.</p>
+        <div id="agWeekSpecialNote" class="ag-week-warning" hidden>Durante 9 a 15 de novembro, a programação especial substitui algumas Descobertas Diárias. Não presuma que os encontros semanais habituais ocorrerão: confirme no Campfire.</div>
+        <details class="ag-fold ag-rotations-fold" id="agRotationFold">
+          <summary><span class="ag-fold-icon">◆</span><span><b>Chefes e rotações da semana</b><small id="agRotationCount">Reides, Megas e Batalhas Max</small></span><span class="ag-fold-arrow" aria-hidden="true">⌄</span></summary>
+          <div id="agWeekFeatures" class="ag-feature-grid" aria-live="polite"></div>
+        </details>
+        <p class="ag-week-note">Os locais informados são <b>pontos habituais</b>. Confirme o encontro no Campfire antes de sair.</p>
       </section>
-      <section class="ag-panel" aria-labelledby="programacaoTitulo">
+      <details class="ag-fold ag-all-fold" id="agAllDetails">
+        <summary><span class="ag-fold-icon">▦</span><span><b>Explorar todos os eventos</b><small id="agAllSummary">Lista completa, busca e filtros</small></span><span class="ag-fold-arrow" aria-hidden="true">⌄</span></summary>
+        <section class="ag-panel ag-all-panel" aria-labelledby="programacaoTitulo">
         <div class="ag-heading"><div><h2 id="programacaoTitulo">Todos os eventos</h2><p>Lista detalhada do mês, com filtros por atividade e local habitual.</p></div></div>
         <div class="ag-filters" id="agFilters" role="group" aria-label="Filtrar tipo de evento">
           <button type="button" data-filter="todos" aria-pressed="true">Tudo</button>
@@ -252,25 +436,30 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         </div>
         <div class="ag-results-info"><span id="agCount" aria-live="polite">Carregando programação…</span><button type="button" id="agClear" hidden>Limpar filtros</button></div>
         <div id="agList" class="ag-list" aria-live="polite"></div>
-      </section>
+        </section>
+      </details>
     </div>
-    <aside class="ag-side" aria-label="Comunidade de Natal">
-      <div class="ag-rail">
-        <section class="ag-local" id="agLocalPanel">
-          <div class="ag-local-kicker">PRESENCIAL / NATAL • RN</div>
-          <h2>O jogo também acontece aqui.</h2>
-          <p class="ag-local-lede" id="agLocalLede">A comunidade de Natal está entre os encontros brasileiros divulgados para a Área Selvagem GO.</p>
-          <div class="ag-local-big"><strong id="agLocalDates">14–15</strong><span><b id="agLocalMonth">NOVEMBRO</b><br><span id="agLocalName">Área Selvagem GO</span></span></div>
-          <div class="ag-location" id="agLocalLocation">UFRN · Setor 2 do CCHLA</div>
-          <p class="ag-local-note" id="agLocalNote">Ponto de encontro divulgado oficialmente. O horário específico da atividade presencial deve ser confirmado com os organizadores. O evento global no jogo ocorre das 10h às 18h.</p>
-          <div class="ag-local-links"><a id="agLocalSource" href="https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil" target="_blank" rel="noopener noreferrer">Anúncio oficial ↗</a><a id="agLocalMap" href="https://www.google.com/maps/search/?api=1&amp;query=UFRN%20Setor%202%20CCHLA%20Natal" target="_blank" rel="noopener noreferrer">Ver local ↗</a></div>
-        </section>
-        <section class="ag-info">
-          <h3>Seu encontro não apareceu?</h3>
-          <p>As <b>rotinas semanais</b> usam os locais habituais informados pela comunidade. Elas são referências de planejamento e <b>não garantem que o encontro foi criado no Campfire</b>.</p>
-          <p>Os registros podem ser atualizados no arquivo <b>agenda-eventos.json</b> do GO Nexus, sem mudar o layout.</p>
-        </section>
-      </div>
+
+    <aside class="ag-side" aria-label="Pontos habituais da comunidade">
+      <details class="ag-places" id="agLocalPanel">
+        <summary>
+          <span class="ag-places-mark">◎</span>
+          <span><b>Onde nos encontramos</b><small>CTEC · BCZM · Setor 2</small></span>
+          <span class="ag-fold-arrow" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="ag-places-content">
+          <div class="ag-place-line"><b>CTEC</b><span>Segunda Max e Hora Lendária</span></div>
+          <div class="ag-place-line"><b>BCZM</b><span>Holofote e Sexta da Amizade</span></div>
+          <div class="ag-place-line"><b>Setor 2</b><span>Dia Comunitário</span></div>
+          <div id="agLocalExtras"><div class="ag-place-divider"></div>
+          <p id="agLocalLede">Encontro da Área Selvagem GO</p>
+          <div class="ag-places-event"><strong id="agLocalDates">14–15</strong><span><b id="agLocalMonth">NOVEMBRO</b> · <span id="agLocalName">Área Selvagem GO</span></span></div>
+          <div id="agLocalLocation" class="ag-places-location">UFRN · Setor 2 do CCHLA</div>
+          <p id="agLocalNote">A programação presencial pode mudar. Confirme os horários com a organização.</p>
+          <div class="ag-places-links"><a id="agLocalSource" href="https://pokemongo.com/pt-BR/gowildarea/global" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a><a id="agLocalMap" href="https://www.google.com/maps/search/?api=1&amp;query=UFRN%20Setor%202%20CCHLA%20Natal" target="_blank" rel="noopener noreferrer">Ver mapa ↗</a></div></div>
+        </div>
+      </details>
+      <p class="ag-disclaimer">GO Nexus é independente. Programação sujeita a alterações.</p>
     </aside>
   </div>
   <p class="ag-credits">GO Nexus é um projeto independente. Datas sujeitas a alterações oficiais. <a href="index.html">Voltar ao início</a>.</p>
@@ -281,7 +470,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 <script>
 (function(){
   'use strict';
-  var data=[], rotations=[], weeklyRoutines=[], selectedDay=null, selectedFilter='todos', weekStart=null;
+  var data=[], rotations=[], weeklyRoutines=[], selectedDay=null, selectedFilter='todos', weekStart=null, weekFocusDay=null;
   var daysNode=document.getElementById('agDays'),list=document.getElementById('agList');
   var count=document.getElementById('agCount'),search=document.getElementById('agSearch');
   var future=document.getElementById('agFuture'), clear=document.getElementById('agClear');
@@ -326,40 +515,55 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   }
   function eventDateSort(a,b){return a.start.localeCompare(b.start)||(prio[a.kind]??9)-(prio[b.kind]??9)||a.title.localeCompare(b.title)}
   function getWeekEntries(date){return data.filter(function(e){return applies(e,date)}).sort(eventDateSort)}
-  function weekCard(e,date){
-    var statusText=e.routine?'Rotina habitual':e.location_status==='habitual'?'Local habitual':e.kind==='natal'?'Encontro divulgado':'Evento do jogo';
-    var topic=e.topic?'<p class="ag-week-topic"><b>Em destaque:</b> '+esc(e.topic)+'</p>':'';
-    var dayInfo=e.day_details&&e.day_details[date]||null;
-    var dayDetail=dayInfo?'<p class="ag-day-extra"><b>Programação de '+esc(datePt(date,{weekday:'long',day:'numeric'}))+':</b> '+esc(dayInfo)+'</p>':'';
-    var bonuses=e.bonuses?'<ul class="ag-day-bonuses">'+e.bonuses.map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>':'';
-    var bonus=e.bonus?'<p class="ag-day-extra"><b>Bônus:</b> '+esc(e.bonus)+'</p>':'';
-    var benefits=e.benefits&&e.benefits.length?'<details class="ag-routine-benefits"><summary>Ver bônus desta atividade</summary><ul>'+e.benefits.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></details>':'';
-    var loc=e.location?'<span><b>'+(e.location_status==='habitual'?'Local habitual':'Local')+':</b> '+esc(e.location)+'</span>':'';
-    var when='<span><b>Horário:</b> '+esc(timeLabel(e))+'</span>';
-    var details=e.routine?'Rotina da comunidade. Consulte o Campfire para confirmar se há encontro publicado.':e.description;
-    var actions=(e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">'+(e.routine?'Ver tema no Campfire ↗':'Fonte ↗')+'</a>':'')+
-      (e.maps?'<a href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Ver local ↗</a>':'')+
-      '<button type="button" data-add="'+esc(e.id)+'">'+(e.routine?'Salvar previsão +':'Adicionar +')+'</button>';
-    return '<article class="ag-week-item" data-kind="'+esc(e.kind)+'">'+
-      '<div class="ag-week-item-top"><span class="ag-week-kind">'+esc(categories[e.kind]||'Evento')+'</span><span class="ag-week-badge '+(e.location_status==='habitual'||e.routine?'local':'')+'">'+esc(statusText)+'</span></div>'+
-      '<h3>'+esc(e.title)+'</h3>'+topic+bonus+'<div class="ag-week-detail">'+when+loc+'</div>'+dayDetail+bonuses+benefits+
-      '<p class="ag-week-topic" style="margin:7px 0 0;color:#6a7d95;font-size:.73rem">'+esc(details)+'</p>'+
-      '<div class="ag-week-actions">'+actions+'</div></article>';
-  }
 
+  function compactEvent(e,date){
+    var location=e.location_short||e.location||'';
+    var when=e.from&&e.to?timeLabel(e):'Horário a confirmar';
+    var note=e.routine||e.location_status==='habitual'?'Ponto habitual · confirme o encontro no Campfire':e.kind==='natal'?'Encontro divulgado · confirme o horário presencial':'Evento do jogo';
+    var topic=e.topic?' · '+e.topic:'';
+    var subject=esc(e.title+topic);
+    var dayInfo=e.day_details&&e.day_details[date]||null;
+    var extra=dayInfo?'<p><b>Neste dia:</b> '+esc(dayInfo)+'</p>':'';
+    var bonuses=e.bonuses&&e.bonuses.length?'<ul>'+e.bonuses.map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>':'';
+    var benefits=e.benefits&&e.benefits.length?'<ul>'+e.benefits.map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>':'';
+    var bonus=e.bonus?'<p><b>Bônus:</b> '+esc(e.bonus)+'</p>':'';
+    var actions=(e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte ↗</a>':'')+
+      (e.maps?'<a href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Mapa ↗</a>':'')+
+      '<button type="button" data-add="'+esc(e.id)+'">Salvar no calendário</button>'+
+      '<button type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
+    return '<article class="ag-compact-event" data-kind="'+esc(e.kind)+'"><div class="ag-compact-event-head">'+
+      '<span class="ag-compact-event-type">'+esc(categories[e.kind]||'Evento')+'</span><strong>'+subject+'</strong></div>'+
+      '<span class="ag-compact-event-where">'+esc(when)+(location?' · '+esc(location):'')+'</span>'+
+      (e.routine||e.location_status==='habitual'?'<p class="ag-compact-event-note">'+esc(note)+'</p>':'')+
+      '<details class="ag-mini-detail"><summary>Detalhes e ações</summary><p>'+esc(e.description||'Confira a programação da atividade.')+'</p>'+
+      extra+bonus+bonuses+benefits+'<div class="ag-mini-action">'+actions+'</div></details></article>';
+  }
+  function briefLine(evs){
+    if(!evs.length)return {title:'Sem atividades previstas',sub:'Toque para ver o dia'};
+    var best=evs.find(function(e){return e.routine})||evs.find(function(e){return e.kind==='natal'})||
+      evs.find(function(e){return e.start===e.end})||evs[0];
+    var title=best.title+(best.topic?' · '+best.topic:'');
+    var location=best.location_short||(best.location&&best.location.indexOf('Biblioteca Central')>=0?'BCZM':
+      best.location&&best.location.indexOf('Complexo Tecnológico')>=0?'CTEC':
+      best.location&&best.location.indexOf('Setor 2')>=0?'Setor 2':'');
+    var subtitle=(location|| (best.from&&best.to?timeLabel(best):'Evento do jogo'));
+    if(evs.length>1)subtitle+=' · +'+(evs.length-1)+' no dia';
+    return {title:title,sub:subtitle};
+  }
   function drawWeekFeatures(start,end){
     var visible=rotations.filter(function(e){return e.start<=end&&e.end>=start});
     var order={reide:0,mega:1,max:2,sombra:3,evento:4};
     visible.sort(function(a,b){return (order[a.kind]??9)-(order[b.kind]??9)||a.start.localeCompare(b.start)});
     var kinds={reide:'Reides 5★',mega:'Megarreides',max:'Batalhas Max',sombra:'Reides Sombrosas',evento:'Evento'};
+    document.getElementById('agRotationCount').textContent=visible.length+
+      (visible.length===1?' rotação nesta semana':' rotações nesta semana')+' · toque para abrir';
     document.getElementById('agWeekFeatures').innerHTML=visible.length?visible.map(function(e){
-      var rangeLabel=dateNum(e.start)+'–'+dateNum(e.end)+' '+monthShort;
-      if(e.start===e.end)rangeLabel=dateNum(e.start)+' '+monthShort;
-      return '<article class="ag-feature" data-kind="'+esc(e.kind)+'"><div class="ag-feature-label">'+esc(kinds[e.kind]||'Programação')+'</div>'+
-        '<strong>'+esc(e.title)+'</strong><span class="ag-feature-date">'+esc(rangeLabel)+'</span>'+
-        '<p>'+esc(e.description)+'</p>'+
-        (e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a>':'')+'</article>';
-    }).join(''):'<div class="ag-week-empty" style="grid-column:1/-1">Sem rotações adicionais informadas nesta semana.</div>';
+      var r=dateNum(e.start)+(e.start===e.end?'':'–'+dateNum(e.end))+' '+monthShort;
+      return '<details class="ag-feature" data-kind="'+esc(e.kind)+'"><summary><span class="ag-feature-label">'+esc(kinds[e.kind]||'Evento')+'</span>'+
+        '<strong>'+esc(e.title)+'</strong><span class="ag-feature-date">'+esc(r)+'</span></summary>'+
+        '<div class="ag-feature-detail"><p>'+esc(e.description)+'</p>'+
+        (e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Anúncio oficial ↗</a>':'')+'</div></details>';
+    }).join(''):'<p class="ag-week-empty" style="grid-column:1/-1">Não há rotações adicionais cadastradas.</p>';
     document.getElementById('agWeekSpecialNote').hidden=end<'2026-11-09'||start>'2026-11-15';
   }
   function drawWeek(){
@@ -367,26 +571,38 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     if(weekStart<firstWeek())weekStart=firstWeek();
     if(weekStart>lastWeek())weekStart=lastWeek();
     var end=addDays(weekStart,6), isSingle=weekStart.slice(0,7)===end.slice(0,7);
-    document.getElementById('agWeekRange').textContent=isSingle?(dateNum(weekStart)+'–'+dateNum(end)+' '+monthShort+' · '+month.slice(0,4)):(dateNum(weekStart)+' '+datePt(weekStart,{month:'short'})+' – '+dateNum(end)+' '+datePt(end,{month:'short'})+' · '+month.slice(0,4));
+    document.getElementById('agWeekRange').textContent=isSingle?
+      (dateNum(weekStart)+'–'+dateNum(end)+' '+monthShort+' · '+month.slice(0,4)):
+      (dateNum(weekStart)+' '+datePt(weekStart,{month:'short'})+' – '+dateNum(end)+' '+datePt(end,{month:'short'})+' · '+month.slice(0,4));
     document.getElementById('agWeekToday').textContent=current.slice(0,7)===month?'Esta semana':'Início';
     document.getElementById('agPrevWeek').disabled=weekStart<=firstWeek();
     document.getElementById('agNextWeek').disabled=weekStart>=lastWeek();
-    var tabs='',grouped='', names=['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
-    for(var n=0;n<7;n++){
-      var date=addDays(weekStart,n),evs=getWeekEntries(date), inMonth=date.slice(0,7)===month;
-      var pressed=date===selectedDay||(selectedDay===null&&date===current);
-      tabs+='<button type="button" class="ag-week-tab '+(date===current?'is-today ':'')+(inMonth?'':'is-outside')+
-        '" data-week-day="'+date+'" aria-pressed="'+pressed+'" aria-label="'+names[n]+', '+datePt(date,{day:'numeric',month:'long'})+', '+evs.length+' eventos">'+
-        '<small>'+names[n]+'</small><strong>'+dateNum(date)+'</strong><em>'+evs.length+'</em></button>';
-      if(inMonth&&evs.length){
-        grouped+='<div class="ag-week-daygroup" id="ag-day-'+date+'"><div class="ag-week-day-label"><strong>'+
-          names[n]+' '+dateNum(date)+'</strong><small>'+monthShort+' · '+evs.length+' '+(evs.length===1?'evento':'eventos')+'</small></div>'+
-          '<div class="ag-week-items">'+evs.map(function(e){return weekCard(e,date)}).join('')+'</div></div>';
+    var tabs='',rows='',names=['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
+    if(weekFocusDay===null){
+      if(current>=weekStart&&current<=end&&current.slice(0,7)===month)weekFocusDay=current;
+      else{
+        weekFocusDay='';
+        for(var i=0;i<7;i++){var dt=addDays(weekStart,i);if(dt.slice(0,7)===month&&getWeekEntries(dt).length){weekFocusDay=dt;break}}
       }
     }
+    for(var n=0;n<7;n++){
+      var date=addDays(weekStart,n),evs=getWeekEntries(date),inMonth=date.slice(0,7)===month;
+      var active=date===weekFocusDay,brief=briefLine(inMonth?evs:[]);
+      tabs+='<button type="button" data-week-day="'+date+'" aria-pressed="'+active+'">'+names[n]+' '+dateNum(date)+'</button>';
+      if(!inMonth)continue;
+      var title=evs.length?brief.title:'Sem evento cadastrado';
+      rows+='<div class="ag-day-row '+(active?'is-focus ':'')+(date===current?'is-current':'')+'">'+
+        '<button class="ag-day-row-toggle" type="button" data-week-focus="'+date+'" aria-expanded="'+active+'" aria-label="'+
+        esc(names[n]+' '+dateNum(date)+': '+title)+'"><span class="ag-day-brief-date">'+names[n]+'<strong>'+dateNum(date)+'</strong></span>'+
+        '<span class="ag-day-brief-main"><strong>'+esc(title)+'</strong><small>'+esc(brief.sub)+'</small></span>'+
+        '<span class="ag-day-brief-right">'+(evs.length>1?'<span class="ag-count-tag">'+evs.length+'</span>':'')+
+        '<span aria-hidden="true">'+(active?'⌃':'⌄')+'</span></span></button>'+
+        (active?'<div class="ag-day-expanded">'+(evs.length?evs.map(function(e){return compactEvent(e,date)}).join(''):
+          '<p class="ag-week-empty">Sem atividades previstas para este dia.</p>')+'</div>':'')+'</div>';
+    }
     document.getElementById('agWeekStrip').innerHTML=tabs;
+    document.getElementById('agWeekEntries').innerHTML=rows;
     drawWeekFeatures(weekStart,end);
-    document.getElementById('agWeekEntries').innerHTML=grouped||'<div class="ag-week-empty">Sem atividades cadastradas nesta semana.</div>';
   }
   function drawDays(){
     var html='';
@@ -398,7 +614,9 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       var matches=data.filter(function(e){return applies(e,iso)});
       var kinds=Array.from(new Set(matches.map(function(e){return e.kind}))).sort(function(a,b){return (prio[a]||9)-(prio[b]||9)}).slice(0,3);
       var dots=kinds.map(function(k){return '<i class="ag-dot '+esc(k)+'"></i>'}).join('');
-      html+='<button type="button" data-day="'+iso+'" class="'+(matches.length?'':'no-event ')+(iso===current?'today':'')+'" aria-label="'+day+' de '+monthLong+', '+matches.length+' eventos" aria-pressed="'+(selectedDay===iso)+'"><span>'+day+'</span><span class="ag-dots" aria-hidden="true">'+dots+'</span></button>';
+      var highlight=matches.find(function(e){return e.routine})||matches.find(function(e){return e.kind==='natal'})||matches.find(function(e){return e.start===iso})||matches[0];
+      var shortName=highlight?(highlight.topic||highlight.title):'';
+      html+='<button type="button" data-day="'+iso+'" class="'+(matches.length?'':'no-event ')+(iso===current?'today':'')+'" aria-label="'+day+' de '+monthLong+', '+matches.length+' eventos" aria-pressed="'+(selectedDay===iso)+'"><span>'+day+'</span><span class="ag-dots" aria-hidden="true">'+dots+'</span>'+(shortName?'<small class="ag-cell-name">'+esc(shortName)+'</small>':'')+'</button>';
     }
     daysNode.innerHTML=html;
   }
@@ -437,6 +655,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     document.querySelectorAll('#agFilters button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.filter===selectedFilter))});
     var visible=data.filter(matches).sort(eventDateSort);
     list.innerHTML=visible.length?visible.map(card).join(''):'<div class="ag-empty">Nenhum evento encontrado para este filtro. Experimente outra data ou categoria.</div>';
+    document.getElementById('agAllSummary').textContent=visible.length+' registros · busca e filtros';
     count.textContent=visible.length+' '+(visible.length===1?'registro':'registros')+' na programação';
     clear.hidden=!selectedDay&&selectedFilter==='todos'&&!search.value&&!future.checked;
   }
@@ -470,13 +689,13 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   daysNode.addEventListener('click',function(ev){
     var btn=ev.target.closest('[data-day]');if(!btn)return;
     selectedDay=selectedDay===btn.dataset.day?null:btn.dataset.day;render();
-    weekStart=startWeek(btn.dataset.day);drawWeek();
+    weekStart=startWeek(btn.dataset.day);weekFocusDay=btn.dataset.day;drawWeek();
     document.getElementById('agWeekSection').scrollIntoView({behavior:'smooth',block:'start'});
   });
 
-  document.getElementById('agPrevWeek').addEventListener('click',function(){if(weekStart>firstWeek()){weekStart=addDays(weekStart,-7);selectedDay=null;render()}});
-  document.getElementById('agNextWeek').addEventListener('click',function(){if(weekStart<lastWeek()){weekStart=addDays(weekStart,7);selectedDay=null;render()}});
-  document.getElementById('agWeekToday').addEventListener('click',function(){selectedDay=null;weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();render()});
+  document.getElementById('agPrevWeek').addEventListener('click',function(){if(weekStart>firstWeek()){weekStart=addDays(weekStart,-7);weekFocusDay=null;selectedDay=null;render()}});
+  document.getElementById('agNextWeek').addEventListener('click',function(){if(weekStart<lastWeek()){weekStart=addDays(weekStart,7);weekFocusDay=null;selectedDay=null;render()}});
+  document.getElementById('agWeekToday').addEventListener('click',function(){selectedDay=null;weekFocusDay=null;weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();render()});
   document.getElementById('agWeekStrip').addEventListener('click',function(ev){
     var btn=ev.target.closest('[data-week-day]');if(!btn)return;
     var chosen=btn.dataset.weekDay;
@@ -485,6 +704,11 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     render();
     var el=document.getElementById('ag-day-'+chosen);
     if(el)el.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+  document.getElementById('agWeekEntries').addEventListener('click',function(ev){
+    var btn=ev.target.closest('[data-week-focus]');if(!btn)return;
+    weekFocusDay=weekFocusDay===btn.dataset.weekFocus?'':btn.dataset.weekFocus;
+    drawWeek();
   });
   document.getElementById('agFilters').addEventListener('click',function(ev){var btn=ev.target.closest('[data-filter]');if(btn){selectedFilter=btn.dataset.filter;render()}});
   search.addEventListener('input',render);future.addEventListener('change',render);
@@ -511,9 +735,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var singles=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];
     data=singles.concat(expandRoutines(weeklyRoutines));
     weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();
+    weekFocusDay=null;
+    if(typeof window!=='undefined'&&window.matchMedia&&window.matchMedia('(min-width:901px)').matches)document.getElementById('agLocalPanel').open=true;
     var natal=data.filter(function(e){return e.kind==='natal'}).sort(function(a,b){return a.start.localeCompare(b.start)});
-    var localPanel=document.getElementById('agLocalPanel');
-    localPanel.hidden=!natal.length;
+    document.getElementById('agLocalExtras').hidden=!natal.length;
     if(natal.length){
       var first=natal[0], last=natal[natal.length-1];
       document.getElementById('agLocalDates').textContent=dateNum(first.start)+(first.start!==last.start?'–'+dateNum(last.start):'');

@@ -366,6 +366,17 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 .agenda-page .ag-side{align-self:start}
 @media(min-width:901px){.ag-places{position:sticky;top:10px}}
 
+
+/* Calendário editorial: legível no desktop, minimalista no celular */
+@media(min-width:901px){
+ .agenda-page .ag-days button{align-items:flex-start;justify-content:flex-start;gap:3px;min-height:61px;padding:7px 9px;text-align:left}
+ .agenda-page .ag-days button>span:first-child{font-size:.92rem;line-height:1.1}
+ .agenda-page .ag-days button .ag-dots{justify-content:flex-start}
+ .ag-cell-name{display:block;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#71849f;font-size:.6rem;font-weight:650;line-height:1.2}
+ .agenda-page .ag-days button[aria-pressed=true] .ag-cell-name{color:#e5edff}
+}
+@media(max-width:900px){.ag-cell-name{display:none}}
+
 </style>
 </head>
 <body class="agenda-page" data-studio-page>
@@ -603,7 +614,9 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       var matches=data.filter(function(e){return applies(e,iso)});
       var kinds=Array.from(new Set(matches.map(function(e){return e.kind}))).sort(function(a,b){return (prio[a]||9)-(prio[b]||9)}).slice(0,3);
       var dots=kinds.map(function(k){return '<i class="ag-dot '+esc(k)+'"></i>'}).join('');
-      html+='<button type="button" data-day="'+iso+'" class="'+(matches.length?'':'no-event ')+(iso===current?'today':'')+'" aria-label="'+day+' de '+monthLong+', '+matches.length+' eventos" aria-pressed="'+(selectedDay===iso)+'"><span>'+day+'</span><span class="ag-dots" aria-hidden="true">'+dots+'</span></button>';
+      var highlight=matches.find(function(e){return e.routine})||matches.find(function(e){return e.kind==='natal'})||matches.find(function(e){return e.start===iso})||matches[0];
+      var shortName=highlight?(highlight.topic||highlight.title):'';
+      html+='<button type="button" data-day="'+iso+'" class="'+(matches.length?'':'no-event ')+(iso===current?'today':'')+'" aria-label="'+day+' de '+monthLong+', '+matches.length+' eventos" aria-pressed="'+(selectedDay===iso)+'"><span>'+day+'</span><span class="ag-dots" aria-hidden="true">'+dots+'</span>'+(shortName?'<small class="ag-cell-name">'+esc(shortName)+'</small>':'')+'</button>';
     }
     daysNode.innerHTML=html;
   }

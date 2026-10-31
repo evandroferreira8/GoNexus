@@ -354,6 +354,18 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
  .ag-places>summary{padding:10px}
 }
 
+
+.ag-rotations-fold .ag-feature>summary{list-style:none;cursor:pointer;display:flex;gap:7px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.ag-rotations-fold .ag-feature>summary::-webkit-details-marker{display:none}
+.ag-rotations-fold .ag-feature>summary:focus-visible{outline:2px solid #205dc5;outline-offset:3px}
+.ag-rotations-fold .ag-feature>summary:after{content:"⌄";font-size:.85rem;color:#7288a7;margin-left:auto}
+.ag-rotations-fold .ag-feature[open]>summary:after{content:"⌃"}
+.ag-rotations-fold .ag-feature .ag-feature-detail{margin:8px 0 0;border-top:1px solid #edf0f6;padding-top:7px}
+.ag-rotations-fold .ag-feature .ag-feature-detail p{display:block;font-size:.71rem;line-height:1.42;margin:0;color:#566f8c}
+.ag-rotations-fold .ag-feature .ag-feature-detail a{display:inline-block;margin-top:7px}
+.agenda-page .ag-side{align-self:start}
+@media(min-width:901px){.ag-places{position:sticky;top:10px}}
+
 </style>
 </head>
 <body class="agenda-page" data-studio-page>
@@ -711,6 +723,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     data=singles.concat(expandRoutines(weeklyRoutines));
     weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();
     weekFocusDay=null;
+    if(typeof window!=='undefined'&&window.matchMedia&&window.matchMedia('(min-width:901px)').matches)document.getElementById('agLocalPanel').open=true;
     var natal=data.filter(function(e){return e.kind==='natal'}).sort(function(a,b){return a.start.localeCompare(b.start)});
     var localPanel=document.getElementById('agLocalPanel');
     localPanel.hidden=!natal.length;

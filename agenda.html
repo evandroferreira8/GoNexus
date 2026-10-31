@@ -315,13 +315,14 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     if(weekStart<firstWeek())weekStart=firstWeek();
     if(weekStart>lastWeek())weekStart=lastWeek();
     var end=addDays(weekStart,6), isSingle=weekStart.slice(0,7)===end.slice(0,7);
-    document.getElementById('agWeekRange').textContent=''+dateNum(weekStart)+'–'+dateNum(end)+' '+datePt(end,{month:'short'})+(isSingle?'':' · '+datePt(weekStart,{month:'short'}))+' · '+month.slice(0,4);
+    document.getElementById('agWeekRange').textContent=isSingle?(dateNum(weekStart)+'–'+dateNum(end)+' '+monthShort+' · '+month.slice(0,4)):(dateNum(weekStart)+' '+datePt(weekStart,{month:'short'})+' – '+dateNum(end)+' '+datePt(end,{month:'short'})+' · '+month.slice(0,4));
+    document.getElementById('agWeekToday').textContent=current.slice(0,7)===month?'Esta semana':'Início';
     document.getElementById('agPrevWeek').disabled=weekStart<=firstWeek();
     document.getElementById('agNextWeek').disabled=weekStart>=lastWeek();
     var tabs='',grouped='', names=['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
     for(var n=0;n<7;n++){
       var date=addDays(weekStart,n),evs=getWeekEntries(date), inMonth=date.slice(0,7)===month;
-      var pressed=date===(selectedDay||current);
+      var pressed=date===selectedDay||(selectedDay===null&&date===current);
       tabs+='<button type="button" class="ag-week-tab '+(date===current?'is-today ':'')+(inMonth?'':'is-outside')+
         '" data-week-day="'+date+'" aria-pressed="'+pressed+'" aria-label="'+names[n]+', '+datePt(date,{day:'numeric',month:'long'})+', '+evs.length+' eventos">'+
         '<small>'+names[n]+'</small><strong>'+dateNum(date)+'</strong><em>'+evs.length+'</em></button>';

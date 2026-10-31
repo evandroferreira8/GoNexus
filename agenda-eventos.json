@@ -2,7 +2,7 @@
   "month": "2026-11",
   "updated_at": "2026-10-31",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Eventos globais seguem fontes oficiais. Temas das rotinas vêm do calendário do Campfire quando disponíveis. Os locais da UFRN são habituais, não anúncios de encontros já confirmados.",
+  "editorial_note": "Fontes: anúncios oficiais de Natureza Selvagem e Área Selvagem Global, mais as artes de calendário compartilhadas pelo usuário (Jogada Excelente). Rotações são disponibilidade no jogo, não encontros presenciais. Locais semanais são pontos habituais e não confirmam criação de eventos no Campfire. Pokémon não revelados aparecem como 'a confirmar'.",
   "events": [
     {
       "id": "halloween-2",
@@ -23,7 +23,7 @@
       "end": "2026-11-13",
       "from": "10:00",
       "to": "20:00",
-      "description": "Preparação para a Área Selvagem GO: Reides e Batalhas Max especiais.",
+      "description": "Aquecimento para a Área Selvagem: Zacian Espada Coroada e Zamazenta Escudo Coroado em Reides; Regidrago Dinamax estreia, além de Ralts, Machop, Registeel, Latias e Latios em Batalhas Max. Limite de Reides remotas de 30 por dia, Caixa Misteriosa com Meltan Brilhante e chance de Gimmighoul Brilhante.",
       "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
     },
     {
@@ -56,8 +56,16 @@
       "end": "2026-11-15",
       "from": "10:00",
       "to": "18:00",
-      "description": "Dois dias de evento global, com Pokémon incríveis e Batalhas Max.",
-      "source": "https://pokemongo.com/gowildarea/global?hl=pt_BR"
+      "description": "Tema Aço e Dragão, estreia de Duraludon Gigamax, Dialga Dinamax (sábado), Palkia Dinamax (domingo), Reides especiais, Pokémon incríveis e Bolas Safári GO.",
+      "source": "https://pokemongo.com/pt-BR/gowildarea/global",
+      "day_details": {
+        "2026-11-14": "Sábado: Dialga Dinamax e Duraludon Gigamax nas Batalhas Max; Zekrom e Kyurem Branco em Reides de 5 estrelas; Machamp com jaqueta em Reides de 3 estrelas. Pokémon incríveis e Bolas Safári GO.",
+        "2026-11-15": "Domingo: Palkia Dinamax e Duraludon Gigamax nas Batalhas Max; Reshiram e Kyurem Preto em Reides de 5 estrelas; Machamp com jaqueta em Reides de 3 estrelas. Pokémon incríveis e Bolas Safári GO."
+      },
+      "bonuses": [
+        "Todos: até 3 Passes de Reide gratuitos/dia e limite de 1.600 Partículas Max/dia.",
+        "Com ingresso: até 6 Passes de Reide gratuitos/dia, limite de 3.200 Partículas Max/dia, 2× Doces por captura e maior chance de Brilhantes."
+      ]
     },
     {
       "id": "natal-dia-1",
@@ -93,7 +101,7 @@
       "end": "2026-11-23",
       "from": "10:00",
       "to": "20:00",
-      "description": "Batalhas Max, Partículas Max e retorno de Eternatus.",
+      "description": "Trilhas Dinamax, de 16 a 23 de novembro, com retorno de Eternatus e atividades de Batalhas Max. Consulte os detalhes oficiais.",
       "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026"
     },
     {
@@ -104,8 +112,11 @@
       "end": "2026-11-19",
       "from": "18:00",
       "to": "19:00",
-      "description": "Aumento de aparições e dobro de Doces por captura.",
-      "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026"
+      "description": "Grookey, Scorbunny e Sobble em destaque na Hora do Holofote. Ponto habitual de encontro: BCZM/UFRN; presença da comunidade depende de confirmação.",
+      "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026",
+      "location": "Biblioteca Central Zila Mamede (BCZM / UFRN)",
+      "location_status": "habitual",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Biblioteca%20Central%20Zila%20Mamede%20UFRN%20Natal"
     },
     {
       "id": "eternamax",
@@ -142,6 +153,50 @@
       "to": null,
       "description": "Data anunciada oficialmente; detalhes e horários ainda a confirmar.",
       "source": "https://pokemongo.com/pt-BR/news/save-the-date-s24"
+    },
+    {
+      "id": "twilight-calls",
+      "title": "Chamados do Crepúsculo",
+      "kind": "evento",
+      "start": "2026-11-24",
+      "end": "2026-11-30",
+      "from": null,
+      "to": null,
+      "description": "Evento indicado na programação mensal; detalhes ainda não divulgados.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "nature-max-registeel",
+      "title": "Hora Max: Registeel Dinamax",
+      "kind": "max",
+      "start": "2026-11-11",
+      "end": "2026-11-11",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Registeel Dinamax em Batalhas Max de cinco estrelas.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "nature-max-regidrago",
+      "title": "Hora Max: Regidrago Dinamax",
+      "kind": "max",
+      "start": "2026-11-12",
+      "end": "2026-11-12",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Estreia de Regidrago Dinamax em Batalhas Max de cinco estrelas.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "nature-max-latios",
+      "title": "Hora Max: Latias e Latios Dinamax",
+      "kind": "max",
+      "start": "2026-11-13",
+      "end": "2026-11-13",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Latias e Latios Dinamax em Batalhas Max de cinco estrelas.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
     }
   ],
   "weekly_routines": [
@@ -166,6 +221,10 @@
         "2026-11-30": {
           "theme": "Cryogonal",
           "source": "https://campfire.scopely.com/discover/collection/c58fe279-a683-4fdc-8ba5-174c24782b5d"
+        },
+        "2026-11-16": {
+          "theme": "Surpresa / a confirmar",
+          "source": null
         }
       }
     },
@@ -205,7 +264,8 @@
       "topics": {
         "2026-11-05": {
           "theme": "Teddiursa",
-          "source": "https://campfire.scopely.com/discover/collection/44f424fc-dd89-4fe5-85eb-8cf96853361a"
+          "source": "https://campfire.scopely.com/discover/collection/44f424fc-dd89-4fe5-85eb-8cf96853361a",
+          "bonus": "2× PE por evolução"
         },
         "2026-11-19": {
           "theme": "Grookey, Scorbunny e Sobble",
@@ -213,7 +273,8 @@
         },
         "2026-11-26": {
           "theme": "Noibat",
-          "source": "https://campfire.scopely.com/discover/collection/01ff15bc-f50a-4e49-989c-6addf62ab4f9"
+          "source": "https://campfire.scopely.com/discover/collection/01ff15bc-f50a-4e49-989c-6addf62ab4f9",
+          "bonus": "2× Doces por captura"
         }
       }
     },
@@ -242,5 +303,135 @@
       }
     }
   ],
-  "local_guide": "Os locais dos encontros recorrentes são pontos habituais informados pela comunidade; não indicam automaticamente que um encontro já foi criado ou confirmado no Campfire."
+  "local_guide": "Os locais dos encontros recorrentes são pontos habituais informados pela comunidade; não indicam automaticamente que um encontro já foi criado ou confirmado no Campfire.",
+  "rotations": [
+    {
+      "id": "giratina-origem",
+      "kind": "reide",
+      "start": "2026-11-01",
+      "end": "2026-11-03",
+      "title": "Giratina — Forma Origem",
+      "description": "Chefão de Reides de cinco estrelas. A rotação começou em 28 de outubro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "giratina-alterada",
+      "kind": "reide",
+      "start": "2026-11-04",
+      "end": "2026-11-08",
+      "title": "Giratina — Forma Alterada",
+      "description": "Chefão de Reides de cinco estrelas; Hora Lendária em 4 de novembro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "wild-raids",
+      "kind": "reide",
+      "start": "2026-11-09",
+      "end": "2026-11-13",
+      "title": "Reides Natureza Selvagem",
+      "description": "Zacian Espada Coroada e Zamazenta Escudo Coroado em cinco estrelas; Druddigon e Orthworm em três estrelas.",
+      "source_label": "Anúncio oficial",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "cresselia-darkrai",
+      "kind": "reide",
+      "start": "2026-11-16",
+      "end": "2026-11-24",
+      "title": "Cresselia e Darkrai",
+      "description": "Reides de cinco estrelas; Hora Lendária em 18 de novembro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "deoxys",
+      "kind": "reide",
+      "start": "2026-11-25",
+      "end": "2026-11-30",
+      "title": "Deoxys — quatro formas",
+      "description": "Formas Normal, Ataque, Defesa e Velocidade. Continua até 1º de dezembro; Hora Lendária em 25 de novembro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "sableye",
+      "kind": "mega",
+      "start": "2026-11-01",
+      "end": "2026-11-08",
+      "title": "Mega Sableye",
+      "description": "Megarreides. A rotação começou em 28 de outubro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "banette",
+      "kind": "mega",
+      "start": "2026-11-16",
+      "end": "2026-11-24",
+      "title": "Mega Banette",
+      "description": "Megarreides de 16 a 24 de novembro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "metagross",
+      "kind": "mega",
+      "start": "2026-11-25",
+      "end": "2026-11-30",
+      "title": "Mega Metagross",
+      "description": "Megarreides. A rotação continua até 1º de dezembro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "machop-max",
+      "kind": "max",
+      "start": "2026-11-02",
+      "end": "2026-11-08",
+      "title": "Machop Dinamax",
+      "description": "Batalhas Max; Segunda Max em 2 de novembro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "wild-max",
+      "kind": "max",
+      "start": "2026-11-09",
+      "end": "2026-11-13",
+      "title": "Batalhas Max · Natureza Selvagem",
+      "description": "Ralts (1 estrela), Machop (2 estrelas), Registeel (11), Regidrago (12), Latias e Latios (13) em cinco estrelas.",
+      "source_label": "Anúncio oficial",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "max-surpresa",
+      "kind": "max",
+      "start": "2026-11-16",
+      "end": "2026-11-22",
+      "title": "Batalhas Max · surpresa",
+      "description": "Chefe ainda não revelado na programação mensal; detalhes sujeitos a confirmação.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "espurr-max",
+      "kind": "max",
+      "start": "2026-11-23",
+      "end": "2026-11-29",
+      "title": "Espurr Dinamax",
+      "description": "Batalhas Max; Segunda Max em 23 de novembro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "cryogonal-max",
+      "kind": "max",
+      "start": "2026-11-30",
+      "end": "2026-11-30",
+      "title": "Cryogonal Dinamax",
+      "description": "Batalhas Max a partir de 30 de novembro; prossegue até 6 de dezembro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    },
+    {
+      "id": "tornadus-shadow",
+      "kind": "sombra",
+      "start": "2026-11-04",
+      "end": "2026-11-30",
+      "title": "Tornadus Sombroso",
+      "description": "Reides Sombrosas; a programação mensal indica até 1º de dezembro.",
+      "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    }
+  ]
 }

@@ -2,7 +2,7 @@
   "month": "2026-11",
   "updated_at": "2026-10-31",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Agenda baseada em anúncios oficiais. Programações presenciais sem horário divulgado aparecem como 'Horário a confirmar'.",
+  "editorial_note": "Eventos globais seguem fontes oficiais. Temas das rotinas vêm do calendário do Campfire quando disponíveis. Os locais da UFRN são habituais, não anúncios de encontros já confirmados.",
   "events": [
     {
       "id": "halloween-2",
@@ -126,8 +126,11 @@
       "end": "2026-11-21",
       "from": "14:00",
       "to": "17:00",
-      "description": "Pawniard em destaque, bônus de captura e evolução para Kingambit.",
-      "source": "https://pokemongo.com/en/news/communityday-november-2026-pawniard"
+      "description": "Pawniard em destaque, bônus de captura e evolução para Kingambit. Local habitual dos encontros: Setor 2. Encontro presencial ainda sujeito à confirmação no Campfire.",
+      "source": "https://pokemongo.com/en/news/communityday-november-2026-pawniard",
+      "location": "Setor 2 da UFRN",
+      "location_status": "habitual",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Setor%202%20UFRN%20Natal"
     },
     {
       "id": "super-mega-28",
@@ -140,5 +143,104 @@
       "description": "Data anunciada oficialmente; detalhes e horários ainda a confirmar.",
       "source": "https://pokemongo.com/pt-BR/news/save-the-date-s24"
     }
-  ]
+  ],
+  "weekly_routines": [
+    {
+      "id": "segunda-max",
+      "weekday": 1,
+      "title": "Segunda Max",
+      "kind": "max",
+      "location": "Complexo Tecnológico de Engenharia (CTEC / UFRN)",
+      "location_short": "CTEC",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Complexo%20Tecnologico%20de%20Engenharia%20CTEC%20UFRN%20Natal",
+      "description": "Encontro habitual de Batalhas Max. Pokémon e horário são informados conforme a programação.",
+      "topics": {
+        "2026-11-02": {
+          "theme": "Machop",
+          "source": "https://campfire.scopely.com/discover/collection/7744fa1d-1e1b-4fe0-8de2-37051e8213da"
+        },
+        "2026-11-23": {
+          "theme": "Espurr",
+          "source": "https://campfire.scopely.com/discover/collection/37bf1d93-59c9-4887-96b3-2b358dfd614b"
+        },
+        "2026-11-30": {
+          "theme": "Cryogonal",
+          "source": "https://campfire.scopely.com/discover/collection/c58fe279-a683-4fdc-8ba5-174c24782b5d"
+        }
+      }
+    },
+    {
+      "id": "hora-lendaria",
+      "weekday": 3,
+      "title": "Hora Lendária",
+      "kind": "reide",
+      "location": "Complexo Tecnológico de Engenharia (CTEC / UFRN)",
+      "location_short": "CTEC",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Complexo%20Tecnologico%20de%20Engenharia%20CTEC%20UFRN%20Natal",
+      "description": "Encontro habitual de Reides lendárias. Confira o Pokémon da semana e a confirmação no Campfire.",
+      "topics": {
+        "2026-11-04": {
+          "theme": "Giratina",
+          "source": "https://campfire.scopely.com/discover/collection/5222de4a-f24f-44f8-a299-0988998754fa"
+        },
+        "2026-11-18": {
+          "theme": "Cresselia e Darkrai",
+          "source": "https://campfire.scopely.com/discover/collection/73bf5aad-a5a1-493d-881a-ba4970496859"
+        },
+        "2026-11-25": {
+          "theme": "Deoxys",
+          "source": "https://campfire.scopely.com/discover/collection/8f5c82d8-46af-40bd-b2b7-e38062a14574"
+        }
+      }
+    },
+    {
+      "id": "hora-holofote",
+      "weekday": 4,
+      "title": "Hora do Holofote",
+      "kind": "holofote",
+      "location": "Biblioteca Central Zila Mamede (BCZM / UFRN)",
+      "location_short": "BCZM",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Biblioteca%20Central%20Zila%20Mamede%20UFRN%20Natal",
+      "description": "Ponto habitual de encontro da Hora do Holofote. A programação da semana pode variar.",
+      "topics": {
+        "2026-11-05": {
+          "theme": "Teddiursa",
+          "source": "https://campfire.scopely.com/discover/collection/44f424fc-dd89-4fe5-85eb-8cf96853361a"
+        },
+        "2026-11-19": {
+          "theme": "Grookey, Scorbunny e Sobble",
+          "source": "https://campfire.scopely.com/discover/collection/b03e018d-bf9b-4f58-a370-15a883fd2d58"
+        },
+        "2026-11-26": {
+          "theme": "Noibat",
+          "source": "https://campfire.scopely.com/discover/collection/01ff15bc-f50a-4e49-989c-6addf62ab4f9"
+        }
+      }
+    },
+    {
+      "id": "sexta-amizade",
+      "weekday": 5,
+      "title": "Sexta da Amizade",
+      "kind": "amizade",
+      "location": "Biblioteca Central Zila Mamede (BCZM / UFRN)",
+      "location_short": "BCZM",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Biblioteca%20Central%20Zila%20Mamede%20UFRN%20Natal",
+      "description": "Encontro habitual da comunidade para jogar e interagir. Horário e realização dependem da organização.",
+      "topics": {
+        "2026-11-06": {
+          "theme": "Sexta da Amizade",
+          "source": "https://campfire.scopely.com/discover/collection/f25d4113-d292-4b4b-aea0-b74efbda47fb"
+        },
+        "2026-11-20": {
+          "theme": "Sexta da Amizade",
+          "source": "https://campfire.scopely.com/discover/collection/eb541725-c808-4af7-9c03-6c0029063763"
+        },
+        "2026-11-27": {
+          "theme": "Sexta da Amizade",
+          "source": "https://campfire.scopely.com/discover/collection/5013ed41-77a0-4d9f-afbf-9cbbc295709b"
+        }
+      }
+    }
+  ],
+  "local_guide": "Os locais dos encontros recorrentes são pontos habituais informados pela comunidade; não indicam automaticamente que um encontro já foi criado ou confirmado no Campfire."
 }

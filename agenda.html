@@ -377,6 +377,166 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 }
 @media(max-width:900px){.ag-cell-name{display:none}}
 
+
+/* Monthly editorial calendar v3 — roomy desktop grid, readable phone controls.
+   Replaces the tiny-dot + truncated-title model. */
+.agenda-page .ag-body{display:block!important}
+.agenda-page .ag-main,.agenda-page .ag-side{width:100%;min-width:0}
+.agenda-page .ag-hero{margin:14px 0;padding:18px 24px;border-radius:18px}
+.agenda-page .ag-hero h1{font-size:clamp(1.8rem,3.3vw,2.45rem)!important}
+.agenda-page .ag-panel{border:1px solid #dce5f1;border-radius:18px;padding:21px 23px}
+.agenda-page .ag-month-panel{padding:22px 24px}
+.agenda-page .ag-month-heading{display:flex;align-items:end;gap:12px;margin-bottom:21px}
+.agenda-page .ag-month-heading h2{font-size:clamp(1.55rem,2.5vw,2rem)!important;line-height:1.1;letter-spacing:-.045em;color:#112f56!important}
+.agenda-page .ag-month-heading p{display:block;font-size:.79rem;color:#6c819c;margin-top:6px}
+.ag-section-kicker{color:#3974bb;font-size:.67rem;font-weight:800;letter-spacing:.1em;margin-bottom:5px}
+.agenda-page .ag-month{background:#edf3fc;color:#36629b;border-radius:99px;padding:8px 12px;font-size:.76rem}
+.ag-month-workspace{display:grid;grid-template-columns:minmax(0,1fr) 294px;gap:18px;align-items:stretch;min-width:0}
+.ag-calendar-surface{background:#f7faff;border:1px solid #e1eaf5;border-radius:17px;padding:15px;min-width:0}
+.ag-calendar-surface .ag-weekdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;margin-bottom:8px}
+.ag-calendar-surface .ag-weekdays span{font-size:.69rem;color:#8294ad;letter-spacing:.055em;text-align:center}
+.agenda-page .ag-calendar-surface .ag-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}
+.agenda-page .ag-calendar-surface .ag-days>span{min-height:80px}
+.agenda-page .ag-calendar-surface .ag-days button{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ justify-content:flex-start!important;text-align:left!important;gap:0;
+ position:relative;padding:9px 8px!important;min-height:80px!important;
+ border:1px solid #e0e7f3!important;border-radius:10px!important;
+ background:#fff!important;box-shadow:0 1px 3px #09244707!important;
+ color:#19385f!important;opacity:1!important;transition:background .15s,border-color .15s!important;
+}
+.agenda-page .ag-calendar-surface .ag-days button:hover{background:#edf5ff!important;border-color:#a9c6ee!important;transform:none!important}
+.agenda-page .ag-calendar-surface .ag-days button[aria-pressed=true]{background:#e4efff!important;border:2px solid #2a69d0!important;padding:8px 7px!important}
+.agenda-page .ag-calendar-surface .ag-days button.today:not([aria-pressed=true]){border:2px solid #4882db!important;padding:8px 7px!important}
+.agenda-page .ag-calendar-surface .ag-days button.no-event{background:#fcfdff!important;color:#8c9bb0!important}
+.agenda-page .ag-calendar-surface .ag-days button:focus-visible{outline:3px solid #2268c9!important;outline-offset:2px}
+.ag-tile-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:3px}
+.ag-tile-num{font:800 1rem/1.1 system-ui,sans-serif;color:#17385f}
+.ag-tile-total{font-size:.59rem;font-weight:800;line-height:1.25;color:#53739f;background:#edf3fc;border-radius:5px;padding:2px 4px;white-space:nowrap}
+.agenda-page .ag-days button[aria-pressed=true] .ag-tile-num{color:#1355b6}
+.ag-day-chips{display:flex;flex-direction:column;gap:4px;margin-top:8px;width:100%;min-width:0}
+.ag-day-chip{--cat-bg:#e5f0ff;--cat-fg:#27558f;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:100%;max-width:100%;border-radius:5px;padding:4px 5px;background:var(--cat-bg);color:var(--cat-fg);font-size:.62rem;line-height:1.2;font-weight:800}
+.ag-day-chip[data-kind=natal],.ag-day-chip[data-kind=amizade],.ag-day-chip[data-kind=comunidade]{--cat-bg:#fff0ca;--cat-fg:#79531b}
+.ag-day-chip[data-kind=reide],.ag-day-chip[data-kind=mega],.ag-day-chip[data-kind=sombra]{--cat-bg:#eae5fa;--cat-fg:#5543a0}
+.ag-day-chip[data-kind=max]{--cat-bg:#fbe2ef;--cat-fg:#8a3267}
+.ag-day-chip[data-kind=holofote]{--cat-bg:#fff0d7;--cat-fg:#8e591a}
+.ag-day-chip[data-kind=destaque]{--cat-bg:#ffebdc;--cat-fg:#985329}
+.ag-tile-bars{display:none}
+.ag-month-legend{display:flex;gap:12px;flex-wrap:wrap;margin:13px 0 0;padding:0}
+.ag-month-legend span{display:flex;align-items:center;gap:6px;color:#617996;font-weight:750;font-size:.67rem}
+.ag-month-legend i{display:inline-block;width:17px;height:6px;border-radius:10px;background:#4686d5}
+.ag-month-legend .ag-lc-local{background:#e3ab38}
+.ag-month-legend .ag-lc-reide{background:#7661c5}
+.ag-month-legend .ag-lc-max{background:#cc65ad}
+.ag-month-legend .ag-lc-evento{background:#4686d5}
+.ag-month-selected{display:flex;flex-direction:column;background:#fff;border:1px solid #d8e4f4;border-radius:17px;min-width:0;padding:17px 17px 15px}
+.ag-selected-kicker{font-size:.64rem;letter-spacing:.09em;font-weight:800;color:#6d86a4;margin-bottom:8px}
+.ag-peek-details{border:0;min-width:0}
+.ag-peek-details>summary{display:flex;justify-content:space-between;align-items:center;gap:10px;list-style:none;cursor:pointer}
+.ag-peek-details>summary::-webkit-details-marker{display:none}
+.ag-peek-details>summary>span:first-child{flex:1;min-width:0}
+.ag-peek-details>summary strong{display:block;color:#132f55;font-size:1.2rem;letter-spacing:-.025em;line-height:1.2}
+.ag-peek-details>summary small{display:block;margin-top:6px;color:#6c829d;font-size:.73rem;line-height:1.35}
+.ag-peek-details>summary:focus-visible{outline:3px solid #2166c7;outline-offset:3px;border-radius:5px}
+.ag-peek-chevron{font-size:1.3rem;color:#6b84a7;transition:transform .16s}
+.ag-peek-details[open] .ag-peek-chevron{transform:rotate(180deg)}
+.ag-peek-items{display:flex;flex-direction:column;gap:0;overflow:auto;max-height:344px;margin-top:13px;padding-right:3px}
+.ag-peek-row{display:flex;gap:9px;padding:10px 0;border-top:1px solid #ebf0f8;align-items:start}
+.ag-peek-mark{width:5px;min-height:36px;border-radius:4px;background:#4386d2;flex:none}
+.ag-peek-row[data-kind=natal] .ag-peek-mark,.ag-peek-row[data-kind=comunidade] .ag-peek-mark,.ag-peek-row[data-kind=amizade] .ag-peek-mark{background:#daa72c}
+.ag-peek-row[data-kind=reide] .ag-peek-mark{background:#7163bf}
+.ag-peek-row[data-kind=max] .ag-peek-mark{background:#d25eab}
+.ag-peek-row[data-kind=holofote] .ag-peek-mark{background:#d69b31}
+.ag-peek-row strong{display:block;font-size:.83rem;line-height:1.32;color:#20395c}
+.ag-peek-row small{display:block;font-size:.7rem;margin-top:4px;line-height:1.3;color:#667e9d}
+.ag-peek-empty{padding:14px 0;font-size:.8rem;color:#6c829f}
+.ag-peek-go-week{display:flex;align-items:center;justify-content:space-between;border:0;border-radius:10px;background:#185ac0;color:#fff;padding:11px 12px;font-size:.77rem;font-weight:800;text-align:left;margin-top:auto;cursor:pointer}
+.ag-peek-go-week:hover{background:#0d48ac}
+.ag-peek-go-week:focus-visible{outline:3px solid #1e66c7;outline-offset:2px}
+.agenda-page .ag-week-panel{margin-top:15px}
+.agenda-page .ag-week-panel h2{font-size:1.48rem!important}
+.agenda-page .ag-week-titlebar{margin-bottom:4px}
+.agenda-page .ag-week-entries{gap:8px}
+.agenda-page .ag-day-row{border-radius:11px}
+.agenda-page .ag-day-row-toggle{min-height:54px;padding:9px 12px;grid-template-columns:46px minmax(0,1fr) auto;gap:12px}
+.agenda-page .ag-day-brief-main strong{font-size:.87rem}
+.agenda-page .ag-day-brief-main small{font-size:.73rem}
+.agenda-page .ag-day-brief-date strong{font-size:1.25rem}
+.agenda-page .ag-day-expanded{padding:12px;gap:9px}
+.agenda-page .ag-compact-event{padding:11px 13px}
+.agenda-page .ag-compact-event-head strong{font-size:.86rem}
+.agenda-page .ag-compact-event-where{font-size:.74rem;margin-top:6px}
+.agenda-page .ag-rotations-fold,.agenda-page .ag-all-fold{margin-top:14px}
+.agenda-page .ag-side{margin-top:14px}
+.agenda-page .ag-places>summary{padding:15px 17px}
+.agenda-page .ag-places>summary b{font-size:.88rem}
+@media(max-width:900px){
+ .ag-month-workspace{grid-template-columns:minmax(0,1fr)}
+ .agenda-page .ag-month-panel{padding:18px}
+ .ag-calendar-surface{padding:13px}
+ .ag-month-selected{padding:13px 15px}
+ .ag-peek-details>summary strong{font-size:.99rem}
+ .ag-peek-go-week{margin-top:10px}
+ .ag-peek-items{max-height:220px}
+}
+@media(max-width:600px){
+ .agenda-page .ag-hero{margin:9px 0 10px;padding:16px 17px}
+ .agenda-page .ag-panel{padding:14px}
+ .agenda-page .ag-month-panel{padding:15px}
+ .agenda-page .ag-month-heading{margin-bottom:13px}
+ .agenda-page .ag-month-heading h2{font-size:1.44rem!important}
+ .agenda-page .ag-month-heading p{font-size:.72rem}
+ .ag-section-kicker{font-size:.59rem}
+ .agenda-page .ag-month{font-size:.63rem;padding:6px 8px}
+ .ag-calendar-surface{border-radius:12px;padding:10px 8px}
+ .ag-calendar-surface .ag-weekdays{gap:4px;margin-bottom:7px}
+ .ag-calendar-surface .ag-weekdays span{font-size:.61rem}
+ .agenda-page .ag-calendar-surface .ag-days{gap:5px}
+ .agenda-page .ag-calendar-surface .ag-days>span{min-height:58px}
+ .agenda-page .ag-calendar-surface .ag-days button{
+   min-height:58px!important;align-items:center!important;text-align:center!important;padding:7px 2px!important;
+   border-radius:9px!important;
+ }
+ .agenda-page .ag-calendar-surface .ag-days button[aria-pressed=true],
+ .agenda-page .ag-calendar-surface .ag-days button.today:not([aria-pressed=true]){padding:6px 1px!important}
+ .ag-tile-head{justify-content:center}
+ .ag-tile-num{font-size:1rem}
+ .ag-tile-total{position:absolute;right:2px;top:3px;font-size:.49rem;padding:1px 2px;line-height:1;min-width:10px}
+ .ag-day-chips{display:none}
+ .ag-tile-bars{display:flex;align-items:stretch;justify-content:center;gap:2px;width:min(78%,30px);height:6px;margin-top:11px;flex-shrink:0}
+ .ag-tile-bar{display:block;flex:1;border-radius:2px;background:#4386d3}
+ .ag-tile-bar[data-kind=natal],.ag-tile-bar[data-kind=comunidade],.ag-tile-bar[data-kind=amizade]{background:#dea82e}
+ .ag-tile-bar[data-kind=reide],.ag-tile-bar[data-kind=mega],.ag-tile-bar[data-kind=sombra]{background:#7761bb}
+ .ag-tile-bar[data-kind=max]{background:#d15eaa}
+ .ag-tile-bar[data-kind=holofote]{background:#e8aa35}
+ .ag-tile-bar[data-kind=destaque]{background:#ec8745}
+ .ag-month-legend{gap:8px 12px;margin-top:12px}
+ .ag-month-legend span{font-size:.64rem}
+ .ag-month-legend i{width:14px;height:5px}
+ .ag-month-selected{padding:12px 13px;border-radius:12px}
+ .ag-selected-kicker{font-size:.6rem;margin-bottom:4px}
+ .ag-peek-details>summary strong{font-size:.92rem}
+ .ag-peek-details>summary small{font-size:.69rem;margin-top:4px}
+ .ag-peek-items{max-height:210px}
+ .ag-peek-go-week{font-size:.73rem;padding:10px 11px}
+ .agenda-page .ag-week-panel h2{font-size:1.3rem!important}
+ .agenda-page .ag-day-row-toggle{min-height:53px;padding:8px 10px;grid-template-columns:39px minmax(0,1fr) auto;gap:8px}
+ .agenda-page .ag-day-brief-main strong{font-size:.82rem}
+ .agenda-page .ag-day-brief-main small{font-size:.69rem}
+ .agenda-page .ag-day-brief-date strong{font-size:1.13rem}
+ .agenda-page .ag-day-expanded{padding:9px}
+ .agenda-page .ag-compact-event{padding:10px}
+ .agenda-page .ag-month-selected,.agenda-page .ag-calendar-surface{width:100%;box-sizing:border-box}
+}
+@media(max-width:375px){
+ .agenda-page .ag-month-panel{padding:12px}
+ .ag-calendar-surface{padding:8px 6px}
+ .agenda-page .ag-calendar-surface .ag-days{gap:3px}
+ .agenda-page .ag-calendar-surface .ag-days button{min-height:55px!important}
+ .agenda-page .ag-month-heading h2{font-size:1.26rem!important}
+ .ag-month-legend span{font-size:.59rem}
+}
+
 </style>
 </head>
 <body class="agenda-page" data-studio-page>
@@ -391,10 +551,33 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   <div class="ag-body">
     <div class="ag-main">
       <section class="ag-panel ag-month-panel" aria-labelledby="calendarioTitulo">
-        <div class="ag-heading"><div><h2 id="calendarioTitulo">Calendário</h2><p>Escolha um dia para ver a semana.</p></div><span class="ag-month" id="agMonthText">NOV / 2026</span></div>
-        <div class="ag-weekdays" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
-        <div id="agDays" class="ag-days" role="group" aria-label="Dias de novembro de 2026"></div>
-        <div class="ag-month-legend" aria-label="Legenda"><span><i class="ag-legend-local"></i> Encontro</span><span><i class="ag-legend-game"></i> Evento do jogo</span><span><i class="ag-legend-spot"></i> Destaque</span></div>
+        <div class="ag-heading ag-month-heading">
+          <div><div class="ag-section-kicker">AGENDA GO / NOVEMBRO 2026</div><h2 id="calendarioTitulo">Seu mês em jogo.</h2><p>Selecione uma data para conferir o que acontece.</p></div>
+          <span class="ag-month" id="agMonthText">NOV / 2026</span>
+        </div>
+        <div class="ag-month-workspace">
+          <div class="ag-calendar-surface">
+            <div class="ag-weekdays" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
+            <div id="agDays" class="ag-days" role="group" aria-label="Datas de novembro de 2026"></div>
+            <div class="ag-month-legend" aria-label="Categorias dos eventos">
+              <span><i class="ag-lc-local"></i> Comunidade</span>
+              <span><i class="ag-lc-reide"></i> Reides</span>
+              <span><i class="ag-lc-max"></i> Max</span>
+              <span><i class="ag-lc-evento"></i> Eventos</span>
+            </div>
+          </div>
+          <div class="ag-month-selected" id="agMonthSelected" aria-label="Agenda da data selecionada">
+            <div class="ag-selected-kicker">DATA SELECIONADA</div>
+            <details id="agPeekDetails" class="ag-peek-details">
+              <summary>
+                <span><strong id="agPeekDate">Domingo, 1 de novembro</strong><small id="agPeekHeadline">Selecione uma data para consultar os eventos</small></span>
+                <span class="ag-peek-chevron" aria-hidden="true">⌄</span>
+              </summary>
+              <div id="agPeekItems" class="ag-peek-items"></div>
+            </details>
+            <button type="button" id="agGoWeek" class="ag-peek-go-week">Ver programação da semana <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
       </section>
 
       <section class="ag-panel ag-week-panel" id="agWeekSection" aria-labelledby="agWeekTitle">

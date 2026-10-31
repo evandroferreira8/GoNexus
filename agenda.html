@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c2042">
+<meta name="description" content="Agenda GO Nexus: eventos do Pokémon GO e encontros presenciais da comunidade de Natal em novembro de 2026.">
+<title>Agenda GO · Eventos e encontros em Natal | GO Nexus</title>
+<link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
+<style>
+:root{--ag-ink:#10264a;--ag-blue:#255ed4;--ag-edge:#d8e1f1;--ag-soft:#f2f6fc;--ag-yellow:#ffd548;--ag-sub:#5e718e}
+body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;font-family:var(--gn-font,'DM Sans',system-ui,sans-serif)!important}
+.ag-shell{width:min(1190px,calc(100% - 30px));margin:0 auto}
+.ag-hero{position:relative;overflow:hidden;border-radius:25px;margin:25px 0 19px;padding:34px 38px 30px;color:#fff;background:radial-gradient(circle at 86% 25%,#285899 0,transparent 37%),linear-gradient(124deg,#0c2042 0%,#153969 65%,#1e5494 100%);box-shadow:0 14px 34px #122b5922}
+.ag-hero:after{content:"";pointer-events:none;position:absolute;width:320px;height:320px;right:-100px;top:-200px;border:50px solid #ffffff12;border-radius:50%}
+.ag-kicker{display:inline-flex;align-items:center;gap:8px;font:700 .73rem var(--gn-code,monospace);letter-spacing:.09em;text-transform:uppercase;color:#b9d8ff}
+.ag-kicker:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ag-yellow)}
+.ag-hero h1{margin:9px 0 10px!important;color:#fff!important;font-size:clamp(2.6rem,6vw,4.45rem);letter-spacing:-.062em;line-height:1.02;max-width:800px}
+.ag-hero h1 span{color:var(--ag-yellow)}
+.ag-hero p{margin:0;max-width:680px;font-size:1rem;line-height:1.48;color:#dbe9ff}
+.ag-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}
+.ag-meta span{padding:8px 11px;border:1px solid #ffffff2d;background:#ffffff13;border-radius:99px;font-size:.77rem;font-weight:700;color:#fff}
+.ag-body{display:grid;grid-template-columns:minmax(0,1fr) 305px;gap:18px;align-items:start}
+.ag-main,.ag-side{min-width:0}
+.ag-panel{padding:23px;background:#fff;border:1px solid var(--ag-edge);border-radius:21px;box-shadow:0 7px 21px #17365a0d}
+.ag-panel+.ag-panel{margin-top:18px}
+.ag-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:17px}
+.ag-heading h2{font-size:clamp(1.32rem,3vw,1.65rem);line-height:1.17;letter-spacing:-.035em;color:#142d52!important;margin:0!important}
+.ag-heading p{margin:6px 0 0;font-size:.82rem;color:#657b97}
+.ag-month{font-weight:750;color:#375780;font-size:.82rem;white-space:nowrap}
+.ag-weekdays,.ag-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}
+.ag-weekdays{margin-bottom:7px}
+.ag-weekdays span{text-align:center;font:750 .7rem var(--gn-code,monospace);color:#8293aa}
+.ag-days button{position:relative;display:flex;align-items:center;flex-direction:column;justify-content:center;min-width:0;min-height:58px;border:1px solid #e5ebf4;background:#f6f8fc;color:#193557;border-radius:12px;font-size:1rem;font-weight:750;cursor:pointer;transition:background .18s,transform .18s}
+.ag-days button:hover{background:#e8f0ff;transform:translateY(-1px)}
+.ag-days button:focus-visible,.ag-filters button:focus-visible,.ag-action:focus-visible{outline:3px solid #2868ee;outline-offset:2px}
+.ag-days button[aria-pressed=true]{background:#174dba;color:#fff;border-color:#174dba}
+.ag-days button.today:not([aria-pressed=true]){border:2px solid #2461db}
+.ag-days button.no-event{opacity:.66}
+.ag-days button.no-event:focus-visible{opacity:1}
+.ag-dots{display:flex;gap:3px;justify-content:center;height:5px;margin-top:4px}
+.ag-dot{width:5px;height:5px;border-radius:50%;background:#f0a52d}
+.ag-dot.natal{background:#f4ae16}.ag-dot.max{background:#d956a5}.ag-dot.reide{background:#805bd9}.ag-dot.comunidade{background:#3aa98b}.ag-dot.destaque{background:#ee8b3d}
+.ag-days button[aria-pressed=true] .ag-dot{box-shadow:0 0 0 1px #fff}
+.ag-legend{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin:14px 0 0;color:#607792;font-size:.7rem;font-weight:600}
+.ag-legend span{display:inline-flex;align-items:center;gap:5px}
+.ag-legend i{display:inline-block;width:8px;height:8px;border-radius:100%;background:#f4ae16}
+.ag-legend .reide i{background:#805bd9}.ag-legend .max i{background:#d956a5}.ag-legend .evento i{background:#ee8b3d}.ag-legend .comunidade i{background:#3aa98b}
+.ag-filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}
+.ag-filters button{border:1px solid #d5e0ef;background:#f4f7fc;border-radius:100px;min-height:37px;padding:7px 12px;color:#355270;font-size:.79rem;font-weight:750;cursor:pointer}
+.ag-filters button[aria-pressed=true]{border-color:#1d56c6;background:#1d56c6;color:#fff}
+.ag-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.ag-search{flex:1;min-width:175px;min-height:43px;border:1px solid #cfdbec;border-radius:12px;padding:9px 13px;font-size:.87rem;background:#fff;color:#1b3457}
+.ag-search:focus{outline:3px solid #265edc2b;border-color:#2261d7}
+.ag-future{display:flex;align-items:center;gap:7px;color:#58708f;font-size:.76rem;font-weight:700}
+.ag-future input{accent-color:#205bc9;width:17px;height:17px}
+.ag-results-info{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;font-size:.77rem;color:#60738d}
+.ag-results-info button{border:0;background:transparent;text-decoration:underline;color:#1b59c9;font:inherit;font-weight:700;cursor:pointer}
+.ag-list{display:flex;flex-direction:column;gap:9px}
+.ag-event{--ag-c:#ef8d37;display:grid;grid-template-columns:70px minmax(0,1fr);gap:13px;border:1px solid #dfe7f2;background:#fff;border-radius:15px;padding:13px;box-shadow:0 3px 12px #17345a08}
+.ag-event[data-kind=natal]{--ag-c:#dca019;background:#fffdf6;border-color:#f0d994}
+.ag-event[data-kind=reide]{--ag-c:#805bd9}.ag-event[data-kind=max]{--ag-c:#cf4f97}.ag-event[data-kind=comunidade]{--ag-c:#159c7a}.ag-event[data-kind=destaque]{--ag-c:#eb7133}
+.ag-date{display:flex;flex-direction:column;align-items:center;justify-content:center;align-self:start;min-height:72px;border-radius:12px;background:color-mix(in srgb,var(--ag-c),white 90%);color:var(--ag-c)}
+.ag-day{font-size:1.9rem;line-height:1.05;font-weight:850;letter-spacing:-.06em}
+.ag-mo{font:800 .62rem var(--gn-code,monospace);letter-spacing:.06em}
+.ag-content{min-width:0}
+.ag-event-head{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:1px 0 6px}
+.ag-type{font:800 .64rem var(--gn-code,monospace);text-transform:uppercase;letter-spacing:.055em;color:var(--ag-c)}
+.ag-live{display:inline-block;padding:3px 7px;border-radius:100px;background:#def7e9;color:#126c49;font-size:.64rem;font-weight:800}
+.ag-done{color:#8592a2;font-size:.66rem;font-weight:700}
+.ag-content h3{margin:0 0 5px!important;color:#112a50!important;font-size:1.01rem;line-height:1.24;letter-spacing:-.018em}
+.ag-content p{margin:6px 0 8px;color:#647892;font-size:.79rem;line-height:1.4}
+.ag-when{display:flex;flex-wrap:wrap;gap:6px 15px;color:#425e81;font-size:.76rem;font-weight:750}
+.ag-when strong{color:#193a64}
+.ag-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 2px}
+.ag-action{background:transparent;border:0;padding:2px 0;color:#1c5acd;text-decoration:none;cursor:pointer;font-size:.74rem;font-weight:800}
+.ag-action:hover{text-decoration:underline}
+.ag-action.add{color:#305576}
+.ag-empty{padding:35px 20px;text-align:center;color:#6e8094;background:#f4f7fb;border:1px dashed #d4dfed;border-radius:14px}
+.ag-rail{position:sticky;top:15px}
+.ag-local{padding:22px;border:1px solid #d9b760;border-radius:20px;background:#fff5d2;box-shadow:0 8px 21px #8b671522}
+.ag-local-kicker{font:800 .67rem var(--gn-code,monospace);color:#89601a;letter-spacing:.08em;text-transform:uppercase}
+.ag-local h2{font-size:1.56rem;letter-spacing:-.045em;line-height:1.12;color:#362a11!important;margin:11px 0 7px!important}
+.ag-local-lede{color:#60522d;font-size:.86rem;line-height:1.43;margin:0}
+.ag-local-big{display:flex;align-items:center;gap:10px;margin:18px 0;background:#fff;border:1px solid #e8d7a5;padding:11px 13px;border-radius:14px}
+.ag-local-big strong{font:850 1.75rem var(--gn-title,sans-serif);letter-spacing:-.05em;color:#62400b}
+.ag-local-big span{font-size:.78rem;color:#7d6b44;line-height:1.28}
+.ag-location{font-size:.91rem;font-weight:800;color:#3b311e;margin:10px 0}
+.ag-local-note{border-top:1px solid #dfc780;padding:12px 0 0;margin:13px 0 16px;font-size:.74rem;line-height:1.43;color:#786239}
+.ag-local-links{display:flex;flex-wrap:wrap;gap:7px}
+.ag-local-links a{border-radius:9px;padding:10px 11px;text-decoration:none;font-size:.72rem;font-weight:800;color:#fff;background:#66480f}
+.ag-local-links a:last-child{color:#66480f;background:#fff;border:1px solid #d9c692}
+.ag-info{padding:20px;border:1px solid #dbe4f0;border-radius:20px;background:#fff;margin-top:15px}
+.ag-info h3{font-size:1rem;color:#142d52!important;margin:0 0 9px!important}
+.ag-info p{font-size:.78rem;line-height:1.48;color:#617791;margin:0}
+.ag-info p+p{margin-top:10px}
+.ag-credits{font-size:.7rem;color:#7e90a9;margin:21px 0 26px;text-align:center}
+.ag-credits a{color:#265bb1}
+@media(max-width:900px){.ag-body{grid-template-columns:minmax(0,1fr)}.ag-rail{position:static;display:grid;grid-template-columns:1fr 1fr;gap:13px}.ag-info{margin-top:0}}
+@media(max-width:600px){.ag-shell{width:min(100% - 24px,560px)}.ag-hero{margin:13px 0 12px;padding:24px 20px;border-radius:20px}.ag-hero h1{font-size:2.65rem}.ag-hero p{font-size:.88rem}.ag-meta{margin-top:16px}.ag-meta span{font-size:.67rem;padding:7px 9px}.ag-body{gap:12px}.ag-panel{padding:16px 13px;border-radius:17px}.ag-panel+.ag-panel{margin-top:12px}.ag-heading{margin-bottom:12px}.ag-heading h2{font-size:1.35rem}.ag-weekdays,.ag-days{gap:4px}.ag-days button{border-radius:9px;min-height:46px;font-size:.88rem}.ag-day{font-size:1.6rem}.ag-date{min-height:62px}.ag-event{grid-template-columns:55px minmax(0,1fr);gap:10px;padding:10px}.ag-content h3{font-size:.96rem}.ag-when{font-size:.71rem}.ag-rail{grid-template-columns:1fr}.ag-local{padding:19px}.ag-info{margin-top:0}.ag-filters{gap:5px}.ag-filters button{font-size:.72rem;padding:7px 10px}.ag-legend{gap:7px 12px;font-size:.67rem}}
+@media(prefers-reduced-motion:reduce){.ag-days button{transition:none}}
+</style>
+</head>
+<body class="agenda-page" data-studio-page>
+<go-nexus-header></go-nexus-header>
+<main class="ag-shell" id="topo">
+  <div class="ag-hero">
+    <div class="ag-kicker">GO NEXUS / AGENDA 2026</div>
+    <h1 id="agHeroTitle">Novembro <span>em jogo.</span></h1>
+    <p>Um quadro para descobrir o que acontece no Pokémon GO e onde a comunidade se encontra em Natal.</p>
+    <div class="ag-meta"><span id="agMetaMonth">Novembro de 2026</span><span>Horário de Natal · UTC−3</span><span>Fontes oficiais</span></div>
+  </div>
+  <div class="ag-body">
+    <div class="ag-main">
+      <section class="ag-panel" aria-labelledby="calendarioTitulo">
+        <div class="ag-heading"><div><h2 id="calendarioTitulo">Visão do mês</h2><p>Toque em uma data para ver o que está programado.</p></div><span class="ag-month" id="agMonthText">NOV / 2026</span></div>
+        <div class="ag-weekdays" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
+        <div id="agDays" class="ag-days" role="group" aria-label="Dias de novembro de 2026"></div>
+        <div class="ag-legend" aria-label="Legenda do calendário"><span><i></i>Natal</span><span class="evento"><i></i>Eventos</span><span class="reide"><i></i>Reides</span><span class="max"><i></i>Max</span><span class="comunidade"><i></i>Comunidade</span></div>
+      </section>
+      <section class="ag-panel" aria-labelledby="programacaoTitulo">
+        <div class="ag-heading"><div><h2 id="programacaoTitulo">Programação</h2><p>Datas, horários e informações sem precisar procurar em vários lugares.</p></div></div>
+        <div class="ag-filters" id="agFilters" role="group" aria-label="Filtrar tipo de evento">
+          <button type="button" data-filter="todos" aria-pressed="true">Tudo</button>
+          <button type="button" data-filter="natal" aria-pressed="false">Encontros em Natal</button>
+          <button type="button" data-filter="evento" aria-pressed="false">Eventos</button>
+          <button type="button" data-filter="reide" aria-pressed="false">Reides</button>
+          <button type="button" data-filter="max" aria-pressed="false">Batalhas Max</button>
+        </div>
+        <div class="ag-tools">
+          <input id="agSearch" class="ag-search" type="search" placeholder="Pesquisar evento ou Pokémon..." aria-label="Pesquisar evento">
+          <label class="ag-future"><input id="agFuture" type="checkbox"> Apenas próximos</label>
+        </div>
+        <div class="ag-results-info"><span id="agCount" aria-live="polite">Carregando programação…</span><button type="button" id="agClear" hidden>Limpar filtros</button></div>
+        <div id="agList" class="ag-list" aria-live="polite"></div>
+      </section>
+    </div>
+    <aside class="ag-side" aria-label="Comunidade de Natal">
+      <div class="ag-rail">
+        <section class="ag-local" id="agLocalPanel">
+          <div class="ag-local-kicker">PRESENCIAL / NATAL • RN</div>
+          <h2>O jogo também acontece aqui.</h2>
+          <p class="ag-local-lede" id="agLocalLede">A comunidade de Natal está entre os encontros brasileiros divulgados para a Área Selvagem GO.</p>
+          <div class="ag-local-big"><strong id="agLocalDates">14–15</strong><span><b id="agLocalMonth">NOVEMBRO</b><br><span id="agLocalName">Área Selvagem GO</span></span></div>
+          <div class="ag-location" id="agLocalLocation">UFRN · Setor 2 do CCHLA</div>
+          <p class="ag-local-note" id="agLocalNote">Ponto de encontro divulgado oficialmente. O horário específico da atividade presencial deve ser confirmado com os organizadores. O evento global no jogo ocorre das 10h às 18h.</p>
+          <div class="ag-local-links"><a id="agLocalSource" href="https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil" target="_blank" rel="noopener noreferrer">Anúncio oficial ↗</a><a id="agLocalMap" href="https://www.google.com/maps/search/?api=1&amp;query=UFRN%20Setor%202%20CCHLA%20Natal" target="_blank" rel="noopener noreferrer">Ver local ↗</a></div>
+        </section>
+        <section class="ag-info">
+          <h3>Seu encontro não apareceu?</h3>
+          <p>A programação local só é publicada após a confirmação de <b>data, horário e local</b>. O quadro distingue eventos do jogo de encontros presenciais.</p>
+          <p>Os registros podem ser atualizados no arquivo <b>agenda-eventos.json</b> do GO Nexus, sem mudar o layout.</p>
+        </section>
+      </div>
+    </aside>
+  </div>
+  <p class="ag-credits">GO Nexus é um projeto independente. Datas sujeitas a alterações oficiais. <a href="index.html">Voltar ao início</a>.</p>
+</main>
+<go-nexus-footer></go-nexus-footer>
+<script src="nav.js?v=studio-clean-20261013b"></script>
+<script src="theme.js?v=studio-v4-policy-links"></script>
+<script>
+(function(){
+  'use strict';
+  var data=[], selectedDay=null, selectedFilter='todos';
+  var daysNode=document.getElementById('agDays'),list=document.getElementById('agList');
+  var count=document.getElementById('agCount'),search=document.getElementById('agSearch');
+  var future=document.getElementById('agFuture'), clear=document.getElementById('agClear');
+  var categories={natal:'Encontro em Natal',evento:'Evento',destaque:'Grande evento',reide:'Reide',max:'Batalha Max',comunidade:'Dia Comunitário'};
+  var prio={natal:0,destaque:1,comunidade:2,max:3,reide:4,evento:5};
+  function localToday(){
+    var parts=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Fortaleza',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+    var out={};parts.forEach(function(p){out[p.type]=p.value;});
+    return out.year+'-'+out.month+'-'+out.day;
+  }
+  var current=localToday(), month='2026-11', monthLong='novembro', monthShort='nov', monthAbbr='NOV';
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function dateNum(iso){return Number(iso.slice(8,10))}
+  function range(e){return e.start===e.end?dateNum(e.start)+' '+monthShort:dateNum(e.start)+'–'+dateNum(e.end)+' '+monthShort}
+  function applies(e,date){return e.start<=date&&date<=e.end}
+  function passed(e){return e.end<current}
+  function kindMatches(e){if(selectedFilter==='todos')return true;if(selectedFilter==='evento')return ['evento','destaque','comunidade'].includes(e.kind);return e.kind===selectedFilter}
+  function normal(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
+  function drawDays(){
+    var html='';
+    var first=new Date(month+'-01T12:00:00Z').getUTCDay();
+    for(var blank=0;blank<first;blank++)html+='<span aria-hidden="true"></span>';
+    var total=new Date(Number(month.slice(0,4)),Number(month.slice(5,7)),0).getDate();
+    for(var day=1;day<=total;day++){
+      var iso=month+'-'+String(day).padStart(2,'0');
+      var matches=data.filter(function(e){return applies(e,iso)});
+      var kinds=Array.from(new Set(matches.map(function(e){return e.kind}))).sort(function(a,b){return (prio[a]||9)-(prio[b]||9)}).slice(0,3);
+      var dots=kinds.map(function(k){return '<i class="ag-dot '+esc(k)+'"></i>'}).join('');
+      html+='<button type="button" data-day="'+iso+'" class="'+(matches.length?'':'no-event ')+(iso===current?'today':'')+'" aria-label="'+day+' de '+monthLong+', '+matches.length+' eventos" aria-pressed="'+(selectedDay===iso)+'"><span>'+day+'</span><span class="ag-dots" aria-hidden="true">'+dots+'</span></button>';
+    }
+    daysNode.innerHTML=html;
+  }
+  function matches(e){
+    var query=normal(search.value.trim());
+    return kindMatches(e)&&(!selectedDay||applies(e,selectedDay))&&(!future.checked||!passed(e))&&(!query||normal([e.title,e.description,e.location,e.kind].join(' ')).includes(query));
+  }
+  function status(e){
+    if(passed(e))return '<span class="ag-done">Encerrado</span>';
+    if(applies(e,current))return '<span class="ag-live">HOJE / EM DATA</span>';
+    return '';
+  }
+  function timeLabel(e){
+    if(!e.from)return 'Horário a confirmar';
+    return e.from.slice(0,2)+'h'+(e.from.slice(3)==='00'?'':e.from.slice(3))+'–'+e.to.slice(0,2)+'h'+(e.to.slice(3)==='00'?'':e.to.slice(3));
+  }
+  function safeHref(s){try{var u=new URL(s,location.href);return ['https:','http:'].includes(u.protocol)?esc(u.href):'#'}catch(err){return '#'}}
+  function card(e){
+    var dateText=range(e);
+    var meta='<span>◷ '+esc(timeLabel(e))+'</span><span>◫ '+esc(dateText)+'</span>';
+    if(e.location)meta+='<span>◎ '+esc(e.location)+'</span>';
+    var links='<a class="ag-action" href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a>'+
+      (e.maps?'<a class="ag-action" href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Mapa ↗</a>':'')+
+      '<button class="ag-action add" type="button" data-add="'+esc(e.id)+'">+ Adicionar à agenda</button>'+
+      '<button class="ag-action add" type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
+    return '<article class="ag-event" data-kind="'+esc(e.kind)+'">'+
+      '<div class="ag-date"><span class="ag-day">'+dateNum(e.start)+'</span><span class="ag-mo">'+monthAbbr+'</span></div>'+ 
+      '<div class="ag-content"><div class="ag-event-head"><span class="ag-type">'+esc(categories[e.kind]||'Evento')+'</span>'+status(e)+'</div>'+
+      '<h3>'+esc(e.title)+'</h3><div class="ag-when">'+meta+'</div><p>'+esc(e.description)+'</p>'+
+      '<div class="ag-actions">'+links+'</div></div></article>';
+  }
+  function render(){
+    drawDays();
+    document.querySelectorAll('#agFilters button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.filter===selectedFilter))});
+    var visible=data.filter(matches).sort(function(a,b){return a.start.localeCompare(b.start)||(prio[a.kind]||9)-(prio[b.kind]||9)||a.title.localeCompare(b.title)});
+    list.innerHTML=visible.length?visible.map(card).join(''):'<div class="ag-empty">Nenhum evento encontrado para este filtro. Experimente outra data ou categoria.</div>';
+    count.textContent=visible.length+' '+(visible.length===1?'registro':'registros')+' na programação';
+    clear.hidden=!selectedDay&&selectedFilter==='todos'&&!search.value&&!future.checked;
+  }
+  function icsDate(s){return s.replace(/-/g,'')}
+  function nextDay(s){var d=new Date(s+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+1);return d.toISOString().slice(0,10)}
+  function icsEscape(s){return String(s||'').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/[,;]/g,function(c){return '\\'+c})}
+  function addCalendar(e){
+    var stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
+    var fields=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//GO Nexus//Agenda GO//PT-BR','CALSCALE:GREGORIAN','BEGIN:VEVENT','UID:'+e.id+'-'+month+'@gonexus','DTSTAMP:'+stamp,'SUMMARY:'+icsEscape(e.title),'DESCRIPTION:'+icsEscape(e.description+' | Fonte: '+e.source)];
+    if(e.location)fields.push('LOCATION:'+icsEscape(e.location));
+    if(e.from&&e.to){
+      fields.push('DTSTART;TZID=America/Fortaleza:'+icsDate(e.start)+'T'+e.from.replace(':','')+'00');
+      fields.push('DTEND;TZID=America/Fortaleza:'+icsDate(e.end)+'T'+e.to.replace(':','')+'00');
+    }else{
+      fields.push('DTSTART;VALUE=DATE:'+icsDate(e.start));
+      fields.push('DTEND;VALUE=DATE:'+icsDate(nextDay(e.end)));
+      fields.push('X-ALT-DESC;FMTTYPE=text/plain:Horário ainda não divulgado');
+    }
+    fields.push('URL:'+e.source,'END:VEVENT','END:VCALENDAR');
+    var blob=new Blob([fields.join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='go-nexus-'+e.id+'.ics';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
+  }
+  function share(e,button){
+    var txt=e.title+' — '+range(e)+(e.from?' • '+timeLabel(e):' • horário a confirmar')+(e.location?' • '+e.location:'')+'\nGO Nexus: '+location.href.split('#')[0];
+    if(navigator.share){navigator.share({title:e.title,text:txt,url:location.href.split('#')[0]}).catch(function(){})}
+    else if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){button.textContent='Copiado!';setTimeout(function(){button.textContent='Compartilhar'},1800)})}
+    else{window.prompt('Copie para compartilhar:',txt)}
+  }
+  daysNode.addEventListener('click',function(ev){
+    var btn=ev.target.closest('[data-day]');if(!btn)return;
+    selectedDay=selectedDay===btn.dataset.day?null:btn.dataset.day;render();
+    document.getElementById('programacaoTitulo').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  document.getElementById('agFilters').addEventListener('click',function(ev){var btn=ev.target.closest('[data-filter]');if(btn){selectedFilter=btn.dataset.filter;render()}});
+  search.addEventListener('input',render);future.addEventListener('change',render);
+  clear.addEventListener('click',function(){selectedDay=null;selectedFilter='todos';search.value='';future.checked=false;render()});
+  list.addEventListener('click',function(ev){
+    var btn=ev.target.closest('[data-add],[data-share]');if(!btn)return;
+    var id=btn.dataset.add||btn.dataset.share;var e=data.find(function(x){return x.id===id});if(!e)return;
+    if(btn.dataset.add)addCalendar(e);else share(e,btn);
+  });
+  fetch('agenda-eventos.json',{cache:'no-store'}).then(function(res){if(!res.ok)throw Error('Falha');return res.json()}).then(function(doc){
+    month=/^\d{4}-\d{2}$/.test(doc.month)?doc.month:month;
+    var d=new Date(month+'-01T12:00:00Z');
+    monthLong=new Intl.DateTimeFormat('pt-BR',{month:'long',timeZone:'UTC'}).format(d);
+    monthShort=new Intl.DateTimeFormat('pt-BR',{month:'short',timeZone:'UTC'}).format(d).replace('.','');
+    monthAbbr=monthShort.toUpperCase();
+    var title=monthLong.charAt(0).toUpperCase()+monthLong.slice(1);
+    document.getElementById('agHeroTitle').innerHTML=esc(title)+' <span>em jogo.</span>';
+    document.getElementById('agMetaMonth').textContent=title+' de '+month.slice(0,4);
+    document.getElementById('agMonthText').textContent=monthAbbr+' / '+month.slice(0,4);
+    data=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind&&e.source}):[];
+    var natal=data.filter(function(e){return e.kind==='natal'}).sort(function(a,b){return a.start.localeCompare(b.start)});
+    var localPanel=document.getElementById('agLocalPanel');
+    localPanel.hidden=!natal.length;
+    if(natal.length){
+      var first=natal[0], last=natal[natal.length-1];
+      document.getElementById('agLocalDates').textContent=dateNum(first.start)+(first.start!==last.start?'–'+dateNum(last.start):'');
+      document.getElementById('agLocalMonth').textContent=monthLong.toUpperCase();
+      document.getElementById('agLocalName').textContent=natal.length>1?'Encontros da comunidade':'Encontro da comunidade';
+      document.getElementById('agLocalLocation').textContent=first.location||'Local a confirmar';
+      document.getElementById('agLocalNote').textContent='Confira a programação e os horários presenciais com os organizadores. Datas e locais são atualizados conforme a divulgação oficial.';
+      document.getElementById('agLocalLede').textContent='Encontros presenciais da comunidade anunciados para '+monthLong+'.';
+      document.getElementById('agLocalSource').href=first.source;
+      if(first.maps)document.getElementById('agLocalMap').href=first.maps;
+      else document.getElementById('agLocalMap').hidden=true;
+    }
+    render();
+  }).catch(function(){count.textContent='Não foi possível carregar a agenda';list.innerHTML='<div class="ag-empty">Atualize a página para tentar novamente.</div>';drawDays()});
+})();
+</script>
+</body>
+</html>

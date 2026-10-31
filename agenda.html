@@ -537,6 +537,9 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
  .ag-month-legend span{font-size:.59rem}
 }
 
+.agenda-page .ag-days .ag-outside-day{display:block;min-height:80px;border-radius:10px;background:#f0f4f9;border:1px solid #e8eef6;padding:10px;color:#a9b7ca;font-size:.85rem;font-weight:650;text-align:left}
+@media(max-width:600px){.agenda-page .ag-days .ag-outside-day{min-height:58px;padding:8px 3px;text-align:center;font-size:.75rem}}
+@media(max-width:375px){.agenda-page .ag-days .ag-outside-day{min-height:55px}}
 </style>
 </head>
 <body class="agenda-page" data-studio-page>
@@ -552,7 +555,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     <div class="ag-main">
       <section class="ag-panel ag-month-panel" aria-labelledby="calendarioTitulo">
         <div class="ag-heading ag-month-heading">
-          <div><div class="ag-section-kicker" id="agCalendarKicker">AGENDA GO / NOVEMBRO 2026</div><h2 id="calendarioTitulo">Seu mês em jogo.</h2><p>Selecione uma data para conferir o que acontece.</p></div>
+          <div><div class="ag-section-kicker" id="agCalendarKicker">AGENDA GO / NOVEMBRO 2026</div><h2 id="calendarioTitulo">Calendário do mês</h2><p>Selecione uma data para conferir o que acontece.</p></div>
           <span class="ag-month" id="agMonthText">NOV / 2026</span>
         </div>
         <div class="ag-month-workspace">
@@ -824,6 +827,8 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         '</span><span class="ag-day-chips" aria-hidden="true">'+chips+
         '</span><span class="ag-tile-bars" aria-hidden="true">'+bars+'</span></button>';
     }
+    var trailing=(7-(first+total)%7)%7;
+    for(var next=1;next<=trailing;next++)html+='<span class="ag-outside-day" aria-hidden="true">'+next+'</span>';
     daysNode.innerHTML=html;
   }
   function drawMonthPeek(){

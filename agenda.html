@@ -540,6 +540,15 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 .agenda-page .ag-days .ag-outside-day{display:block;min-height:80px;border-radius:10px;background:#f0f4f9;border:1px solid #e8eef6;padding:10px;color:#a9b7ca;font-size:.85rem;font-weight:650;text-align:left}
 @media(max-width:600px){.agenda-page .ag-days .ag-outside-day{min-height:58px;padding:8px 3px;text-align:center;font-size:.75rem}}
 @media(max-width:375px){.agenda-page .ag-days .ag-outside-day{min-height:55px}}
+/* Last-mile accessibility polish for narrow phones: readable date/count and visible category bands */
+@media(max-width:600px){
+ .agenda-page .ag-calendar-surface .ag-days button{align-items:flex-start!important;text-align:left!important}
+ .agenda-page .ag-calendar-surface .ag-days .ag-tile-head{justify-content:flex-start;padding-left:4px}
+ .agenda-page .ag-calendar-surface .ag-days .ag-tile-num{font-size:1.08rem;line-height:1.05}
+ .agenda-page .ag-calendar-surface .ag-days .ag-tile-total{font-size:.61rem;line-height:1.1;padding:2px 3px;right:3px;top:4px}
+ .agenda-page .ag-calendar-surface .ag-days .ag-tile-bars{align-self:flex-start;width:min(82%,33px);height:8px;margin:0 0 3px 4px;margin-top:auto;gap:2px}
+ .agenda-page .ag-calendar-surface .ag-days .ag-tile-bar{border-radius:3px}
+}
 </style>
 </head>
 <body class="agenda-page" data-studio-page>

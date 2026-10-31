@@ -2,7 +2,7 @@
   "month": "2026-11",
   "updated_at": "2026-10-31",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Fontes: anúncios oficiais de Natureza Selvagem e Área Selvagem Global, mais as artes de calendário compartilhadas pelo usuário (Jogada Excelente). Rotações são disponibilidade no jogo, não encontros presenciais. Locais semanais são pontos habituais e não confirmam criação de eventos no Campfire. Pokémon não revelados aparecem como 'a confirmar'. Durante 9–15/11, as Descobertas Diárias ficam suspensas; não gerar automaticamente rotinas regulares em 9, 11, 12 e 13. A Hora do Holofote de 19/11 está confirmada no comunicado oficial de Trilhas Dinamax, apesar de uma divergência na arte mensal.",
+  "editorial_note": "Fontes: anúncios oficiais de Natureza Selvagem e Área Selvagem Global, mais as artes de calendário compartilhadas pelo usuário (Jogada Excelente). Rotações são disponibilidade no jogo, não encontros presenciais. Locais semanais são pontos habituais e não confirmam criação de eventos no Campfire. Pokémon não revelados aparecem como 'a confirmar'. Durante 9–15/11, as Descobertas Diárias ficam suspensas; não gerar automaticamente rotinas regulares em 9, 11, 12 e 13. A Hora do Holofote de 19/11 está confirmada no comunicado oficial de Trilhas Dinamax, apesar de uma divergência na arte mensal. Bônus gerais das rotinas são os indicados na arte mensal enviada e podem variar com ajustes oficiais.",
   "events": [
     {
       "id": "halloween-2",
@@ -215,6 +215,10 @@
       },
       "skip_dates": [
         "2026-11-09"
+      ],
+      "benefits": [
+        "Doce Raro GG em Batalhas Max presenciais",
+        "Pontos de Energia extras e renovados com mais frequência"
       ]
     },
     {
@@ -242,6 +246,10 @@
       },
       "skip_dates": [
         "2026-11-11"
+      ],
+      "benefits": [
+        "Maior quantidade de Reides de cinco estrelas entre 18h e 19h",
+        "Doce Raro GG em Reides presenciais"
       ]
     },
     {
@@ -272,6 +280,9 @@
       },
       "skip_dates": [
         "2026-11-12"
+      ],
+      "benefits": [
+        "Bônus varia conforme o Pokémon em destaque na semana"
       ]
     },
     {
@@ -299,6 +310,11 @@
       },
       "skip_dates": [
         "2026-11-13"
+      ],
+      "benefits": [
+        "Até duas Trocas Especiais extras",
+        "Trocas com 20% menos Poeira Estelar e maior chance de sorte",
+        "Dois Doces GG garantidos nas trocas"
       ]
     }
   ],
@@ -400,9 +416,9 @@
       "id": "max-surpresa",
       "kind": "max",
       "start": "2026-11-16",
-      "end": "2026-11-22",
+      "end": "2026-11-23",
       "title": "Batalhas Max · surpresa",
-      "description": "Chefe ainda não revelado na programação mensal; detalhes sujeitos a confirmação.",
+      "description": "Chefe ainda não revelado na programação mensal; detalhes sujeitos a confirmação. Sobreposição de data com a rotação seguinte pode ocorrer na transição.",
       "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
     },
     {

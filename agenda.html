@@ -193,6 +193,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 @media(max-width:600px){.ag-feature-grid{grid-template-columns:1fr 1fr;gap:6px}.ag-feature{padding:9px}.ag-feature strong{font-size:.8rem}.ag-feature p{font-size:.7rem}}
 @media(max-width:360px){.ag-feature-grid{grid-template-columns:1fr}}
 
+.ag-routine-benefits{margin-top:8px;border-top:1px dashed #e0e8f3;padding-top:7px}
+.ag-routine-benefits summary{font-size:.73rem;color:#275aa8;font-weight:800;cursor:pointer;list-style-position:inside}
+.ag-routine-benefits ul{margin:7px 0 0;padding:0 0 0 17px;color:#526b8f;font-size:.72rem;line-height:1.45}
+.ag-routine-benefits li+li{margin-top:3px}
 </style>
 </head>
 <body class="agenda-page" data-studio-page>
@@ -314,7 +318,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         var topic=r.topics&&r.topics[iso], description=r.description||'Rotina semanal da comunidade.';
         result.push({id:r.id+'-'+iso,title:r.title,kind:r.kind,start:iso,end:iso,from:null,to:null,
           location:r.location,location_short:r.location_short,maps:r.maps,description:description,
-          topic:topic&&topic.theme||null,bonus:topic&&topic.bonus||null,source:topic&&topic.source||null,routine:true,
+          topic:topic&&topic.theme||null,bonus:topic&&topic.bonus||null,benefits:r.benefits||[],source:topic&&topic.source||null,routine:true,
           location_status:'habitual'});
       });
     }
@@ -329,6 +333,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var dayDetail=dayInfo?'<p class="ag-day-extra"><b>Programação de '+esc(datePt(date,{weekday:'long',day:'numeric'}))+':</b> '+esc(dayInfo)+'</p>':'';
     var bonuses=e.bonuses?'<ul class="ag-day-bonuses">'+e.bonuses.map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>':'';
     var bonus=e.bonus?'<p class="ag-day-extra"><b>Bônus:</b> '+esc(e.bonus)+'</p>':'';
+    var benefits=e.benefits&&e.benefits.length?'<details class="ag-routine-benefits"><summary>Ver bônus desta atividade</summary><ul>'+e.benefits.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></details>':'';
     var loc=e.location?'<span><b>'+(e.location_status==='habitual'?'Local habitual':'Local')+':</b> '+esc(e.location)+'</span>':'';
     var when='<span><b>Horário:</b> '+esc(timeLabel(e))+'</span>';
     var details=e.routine?'Rotina da comunidade. Consulte o Campfire para confirmar se há encontro publicado.':e.description;
@@ -337,7 +342,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       '<button type="button" data-add="'+esc(e.id)+'">'+(e.routine?'Salvar previsão +':'Adicionar +')+'</button>';
     return '<article class="ag-week-item" data-kind="'+esc(e.kind)+'">'+
       '<div class="ag-week-item-top"><span class="ag-week-kind">'+esc(categories[e.kind]||'Evento')+'</span><span class="ag-week-badge '+(e.location_status==='habitual'||e.routine?'local':'')+'">'+esc(statusText)+'</span></div>'+
-      '<h3>'+esc(e.title)+'</h3>'+topic+bonus+'<div class="ag-week-detail">'+when+loc+'</div>'+dayDetail+bonuses+
+      '<h3>'+esc(e.title)+'</h3>'+topic+bonus+'<div class="ag-week-detail">'+when+loc+'</div>'+dayDetail+bonuses+benefits+
       '<p class="ag-week-topic" style="margin:7px 0 0;color:#6a7d95;font-size:.73rem">'+esc(details)+'</p>'+
       '<div class="ag-week-actions">'+actions+'</div></article>';
   }

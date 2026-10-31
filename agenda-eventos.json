@@ -1,0 +1,144 @@
+{
+  "month": "2026-11",
+  "updated_at": "2026-10-31",
+  "timezone": "America/Fortaleza",
+  "editorial_note": "Agenda baseada em anúncios oficiais. Programações presenciais sem horário divulgado aparecem como 'Horário a confirmar'.",
+  "events": [
+    {
+      "id": "halloween-2",
+      "title": "Dia das Bruxas • Parte II",
+      "kind": "evento",
+      "start": "2026-11-01",
+      "end": "2026-11-05",
+      "from": "10:00",
+      "to": "20:00",
+      "description": "Mega Sableye, Greavard Brilhante e encontros temáticos.",
+      "source": "https://pokemongo.com/pt-BR/news/halloween-part-2-2026"
+    },
+    {
+      "id": "natureza-selvagem",
+      "title": "Natureza Selvagem",
+      "kind": "evento",
+      "start": "2026-11-09",
+      "end": "2026-11-13",
+      "from": "10:00",
+      "to": "20:00",
+      "description": "Preparação para a Área Selvagem GO: Reides e Batalhas Max especiais.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "raid-zacian",
+      "title": "Hora de Reides: Zacian Espada Coroada",
+      "kind": "reide",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Hora especial de Reides durante Natureza Selvagem.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "raid-zamazenta",
+      "title": "Hora de Reides: Zamazenta Escudo Coroado",
+      "kind": "reide",
+      "start": "2026-11-10",
+      "end": "2026-11-10",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Hora especial de Reides durante Natureza Selvagem.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "wild-global",
+      "title": "Área Selvagem GO: Global",
+      "kind": "destaque",
+      "start": "2026-11-14",
+      "end": "2026-11-15",
+      "from": "10:00",
+      "to": "18:00",
+      "description": "Dois dias de evento global, com Pokémon incríveis e Batalhas Max.",
+      "source": "https://pokemongo.com/gowildarea/global?hl=pt_BR"
+    },
+    {
+      "id": "natal-dia-1",
+      "title": "Encontro da Área Selvagem em Natal • Dia 1",
+      "kind": "natal",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "from": null,
+      "to": null,
+      "location": "UFRN, Setor 2 do CCHLA",
+      "description": "Local incluído no anúncio das comunidades oficiais brasileiras. Confira a programação e o horário presencial com a comunidade.",
+      "source": "https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil",
+      "maps": "https://www.google.com/maps/search/?api=1&query=UFRN%20Setor%202%20CCHLA%20Natal"
+    },
+    {
+      "id": "natal-dia-2",
+      "title": "Encontro da Área Selvagem em Natal • Dia 2",
+      "kind": "natal",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "from": null,
+      "to": null,
+      "location": "UFRN, Setor 2 do CCHLA",
+      "description": "Segundo dia do encontro local mencionado no anúncio oficial. Confirme o horário presencial com os organizadores.",
+      "source": "https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil",
+      "maps": "https://www.google.com/maps/search/?api=1&query=UFRN%20Setor%202%20CCHLA%20Natal"
+    },
+    {
+      "id": "trilhas-dinamax",
+      "title": "Trilhas Dinamax",
+      "kind": "max",
+      "start": "2026-11-16",
+      "end": "2026-11-23",
+      "from": "10:00",
+      "to": "20:00",
+      "description": "Batalhas Max, Partículas Max e retorno de Eternatus.",
+      "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026"
+    },
+    {
+      "id": "hora-destaque",
+      "title": "Hora de destaque: Grookey, Scorbunny e Sobble",
+      "kind": "evento",
+      "start": "2026-11-19",
+      "end": "2026-11-19",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Aumento de aparições e dobro de Doces por captura.",
+      "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026"
+    },
+    {
+      "id": "eternamax",
+      "title": "Eternatus Eternamax • Batalhas Max",
+      "kind": "max",
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "from": "11:00",
+      "to": "14:00",
+      "description": "Eternatus Eternamax nos Pontos de Energia. Recompensas com Doces de Eternatus.",
+      "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026"
+    },
+    {
+      "id": "community-pawniard",
+      "title": "Dia Comunitário: Pawniard",
+      "kind": "comunidade",
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "from": "14:00",
+      "to": "17:00",
+      "description": "Pawniard em destaque, bônus de captura e evolução para Kingambit.",
+      "source": "https://pokemongo.com/en/news/communityday-november-2026-pawniard"
+    },
+    {
+      "id": "super-mega-28",
+      "title": "Dia de Super Megarreides",
+      "kind": "reide",
+      "start": "2026-11-28",
+      "end": "2026-11-28",
+      "from": null,
+      "to": null,
+      "description": "Data anunciada oficialmente; detalhes e horários ainda a confirmar.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s24"
+    }
+  ]
+}

@@ -671,6 +671,13 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
  .agenda-page .ag-m-monthgrid button{min-height:49px}
 }
 
+
+/* Intermediate widths: do not squeeze the desktop calendar into a narrow two-column split. */
+@media(min-width:721px) and (max-width:1100px){
+  .agenda-page .ag-month-workspace{grid-template-columns:minmax(0,1fr)}
+  .agenda-page .ag-month-selected{min-height:0}
+  .agenda-page .ag-calendar-surface .ag-days button{min-height:70px!important}
+}
 </style>
 </head>
 <body class="agenda-page" data-studio-page>

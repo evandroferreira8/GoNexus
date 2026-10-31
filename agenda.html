@@ -447,7 +447,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 <script>
 (function(){
   'use strict';
-  var data=[], rotations=[], weeklyRoutines=[], selectedDay=null, selectedFilter='todos', weekStart=null;
+  var data=[], rotations=[], weeklyRoutines=[], selectedDay=null, selectedFilter='todos', weekStart=null, weekFocusDay=null;
   var daysNode=document.getElementById('agDays'),list=document.getElementById('agList');
   var count=document.getElementById('agCount'),search=document.getElementById('agSearch');
   var future=document.getElementById('agFuture'), clear=document.getElementById('agClear');
@@ -492,40 +492,55 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   }
   function eventDateSort(a,b){return a.start.localeCompare(b.start)||(prio[a.kind]??9)-(prio[b.kind]??9)||a.title.localeCompare(b.title)}
   function getWeekEntries(date){return data.filter(function(e){return applies(e,date)}).sort(eventDateSort)}
-  function weekCard(e,date){
-    var statusText=e.routine?'Rotina habitual':e.location_status==='habitual'?'Local habitual':e.kind==='natal'?'Encontro divulgado':'Evento do jogo';
-    var topic=e.topic?'<p class="ag-week-topic"><b>Em destaque:</b> '+esc(e.topic)+'</p>':'';
-    var dayInfo=e.day_details&&e.day_details[date]||null;
-    var dayDetail=dayInfo?'<p class="ag-day-extra"><b>Programação de '+esc(datePt(date,{weekday:'long',day:'numeric'}))+':</b> '+esc(dayInfo)+'</p>':'';
-    var bonuses=e.bonuses?'<ul class="ag-day-bonuses">'+e.bonuses.map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>':'';
-    var bonus=e.bonus?'<p class="ag-day-extra"><b>Bônus:</b> '+esc(e.bonus)+'</p>':'';
-    var benefits=e.benefits&&e.benefits.length?'<details class="ag-routine-benefits"><summary>Ver bônus desta atividade</summary><ul>'+e.benefits.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></details>':'';
-    var loc=e.location?'<span><b>'+(e.location_status==='habitual'?'Local habitual':'Local')+':</b> '+esc(e.location)+'</span>':'';
-    var when='<span><b>Horário:</b> '+esc(timeLabel(e))+'</span>';
-    var details=e.routine?'Rotina da comunidade. Consulte o Campfire para confirmar se há encontro publicado.':e.description;
-    var actions=(e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">'+(e.routine?'Ver tema no Campfire ↗':'Fonte ↗')+'</a>':'')+
-      (e.maps?'<a href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Ver local ↗</a>':'')+
-      '<button type="button" data-add="'+esc(e.id)+'">'+(e.routine?'Salvar previsão +':'Adicionar +')+'</button>';
-    return '<article class="ag-week-item" data-kind="'+esc(e.kind)+'">'+
-      '<div class="ag-week-item-top"><span class="ag-week-kind">'+esc(categories[e.kind]||'Evento')+'</span><span class="ag-week-badge '+(e.location_status==='habitual'||e.routine?'local':'')+'">'+esc(statusText)+'</span></div>'+
-      '<h3>'+esc(e.title)+'</h3>'+topic+bonus+'<div class="ag-week-detail">'+when+loc+'</div>'+dayDetail+bonuses+benefits+
-      '<p class="ag-week-topic" style="margin:7px 0 0;color:#6a7d95;font-size:.73rem">'+esc(details)+'</p>'+
-      '<div class="ag-week-actions">'+actions+'</div></article>';
-  }
 
+  function compactEvent(e,date){
+    var location=e.location_short||e.location||'';
+    var when=e.from&&e.to?timeLabel(e):'Horário a confirmar';
+    var note=e.routine||e.location_status==='habitual'?'Ponto habitual · confirme o encontro no Campfire':e.kind==='natal'?'Encontro divulgado · confirme o horário presencial':'Evento do jogo';
+    var topic=e.topic?' · '+e.topic:'';
+    var subject=esc(e.title+topic);
+    var dayInfo=e.day_details&&e.day_details[date]||null;
+    var extra=dayInfo?'<p><b>Neste dia:</b> '+esc(dayInfo)+'</p>':'';
+    var bonuses=e.bonuses&&e.bonuses.length?'<ul>'+e.bonuses.map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>':'';
+    var benefits=e.benefits&&e.benefits.length?'<ul>'+e.benefits.map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>':'';
+    var bonus=e.bonus?'<p><b>Bônus:</b> '+esc(e.bonus)+'</p>':'';
+    var actions=(e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte ↗</a>':'')+
+      (e.maps?'<a href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Mapa ↗</a>':'')+
+      '<button type="button" data-add="'+esc(e.id)+'">Salvar no calendário</button>'+
+      '<button type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
+    return '<article class="ag-compact-event" data-kind="'+esc(e.kind)+'"><div class="ag-compact-event-head">'+
+      '<span class="ag-compact-event-type">'+esc(categories[e.kind]||'Evento')+'</span><strong>'+subject+'</strong></div>'+
+      '<span class="ag-compact-event-where">'+esc(when)+(location?' · '+esc(location):'')+'</span>'+
+      (e.routine||e.location_status==='habitual'?'<p class="ag-compact-event-note">'+esc(note)+'</p>':'')+
+      '<details class="ag-mini-detail"><summary>Detalhes e ações</summary><p>'+esc(e.description||'Confira a programação da atividade.')+'</p>'+
+      extra+bonus+bonuses+benefits+'<div class="ag-mini-action">'+actions+'</div></details></article>';
+  }
+  function briefLine(evs){
+    if(!evs.length)return {title:'Sem atividades previstas',sub:'Toque para ver o dia'};
+    var best=evs.find(function(e){return e.routine})||evs.find(function(e){return e.kind==='natal'})||
+      evs.find(function(e){return e.start===e.end})||evs[0];
+    var title=best.title+(best.topic?' · '+best.topic:'');
+    var location=best.location_short||(best.location&&best.location.indexOf('Biblioteca Central')>=0?'BCZM':
+      best.location&&best.location.indexOf('Complexo Tecnológico')>=0?'CTEC':
+      best.location&&best.location.indexOf('Setor 2')>=0?'Setor 2':'');
+    var subtitle=(location|| (best.from&&best.to?timeLabel(best):'Evento do jogo'));
+    if(evs.length>1)subtitle+=' · +'+(evs.length-1)+' no dia';
+    return {title:title,sub:subtitle};
+  }
   function drawWeekFeatures(start,end){
     var visible=rotations.filter(function(e){return e.start<=end&&e.end>=start});
     var order={reide:0,mega:1,max:2,sombra:3,evento:4};
     visible.sort(function(a,b){return (order[a.kind]??9)-(order[b.kind]??9)||a.start.localeCompare(b.start)});
     var kinds={reide:'Reides 5★',mega:'Megarreides',max:'Batalhas Max',sombra:'Reides Sombrosas',evento:'Evento'};
+    document.getElementById('agRotationCount').textContent=visible.length+
+      (visible.length===1?' rotação nesta semana':' rotações nesta semana')+' · toque para abrir';
     document.getElementById('agWeekFeatures').innerHTML=visible.length?visible.map(function(e){
-      var rangeLabel=dateNum(e.start)+'–'+dateNum(e.end)+' '+monthShort;
-      if(e.start===e.end)rangeLabel=dateNum(e.start)+' '+monthShort;
-      return '<article class="ag-feature" data-kind="'+esc(e.kind)+'"><div class="ag-feature-label">'+esc(kinds[e.kind]||'Programação')+'</div>'+
-        '<strong>'+esc(e.title)+'</strong><span class="ag-feature-date">'+esc(rangeLabel)+'</span>'+
-        '<p>'+esc(e.description)+'</p>'+
-        (e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a>':'')+'</article>';
-    }).join(''):'<div class="ag-week-empty" style="grid-column:1/-1">Sem rotações adicionais informadas nesta semana.</div>';
+      var r=dateNum(e.start)+(e.start===e.end?'':'–'+dateNum(e.end))+' '+monthShort;
+      return '<details class="ag-feature" data-kind="'+esc(e.kind)+'"><summary><span class="ag-feature-label">'+esc(kinds[e.kind]||'Evento')+'</span>'+
+        '<strong>'+esc(e.title)+'</strong><span class="ag-feature-date">'+esc(r)+'</span></summary>'+
+        '<div class="ag-feature-detail"><p>'+esc(e.description)+'</p>'+
+        (e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Anúncio oficial ↗</a>':'')+'</div></details>';
+    }).join(''):'<p class="ag-week-empty" style="grid-column:1/-1">Não há rotações adicionais cadastradas.</p>';
     document.getElementById('agWeekSpecialNote').hidden=end<'2026-11-09'||start>'2026-11-15';
   }
   function drawWeek(){
@@ -533,26 +548,38 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     if(weekStart<firstWeek())weekStart=firstWeek();
     if(weekStart>lastWeek())weekStart=lastWeek();
     var end=addDays(weekStart,6), isSingle=weekStart.slice(0,7)===end.slice(0,7);
-    document.getElementById('agWeekRange').textContent=isSingle?(dateNum(weekStart)+'–'+dateNum(end)+' '+monthShort+' · '+month.slice(0,4)):(dateNum(weekStart)+' '+datePt(weekStart,{month:'short'})+' – '+dateNum(end)+' '+datePt(end,{month:'short'})+' · '+month.slice(0,4));
+    document.getElementById('agWeekRange').textContent=isSingle?
+      (dateNum(weekStart)+'–'+dateNum(end)+' '+monthShort+' · '+month.slice(0,4)):
+      (dateNum(weekStart)+' '+datePt(weekStart,{month:'short'})+' – '+dateNum(end)+' '+datePt(end,{month:'short'})+' · '+month.slice(0,4));
     document.getElementById('agWeekToday').textContent=current.slice(0,7)===month?'Esta semana':'Início';
     document.getElementById('agPrevWeek').disabled=weekStart<=firstWeek();
     document.getElementById('agNextWeek').disabled=weekStart>=lastWeek();
-    var tabs='',grouped='', names=['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
-    for(var n=0;n<7;n++){
-      var date=addDays(weekStart,n),evs=getWeekEntries(date), inMonth=date.slice(0,7)===month;
-      var pressed=date===selectedDay||(selectedDay===null&&date===current);
-      tabs+='<button type="button" class="ag-week-tab '+(date===current?'is-today ':'')+(inMonth?'':'is-outside')+
-        '" data-week-day="'+date+'" aria-pressed="'+pressed+'" aria-label="'+names[n]+', '+datePt(date,{day:'numeric',month:'long'})+', '+evs.length+' eventos">'+
-        '<small>'+names[n]+'</small><strong>'+dateNum(date)+'</strong><em>'+evs.length+'</em></button>';
-      if(inMonth&&evs.length){
-        grouped+='<div class="ag-week-daygroup" id="ag-day-'+date+'"><div class="ag-week-day-label"><strong>'+
-          names[n]+' '+dateNum(date)+'</strong><small>'+monthShort+' · '+evs.length+' '+(evs.length===1?'evento':'eventos')+'</small></div>'+
-          '<div class="ag-week-items">'+evs.map(function(e){return weekCard(e,date)}).join('')+'</div></div>';
+    var tabs='',rows='',names=['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
+    if(weekFocusDay===null){
+      if(current>=weekStart&&current<=end&&current.slice(0,7)===month)weekFocusDay=current;
+      else{
+        weekFocusDay='';
+        for(var i=0;i<7;i++){var dt=addDays(weekStart,i);if(dt.slice(0,7)===month&&getWeekEntries(dt).length){weekFocusDay=dt;break}}
       }
     }
+    for(var n=0;n<7;n++){
+      var date=addDays(weekStart,n),evs=getWeekEntries(date),inMonth=date.slice(0,7)===month;
+      var active=date===weekFocusDay,brief=briefLine(inMonth?evs:[]);
+      tabs+='<button type="button" data-week-day="'+date+'" aria-pressed="'+active+'">'+names[n]+' '+dateNum(date)+'</button>';
+      if(!inMonth)continue;
+      var title=evs.length?brief.title:'Sem evento cadastrado';
+      rows+='<div class="ag-day-row '+(active?'is-focus ':'')+(date===current?'is-current':'')+'">'+
+        '<button class="ag-day-row-toggle" type="button" data-week-focus="'+date+'" aria-expanded="'+active+'" aria-label="'+
+        esc(names[n]+' '+dateNum(date)+': '+title)+'"><span class="ag-day-brief-date">'+names[n]+'<strong>'+dateNum(date)+'</strong></span>'+
+        '<span class="ag-day-brief-main"><strong>'+esc(title)+'</strong><small>'+esc(brief.sub)+'</small></span>'+
+        '<span class="ag-day-brief-right">'+(evs.length>1?'<span class="ag-count-tag">'+evs.length+'</span>':'')+
+        '<span aria-hidden="true">'+(active?'⌃':'⌄')+'</span></span></button>'+
+        (active?'<div class="ag-day-expanded">'+(evs.length?evs.map(function(e){return compactEvent(e,date)}).join(''):
+          '<p class="ag-week-empty">Sem atividades previstas para este dia.</p>')+'</div>':'')+'</div>';
+    }
     document.getElementById('agWeekStrip').innerHTML=tabs;
+    document.getElementById('agWeekEntries').innerHTML=rows;
     drawWeekFeatures(weekStart,end);
-    document.getElementById('agWeekEntries').innerHTML=grouped||'<div class="ag-week-empty">Sem atividades cadastradas nesta semana.</div>';
   }
   function drawDays(){
     var html='';
@@ -603,6 +630,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     document.querySelectorAll('#agFilters button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.filter===selectedFilter))});
     var visible=data.filter(matches).sort(eventDateSort);
     list.innerHTML=visible.length?visible.map(card).join(''):'<div class="ag-empty">Nenhum evento encontrado para este filtro. Experimente outra data ou categoria.</div>';
+    document.getElementById('agAllSummary').textContent=visible.length+' registros · busca e filtros';
     count.textContent=visible.length+' '+(visible.length===1?'registro':'registros')+' na programação';
     clear.hidden=!selectedDay&&selectedFilter==='todos'&&!search.value&&!future.checked;
   }
@@ -636,13 +664,13 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   daysNode.addEventListener('click',function(ev){
     var btn=ev.target.closest('[data-day]');if(!btn)return;
     selectedDay=selectedDay===btn.dataset.day?null:btn.dataset.day;render();
-    weekStart=startWeek(btn.dataset.day);drawWeek();
+    weekStart=startWeek(btn.dataset.day);weekFocusDay=btn.dataset.day;drawWeek();
     document.getElementById('agWeekSection').scrollIntoView({behavior:'smooth',block:'start'});
   });
 
-  document.getElementById('agPrevWeek').addEventListener('click',function(){if(weekStart>firstWeek()){weekStart=addDays(weekStart,-7);selectedDay=null;render()}});
-  document.getElementById('agNextWeek').addEventListener('click',function(){if(weekStart<lastWeek()){weekStart=addDays(weekStart,7);selectedDay=null;render()}});
-  document.getElementById('agWeekToday').addEventListener('click',function(){selectedDay=null;weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();render()});
+  document.getElementById('agPrevWeek').addEventListener('click',function(){if(weekStart>firstWeek()){weekStart=addDays(weekStart,-7);weekFocusDay=null;selectedDay=null;render()}});
+  document.getElementById('agNextWeek').addEventListener('click',function(){if(weekStart<lastWeek()){weekStart=addDays(weekStart,7);weekFocusDay=null;selectedDay=null;render()}});
+  document.getElementById('agWeekToday').addEventListener('click',function(){selectedDay=null;weekFocusDay=null;weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();render()});
   document.getElementById('agWeekStrip').addEventListener('click',function(ev){
     var btn=ev.target.closest('[data-week-day]');if(!btn)return;
     var chosen=btn.dataset.weekDay;
@@ -651,6 +679,11 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     render();
     var el=document.getElementById('ag-day-'+chosen);
     if(el)el.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
+  document.getElementById('agWeekEntries').addEventListener('click',function(ev){
+    var btn=ev.target.closest('[data-week-focus]');if(!btn)return;
+    weekFocusDay=weekFocusDay===btn.dataset.weekFocus?'':btn.dataset.weekFocus;
+    drawWeek();
   });
   document.getElementById('agFilters').addEventListener('click',function(ev){var btn=ev.target.closest('[data-filter]');if(btn){selectedFilter=btn.dataset.filter;render()}});
   search.addEventListener('input',render);future.addEventListener('change',render);
@@ -677,6 +710,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var singles=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];
     data=singles.concat(expandRoutines(weeklyRoutines));
     weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();
+    weekFocusDay=null;
     var natal=data.filter(function(e){return e.kind==='natal'}).sort(function(a,b){return a.start.localeCompare(b.start)});
     var localPanel=document.getElementById('agLocalPanel');
     localPanel.hidden=!natal.length;

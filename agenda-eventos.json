@@ -2,7 +2,7 @@
   "month": "2026-11",
   "updated_at": "2026-10-31",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Fontes: anúncios oficiais de Natureza Selvagem e Área Selvagem Global, mais as artes de calendário compartilhadas pelo usuário (Jogada Excelente). Rotações são disponibilidade no jogo, não encontros presenciais. Locais semanais são pontos habituais e não confirmam criação de eventos no Campfire. Pokémon não revelados aparecem como 'a confirmar'.",
+  "editorial_note": "Fontes: anúncios oficiais de Natureza Selvagem e Área Selvagem Global, mais as artes de calendário compartilhadas pelo usuário (Jogada Excelente). Rotações são disponibilidade no jogo, não encontros presenciais. Locais semanais são pontos habituais e não confirmam criação de eventos no Campfire. Pokémon não revelados aparecem como 'a confirmar'. Durante 9–15/11, as Descobertas Diárias ficam suspensas; não gerar automaticamente rotinas regulares em 9, 11, 12 e 13. A Hora do Holofote de 19/11 está confirmada no comunicado oficial de Trilhas Dinamax, apesar de uma divergência na arte mensal.",
   "events": [
     {
       "id": "halloween-2",
@@ -103,20 +103,6 @@
       "to": "20:00",
       "description": "Trilhas Dinamax, de 16 a 23 de novembro, com retorno de Eternatus e atividades de Batalhas Max. Consulte os detalhes oficiais.",
       "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026"
-    },
-    {
-      "id": "hora-destaque",
-      "title": "Hora de destaque: Grookey, Scorbunny e Sobble",
-      "kind": "evento",
-      "start": "2026-11-19",
-      "end": "2026-11-19",
-      "from": "18:00",
-      "to": "19:00",
-      "description": "Grookey, Scorbunny e Sobble em destaque na Hora do Holofote. Ponto habitual de encontro: BCZM/UFRN; presença da comunidade depende de confirmação.",
-      "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026",
-      "location": "Biblioteca Central Zila Mamede (BCZM / UFRN)",
-      "location_status": "habitual",
-      "maps": "https://www.google.com/maps/search/?api=1&query=Biblioteca%20Central%20Zila%20Mamede%20UFRN%20Natal"
     },
     {
       "id": "eternamax",
@@ -223,10 +209,13 @@
           "source": "https://campfire.scopely.com/discover/collection/c58fe279-a683-4fdc-8ba5-174c24782b5d"
         },
         "2026-11-16": {
-          "theme": "Surpresa / a confirmar",
+          "theme": "Pokémon ainda não anunciado",
           "source": null
         }
-      }
+      },
+      "skip_dates": [
+        "2026-11-09"
+      ]
     },
     {
       "id": "hora-lendaria",
@@ -250,7 +239,10 @@
           "theme": "Deoxys",
           "source": "https://campfire.scopely.com/discover/collection/8f5c82d8-46af-40bd-b2b7-e38062a14574"
         }
-      }
+      },
+      "skip_dates": [
+        "2026-11-11"
+      ]
     },
     {
       "id": "hora-holofote",
@@ -269,14 +261,18 @@
         },
         "2026-11-19": {
           "theme": "Grookey, Scorbunny e Sobble",
-          "source": "https://campfire.scopely.com/discover/collection/b03e018d-bf9b-4f58-a370-15a883fd2d58"
+          "source": "https://campfire.scopely.com/discover/collection/b03e018d-bf9b-4f58-a370-15a883fd2d58",
+          "bonus": "2× Doces por captura"
         },
         "2026-11-26": {
           "theme": "Noibat",
           "source": "https://campfire.scopely.com/discover/collection/01ff15bc-f50a-4e49-989c-6addf62ab4f9",
           "bonus": "2× Doces por captura"
         }
-      }
+      },
+      "skip_dates": [
+        "2026-11-12"
+      ]
     },
     {
       "id": "sexta-amizade",
@@ -300,7 +296,10 @@
           "theme": "Sexta da Amizade",
           "source": "https://campfire.scopely.com/discover/collection/5013ed41-77a0-4d9f-afbf-9cbbc295709b"
         }
-      }
+      },
+      "skip_dates": [
+        "2026-11-13"
+      ]
     }
   ],
   "local_guide": "Os locais dos encontros recorrentes são pontos habituais informados pela comunidade; não indicam automaticamente que um encontro já foi criado ou confirmado no Campfire.",

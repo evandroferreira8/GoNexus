@@ -169,6 +169,30 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
  .ag-week-item h3{font-size:.93rem!important}
  .ag-week-detail{font-size:.72rem}
 }
+
+/* Resumo semanal de chefes e bônus: compacto e independente dos encontros */
+.ag-feature-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:5px 0 10px}
+.ag-feature-head h3{font-size:1.02rem!important;letter-spacing:-.02em;margin:0!important;color:#1b3960!important}
+.ag-feature-head small{font-size:.69rem;color:#7386a0}
+.ag-feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:19px}
+.ag-feature{--fc:#7354bf;min-width:0;border:1px solid #dbe5f2;border-top:3px solid var(--fc);border-radius:12px;background:#f7f9fd;padding:11px 12px}
+.ag-feature[data-kind="mega"]{--fc:#c3519b}.ag-feature[data-kind="max"]{--fc:#b54b99}
+.ag-feature[data-kind="sombra"]{--fc:#655782}
+.ag-feature[data-kind="evento"]{--fc:#e27f3c}
+.ag-feature-label{font-size:.64rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fc)}
+.ag-feature strong{display:block;margin:5px 0;font-size:.89rem;line-height:1.29;letter-spacing:-.012em;color:#173154}
+.ag-feature p{font-size:.72rem;line-height:1.42;color:#657994;margin:0}
+.ag-feature-date{display:block;font-size:.69rem;color:#47658b;font-weight:800;margin:6px 0}
+.ag-feature a{display:inline-block;margin-top:7px;color:#235ac0;font-size:.72rem;font-weight:800;text-decoration:none}
+.ag-feature a:hover{text-decoration:underline}
+.ag-day-extra{margin:7px 0 3px!important;padding:8px 10px;border-radius:9px;background:#edf4ff;color:#305377!important;font-size:.76rem!important;line-height:1.45!important}
+.ag-day-bonuses{padding:0;margin:7px 0 0;list-style:none;display:flex;flex-direction:column;gap:4px;color:#4f698d;font-size:.71rem;line-height:1.35}
+.ag-day-bonuses li:before{content:"•";color:#2e68c7;font-weight:bold;margin-right:6px}
+.ag-week-warning{font-size:.74rem;background:#fff7e7;border:1px solid #f0dfb8;border-radius:10px;padding:10px 12px;color:#70541f;line-height:1.45;margin:5px 0 16px}
+.ag-week-warning[hidden]{display:none}
+@media(max-width:600px){.ag-feature-grid{grid-template-columns:1fr 1fr;gap:6px}.ag-feature{padding:9px}.ag-feature strong{font-size:.8rem}.ag-feature p{font-size:.7rem}}
+@media(max-width:360px){.ag-feature-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body class="agenda-page" data-studio-page>
@@ -201,6 +225,9 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         <p class="ag-week-sub">Veja os eventos do jogo e os encontros habituais da UFRN. Selecione uma semana para conhecer os destaques e locais.</p>
         <div class="ag-week-range" id="agWeekRange" aria-live="polite">Programação da semana</div>
         <div class="ag-week-strip" id="agWeekStrip" role="group" aria-label="Dias da semana"></div>
+        <div id="agWeekSpecialNote" class="ag-week-warning" hidden>Durante 9 a 15 de novembro, a programação especial substitui algumas Descobertas Diárias. Não presuma que os encontros semanais habituais ocorrerão: confirme no Campfire.</div>
+        <div class="ag-feature-head"><h3>Em destaque na semana</h3><small>Rotações do jogo · não são encontros</small></div>
+        <div id="agWeekFeatures" class="ag-feature-grid" aria-live="polite"></div>
         <div class="ag-week-entries" id="agWeekEntries" aria-live="polite"></div>
         <p class="ag-week-note"><b>Locais habituais não significam encontros confirmados.</b> Os temas divulgados no Campfire ajudam a planejar; confirme horário e criação do encontro com a comunidade antes de sair.</p>
       </section>
@@ -250,7 +277,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 <script>
 (function(){
   'use strict';
-  var data=[], weeklyRoutines=[], selectedDay=null, selectedFilter='todos', weekStart=null;
+  var data=[], rotations=[], weeklyRoutines=[], selectedDay=null, selectedFilter='todos', weekStart=null;
   var daysNode=document.getElementById('agDays'),list=document.getElementById('agList');
   var count=document.getElementById('agCount'),search=document.getElementById('agSearch');
   var future=document.getElementById('agFuture'), clear=document.getElementById('agClear');
@@ -283,11 +310,11 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     for(var day=1;day<=total;day++){
       var iso=month+'-'+String(day).padStart(2,'0');
       rules.forEach(function(r){
-        if(Number(r.weekday)!==weekday(iso))return;
+        if(Number(r.weekday)!==weekday(iso)||(Array.isArray(r.skip_dates)&&r.skip_dates.includes(iso)))return;
         var topic=r.topics&&r.topics[iso], description=r.description||'Rotina semanal da comunidade.';
         result.push({id:r.id+'-'+iso,title:r.title,kind:r.kind,start:iso,end:iso,from:null,to:null,
           location:r.location,location_short:r.location_short,maps:r.maps,description:description,
-          topic:topic&&topic.theme||null,source:topic&&topic.source||null,routine:true,
+          topic:topic&&topic.theme||null,bonus:topic&&topic.bonus||null,source:topic&&topic.source||null,routine:true,
           location_status:'habitual'});
       });
     }
@@ -295,9 +322,13 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   }
   function eventDateSort(a,b){return a.start.localeCompare(b.start)||(prio[a.kind]??9)-(prio[b.kind]??9)||a.title.localeCompare(b.title)}
   function getWeekEntries(date){return data.filter(function(e){return applies(e,date)}).sort(eventDateSort)}
-  function weekCard(e){
+  function weekCard(e,date){
     var statusText=e.routine?'Rotina habitual':e.location_status==='habitual'?'Local habitual':e.kind==='natal'?'Encontro divulgado':'Evento do jogo';
     var topic=e.topic?'<p class="ag-week-topic"><b>Em destaque:</b> '+esc(e.topic)+'</p>':'';
+    var dayInfo=e.day_details&&e.day_details[date]||null;
+    var dayDetail=dayInfo?'<p class="ag-day-extra"><b>Programação de '+esc(datePt(date,{weekday:'long',day:'numeric'}))+':</b> '+esc(dayInfo)+'</p>':'';
+    var bonuses=e.bonuses?'<ul class="ag-day-bonuses">'+e.bonuses.map(function(b){return '<li>'+esc(b)+'</li>'}).join('')+'</ul>':'';
+    var bonus=e.bonus?'<p class="ag-day-extra"><b>Bônus:</b> '+esc(e.bonus)+'</p>':'';
     var loc=e.location?'<span><b>'+(e.location_status==='habitual'?'Local habitual':'Local')+':</b> '+esc(e.location)+'</span>':'';
     var when='<span><b>Horário:</b> '+esc(timeLabel(e))+'</span>';
     var details=e.routine?'Rotina da comunidade. Consulte o Campfire para confirmar se há encontro publicado.':e.description;
@@ -306,9 +337,25 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       '<button type="button" data-add="'+esc(e.id)+'">'+(e.routine?'Salvar previsão +':'Adicionar +')+'</button>';
     return '<article class="ag-week-item" data-kind="'+esc(e.kind)+'">'+
       '<div class="ag-week-item-top"><span class="ag-week-kind">'+esc(categories[e.kind]||'Evento')+'</span><span class="ag-week-badge '+(e.location_status==='habitual'||e.routine?'local':'')+'">'+esc(statusText)+'</span></div>'+
-      '<h3>'+esc(e.title)+'</h3>'+topic+'<div class="ag-week-detail">'+when+loc+'</div>'+
+      '<h3>'+esc(e.title)+'</h3>'+topic+bonus+'<div class="ag-week-detail">'+when+loc+'</div>'+dayDetail+bonuses+
       '<p class="ag-week-topic" style="margin:7px 0 0;color:#6a7d95;font-size:.73rem">'+esc(details)+'</p>'+
       '<div class="ag-week-actions">'+actions+'</div></article>';
+  }
+
+  function drawWeekFeatures(start,end){
+    var visible=rotations.filter(function(e){return e.start<=end&&e.end>=start});
+    var order={reide:0,mega:1,max:2,sombra:3,evento:4};
+    visible.sort(function(a,b){return (order[a.kind]??9)-(order[b.kind]??9)||a.start.localeCompare(b.start)});
+    var kinds={reide:'Reides 5★',mega:'Megarreides',max:'Batalhas Max',sombra:'Reides Sombrosas',evento:'Evento'};
+    document.getElementById('agWeekFeatures').innerHTML=visible.length?visible.map(function(e){
+      var rangeLabel=dateNum(e.start)+'–'+dateNum(e.end)+' '+monthShort;
+      if(e.start===e.end)rangeLabel=dateNum(e.start)+' '+monthShort;
+      return '<article class="ag-feature" data-kind="'+esc(e.kind)+'"><div class="ag-feature-label">'+esc(kinds[e.kind]||'Programação')+'</div>'+
+        '<strong>'+esc(e.title)+'</strong><span class="ag-feature-date">'+esc(rangeLabel)+'</span>'+
+        '<p>'+esc(e.description)+'</p>'+
+        (e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a>':'')+'</article>';
+    }).join(''):'<div class="ag-week-empty" style="grid-column:1/-1">Sem rotações adicionais informadas nesta semana.</div>';
+    document.getElementById('agWeekSpecialNote').hidden=end<'2026-11-09'||start>'2026-11-15';
   }
   function drawWeek(){
     if(!weekStart)weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();
@@ -329,10 +376,11 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       if(inMonth&&evs.length){
         grouped+='<div class="ag-week-daygroup" id="ag-day-'+date+'"><div class="ag-week-day-label"><strong>'+
           names[n]+' '+dateNum(date)+'</strong><small>'+monthShort+' · '+evs.length+' '+(evs.length===1?'evento':'eventos')+'</small></div>'+
-          '<div class="ag-week-items">'+evs.map(weekCard).join('')+'</div></div>';
+          '<div class="ag-week-items">'+evs.map(function(e){return weekCard(e,date)}).join('')+'</div></div>';
       }
     }
     document.getElementById('agWeekStrip').innerHTML=tabs;
+    drawWeekFeatures(weekStart,end);
     document.getElementById('agWeekEntries').innerHTML=grouped||'<div class="ag-week-empty">Sem atividades cadastradas nesta semana.</div>';
   }
   function drawDays(){
@@ -453,6 +501,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     document.getElementById('agHeroTitle').innerHTML=esc(title)+' <span>em jogo.</span>';
     document.getElementById('agMetaMonth').textContent=title+' de '+month.slice(0,4);
     document.getElementById('agMonthText').textContent=monthAbbr+' / '+month.slice(0,4);
+    rotations=Array.isArray(doc.rotations)?doc.rotations.filter(function(e){return e&&e.start&&e.end&&e.kind}):[];
     weeklyRoutines=Array.isArray(doc.weekly_routines)?doc.weekly_routines:[];
     var singles=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];
     data=singles.concat(expandRoutines(weeklyRoutines));

@@ -137,14 +137,14 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     </div>
     <aside class="ag-side" aria-label="Comunidade de Natal">
       <div class="ag-rail">
-        <section class="ag-local">
+        <section class="ag-local" id="agLocalPanel">
           <div class="ag-local-kicker">PRESENCIAL / NATAL • RN</div>
           <h2>O jogo também acontece aqui.</h2>
-          <p class="ag-local-lede">A comunidade de Natal está entre os encontros brasileiros divulgados para a Área Selvagem GO.</p>
-          <div class="ag-local-big"><strong>14–15</strong><span><b>NOVEMBRO</b><br>Área Selvagem GO</span></div>
-          <div class="ag-location">UFRN · Setor 2 do CCHLA</div>
-          <p class="ag-local-note">Ponto de encontro divulgado oficialmente. O horário específico da atividade presencial deve ser confirmado com os organizadores. O evento global no jogo ocorre das 10h às 18h.</p>
-          <div class="ag-local-links"><a href="https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil" target="_blank" rel="noopener noreferrer">Anúncio oficial ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=UFRN%20Setor%202%20CCHLA%20Natal" target="_blank" rel="noopener noreferrer">Ver local ↗</a></div>
+          <p class="ag-local-lede" id="agLocalLede">A comunidade de Natal está entre os encontros brasileiros divulgados para a Área Selvagem GO.</p>
+          <div class="ag-local-big"><strong id="agLocalDates">14–15</strong><span><b id="agLocalMonth">NOVEMBRO</b><br><span id="agLocalName">Área Selvagem GO</span></span></div>
+          <div class="ag-location" id="agLocalLocation">UFRN · Setor 2 do CCHLA</div>
+          <p class="ag-local-note" id="agLocalNote">Ponto de encontro divulgado oficialmente. O horário específico da atividade presencial deve ser confirmado com os organizadores. O evento global no jogo ocorre das 10h às 18h.</p>
+          <div class="ag-local-links"><a id="agLocalSource" href="https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil" target="_blank" rel="noopener noreferrer">Anúncio oficial ↗</a><a id="agLocalMap" href="https://www.google.com/maps/search/?api=1&amp;query=UFRN%20Setor%202%20CCHLA%20Natal" target="_blank" rel="noopener noreferrer">Ver local ↗</a></div>
         </section>
         <section class="ag-info">
           <h3>Seu encontro não apareceu?</h3>
@@ -280,6 +280,21 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     document.getElementById('agMetaMonth').textContent=title+' de '+month.slice(0,4);
     document.getElementById('agMonthText').textContent=monthAbbr+' / '+month.slice(0,4);
     data=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind&&e.source}):[];
+    var natal=data.filter(function(e){return e.kind==='natal'}).sort(function(a,b){return a.start.localeCompare(b.start)});
+    var localPanel=document.getElementById('agLocalPanel');
+    localPanel.hidden=!natal.length;
+    if(natal.length){
+      var first=natal[0], last=natal[natal.length-1];
+      document.getElementById('agLocalDates').textContent=dateNum(first.start)+(first.start!==last.start?'–'+dateNum(last.start):'');
+      document.getElementById('agLocalMonth').textContent=monthLong.toUpperCase();
+      document.getElementById('agLocalName').textContent=natal.length>1?'Encontros da comunidade':'Encontro da comunidade';
+      document.getElementById('agLocalLocation').textContent=first.location||'Local a confirmar';
+      document.getElementById('agLocalNote').textContent='Confira a programação e os horários presenciais com os organizadores. Datas e locais são atualizados conforme a divulgação oficial.';
+      document.getElementById('agLocalLede').textContent='Encontros presenciais da comunidade anunciados para '+monthLong+'.';
+      document.getElementById('agLocalSource').href=first.source;
+      if(first.maps)document.getElementById('agLocalMap').href=first.maps;
+      else document.getElementById('agLocalMap').hidden=true;
+    }
     render();
   }).catch(function(){count.textContent='Não foi possível carregar a agenda';list.innerHTML='<div class="ag-empty">Atualize a página para tentar novamente.</div>';drawDays()});
 })();

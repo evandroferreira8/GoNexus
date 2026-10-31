@@ -552,7 +552,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     <div class="ag-main">
       <section class="ag-panel ag-month-panel" aria-labelledby="calendarioTitulo">
         <div class="ag-heading ag-month-heading">
-          <div><div class="ag-section-kicker">AGENDA GO / NOVEMBRO 2026</div><h2 id="calendarioTitulo">Seu mês em jogo.</h2><p>Selecione uma data para conferir o que acontece.</p></div>
+          <div><div class="ag-section-kicker" id="agCalendarKicker">AGENDA GO / NOVEMBRO 2026</div><h2 id="calendarioTitulo">Seu mês em jogo.</h2><p>Selecione uma data para conferir o que acontece.</p></div>
           <span class="ag-month" id="agMonthText">NOV / 2026</span>
         </div>
         <div class="ag-month-workspace">
@@ -598,7 +598,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
           <summary><span class="ag-fold-icon">◆</span><span><b>Chefes e rotações da semana</b><small id="agRotationCount">Reides, Megas e Batalhas Max</small></span><span class="ag-fold-arrow" aria-hidden="true">⌄</span></summary>
           <div id="agWeekFeatures" class="ag-feature-grid" aria-live="polite"></div>
         </details>
-        <p class="ag-week-note">Os locais informados são <b>pontos habituais</b>. Confirme o encontro no Campfire antes de sair.</p>
+        <p class="ag-week-note">Os locais informados são <b>pontos habituais</b>. Confirme o encontro no Campfire antes de sair. Rotações de chefes ficam disponíveis no painel “Chefes e rotações da semana”.</p>
       </section>
       <details class="ag-fold ag-all-fold" id="agAllDetails">
         <summary><span class="ag-fold-icon">▦</span><span><b>Explorar todos os eventos</b><small id="agAllSummary">Lista completa, busca e filtros</small></span><span class="ag-fold-arrow" aria-hidden="true">⌄</span></summary>
@@ -850,7 +850,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   }
   function matches(e){
     var query=normal(search.value.trim());
-    return kindMatches(e)&&(!selectedDay||applies(e,selectedDay))&&(!future.checked||!passed(e))&&(!query||normal([e.title,e.description,e.location,e.kind].join(' ')).includes(query));
+    return kindMatches(e)&&(!future.checked||!passed(e))&&(!query||normal([e.title,e.description,e.location,e.kind].join(' ')).includes(query));
   }
   function status(e){
     if(passed(e))return '<span class="ag-done">Encerrado</span>';
@@ -886,7 +886,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     list.innerHTML=visible.length?visible.map(card).join(''):'<div class="ag-empty">Nenhum evento encontrado para este filtro. Experimente outra data ou categoria.</div>';
     document.getElementById('agAllSummary').textContent=visible.length+' registros · busca e filtros';
     count.textContent=visible.length+' '+(visible.length===1?'registro':'registros')+' na programação';
-    clear.hidden=!selectedDay&&selectedFilter==='todos'&&!search.value&&!future.checked;
+    clear.hidden=selectedFilter==='todos'&&!search.value&&!future.checked;
   }
   function icsDate(s){return s.replace(/-/g,'')}
   function nextDay(s){var d=new Date(s+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+1);return d.toISOString().slice(0,10)}
@@ -944,7 +944,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   });
   document.getElementById('agFilters').addEventListener('click',function(ev){var btn=ev.target.closest('[data-filter]');if(btn){selectedFilter=btn.dataset.filter;render()}});
   search.addEventListener('input',render);future.addEventListener('change',render);
-  clear.addEventListener('click',function(){selectedDay=null;selectedFilter='todos';search.value='';future.checked=false;render()});
+  clear.addEventListener('click',function(){selectedFilter='todos';search.value='';future.checked=false;render()});
   function onAction(ev){
     var btn=ev.target.closest('[data-add],[data-share]');if(!btn)return;
     var id=btn.dataset.add||btn.dataset.share;var e=data.find(function(x){return x.id===id});if(!e)return;
@@ -962,6 +962,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     document.getElementById('agHeroTitle').innerHTML=esc(title)+' <span>em jogo.</span>';
     document.getElementById('agMetaMonth').textContent=title+' de '+month.slice(0,4);
     document.getElementById('agMonthText').textContent=monthAbbr+' / '+month.slice(0,4);
+    document.getElementById('agCalendarKicker').textContent='AGENDA GO / '+monthLong.toUpperCase()+' '+month.slice(0,4);
     rotations=Array.isArray(doc.rotations)?doc.rotations.filter(function(e){return e&&e.start&&e.end&&e.kind}):[];
     weeklyRoutines=Array.isArray(doc.weekly_routines)?doc.weekly_routines:[];
     var singles=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];

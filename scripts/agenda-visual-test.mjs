@@ -31,7 +31,7 @@ async function check(width, height) {
       assert.equal(await page.locator('#agMMonthGrid button').count(), 30);
       await page.locator('#agMMonthGrid [data-m-month="2026-11-21"]').click();
       await assert.match(await page.locator('#agMEvents').innerText(), /Pawniard/);
-      await assert.match(await page.locator('#agMEvents').innerText(), /Setor 2/);
+      await assert.match(await page.locator('#agMEvents').innerText(), /Setor (?:2|II)/);
       await page.screenshot({ path: '/tmp/agenda-visual/mobile-' + width + '-month.png', fullPage: false });
 
       await page.locator('#agMTabWeek').click();

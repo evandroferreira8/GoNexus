@@ -2,7 +2,7 @@
   "month": "2026-11",
   "updated_at": "2026-11-02",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Fontes: anúncios oficiais de Pokémon GO, calendário mensal anteriormente informado e coleções públicas do Campfire Discover para região da UFRN/Natal. A página inicial do Campfire confirma a data e o título de cada coleção, mas não fornece o horário e endereço do encontro individual; esses campos só podem ser preenchidos depois de conferir a página específica do encontro. CTEC, BCZM e Setor 2 permanecem como pontos habituais (não validados na ficha do encontro). Eventos do jogo e encontros presenciais têm horários independentes. Durante 9–15/11, algumas rotinas semanais são substituídas por eventos especiais.",
+  "editorial_note": "Fontes: anúncios oficiais de Pokémon GO, calendário mensal anteriormente informado e coleções públicas do Campfire Discover para região da UFRN/Natal. A página inicial do Campfire confirma a data e o título de cada coleção, mas não fornece o horário e endereço do encontro individual; esses campos só podem ser preenchidos depois de conferir a página específica do encontro. CTEC, BCZM e Setor 2 permanecem como pontos habituais (não validados na ficha do encontro). Eventos do jogo e encontros presenciais têm horários independentes. Durante 9–15/11, algumas rotinas semanais são substituídas por eventos especiais. Fichas de encontros consultadas em 2/11/2026 na região de Natal: Machop 2/11 17h CTEC, Giratina 4/11 17h CTEC, Sexta da Amizade 6/11 8h BCZM, Área Selvagem 14/11 com 9h Setor II e 10h CTEC, Pawniard 21/11 13h Setor II. O horário é o início do encontro; a duração não foi inferida.",
   "events": [
     {
       "id": "halloween-2",
@@ -83,12 +83,28 @@
       "end": "2026-11-14",
       "from": null,
       "to": null,
-      "location": "UFRN, Setor 2 do CCHLA",
-      "description": "O Campfire lista um encontro próximo nesta data. O Setor 2 é o ponto divulgado na programação oficial de Natal; confira no Campfire o endereço exato e o horário do encontro.",
+      "location": "Setor II (CCHLA) e CTEC, UFRN",
+      "description": "O Campfire registra dois encontros no sábado: às 9h no Setor II do CCHLA e às 10h no CTEC da UFRN. São horários de início dos encontros presenciais, diferentes do horário geral do jogo.",
       "source": "https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil",
       "maps": "https://www.google.com/maps/search/?api=1&query=UFRN%20Setor%202%20CCHLA%20Natal",
       "campfire": "https://campfire.scopely.com/discover/collection/27acc9bc-340e-49d3-a26c-0d4304d56a28",
-      "meetup_status": "publicado"
+      "meetup_status": "publicado",
+      "meetups": [
+        {
+          "from": "09:00",
+          "location": "Setor II - CCHLA/UFRN",
+          "url": "https://campfire.scopely.com/discover/meetup/cc7e69b7-3920-47d4-82ce-1d40d7c59cd0",
+          "title": "Área Selvagem Dia 1"
+        },
+        {
+          "from": "10:00",
+          "location": "Complexo Tecnológico de Engenharia, Natal, RN, Brasil",
+          "url": "https://campfire.scopely.com/discover/meetup/df1da210-499c-4548-a7e4-dedada14e37a",
+          "title": "Área Selvagem - Sábado"
+        }
+      ],
+      "location_short": "Setor 2 / CTEC",
+      "location_status": "confirmado_campfire"
     },
     {
       "id": "natal-dia-2",
@@ -137,13 +153,21 @@
       "end": "2026-11-21",
       "from": "14:00",
       "to": "17:00",
-      "description": "Pawniard em destaque, bônus de captura e evolução para Kingambit. O Campfire lista um encontro para 21/11 na região; confirme horário e endereço no link. Setor 2 é o local habitual.",
+      "description": "Encontro presencial publicado no Campfire às 13h no Setor II do CCHLA. O Dia Comunitário no jogo ocorre das 14h às 17h.",
       "source": "https://pokemongo.com/en/news/communityday-november-2026-pawniard",
-      "location": "Setor 2 da UFRN",
-      "location_status": "habitual",
+      "location": "Setor II - CCHLA/UFRN",
+      "location_status": "confirmado_campfire",
       "maps": "https://www.google.com/maps/search/?api=1&query=Setor%202%20UFRN%20Natal",
       "campfire": "https://campfire.scopely.com/discover/collection/cc10c851-4fde-4478-bc8b-7b3c389b9310",
-      "meetup_status": "publicado"
+      "meetup_status": "publicado",
+      "meetups": [
+        {
+          "from": "13:00",
+          "location": "Setor II - CCHLA/UFRN",
+          "url": "https://campfire.scopely.com/discover/meetup/293a6b01-a135-40de-bd54-637ad5674ebb",
+          "title": "Dia Comunitário Pawniard"
+        }
+      ]
     },
     {
       "id": "super-mega-28",
@@ -216,7 +240,15 @@
         "2026-11-02": {
           "theme": "Machop",
           "source": "https://campfire.scopely.com/discover/collection/7744fa1d-1e1b-4fe0-8de2-37051e8213da",
-          "meetup_status": "publicado"
+          "meetup_status": "publicado",
+          "meetups": [
+            {
+              "from": "17:00",
+              "location": "Complexo Tecnológico de Engenharia (CTEC) - UFRN",
+              "url": "https://campfire.scopely.com/discover/meetup/19d99747-1892-4650-a404-a65e50550db9",
+              "title": "Segunda Max Machop"
+            }
+          ]
         },
         "2026-11-23": {
           "theme": "Espurr",
@@ -253,9 +285,17 @@
       "description": "Encontro habitual de Reides lendárias. Confira o Pokémon da semana e a confirmação no Campfire.",
       "topics": {
         "2026-11-04": {
-          "theme": "Giratina",
+          "theme": "Giratina (Forma Alterada)",
           "source": "https://campfire.scopely.com/discover/collection/5222de4a-f24f-44f8-a299-0988998754fa",
-          "meetup_status": "publicado"
+          "meetup_status": "publicado",
+          "meetups": [
+            {
+              "from": "17:00",
+              "location": "Complexo Tecnológico de Engenharia (CTEC) - UFRN",
+              "url": "https://campfire.scopely.com/discover/meetup/986d2a71-7840-4b3a-81e2-cf634d4d9ffa",
+              "title": "Hora Lendária Giratina Forma Alterada"
+            }
+          ]
         },
         "2026-11-18": {
           "theme": "Cresselia e Darkrai",
@@ -325,7 +365,15 @@
         "2026-11-06": {
           "theme": "Sexta da Amizade",
           "source": "https://campfire.scopely.com/discover/collection/f25d4113-d292-4b4b-aea0-b74efbda47fb",
-          "meetup_status": "publicado"
+          "meetup_status": "publicado",
+          "meetups": [
+            {
+              "from": "08:00",
+              "location": "Biblioteca Central Zila Mamede - BCZM | UFRN",
+              "url": "https://campfire.scopely.com/discover/meetup/248b8e20-998c-43bf-bbbd-797298f2121e",
+              "title": "Sexta da Amizade"
+            }
+          ]
         },
         "2026-11-20": {
           "theme": "Sexta da Amizade",

@@ -21,18 +21,13 @@ const context=await browser.newContext({
  geolocation:{latitude:-5.840907,longitude:-35.197178},permissions:['geolocation']
 });
 const values=[...targets.values()],report=[];
-const page=await context.newPage();
-// Primeiro estabelecer a localização da consulta no Campfire; uma abertura simultânea
-// de várias coleções pode reutilizar a região padrão (Califórnia) em vez de Natal.
-await page.goto('https://campfire.scopely.com/discover',{waitUntil:'domcontentloaded',timeout:40000});
-await page.waitForTimeout(8000);
-console.log('LOCATION_PRIMED '+JSON.stringify({url:page.url(),title:await page.title()}));
 async function one(t){
+ const page=await context.newPage();
  const res={date:t.dates,subject:t.subjects,url:t.url};
  try{
   await page.goto(t.url,{waitUntil:'domcontentloaded',timeout:40000});
   await page.locator('body').waitFor();
-  await page.waitForTimeout(5200);
+  await page.waitForTimeout(7000);
   res.collectionTitle=await page.title();
   res.meetups=await page.locator('a[href*="/discover/meetup/"]').evaluateAll(nodes=>nodes.map(n=>({
     text:n.innerText.trim(),url:n.href
@@ -42,9 +37,9 @@ async function one(t){
   console.log('MEETUPS '+JSON.stringify(res).slice(0,7000));
  }catch(e){res.error=String(e);console.log('AUDIT_ERROR '+JSON.stringify(res));}
  report.push(res);
+ await page.close();
 }
 for(const item of values)await one(item);
-await page.close();
 const inspect=report.filter(r=>!r.locationWarning).flatMap(r=>r.meetups||[]).slice(0,5);
 for(const m of inspect){
  const page=await context.newPage();try{

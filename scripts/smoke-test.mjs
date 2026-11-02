@@ -55,6 +55,20 @@ try{
         await tab.waitForTimeout(180);
         const title=await tab.title();
         assert.ok(title,file+' sem título');
+        // A Área Selvagem possui paleta e navegação próprias: verificar seu layout real.
+        if(file==='area-selvagem.html'){
+          assert.equal(await tab.locator('html').getAttribute('data-theme'),'dark','Área Selvagem deve preservar o tema escuro');
+          assert.equal(await tab.evaluate(()=>getComputedStyle(document.body).backgroundColor),'rgb(8, 11, 25)','Fundo temático da Área Selvagem');
+          assert.ok(await tab.locator('.wa-maxbar .wa-brand').isVisible(),'Marca da Área Selvagem visível');
+          assert.ok(await tab.locator('#waTitle').isVisible(),'Título da Área Selvagem visível');
+          await tab.locator('.wa-switch [data-day="sun"]').click();
+          assert.equal(await tab.locator('#waSunday').isVisible(),true,'Agenda do domingo abre');
+          assert.equal(await tab.locator('#waSaturday').isVisible(),false,'Agenda do sábado oculta após troca');
+          const overflow=await tab.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+          assert.ok(overflow<=2,'Área Selvagem causa rolagem horizontal: '+overflow+' px');
+          if(errors.length)throw new Error(errors.join(' | '));
+          continue;
+        }
         assert.equal(await tab.locator('html').getAttribute('data-theme'),'light',file+' deve usar o tema Studio');
         assert.equal(await tab.evaluate(()=>getComputedStyle(document.body).backgroundColor),'rgb(237, 242, 249)',file+' fundo neutro do Nexus Studio');
         const header=tab.locator('go-nexus-header');
@@ -89,7 +103,8 @@ try{
           assert.equal(await tab.locator('.hero h1').first().isVisible(),true,'Título deve estar visível');
         }
         if(file==='index.html'){
-          assert.equal(await tab.locator('.gn-v2-card').count(),10,'A home deve mostrar as dez ferramentas');
+          assert.ok(await tab.locator('.gn-v2-card').count()>=12,'A home deve mostrar as 12 ferramentas atuais');
+          assert.ok(await tab.locator('.gn-v2-card').evaluateAll(cards=>cards.every(card=>card.tagName==='A'&&card.getAttribute('href'))),'Todos os cards devem levar a uma ferramenta');
           assert.ok(await tab.locator('.gn-v2-card').first().locator('p').innerText().then(v=>v.length<50),'Cards mobile devem ser concisos');
           if(viewport.width<=768){
             const normal=await tab.locator('.gn-v2-card p').first().evaluate(el=>getComputedStyle(el).whiteSpace);
@@ -123,7 +138,7 @@ try{
           assert.doesNotMatch(await tab.locator('#answer').innerText(),/Informe o preço/i);
         }
         if(file==='central-max.html'){
-          await tab.evaluate(()=>{document.getElementById('maxAnswer').closest('details').open=true;});
+          await tab.locator('#maxAnswer').waitFor({state:'visible'}); // Calculadora agora é aberta, sem <details> ancestral.
           await tab.locator('.current[data-move="attack"]').selectOption('3');
           await tab.locator('.target[data-move="attack"]').selectOption('1');
           await tab.locator('.target[data-move="guard"]').selectOption('2');

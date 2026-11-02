@@ -21,33 +21,24 @@ const context=await browser.newContext({
  geolocation:{latitude:-5.840907,longitude:-35.197178},permissions:['geolocation']
 });
 const values=[...targets.values()],report=[];
-async function one(t){
- const page=await context.newPage();
- const res={date:t.dates,subject:t.subjects,url:t.url};
- try{
-  await page.goto(t.url,{waitUntil:'domcontentloaded',timeout:40000});
-  await page.locator('body').waitFor();
-  await page.waitForTimeout(7000);
-  res.collectionTitle=await page.title();
-  res.meetups=await page.locator('a[href*="/discover/meetup/"]').evaluateAll(nodes=>nodes.map(n=>({
-    text:n.innerText.trim(),url:n.href
-  })));
-  res.body=(await page.locator('body').innerText()).slice(0,3800);
-  res.locationWarning=res.meetups.some(m=>/Berkeley|San Francisco|Springer Gateway|Market Street|Pier 14/i.test(m.text));
-  console.log('MEETUPS '+JSON.stringify(res).slice(0,7000));
- }catch(e){res.error=String(e);console.log('AUDIT_ERROR '+JSON.stringify(res));}
- report.push(res);
- await page.close();
-}
-for(const item of values)await one(item);
-const inspect=report.filter(r=>!r.locationWarning).flatMap(r=>r.meetups||[]).slice(0,5);
-for(const m of inspect){
- const page=await context.newPage();try{
-  await page.goto(m.url,{waitUntil:'domcontentloaded',timeout:40000});
-  await page.waitForTimeout(3500);
-  console.log('MEETUP_DETAIL '+JSON.stringify({url:m.url,text:(await page.locator('body').innerText()).slice(0,3200)}));
- }catch(e){console.log('MEETUP_DETAIL_ERROR '+String(e));}finally{await page.close();}
-}
+const target=values.find(v=>v.dates.includes('2026-11-05'));
+const page=await context.newPage();
+const logs=[];
+page.on('request',request=>{
+ const url=request.url();
+ if(/campfire|scopely|niantic|api|graphql/i.test(url)&&!/(png|jpe?g|svg|font|woff|\.css|\.js)([?#]|$)/i.test(url)){
+  logs.push({method:request.method(),url:url.slice(0,350),post:(request.postData()||'').slice(0,800)});
+ }
+});
+await page.goto(target.url,{waitUntil:'domcontentloaded',timeout:40000});
+await page.waitForTimeout(8500);
+console.log('BROWSER_GEO '+JSON.stringify(await page.evaluate(async()=>{
+ const g=await new Promise(resolve=>navigator.geolocation.getCurrentPosition(p=>resolve({lat:p.coords.latitude,lng:p.coords.longitude}),e=>resolve({error:e.message}),{timeout:3000}));
+ return {geo:g,links:[...document.querySelectorAll('a[href*="maps.google.com/maps?ll"]')].map(x=>x.href.slice(0,280))};
+})));
+console.log('API_REQUESTS '+JSON.stringify(logs.filter((x,i)=>i<100)).slice(0,15000));
+console.log('COLLECTION '+JSON.stringify({url:target.url,text:(await page.locator('body').innerText()).slice(0,2300)}));
+await page.close();
 await browser.close();
 fs.mkdirSync('audit-results',{recursive:true});
 fs.writeFileSync('audit-results/campfire-public-inspection.json',JSON.stringify(report,null,2));

@@ -25,10 +25,23 @@ const target=values.find(v=>v.dates.includes('2026-11-05'));
 const page=await context.newPage();
 const logs=[];
 page.on('request',request=>{
- const url=request.url();
- if(/campfire|scopely|niantic|api|graphql/i.test(url)&&!/(png|jpe?g|svg|font|woff|\.css|\.js)([?#]|$)/i.test(url)){
-  logs.push({method:request.method(),url:url.slice(0,350),post:(request.postData()||'').slice(0,800)});
- }
+ if(!request.url().includes('niantic-social-api.nianticlabs.com/graphql'))return;
+ try{
+  const data=request.postDataJSON(),operation=data.query?.match(/query\\s+([A-Za-z0-9_]+)/)?.[1]||'unknown';
+  if(/DiscoveryMapObjects|CollectionDetailsWrapper|DiscoveryRealityChannelRenderer|DiscoveryLiveEventsProvider/.test(operation))
+    logs.push({operation,variables:data.variables||null});
+ }catch(e){}
+});
+page.on('response',async response=>{
+ if(!response.url().includes('niantic-social-api.nianticlabs.com/graphql'))return;
+ try{
+  const data=response.request().postDataJSON(),operation=data.query?.match(/query\\s+([A-Za-z0-9_]+)/)?.[1]||'unknown';
+  if(!/DiscoveryMapObjects|CollectionDetailsWrapper|DiscoveryRealityChannelRenderer/.test(operation))return;
+  const body=await response.json();
+  logs.push({response:operation,status:response.status(),keys:Object.keys(body.data||{}),errors:body.errors?.slice(0,2),
+    mapCount:body.data?.meetupMapObjectsByLiveEventIdInLatLngBounds?.mapObjects?.length,
+    preview:JSON.stringify(body.data||{}).slice(0,450)});
+ }catch(e){}
 });
 await page.goto(target.url,{waitUntil:'domcontentloaded',timeout:40000});
 await page.waitForTimeout(8500);
@@ -36,7 +49,7 @@ console.log('BROWSER_GEO '+JSON.stringify(await page.evaluate(async()=>{
  const g=await new Promise(resolve=>navigator.geolocation.getCurrentPosition(p=>resolve({lat:p.coords.latitude,lng:p.coords.longitude}),e=>resolve({error:e.message}),{timeout:3000}));
  return {geo:g,links:[...document.querySelectorAll('a[href*="maps.google.com/maps?ll"]')].map(x=>x.href.slice(0,280))};
 })));
-console.log('API_REQUESTS '+JSON.stringify(logs.filter((x,i)=>i<100)).slice(0,15000));
+console.log('API_REQUESTS '+JSON.stringify(logs).slice(0,20000));
 console.log('COLLECTION '+JSON.stringify({url:target.url,text:(await page.locator('body').innerText()).slice(0,2300)}));
 await page.close();
 await browser.close();

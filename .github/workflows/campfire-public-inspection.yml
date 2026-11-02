@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/campfire-public-inspection.yml
+      - scripts/campfire-public-inspection.mjs
   workflow_dispatch:
 
 permissions:

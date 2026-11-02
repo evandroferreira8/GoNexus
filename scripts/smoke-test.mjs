@@ -107,8 +107,11 @@ try{
           assert.ok(await tab.locator('.gn-v2-card').evaluateAll(cards=>cards.every(card=>card.tagName==='A'&&card.getAttribute('href'))),'Todos os cards devem levar a uma ferramenta');
           assert.ok(await tab.locator('.gn-v2-card').first().locator('p').innerText().then(v=>v.length<50),'Cards mobile devem ser concisos');
           if(viewport.width<=768){
-            const normal=await tab.locator('.gn-v2-card p').first().evaluate(el=>getComputedStyle(el).whiteSpace);
-            assert.equal(normal,'nowrap','Descrições dos cards precisam caber em uma linha');
+            const readable=await tab.locator('.gn-v2-card p').first().evaluate(el=>({
+              text:el.textContent.trim(),overflow:el.scrollWidth-el.clientWidth
+            }));
+            assert.ok(readable.text.length>0,'Descrição do card deve estar presente no celular');
+            assert.ok(readable.overflow<=2,'Descrição do card não deve transbordar horizontalmente no celular');
           }
           assert.equal(await tab.locator('.gn-search-area').isVisible(),true,'Busca da home visível');
           

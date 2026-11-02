@@ -2,7 +2,7 @@
   "month": "2026-11",
   "updated_at": "2026-11-02",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Fontes: anúncios oficiais de Pokémon GO, artes de novembro já utilizadas e listagens de encontros próximos no Campfire Discover verificadas em 1º/11/2026 na região da UFRN/Natal. 'Encontro listado' indica a existência de uma publicação no Campfire, não verificação independente de horário/local: consulte os links antes de sair. Locais habituais (CTEC, BCZM, Setor 2) não equivalem automaticamente ao ponto do encontro cadastrado. Os dias 27, 28 e 30/11 estavam sem encontros publicados nessa consulta. Durante 9–15/11, algumas rotinas semanais são substituídas por eventos especiais. Rotações são disponibilidade no jogo e não encontros presenciais. Em 2/11, foram adicionados cinco registros diários ao calendário para tornar visíveis os encontros temáticos de 9 a 13/11, mantendo horário e endereço presenciais como não verificados. A listagem no Campfire Discover não é confirmação independente de detalhes de cada encontro.",
+  "editorial_note": "Fontes: anúncios oficiais de Pokémon GO, calendário mensal anteriormente informado e coleções públicas do Campfire Discover para região da UFRN/Natal. A página inicial do Campfire confirma a data e o título de cada coleção, mas não fornece o horário e endereço do encontro individual; esses campos só podem ser preenchidos depois de conferir a página específica do encontro. CTEC, BCZM e Setor 2 permanecem como pontos habituais (não validados na ficha do encontro). Eventos do jogo e encontros presenciais têm horários independentes. Durante 9–15/11, algumas rotinas semanais são substituídas por eventos especiais.",
   "events": [
     {
       "id": "halloween-2",
@@ -200,71 +200,6 @@
       "to": "19:00",
       "description": "Latias e Latios Dinamax em Batalhas Max de cinco estrelas.",
       "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
-    },
-    {
-      "id": "campfire-into-the-wild-2026-11-09",
-      "title": "Encontro Campfire · Natureza Selvagem",
-      "kind": "natal",
-      "start": "2026-11-09",
-      "end": "2026-11-09",
-      "from": null,
-      "to": null,
-      "description": "Primeiro dia dos encontros temáticos Into the Wild. Consulte no Campfire o horário e o ponto de encontro presencial.",
-      "campfire": "https://campfire.scopely.com/discover/collection/80f41643-04bd-4924-aba0-94aa45b8a563",
-      "meetup_status": "publicado",
-      "location_status": "a_confirmar"
-    },
-    {
-      "id": "campfire-into-the-wild-2026-11-10",
-      "title": "Encontro Campfire · Natureza Selvagem",
-      "kind": "natal",
-      "start": "2026-11-10",
-      "end": "2026-11-10",
-      "from": null,
-      "to": null,
-      "description": "Segundo dia dos encontros temáticos Into the Wild. Consulte no Campfire o horário e o ponto de encontro presencial.",
-      "campfire": "https://campfire.scopely.com/discover/collection/7071f3a0-aa86-4fe2-8a96-a3325aa6a54a",
-      "meetup_status": "publicado",
-      "location_status": "a_confirmar"
-    },
-    {
-      "id": "campfire-into-the-wild-2026-11-11",
-      "title": "Encontro Campfire · Natureza Selvagem",
-      "kind": "natal",
-      "start": "2026-11-11",
-      "end": "2026-11-11",
-      "from": null,
-      "to": null,
-      "description": "Terceiro dia dos encontros temáticos Into the Wild. Consulte no Campfire o horário e o ponto de encontro presencial.",
-      "campfire": "https://campfire.scopely.com/discover/collection/04a2d295-f2e1-4d8b-abc5-fc2fba8e78e2",
-      "meetup_status": "publicado",
-      "location_status": "a_confirmar"
-    },
-    {
-      "id": "campfire-into-the-wild-2026-11-12",
-      "title": "Encontro Campfire · Natureza Selvagem",
-      "kind": "natal",
-      "start": "2026-11-12",
-      "end": "2026-11-12",
-      "from": null,
-      "to": null,
-      "description": "Quarto dia dos encontros temáticos Into the Wild. Consulte no Campfire o horário e o ponto de encontro presencial.",
-      "campfire": "https://campfire.scopely.com/discover/collection/353d1167-8f01-46e3-a6cf-8fbe97bfe668",
-      "meetup_status": "publicado",
-      "location_status": "a_confirmar"
-    },
-    {
-      "id": "campfire-into-the-wild-2026-11-13",
-      "title": "Encontro Campfire · Natureza Selvagem",
-      "kind": "natal",
-      "start": "2026-11-13",
-      "end": "2026-11-13",
-      "from": null,
-      "to": null,
-      "description": "Quinto dia dos encontros temáticos Into the Wild. Consulte no Campfire o horário e o ponto de encontro presencial.",
-      "campfire": "https://campfire.scopely.com/discover/collection/c37c9a0f-0596-45aa-82e7-3db0f948113a",
-      "meetup_status": "publicado",
-      "location_status": "a_confirmar"
     }
   ],
   "weekly_routines": [

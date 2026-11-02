@@ -27,7 +27,7 @@ const logs=[];
 page.on('request',request=>{
  if(!request.url().includes('niantic-social-api.nianticlabs.com/graphql'))return;
  try{
-  const data=request.postDataJSON(),operation=data.query?.match(/query\\s+([A-Za-z0-9_]+)/)?.[1]||'unknown';
+  const data=request.postDataJSON(),operation=data.query?.match(/query\s+([A-Za-z0-9_]+)/)?.[1]||'unknown';
   if(/DiscoveryMapObjects|CollectionDetailsWrapper|DiscoveryRealityChannelRenderer|DiscoveryLiveEventsProvider/.test(operation))
     logs.push({operation,variables:data.variables||null});
  }catch(e){}
@@ -35,7 +35,7 @@ page.on('request',request=>{
 page.on('response',async response=>{
  if(!response.url().includes('niantic-social-api.nianticlabs.com/graphql'))return;
  try{
-  const data=response.request().postDataJSON(),operation=data.query?.match(/query\\s+([A-Za-z0-9_]+)/)?.[1]||'unknown';
+  const data=response.request().postDataJSON(),operation=data.query?.match(/query\s+([A-Za-z0-9_]+)/)?.[1]||'unknown';
   if(!/DiscoveryMapObjects|CollectionDetailsWrapper|DiscoveryRealityChannelRenderer/.test(operation))return;
   const body=await response.json();
   logs.push({response:operation,status:response.status(),keys:Object.keys(body.data||{}),errors:body.errors?.slice(0,2),

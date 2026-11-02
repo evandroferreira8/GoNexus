@@ -925,10 +925,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   }
   function meetupNote(e,date){
     if(eventMeetups(e,date).length)return '';
-    if(e.meetup_status==='publicado')return 'Coleção publicada no Campfire; horário e local presencial não confirmados';
-    if(e.meetup_status==='nao_publicado')return 'Sem encontro próximo publicado na última consulta';
-    if(e.meetup_status==='nao_verificado')return 'Encontro presencial em Natal ainda não confirmado';
-    return 'Ponto habitual · encontro presencial sujeito à confirmação';
+    if(e.meetup_status==='publicado')return 'Check-in a confirmar no Campfire';
+    if(e.meetup_status==='nao_publicado')return 'Sem encontro local publicado';
+    if(e.meetup_status==='nao_verificado')return 'Encontro local a confirmar';
+    return 'Local habitual · confira no Campfire';
   }
   function campfireDateLinks(e){
     if(!e.campfire_dates)return '';
@@ -1301,7 +1301,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   function icsEscape(s){return String(s||'').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/[,;]/g,function(c){return '\\'+c})}
   function addCalendar(e){
     var stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
-    var desc=e.description+((e.routine||e.meetup_status)?' | '+meetupNote(e):'')+(e.location_status==='habitual'?' | O local indicado é habitual, não necessariamente o local do encontro.':'')+(e.source?' | Fonte: '+e.source:'')+(e.campfire?' | Campfire: '+e.campfire:'');
+    var check=eventMeetups(e,e.start).map(function(m){return 'Check-in Campfire: '+hourLabel(m.from)+' · '+(m.location_short||m.location||'')}).join(' | ');
+    var desc='No jogo: '+localWhen(e,e.start)+' | '+e.description+(check?' | '+check:'')+
+      (e.location_status==='habitual'?' | Local habitual; confirme antes de sair.':'')+
+      (e.source?' | Fonte: '+e.source:'')+(e.campfire?' | Campfire: '+e.campfire:'');
     var fields=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//GO Nexus//Agenda GO//PT-BR','CALSCALE:GREGORIAN','BEGIN:VEVENT','UID:'+e.id+'-'+month+'@gonexus','DTSTAMP:'+stamp,'SUMMARY:'+icsEscape(e.title),'DESCRIPTION:'+icsEscape(desc)];
     if(e.location)fields.push('LOCATION:'+icsEscape(e.location));
     if(e.from&&e.to){
@@ -1310,7 +1313,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     }else{
       fields.push('DTSTART;VALUE=DATE:'+icsDate(e.start));
       fields.push('DTEND;VALUE=DATE:'+icsDate(nextDay(e.end)));
-      fields.push('X-ALT-DESC;FMTTYPE=text/plain:Horário ainda não divulgado');
+      fields.push('X-ALT-DESC;FMTTYPE=text/plain:'+(e.game_time_label?'Bônus do jogo ao longo do dia':'Horário não divulgado'));
     }
     if(e.campfire)fields.push('URL:'+e.campfire);else if(e.source)fields.push('URL:'+e.source);
     fields.push('END:VEVENT','END:VCALENDAR');
@@ -1318,7 +1321,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='go-nexus-'+e.id+'.ics';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
   }
   function share(e,button){
-    var txt=e.title+' — '+range(e)+(e.from?' • '+timeLabel(e):' • horário a confirmar')+(e.location?' • '+e.location:'')+'\nGO Nexus: '+location.href.split('#')[0];
+    var first=eventMeetups(e,e.start)[0];
+    var txt=e.title+' — '+range(e)+' • Jogo: '+localWhen(e,e.start)+
+      (first?' • Check-in Campfire: '+hourLabel(first.from):'')+
+      (e.location?' • '+e.location:'')+'\nGO Nexus: '+location.href.split('#')[0];
     if(navigator.share){navigator.share({title:e.title,text:txt,url:location.href.split('#')[0]}).catch(function(){})}
     else if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){button.textContent='Copiado!';setTimeout(function(){button.textContent='Compartilhar'},1800)})}
     else{window.prompt('Copie para compartilhar:',txt)}

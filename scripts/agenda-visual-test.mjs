@@ -32,6 +32,18 @@ async function check(width, height) {
       await page.locator('#agMMonthGrid [data-m-month="2026-11-21"]').click();
       await assert.match(await page.locator('#agMEvents').innerText(), /Pawniard/);
       await assert.match(await page.locator('#agMEvents').innerText(), /Setor (?:2|II)/);
+      const cd = await page.locator('#agMEvents').innerText();
+      assert.match(cd, /No jogo:\\s*14h[–-]17h/, 'Pawniard: mostrar o jogo como horário principal');
+      assert.match(cd, /Check-in\\s*·\\s*13h/, 'Pawniard: mostrar check-in à parte');
+      await page.locator('#agMMonthGrid [data-m-month="2026-11-04"]').click();
+      const raid = await page.locator('#agMEvents').innerText();
+      assert.match(raid, /No jogo:\\s*18h[–-]19h/, 'Hora Lendária: jogo 18h–19h');
+      assert.match(raid, /Check-in\\s*·\\s*17h/, 'Hora Lendária: check-in 17h');
+      await page.locator('#agMMonthGrid [data-m-month="2026-11-02"]').click();
+      const monday = await page.locator('#agMEvents').innerText();
+      assert.match(monday, /Bônus de segunda \\(dia todo\\)/, 'Segunda Max: bônus diários');
+      assert.match(monday, /Check-in\\s*·\\s*17h/, 'Segunda Max: check-in 17h');
+      await page.locator('#agMMonthGrid [data-m-month="2026-11-21"]').click();
       await page.screenshot({ path: '/tmp/agenda-visual/mobile-' + width + '-month.png', fullPage: false });
 
       await page.locator('#agMTabWeek').click();
@@ -47,6 +59,10 @@ async function check(width, height) {
         return label.left < cell.left - 1 || label.right > cell.right + 1 || label.bottom > cell.bottom + 1;
       }).map(e => e.textContent));
       assert.deepEqual(badChips, [], 'Month labels must fit inside calendar cells');
+      await page.locator('#agDays [data-day="2026-11-04"]').click();
+      const peek=await page.locator('#agMonthSelected').innerText();
+      assert.match(peek, /Jogo:\\s*18h[–-]19h/, 'Desktop: horário oficial da Hora Lendária');
+      assert.match(peek, /Check-in Campfire\\s*·\\s*17h/, 'Desktop: check-in distinto do jogo');
       await page.screenshot({ path: '/tmp/agenda-visual/desktop-' + width + '.png', fullPage: false });
     }
   } catch (error) {

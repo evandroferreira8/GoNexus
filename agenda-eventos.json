@@ -2,7 +2,7 @@
   "month": "2026-11",
   "updated_at": "2026-11-02",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Fontes: anúncios oficiais de Pokémon GO, calendário mensal anteriormente informado e coleções públicas do Campfire Discover para região da UFRN/Natal. A página inicial do Campfire confirma a data e o título de cada coleção, mas não fornece o horário e endereço do encontro individual; esses campos só podem ser preenchidos depois de conferir a página específica do encontro. CTEC, BCZM e Setor 2 permanecem como pontos habituais (não validados na ficha do encontro). Eventos do jogo e encontros presenciais têm horários independentes. Durante 9–15/11, algumas rotinas semanais são substituídas por eventos especiais. Fichas de encontros consultadas em 2/11/2026 na região de Natal: Machop 2/11 17h CTEC, Giratina 4/11 17h CTEC, Sexta da Amizade 6/11 8h BCZM, Área Selvagem 14/11 com 9h Setor II e 10h CTEC, Pawniard 21/11 13h Setor II. O horário é o início do encontro; a duração não foi inferida.",
+  "editorial_note": "Fontes: anúncios oficiais de Pokémon GO, calendário mensal anteriormente informado e coleções públicas do Campfire Discover para região da UFRN/Natal. A página inicial do Campfire confirma a data e o título de cada coleção, mas não fornece o horário e endereço do encontro individual; esses campos só podem ser preenchidos depois de conferir a página específica do encontro. CTEC, BCZM e Setor 2 permanecem como pontos habituais (não validados na ficha do encontro). Eventos do jogo e encontros presenciais têm horários independentes. Durante 9–15/11, algumas rotinas semanais são substituídas por eventos especiais. Fontes e verificação de 2/11/2026: as fichas individuais confirmaram 2/11 Machop 17h CTEC, 4/11 Giratina 17h CTEC, 6/11 Sexta da Amizade 8h BCZM, 14/11 Área Selvagem 9h Setor II e 10h CTEC e 21/11 Pawniard 13h Setor II. Outras coleções do Campfire não ofereceram resultados geográficos consistentes durante a auditoria automatizada: não presumir horários ou locais. Os intervalos dos eventos do jogo não são os horários dos encontros.",
   "events": [
     {
       "id": "halloween-2",
@@ -23,7 +23,7 @@
       "end": "2026-11-13",
       "from": "10:00",
       "to": "20:00",
-      "description": "Aquecimento para a Área Selvagem: Zacian Espada Coroada e Zamazenta Escudo Coroado em Reides; Regidrago Dinamax estreia, além de Ralts, Machop, Registeel, Latias e Latios em Batalhas Max. Limite de Reides remotas de 30 por dia, Caixa Misteriosa com Meltan Brilhante e chance de Gimmighoul Brilhante. O Campfire lista encontros próximos para cada dia (9 a 13/11); confira horários e locais nos links diários.",
+      "description": "Aquecimento para a Área Selvagem: Zacian Espada Coroada e Zamazenta Escudo Coroado em Reides; Regidrago Dinamax estreia, além de Ralts, Machop, Registeel, Latias e Latios em Batalhas Max. Limite de Reides remotas de 30 por dia, Caixa Misteriosa com Meltan Brilhante e chance de Gimmighoul Brilhante. O Campfire apresenta coleções temáticas para os dias 9 a 13/11, mas os horários e locais de encontros presenciais em Natal ainda não foram confirmados nessas coleções.",
       "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026",
       "campfire_dates": {
         "2026-11-09": "https://campfire.scopely.com/discover/collection/80f41643-04bd-4924-aba0-94aa45b8a563",
@@ -32,7 +32,7 @@
         "2026-11-12": "https://campfire.scopely.com/discover/collection/353d1167-8f01-46e3-a6cf-8fbe97bfe668",
         "2026-11-13": "https://campfire.scopely.com/discover/collection/c37c9a0f-0596-45aa-82e7-3db0f948113a"
       },
-      "meetup_status": "publicado"
+      "meetup_status": "nao_verificado"
     },
     {
       "id": "raid-zacian",

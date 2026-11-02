@@ -1,0 +1,31 @@
+name: Conferir encontros públicos no Campfire
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/campfire-public-inspection.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - run: node scripts/campfire-public-inspection.mjs
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: campfire-public-inspection
+          path: audit-results/campfire-public-inspection.json
+          if-no-files-found: ignore

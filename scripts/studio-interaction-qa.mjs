@@ -64,7 +64,7 @@ for(const width of [390,1365]){
    assert.match(await page.locator('#levelAnswer').innerText(),/Nível Máximo/i);
  });
  await check(width,'central-max.html',async page=>{
-   await page.evaluate(()=>document.getElementById('maxAnswer').closest('details').open=true);
+   await page.locator('#maxAnswer').waitFor({state:'visible'}); // Calculadora agora aparece diretamente na página.
    await page.locator('.current[data-move="attack"]').selectOption('3');
    await page.locator('.target[data-move="attack"]').selectOption('1');
    assert.match(await page.locator('#maxAnswer').innerText(),/Atenção/i);

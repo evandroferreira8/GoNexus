@@ -690,6 +690,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 .ag-meetup-row a:focus-visible,.ag-meetup-direct:focus-visible{outline:3px solid #f4b52b;outline-offset:2px}
 .ag-direct-wrap{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
 @media(max-width:720px){.agenda-page .ag-meetup-row{padding:9px}.agenda-page .ag-meetup-row span{font-size:12px}.agenda-page .ag-meetup-list{margin:10px 0}}
+
+.ag-peek-local-links{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.ag-peek-local-links a{color:#1757b0!important;text-decoration:underline!important;font-size:11px;font-weight:850;line-height:1.35}
+.ag-peek-local-links a:focus-visible{outline:2px solid #d9a31f;outline-offset:2px}
 </style>
 </head>
 <body class="agenda-page" data-studio-page>
@@ -1106,9 +1110,13 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       if(where.includes('Biblioteca Central'))where='BCZM';
       if(where.includes('Complexo Tecnológico'))where='CTEC';
       if(where.includes('Setor 2'))where='Setor 2';
+      var meetups=eventMeetups(e,date);
+      var link=meetups.length?meetups.map(function(m){return '<a href="'+safeHref(m.url)+'" target="_blank" rel="noopener noreferrer">Ver encontro · '+esc(hourLabel(m.from))+' ↗</a>'}).join(' '):
+        (selectedCampfireUrl(e,date)||meetupUrl(e))?'<a href="'+safeHref(selectedCampfireUrl(e,date)||meetupUrl(e))+'" target="_blank" rel="noopener noreferrer">Ver no Campfire ↗</a>':'';
       return '<div class="ag-peek-row" data-kind="'+esc(dayKind(e))+'"><span class="ag-peek-mark"></span><span><strong>'+
       esc(e.title+(e.topic?' · '+e.topic:''))+'</strong><small>'+esc(localWhen(e,date))+
-      (where?' · '+esc(where):'')+(e.meetup_status==='publicado'?' · no Campfire':' · local habitual')+'</small></span></div>';
+      (where?' · '+esc(where):'')+(e.meetup_status==='publicado'?' · no Campfire':'')+'</small>'+
+      (link?'<span class="ag-peek-local-links">'+link+'</span>':'')+'</span></div>';
     }).join('')+(sorted.length>5?'<p class="ag-peek-empty">+'+(sorted.length-5)+' eventos na programação semanal.</p>':''):
       '<p class="ag-peek-empty">Não há eventos programados neste dia.</p>';
   }

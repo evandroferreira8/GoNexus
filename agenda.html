@@ -745,7 +745,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       <summary><span class="ag-m-fold-icon">◇</span><span><b>Reides, Megas e Batalhas Max</b><small id="agMRotationCount">Chefes disponíveis nesta semana</small></span><span class="ag-m-caret">⌄</span></summary>
       <div id="agMRotations" class="ag-m-rotations"></div>
     </details>
-    <p class="ag-m-footnote">CTEC, BCZM e Setor 2 são referências habituais. O Campfire já lista diversos encontros de novembro; confira no link o local e o horário exatos.</p>
+    <p class="ag-m-footnote">Jogo = horário da atividade. Campfire = check-in e possíveis recompensas.</p>
   </section>
   <div class="ag-hero" aria-label="Agenda do mês">
     <div class="ag-kicker">GO NEXUS / AGENDA 2026</div>
@@ -803,7 +803,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
           <summary><span class="ag-fold-icon">◆</span><span><b>Chefes e rotações da semana</b><small id="agRotationCount">Reides, Megas e Batalhas Max</small></span><span class="ag-fold-arrow" aria-hidden="true">⌄</span></summary>
           <div id="agWeekFeatures" class="ag-feature-grid" aria-live="polite"></div>
         </details>
-        <p class="ag-week-note">CTEC e BCZM são <b>pontos habituais</b>. Os encontros publicados no Campfire estão identificados na agenda, mas consulte local e horário no link antes de sair. As rotações de chefes aparecem no painel da semana.</p>
+        <p class="ag-week-note"><b>Horário do jogo</b> é a referência para jogar. O Campfire indica check-in e local do encontro.</p>
       </section>
       <details class="ag-fold ag-all-fold" id="agAllDetails">
         <summary><span class="ag-fold-icon">▦</span><span><b>Explorar todos os eventos</b><small id="agAllSummary">Lista completa, busca e filtros</small></span><span class="ag-fold-arrow" aria-hidden="true">⌄</span></summary>
@@ -893,9 +893,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       rules.forEach(function(r){
         if(Number(r.weekday)!==weekday(iso)||(Array.isArray(r.skip_dates)&&r.skip_dates.includes(iso)))return;
         var topic=r.topics&&r.topics[iso], description=r.description||'Rotina semanal da comunidade.';
-        result.push({id:r.id+'-'+iso,title:r.title,kind:r.kind,start:iso,end:iso,from:null,to:null,
+        result.push({id:r.id+'-'+iso,title:r.title,kind:r.kind,start:iso,end:iso,
           location:r.location,location_short:r.location_short,maps:r.maps,description:description,
           topic:topic&&topic.theme||null,bonus:topic&&topic.bonus||null,benefits:r.benefits||[],source:topic&&topic.source||null,routine:true,
+          from:r.game_from||null,to:r.game_to||null,game_time_label:r.game_time_label||null,
           location_status:topic&&topic.meetups&&topic.meetups.length?'confirmado_campfire':'habitual',
           meetups:topic&&topic.meetups||[],meetup_status:topic&&topic.meetup_status||'nao_verificado'});
       });
@@ -916,14 +917,14 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     if(!entries.length)return '';
     return '<div class="ag-meetup-list" aria-label="Encontros presenciais confirmados no Campfire">'+entries.map(function(m){
       var range=hourLabel(m.from)+(m.to?'–'+hourLabel(m.to):'');
-      return '<div class="ag-meetup-row"><strong>'+esc(range)+'</strong>'+
-        '<span>'+esc(m.location||'Local não informado')+'</span>'+
-        (m.url?'<a href="'+safeHref(m.url)+'" target="_blank" rel="noopener noreferrer">Ver no Campfire ↗</a>':'')+
+      return '<div class="ag-meetup-row"><strong>Check-in · '+esc(range)+'</strong>'+
+        '<span>'+esc(m.location_short||m.location||'Local a confirmar')+'</span>'+
+        (m.url?'<a href="'+safeHref(m.url)+'" target="_blank" rel="noopener noreferrer">Campfire ↗</a>':'')+
         '</div>';
     }).join('')+'</div>';
   }
   function meetupNote(e,date){
-    if(eventMeetups(e,date).length)return 'Horário e local do encontro conferidos no Campfire';
+    if(eventMeetups(e,date).length)return '';
     if(e.meetup_status==='publicado')return 'Coleção publicada no Campfire; horário e local presencial não confirmados';
     if(e.meetup_status==='nao_publicado')return 'Sem encontro próximo publicado na última consulta';
     if(e.meetup_status==='nao_verificado')return 'Encontro presencial em Natal ainda não confirmado';
@@ -944,11 +945,9 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     return u?'<div class="ag-direct-wrap"><a class="ag-meetup-direct" href="'+safeHref(u)+'" target="_blank" rel="noopener noreferrer">Ver coleção no Campfire ↗</a></div>':'';
   }
   function localWhen(e,date){
-    var entries=eventMeetups(e,date);
-    if((e.routine||e.kind==='natal'||e.kind==='comunidade')&&entries.length)
-      return entries.length===1?'Encontro às '+hourLabel(entries[0].from):entries.length+' encontros: '+entries.map(function(m){return hourLabel(m.from)}).join(' / ');
-    if(e.routine||e.kind==='natal'||e.kind==='comunidade')return 'Horário presencial a confirmar';
-    return timeLabel(e);
+    if(e.game_time_label)return e.game_time_label;
+    if(e.from&&e.to)return timeLabel(e);
+    return 'Horário do jogo a confirmar';
   }
   function meetupUrl(e){
     if(e.campfire)return e.campfire;
@@ -968,7 +967,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   function compactEvent(e,date){
     var location=e.location_short||e.location||'';
     var when=localWhen(e,date);
-    var note=e.routine||e.meetup_status?meetupNote(e,date):e.kind==='natal'?'Encontro divulgado · confirme o horário presencial':'Evento do jogo';
+    var note=(e.routine||e.meetup_status)?meetupNote(e,date):'';
     var topic=e.topic?' · '+e.topic:'';
     var subject=esc(e.title+topic);
     var dayInfo=e.day_details&&e.day_details[date]||null;
@@ -982,8 +981,8 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       '<button type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
     return '<article class="ag-compact-event" data-kind="'+esc(e.kind)+'"><div class="ag-compact-event-head">'+
       '<span class="ag-compact-event-type">'+esc(categories[e.kind]||'Evento')+'</span><strong>'+subject+'</strong></div>'+
-      '<span class="ag-compact-event-where">'+esc(when)+(location?' · '+esc(location):'')+'</span>'+
-      (e.routine||e.meetup_status||e.location_status==='habitual'?'<p class="ag-compact-event-note">'+esc(note)+'</p>':'')+
+      '<span class="ag-compact-event-where"><b>No jogo:</b> '+esc(when)+(location&&!eventMeetups(e,date).length?' · '+esc(location):'')+'</span>'+
+      (note?'<p class="ag-compact-event-note">'+esc(note)+'</p>':'')+
       meetupSummary(e,date)+inlineCampfireLink(e,date)+
       '<details class="ag-mini-detail"><summary>Detalhes e ações</summary><p>'+esc(e.description||'Confira a programação da atividade.')+'</p>'+
       extra+bonus+bonuses+benefits+'<div class="ag-mini-action">'+actions+'</div></details></article>';
@@ -1112,10 +1111,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       if(where.includes('Complexo Tecnológico'))where='CTEC';
       if(where.includes('Setor 2'))where='Setor 2';
       var meetups=eventMeetups(e,date);
-      var link=meetups.length?meetups.map(function(m){return '<a href="'+safeHref(m.url)+'" target="_blank" rel="noopener noreferrer">Ver encontro · '+esc(hourLabel(m.from))+' ↗</a>'}).join(' '):
+      var link=meetups.length?meetups.map(function(m){return '<a href="'+safeHref(m.url)+'" target="_blank" rel="noopener noreferrer">Check-in Campfire · '+esc(hourLabel(m.from))+' ↗</a>'}).join(' '):
         (selectedCampfireUrl(e,date)||meetupUrl(e))?'<a href="'+safeHref(selectedCampfireUrl(e,date)||meetupUrl(e))+'" target="_blank" rel="noopener noreferrer">Ver no Campfire ↗</a>':'';
       return '<div class="ag-peek-row" data-kind="'+esc(dayKind(e))+'"><span class="ag-peek-mark"></span><span><strong>'+
-      esc(e.title+(e.topic?' · '+e.topic:''))+'</strong><small>'+esc(localWhen(e,date))+
+      esc(e.title+(e.topic?' · '+e.topic:''))+'</strong><small>Jogo: '+esc(localWhen(e,date))+
       (where?' · '+esc(where):'')+(e.meetup_status==='publicado'?' · no Campfire':'')+'</small>'+
       (link?'<span class="ag-peek-local-links">'+link+'</span>':'')+'</span></div>';
     }).join('')+(sorted.length>5?'<p class="ag-peek-empty">+'+(sorted.length-5)+' eventos na programação semanal.</p>':''):
@@ -1137,8 +1136,8 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   function safeHref(s){try{var u=new URL(s,location.href);return ['https:','http:'].includes(u.protocol)?esc(u.href):'#'}catch(err){return '#'}}
   function card(e){
     var dateText=range(e);
-    var meta='<span>◷ '+esc(localWhen(e,e.start))+'</span><span>◫ '+esc(dateText)+'</span>';
-    if(e.location)meta+='<span>◎ '+(e.location_status==='habitual'?'Local habitual: ':'')+esc(e.location)+'</span>'; 
+    var meta='<span><b>No jogo:</b> '+esc(localWhen(e,e.start))+'</span><span>◫ '+esc(dateText)+'</span>';
+    if(e.location&&!eventMeetups(e,e.start).length)meta+='<span>◎ '+(e.location_status==='habitual'?'Local habitual: ':'')+esc(e.location)+'</span>'; 
     if(e.topic)meta+='<span>Em destaque: '+esc(e.topic)+'</span>';
     var links=(e.source?'<a class="ag-action" href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">'+(e.routine?'Tema no Campfire':'Fonte oficial')+' ↗</a>':'')+
       (e.maps?'<a class="ag-action" href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Mapa ↗</a>':'')+campfireLink(e)+campfireDateLinks(e)+
@@ -1147,7 +1146,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     return '<article class="ag-event" data-kind="'+esc(e.kind)+'">'+
       '<div class="ag-date"><span class="ag-day">'+dateNum(e.start)+'</span><span class="ag-mo">'+monthAbbr+'</span></div>'+ 
       '<div class="ag-content"><div class="ag-event-head"><span class="ag-type">'+esc(categories[e.kind]||'Evento')+'</span>'+status(e)+'</div>'+
-      '<h3>'+esc(e.title)+'</h3><div class="ag-when">'+meta+'</div><p>'+esc(e.description)+(e.routine||e.meetup_status?' '+esc(meetupNote(e,e.start)):'')+'</p>'+
+      '<h3>'+esc(e.title)+'</h3><div class="ag-when">'+meta+'</div><p>'+esc(e.description)+((e.routine||e.meetup_status)&&meetupNote(e,e.start)?' '+esc(meetupNote(e,e.start)):'')+'</p>'+
       meetupSummary(e,e.start)+(eventMeetups(e,e.start).length?'':directMeetupLink(e))+
       '<div class="ag-actions">'+links+'</div></div></article>';
   }
@@ -1199,9 +1198,9 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     return '<article class="ag-m-card" data-kind="'+esc(mobileKind(e))+'">'+
       '<div class="ag-m-card-type">'+esc(categories[e.kind]||'Evento do jogo')+'</div>'+
       '<h3>'+esc(title)+'</h3>'+
-      '<div class="ag-m-card-meta"><span>'+esc(when)+'</span>'+
-      (place?'<span>• '+esc(place)+'</span>':'')+'</div>'+
-      ((e.routine||e.meetup_status||e.location_status==='habitual')?'<p class="ag-m-confirm">'+esc(meetupNote(e,date))+'</p>':'')+
+      '<div class="ag-m-card-meta"><span><b>No jogo:</b> '+esc(when)+'</span>'+
+      (place&&!eventMeetups(e,date).length?'<span>• '+esc(place)+'</span>':'')+'</div>'+
+      ((e.routine||e.meetup_status)&&meetupNote(e,date)?'<p class="ag-m-confirm">'+esc(meetupNote(e,date))+'</p>':'')+
       meetupSummary(e,date)+inlineCampfireLink(e,date)+
       '<details><summary>Informações, bônus e ações</summary>'+detail+'<div class="ag-m-card-actions">'+actions+'</div></details>'+
       '</article>';

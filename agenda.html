@@ -926,6 +926,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     if(eventMeetups(e,date).length)return 'Horário e local do encontro conferidos no Campfire';
     if(e.meetup_status==='publicado')return 'Coleção publicada no Campfire; horário e local presencial não confirmados';
     if(e.meetup_status==='nao_publicado')return 'Sem encontro próximo publicado na última consulta';
+    if(e.meetup_status==='nao_verificado')return 'Encontro presencial em Natal ainda não confirmado';
     return 'Ponto habitual · encontro presencial sujeito à confirmação';
   }
   function campfireDateLinks(e){

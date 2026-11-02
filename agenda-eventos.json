@@ -16,6 +16,29 @@
       "source": "https://pokemongo.com/pt-BR/news/halloween-part-2-2026"
     },
     {
+      "id": "wild-area-presencial-2026",
+      "title": "Área Selvagem GO • Edições presenciais",
+      "kind": "evento",
+      "start": "2026-11-06",
+      "end": "2026-11-08",
+      "from": null,
+      "to": null,
+      "game_time_label": "Conforme ingresso, no horário de cada cidade-sede",
+      "description": "Eventos presenciais em Sendai (Tohoku, Japão) e na Cidade do México (México), de 6 a 8 de novembro. Atividades exclusivas dessas cidades, com ingresso. A edição global será em 14 e 15 de novembro.",
+      "source": "https://pokemongo.com/pt-BR/gowildarea"
+    },
+    {
+      "id": "raid-zacian",
+      "title": "Hora de Reides: Zacian Espada Coroada",
+      "kind": "reide",
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Hora especial de Reides durante Natureza Selvagem.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
       "id": "natureza-selvagem",
       "title": "Natureza Selvagem",
       "kind": "evento",
@@ -35,17 +58,6 @@
       "meetup_status": "nao_verificado"
     },
     {
-      "id": "raid-zacian",
-      "title": "Hora de Reides: Zacian Espada Coroada",
-      "kind": "reide",
-      "start": "2026-11-09",
-      "end": "2026-11-09",
-      "from": "18:00",
-      "to": "19:00",
-      "description": "Hora especial de Reides durante Natureza Selvagem.",
-      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
-    },
-    {
       "id": "raid-zamazenta",
       "title": "Hora de Reides: Zamazenta Escudo Coroado",
       "kind": "reide",
@@ -54,6 +66,39 @@
       "from": "18:00",
       "to": "19:00",
       "description": "Hora especial de Reides durante Natureza Selvagem.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "nature-max-registeel",
+      "title": "Hora Max: Registeel Dinamax",
+      "kind": "max",
+      "start": "2026-11-11",
+      "end": "2026-11-11",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Registeel Dinamax em Batalhas Max de cinco estrelas.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "nature-max-regidrago",
+      "title": "Hora Max: Regidrago Dinamax",
+      "kind": "max",
+      "start": "2026-11-12",
+      "end": "2026-11-12",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Estreia de Regidrago Dinamax em Batalhas Max de cinco estrelas.",
+      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+    },
+    {
+      "id": "nature-max-latios",
+      "title": "Hora Max: Latias e Latios Dinamax",
+      "kind": "max",
+      "start": "2026-11-13",
+      "end": "2026-11-13",
+      "from": "18:00",
+      "to": "19:00",
+      "description": "Latias e Latios Dinamax em Batalhas Max de cinco estrelas.",
       "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
     },
     {
@@ -137,19 +182,6 @@
       "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026"
     },
     {
-      "id": "eternamax",
-      "title": "Eternatus Eternamax • Batalhas Max",
-      "kind": "max",
-      "start": "2026-11-21",
-      "end": "2026-11-21",
-      "from": "11:00",
-      "to": "14:00",
-      "description": "Eternatus Eternamax nos Pontos de Energia. Recompensas com Doces de Eternatus. O Campfire também lista um encontro próximo com o tema Eternatus Returns; consulte os dados presenciais no link.",
-      "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026",
-      "campfire": "https://campfire.scopely.com/discover/collection/cc1ecbfd-fc2b-4732-9622-e526bc82b145",
-      "meetup_status": "publicado"
-    },
-    {
       "id": "community-pawniard",
       "title": "Dia Comunitário: Pawniard",
       "kind": "comunidade",
@@ -175,16 +207,17 @@
       ]
     },
     {
-      "id": "super-mega-28",
-      "title": "Dia de Super Megarreides",
-      "kind": "reide",
-      "start": "2026-11-28",
-      "end": "2026-11-28",
-      "from": null,
-      "to": null,
-      "description": "Data anunciada oficialmente; detalhes e horários ainda a confirmar. Na consulta de 1º/11, não havia encontro próximo publicado no Campfire para esta data.",
-      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s24",
-      "meetup_status": "nao_publicado"
+      "id": "eternamax",
+      "title": "Eternatus Eternamax • Batalhas Max",
+      "kind": "max",
+      "start": "2026-11-21",
+      "end": "2026-11-21",
+      "from": "11:00",
+      "to": "14:00",
+      "description": "Eternatus Eternamax nos Pontos de Energia. Recompensas com Doces de Eternatus. O Campfire também lista um encontro próximo com o tema Eternatus Returns; consulte os dados presenciais no link.",
+      "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026",
+      "campfire": "https://campfire.scopely.com/discover/collection/cc1ecbfd-fc2b-4732-9622-e526bc82b145",
+      "meetup_status": "publicado"
     },
     {
       "id": "twilight-calls",
@@ -217,37 +250,16 @@
       }
     },
     {
-      "id": "nature-max-registeel",
-      "title": "Hora Max: Registeel Dinamax",
-      "kind": "max",
-      "start": "2026-11-11",
-      "end": "2026-11-11",
-      "from": "18:00",
-      "to": "19:00",
-      "description": "Registeel Dinamax em Batalhas Max de cinco estrelas.",
-      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
-    },
-    {
-      "id": "nature-max-regidrago",
-      "title": "Hora Max: Regidrago Dinamax",
-      "kind": "max",
-      "start": "2026-11-12",
-      "end": "2026-11-12",
-      "from": "18:00",
-      "to": "19:00",
-      "description": "Estreia de Regidrago Dinamax em Batalhas Max de cinco estrelas.",
-      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
-    },
-    {
-      "id": "nature-max-latios",
-      "title": "Hora Max: Latias e Latios Dinamax",
-      "kind": "max",
-      "start": "2026-11-13",
-      "end": "2026-11-13",
-      "from": "18:00",
-      "to": "19:00",
-      "description": "Latias e Latios Dinamax em Batalhas Max de cinco estrelas.",
-      "source": "https://pokemongo.com/pt-BR/news/into-the-wild-2026"
+      "id": "super-mega-28",
+      "title": "Dia de Super Megarreides",
+      "kind": "reide",
+      "start": "2026-11-28",
+      "end": "2026-11-28",
+      "from": null,
+      "to": null,
+      "description": "Data anunciada oficialmente; detalhes e horários ainda a confirmar. Na consulta de 1º/11, não havia encontro próximo publicado no Campfire para esta data.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s24",
+      "meetup_status": "nao_publicado"
     }
   ],
   "weekly_routines": [

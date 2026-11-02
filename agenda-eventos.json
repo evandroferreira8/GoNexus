@@ -2,7 +2,7 @@
   "month": "2026-11",
   "updated_at": "2026-11-02",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Fontes: anúncios oficiais de Pokémon GO, calendário mensal anteriormente informado e coleções públicas do Campfire Discover para região da UFRN/Natal. A página inicial do Campfire confirma a data e o título de cada coleção, mas não fornece o horário e endereço do encontro individual; esses campos só podem ser preenchidos depois de conferir a página específica do encontro. CTEC, BCZM e Setor 2 permanecem como pontos habituais (não validados na ficha do encontro). Eventos do jogo e encontros presenciais têm horários independentes. Durante 9–15/11, algumas rotinas semanais são substituídas por eventos especiais. Fontes e verificação de 2/11/2026: as fichas individuais confirmaram 2/11 Machop 17h CTEC, 4/11 Giratina 17h CTEC, 6/11 Sexta da Amizade 8h BCZM, 14/11 Área Selvagem 9h Setor II e 10h CTEC e 21/11 Pawniard 13h Setor II. Outras coleções do Campfire não ofereceram resultados geográficos consistentes durante a auditoria automatizada: não presumir horários ou locais. Os intervalos dos eventos do jogo não são os horários dos encontros.",
+  "editorial_note": "O horário oficial do jogo tem prioridade. O Campfire mostra a programação dos encontros/check-in, que pode começar antes ou se estender além das atividades do jogo. Na agenda, início no Campfire não é apresentado como início do evento. Para 2026, Hora Lendária e Holofote são das 18h às 19h; Segunda Max e Sexta da Amizade têm bônus diários. Duração do check-in não foi inferida. Fontes: Pokémon GO oficial e fichas Campfire verificadas para 2, 4, 6, 14 e 21 de novembro. Horários não confirmados não são inventados.",
   "events": [
     {
       "id": "halloween-2",
@@ -84,7 +84,7 @@
       "from": null,
       "to": null,
       "location": "Setor II (CCHLA) e CTEC, UFRN",
-      "description": "O Campfire registra dois encontros no sábado: às 9h no Setor II do CCHLA e às 10h no CTEC da UFRN. São horários de início dos encontros presenciais, diferentes do horário geral do jogo.",
+      "description": "Dois pontos de encontro na UFRN. Consulte o check-in de cada local no Campfire.",
       "source": "https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil",
       "maps": "https://www.google.com/maps/search/?api=1&query=UFRN%20Setor%202%20CCHLA%20Natal",
       "campfire": "https://campfire.scopely.com/discover/collection/27acc9bc-340e-49d3-a26c-0d4304d56a28",
@@ -94,17 +94,20 @@
           "from": "09:00",
           "location": "Setor II - CCHLA/UFRN",
           "url": "https://campfire.scopely.com/discover/meetup/cc7e69b7-3920-47d4-82ce-1d40d7c59cd0",
-          "title": "Área Selvagem Dia 1"
+          "title": "Área Selvagem Dia 1",
+          "location_short": "Setor II · UFRN"
         },
         {
           "from": "10:00",
           "location": "Complexo Tecnológico de Engenharia, Natal, RN, Brasil",
           "url": "https://campfire.scopely.com/discover/meetup/df1da210-499c-4548-a7e4-dedada14e37a",
-          "title": "Área Selvagem - Sábado"
+          "title": "Área Selvagem - Sábado",
+          "location_short": "CTEC · UFRN"
         }
       ],
       "location_short": "Setor 2 / CTEC",
-      "location_status": "confirmado_campfire"
+      "location_status": "confirmado_campfire",
+      "game_time_label": "10h–18h"
     },
     {
       "id": "natal-dia-2",
@@ -115,11 +118,12 @@
       "from": null,
       "to": null,
       "location": "UFRN, Setor 2 do CCHLA",
-      "description": "O Campfire lista um encontro próximo nesta data. O Setor 2 é o ponto divulgado na programação oficial de Natal; confira no Campfire o endereço exato e o horário do encontro.",
+      "description": "Programação do jogo das 10h às 18h. Consulte o Campfire para o check-in presencial.",
       "source": "https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil",
       "maps": "https://www.google.com/maps/search/?api=1&query=UFRN%20Setor%202%20CCHLA%20Natal",
       "campfire": "https://campfire.scopely.com/discover/collection/c0b2444f-dbf3-406b-af7b-b8ce8b731dd5",
-      "meetup_status": "publicado"
+      "meetup_status": "publicado",
+      "game_time_label": "10h–18h"
     },
     {
       "id": "trilhas-dinamax",
@@ -153,7 +157,7 @@
       "end": "2026-11-21",
       "from": "14:00",
       "to": "17:00",
-      "description": "Encontro presencial publicado no Campfire às 13h no Setor II do CCHLA. O Dia Comunitário no jogo ocorre das 14h às 17h.",
+      "description": "Jogo das 14h às 17h; check-in no Campfire às 13h no Setor II.",
       "source": "https://pokemongo.com/en/news/communityday-november-2026-pawniard",
       "location": "Setor II - CCHLA/UFRN",
       "location_status": "confirmado_campfire",
@@ -165,7 +169,8 @@
           "from": "13:00",
           "location": "Setor II - CCHLA/UFRN",
           "url": "https://campfire.scopely.com/discover/meetup/293a6b01-a135-40de-bd54-637ad5674ebb",
-          "title": "Dia Comunitário Pawniard"
+          "title": "Dia Comunitário Pawniard",
+          "location_short": "Setor II · UFRN"
         }
       ]
     },
@@ -235,7 +240,7 @@
       "location": "Complexo Tecnológico de Engenharia (CTEC / UFRN)",
       "location_short": "CTEC",
       "maps": "https://www.google.com/maps/search/?api=1&query=Complexo%20Tecnologico%20de%20Engenharia%20CTEC%20UFRN%20Natal",
-      "description": "Encontro habitual de Batalhas Max. Pokémon e horário são informados conforme a programação.",
+      "description": "Bônus de Segunda Max ao longo do dia. Consulte o Pokémon da semana.",
       "topics": {
         "2026-11-02": {
           "theme": "Machop",
@@ -246,7 +251,8 @@
               "from": "17:00",
               "location": "Complexo Tecnológico de Engenharia (CTEC) - UFRN",
               "url": "https://campfire.scopely.com/discover/meetup/19d99747-1892-4650-a404-a65e50550db9",
-              "title": "Segunda Max Machop"
+              "title": "Segunda Max Machop",
+              "location_short": "CTEC · UFRN"
             }
           ]
         },
@@ -272,7 +278,9 @@
       "benefits": [
         "Doce Raro GG em Batalhas Max presenciais",
         "Pontos de Energia extras e renovados com mais frequência"
-      ]
+      ],
+      "game_time_label": "Bônus de segunda (dia todo)",
+      "game_source": "https://pokemongo.com/news/choose-your-path-forever-forward-2026"
     },
     {
       "id": "hora-lendaria",
@@ -282,7 +290,7 @@
       "location": "Complexo Tecnológico de Engenharia (CTEC / UFRN)",
       "location_short": "CTEC",
       "maps": "https://www.google.com/maps/search/?api=1&query=Complexo%20Tecnologico%20de%20Engenharia%20CTEC%20UFRN%20Natal",
-      "description": "Encontro habitual de Reides lendárias. Confira o Pokémon da semana e a confirmação no Campfire.",
+      "description": "Reides lendárias das 18h às 19h. O check-in no Campfire pode começar antes.",
       "topics": {
         "2026-11-04": {
           "theme": "Giratina (Forma Alterada)",
@@ -293,7 +301,8 @@
               "from": "17:00",
               "location": "Complexo Tecnológico de Engenharia (CTEC) - UFRN",
               "url": "https://campfire.scopely.com/discover/meetup/986d2a71-7840-4b3a-81e2-cf634d4d9ffa",
-              "title": "Hora Lendária Giratina Forma Alterada"
+              "title": "Hora Lendária Giratina Forma Alterada",
+              "location_short": "CTEC · UFRN"
             }
           ]
         },
@@ -314,7 +323,10 @@
       "benefits": [
         "Maior quantidade de Reides de cinco estrelas entre 18h e 19h",
         "Doce Raro GG em Reides presenciais"
-      ]
+      ],
+      "game_from": "18:00",
+      "game_to": "19:00",
+      "game_source": "https://pokemongo.com/seasons/memories-in-motion"
     },
     {
       "id": "hora-holofote",
@@ -324,7 +336,7 @@
       "location": "Biblioteca Central Zila Mamede (BCZM / UFRN)",
       "location_short": "BCZM",
       "maps": "https://www.google.com/maps/search/?api=1&query=Biblioteca%20Central%20Zila%20Mamede%20UFRN%20Natal",
-      "description": "Ponto habitual de encontro da Hora do Holofote. A programação da semana pode variar.",
+      "description": "Pokémon em destaque das 18h às 19h. Bônus conforme a semana.",
       "topics": {
         "2026-11-05": {
           "theme": "Teddiursa",
@@ -350,7 +362,10 @@
       ],
       "benefits": [
         "Bônus varia conforme o Pokémon em destaque na semana"
-      ]
+      ],
+      "game_from": "18:00",
+      "game_to": "19:00",
+      "game_source": "https://pokemongo.com/news/choose-your-path-forever-forward-2026"
     },
     {
       "id": "sexta-amizade",
@@ -360,7 +375,7 @@
       "location": "Biblioteca Central Zila Mamede (BCZM / UFRN)",
       "location_short": "BCZM",
       "maps": "https://www.google.com/maps/search/?api=1&query=Biblioteca%20Central%20Zila%20Mamede%20UFRN%20Natal",
-      "description": "Encontro habitual da comunidade para jogar e interagir. Horário e realização dependem da organização.",
+      "description": "Bônus de amizade e trocas ao longo da sexta-feira.",
       "topics": {
         "2026-11-06": {
           "theme": "Sexta da Amizade",
@@ -371,7 +386,8 @@
               "from": "08:00",
               "location": "Biblioteca Central Zila Mamede - BCZM | UFRN",
               "url": "https://campfire.scopely.com/discover/meetup/248b8e20-998c-43bf-bbbd-797298f2121e",
-              "title": "Sexta da Amizade"
+              "title": "Sexta da Amizade",
+              "location_short": "BCZM · UFRN"
             }
           ]
         },
@@ -393,7 +409,9 @@
         "Até duas Trocas Especiais extras",
         "Trocas com 20% menos Poeira Estelar e maior chance de sorte",
         "Dois Doces GG garantidos nas trocas"
-      ]
+      ],
+      "game_time_label": "Bônus de sexta (dia todo)",
+      "game_source": "https://pokemongo.com/news/choose-your-path-forever-forward-2026"
     }
   ],
   "local_guide": "Os locais dos encontros recorrentes são pontos habituais informados pela comunidade; não indicam automaticamente que um encontro já foi criado ou confirmado no Campfire.",

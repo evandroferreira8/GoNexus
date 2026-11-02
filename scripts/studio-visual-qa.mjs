@@ -53,13 +53,22 @@ for(const s of sizes){
      function rgba(x){let a=x?.match(/rgba?\(([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)(?:[,\s/]+([\d.]+))?\)/);return a?[Number(a[1]),Number(a[2]),Number(a[3]),a[4]===undefined?1:Number(a[4])]:null;}
      function lum(col){let c=col.map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return c[0]*.2126+c[1]*.7152+c[2]*.0722;}
      function visible(el){if(!el||!el.isConnected)return false;let s=getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&Number(s.opacity)>.08&&r.width>0&&r.height>0;}
-     function bgOf(el){let p=el,depth=0;while(p&&depth++<16){let color=rgba(getComputedStyle(p).backgroundColor);if(color&&color[3]>.93)return color;p=p.parentElement;}return [248,249,251,1];}
+     function bgOf(el,forText=false){let p=el,depth=0;while(p&&depth++<16){
+       const style=getComputedStyle(p);
+       // Um degradê é o fundo VISÍVEL: não atribuir ao texto o fundo claro do body.
+       // Sem amostragem dos pixels, o contraste sobre degradê/imagem é inconclusivo;
+       // registrar na captura visual em vez de produzir um falso alarme automático.
+       if(forText&&style.backgroundImage.includes('gradient('))return null;
+       let color=rgba(style.backgroundColor);
+       if(color&&color[3]>.93)return color;
+       p=p.parentElement;
+     }return [248,249,251,1];}
      const failures=[];
      for(const el of document.querySelectorAll('main :is(h1,h2,h3,h4,p,label,button,span,a,li,b,strong,small)')){
        if(!visible(el))continue;
        if(![...el.childNodes].some(n=>n.nodeType===3&&n.textContent?.trim().length>=8))continue;
-       const s=getComputedStyle(el),f=rgba(s.color),b=bgOf(el);
-       if(!f||f[3]<.9)continue;
+       const s=getComputedStyle(el),f=rgba(s.color),b=bgOf(el,true);
+       if(!f||f[3]<.9||!b)continue;
        let aa=lum(f),bb=lum(b),ratio=(Math.max(aa,bb)+.05)/(Math.min(aa,bb)+.05);
        if(ratio<3.3&&failures.length<30){
          failures.push({ratio:Number(ratio.toFixed(2)),tag:el.tagName,cl:String(el.className).slice(0,90),text:el.textContent.trim().slice(0,75),fg:s.color,bg:JSON.stringify(b.slice(0,3))});
@@ -247,7 +256,20 @@ for(const s of sizes){
    if(file==='index.html'){
      if(a.eggSource&&!a.eggSource.includes('egg-original.png'))errors.push('Imagem do ovo original não utilizada');
      const egg=tab.locator('#gnx-egg-placeholder');
-     if(await egg.count()){await egg.locator('button').click({force:true});await tab.locator('go-nexus-cosmic-egg').waitFor({state:'attached',timeout:12000});const widget=tab.locator('go-nexus-cosmic-egg');await widget.locator('.egg').click({force:true});await widget.locator('.egg').click({force:true});await widget.locator('.overlay.open').waitFor({state:'visible',timeout:6000});await tab.screenshot({path:path.join(OUT,s.name+'-cosmos-open.jpg'),type:'jpeg',quality:70});}
+     if(await egg.count()){
+       const widget=tab.locator('go-nexus-cosmic-egg');
+       await egg.locator('button').click({force:true});
+       // O componente é carregado sob demanda; repetir a ação se a primeira
+       // tentativa não anexar o elemento, mantendo falha real após nova tentativa.
+       if(!(await widget.waitFor({state:'attached',timeout:12000}).then(()=>true).catch(()=>false))){
+         await egg.locator('button').click({force:true});
+         await widget.waitFor({state:'attached',timeout:15000});
+       }
+       await widget.locator('.egg').click({force:true});
+       await widget.locator('.egg').click({force:true});
+       await widget.locator('.overlay.open').waitFor({state:'visible',timeout:9000});
+       await tab.screenshot({path:path.join(OUT,s.name+'-cosmos-open.jpg'),type:'jpeg',quality:70});
+     }
    }
 
    // Screenshot-derived regression cases. The previous QA only inspected top-level

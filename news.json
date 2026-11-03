@@ -1,7 +1,22 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-11-02T20:23:25+00:00",
+  "updated_at": "2026-11-03T03:29:18+00:00",
   "items": [
+    {
+      "title": "Descubram novas aventuras pelas cidades a partir de hoje! Treinadoras e Treinadores já podem participar das novas Caças aos Selos do Pokémon GO em Sendai • Tohoku, no Japão, e na Cidade do México, no México.",
+      "url": "https://pokemongo.com/pt-BR/news/forever-stamp-rally-go-wild-area-2026",
+      "image": "https://lh3.googleusercontent.com/M9HsqPfmLn15sC1MyDWRVZDzmVDI1nGsjHYREQU0mGjgTkgamrO5mtCve6AQBUdnnHSUH1doO1yPywHyFkuulCuPq15YBjORFm-nBkE42UE"
+    },
+    {
+      "title": "Preparem-se para a Área Selvagem do Pokémon GO 2026 com fundos de Pokémon no Perfil de Treinador, novos itens de avatar e mais novidades empolgantes.",
+      "url": "https://pokemongo.com/pt-BR/news/get-ready-for-gowildarea-2026",
+      "image": "https://lh3.googleusercontent.com/U-aJxlmtiVe7UDPLAEoyI8LKHgyuRe9RpQB9nxZzRj-sCkzCPo9RlTdZ9XXtMSwR1sI80g6EEtGyA9bLRWGnALsEnz5EHR9z6bOWA2frRw"
+    },
+    {
+      "title": "O Dispositivo de Exploração está evoluindo!",
+      "url": "https://pokemongo.com/pt-BR/news/pgo-explorer-gadget-2026-update",
+      "image": "https://lh3.googleusercontent.com/bup0wWISTZ3O0vrWPQWqhldwW4KfZ5NK5ryVAi4WH9QbIhTbOruURsTgNo1YkmRqIHNjE8y_1rwotBus0gXX6_F--7Aww_qvO-Aw-yTgw9M"
+    },
     {
       "title": "Reúnam-se sob um céu estrelado durante os Chamados do Crepúsculo!",
       "url": "https://pokemongo.com/pt-BR/news/twilight-wishes-2026",
@@ -11,21 +26,6 @@
       "title": "Comemorem com Treinadores notáveis no Brasil durante a Área Selvagem do Pokémon GO 2026: Global!",
       "url": "https://pokemongo.com/pt-BR/news/gowa-global-2026-brazil",
       "image": "https://lh3.googleusercontent.com/N3BzNfgUnn7eGoGO-ZPKSzorwfmL1UUImFFbLtPsAcN_3RY0PGENWl8I2L2yuKFjWrfE7QYH551r1wEjxTAMpfXVHUET0Bs_avMhvS1o7Lme"
-    },
-    {
-      "title": "Todos os caminhos levam ao retorno de Eternatus durante o evento Trilhas Dinamax!",
-      "url": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026",
-      "image": "https://lh3.googleusercontent.com/1ZxNwH9PkuqgUPjvwhCrCNSTSDktinzgCcLJEkm4tu41LlE_7OdyfM4GkR9qd9atoN_Tairx5bQ6IxBBOULlCO29cCM4qTuvsE4dm-RFup0"
-    },
-    {
-      "title": "Esclarecimento sobre as caças aos selos dos eventos da Área Selvagem GO",
-      "url": "https://pokemongo.com/pt-BR/news/go-wild-area-stamp-rally-details-2026",
-      "image": "https://lh3.googleusercontent.com/1gLekpJ6ufDdk-OksjycvqaJIQREQ6qlsP5Lt8HoMhZyJTiwNVuV8mqI0n-fjF3N7hhOhSYoDnZ9qEJq2unSlISul2f4W87piqz23PKSspw"
-    },
-    {
-      "title": "Dia Comunitário de novembro de 2026: Pawniard",
-      "url": "https://pokemongo.com/pt-BR/news/communityday-november-2026-pawniard",
-      "image": "https://lh3.googleusercontent.com/t5O4uk87m4uBdjNiiMgMq9nKNOkWyt3lNxwPc4dEqi8nL2ORXDgmO91Dc8orIGjysTupi4Jfr9F1FQq5jp36L68z7XZlddd8Kq-CSJQJEVfk"
     }
   ]
 }

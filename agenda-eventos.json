@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "updated_at": "2026-11-02",
+  "updated_at": "2026-11-07",
   "timezone": "America/Fortaleza",
   "editorial_note": "O horário oficial do jogo tem prioridade. O Campfire mostra a programação dos encontros/check-in, que pode começar antes ou se estender além das atividades do jogo. Na agenda, início no Campfire não é apresentado como início do evento. Para 2026, Hora Lendária e Holofote são das 18h às 19h; Segunda Max e Sexta da Amizade têm bônus diários. Duração do check-in não foi inferida. Fontes: Pokémon GO oficial e fichas Campfire verificadas para 2, 4, 6, 14 e 21 de novembro. Horários não confirmados não são inventados.",
   "events": [
@@ -251,15 +251,29 @@
     },
     {
       "id": "super-mega-28",
-      "title": "Dia de Super Megarreides",
+      "title": "Dia de Super Megarreides: Clefable",
       "kind": "reide",
       "start": "2026-11-28",
       "end": "2026-11-28",
-      "from": null,
-      "to": null,
-      "description": "Data anunciada oficialmente; detalhes e horários ainda a confirmar. Na consulta de 1º/11, não havia encontro próximo publicado no Campfire para esta data.",
-      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s24",
-      "meetup_status": "nao_publicado"
+      "from": "14:00",
+      "to": "17:00",
+      "description": "Estreia de Mega Clefable nas Super Megarreides, com maior chance de Clefable Brilhante. Ponto de encontro indicado: CTEC/UFRN. O jogo acontece das 14h às 17h; o horário do check-in presencial no Campfire ainda não foi verificado.",
+      "source": "https://pokemongo.com/pt-BR/news/clefable-super-mega-raid-day-2026",
+      "meetup_status": "nao_verificado",
+      "game_time_label": "14h–17h (horário do jogo)",
+      "location": "Complexo Tecnológico de Engenharia (CTEC), UFRN, Natal/RN",
+      "location_short": "CTEC · UFRN",
+      "location_status": "informado",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Complexo%20Tecnologico%20de%20Engenharia%20CTEC%20UFRN%20Natal",
+      "bonuses": [
+        "Até 6 Passes de Reide gratuitos ao girar fotodiscos de Ginásios.",
+        "Maior chance de encontrar Clefable Brilhante nas Super Megarreides.",
+        "Clefable capturados nas Super Megarreides já terão o Meganível 1 desbloqueado.",
+        "Pesquisa temporária: Passe de Batalha Premium e encontro com Metagross.",
+        "Estreia do Meganível Super Máximo e do ataque Explosão Lunar+ para Mega Clefable.",
+        "Limite de Reides a Distância aumentado para 20 durante a janela especial do evento.",
+        "Ingresso opcional: até 14 passes gratuitos, maior chance de Doce Raro GG e mais PE e Poeira Estelar."
+      ]
     }
   ],
   "weekly_routines": [

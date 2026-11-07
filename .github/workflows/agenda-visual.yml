@@ -5,6 +5,7 @@ on:
     branches: [main, feat/agenda-mobile-semana-primeiro]
     paths:
       - agenda.html
+      - agenda-depth.css
       - agenda-eventos.json
       - scripts/agenda-visual-test.mjs
       - .github/workflows/agenda-visual.yml

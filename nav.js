@@ -19,7 +19,8 @@
     { file: "central-mega.html", icon: "🔷", label: "Central Mega", desc: "Megas, energia e Meganíveis" },
     { file: "central-max.html", icon: "🔴", label: "Central Max", desc: "Dinamax, Gigamax e Max" },
     { file: "tipagens.html", icon: "🛡️", label: "Central de Combate", desc: "Pokémon, tipos, Reides, Max e clima" },
-    { file: "pokeparadas.html", icon: "📍", label: "Poképaradas", desc: "Como solicitar sem complicar" }
+    { file: "pokeparadas.html", icon: "📍", label: "Poképaradas", desc: "Como solicitar sem complicar" },
+    { file: "radar-ufrn.html", icon: "📡", label: "Radar 100% UFRN", desc: "Pesquisar Pokémon 100% (beta)" }
   ];
 
   const baseStyles = `

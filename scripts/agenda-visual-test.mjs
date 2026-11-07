@@ -26,6 +26,10 @@ async function check(width, height) {
       assert.equal(await page.locator('#agMTabWeek').getAttribute('aria-selected'), 'true', 'Week is default');
       assert.equal(await page.locator('.ag-spotlight-mobile').isVisible(), true, 'Próximo destaque no celular');
       assert.match(await page.locator('.ag-spotlight-mobile').innerText(), /PRÓXIMO DESTAQUE/, 'Card de destaque preenchido');
+      const featuredDate=await page.locator('.ag-spotlight-mobile [data-spotlight-jump]').getAttribute('data-spotlight-jump');
+      await page.locator('.ag-spotlight-mobile [data-spotlight-jump]').click();
+      assert.equal(await page.locator('#agMDayTitle').innerText().then(t=>t.includes(Number(featuredDate.slice(8)))),true,'Botão do destaque seleciona o dia no celular');
+      await page.locator('#agMToday').click();
       const stripBounds=await page.locator('#agMWeekStrip').evaluate(el=>{
         const container=el.getBoundingClientRect(),children=[...el.querySelectorAll('button')].map(x=>x.getBoundingClientRect());
         return {left:Math.min(...children.map(x=>x.left)),right:Math.max(...children.map(x=>x.right)),containerLeft:container.left,containerRight:container.right};
@@ -65,6 +69,8 @@ async function check(width, height) {
       assert.equal(await page.locator('#agMobile').isVisible(), false, 'Mobile module hidden on desktop');
       assert.equal(await page.locator('.ag-month-panel').isVisible(), true);
       assert.equal(await page.locator('.ag-spotlight-desktop').isVisible(), true, 'Destaque no desktop');
+      await page.locator('.ag-spotlight-desktop [data-spotlight-jump]').click();
+      assert.match(await page.locator('#agWeekEntries').innerText(), /Zacian/, 'Botão do destaque seleciona o evento no desktop');
       const badChips = await page.locator('.ag-day-chip').evaluateAll(chips => chips.filter(chip => {
         const cell = chip.closest('button').getBoundingClientRect();
         const label = chip.getBoundingClientRect();

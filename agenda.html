@@ -992,8 +992,15 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       more.map(function(item){return '<li>'+esc(item)+'</li>'}).join('')+'</ul></details>':'');
   }
   function renderSpotlight(){
+    var nowParts=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Fortaleza',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+    var clock={};nowParts.forEach(function(p){clock[p.type]=p.value});
+    var nowMinutes=Number(clock.hour)*60+Number(clock.minute);
     var upcoming=data.filter(function(e){
       if(e.end<current)return false;
+      if(e.end===current&&e.to){
+        var closing=Number(e.to.slice(0,2))*60+Number(e.to.slice(3,5));
+        if(nowMinutes>closing)return false;
+      }
       return e.kind==='natal'||e.kind==='comunidade'||e.kind==='destaque'||
         (!e.routine&&e.start===e.end&&(e.kind==='reide'||e.kind==='max'));
     }).sort(function(a,b){return a.start.localeCompare(b.start)||eventDaySort(a,b,a.start)});

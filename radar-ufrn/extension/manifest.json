@@ -1,10 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "GO Nexus - Radar UFRN (experimental)",
-  "version": "0.1.0",
-  "description": "Monitora somente dados já carregados no mapa aberto pelo usuário e sinaliza IV 100% na área da UFRN.",
+  "name": "GO Nexus - Radar UFRN (consulta manual)",
+  "version": "0.2.0",
+  "description": "Pesquisa manual por Pokémon 100% na UFRN usando dados exibidos no mapa aberto pelo usuário.",
   "permissions": [
-    "storage"
+    "storage",
+    "tabs"
   ],
   "host_permissions": [
     "https://ntfy.sh/*"

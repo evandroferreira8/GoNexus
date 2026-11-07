@@ -2,7 +2,7 @@ name: Agenda GO — visual responsivo
 
 on:
   push:
-    branches: [main, feat/agenda-mobile-semana-primeiro, feat/agenda-profundidade-20261107]
+    branches: [main, feat/agenda-mobile-semana-primeiro]
     paths:
       - agenda.html
       - agenda-depth.css

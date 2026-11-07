@@ -1,0 +1,42 @@
+name: Validar protótipo Radar UFRN
+on:
+  push:
+    branches: [experimento/radar-ufrn]
+    paths:
+      - 'radar-ufrn/extension/**'
+      - 'radar-ufrn.html'
+      - 'nav.js'
+      - '.github/workflows/validar-radar-ufrn.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verificar JavaScript
+        run: |
+          for js in radar-ufrn/extension/*.js nav.js; do node --check "$js"; done
+      - name: Verificar manifesto e pagina
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          folder=Path('radar-ufrn/extension')
+          manifest=json.loads((folder/'manifest.json').read_text())
+          assert manifest['manifest_version']==3
+          for spec in manifest['content_scripts']:
+              for js in spec['js']:
+                  assert (folder/js).is_file(), f'Arquivo ausente: {js}'
+          assert (folder/manifest['background']['service_worker']).is_file()
+          assert 'radar-ufrn.html' in Path('nav.js').read_text()
+          page=Path('radar-ufrn.html').read_text()
+          assert 'go-nexus-header' in page and 'go-nexus-radar-web' in page
+          assert 'Não conectado' in page
+          print('Manifesto, menu e página verificados.')
+          PY

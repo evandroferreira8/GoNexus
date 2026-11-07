@@ -1,0 +1,25 @@
+name: Testar radar 100% UFRN (experimental)
+on:
+  push:
+    branches: [experimento/radar-ufrn]
+    paths:
+      - 'radar-ufrn/**'
+      - '.github/workflows/teste-radar-ufrn.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  testar-fonte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Consulta única de teste, sem enviar notificações
+        env:
+          RADAR_DRY_RUN: 'true'
+        run: python radar-ufrn/monitor.py

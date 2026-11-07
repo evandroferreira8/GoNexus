@@ -1,0 +1,17 @@
+name: Investigar integração pública do mapa (teste único)
+on:
+  push:
+    branches: [experimento/radar-ufrn]
+    paths:
+      - 'radar-ufrn/probe_source.py'
+      - '.github/workflows/probe-radar-ufrn.yml'
+permissions:
+  contents: read
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Examinar apenas HTML e scripts públicos
+        run: python3 radar-ufrn/probe_source.py

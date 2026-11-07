@@ -1,0 +1,15 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Radar UFRN</title>
+<style>body{margin:0;padding:18px;width:320px;background:#f5f8fd;color:#13284b;font:14px/1.5 system-ui}h1{font-size:20px;margin:0 0 6px}
+p{color:#506480}label{font-weight:700;display:block;margin:14px 0 6px}
+input[type=text]{box-sizing:border-box;width:100%;padding:11px;border:1px solid #a8b8d2;border-radius:10px}
+.row{display:flex;align-items:center;gap:8px;margin:12px 0}.row label{margin:0;font-weight:600}
+button{margin-top:10px;padding:11px 14px;border:0;border-radius:10px;background:#1e5fd4;color:white;font-weight:700;cursor:pointer}
+small{display:block;margin-top:10px;color:#546b89}.status{padding:12px;margin:12px 0;border:1px solid #cfdcef;border-radius:10px;background:white}</style>
+</head><body><h1>Radar 100% UFRN</h1><p>A pesquisa funciona somente quando você clica no botão dentro do GO Nexus. Não há monitoramento periódico.</p>
+<label for="topic">Tópico ntfy (opcional)</label><input id="topic" type="text" autocomplete="off" placeholder="Código do tópico já usado no celular">
+<div class="row"><input type="checkbox" id="notify"><label for="notify">Notificar pelo ntfy se encontrar um 100%</label></div>
+<button id="save">Salvar preferências</button>
+<div class="status" id="status">Consultando estado…</div>
+<button id="map">Abrir mapa original</button>
+<small>O ntfy só receberá mensagens depois de uma pesquisa manual e se você ativar a opção acima. Não enviamos consultas automáticas ao mapa.</small>
+<script src="popup.js"></script></body></html>

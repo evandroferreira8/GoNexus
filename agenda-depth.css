@@ -168,3 +168,10 @@
     transition:box-shadow .18s ease,border-color .18s ease;
   }
 }
+
+/* Tipografia um pouco mais respirada, preservando Inter/DM Sans do site. */
+.agenda-page .ag-m-heading-row h1{letter-spacing:-.035em!important;word-spacing:.09em}
+.agenda-page .ag-heading h2{letter-spacing:-.028em!important;word-spacing:.08em}
+.agenda-page .ag-hero h1{letter-spacing:-.025em!important;word-spacing:.08em}
+.agenda-page .ag-m-card h3{letter-spacing:-.012em!important;word-spacing:.07em}
+.agenda-page .ag-m-dayheading h2{letter-spacing:-.025em!important;word-spacing:.07em}

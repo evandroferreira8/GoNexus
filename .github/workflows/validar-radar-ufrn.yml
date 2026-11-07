@@ -22,6 +22,8 @@ jobs:
       - name: Verificar JavaScript
         run: |
           for js in radar-ufrn/extension/*.js nav.js; do node --check "$js"; done
+      - name: Testar lógica de consulta manual
+        run: node radar-ufrn/test-manual.mjs
       - name: Verificar manifesto e pagina
         run: |
           python3 - <<'PY'

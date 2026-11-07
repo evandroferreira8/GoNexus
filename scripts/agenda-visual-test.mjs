@@ -24,6 +24,13 @@ async function check(width, height) {
       assert.equal(await page.locator('.ag-month-panel').isVisible(), false, 'Desktop month hidden on mobile');
       assert.equal(await page.locator('#agMWeekStrip button').count(), 7, 'Seven day buttons');
       assert.equal(await page.locator('#agMTabWeek').getAttribute('aria-selected'), 'true', 'Week is default');
+      assert.equal(await page.locator('.ag-spotlight-mobile').isVisible(), true, 'Próximo destaque no celular');
+      assert.match(await page.locator('.ag-spotlight-mobile').innerText(), /PRÓXIMO DESTAQUE/, 'Card de destaque preenchido');
+      const stripBounds=await page.locator('#agMWeekStrip').evaluate(el=>{
+        const container=el.getBoundingClientRect(),children=[...el.querySelectorAll('button')].map(x=>x.getBoundingClientRect());
+        return {left:Math.min(...children.map(x=>x.left)),right:Math.max(...children.map(x=>x.right)),containerLeft:container.left,containerRight:container.right};
+      });
+      assert.ok(stripBounds.left>=stripBounds.containerLeft-1 && stripBounds.right<=stripBounds.containerRight+1, 'Sete dias devem caber sem rolagem lateral');
       await page.screenshot({ path: '/tmp/agenda-visual/mobile-' + width + '-week.png', fullPage: false });
 
       await page.locator('#agMTabMonth').click();
@@ -43,6 +50,10 @@ async function check(width, height) {
       const monday = await page.locator('#agMEvents').innerText();
       assert.match(monday, /Bônus de segunda \(dia todo\)/, 'Segunda Max: bônus diários');
       assert.match(monday, /Check-in\s*·\s*17h/, 'Segunda Max: check-in 17h');
+      await page.locator('#agMMonthGrid [data-m-month="2026-11-28"]').click();
+      assert.match(await page.locator('#agMEvents .ag-m-card').first().innerText(), /Clefable/, 'Evento pontual deve aparecer primeiro');
+      assert.match(await page.locator('#agMEvents .ag-m-card').first().innerText(), /CTEC/, 'CTEC visível');
+      assert.match(await page.locator('#agMEvents .ag-m-card').first().innerText(), /check-in no Campfire a confirmar/, 'Diferença entre local e check-in');
       await page.locator('#agMMonthGrid [data-m-month="2026-11-21"]').click();
       await page.screenshot({ path: '/tmp/agenda-visual/mobile-' + width + '-month.png', fullPage: false });
 
@@ -53,6 +64,7 @@ async function check(width, height) {
     } else {
       assert.equal(await page.locator('#agMobile').isVisible(), false, 'Mobile module hidden on desktop');
       assert.equal(await page.locator('.ag-month-panel').isVisible(), true);
+      assert.equal(await page.locator('.ag-spotlight-desktop').isVisible(), true, 'Destaque no desktop');
       const badChips = await page.locator('.ag-day-chip').evaluateAll(chips => chips.filter(chip => {
         const cell = chip.closest('button').getBoundingClientRect();
         const label = chip.getBoundingClientRect();

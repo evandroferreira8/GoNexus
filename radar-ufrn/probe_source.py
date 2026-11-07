@@ -41,3 +41,16 @@ for src in scripts[:18]:
                 print("KEYWORD",urlparse(src).path,word)
     except Exception as exc:
         print("Erro ao ler script:",type(exc).__name__,str(exc)[:100])
+
+# Evidências estáticas da página do mapa, sem consultar nenhuma API de spawns.
+for src in [x for x in scripts if "/app/map/page-" in x]:
+    js=get(src)
+    print("Map JS length:",len(js))
+    url_literals=sorted(set(re.findall(r"https?://[A-Za-z0-9._?&=/:%-]+",js)))
+    print("URL domains:",sorted(set(urlparse(x).netloc for x in url_literals))[:30])
+    print("Map-related URLs:",[x[:140] for x in url_literals if any(k in x.lower() for k in ("spawn","pokemon","api","map","graphql"))][:25])
+    for term in ("fetch(","/api/","spawn","min_iv","map/spawns","map-data","mapbox"):
+        idx=js.lower().find(term.lower())
+        if idx>=0:
+            chunk=js[max(0,idx-180):idx+220].replace("\n"," ")
+            print("Context",term,chunk[:400])

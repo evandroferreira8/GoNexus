@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f9fb">
+<title>Radar 100% UFRN | GO Nexus</title>
+<meta name="description" content="Painel experimental local para avisos de Pokémon 100% na área da UFRN.">
+<style>
+:root{color-scheme:light;--blue:#235cc4;--ink:#102848;--muted:#516681;--bg:#f5f8fd;--card:#fff;--border:#d9e4f0;--pale:#eaf2ff;--yellow:#ffc742}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font:16px/1.55 'DM Sans',system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}
+a{color:inherit}.shell{width:min(1110px,calc(100% - 32px));margin:auto}.top{padding:30px 0 22px;border-bottom:1px solid var(--border);background:radial-gradient(circle at 85% 10%,#d7eaff,transparent 42%),#fff}
+.kicker{font:800 12px/1.2 system-ui;letter-spacing:.15em;text-transform:uppercase;color:#1b58bb}.top h1{font-size:clamp(2.1rem,5.5vw,3.7rem);line-height:1.04;margin:12px 0 12px;letter-spacing:-.045em}.top p{max-width:660px;color:var(--muted);font-size:1.03rem;margin:0}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.button{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:800;font-size:.91rem;border-radius:11px;min-height:44px;padding:10px 16px;border:1px solid #2257b7;background:#2257b7;color:#fff}.button.alt{background:#fff;color:#2355af;border-color:#bfcee2}
+main{padding:22px 0 60px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.stat,.panel{background:var(--card);border:1px solid var(--border);border-radius:18px}.stat{padding:19px}.stat small{font-weight:750;color:var(--muted);display:block;margin-bottom:6px}.stat strong{font-size:clamp(1.1rem,2.5vw,1.6rem);letter-spacing:-.035em}.panel{padding:20px;margin-bottom:15px}
+.panel-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}.panel h2{font-size:1.15rem;letter-spacing:-.018em;margin:0}.sub{color:var(--muted);margin:5px 0 0}.flag{display:inline-flex;align-items:center;gap:7px;font-weight:750;font-size:.82rem;color:#785208;background:#fff5d9;border:1px solid #edd38a;border-radius:99px;padding:7px 11px}.flag::before{content:'';width:8px;height:8px;border-radius:50%;background:#c39420}.flag.live{background:#e7f7ee;color:#156c40;border-color:#afdfc5}.flag.live::before{background:#18965f}.two{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:15px}
+.map{height:270px;position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(45deg,#eaf0e7 25%,#dcead7 25%,#dcead7 50%,#eaf0e7 50%,#eaf0e7 75%,#dcead7 75%);background-size:60px 60px;border:1px solid #d1dfd0;display:grid;place-items:center}
+.map::before{content:'';position:absolute;width:220px;height:220px;border:2px dashed #347bcc;border-radius:50%;background:#2a87ff18}.map::after{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:#2360ca;border:4px solid #fff;box-shadow:0 0 0 5px #2360ca35}.map-label{position:absolute;left:15px;top:15px;color:#255047;background:#ffffffd9;padding:8px 11px;border-radius:10px;font-size:.8rem;font-weight:800}
+.rules{padding:0;margin:0;list-style:none}.rules li{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #e6edf5}.rules li:last-child{border-bottom:0}.rules span{color:var(--muted)}.rules strong{text-align:right}.empty{text-align:center;padding:34px 16px;color:var(--muted)}.empty strong{display:block;color:var(--ink);margin-bottom:4px}.record{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--border);padding:13px 0}.record:first-child{border-top:none}.record b{display:block}.record small{color:var(--muted)}.record a{align-self:center;color:var(--blue);font-weight:800;font-size:.85rem;text-decoration:none}
+.notice{background:#f5f8ff;border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:13px 14px;color:#435c7e;font-size:.91rem}
+footer{color:var(--muted);padding:10px 0 30px;font-size:.79rem}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.map{height:220px}}
+@media(max-width:480px){.shell{width:calc(100% - 26px)}.top{padding-top:24px}.stat,.panel{padding:15px}.grid{gap:9px}.stat strong{font-size:1.16rem}.rules li{font-size:.87rem}.map{height:185px}}
+</style>
+</head>
+<body>
+<go-nexus-header></go-nexus-header>
+<header class="top"><div class="shell">
+ <span class="kicker">GO Nexus · Ferramenta experimental</span>
+ <h1>Radar <span style="color:#205cc1">100%</span> UFRN</h1>
+ <p>Acompanhe registros de Pokémon com IV 15/15/15 no Campus Central e entorno. O canal ntfy pode avisar no celular quando o monitor tiver dados válidos.</p>
+ <div class="actions"><a class="button" href="https://pogocoordinates.com/map" target="_blank" rel="noopener noreferrer">Abrir mapa de Pokémon</a><a class="button alt" href="index.html">Voltar ao GO Nexus</a></div>
+</div></header>
+<main class="shell">
+ <div class="grid" aria-label="Resumo do radar">
+  <div class="stat"><small>Estado do monitor</small><strong id="mainStatus">Não conectado</strong></div>
+  <div class="stat"><small>Última leitura</small><strong id="lastRead">—</strong></div>
+  <div class="stat"><small>Pokémon 100% novos</small><strong id="hits">—</strong></div>
+  <div class="stat"><small>Alertas enviados</small><strong id="sent">—</strong></div>
+ </div>
+ <div class="two">
+  <section class="panel" aria-label="Mapa da região">
+   <div class="panel-head"><div><h2>Região monitorada</h2><p class="sub">UFRN e entorno, Natal (RN)</p></div><span class="flag">Raio experimental</span></div>
+   <div class="map" role="img" aria-label="Diagrama ilustrativo do raio monitorado, não é um mapa geográfico"><span class="map-label">Raio de 1,8 km · ilustração</span></div>
+   <p class="sub" style="font-size:.85rem">O círculo é ilustrativo. A delimitação geográfica no código usa a distância do centro definido para o campus.</p>
+  </section>
+  <section class="panel">
+   <div class="panel-head"><h2>Critérios do alerta</h2><span class="flag" id="flag">Aguardando fonte</span></div>
+   <ul class="rules">
+    <li><span>IV</span><strong>100% (15/15/15)</strong></li>
+    <li><span>Espécies</span><strong>Todas</strong></li>
+    <li><span>Área</span><strong>1,8 km da UFRN</strong></li>
+    <li><span>Notificações</span><strong id="pushStatus">Não conectado</strong></li>
+    <li><span>Fonte</span><strong>Mapa aberto no Brave</strong></li>
+   </ul>
+   <div class="notice" id="explanation" style="margin-top:16px">Para receber registros, a extensão experimental precisa estar instalada no Brave, com o mapa do PoGo Coordinates aberto. Este site sozinho não consulta o mapa e não funciona em segundo plano.</div>
+  </section>
+ </div>
+ <section class="panel">
+  <div class="panel-head"><h2>Detecções recentes</h2><span class="sub">Somente registros realmente recebidos</span></div>
+  <div id="records" class="empty"><strong>Nenhuma detecção verificada</strong>O monitor ainda não recebeu um Pokémon 100% nesta área.</div>
+ </section>
+</main>
+<footer class="shell">Projeto experimental do GO Nexus. Não afiliado à Scopely, Niantic, The Pokémon Company ou ao PoGo Coordinates. Dados de terceiros não são garantidos.</footer>
+<script src="nav.js"></script>
+<script>
+(()=>{"use strict";
+const $=id=>document.getElementById(id);
+let active=false;
+window.addEventListener("message",e=>{
+ if(e.source!==window||e.origin!==location.origin||e.data?.source!=="go-nexus-radar-extension"||e.data.type!=="status")return;
+ active=true;const p=e.data.payload||{},s=p.state||{};
+ $("mainStatus").textContent=s.lastChecked?"Dados recebidos":"Extensão conectada";
+ $("lastRead").textContent=s.lastChecked?new Date(s.lastChecked).toLocaleTimeString("pt-BR"):"Aguardando";
+ $("hits").textContent=s.lastMatches??0;$("sent").textContent=s.lastSent??0;
+ $("pushStatus").textContent=p.configured?"ntfy configurado":"Configurar no Brave";
+ $("flag").textContent=s.lastChecked?"Última coleta registrada":"Aguardando registros";
+ if(s.lastChecked)$("flag").classList.add("live");
+ const rows=(s.latest||[]).slice(0,10);
+ $("records").replaceChildren();
+ if(!rows.length){
+  $("records").className="empty";$("records").innerHTML="<strong>Nenhuma detecção verificada</strong>O monitor não recebeu Pokémon 100% válidos na região.";
+  return;
+ }
+ $("records").className="";
+ for(const r of rows){
+  const line=document.createElement("div");line.className="record";
+  const block=document.createElement("div"),name=document.createElement("b"),small=document.createElement("small");
+  name.textContent=r.name||"Pokémon #"+r.pokemon_id;
+  small.textContent="IV 100% · "+Number(r.lat).toFixed(6)+","+Number(r.lon).toFixed(6);
+  block.append(name,small);const link=document.createElement("a");link.href="https://maps.google.com/?q="+encodeURIComponent(r.lat+","+r.lon);link.target="_blank";link.rel="noopener";link.textContent="Localizar";line.append(block,link);$("records").append(line);
+ }
+});
+function ask(){window.postMessage({source:"go-nexus-radar-web",type:"status"},location.origin)}
+ask();setInterval(ask,20000);
+})();
+</script>
+</body></html>

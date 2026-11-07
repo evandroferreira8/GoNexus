@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-11-06T02:32:01+00:00",
+  "updated_at": "2026-11-07T01:58:50+00:00",
   "items": [
+    {
+      "title": "Apenas este fim de semana! Faça login entre 6 e 8 de novembro para obter uma Pesquisa temporária gratuita com Machamp Gigamax!",
+      "url": "https://pokemongo.com/pt-BR/news/gowildarea-2026-timed-research",
+      "image": "https://lh3.googleusercontent.com/ou9s1BeQ2dxKpKmtjCjzqmE7LInbAzbD6UxkhtK6DMHRPpfxjkCxIfoVyfWpulXpmXnCCuTOluKKw_e_5n6yMhRFnYOq4OBwe5KoWt4HCeU"
+    },
     {
       "title": "Dance ao luar durante o Dia de Super Megarreides de Clefable!",
       "url": "https://pokemongo.com/pt-BR/news/clefable-super-mega-raid-day-2026",
@@ -21,11 +26,6 @@
       "title": "Preparem-se para a Área Selvagem do Pokémon GO 2026 com fundos de Pokémon no Perfil de Treinador, novos itens de avatar e mais novidades empolgantes.",
       "url": "https://pokemongo.com/pt-BR/news/get-ready-for-gowildarea-2026",
       "image": "https://lh3.googleusercontent.com/U-aJxlmtiVe7UDPLAEoyI8LKHgyuRe9RpQB9nxZzRj-sCkzCPo9RlTdZ9XXtMSwR1sI80g6EEtGyA9bLRWGnALsEnz5EHR9z6bOWA2frRw"
-    },
-    {
-      "title": "O Dispositivo de Exploração está evoluindo!",
-      "url": "https://pokemongo.com/pt-BR/news/pgo-explorer-gadget-2026-update",
-      "image": "https://lh3.googleusercontent.com/bup0wWISTZ3O0vrWPQWqhldwW4KfZ5NK5ryVAi4WH9QbIhTbOruURsTgNo1YkmRqIHNjE8y_1rwotBus0gXX6_F--7Aww_qvO-Aw-yTgw9M"
     }
   ]
 }

@@ -2,6 +2,7 @@ import {STORAGE_KEY,BACKUP_KEY,MAX_FILE_SIZE,emptyCollection,parseCollection,val
 const $=id=>document.getElementById(id), categories={special:'Especial',location:'Localização'};
 const mobile=matchMedia('(max-width:600px)');
 const pageSize=()=>mobile.matches?8:20;
+const renderName=()=>collection.trainer?.trim()||'Minha coleção';
 let catalog, collection=emptyCollection(), shared=location.hash.startsWith('#colecao='), locked=false, memoryOnly=false, page=1, pendingImport, toastTimer;
 const filters={query:'',category:'',year:'',event:'',status:'released',ownership:'',sort:'newest'};
 const escape=text=>String(text??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -24,6 +25,26 @@ function persist(next,{backup=false,recovery=false}={}){
     collection=validateCollection(next);memoryOnly=true;storageWarning('O navegador bloqueou o salvamento. As alterações estão apenas nesta aba: exporte o JSON antes de fechar.');return true;
   }
 }
+function syncPlayerName(){
+  const profile=$('bg-player-name');
+  if(document.activeElement!==profile)profile.value=collection.trainer||'';
+  profile.disabled=shared||locked;
+  $('bg-player-saved').textContent=shared?'Somente leitura':locked?'Coleção bloqueada':'Salvo automaticamente';
+  $('bg-trainer').value=collection.trainer||'';
+  $('bg-share-player-name').textContent=renderName();
+  if(shared&&collection.trainer)$('bg-shared-title').textContent='Coleção de '+collection.trainer;
+}
+function updateTrainer(value){
+  if(shared||locked)return;
+  const name=String(value||'').slice(0,40);
+  if(persist({...fresh(),trainer:name})){
+    $('bg-trainer').value=collection.trainer;
+    $('bg-share-player-name').textContent=renderName();
+    $('bg-player-saved').textContent=memoryOnly?'Salvo somente nesta aba':'Salvo automaticamente';
+    if($('bg-share-dialog').open)void renderShare();
+  }
+}
+$('bg-player-name').addEventListener('input',event=>updateTrainer(event.target.value));
 function renderProgress(){
   const p=progress(catalog.items,collection.obtained);
   $('bg-percent').textContent=p.percent.toLocaleString('pt-BR')+'%';$('bg-ring').style.setProperty('--completion',p.percent+'%');
@@ -31,6 +52,7 @@ function renderProgress(){
   $('bg-category-progress').innerHTML=Object.entries(p.categories).map(([key,value])=>`<div><div class="bg-category-line"><span>${key==='special'?'✦ Especiais':'◎ Localização'}</span><b>${value.obtained} / ${value.total}</b></div><progress max="${value.total||1}" value="${value.obtained}" aria-label="${categories[key]}: ${value.obtained} de ${value.total}"></progress></div>`).join('');
 }
 function render(){
+  syncPlayerName();
   renderProgress();
   const matches=filterItems(catalog.items,filters,collection.obtained), size=pageSize(), pages=Math.max(1,Math.ceil(matches.length/size));
   page=Math.min(page,pages);
@@ -264,7 +286,7 @@ $('bg-restore').addEventListener('click',()=>{try{const raw=localStorage.getItem
 $('bg-replace-confirm').addEventListener('change',event=>$('bg-replace').disabled=!event.target.checked);
 $('bg-merge').addEventListener('click',()=>applyImport(false));$('bg-replace').addEventListener('click',()=>{if($('bg-replace-confirm').checked)applyImport(true);});
 $('bg-share').addEventListener('click',()=>{
-  $('bg-trainer').value=collection.trainer;
+  syncPlayerName();
   $('bg-featured-search').value='';
   initializeFeatured();renderFeaturedEditor();
   $('bg-share-dialog').showModal();void renderShare();
@@ -282,10 +304,10 @@ $('bg-featured-list').addEventListener('click',event=>{
   }
   persistFeatured();renderFeaturedEditor();void renderShare();
 });
-$('bg-trainer').addEventListener('input',()=>{if(!shared&&!locked)persist({...fresh(),trainer:$('bg-trainer').value});void renderShare();});
+
 $('bg-download-image').addEventListener('click',async()=>{try{await renderShare();download(await imageBlob(),'minha-colecao-go-nexus.png');$('bg-share-message').textContent='Imagem PNG pronta. Envie pelo WhatsApp ou pela sua rede social.';}catch(error){$('bg-share-message').textContent=error.message;}});
 $('bg-native-share').addEventListener('click',async()=>{try{await renderShare();const file=new File([await imageBlob()],'colecao-go-nexus.png',{type:'image/png'});if(navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:'Minha coleção · GO Nexus'});}else{download(file,file.name);$('bg-share-message').textContent='Imagem baixada. Este navegador não oferece envio direto; anexe o PNG no aplicativo de sua preferência.';}}catch(error){if(error.name!=='AbortError')$('bg-share-message').textContent='Não foi possível abrir o compartilhamento. Use Baixar imagem.';}});
-$('bg-copy-link').addEventListener('click',async()=>{try{const url=new URL(location.href);url.search='';url.hash=encodeShare({...collection,trainer:$('bg-trainer').value});const link=url.href;try{await navigator.clipboard.writeText(link);$('bg-share-message').textContent='Link copiado! Quem abrir verá esta versão da coleção, sem alterar os próprios dados.';$('bg-link-fallback').hidden=true;}catch{$('bg-link-fallback').hidden=false;$('bg-link-value').value=link;$('bg-link-value').focus();$('bg-link-value').select();$('bg-share-message').textContent='Selecione e copie o link acima.';}}catch(error){$('bg-share-message').textContent=error.message;}});
+$('bg-copy-link').addEventListener('click',async()=>{try{const url=new URL(location.href);url.search='';url.hash=encodeShare(collection);const link=url.href;try{await navigator.clipboard.writeText(link);$('bg-share-message').textContent='Link copiado! Quem abrir verá esta versão da coleção, sem alterar os próprios dados.';$('bg-link-fallback').hidden=true;}catch{$('bg-link-fallback').hidden=false;$('bg-link-value').value=link;$('bg-link-value').focus();$('bg-link-value').select();$('bg-share-message').textContent='Selecione e copie o link acima.';}}catch(error){$('bg-share-message').textContent=error.message;}});
 window.addEventListener('storage',event=>{if(!shared&&event.key===STORAGE_KEY){try{collection=readCollection(localStorage);locked=false;memoryOnly=false;$('bg-storage-warning').hidden=true;if(catalog)render();}catch{locked=true;storageWarning('A coleção foi alterada em outra aba e não pôde ser lida. Os dados foram preservados.');if(catalog)render();}}});
 // Changing a shared URL must reload into a fresh read-only context, never reuse local state.
 window.addEventListener('hashchange',()=>{if(shared||location.hash.startsWith('#colecao='))location.reload();});
@@ -299,5 +321,5 @@ $('bg-pdf').addEventListener('click',()=>{
  const report=window.open('','_blank');if(!report){toast('Permita abrir a janela do relatório para salvar o PDF.');return;}
  const stats=progress(catalog.items,collection.obtained),owned=new Set(collection.obtained);
  const rows=catalog.items.slice().sort((a,b)=>a.name.localeCompare(b.name,'pt-BR')).map(item=>'<tr><td>'+escape(owned.has(item.id)?'Obtido':released(item)?'Faltante':statusLabel(item))+'</td><td><strong>'+escape(item.name)+'</strong><br><small>'+escape(item.id)+'</small></td><td>'+escape(item.event)+'</td><td>'+categories[item.category]+'</td><td>'+dateLabel(item)+'</td></tr>').join('');
- report.document.write('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Minha coleção — GO Nexus</title><style>body{font:12px Arial;color:#173454;margin:30px}h1{font-size:28px}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid #ccd7e7}th{background:#e9f0fa}tr{break-inside:avoid}small{font-size:9px;color:#536783}button{padding:12px;background:#2159cf;color:white;border:0;border-radius:8px;cursor:pointer}@page{size:A4 landscape;margin:14mm}@media print{button,.help{display:none}thead{display:table-header-group}body{margin:0}}</style><button onclick="window.print()">Imprimir / salvar como PDF</button><p class="help">Escolha “Salvar como PDF” na janela de impressão. Para restaurar marcações no GO Nexus, exporte também o JSON.</p><h1>GO NEXUS · Coleção de Fundos</h1><p>'+escape(collection.trainer||'Minha coleção')+' · '+new Date().toLocaleDateString('pt-BR')+'</p><p><strong>'+stats.obtained+' de '+stats.total+' obtidos · '+stats.percent.toLocaleString('pt-BR')+'% · '+stats.remaining+' restantes</strong></p><p>Especiais: '+stats.categories.special.obtained+'/'+stats.categories.special.total+' · Localização: '+stats.categories.location.obtained+'/'+stats.categories.location.total+'</p><p>Catálogo: '+catalog.updatedAt+'. Anunciados e não confirmados não entram no progresso. '+escape(catalog.coverageNote)+'</p><table><thead><tr><th>Estado</th><th>Fundo</th><th>Evento</th><th>Categoria</th><th>Lançamento</th></tr></thead><tbody>'+rows+'</tbody></table><p>Relatório para consulta. O arquivo JSON é o backup restaurável. Fontes e atribuições: GO Nexus / docs/fundos-fontes.md.</p></html>');report.document.close();
+ report.document.write('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Relatório da coleção — GO Nexus</title><style>body{font:12px Arial;color:#173454;margin:30px}h1{font-size:28px}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid #ccd7e7}th{background:#e9f0fa}tr{break-inside:avoid}small{font-size:9px;color:#536783}button{padding:12px;background:#2159cf;color:white;border:0;border-radius:8px;cursor:pointer}@page{size:A4 landscape;margin:14mm}@media print{button,.help{display:none}thead{display:table-header-group}body{margin:0}}</style><button onclick="window.print()">Imprimir / salvar como PDF</button><p class="help">Escolha “Salvar como PDF” na janela de impressão. Para restaurar marcações no GO Nexus, exporte também o JSON.</p><h1>GO NEXUS · Coleção de Fundos</h1><p><strong>Treinador: '+escape(renderName())+'</strong> · '+new Date().toLocaleDateString('pt-BR')+'</p><p><strong>'+stats.obtained+' de '+stats.total+' obtidos · '+stats.percent.toLocaleString('pt-BR')+'% · '+stats.remaining+' restantes</strong></p><p>Especiais: '+stats.categories.special.obtained+'/'+stats.categories.special.total+' · Localização: '+stats.categories.location.obtained+'/'+stats.categories.location.total+'</p><p>Catálogo: '+catalog.updatedAt+'. Anunciados e não confirmados não entram no progresso. '+escape(catalog.coverageNote)+'</p><table><thead><tr><th>Estado</th><th>Fundo</th><th>Evento</th><th>Categoria</th><th>Lançamento</th></tr></thead><tbody>'+rows+'</tbody></table><p>Relatório para consulta. O arquivo JSON é o backup restaurável. Fontes e atribuições: GO Nexus / docs/fundos-fontes.md.</p></html>');report.document.close();
 });

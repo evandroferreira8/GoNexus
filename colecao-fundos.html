@@ -8,7 +8,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Coleção de Fundos | GO Nexus</title>
 <link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
-<link rel="stylesheet" href="nexus-studio.css?v=fundos-20261108d">
+<link rel="stylesheet" href="nexus-studio.css?v=fundos-20261108e">
 </head>
 <body class="page-backgrounds" data-studio-page="colecao-fundos">
 <a class="bg-skip" href="#bg-search">Ir para o catálogo</a>
@@ -20,6 +20,11 @@
   </section>
   <div id="bg-shared" class="bg-notice" hidden><div><strong id="bg-shared-title">Coleção compartilhada</strong><p>Somente leitura. Suas marcações neste aparelho estão preservadas.</p></div><a class="bg-button" href="colecao-fundos.html">Abrir minha coleção</a></div>
   <div id="bg-storage-warning" class="bg-notice bg-warning" role="alert" hidden></div>
+  <section class="bg-profile" id="bg-profile" aria-label="Identificação do jogador">
+    <label for="bg-player-name"><span>Nome do treinador</span><small id="bg-player-help">Aparecerá no card, no relatório e no arquivo da coleção.</small></label>
+    <input id="bg-player-name" maxlength="40" type="text" placeholder="Seu nome no Pokémon GO" autocomplete="nickname" aria-describedby="bg-player-help">
+    <span class="bg-profile-saved" id="bg-player-saved" role="status"></span>
+  </section>
   <section class="bg-dashboard" aria-label="Progresso da coleção">
     <div class="bg-total"><div class="bg-ring" id="bg-ring"><strong id="bg-percent">0%</strong></div><div><span class="bg-eyebrow" id="bg-collection-label">MINHA COLEÇÃO</span><p><strong id="bg-obtained">0</strong> de <span id="bg-total">0</span> obtidos</p><small><span id="bg-remaining">0</span> restantes · fundos lançados</small></div></div>
     <div class="bg-category-progress" id="bg-category-progress"></div>
@@ -42,13 +47,13 @@
     <div id="bg-empty" class="bg-empty" hidden><span aria-hidden="true">⌕</span><h2>Nenhum fundo por aqui</h2><p>Experimente outro nome ou ajuste os filtros.</p><button class="bg-button" id="bg-reset-empty">Limpar busca e filtros</button></div>
     <nav class="bg-pagination" id="bg-pagination" aria-label="Páginas do catálogo" hidden><button class="bg-button" id="bg-prev">← Anterior</button><label class="bg-page-jump" for="bg-page-input"><span>Página</span><input id="bg-page-input" type="number" inputmode="numeric" min="1" max="1" step="1" value="1" aria-label="Ir diretamente para a página"><span id="bg-page-total">/ 1</span></label><button class="bg-button" id="bg-next">Próxima →</button></nav>
   </section>
-  <details class="bg-about"><summary>Sobre o catálogo e as imagens</summary><p id="bg-coverage"></p><p>O progresso conta tipos de fundo, independentemente do Pokémon. Anunciados e registros sem confirmação de lançamento ficam fora do total. A data do evento tem prioridade sobre a data em que uma arte apareceu nos arquivos do jogo.</p><p>Imagens do jogo via psoren/pogo-bg, hospedadas localmente. Autorização de reutilização pendente. Ilustrações próprias nos itens sem imagem. Metadados históricos adaptados dos colaboradores da <a href="https://pokemongo.fandom.com/wiki/Backgrounds" target="_blank" rel="noopener noreferrer">Pokémon GO Wiki</a>, traduzidos e revisados com anúncios oficiais. Catálogo sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Consulte o <a href="docs/fundos-fontes.md">registro de fontes e alterações</a>. Atualização: <span id="bg-updated"></span>.</p></details>
+  <details class="bg-about"><summary>Sobre o catálogo e as imagens</summary><p id="bg-coverage"></p><p>O progresso conta tipos de fundo, independentemente do Pokémon. Anunciados e registros sem confirmação de lançamento ficam fora do total. A data do evento tem prioridade sobre a data em que uma arte apareceu nos arquivos do jogo.</p><p>Imagens do jogo conferidas em coleções de referência e hospedadas localmente. Fontes de cada arte registradas na documentação; autorização de reutilização pendente. Ilustrações próprias nos itens sem imagem. Metadados históricos adaptados dos colaboradores da <a href="https://pokemongo.fandom.com/wiki/Backgrounds" target="_blank" rel="noopener noreferrer">Pokémon GO Wiki</a>, traduzidos e revisados com anúncios oficiais. Catálogo sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Consulte o <a href="docs/fundos-fontes.md">registro de fontes e alterações</a>. Atualização: <span id="bg-updated"></span>.</p></details>
   <p class="bg-toast" id="bg-toast" role="status" aria-live="polite"></p>
   <noscript>Ative o JavaScript para consultar o catálogo e salvar sua coleção.</noscript>
 </main>
 <dialog class="bg-dialog" id="bg-detail" aria-labelledby="bg-detail-title"><button class="bg-close" data-close aria-label="Fechar detalhes">×</button><div id="bg-detail-content"></div></dialog>
 <dialog class="bg-dialog" id="bg-import-dialog" aria-labelledby="bg-import-title"><button class="bg-close" data-close aria-label="Cancelar importação">×</button><span class="bg-eyebrow">SUA COLEÇÃO, COM VOCÊ</span><h2 id="bg-import-title">Importar coleção</h2><p id="bg-import-summary"></p><p>Mesclar mantém suas marcações atuais. Substituir guarda uma cópia local para restauração.</p><label class="bg-check"><input type="checkbox" id="bg-replace-confirm">Quero substituir minhas marcações atuais.</label><div class="bg-dialog-actions"><button class="bg-button bg-primary" id="bg-merge">Mesclar coleções</button><button class="bg-button" id="bg-replace" disabled>Substituir coleção</button></div><p id="bg-import-message" role="status"></p></dialog>
-<dialog class="bg-dialog bg-share-dialog" id="bg-share-dialog" aria-labelledby="bg-share-title"><button class="bg-close" data-close aria-label="Fechar compartilhamento">×</button><span class="bg-eyebrow">FEITO PARA COMPARTILHAR</span><h2 id="bg-share-title">Sua coleção merece aparecer.</h2><label class="bg-trainer">Apelido do treinador <span>(opcional)</span><input id="bg-trainer" maxlength="40" placeholder="Como você é conhecido no jogo?" autocomplete="off"></label>
+<dialog class="bg-dialog bg-share-dialog" id="bg-share-dialog" aria-labelledby="bg-share-title"><button class="bg-close" data-close aria-label="Fechar compartilhamento">×</button><span class="bg-eyebrow">FEITO PARA COMPARTILHAR</span><h2 id="bg-share-title">Sua coleção merece aparecer.</h2><p class="bg-share-person">Treinador: <strong id="bg-share-player-name">Minha coleção</strong> <span>· altere o nome acima, na página principal</span></p><input type="hidden" id="bg-trainer" value="">
 <details class="bg-featured-editor" id="bg-featured-editor">
   <summary><span>Personalizar os fundos em destaque<small>Escolha até quatro imagens para o seu card</small></span><span aria-hidden="true">▾</span></summary>
   <div class="bg-featured-editor-body">
@@ -64,5 +69,5 @@
 <go-nexus-footer></go-nexus-footer>
 <script src="nav.js?v=fundos-20261107"></script>
 <script src="theme.js?v=studio-v4-policy-links"></script>
-<script type="module" src="fundos-app.mjs?v=20261108d"></script>
+<script type="module" src="fundos-app.mjs?v=20261108e"></script>
 </body></html>

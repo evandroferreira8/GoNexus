@@ -1634,3 +1634,16 @@ html body.page-backgrounds .bg-utility p,html body.page-backgrounds .bg-art-note
  .page-backgrounds #bg-share-canvas{width:min(100%,355px)}
  .page-backgrounds .bg-share-dialog .bg-dialog-actions>.bg-button{flex:1;min-width:140px}
 }
+
+/* Coleção: identificação persistente do treinador, 2026-11-08 */
+.page-backgrounds .bg-profile{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid #c9d8eb;border-radius:16px;padding:15px 20px;margin:18px 0 12px;box-shadow:0 2px 8px #20487808}
+.page-backgrounds .bg-profile label{display:grid;gap:3px;flex:1 1 230px;min-width:0;color:#143b68;font:750 14px/1.4 var(--gn-font,Arial,sans-serif)}
+.page-backgrounds .bg-profile label small{font-weight:500;font-size:12px;color:#607995}
+.page-backgrounds #bg-player-name{flex:1 1 225px;width:100%;max-width:380px;min-width:0;min-height:46px;border:1px solid #b0c5e1;border-radius:10px;background:#f8fbff;color:#163a64;padding:10px 13px;font:650 16px/1.3 var(--gn-font,Arial,sans-serif)}
+.page-backgrounds #bg-player-name:focus-visible{outline:3px solid #4b85d0;outline-offset:2px}
+.page-backgrounds #bg-player-name:disabled{color:#63758c;background:#e9edf3}
+.page-backgrounds .bg-profile-saved{font-size:12px;color:#467194;white-space:nowrap}
+.page-backgrounds .bg-share-person{font:500 13px/1.5 var(--gn-font,Arial,sans-serif);color:#506987;margin:12px 0!important}
+.page-backgrounds .bg-share-person strong{font-weight:800;color:#153d6d}
+.page-backgrounds .bg-share-person span{font-size:12px}
+@media(max-width:600px){.page-backgrounds .bg-profile{padding:14px;gap:9px;margin:13px 0}.page-backgrounds #bg-player-name{max-width:100%}.page-backgrounds .bg-profile-saved{font-size:11px}}

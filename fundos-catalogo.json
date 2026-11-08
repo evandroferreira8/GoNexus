@@ -7806,7 +7806,7 @@
     },
     {
       "id": "sp-dia-de-muertos-2026",
-      "name": "Día de Muertos 2026",
+      "name": "Dia dos Mortos 2026",
       "event": "Día de Muertos — México",
       "releaseDate": "2026-10-27",
       "year": 2026,
@@ -7817,16 +7817,20 @@
         "Marowak"
       ],
       "availability": "Cubone com coroa de cempasúchil em Incenso, pesquisa temporária e desafios de grupo no México.",
-      "aliases": [],
+      "aliases": [
+        "Día de Muertos 2026",
+        "Dia de Muertos 2026"
+      ],
       "sources": [
+        "https://www.dittobase.com/pokemon-go/backgrounds/sb-dia-de-muertos-2026",
         "https://pokemongo.com/es-MX/news/dia-de-muertos-2026"
       ],
       "image": {
-        "src": "assets/fundos/sp-dia-de-muertos-2026.webp",
-        "thumbnail": "assets/fundos/th/sp-dia-de-muertos-2026.webp",
-        "width": 512,
-        "height": 512,
-        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "src": "assets/fundos/sp-dia-de-muertos-2026-correto.webp",
+        "thumbnail": "assets/fundos/th/sp-dia-de-muertos-2026-correto.webp",
+        "width": 768,
+        "height": 768,
+        "attribution": "Pokémon GO · arte do fundo especial, conferida com DittoBase",
         "provenanceReference": "docs/fundos-correcao-imagens.json",
         "authorizationStatus": "pending",
         "thumbnailWidth": 240

@@ -115,9 +115,11 @@
   },
   {
     "id": "sp-dia-de-muertos-2026",
-    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/sb_DiaDeMuertos_2026.png",
-    "localPath": "assets/fundos/sp-dia-de-muertos-2026.webp",
-    "authorizationStatus": "pending"
+    "source": "https://assets.dittobase.com/go/backgrounds/sb-dia-de-muertos-2026.jpg",
+    "localPath": "assets/fundos/sp-dia-de-muertos-2026-correto.webp",
+    "authorizationStatus": "pending",
+    "thumbnailPath": "assets/fundos/th/sp-dia-de-muertos-2026-correto.webp",
+    "note": "Revisão visual: textura rosa anterior não correspondia ao fundo especial. Referência conferida na ficha Dia De Muertos 2026 do DittoBase (arte floral roxa com Poké Bola ao centro). Direitos de reutilização não verificados."
   },
   {
     "id": "lc-fc-seoul-2026",

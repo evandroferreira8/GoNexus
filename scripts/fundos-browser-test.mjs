@@ -35,7 +35,15 @@ try{
   assert.deepEqual(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).obtained,STORAGE_KEY),[firstId,'unknown-preserved-id']);
   await page.locator('#bg-file').setInputFiles({name:'replace.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(emptyCollection()))});assert.equal(await page.locator('#bg-replace').isDisabled(),true);await page.locator('#bg-replace-confirm').check();await page.locator('#bg-replace').click();assert.equal(await page.locator('#bg-obtained').textContent(),'0');
   await page.locator('#bg-restore').click();await page.locator('#bg-merge').click();assert.equal(await page.locator('#bg-obtained').textContent(),'1');
-  await page.locator('#bg-share').click();await page.locator('#bg-trainer').fill('João ✦ Treinador');
+  await page.locator('#bg-player-name').fill('João ✦ Treinador');
+  assert.equal(await page.evaluate(key=>JSON.parse(localStorage.getItem(key)).trainer,STORAGE_KEY),'João ✦ Treinador');
+  const reportPromise=page.waitForEvent('popup');await page.locator('#bg-pdf').click();
+  const report=await reportPromise;
+  await report.waitForLoadState('domcontentloaded');
+  assert.ok((await report.locator('body').textContent()).includes('Treinador: João ✦ Treinador'));
+  await report.close();
+  await page.locator('#bg-share').click();
+  assert.equal(await page.locator('#bg-share-player-name').textContent(),'João ✦ Treinador');
   await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__copiedLink=text;}}}));
   await page.locator('#bg-copy-link').click();const copiedLink=await page.evaluate(()=>window.__copiedLink);assert.ok(copiedLink.startsWith(base+'colecao-fundos.html#colecao='));
   const imageWait=page.waitForEvent('download');await page.locator('#bg-download-image').click();const image=await imageWait;const bytes=await downloadBytes(page,image);assert.equal(bytes.toString('hex',0,8),'89504e470d0a1a0a');assert.equal(bytes.readUInt32BE(16),1080);assert.equal(bytes.readUInt32BE(20),1350);if(width===390)await fs.writeFile(out+'/colecao-compartilhada.png',bytes);
@@ -45,7 +53,7 @@ try{
   const invalidLink=await context.newPage();await invalidLink.goto(base+'colecao-fundos.html#colecao=bad');await invalidLink.waitForSelector('#bg-storage-warning');assert.equal(await invalidLink.locator('#bg-import').isVisible(),false);assert.equal(await invalidLink.evaluate(key=>localStorage.getItem(key),STORAGE_KEY),before);await invalidLink.close();
   await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw new Error('blocked');}}}));await page.locator('#bg-copy-link').click();assert.equal(await page.locator('#bg-link-fallback').isVisible(),true);assert.equal(await page.locator('#bg-link-value').inputValue(),copiedLink);
   await page.keyboard.press('Escape');await page.locator('#bg-filter-toggle').click();await page.screenshot({path:`${out}/catalogo-${width}.png`,fullPage:true});await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`${out}/previa-${width}.png`});
-  assert.deepEqual(errors,[]);checks.push({width,status:'passed',checks:['toggle','reload','filters','empty','details','export','invalid-import','merge','replace','restore','png','shared-readonly','invalid-link','no-overflow','no-external-services']});await context.close();
+  assert.deepEqual(errors,[]);checks.push({width,status:'passed',checks:['toggle','reload','trainer-name','pdf-trainer','filters','empty','details','export','invalid-import','merge','replace','restore','png','shared-readonly','invalid-link','no-overflow','no-external-services']});await context.close();
  }
 
  // Four independently chosen highlights survive reopening the preview without changing the collection.

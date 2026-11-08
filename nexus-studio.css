@@ -5,7 +5,10 @@
 html[data-theme="light"] .page-home .gn-grid .gn-background-card p{white-space:normal!important;overflow-wrap:anywhere}
 /* Coleção de Fundos — isolated native module; no game imagery or external runtime. */
 .page-backgrounds .bg-art.has-image:before,.page-backgrounds .bg-art.has-image:after,.page-backgrounds .bg-art.has-image .bg-art-symbol,.page-backgrounds .bg-art.has-image .bg-art-label{display:none}
-.page-backgrounds .bg-art.has-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#102641}
+.page-backgrounds .bg-art.has-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#102641}
+.page-backgrounds .bg-grid .bg-art{height:auto;aspect-ratio:1;flex-shrink:0}
+.page-backgrounds .bg-dialog .bg-art.has-image{height:auto;aspect-ratio:var(--art-ratio,1);max-width:440px;margin-inline:auto}
+.page-backgrounds .bg-dialog .bg-art.has-image img{object-fit:contain}
 html[data-theme="light"] body.page-backgrounds .bg-card-event{font-size:12px!important;line-height:1.45!important}
 html[data-theme="light"] body.page-backgrounds :is(.bg-hero p,.bg-utility p,.bg-art-note){font-size:12px!important;line-height:1.5!important}
 @media(max-width:600px){html[data-theme="light"] body.page-backgrounds .bg-hero{min-height:145px;padding:16px}.page-backgrounds .bg-hero h1{font-size:30px}.page-backgrounds .bg-hero-art{top:10px}.page-backgrounds .bg-dashboard{gap:12px!important;padding:12px!important}}
@@ -24,8 +27,8 @@ html[data-theme="light"] body.page-backgrounds :is(.bg-hero p,.bg-utility p,.bg-
 .page-backgrounds .bg-hero-art{width:230px;height:170px;flex:none;position:relative;margin-right:35px}
 .page-backgrounds .bg-ticket{position:absolute;right:0;top:0;width:125px;height:170px;transform:rotate(12deg);border:5px solid #fff;box-shadow:0 12px 24px #15376735;border-radius:12px;padding:12px;color:#fff;background:radial-gradient(ellipse at 20% 80%,#5688e0,transparent 70%),#173c72;display:flex;flex-direction:column;justify-content:space-between;font:700 8px var(--gn-code);letter-spacing:.08em}
 .page-backgrounds .bg-ticket b{font:60px/1 var(--gn-title);text-align:center;color:#ffcf43}
-.page-backgrounds .bg-ticket small{font-size:7px}
-.page-backgrounds .bg-ticket-back{left:5px;top:8px;transform:rotate(-13deg);background:linear-gradient(145deg,#74adbd,#174755)}
+html body.page-backgrounds .bg-hero-art .bg-ticket small{font:700 11px/1.45 var(--gn-code)!important;color:#fff!important;letter-spacing:.04em;background:#173c72;border-radius:4px;padding:3px 4px}
+.page-backgrounds .bg-ticket-back{left:5px;top:8px;transform:rotate(-13deg);background:linear-gradient(145deg,#356c7b,#174755)}
 .page-backgrounds .bg-dashboard{display:grid;grid-template-columns:1.2fr 1fr auto;align-items:center;gap:24px;padding:22px 24px;border:1px solid #c8d7ea;border-radius:18px;background:#fff;margin-top:18px;box-shadow:0 6px 20px #12396606}
 .page-backgrounds .bg-total{display:flex;align-items:center;gap:15px}
 .page-backgrounds .bg-total p{margin:4px 0;font-size:15px}.page-backgrounds .bg-total p>strong{font:700 27px var(--gn-title)}
@@ -63,7 +66,7 @@ html[data-theme="light"] body.page-backgrounds :is(.bg-hero p,.bg-utility p,.bg-
 .page-backgrounds .bg-art-symbol{position:absolute;right:42px;top:42px;font:75px/1 var(--gn-title);color:#ffffffc9;text-shadow:0 5px 16px #10294a50}
 .page-backgrounds .bg-art.location:after{content:'';position:absolute;inset:74px -15px -1px;background:#0b243855;clip-path:polygon(0 65%,18% 15%,32% 60%,58% 0,80% 65%,100% 25%,100% 100%,0 100%)}
 .page-backgrounds .bg-art .bg-art-label{position:absolute;bottom:12px;left:14px;font:700 9px var(--gn-code);letter-spacing:.15em;z-index:1}
-.page-backgrounds .bg-badge{display:inline-block;position:relative;z-index:1;border:1px solid #ffffff44;border-radius:5px;padding:4px 7px;background:#0a2449a6;color:#fff;font:650 9px var(--gn-font)}
+.page-backgrounds .bg-badge{display:inline-block;position:absolute;top:12px;left:12px;z-index:1;max-width:calc(100% - 24px);border:1px solid #ffffff66;border-radius:5px;padding:5px 8px;background:#102c52;color:#fff;font:650 11px/1.4 var(--gn-font)}
 .page-backgrounds .bg-card-body{padding:14px;display:flex;flex:1;flex-direction:column}
 .page-backgrounds .bg-card-heading{display:flex;align-items:start;justify-content:space-between;gap:6px}
 .page-backgrounds .bg-card h2{margin:0;font-size:16px;line-height:1.2;color:#153454;overflow-wrap:anywhere}

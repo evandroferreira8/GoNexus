@@ -1,3 +1,9 @@
+## Correção publicada em 8 de novembro de 2026
+
+A revisão abaixo descreve a primeira versão. A correção acrescenta 25 imagens antes ausentes e dois fundos (NFL Cardinals 2026 e Poké Lid Nagano), totalizando 266 registros, 264 com imagem local. Apenas GO Wild Area 2026 e PokéXciting! Bangkok, ambos anunciados, continuam sem imagem confirmada. As 27 novas associações e fontes estão em `fundos-correcao-imagens.json`. As imagens especiais de Moonlight e Patterns of the Wild usam a apresentação composta do Serebii, porque a textura isolada do jogo não contém todos os efeitos. As permissões dos titulares continuam pendentes.
+
+Os cartões passam a usar uma área quadrada preenchida pela imagem; o painel de detalhes preserva sua proporção integral. Etiquetas usam fundo opaco, e o texto do cartão azul foi corrigido para branco sobre azul escuro. IDs existentes e coleções salvas foram preservados.
+
 # Comparação do catálogo com psoren/pogo-bg
 
 Conferência em **8 de novembro de 2026**, preservando o corte editorial do catálogo em **7 de novembro**. Referência: [psoren/pogo-bg](https://github.com/psoren/pogo-bg), commit `50dd39505a40e46ea6d20d2f50a63f334310f500`. O campo `generated` do conjunto informa **2026-08-31**; isto descreve a versão consultada, não a data de lançamento dos fundos.

@@ -1,0 +1,164 @@
+[
+  {
+    "id": "sp-danca-ao-luar-2026",
+    "source": "https://www.serebii.net/pokemongo/locationcard/th/moonlight.jpg",
+    "localPath": "assets/fundos/sp-danca-ao-luar-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "sp-patterns-of-the-wild-2026",
+    "source": "https://www.serebii.net/pokemongo/locationcard/th/patternofthewild.jpg",
+    "localPath": "assets/fundos/sp-patterns-of-the-wild-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-science-museum-londres",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_ESA_scienceMuseumLondon.png",
+    "localPath": "assets/fundos/lc-science-museum-londres.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-cite-de-l-espace-toulouse",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_ESA_citeDeEspace.png",
+    "localPath": "assets/fundos/lc-cite-de-l-espace-toulouse.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-deutsches-museum-nuremberg",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_ESA_spaceCenterGermany.png",
+    "localPath": "assets/fundos/lc-deutsches-museum-nuremberg.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-museu-de-les-ciencies-valencia",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_ESA_ciudadDeLasArtes.png",
+    "localPath": "assets/fundos/lc-museu-de-les-ciencies-valencia.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-space-expo-noordwijk",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_ESA_spaceExpoNL.png",
+    "localPath": "assets/fundos/lc-space-expo-noordwijk.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-euro-space-center-transinne",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_ESA_euroSpaceCenter.png",
+    "localPath": "assets/fundos/lc-euro-space-center-transinne.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-lisboa-city-safari-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_CitySafari2026_lisbon.png",
+    "localPath": "assets/fundos/lc-lisboa-city-safari-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-marselha-city-safari-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_CitySafari2026_marseille.png",
+    "localPath": "assets/fundos/lc-marselha-city-safari-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-munique-city-safari-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_CitySafari2026_munich.png",
+    "localPath": "assets/fundos/lc-munique-city-safari-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-brisbane-city-safari-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_CitySafari2026_brisbane.png",
+    "localPath": "assets/fundos/lc-brisbane-city-safari-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-rio-de-janeiro-city-safari-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_CitySafari2026_rio.png",
+    "localPath": "assets/fundos/lc-rio-de-janeiro-city-safari-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-boston-city-safari-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_CitySafari2026_boston.png",
+    "localPath": "assets/fundos/lc-boston-city-safari-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-los-angeles-night-out-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_nightOut2026_LA.png",
+    "localPath": "assets/fundos/lc-los-angeles-night-out-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-londres-night-out-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_nightOut2026_London.png",
+    "localPath": "assets/fundos/lc-londres-night-out-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-sendai-tohoku-go-wild-area-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_2026_gowa_sendai.png",
+    "localPath": "assets/fundos/lc-sendai-tohoku-go-wild-area-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-cidade-do-mexico-go-wild-area-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_2026_gowa_mexicocity.png",
+    "localPath": "assets/fundos/lc-cidade-do-mexico-go-wild-area-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-ana-jato-verde",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_2026_jp_green.png",
+    "localPath": "assets/fundos/lc-ana-jato-verde.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "sp-dia-de-muertos-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/sb_DiaDeMuertos_2026.png",
+    "localPath": "assets/fundos/sp-dia-de-muertos-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-fc-seoul-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_fc2026_seoul.png",
+    "localPath": "assets/fundos/lc-fc-seoul-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-malaga-comic-con-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_2026_ComicCon_Malaga.png",
+    "localPath": "assets/fundos/lc-malaga-comic-con-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "sp-horizontes-pokemon-2026",
+    "source": "https://www.serebii.net/pokemongo/locationcard/th/pokemonhorizons.jpg",
+    "localPath": "assets/fundos/sp-horizontes-pokemon-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "sp-mundial-2026-tinkaton",
+    "source": "https://www.serebii.net/pokemongo/locationcard/th/pokemonworldchampionships2026.jpg",
+    "localPath": "assets/fundos/sp-mundial-2026-tinkaton.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "sp-festival-das-luzes-2026",
+    "source": "https://www.serebii.net/pokemongo/locationcard/th/festivaloflights.jpg",
+    "localPath": "assets/fundos/sp-festival-das-luzes-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-nfl-cardinals-2026",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_NFL_cardinals_2026.png",
+    "localPath": "assets/fundos/lc-nfl-cardinals-2026.webp",
+    "authorizationStatus": "pending"
+  },
+  {
+    "id": "lc-pokelid-nagano",
+    "source": "https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/LocationCards/lc_pokelid_nagano.png",
+    "localPath": "assets/fundos/lc-pokelid-nagano.webp",
+    "authorizationStatus": "pending"
+  }
+]

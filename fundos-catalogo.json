@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-07",
+  "updatedAt": "2026-11-08",
   "coverageNote": "Catálogo em revisão: reúne fundos de 2023 a 2026 confirmados nas fontes indicadas. Eventos regionais e estreias recentes podem estar ausentes; o progresso considera apenas os fundos lançados deste catálogo. Datas desconhecidas não são estimadas.",
   "license": {
     "name": "CC BY-SA 4.0 — metadados do catálogo",
@@ -37,7 +37,8 @@
         "height": 472,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -67,7 +68,8 @@
         "height": 429,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -99,7 +101,8 @@
         "height": 408,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -131,7 +134,8 @@
         "height": 469,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -163,7 +167,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -192,7 +197,8 @@
         "height": 409,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -221,7 +227,8 @@
         "height": 429,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -250,7 +257,8 @@
         "height": 404,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -280,7 +288,8 @@
         "height": 402,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -310,7 +319,8 @@
         "height": 391,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -339,7 +349,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -369,7 +380,8 @@
         "height": 455,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -406,7 +418,8 @@
         "height": 431,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -443,7 +456,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -480,7 +494,8 @@
         "height": 479,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -509,7 +524,8 @@
         "height": 387,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -539,7 +555,8 @@
         "height": 395,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -568,7 +585,8 @@
         "height": 352,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -597,7 +615,8 @@
         "height": 425,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -628,7 +647,8 @@
         "height": 386,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -655,7 +675,8 @@
         "height": 423,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -686,7 +707,8 @@
         "height": 423,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -715,7 +737,8 @@
         "height": 403,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -744,7 +767,8 @@
         "height": 392,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -775,7 +799,8 @@
         "height": 441,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -806,7 +831,8 @@
         "height": 368,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -835,7 +861,8 @@
         "height": 342,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -864,7 +891,8 @@
         "height": 386,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -893,7 +921,8 @@
         "height": 456,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -922,7 +951,8 @@
         "height": 386,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -949,7 +979,8 @@
         "height": 387,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -978,7 +1009,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1009,7 +1041,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1038,7 +1071,8 @@
         "height": 361,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1068,7 +1102,8 @@
         "height": 447,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1098,7 +1133,8 @@
         "height": 489,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1128,7 +1164,8 @@
         "height": 424,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1157,7 +1194,8 @@
         "height": 389,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1186,7 +1224,8 @@
         "height": 491,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1215,7 +1254,8 @@
         "height": 423,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1244,7 +1284,8 @@
         "height": 356,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1273,7 +1314,8 @@
         "height": 402,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1302,7 +1344,8 @@
         "height": 453,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1329,7 +1372,8 @@
         "height": 384,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1358,7 +1402,8 @@
         "height": 489,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1387,7 +1432,8 @@
         "height": 397,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1416,7 +1462,8 @@
         "height": 430,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1445,7 +1492,8 @@
         "height": 443,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1474,7 +1522,8 @@
         "height": 383,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1503,7 +1552,8 @@
         "height": 380,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1532,7 +1582,8 @@
         "height": 377,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1561,7 +1612,8 @@
         "height": 430,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1590,7 +1642,8 @@
         "height": 432,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1619,7 +1672,8 @@
         "height": 475,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1648,7 +1702,8 @@
         "height": 417,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1677,7 +1732,8 @@
         "height": 397,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1706,7 +1762,8 @@
         "height": 394,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1735,7 +1792,8 @@
         "height": 439,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1764,7 +1822,8 @@
         "height": 353,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1791,7 +1850,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1818,7 +1878,8 @@
         "height": 462,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1847,7 +1908,8 @@
         "height": 410,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1876,7 +1938,8 @@
         "height": 410,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1905,7 +1968,8 @@
         "height": 464,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1934,7 +1998,8 @@
         "height": 410,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1963,7 +2028,8 @@
         "height": 410,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -1992,7 +2058,8 @@
         "height": 408,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2021,7 +2088,8 @@
         "height": 384,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2048,7 +2116,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2077,7 +2146,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2106,7 +2176,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2135,7 +2206,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2164,7 +2236,8 @@
         "height": 457,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2193,7 +2266,8 @@
         "height": 492,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2223,7 +2297,8 @@
         "height": 444,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2252,7 +2327,8 @@
         "height": 457,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2281,7 +2357,8 @@
         "height": 377,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2308,7 +2385,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 189
       },
       "pokemonScope": "examples"
     },
@@ -2335,7 +2413,8 @@
         "height": 469,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2362,7 +2441,8 @@
         "height": 384,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2387,7 +2467,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2414,7 +2495,8 @@
         "height": 300,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2441,7 +2523,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2468,7 +2551,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2495,7 +2579,8 @@
         "height": 488,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2522,7 +2607,8 @@
         "height": 484,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2549,7 +2635,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2578,7 +2665,8 @@
         "height": 377,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2607,7 +2695,8 @@
         "height": 474,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2636,7 +2725,8 @@
         "height": 372,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2665,7 +2755,8 @@
         "height": 374,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2694,7 +2785,8 @@
         "height": 377,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2723,7 +2815,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2752,7 +2845,8 @@
         "height": 490,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2781,7 +2875,8 @@
         "height": 494,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2810,7 +2905,8 @@
         "height": 427,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2839,7 +2935,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2868,7 +2965,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2897,7 +2995,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2926,7 +3025,8 @@
         "height": 332,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2955,7 +3055,8 @@
         "height": 386,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -2984,7 +3085,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3013,7 +3115,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3042,7 +3145,8 @@
         "height": 418,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3071,7 +3175,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3100,7 +3205,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3129,7 +3235,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3158,7 +3265,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3187,7 +3295,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3216,7 +3325,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3245,7 +3355,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3274,7 +3385,8 @@
         "height": 494,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3303,7 +3415,8 @@
         "height": 451,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3332,7 +3445,8 @@
         "height": 416,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3361,7 +3475,8 @@
         "height": 384,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3390,7 +3505,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3419,7 +3535,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3448,7 +3565,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3477,7 +3595,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3506,7 +3625,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3535,7 +3655,8 @@
         "height": 467,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3564,7 +3685,8 @@
         "height": 495,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3593,7 +3715,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3622,7 +3745,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3651,7 +3775,8 @@
         "height": 422,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3680,7 +3805,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3709,7 +3835,8 @@
         "height": 473,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3738,7 +3865,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3778,7 +3906,8 @@
         "height": 448,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3808,7 +3937,8 @@
         "height": 491,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3837,7 +3967,8 @@
         "height": 434,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3868,7 +3999,8 @@
         "height": 447,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3899,7 +4031,8 @@
         "height": 447,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3929,7 +4062,8 @@
         "height": 474,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3959,7 +4093,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -3989,7 +4124,8 @@
         "height": 475,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4020,7 +4156,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4047,7 +4184,8 @@
         "height": 412,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4080,7 +4218,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4107,7 +4246,8 @@
         "height": 446,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4137,7 +4277,8 @@
         "height": 442,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4167,7 +4308,8 @@
         "height": 482,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4197,7 +4339,8 @@
         "height": 446,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4230,7 +4373,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4257,7 +4401,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4291,7 +4436,8 @@
         "height": 366,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4322,7 +4468,8 @@
         "height": 287,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4353,7 +4500,8 @@
         "height": 490,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4382,7 +4530,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4409,7 +4558,8 @@
         "height": 402,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4436,7 +4586,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4466,7 +4617,8 @@
         "height": 444,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4493,7 +4645,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4518,7 +4671,8 @@
         "height": 373,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4548,7 +4702,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4578,7 +4733,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4608,7 +4764,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4638,7 +4795,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4668,7 +4826,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4698,7 +4857,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4735,7 +4895,8 @@
         "height": 368,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4767,7 +4928,8 @@
         "height": 451,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4796,7 +4958,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4828,7 +4991,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4863,7 +5027,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4895,7 +5060,8 @@
         "height": 384,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -4919,7 +5085,16 @@
       "sources": [
         "https://pokemongo.com/news/dancing-in-the-moonlight-2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/sp-danca-ao-luar-2026.webp",
+        "thumbnail": "assets/fundos/th/sp-danca-ao-luar-2026.webp",
+        "width": 300,
+        "height": 300,
+        "attribution": "Pokémon GO · Serebii",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -4938,7 +5113,16 @@
       "sources": [
         "https://pokemongo.com/news/patterns-of-the-wild-2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/sp-patterns-of-the-wild-2026.webp",
+        "thumbnail": "assets/fundos/th/sp-patterns-of-the-wild-2026.webp",
+        "width": 300,
+        "height": 300,
+        "attribution": "Pokémon GO · Serebii",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -4983,7 +5167,8 @@
         "height": 481,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5012,7 +5197,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5041,7 +5227,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5070,7 +5257,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5099,7 +5287,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5128,7 +5317,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5157,7 +5347,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5186,7 +5377,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5215,7 +5407,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5244,7 +5437,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5273,7 +5467,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5302,7 +5497,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5331,7 +5527,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5360,7 +5557,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5389,7 +5587,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5418,7 +5617,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5447,7 +5647,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5476,7 +5677,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5508,7 +5710,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5540,7 +5743,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5572,7 +5776,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5605,7 +5810,8 @@
         "height": 485,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5637,7 +5843,8 @@
         "height": 492,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5669,7 +5876,8 @@
         "height": 485,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5701,7 +5909,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5733,7 +5942,8 @@
         "height": 485,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5765,7 +5975,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5797,7 +6008,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5829,7 +6041,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5861,7 +6074,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5893,7 +6107,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5925,7 +6140,8 @@
         "height": 481,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5957,7 +6173,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -5989,7 +6206,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6022,7 +6240,8 @@
         "height": 455,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6054,7 +6273,8 @@
         "height": 491,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6086,7 +6306,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6118,7 +6339,8 @@
         "height": 451,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6150,7 +6372,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6182,7 +6405,8 @@
         "height": 495,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6214,7 +6438,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6246,7 +6471,8 @@
         "height": 492,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6278,7 +6504,8 @@
         "height": 488,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6310,7 +6537,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6342,7 +6570,8 @@
         "height": 495,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6362,7 +6591,16 @@
       "sources": [
         "https://pokemongo.com/news/european-space-agency-event"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-science-museum-londres.webp",
+        "thumbnail": "assets/fundos/th/lc-science-museum-londres.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6381,7 +6619,16 @@
       "sources": [
         "https://pokemongo.com/news/european-space-agency-event"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-cite-de-l-espace-toulouse.webp",
+        "thumbnail": "assets/fundos/th/lc-cite-de-l-espace-toulouse.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6402,7 +6649,16 @@
       "sources": [
         "https://pokemongo.com/news/european-space-agency-event"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-deutsches-museum-nuremberg.webp",
+        "thumbnail": "assets/fundos/th/lc-deutsches-museum-nuremberg.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6423,7 +6679,16 @@
       "sources": [
         "https://pokemongo.com/news/european-space-agency-event"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-museu-de-les-ciencies-valencia.webp",
+        "thumbnail": "assets/fundos/th/lc-museu-de-les-ciencies-valencia.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6442,7 +6707,16 @@
       "sources": [
         "https://pokemongo.com/news/european-space-agency-event"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-space-expo-noordwijk.webp",
+        "thumbnail": "assets/fundos/th/lc-space-expo-noordwijk.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6461,7 +6735,16 @@
       "sources": [
         "https://pokemongo.com/news/european-space-agency-event"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-euro-space-center-transinne.webp",
+        "thumbnail": "assets/fundos/th/lc-euro-space-center-transinne.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6480,7 +6763,16 @@
       "sources": [
         "https://pokemongo.com/en/featured-in-person-events/citysafari/lisbon"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-lisboa-city-safari-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-lisboa-city-safari-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6499,7 +6791,16 @@
       "sources": [
         "https://pokemongo.com/news/city-safaris-europe-2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-marselha-city-safari-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-marselha-city-safari-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6518,7 +6819,16 @@
       "sources": [
         "https://pokemongo.com/news/city-safaris-europe-2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-munique-city-safari-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-munique-city-safari-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6537,7 +6847,16 @@
       "sources": [
         "https://pokemongo.com/news/city-safari-brisbane-know-before-you-go"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-brisbane-city-safari-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-brisbane-city-safari-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6556,7 +6875,16 @@
       "sources": [
         "https://pokemongo.com/es_mx/events/citysafari"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-rio-de-janeiro-city-safari-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-rio-de-janeiro-city-safari-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6575,7 +6903,16 @@
       "sources": [
         "https://pokemongo.com/news/boston-city-safari-know-before-you-go"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-boston-city-safari-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-boston-city-safari-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6596,7 +6933,16 @@
       "sources": [
         "https://pokemongo.com/news/pokemon-night-out-irl-details2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-los-angeles-night-out-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-los-angeles-night-out-2026.webp",
+        "width": 512,
+        "height": 461,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6617,7 +6963,16 @@
       "sources": [
         "https://pokemongo.com/news/pokemon-night-out-irl-details2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-londres-night-out-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-londres-night-out-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6634,7 +6989,16 @@
       "sources": [
         "https://pokemongo.com/news/get-ready-for-gowildarea-2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-sendai-tohoku-go-wild-area-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-sendai-tohoku-go-wild-area-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6651,7 +7015,16 @@
       "sources": [
         "https://pokemongo.com/news/get-ready-for-gowildarea-2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-cidade-do-mexico-go-wild-area-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-cidade-do-mexico-go-wild-area-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6677,7 +7050,8 @@
         "height": 424,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6708,7 +7082,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6739,7 +7114,8 @@
         "height": 438,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6769,7 +7145,8 @@
         "height": 480,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6798,7 +7175,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6824,7 +7202,16 @@
       "sources": [
         "https://pokemongo.com/news/pokemon-horizons-celebration-event-2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/sp-horizontes-pokemon-2026.webp",
+        "thumbnail": "assets/fundos/th/sp-horizontes-pokemon-2026.webp",
+        "width": 300,
+        "height": 300,
+        "attribution": "Pokémon GO · Serebii",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6854,7 +7241,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6876,7 +7264,16 @@
       "sources": [
         "https://pokemongo.com/news/2026_ana_green"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-ana-jato-verde.webp",
+        "thumbnail": "assets/fundos/th/lc-ana-jato-verde.webp",
+        "width": 512,
+        "height": 456,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -6904,7 +7301,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6933,7 +7331,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6962,7 +7361,8 @@
         "height": 430,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -6991,7 +7391,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7020,7 +7421,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7049,7 +7451,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7078,7 +7481,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7107,7 +7511,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7136,7 +7541,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7165,7 +7571,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7194,7 +7601,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7223,7 +7631,8 @@
         "height": 431,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7252,7 +7661,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7281,7 +7691,8 @@
         "height": 495,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7310,7 +7721,8 @@
         "height": 488,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7339,7 +7751,8 @@
         "height": 494,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7366,7 +7779,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7407,7 +7821,16 @@
       "sources": [
         "https://pokemongo.com/es-MX/news/dia-de-muertos-2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/sp-dia-de-muertos-2026.webp",
+        "thumbnail": "assets/fundos/th/sp-dia-de-muertos-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -7428,7 +7851,16 @@
       "sources": [
         "https://pokemongo.com/ko/news/fc-seoul-2026"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-fc-seoul-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-fc-seoul-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -7447,7 +7879,16 @@
       "sources": [
         "https://oxomuseomalaga.com/events/evento-especial-pokemon-go/"
       ],
-      "image": null,
+      "image": {
+        "src": "assets/fundos/lc-malaga-comic-con-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-malaga-comic-con-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      },
       "pokemonScope": "examples"
     },
     {
@@ -7476,7 +7917,8 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7513,7 +7955,8 @@
         "height": 495,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
     },
@@ -7537,7 +7980,16 @@
       "sources": [
         "https://pokemongo.com/news/world-championships-event-2026"
       ],
-      "image": null
+      "image": {
+        "src": "assets/fundos/sp-mundial-2026-tinkaton.webp",
+        "thumbnail": "assets/fundos/th/sp-mundial-2026-tinkaton.webp",
+        "width": 300,
+        "height": 300,
+        "attribution": "Pokémon GO · Serebii",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      }
     },
     {
       "id": "sp-festival-das-luzes-2026",
@@ -7558,7 +8010,16 @@
       "sources": [
         "https://pokemongo.com/ja/news/festival-of-lights-2026"
       ],
-      "image": null
+      "image": {
+        "src": "assets/fundos/sp-festival-das-luzes-2026.webp",
+        "thumbnail": "assets/fundos/th/sp-festival-das-luzes-2026.webp",
+        "width": 300,
+        "height": 300,
+        "attribution": "Pokémon GO · Serebii",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      }
     },
     {
       "id": "lc-tampa-bay-tropicana-field-2026",
@@ -7588,9 +8049,65 @@
         "height": 512,
         "attribution": "Pokémon GO · referência psoren/pogo-bg",
         "provenanceReference": "docs/fundos-comparacao-pogo-bg.md",
-        "authorizationStatus": "pending"
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 200
       },
       "pokemonScope": "examples"
+    },
+    {
+      "id": "lc-nfl-cardinals-2026",
+      "name": "Arizona Cardinals • NFL 2026",
+      "event": "NFL Cardinals 2026",
+      "category": "location",
+      "year": 2026,
+      "releaseDate": "2026-10-11",
+      "status": "released",
+      "pokemon": [
+        "Pikachu",
+        "Raichu"
+      ],
+      "pokemonScope": "examples",
+      "aliases": [],
+      "availability": "Distribuição regional; consulte a fonte para detalhes.",
+      "sources": [
+        "https://www.serebii.net/pokemongo/backgrounds.shtml"
+      ],
+      "image": {
+        "src": "assets/fundos/lc-nfl-cardinals-2026.webp",
+        "thumbnail": "assets/fundos/th/lc-nfl-cardinals-2026.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      }
+    },
+    {
+      "id": "lc-pokelid-nagano",
+      "name": "Poké Lid • Nagano",
+      "event": "Poké Lid — Nagano",
+      "category": "location",
+      "year": 2026,
+      "releaseDate": null,
+      "status": "released",
+      "pokemon": [],
+      "pokemonScope": "examples",
+      "aliases": [],
+      "availability": "Distribuição regional; consulte a fonte para detalhes.",
+      "sources": [
+        "https://www.serebii.net/pokemongo/backgrounds.shtml"
+      ],
+      "image": {
+        "src": "assets/fundos/lc-pokelid-nagano.webp",
+        "thumbnail": "assets/fundos/th/lc-pokelid-nagano.webp",
+        "width": 512,
+        "height": 512,
+        "attribution": "Pokémon GO · PokeMiners/pogo_assets",
+        "provenanceReference": "docs/fundos-correcao-imagens.json",
+        "authorizationStatus": "pending",
+        "thumbnailWidth": 240
+      }
     }
   ],
   "pokemonNote": "As listas de Pokémon são exemplos documentados e podem não incluir todas as espécies, formas ou evoluções elegíveis."

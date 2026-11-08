@@ -1,3 +1,9 @@
+## Correção publicada em 8 de novembro de 2026
+
+A revisão abaixo descreve a primeira versão. A correção acrescenta 25 imagens antes ausentes e dois fundos (NFL Cardinals 2026 e Poké Lid Nagano), totalizando 266 registros, 264 com imagem local. Apenas GO Wild Area 2026 e PokéXciting! Bangkok, ambos anunciados, continuam sem imagem confirmada. As 27 novas associações e fontes estão em `fundos-correcao-imagens.json`. As imagens especiais de Moonlight e Patterns of the Wild usam a apresentação composta do Serebii, porque a textura isolada do jogo não contém todos os efeitos. As permissões dos titulares continuam pendentes.
+
+Os cartões passam a usar uma área quadrada preenchida pela imagem; o painel de detalhes preserva sua proporção integral. Etiquetas usam fundo opaco, e o texto do cartão azul foi corrigido para branco sobre azul escuro. IDs existentes e coleções salvas foram preservados.
+
 # Coleção de Fundos — fontes e manutenção
 
 Revisão editorial: **7 de novembro de 2026**. O catálogo entregue é um recorte verificável, não uma afirmação de que todos os fundos do jogo foram inventariados. Há **264 registros: 259 lançados, 4 anunciados e 1 não confirmado**. São 49 especiais e 215 de localização. O total do progresso significa “fundos lançados presentes neste catálogo”.

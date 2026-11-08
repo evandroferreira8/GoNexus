@@ -41,7 +41,7 @@ function render(){
   }).join('');
   $('bg-grid').setAttribute('aria-busy','false');$('bg-empty').hidden=!!matches.length;
   $('bg-result-count').textContent=`${matches.length} fundo${matches.length===1?'':'s'}`;
-  $('bg-pagination').hidden=pages===1;$('bg-page').textContent=`${page} / ${pages}`;$('bg-prev').disabled=page===1;$('bg-next').disabled=page===pages;
+  $('bg-pagination').hidden=pages===1;$('bg-page-input').value=String(page);$('bg-page-input').max=String(pages);$('bg-page-total').textContent=`/ ${pages}`;$('bg-prev').disabled=page===1;$('bg-next').disabled=page===pages;
   document.querySelectorAll('[data-ownership]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.ownership===filters.ownership)));
   const count=['category','year','event','ownership'].filter(key=>filters[key]).length+(filters.status!=='released'?1:0);
   $('bg-filter-count').textContent=count?`(${count})`:'';
@@ -61,7 +61,36 @@ function applyImport(replace){
   if(persist(next,{backup:true,recovery:true})){$('bg-import-dialog').close();render();toast('Coleção salva. A versão anterior está no backup local.');}
   else $('bg-import-message').textContent='A importação não foi salva. Confira o aviso de armazenamento e tente novamente.';
 }
-function renderShare(){
+const shareArtworkCache=new Map();
+function shareArtwork(item){
+  const art=localImage(item.image);
+  if(!art)return Promise.resolve(null);
+  if(!shareArtworkCache.has(art.thumbnail)){
+    shareArtworkCache.set(art.thumbnail,new Promise(resolve=>{
+      const img=new Image();
+      img.onload=()=>resolve(img);
+      img.onerror=()=>resolve(null);
+      img.src=art.thumbnail;
+    }));
+  }
+  return shareArtworkCache.get(art.thumbnail);
+}
+async function drawShareThumbs(ctx,obtained){
+  const images=await Promise.all(obtained.slice(0,6).map(shareArtwork));
+  images.forEach((img,i)=>{
+    const x=75+(i%2)*480,y=852+Math.floor(i/2)*90,w=88,h=72;
+    ctx.save();
+    ctx.fillStyle='#102e53';ctx.fillRect(x,y,w,h);
+    if(img){
+      const scale=Math.min(w/img.width,h/img.height);
+      ctx.drawImage(img,x+(w-img.width*scale)/2,y+(h-img.height*scale)/2,img.width*scale,img.height*scale);
+    }else{
+      ctx.fillStyle='#f8d777';ctx.font='bold 34px Arial, sans-serif';ctx.fillText('✦',x+30,y+48);
+    }
+    ctx.restore();
+  });
+}
+async function renderShare(){
   const canvas=$('bg-share-canvas'),ctx=canvas.getContext('2d'),p=progress(catalog.items,collection.obtained),name=$('bg-trainer').value.trim();
   const gradient=ctx.createLinearGradient(0,0,1080,1350);gradient.addColorStop(0,'#102c53');gradient.addColorStop(1,'#1c4b8d');ctx.fillStyle=gradient;ctx.fillRect(0,0,1080,1350);
   ctx.strokeStyle='#ffffff10';ctx.lineWidth=2;for(let r=190;r<800;r+=90){ctx.beginPath();ctx.arc(960,50,r,0,Math.PI*2);ctx.stroke();}
@@ -75,9 +104,10 @@ function renderShare(){
   let y=560;for(const [key,value]of Object.entries(p.categories)){ctx.fillStyle='#ffffff10';ctx.fillRect(70,y,940,86);text(key==='special'?'✦  Especiais':'◎  Localização',96,y+53,25);text(`${value.obtained} / ${value.total}`,795,y+53,25,'#ffcf43');y+=102;}
   text('MEMÓRIAS JÁ COLECIONADAS',70,815,20,'#bdd5fa');
   const obtained=catalog.items.filter(item=>released(item)&&collection.obtained.includes(item.id));
-  obtained.slice(0,6).forEach((item,i)=>{const x=70+(i%2)*480,y=850+Math.floor(i/2)*90;ctx.fillStyle='#ffffff12';ctx.fillRect(x,y,460,76);ctx.fillStyle=`hsl(${hue(item)},60%,72%)`;ctx.fillRect(x,y,5,76);fit(item.name,x+20,y+32,20,420);text(`${categories[item.category]} · ${item.year||'—'}`,x+20,y+57,15,'#bfd5f4');});
+  obtained.slice(0,6).forEach((item,i)=>{const x=70+(i%2)*480,y=850+Math.floor(i/2)*90;ctx.fillStyle='#ffffff12';ctx.fillRect(x,y,460,76);ctx.fillStyle=`hsl(${hue(item)},60%,72%)`;ctx.fillRect(x,y,5,76);fit(item.name,x+112,y+32,19,340);text(`${categories[item.category]} · ${item.year||'—'}`,x+112,y+57,15,'#bfd5f4');});
   if(!obtained.length){text('Meu próximo fundo será o primeiro.',70,904,28);text('Uma nova coleção começa aqui.',70,950,23,'#bdd5fa');}
   if(obtained.length>6)text(`+ ${obtained.length-6} fundos no meu álbum`,70,1160,21,'#ffcf43');
+  await drawShareThumbs(ctx,obtained);
   text('Explore. Colecione. Compartilhe.',70,1240,29);text(`Catálogo ${catalog.updatedAt} · gonexus · sem cadastro`,70,1290,17,'#bdd5fa');
 }
 function imageBlob(){return new Promise((resolve,reject)=>$('bg-share-canvas').toBlob(blob=>blob?resolve(blob):reject(new Error('Não foi possível gerar a imagem.')),'image/png'));}
@@ -88,7 +118,7 @@ async function init(){
   catalog=await response.json();if(catalog.schemaVersion!==1||!Array.isArray(catalog.items)||!catalog.items.length)throw new Error('Catálogo inválido. Suas marcações permanecem salvas.');
   $('bg-coverage').textContent=catalog.coverageNote;$('bg-updated').textContent=catalog.updatedAt;
   for(const year of [...new Set(catalog.items.map(item=>item.year).filter(Boolean))].sort((a,b)=>b-a))$('bg-year').add(new Option(year,year));
-  for(const event of [...new Set(catalog.items.map(item=>item.event))].sort((a,b)=>a.localeCompare(b,'pt-BR')))$('bg-event').add(new Option(event,event));
+  for(const event of [...new Set(catalog.items.map(item=>item.event))].sort((a,b)=>a.localeCompare(b,'pt-BR')))$('bg-event-options').append(new Option(event,event));
   $('bg-share').disabled=false;$('bg-import').disabled=shared;$('bg-export').disabled=shared;render();
 }
 document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',()=>button.closest('dialog').close()));
@@ -100,11 +130,28 @@ $('bg-grid').addEventListener('click',event=>{
   if(persist({...current,obtained:[...ids]})){render();const next=$('bg-grid').querySelector(`[data-obtain="${item.id}"]`);(next||$('bg-search')).focus({preventScroll:true});toast(`${item.name}: ${wasOwned?'removido da coleção':'marcado como obtido'}.`);}
 });
 $('bg-search').addEventListener('input',event=>{filters.query=event.target.value;page=1;if(catalog)render();});
-for(const key of ['category','year','event','sort','status'])$(key==='status'?'bg-status-filter':'bg-'+key).addEventListener('change',event=>{filters[key]=event.target.value;page=1;if(catalog)render();});
+for(const key of ['category','year','sort','status'])$(key==='status'?'bg-status-filter':'bg-'+key).addEventListener('change',event=>{filters[key]=event.target.value;page=1;if(catalog)render();});
+$('bg-event').addEventListener('input',event=>{filters.event=event.target.value;page=1;if(catalog)render();});
 document.querySelectorAll('[data-ownership]').forEach(button=>button.addEventListener('click',()=>{filters.ownership=button.dataset.ownership;page=1;if(catalog)render();}));
 $('bg-filter-toggle').addEventListener('click',()=>{const expanded=$('bg-filters').hidden;$('bg-filters').hidden=!expanded;$('bg-filter-toggle').setAttribute('aria-expanded',expanded);});
 for(const id of ['bg-clear','bg-reset-empty'])$(id).addEventListener('click',()=>{if(catalog)resetFilters();});
-for(const [id,step] of [['bg-prev',-1],['bg-next',1]])$(id).addEventListener('click',()=>{page+=step;render();$('bg-search').scrollIntoView({block:'start'});$('bg-search').focus({preventScroll:true});});
+function navigatePage(candidate){
+  if(!catalog)return;
+  const totalPages=Math.max(1,Math.ceil(filterItems(catalog.items,filters,collection.obtained).length/pageSize()));
+  const requested=Number(candidate);
+  if(String(candidate).trim()==='' || !Number.isInteger(requested) || requested<1 || requested>totalPages){
+    $('bg-page-input').value=String(page);
+    toast(`Digite uma página entre 1 e ${totalPages}.`);
+    return;
+  }
+  if(requested===page)return;
+  page=requested;render();
+  document.querySelector('.bg-toolbar').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+}
+for(const [id,step] of [['bg-prev',-1],['bg-next',1]])$(id).addEventListener('click',()=>navigatePage(page+step));
+$('bg-page-input').addEventListener('focus',event=>event.target.select());
+$('bg-page-input').addEventListener('change',event=>navigatePage(event.target.value));
+$('bg-page-input').addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();event.target.blur();}});
 $('bg-export').addEventListener('click',()=>{
   if(locked){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw!==null){download(new Blob([raw],{type:'application/json'}),'go-nexus-fundos-recuperacao.json');return;}}catch{}toast('Os dados locais estão inacessíveis neste navegador.');return;}
   collection=fresh();download(new Blob([exportCollection(collection,catalog.updatedAt)],{type:'application/json'}),'go-nexus-fundos.json');toast('Arquivo de coleção exportado.');
@@ -116,8 +163,8 @@ $('bg-replace-confirm').addEventListener('change',event=>$('bg-replace').disable
 $('bg-merge').addEventListener('click',()=>applyImport(false));$('bg-replace').addEventListener('click',()=>{if($('bg-replace-confirm').checked)applyImport(true);});
 $('bg-share').addEventListener('click',()=>{$('bg-trainer').value=collection.trainer;renderShare();$('bg-share-dialog').showModal();});
 $('bg-trainer').addEventListener('input',()=>{if(!shared&&!locked)persist({...fresh(),trainer:$('bg-trainer').value});renderShare();});
-$('bg-download-image').addEventListener('click',async()=>{try{renderShare();download(await imageBlob(),'minha-colecao-go-nexus.png');$('bg-share-message').textContent='Imagem PNG pronta. Envie pelo WhatsApp ou pela sua rede social.';}catch(error){$('bg-share-message').textContent=error.message;}});
-$('bg-native-share').addEventListener('click',async()=>{try{renderShare();const file=new File([await imageBlob()],'colecao-go-nexus.png',{type:'image/png'});if(navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:'Minha coleção · GO Nexus'});}else{download(file,file.name);$('bg-share-message').textContent='Imagem baixada. Este navegador não oferece envio direto; anexe o PNG no aplicativo de sua preferência.';}}catch(error){if(error.name!=='AbortError')$('bg-share-message').textContent='Não foi possível abrir o compartilhamento. Use Baixar imagem.';}});
+$('bg-download-image').addEventListener('click',async()=>{try{await renderShare();download(await imageBlob(),'minha-colecao-go-nexus.png');$('bg-share-message').textContent='Imagem PNG pronta. Envie pelo WhatsApp ou pela sua rede social.';}catch(error){$('bg-share-message').textContent=error.message;}});
+$('bg-native-share').addEventListener('click',async()=>{try{await renderShare();const file=new File([await imageBlob()],'colecao-go-nexus.png',{type:'image/png'});if(navigator.canShare?.({files:[file]})){await navigator.share({files:[file],title:'Minha coleção · GO Nexus'});}else{download(file,file.name);$('bg-share-message').textContent='Imagem baixada. Este navegador não oferece envio direto; anexe o PNG no aplicativo de sua preferência.';}}catch(error){if(error.name!=='AbortError')$('bg-share-message').textContent='Não foi possível abrir o compartilhamento. Use Baixar imagem.';}});
 $('bg-copy-link').addEventListener('click',async()=>{try{const url=new URL(location.href);url.search='';url.hash=encodeShare({...collection,trainer:$('bg-trainer').value});const link=url.href;try{await navigator.clipboard.writeText(link);$('bg-share-message').textContent='Link copiado! Quem abrir verá esta versão da coleção, sem alterar os próprios dados.';$('bg-link-fallback').hidden=true;}catch{$('bg-link-fallback').hidden=false;$('bg-link-value').value=link;$('bg-link-value').focus();$('bg-link-value').select();$('bg-share-message').textContent='Selecione e copie o link acima.';}}catch(error){$('bg-share-message').textContent=error.message;}});
 window.addEventListener('storage',event=>{if(!shared&&event.key===STORAGE_KEY){try{collection=readCollection(localStorage);locked=false;memoryOnly=false;$('bg-storage-warning').hidden=true;if(catalog)render();}catch{locked=true;storageWarning('A coleção foi alterada em outra aba e não pôde ser lida. Os dados foram preservados.');if(catalog)render();}}});
 // Changing a shared URL must reload into a fresh read-only context, never reuse local state.

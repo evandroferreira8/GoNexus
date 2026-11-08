@@ -47,6 +47,43 @@ try{
   await page.keyboard.press('Escape');await page.locator('#bg-filter-toggle').click();await page.screenshot({path:`${out}/catalogo-${width}.png`,fullPage:true});await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`${out}/previa-${width}.png`});
   assert.deepEqual(errors,[]);checks.push({width,status:'passed',checks:['toggle','reload','filters','empty','details','export','invalid-import','merge','replace','restore','png','shared-readonly','invalid-link','no-overflow','no-external-services']});await context.close();
  }
+
+ // Four independently chosen highlights survive reopening the preview without changing the collection.
+ {
+  const context=await browser.newContext({viewport:{width:390,height:850},locale:'pt-BR',acceptDownloads:true});
+  await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
+  const page=await context.newPage(),errors=[];page.on('pageerror',error=>errors.push(error.message));
+  await page.goto(base+'colecao-fundos.html');await page.waitForSelector('.bg-card');
+  const picked=await page.evaluate(async()=>{
+    const data=await(await fetch('fundos-catalogo.json')).json();
+    const ids=data.items.filter(item=>item.status==='released'&&item.image&&(!item.releaseDate||item.releaseDate<=new Date().toISOString().slice(0,10))).slice(0,6).map(item=>item.id);
+    localStorage.setItem('go-nexus:backgrounds:v1',JSON.stringify({format:'go-nexus-backgrounds',version:1,trainer:'Teste do cartão',obtained:ids}));
+    return ids;
+  });
+  assert.equal(picked.length,6);
+  await page.reload();await page.waitForSelector('.bg-card');
+  await page.locator('#bg-share').click();
+  await page.locator('#bg-featured-editor summary').click();
+  assert.equal(await page.locator('.bg-featured-item.is-selected').count(),4);
+  const initial=await page.evaluate(()=>JSON.parse(localStorage.getItem('go-nexus:backgrounds:v1')));
+  await page.locator('.bg-featured-item.is-selected').first().click();
+  assert.equal(await page.locator('.bg-featured-item.is-selected').count(),3);
+  await page.locator('.bg-featured-item:not(.is-selected)').first().click();
+  assert.equal(await page.locator('.bg-featured-item.is-selected').count(),4);
+  const chosen=await page.evaluate(()=>JSON.parse(localStorage.getItem('go-nexus:backgrounds:featured:v1')));
+  assert.equal(chosen.length,4);assert.ok(chosen.every(id=>picked.includes(id)));
+  assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('go-nexus:backgrounds:v1'))),initial);
+  const saved=page.waitForEvent('download');await page.locator('#bg-download-image').click();
+  const png=await downloadBytes(page,await saved);
+  assert.equal(png.toString('hex',0,8),'89504e470d0a1a0a');assert.equal(png.readUInt32BE(16),1080);assert.equal(png.readUInt32BE(20),1350);
+  await page.locator('#bg-share-dialog [data-close]').click();
+  await page.locator('#bg-share').click();
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('go-nexus:backgrounds:featured:v1')).length),4);
+  assert.deepEqual(errors,[]);
+  await context.close();
+  checks.push({status:'passed',checks:['four-featured-images','personalized-selection','persisted-highlights','collection-unmodified','1080x1350-png']});
+ }
+
  // Corrupt local storage and write quota errors must be visible and recoverable.
  const context=await browser.newContext();await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());const page=await context.newPage();await page.goto(base+'colecao-fundos.html');await page.waitForSelector('.bg-card');await page.evaluate(key=>localStorage.setItem(key,'broken-json'),STORAGE_KEY);await page.reload();await page.waitForSelector('.bg-card');assert.equal(await page.locator('[data-obtain]').first().isDisabled(),true);assert.equal(await page.evaluate(key=>localStorage.getItem(key),STORAGE_KEY),'broken-json');
  await page.locator('#bg-file').setInputFiles({name:'recovery.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(emptyCollection()))});await page.locator('#bg-replace-confirm').check();await page.locator('#bg-replace').click();assert.equal(await page.locator('[data-obtain]').first().isDisabled(),false);assert.equal(await page.evaluate(key=>localStorage.getItem(key),BACKUP_KEY),'broken-json');

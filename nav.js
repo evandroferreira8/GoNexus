@@ -9,6 +9,7 @@
 
   const FEEDBACK = "https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor";
   const TOOLS = [
+    { file: "colecao-fundos.html", icon: "▧", label: "Coleção de Fundos", desc: "Seu checklist de fundos do Pokémon GO" },
     { file: "guia-busca.html", icon: "🔎", label: "Guia de Busca", desc: "Filtros e comandos de pesquisa" },
     { file: "gerador-pesquisas.html", icon: "🔢", label: "Gerador de Pesquisas", desc: "Converta listas em números da Pokédex" },
     { file: "calculadora.html", icon: "🧮", label: "Vale a Caixa?", desc: "Compare ofertas da loja" },

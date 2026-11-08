@@ -1,4 +1,4 @@
-import {STORAGE_KEY,BACKUP_KEY,MAX_FILE_SIZE,emptyCollection,parseCollection,validateCollection,readCollection,saveCollection,mergeCollections,progress,filterItems,released,exportCollection,encodeShare,decodeShare,localImage} from './fundos-core.mjs';
+import {STORAGE_KEY,BACKUP_KEY,MAX_FILE_SIZE,emptyCollection,parseCollection,validateCollection,readCollection,saveCollection,mergeCollections,progress,filterItems,released,exportCollection,encodeShare,decodeShare,localImage} from './fundos-core.mjs?v=20261108c';
 const $=id=>document.getElementById(id), categories={special:'Especial',location:'Localização'};
 const mobile=matchMedia('(max-width:600px)');
 const pageSize=()=>mobile.matches?8:20;
@@ -146,7 +146,7 @@ function navigatePage(candidate){
   }
   if(requested===page)return;
   page=requested;render();
-  document.querySelector('.bg-toolbar').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+  document.querySelector('.bg-toolbar').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
 }
 for(const [id,step] of [['bg-prev',-1],['bg-next',1]])$(id).addEventListener('click',()=>navigatePage(page+step));
 $('bg-page-input').addEventListener('focus',event=>event.target.select());

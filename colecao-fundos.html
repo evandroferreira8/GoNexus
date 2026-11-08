@@ -8,7 +8,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Coleção de Fundos | GO Nexus</title>
 <link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
-<link rel="stylesheet" href="nexus-studio.css?v=fundos-20261108b">
+<link rel="stylesheet" href="nexus-studio.css?v=fundos-20261108c">
 </head>
 <body class="page-backgrounds" data-studio-page="colecao-fundos">
 <a class="bg-skip" href="#bg-search">Ir para o catálogo</a>
@@ -31,7 +31,7 @@
     <div class="bg-filters" id="bg-filters" hidden>
       <label>Categoria<select id="bg-category"><option value="">Todas</option><option value="special">Especial</option><option value="location">Localização</option></select></label>
       <label>Ano<select id="bg-year"><option value="">Todos</option></select></label>
-      <label>Evento<select id="bg-event"><option value="">Todos</option></select></label>
+      <label>Evento<input id="bg-event" type="search" list="bg-event-options" placeholder="Digite o evento..." autocomplete="off" aria-label="Filtrar por evento"><datalist id="bg-event-options"></datalist></label>
       <label>Lançamento<select id="bg-status-filter"><option value="released">Já lançados</option><option value="future">Futuros / a confirmar</option><option value="">Todos</option></select></label>
       <label>Ordenar<select id="bg-sort"><option value="newest">Mais recentes</option><option value="oldest">Mais antigos</option><option value="name">Nome A–Z</option></select></label>
       <button class="bg-text-button" id="bg-clear">Limpar filtros</button>
@@ -40,7 +40,7 @@
     <p class="bg-art-note">Imagens locais quando disponíveis. Os demais cartões usam ilustrações GO Nexus.</p>
     <div id="bg-grid" class="bg-grid" aria-busy="true"></div>
     <div id="bg-empty" class="bg-empty" hidden><span aria-hidden="true">⌕</span><h2>Nenhum fundo por aqui</h2><p>Experimente outro nome ou ajuste os filtros.</p><button class="bg-button" id="bg-reset-empty">Limpar busca e filtros</button></div>
-    <nav class="bg-pagination" id="bg-pagination" aria-label="Páginas do catálogo" hidden><button class="bg-button" id="bg-prev">← Anterior</button><span id="bg-page"></span><button class="bg-button" id="bg-next">Próxima →</button></nav>
+    <nav class="bg-pagination" id="bg-pagination" aria-label="Páginas do catálogo" hidden><button class="bg-button" id="bg-prev">← Anterior</button><label class="bg-page-jump" for="bg-page-input"><span>Página</span><input id="bg-page-input" type="number" inputmode="numeric" min="1" max="1" step="1" value="1" aria-label="Ir diretamente para a página"><span id="bg-page-total">/ 1</span></label><button class="bg-button" id="bg-next">Próxima →</button></nav>
   </section>
   <details class="bg-about"><summary>Sobre o catálogo e as imagens</summary><p id="bg-coverage"></p><p>O progresso conta tipos de fundo, independentemente do Pokémon. Anunciados e registros sem confirmação de lançamento ficam fora do total. A data do evento tem prioridade sobre a data em que uma arte apareceu nos arquivos do jogo.</p><p>Imagens do jogo via psoren/pogo-bg, hospedadas localmente. Autorização de reutilização pendente. Ilustrações próprias nos itens sem imagem. Metadados históricos adaptados dos colaboradores da <a href="https://pokemongo.fandom.com/wiki/Backgrounds" target="_blank" rel="noopener noreferrer">Pokémon GO Wiki</a>, traduzidos e revisados com anúncios oficiais. Catálogo sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Consulte o <a href="docs/fundos-fontes.md">registro de fontes e alterações</a>. Atualização: <span id="bg-updated"></span>.</p></details>
   <p class="bg-toast" id="bg-toast" role="status" aria-live="polite"></p>
@@ -52,5 +52,5 @@
 <go-nexus-footer></go-nexus-footer>
 <script src="nav.js?v=fundos-20261107"></script>
 <script src="theme.js?v=studio-v4-policy-links"></script>
-<script type="module" src="fundos-app.mjs?v=20261108b"></script>
+<script type="module" src="fundos-app.mjs?v=20261108c"></script>
 </body></html>

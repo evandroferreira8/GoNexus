@@ -40,7 +40,7 @@ export function filterItems(items, filters, ids, today) {
   return items.filter(item => {
     const text = normalize([item.name,item.event,...(item.aliases||[]),...(item.pokemon||[])].join(' '));
     return query.every(word=>text.includes(word)) && (!filters.category || item.category===filters.category) &&
-      (!filters.year || String(item.year)===filters.year) && (!filters.event || item.event===filters.event) &&
+      (!filters.year || String(item.year)===filters.year) && (!filters.event || normalize(item.event).includes(normalize(filters.event).trim())) &&
       (!filters.ownership || (filters.ownership==='owned'?owned.has(item.id):!owned.has(item.id))) &&
       (!filters.status || (filters.status==='released'?released(item,today):!released(item,today)));
   }).sort((a,b)=>filters.sort==='name'?a.name.localeCompare(b.name,'pt-BR'):

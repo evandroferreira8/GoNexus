@@ -1563,3 +1563,36 @@ html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .summary .
 html[data-theme="light"] body[data-studio-page="evolucoes-especiais"] .summary .count strong{
  color:#174fba!important;font-size:1.05em!important;font-weight:850;
 }
+
+
+/* Coleção de Fundos · navegação direta, leitura e cartões refinados (2026-11-08). */
+.page-backgrounds .bg-toolbar{scroll-margin-top:90px}
+.page-backgrounds .bg-page-jump{display:flex;align-items:center;justify-content:center;gap:8px;font:650 13px/1.4 var(--gn-font,Arial,sans-serif);color:#29476c;white-space:nowrap}
+.page-backgrounds #bg-page-input{width:64px;min-width:0;height:44px;min-height:44px;padding:5px 4px;text-align:center;border:1px solid #adc5e5;border-radius:10px;background:#fff;color:#173b68;font:750 17px/1 var(--gn-font,Arial,sans-serif);font-variant-numeric:tabular-nums}
+.page-backgrounds #bg-page-input:focus-visible{outline:3px solid #4180df;outline-offset:2px}
+.page-backgrounds #bg-page-input::-webkit-inner-spin-button,.page-backgrounds #bg-page-input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.page-backgrounds #bg-page-input{-moz-appearance:textfield;appearance:textfield}
+.page-backgrounds .bg-filters input#bg-event{width:100%;min-width:0;min-height:44px;border:1px solid #b8cce6;border-radius:8px;padding:8px 10px;background:#fff;color:#183b66;font:500 14px/1.4 var(--gn-font,Arial,sans-serif)}
+.page-backgrounds .bg-filters input#bg-event:focus-visible{outline:3px solid #4180df;outline-offset:1px}
+.page-backgrounds .bg-art.has-image{background:#0f2d4b}
+.page-backgrounds .bg-art.has-image img{object-fit:contain!important;background:transparent!important}
+.page-backgrounds #bg-share-canvas{width:min(100%,320px)}
+html body.page-backgrounds .bg-card-event{font-size:13px!important;line-height:1.45!important}
+html body.page-backgrounds .bg-utility p,html body.page-backgrounds .bg-art-note{font-size:13px!important;line-height:1.5!important}
+.page-backgrounds .bg-results-bar>span,.page-backgrounds .bg-card-year{font-size:12px}
+@media(max-width:600px){
+  .page-backgrounds .bg-pagination{display:flex;justify-content:space-between;gap:6px;flex-wrap:nowrap}
+  .page-backgrounds .bg-pagination .bg-button{padding:8px 9px;min-width:0;font-size:12px}
+  .page-backgrounds .bg-page-jump{gap:5px;font-size:12px}
+  .page-backgrounds #bg-page-input{width:50px;height:44px;font-size:16px}
+  .page-backgrounds .bg-card h2{font-size:15px;line-height:1.25}
+  html body.page-backgrounds .bg-card-event{font-size:13px!important;line-height:1.45!important}
+  .page-backgrounds .bg-card-year,.page-backgrounds .bg-results-bar>span{font-size:12px!important}
+  .page-backgrounds .bg-filters label{font-size:13px}
+  .page-backgrounds .bg-filters input#bg-event{font-size:16px}
+  .page-backgrounds .bg-obtain{font-size:12px}
+}
+@media(max-width:360px){
+  .page-backgrounds .bg-page-jump>span:first-child{display:none}
+  .page-backgrounds #bg-page-input{width:48px}
+}

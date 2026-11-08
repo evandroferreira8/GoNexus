@@ -8,7 +8,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Coleção de Fundos | GO Nexus</title>
 <link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
-<link rel="stylesheet" href="nexus-studio.css?v=fundos-20261108c">
+<link rel="stylesheet" href="nexus-studio.css?v=fundos-20261108d">
 </head>
 <body class="page-backgrounds" data-studio-page="colecao-fundos">
 <a class="bg-skip" href="#bg-search">Ir para o catálogo</a>
@@ -48,9 +48,21 @@
 </main>
 <dialog class="bg-dialog" id="bg-detail" aria-labelledby="bg-detail-title"><button class="bg-close" data-close aria-label="Fechar detalhes">×</button><div id="bg-detail-content"></div></dialog>
 <dialog class="bg-dialog" id="bg-import-dialog" aria-labelledby="bg-import-title"><button class="bg-close" data-close aria-label="Cancelar importação">×</button><span class="bg-eyebrow">SUA COLEÇÃO, COM VOCÊ</span><h2 id="bg-import-title">Importar coleção</h2><p id="bg-import-summary"></p><p>Mesclar mantém suas marcações atuais. Substituir guarda uma cópia local para restauração.</p><label class="bg-check"><input type="checkbox" id="bg-replace-confirm">Quero substituir minhas marcações atuais.</label><div class="bg-dialog-actions"><button class="bg-button bg-primary" id="bg-merge">Mesclar coleções</button><button class="bg-button" id="bg-replace" disabled>Substituir coleção</button></div><p id="bg-import-message" role="status"></p></dialog>
-<dialog class="bg-dialog bg-share-dialog" id="bg-share-dialog" aria-labelledby="bg-share-title"><button class="bg-close" data-close aria-label="Fechar compartilhamento">×</button><span class="bg-eyebrow">FEITO PARA COMPARTILHAR</span><h2 id="bg-share-title">Sua coleção merece aparecer.</h2><label class="bg-trainer">Apelido do treinador <span>(opcional)</span><input id="bg-trainer" maxlength="40" placeholder="Como você é conhecido no jogo?" autocomplete="off"></label><canvas id="bg-share-canvas" width="1080" height="1350" aria-label="Imagem com resumo da coleção"></canvas><div class="bg-dialog-actions"><button class="bg-button bg-primary" id="bg-download-image">Baixar imagem</button><button class="bg-button" id="bg-native-share">Compartilhar imagem</button><button class="bg-button" id="bg-copy-link">Copiar link</button></div><label id="bg-link-fallback" hidden>Copie o link abaixo<input id="bg-link-value" readonly></label><p id="bg-share-message" role="status">O link abre uma cópia somente para leitura, sem alterar a coleção de quem recebe.</p></dialog>
+<dialog class="bg-dialog bg-share-dialog" id="bg-share-dialog" aria-labelledby="bg-share-title"><button class="bg-close" data-close aria-label="Fechar compartilhamento">×</button><span class="bg-eyebrow">FEITO PARA COMPARTILHAR</span><h2 id="bg-share-title">Sua coleção merece aparecer.</h2><label class="bg-trainer">Apelido do treinador <span>(opcional)</span><input id="bg-trainer" maxlength="40" placeholder="Como você é conhecido no jogo?" autocomplete="off"></label>
+<details class="bg-featured-editor" id="bg-featured-editor">
+  <summary><span>Personalizar os fundos em destaque<small>Escolha até quatro imagens para o seu card</small></span><span aria-hidden="true">▾</span></summary>
+  <div class="bg-featured-editor-body">
+    <label for="bg-featured-search">Encontre um fundo que você já possui</label>
+    <input type="search" id="bg-featured-search" placeholder="Pesquisar nos meus fundos..." autocomplete="off">
+    <p id="bg-featured-help" role="status"></p>
+    <div id="bg-featured-list" class="bg-featured-list" aria-label="Escolher fundos para o card"></div>
+  </div>
+</details>
+<p class="bg-share-preview-label">Prévia do seu card <span>1080 × 1350</span></p>
+<canvas id="bg-share-canvas" width="1080" height="1350" aria-label="Prévia do cartão da coleção de fundos"></canvas>
+<p class="bg-share-preview-status" id="bg-share-preview-status" role="status"></p><div class="bg-dialog-actions"><button class="bg-button bg-primary" id="bg-download-image">Baixar imagem</button><button class="bg-button" id="bg-native-share">Compartilhar imagem</button><button class="bg-button" id="bg-copy-link">Copiar link</button></div><label id="bg-link-fallback" hidden>Copie o link abaixo<input id="bg-link-value" readonly></label><p id="bg-share-message" role="status">O link abre uma cópia somente para leitura, sem alterar a coleção de quem recebe.</p></dialog>
 <go-nexus-footer></go-nexus-footer>
 <script src="nav.js?v=fundos-20261107"></script>
 <script src="theme.js?v=studio-v4-policy-links"></script>
-<script type="module" src="fundos-app.mjs?v=20261108c"></script>
+<script type="module" src="fundos-app.mjs?v=20261108d"></script>
 </body></html>

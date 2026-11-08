@@ -1,4 +1,7 @@
 /* NEXUS STUDIO / Single owner of tool components & control states. */
+.page-backgrounds .bg-utility{flex-wrap:wrap}
+.page-backgrounds #bg-local-actions{display:flex;flex-wrap:wrap;max-width:100%;gap:2px}
+@media(max-width:600px){.page-backgrounds #bg-local-actions #bg-pdf{flex-basis:100%}.page-backgrounds #bg-local-actions .bg-text-button{flex:1;white-space:normal}}
 html[data-theme="light"] .page-home .gn-grid .gn-background-card p{white-space:normal!important;overflow-wrap:anywhere}
 /* Coleção de Fundos — isolated native module; no game imagery or external runtime. */
 .page-backgrounds .bg-art.has-image:before,.page-backgrounds .bg-art.has-image:after,.page-backgrounds .bg-art.has-image .bg-art-symbol,.page-backgrounds .bg-art.has-image .bg-art-label{display:none}

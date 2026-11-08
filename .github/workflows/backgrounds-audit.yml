@@ -1,0 +1,41 @@
+name: Coleção de Fundos — validação
+on:
+  pull_request:
+    paths:
+      - 'fundos-*.mjs'
+      - 'fundos-catalogo.json'
+      - 'colecao-fundos.html'
+      - 'nav.js'
+      - 'index.html'
+      - 'nexus-studio.css'
+      - 'scripts/fundos-*.mjs'
+      - '.github/workflows/backgrounds-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: node --test scripts/fundos-test.mjs
+      - name: Servir o portal localmente
+        run: python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/go-nexus.log 2>&1 &
+      - name: Coleção, arquivos, links e telas
+        run: node scripts/fundos-browser-test.mjs
+      - name: Compatibilidade com o portal
+        run: node scripts/smoke-test.mjs
+      - name: Interações das ferramentas existentes
+        run: node scripts/studio-interaction-qa.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: colecao-fundos-validacao
+          path: audit-results/fundos/
+          retention-days: 14

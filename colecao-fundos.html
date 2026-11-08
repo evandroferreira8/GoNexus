@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1f3b">
+<meta name="description" content="Seu álbum de fundos do Pokémon GO: encontre, marque, acompanhe e compartilhe sua coleção no GO Nexus, sem cadastro.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Coleção de Fundos | GO Nexus</title>
+<link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
+<link rel="stylesheet" href="nexus-studio.css?v=fundos-20261107">
+</head>
+<body class="page-backgrounds" data-studio-page="colecao-fundos">
+<a class="bg-skip" href="#bg-search">Ir para o catálogo</a>
+<go-nexus-header></go-nexus-header>
+<main class="bg-shell" id="topo">
+  <section class="bg-hero" aria-labelledby="bg-title">
+    <div class="bg-hero-copy"><span class="bg-eyebrow">GO NEXUS / SEU ÁLBUM DE VIAGENS</span><h1 id="bg-title">Coleção de <em>Fundos</em><span aria-hidden="true">✦</span></h1><p>Cada fundo, uma história. Quais já fazem parte da sua?</p></div>
+    <div class="bg-hero-art" aria-hidden="true"><div class="bg-ticket bg-ticket-back"><span>EXPLORE</span><b>◎</b></div><div class="bg-ticket"><span>GO NEXUS</span><b>✦</b><small>MEMÓRIAS DE TREINADOR</small></div></div>
+  </section>
+  <div id="bg-shared" class="bg-notice" hidden><div><strong id="bg-shared-title">Coleção compartilhada</strong><p>Somente leitura. Suas marcações neste aparelho estão preservadas.</p></div><a class="bg-button" href="colecao-fundos.html">Abrir minha coleção</a></div>
+  <div id="bg-storage-warning" class="bg-notice bg-warning" role="alert" hidden></div>
+  <section class="bg-dashboard" aria-label="Progresso da coleção">
+    <div class="bg-total"><div class="bg-ring" id="bg-ring"><strong id="bg-percent">0%</strong></div><div><span class="bg-eyebrow" id="bg-collection-label">MINHA COLEÇÃO</span><p><strong id="bg-obtained">0</strong> de <span id="bg-total">0</span> obtidos</p><small><span id="bg-remaining">0</span> restantes · fundos lançados</small></div></div>
+    <div class="bg-category-progress" id="bg-category-progress"></div>
+    <button class="bg-button bg-primary" id="bg-share" disabled>Compartilhar minha coleção <span aria-hidden="true">↗</span></button>
+  </section>
+  <div class="bg-utility"><p id="bg-save-note">Salvo neste navegador. Limpar os dados pode apagar sua coleção.</p><div id="bg-local-actions"><button class="bg-text-button" id="bg-pdf">Salvar PDF detalhado</button><button class="bg-text-button" id="bg-export" disabled>Exportar JSON</button><button class="bg-text-button" id="bg-import" disabled>Importar</button><button class="bg-text-button" id="bg-restore" disabled>Restaurar backup</button><input id="bg-file" type="file" accept=".json,application/json" hidden></div></div>
+  <section class="bg-catalogue" aria-label="Catálogo de fundos">
+    <div class="bg-toolbar"><label class="bg-search"><span aria-hidden="true">⌕</span><input id="bg-search" type="search" placeholder="Nome, evento ou Pokémon..." aria-label="Pesquisar fundos" autocomplete="off"></label><button class="bg-button" id="bg-filter-toggle" aria-expanded="false" aria-controls="bg-filters">Filtros <span id="bg-filter-count"></span><span aria-hidden="true">☷</span></button></div>
+    <div class="bg-filters" id="bg-filters" hidden>
+      <label>Categoria<select id="bg-category"><option value="">Todas</option><option value="special">Especial</option><option value="location">Localização</option></select></label>
+      <label>Ano<select id="bg-year"><option value="">Todos</option></select></label>
+      <label>Evento<select id="bg-event"><option value="">Todos</option></select></label>
+      <label>Lançamento<select id="bg-status-filter"><option value="released">Já lançados</option><option value="future">Futuros / a confirmar</option><option value="">Todos</option></select></label>
+      <label>Ordenar<select id="bg-sort"><option value="newest">Mais recentes</option><option value="oldest">Mais antigos</option><option value="name">Nome A–Z</option></select></label>
+      <button class="bg-text-button" id="bg-clear">Limpar filtros</button>
+    </div>
+    <div class="bg-results-bar"><div class="bg-tabs" role="group" aria-label="Filtrar por coleção"><button data-ownership="" aria-pressed="true">Todos</button><button data-ownership="owned" aria-pressed="false">Obtidos</button><button data-ownership="missing" aria-pressed="false">Faltantes</button></div><span id="bg-result-count" role="status">Carregando catálogo…</span></div>
+    <p class="bg-art-note">Imagens locais quando disponíveis. Os demais cartões usam ilustrações GO Nexus.</p>
+    <div id="bg-grid" class="bg-grid" aria-busy="true"></div>
+    <div id="bg-empty" class="bg-empty" hidden><span aria-hidden="true">⌕</span><h2>Nenhum fundo por aqui</h2><p>Experimente outro nome ou ajuste os filtros.</p><button class="bg-button" id="bg-reset-empty">Limpar busca e filtros</button></div>
+    <nav class="bg-pagination" id="bg-pagination" aria-label="Páginas do catálogo" hidden><button class="bg-button" id="bg-prev">← Anterior</button><span id="bg-page"></span><button class="bg-button" id="bg-next">Próxima →</button></nav>
+  </section>
+  <details class="bg-about"><summary>Sobre o catálogo e as imagens</summary><p id="bg-coverage"></p><p>O progresso conta tipos de fundo, independentemente do Pokémon. Anunciados e registros sem confirmação de lançamento ficam fora do total. A data do evento tem prioridade sobre a data em que uma arte apareceu nos arquivos do jogo.</p><p>Imagens do jogo via psoren/pogo-bg, hospedadas localmente. Autorização de reutilização pendente. Ilustrações próprias nos itens sem imagem. Metadados históricos adaptados dos colaboradores da <a href="https://pokemongo.fandom.com/wiki/Backgrounds" target="_blank" rel="noopener noreferrer">Pokémon GO Wiki</a>, traduzidos e revisados com anúncios oficiais. Catálogo sob <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Consulte o <a href="docs/fundos-fontes.md">registro de fontes e alterações</a>. Atualização: <span id="bg-updated"></span>.</p></details>
+  <p class="bg-toast" id="bg-toast" role="status" aria-live="polite"></p>
+  <noscript>Ative o JavaScript para consultar o catálogo e salvar sua coleção.</noscript>
+</main>
+<dialog class="bg-dialog" id="bg-detail" aria-labelledby="bg-detail-title"><button class="bg-close" data-close aria-label="Fechar detalhes">×</button><div id="bg-detail-content"></div></dialog>
+<dialog class="bg-dialog" id="bg-import-dialog" aria-labelledby="bg-import-title"><button class="bg-close" data-close aria-label="Cancelar importação">×</button><span class="bg-eyebrow">SUA COLEÇÃO, COM VOCÊ</span><h2 id="bg-import-title">Importar coleção</h2><p id="bg-import-summary"></p><p>Mesclar mantém suas marcações atuais. Substituir guarda uma cópia local para restauração.</p><label class="bg-check"><input type="checkbox" id="bg-replace-confirm">Quero substituir minhas marcações atuais.</label><div class="bg-dialog-actions"><button class="bg-button bg-primary" id="bg-merge">Mesclar coleções</button><button class="bg-button" id="bg-replace" disabled>Substituir coleção</button></div><p id="bg-import-message" role="status"></p></dialog>
+<dialog class="bg-dialog bg-share-dialog" id="bg-share-dialog" aria-labelledby="bg-share-title"><button class="bg-close" data-close aria-label="Fechar compartilhamento">×</button><span class="bg-eyebrow">FEITO PARA COMPARTILHAR</span><h2 id="bg-share-title">Sua coleção merece aparecer.</h2><label class="bg-trainer">Apelido do treinador <span>(opcional)</span><input id="bg-trainer" maxlength="40" placeholder="Como você é conhecido no jogo?" autocomplete="off"></label><canvas id="bg-share-canvas" width="1080" height="1350" aria-label="Imagem com resumo da coleção"></canvas><div class="bg-dialog-actions"><button class="bg-button bg-primary" id="bg-download-image">Baixar imagem</button><button class="bg-button" id="bg-native-share">Compartilhar imagem</button><button class="bg-button" id="bg-copy-link">Copiar link</button></div><label id="bg-link-fallback" hidden>Copie o link abaixo<input id="bg-link-value" readonly></label><p id="bg-share-message" role="status">O link abre uma cópia somente para leitura, sem alterar a coleção de quem recebe.</p></dialog>
+<go-nexus-footer></go-nexus-footer>
+<script src="nav.js?v=fundos-20261107"></script>
+<script src="theme.js?v=studio-v4-policy-links"></script>
+<script type="module" src="fundos-app.mjs"></script>
+</body></html>

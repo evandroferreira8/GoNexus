@@ -1,0 +1,48 @@
+name: Corrigir arquivo de fundo Dia dos Mortos (temporário)
+on:
+  push:
+    branches:
+      - ajuste-muertos-nome-treinador-20261108
+    paths:
+      - .github/workflows/corrigir-fundo-dia-mortos.yml
+permissions:
+  contents: write
+jobs:
+  imagem:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Converter imagem verificada da referência
+        run: |
+          python -m pip install --quiet pillow
+          python - <<'PY'
+          import urllib.request, io, pathlib
+          from PIL import Image
+          source='https://assets.dittobase.com/go/backgrounds/sb-dia-de-muertos-2026.jpg'
+          headers={'User-Agent':'Mozilla/5.0 (compatible; GO Nexus background integrity check)','Referer':'https://www.dittobase.com/'}
+          req=urllib.request.Request(source,headers=headers)
+          with urllib.request.urlopen(req,timeout=30) as response:
+              content=response.read()
+          assert len(content)>12000, 'A imagem recebida está vazia ou é inválida'
+          with Image.open(io.BytesIO(content)) as image:
+              assert image.width>=700 and image.height>=700, 'Imagem recebida com dimensões inesperadas'
+              rgb=image.convert('RGB')
+              rgb=rgb.resize((768,768),Image.Resampling.LANCZOS)
+              target=pathlib.Path('assets/fundos/sp-dia-de-muertos-2026-correto.webp')
+              target.parent.mkdir(parents=True,exist_ok=True)
+              rgb.save(target,format='WEBP',quality=88,method=6)
+              thumb=pathlib.Path('assets/fundos/th/sp-dia-de-muertos-2026-correto.webp')
+              thumb.parent.mkdir(parents=True,exist_ok=True)
+              rgb.resize((240,240),Image.Resampling.LANCZOS).save(thumb,format='WEBP',quality=85,method=6)
+              print('Verificação: fonte real',image.size,'; cópias 768 e 240 px criadas')
+          PY
+      - name: Registrar imagens na branch de revisão
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/fundos/sp-dia-de-muertos-2026-correto.webp assets/fundos/th/sp-dia-de-muertos-2026-correto.webp
+          git commit -m "Substitui textura incorreta pela arte real do fundo Dia dos Mortos"
+          git push origin HEAD:ajuste-muertos-nome-treinador-20261108

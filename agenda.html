@@ -1460,11 +1460,12 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     for(var i=0;i<7;i++){
       var dt=addDays(mobileWeek,i),inMonth=dt.slice(0,7)===month;
       var es=inMonth?getWeekEntries(dt):[],best=mobileBest(dt);
-      var cat=best?mobileLabel(best):'Livre';
-      buttons+='<button type="button" data-m-day="'+dt+'"'+(!inMonth?' disabled':'')+
-        ' aria-pressed="'+(dt===mobileSelected)+'" aria-label="'+esc(days[i]+', '+datePt(dt,{day:'numeric',month:'long'})+', '+es.length+' eventos')+'">'+
+      var cat=best?mobileLabel(best):'Livre',hasMyEvents=es.some(function(e){return myAgendaIds.has(e.id)});
+      buttons+='<button type="button" data-m-day="'+dt+'" class="'+(hasMyEvents?'has-my-events':'')+'"'+(!inMonth?' disabled':'')+
+        ' aria-pressed="'+(dt===mobileSelected)+'" aria-label="'+esc(days[i]+', '+datePt(dt,{day:'numeric',month:'long'})+', '+es.length+' eventos'+(hasMyEvents?', na Minha Agenda':''))+'">'+
         '<span class="ag-m-weekday">'+days[i]+'</span><strong class="ag-m-date">'+dateNum(dt)+'</strong>'+
         '<span class="ag-m-hint">'+esc(inMonth?cat:'—')+'</span>'+
+        (hasMyEvents?'<span class="ag-m-my-check" aria-hidden="true">✓</span>':'')+
         '<span class="ag-m-datebar" data-kind="'+esc(best?mobileKind(best):'none')+'"></span></button>';
     }
     strip.innerHTML=buttons;strip.scrollLeft=prevScroll;
@@ -1474,10 +1475,11 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     for(var blanks=0;blanks<first;blanks++)grid+='<span class="ag-m-blank" aria-hidden="true"></span>';
     for(var day=1;day<=last;day++){
       var date=month+'-'+String(day).padStart(2,'0'),es=getWeekEntries(date),best=mobileBest(date);
-      var kind=best?mobileKind(best):'none';
-      grid+='<button type="button" data-m-month="'+date+'" aria-pressed="'+(date===mobileSelected)+'"'+
-        (date===current?' class="is-today"':'')+' aria-label="'+esc(day+' de '+monthLong+'; '+es.length+' eventos')+'">'+
-        '<span>'+day+'</span><i class="ag-m-monthbar '+(!es.length?'none':'')+'" data-kind="'+esc(kind)+'"></i></button>';
+      var kind=best?mobileKind(best):'none',hasMyEvents=es.some(function(e){return myAgendaIds.has(e.id)});
+      grid+='<button type="button" data-m-month="'+date+'" aria-pressed="'+(date===mobileSelected)+'" class="'+
+        (date===current?'is-today ':'')+(hasMyEvents?'has-my-events':'')+'" aria-label="'+esc(day+' de '+monthLong+'; '+es.length+' eventos'+(hasMyEvents?', na Minha Agenda':''))+'">'+
+        '<span>'+day+'</span><i class="ag-m-monthbar '+(!es.length?'none':'')+'" data-kind="'+esc(kind)+'"></i>'+
+        (hasMyEvents?'<b class="ag-m-my-check" aria-hidden="true">✓</b>':'')+'</button>';
     }
     var rest=(7-(first+last)%7)%7;
     for(var n=1;n<=rest;n++)grid+='<span class="ag-m-blank" aria-hidden="true"></span>';

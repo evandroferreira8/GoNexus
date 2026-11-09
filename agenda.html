@@ -695,30 +695,43 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 .ag-peek-local-links a{color:#1757b0!important;text-decoration:underline!important;font-size:11px;font-weight:850;line-height:1.35}
 .ag-peek-local-links a:focus-visible{outline:2px solid #d9a31f;outline-offset:2px}
 
-/* Datas futuras anunciadas — Temporada 25 */
-.ag-s25-panel{margin-top:12px;border:1px solid #cbdcf3;background:linear-gradient(180deg,#f8fbff,#fff)}
-.ag-s25-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:13px}
+
+/* Save the Dates — hierarquia por mês e destaque para GO Tour */
+.ag-s25-panel{margin-top:12px;border:1px solid #d9e2ef;background:#f8fafc}
+.ag-s25-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:15px}
 .ag-s25-kicker{font:800 .65rem var(--gn-code,monospace);letter-spacing:.11em;color:#2862b9;text-transform:uppercase}
 .ag-s25-panel h2{margin:4px 0 0!important;color:#142d52!important;font-size:1.32rem!important;letter-spacing:-.035em}
-.ag-s25-intro{margin:6px 0 0;color:#687d98;font-size:.77rem;line-height:1.45}
+.ag-s25-intro{margin:6px 0 0;color:#687d98;font-size:.77rem;line-height:1.45;max-width:520px}
 .ag-s25-count{flex:none;border-radius:99px;background:#eaf1fc;color:#28599e;padding:6px 9px;font-size:.68rem;font-weight:850}
+.ag-s25-month{margin-top:15px}
+.ag-s25-month:first-child{margin-top:0}
+.ag-s25-monthhead{display:flex;align-items:center;gap:10px;margin:0 0 8px;color:#1b3455}
+.ag-s25-monthhead strong{font:900 .72rem var(--gn-code,monospace);letter-spacing:.1em;text-transform:uppercase}
+.ag-s25-monthhead span{height:1px;flex:1;background:#dce5f0}
 .ag-s25-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.ag-s25-item{--s25:#4277bf;display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;align-items:center;min-width:0;padding:10px;border:1px solid #e0e8f3;border-left:3px solid var(--s25);border-radius:12px;background:#fff}
+.ag-s25-item{--s25:#4277bf;display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;align-items:center;min-width:0;padding:10px;border:1px solid #e0e8f3;border-left:3px solid var(--s25);border-radius:11px;background:#fff}
 .ag-s25-item[data-kind=max]{--s25:#bd5799}
 .ag-s25-item[data-kind=reide]{--s25:#7b62c5}
 .ag-s25-item[data-kind=comunidade]{--s25:#199778}
 .ag-s25-item[data-kind=evento]{--s25:#d58b32}
-.ag-s25-date{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:51px;border-radius:9px;background:color-mix(in srgb,var(--s25),white 91%);color:var(--s25)}
+.ag-s25-item[data-kind=tour]{--s25:#182b45;background:#182b45;border-color:#182b45;color:#fff}
+.ag-s25-date{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:51px;border-radius:8px;background:color-mix(in srgb,var(--s25),white 91%);color:var(--s25)}
 .ag-s25-date strong{font-size:1.4rem;line-height:1;font-weight:900;letter-spacing:-.05em}
 .ag-s25-date small{font:800 .57rem var(--gn-code,monospace);text-transform:uppercase;margin-top:3px}
 .ag-s25-copy{min-width:0}
 .ag-s25-copy h3{margin:0 0 4px!important;color:#183457!important;font-size:.84rem!important;line-height:1.2}
 .ag-s25-copy p{margin:0;color:#75869c;font-size:.67rem;line-height:1.35}
+.ag-s25-item[data-kind=tour] .ag-s25-date{background:#e7edf5;color:#183454}
+.ag-s25-item[data-kind=tour] .ag-s25-copy h3{color:#fff!important}
+.ag-s25-item[data-kind=tour] .ag-s25-copy p{color:#c5d0df}
+.ag-s25-item[data-kind=tour] .ag-s25-type{color:#80c8ef}
 .ag-s25-type{display:block;margin-bottom:3px;color:var(--s25);font:800 .57rem var(--gn-code,monospace);letter-spacing:.07em;text-transform:uppercase}
-.ag-s25-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:6px}
+.ag-s25-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:7px}
 .ag-s25-actions button,.ag-s25-actions a{padding:0;border:0;background:none;color:#245bb7;font-size:.65rem;font-weight:850;text-decoration:none;cursor:pointer}
+.ag-s25-item[data-kind=tour] .ag-s25-actions button,.ag-s25-item[data-kind=tour] .ag-s25-actions a{color:#9bdcff}
 .ag-s25-actions button:hover,.ag-s25-actions a:hover{text-decoration:underline}
-.ag-s25-foot{margin:12px 0 0;padding-top:10px;border-top:1px solid #e9eef6;color:#75869c;font-size:.68rem;line-height:1.45}
+.ag-s25-foot{margin:13px 0 0;padding-top:10px;border-top:1px solid #e1e8f1;color:#75869c;font-size:.68rem;line-height:1.45}
+.ag-s25-foot a{color:#245bb7;font-weight:800;text-decoration:none}
 @media(max-width:600px){.ag-s25-panel{padding:14px 12px!important}.ag-s25-top{align-items:flex-start}.ag-s25-panel h2{font-size:1.2rem!important}.ag-s25-list{grid-template-columns:1fr;gap:7px}.ag-s25-item{grid-template-columns:51px minmax(0,1fr);padding:9px}.ag-s25-copy h3{font-size:.82rem!important}}
 
 </style>
@@ -1378,18 +1391,28 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   function renderSeasonDates(){
     var host=document.getElementById('agS25List');
     if(!host)return;
-    var monthNames=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
-    var labels={max:'BATALHAS MAX',reide:'REIDES',comunidade:'DIA COMUNITÁRIO',evento:'EVENTO ESPECIAL'};
-    host.innerHTML=seasonDates.map(function(e){
-      var d=e.start.split('-'),end=e.end.split('-');
-      var dateLabel=d[2]+(e.end!==e.start?'–'+end[2]:'');
-      var monthLabel=monthNames[Number(d[1])-1]+'/'+d[0];
-      return '<article class="ag-s25-item" data-kind="'+esc(e.kind)+'">'+
-        '<div class="ag-s25-date"><strong>'+dateLabel+'</strong><small>'+monthLabel+'</small></div>'+
-        '<div class="ag-s25-copy"><span class="ag-s25-type">'+esc(labels[e.kind]||'EVENTO')+'</span>'+
-        '<h3>'+esc(e.title)+'</h3><p>Detalhes e horários a confirmar</p>'+
-        '<div class="ag-s25-actions"><button type="button" data-s25-add="'+esc(e.id)+'">Adicionar ao calendário</button>'+
-        '<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a></div></div></article>';
+    var monthNames=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+    var monthShort=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+    var labels={max:'BATALHAS MAX',reide:'REIDES',comunidade:'DIA COMUNITÁRIO',evento:'EVENTO ESPECIAL',tour:'POKÉMON GO TOUR'};
+    var groups={};
+    seasonDates.slice().sort(function(a,b){return a.start.localeCompare(b.start)}).forEach(function(e){
+      var key=e.start.slice(0,7);(groups[key]=groups[key]||[]).push(e);
+    });
+    host.innerHTML=Object.keys(groups).sort().map(function(key){
+      var p=key.split('-'),heading=monthNames[Number(p[1])-1]+' de '+p[0];
+      var cards=groups[key].map(function(e){
+        var d=e.start.split('-'),end=e.end.split('-');
+        var dateLabel=d[2]+(e.end!==e.start?'–'+end[2]:'');
+        var monthLabel=monthShort[Number(d[1])-1]+'/'+d[0];
+        var note=e.kind==='tour'?(e.location||'Detalhes da experiência a confirmar'):'Horários e Pokémon em destaque a confirmar';
+        return '<article class="ag-s25-item" data-kind="'+esc(e.kind)+'">'+
+          '<div class="ag-s25-date"><strong>'+dateLabel+'</strong><small>'+monthLabel+'</small></div>'+
+          '<div class="ag-s25-copy"><span class="ag-s25-type">'+esc(labels[e.kind]||'EVENTO')+'</span>'+
+          '<h3>'+esc(e.title)+'</h3><p>'+esc(note)+'</p>'+
+          '<div class="ag-s25-actions"><button type="button" data-s25-add="'+esc(e.id)+'">Adicionar ao calendário</button>'+
+          '<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a></div></div></article>';
+      }).join('');
+      return '<section class="ag-s25-month" aria-label="'+esc(heading)+'"><div class="ag-s25-monthhead"><strong>'+esc(heading)+'</strong><span></span></div><div class="ag-s25-list">'+cards+'</div></section>';
     }).join('');
     document.getElementById('agS25Count').textContent=seasonDates.length+' datas';
   }

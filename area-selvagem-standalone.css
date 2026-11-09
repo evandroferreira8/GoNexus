@@ -323,3 +323,17 @@ body.page-wild .wa-wrap p{margin:0;color:var(--muted)}
 .wa-ticket-card.paid .wa-price{font-size:.95rem;padding:10px 14px}
 @media(max-width:760px){.wa-prep-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wa-prep-foot{flex-direction:column}.wa-prep-date{align-items:flex-start;flex-direction:column;gap:5px}}
 @media(max-width:490px){.wa-prep-grid{gap:7px;padding:9px}.wa-prep-grid article{align-items:flex-start;flex-direction:column;gap:4px;padding:8px}.wa-prep-grid img{width:58px;height:58px;flex-basis:58px}.wa-prep-grid b{font-size:.74rem}.wa-prep-grid small{font-size:.65rem}.wa-hour-strip{margin-right:-3px}.wa-capture-orb{border-radius:10px}}
+
+/* Polimento visual 09/11 — mantém o conceito urbano e melhora a leitura */
+.wa-prep-panel{position:relative;border-color:#9a6c9b}
+.wa-prep-panel:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#ff4b9c,#65d5ff,#ffd17b);z-index:2;pointer-events:none}
+.wa-prep-grid article{min-height:112px;background:linear-gradient(145deg,#1a2541,#11192e);transition:border-color .2s,transform .2s,background .2s}
+.wa-prep-grid article:hover{border-color:#a77eb5;background:#202642;transform:translateY(-2px)}
+.wa-prep-grid article>div{min-width:0}
+.wa-prep-kind{display:block;margin-bottom:4px;color:#ffacd3;font:850 .56rem var(--mono);letter-spacing:.1em}
+.wa-prep-grid img{filter:drop-shadow(0 5px 9px #05081788)}
+.wa-capture-copy{max-width:59%}
+.wa-capture-orb{z-index:2;object-fit:cover;border:6px solid #d6b36d;border-radius:50%;box-shadow:0 0 0 5px #10182c,0 0 0 7px #f4d994,0 14px 28px #000b;filter:none}
+.wa-capture-grid{z-index:1;right:2%;border-color:#f7d28b9c}
+.wa-capture-credit{position:absolute;z-index:5;right:14px;bottom:13px;padding:6px 9px;border:1px solid #e2c37d88;border-radius:6px;background:#091326e8;color:#ffe4a7;font:800 .55rem var(--mono);letter-spacing:.08em}
+.wa-feature-safari{object-fit:cover;border:3px solid #d6b36d;border-radius:50%;box-shadow:0 0 0 4px #101a2d,0 8px 17px #0008}

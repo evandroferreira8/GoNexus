@@ -243,3 +243,31 @@
  .agenda-page .ag-m-monthgrid button.has-my-events{border:1px solid #5791d8;background:#edf5ff;color:#174a8d}
  .agenda-page .ag-m-monthgrid button{position:relative}
 }
+
+/* Minha Agenda GO — ações claramente ligadas ao dia e a cada evento */
+.ag-day-pick{margin-top:13px;padding:12px;border:1px solid #d4e2f4;border-radius:12px;background:#f3f7fd}
+.ag-day-pick>span{display:block;color:#4775ad;font-size:.61rem;font-weight:900;letter-spacing:.1em}
+.ag-day-pick p{margin:4px 0 9px;color:#657d99;font-size:.72rem;line-height:1.4}
+.ag-day-pick .ag-my-day-action,.ag-m-daypick .ag-my-day-action{
+ width:100%;min-height:43px;display:flex;align-items:center;justify-content:center;
+ background:#194e9a;border:1px solid #194e9a;border-radius:9px;color:#fff;
+ font-size:.78rem;font-weight:900;cursor:pointer;padding:9px 12px
+}
+.ag-day-pick .ag-my-day-action:disabled,.ag-m-daypick .ag-my-day-action:disabled{opacity:.42;cursor:not-allowed}
+.ag-m-daypick{margin:0 0 10px;padding:11px 12px;border:1px solid #cfdff3;border-radius:12px;background:#f1f6fd}
+.ag-m-daypick p{margin:0 0 8px;color:#536f91;font-size:.76rem;line-height:1.4;font-weight:650}
+.ag-m-card-select,.ag-compact-select{margin:10px 0 3px}
+.ag-m-card-select .ag-my-pick,.ag-compact-select .ag-my-pick{
+ width:100%;min-height:40px;justify-content:center;border-color:#b8cfea;
+ background:#eef5ff;color:#1c559b;font-size:.79rem
+}
+.ag-m-card-select .ag-my-pick.is-picked,.ag-compact-select .ag-my-pick.is-picked{
+ background:#e1f0e8;border-color:#a7d3b6;color:#226b43
+}
+.ag-peek-row>.ag-my-pick{align-self:center;flex:0 0 auto;margin-left:8px}
+@media(max-width:900px){
+ .ag-day-pick{display:none}
+ .ag-m-daypick{display:block}
+ .ag-m-card-select .ag-my-pick{min-height:43px;font-size:.82rem}
+}
+@media(min-width:901px){.ag-m-daypick{display:none}}

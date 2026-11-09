@@ -175,3 +175,64 @@
 .agenda-page .ag-hero h1{letter-spacing:-.025em!important;word-spacing:.08em}
 .agenda-page .ag-m-card h3{letter-spacing:-.012em!important;word-spacing:.07em}
 .agenda-page .ag-m-dayheading h2{letter-spacing:-.025em!important;word-spacing:.07em}
+
+
+/* Minha Agenda GO — seleção pessoal e exportação */
+.ag-my-agenda{
+ margin-top:17px;padding:17px;border:1px solid #cbdcf1;border-radius:16px;
+ background:linear-gradient(135deg,#f2f7ff 0%,#fff 62%,#f7faff 100%);
+ box-shadow:0 7px 20px rgba(24,61,106,.055)
+}
+.ag-my-heading{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.ag-my-kicker{font-size:.64rem;font-weight:900;letter-spacing:.12em;color:#3370bd}
+.ag-my-heading h3{margin:4px 0 3px!important;color:#15365e!important;font-size:1.2rem;letter-spacing:-.025em}
+.ag-my-heading p{margin:0;color:#687e99;font-size:.78rem;line-height:1.4}
+.ag-my-total{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:67px;min-height:65px;padding:7px 10px;border:1px solid #c9daf1;border-radius:13px;background:#fff;color:#1f5bb1}
+.ag-my-total strong{font-size:1.55rem;line-height:1;font-weight:900}
+.ag-my-total span{font-size:.62rem;font-weight:800;color:#6b7f9a}
+.ag-my-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.ag-my-toolbar button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:39px;padding:9px 12px;border:1px solid #c8d7eb;border-radius:9px;background:#fff;color:#24538f;font-size:.76rem;font-weight:850;cursor:pointer}
+.ag-my-toolbar button:disabled{opacity:.42;cursor:not-allowed}
+.ag-my-toolbar .ag-my-day-action{background:#194e9a;border-color:#194e9a;color:#fff}
+.ag-my-toolbar .ag-my-export{background:#e7f0ff;border-color:#b8cfee;color:#184e99}
+.ag-my-toolbar .ag-my-export.secondary{background:#fff;color:#31587f}
+.ag-my-toolbar .ag-my-clear{margin-left:auto;background:transparent;color:#657b95}
+.ag-my-review{margin-top:12px;border-top:1px solid #dce6f2;padding-top:10px}
+.ag-my-review>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;list-style:none;color:#244b7b;font-size:.78rem;font-weight:850}
+.ag-my-review>summary::-webkit-details-marker{display:none}
+.ag-my-review>summary span{font-size:.69rem;color:#7b8da5;font-weight:700}
+.ag-my-items{display:grid;gap:6px;margin-top:10px}
+.ag-my-item{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;padding:8px 10px;border:1px solid #e0e8f2;border-radius:9px;background:#fff}
+.ag-my-item>span{display:flex;flex-direction:column;min-width:0}
+.ag-my-item strong{font-size:.76rem;color:#18395f;line-height:1.3}
+.ag-my-item small{margin-top:3px;color:#71839b;font-size:.67rem}
+.ag-my-item button{flex:0 0 30px;width:30px;height:30px;border:1px solid #e5cbd2;border-radius:8px;background:#fff6f7;color:#a63d55;font-size:1.1rem;font-weight:800;cursor:pointer}
+.ag-my-empty,.ag-my-status{font-size:.72rem;color:#73859d;line-height:1.45;margin:8px 0 0}
+.ag-my-pick{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 10px;border:1px solid #c6d7ed;border-radius:8px;background:#f3f7fd;color:#24558f;font-size:.72rem;font-weight:850;cursor:pointer}
+.ag-my-pick.is-picked{border-color:#a8c8ed;background:#e5f0ff;color:#1453a3}
+.ag-calendar-surface .ag-days button.has-my-events{border-color:#79a7df!important}
+.ag-calendar-surface .ag-days button .ag-my-day-mark{position:absolute;top:5px;right:6px;width:17px;height:17px;display:grid;place-items:center;border-radius:50%;background:#1d61bb;color:#fff;font-size:.65rem;font-weight:900}
+.ag-actions .ag-my-pick{margin-right:4px}
+.ag-m-card-actions .ag-my-pick,.ag-mini-action .ag-my-pick{margin:4px 5px 4px 0}
+@media(min-width:901px){.ag-m-my-agenda{display:none}}
+@media(max-width:900px){
+ .ag-my-agenda:not(.ag-m-my-agenda){display:none}
+ .ag-m-my-agenda{margin:12px 0 4px;padding:15px;border-radius:15px}
+ .ag-my-heading h3{font-size:1.12rem}
+ .ag-my-heading p{font-size:.76rem}
+ .ag-my-total{min-width:59px;min-height:59px}
+ .ag-my-toolbar{display:grid;grid-template-columns:1fr 1fr}
+ .ag-my-toolbar button{min-height:43px;font-size:.74rem;padding:8px}
+ .ag-my-toolbar .ag-my-clear{margin-left:0}
+ .ag-my-pick{min-height:38px;padding:8px 10px;font-size:.76rem}
+ .ag-my-item strong{font-size:.78rem}
+}
+@media(max-width:390px){
+ .ag-my-heading{align-items:flex-start}
+ .ag-my-heading h3{font-size:1.03rem}
+ .ag-my-heading p{max-width:220px;font-size:.72rem}
+ .ag-my-total{min-width:52px;min-height:54px;padding:6px}
+ .ag-my-toolbar{gap:6px}
+ .ag-my-toolbar button{font-size:.69rem}
+}
+@media(prefers-reduced-motion:reduce){.ag-my-toolbar button,.ag-my-pick{transition:none!important}}

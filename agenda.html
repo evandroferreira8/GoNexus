@@ -795,6 +795,24 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         <span id="agMDayCount" class="ag-m-daycount">—</span>
       </div>
       <div id="agMEvents" class="ag-m-events" aria-live="polite"></div>
+
+      <section class="ag-my-agenda ag-m-my-agenda" id="agMMyAgenda" aria-labelledby="agMMyTitle">
+        <div class="ag-my-heading">
+          <div><span class="ag-my-kicker">MONTE SUA PROGRAMAÇÃO</span><h3 id="agMMyTitle">Minha Agenda GO</h3><p>Inclua todos os eventos do dia ou escolha só alguns.</p></div>
+          <div class="ag-my-total"><strong id="agMMyCount">0</strong><span>selecionados</span></div>
+        </div>
+        <div class="ag-my-toolbar">
+          <button type="button" class="ag-my-day-action" id="agMMySelectDay">＋ Incluir este dia</button>
+          <button type="button" class="ag-my-export" id="agMMyICS" disabled>↓ Baixar (.ics)</button>
+          <button type="button" class="ag-my-export secondary" id="agMMyPDF" disabled>▤ Salvar PDF</button>
+          <button type="button" class="ag-my-clear" id="agMMyClear" disabled>Limpar</button>
+        </div>
+        <details class="ag-my-review" id="agMMyReview">
+          <summary>Revisar minha agenda <span id="agMMyReviewCount">0 eventos</span></summary>
+          <div class="ag-my-items" id="agMMyItems"><p class="ag-my-empty">Sua agenda ainda está vazia.</p></div>
+        </details>
+        <p class="ag-my-status" id="agMMyStatus" aria-live="polite">A seleção fica salva neste navegador.</p>
+      </section>
     </section>
     <details class="ag-m-fold" id="agMWeekOverview">
       <summary><span class="ag-m-fold-icon">≡</span><span><b>Todos os dias da semana</b><small>Resumo dos sete dias</small></span><span class="ag-m-caret">⌄</span></summary>
@@ -845,6 +863,24 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
             <button type="button" id="agGoWeek" class="ag-peek-go-week">Ver programação da semana <span aria-hidden="true">→</span></button>
           </div>
         </div>
+
+        <section class="ag-my-agenda" id="agMyAgenda" aria-labelledby="agMyTitle">
+          <div class="ag-my-heading">
+            <div><span class="ag-my-kicker">MONTE SUA PROGRAMAÇÃO</span><h3 id="agMyTitle">Minha Agenda GO</h3><p>Inclua um dia inteiro ou escolha só os eventos que interessam.</p></div>
+            <div class="ag-my-total"><strong id="agMyCount">0</strong><span>selecionados</span></div>
+          </div>
+          <div class="ag-my-toolbar">
+            <button type="button" class="ag-my-day-action" id="agMySelectDay">＋ Incluir dia selecionado</button>
+            <button type="button" class="ag-my-export" id="agMyICS" disabled>↓ Baixar calendário (.ics)</button>
+            <button type="button" class="ag-my-export secondary" id="agMyPDF" disabled>▤ Salvar PDF</button>
+            <button type="button" class="ag-my-clear" id="agMyClear" disabled>Limpar seleção</button>
+          </div>
+          <details class="ag-my-review" id="agMyReview">
+            <summary>Revisar minha agenda <span id="agMyReviewCount">0 eventos</span></summary>
+            <div class="ag-my-items" id="agMyItems"><p class="ag-my-empty">Sua agenda ainda está vazia.</p></div>
+          </details>
+          <p class="ag-my-status" id="agMyStatus" aria-live="polite">Sua seleção fica salva neste navegador.</p>
+        </section>
       </section>
 
       <section class="ag-panel ag-week-panel" id="agWeekSection" aria-labelledby="agWeekTitle">
@@ -933,7 +969,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 <script>
 (function(){
   'use strict';
-  var data=[], rotations=[], weeklyRoutines=[], seasonDates=[], selectedDay=null, selectedFilter='todos', weekStart=null, weekFocusDay=null, mobileMode='week', mobileSelected=null, mobileWeek=null;
+  var data=[], rotations=[], weeklyRoutines=[], seasonDates=[], selectedDay=null, selectedFilter='todos', weekStart=null, weekFocusDay=null, mobileMode='week', mobileSelected=null, mobileWeek=null, myAgendaIds=new Set();
   var daysNode=document.getElementById('agDays'),list=document.getElementById('agList');
   var count=document.getElementById('agCount'),search=document.getElementById('agSearch');
   var future=document.getElementById('agFuture'), clear=document.getElementById('agClear');
@@ -1073,7 +1109,16 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         (!e.routine&&e.start===e.end&&(e.kind==='reide'||e.kind==='max'));
     }).sort(function(a,b){return a.start.localeCompare(b.start)||eventDaySort(a,b,a.start)});
     var next=upcoming[0];
-    document.querySelectorAll('.ag-spotlight').forEach(function(node){
+    function onMyAgendaAction(ev){
+    var remove=ev.target.closest('[data-my-remove]');
+    if(remove){myAgendaIds.delete(remove.dataset.myRemove);saveMyAgenda();render()}
+  }
+  function clearMyAgenda(){
+    myAgendaIds.clear();saveMyAgenda();render();
+    document.getElementById('agMyStatus').textContent='Seleção limpa. Você pode montar outra agenda.';
+    document.getElementById('agMMyStatus').textContent='Seleção limpa. Você pode montar outra agenda.';
+  }
+  document.querySelectorAll('.ag-spotlight').forEach(function(node){
       if(!next){node.hidden=true;return}
       node.hidden=false;node.dataset.date=next.start;
       var dayLabel=datePt(next.start,{weekday:'short',day:'numeric',month:'short'});
@@ -1098,6 +1143,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var bonus=e.bonus?'<p><b>Bônus:</b> '+esc(e.bonus)+'</p>':'';
     var actions=(e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte ↗</a>':'')+
       (e.maps?'<a href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Mapa ↗</a>':'')+campfireLink(e)+campfireDateLinks(e)+
+      myEventAction(e)+
       '<button type="button" data-add="'+esc(e.id)+'">Salvar no calendário</button>'+
       '<button type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
     return '<article class="ag-compact-event" data-kind="'+esc(e.kind)+'"><div class="ag-compact-event-head">'+
@@ -1175,6 +1221,70 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   }
 
   function monthSelection(){return selectedDay||(current.slice(0,7)===month?current:month+'-01')}
+  function myStorageKey(){return 'gonexus-minha-agenda-v1:'+month}
+  function loadMyAgenda(){
+    try{
+      var saved=JSON.parse(localStorage.getItem(myStorageKey())||'[]');
+      myAgendaIds=new Set(Array.isArray(saved)?saved.filter(function(id){return data.some(function(e){return e.id===id})}):[]);
+    }catch(err){myAgendaIds=new Set()}
+  }
+  function saveMyAgenda(){
+    try{localStorage.setItem(myStorageKey(),JSON.stringify(Array.from(myAgendaIds)))}catch(err){}
+  }
+  function selectedMyEvents(){return data.filter(function(e){return myAgendaIds.has(e.id)}).sort(eventDateSort)}
+  function myEventAction(e){
+    var selected=myAgendaIds.has(e.id);
+    return '<button type="button" class="ag-my-pick '+(selected?'is-picked':'')+'" data-my-add="'+esc(e.id)+'" aria-pressed="'+selected+'">'+
+      (selected?'✓ Na minha agenda':'＋ Minha agenda')+'</button>';
+  }
+  function toggleMyEvent(id){
+    if(!data.some(function(e){return e.id===id}))return;
+    if(myAgendaIds.has(id))myAgendaIds.delete(id);else myAgendaIds.add(id);
+    saveMyAgenda();render();
+  }
+  function toggleMyDay(date,prefix){
+    var events=getWeekEntries(date);
+    var status=document.getElementById(prefix==='agM'?'agMMyStatus':'agMyStatus');
+    if(!events.length){
+      if(status)status.textContent='Não há eventos cadastrados para este dia.';
+      return;
+    }
+    var all=events.every(function(e){return myAgendaIds.has(e.id)});
+    events.forEach(function(e){if(all)myAgendaIds.delete(e.id);else myAgendaIds.add(e.id)});
+    saveMyAgenda();render();
+  }
+  function renderMyAgenda(){
+    var chosen=selectedMyEvents(),count=chosen.length;
+    ['agMy','agMMy'].forEach(function(prefix){
+      var mobile=prefix==='agMMy',date=mobile?(mobileSelected||monthSelection()):monthSelection();
+      var dayEvents=getWeekEntries(date),all=dayEvents.length&&dayEvents.every(function(e){return myAgendaIds.has(e.id)});
+      var byId=function(suffix){return document.getElementById(prefix+suffix)};
+      var n=byId('Count'),review=byId('ReviewCount'),items=byId('Items'),day=byId('SelectDay');
+      if(n)n.textContent=count;
+      if(review)review.textContent=count+' '+(count===1?'evento':'eventos');
+      if(day){
+        day.disabled=!dayEvents.length;
+        day.textContent=all?'✓ Dia incluído · retirar':'＋ '+(mobile?'Incluir este dia':'Incluir dia selecionado')+' ('+dayEvents.length+')';
+      }
+      ['ICS','PDF','Clear'].forEach(function(suffix){var b=byId(suffix);if(b)b.disabled=!count});
+      if(items){
+        items.innerHTML=count?chosen.map(function(e){
+          return '<div class="ag-my-item"><span><strong>'+esc(eventTitle(e))+'</strong><small>'+esc(range(e))+' · '+esc(localWhen(e,e.start))+'</small></span>'+
+            '<button type="button" data-my-remove="'+esc(e.id)+'" aria-label="Retirar '+esc(eventTitle(e))+'">×</button></div>';
+        }).join(''):'<p class="ag-my-empty">Sua agenda ainda está vazia. Escolha um dia inteiro ou marque eventos individuais.</p>';
+      }
+    });
+    document.querySelectorAll('[data-my-add]').forEach(function(btn){
+      var picked=myAgendaIds.has(btn.dataset.myAdd);
+      btn.classList.toggle('is-picked',picked);
+      btn.setAttribute('aria-pressed',String(picked));
+      btn.textContent=picked?'✓ Na minha agenda':'＋ Minha agenda';
+    });
+    document.querySelectorAll('[data-day]').forEach(function(btn){
+      var date=btn.dataset.day,events=getWeekEntries(date);
+      btn.classList.toggle('has-my-events',events.some(function(e){return myAgendaIds.has(e.id)}));
+    });
+  }
   function typeLabel(e){
     if(e.kind==='natal')return 'Encontro';
     if(e.routine&&e.kind==='max')return 'Segunda Max';
@@ -1201,12 +1311,13 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       var chips=tags.slice(0,2).map(function(t){return '<span class="ag-day-chip" data-kind="'+esc(t.kind)+'">'+esc(t.label)+'</span>'}).join('');
       var bars=tags.slice(0,3).map(function(t){return '<i class="ag-tile-bar" data-kind="'+esc(t.kind)+'"></i>'}).join('');
       var titleTags=tags.map(function(t){return t.label}).slice(0,3).join(', ');
-      html+='<button type="button" data-day="'+iso+'" class="'+(totalShown?'':'no-event ')+(iso===current?'today':'')+
+      html+='<button type="button" data-day="'+iso+'" class="'+(totalShown?'':'no-event ')+(iso===current?'today ':'')+(events.some(function(e){return myAgendaIds.has(e.id)})?'has-my-events':'')+
         '" aria-label="'+esc(day+' de '+monthLong+', '+totalShown+' '+(totalShown===1?'evento':'eventos')+(titleTags?' — '+titleTags:''))+
         '" aria-pressed="'+(selected===iso)+'"><span class="ag-tile-head"><strong class="ag-tile-num">'+day+
         '</strong>'+(totalShown>1?'<small class="ag-tile-total" aria-hidden="true">'+totalShown+'</small>':'')+
         '</span><span class="ag-day-chips" aria-hidden="true">'+chips+
-        '</span><span class="ag-tile-bars" aria-hidden="true">'+bars+'</span></button>';
+        '</span><span class="ag-tile-bars" aria-hidden="true">'+bars+'</span>'+
+        (events.some(function(e){return myAgendaIds.has(e.id)})?'<span class="ag-my-day-mark" aria-hidden="true">✓</span>':'')+'</button>';
     }
     var trailing=(7-(first+total)%7)%7;
     for(var next=1;next<=trailing;next++)html+='<span class="ag-outside-day" aria-hidden="true">'+next+'</span>';
@@ -1255,7 +1366,8 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     if(e.topic)meta+='<span>Em destaque: '+esc(e.topic)+'</span>';
     var links=(e.source?'<a class="ag-action" href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">'+(e.routine?'Tema no Campfire':'Fonte oficial')+' ↗</a>':'')+
       (e.maps?'<a class="ag-action" href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Mapa ↗</a>':'')+campfireLink(e)+campfireDateLinks(e)+
-      '<button class="ag-action add" type="button" data-add="'+esc(e.id)+'">+ Adicionar à agenda</button>'+
+      myEventAction(e)+
+      '<button class="ag-action add" type="button" data-add="'+esc(e.id)+'">+ Adicionar ao calendário</button>'+
       '<button class="ag-action add" type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
     return '<article class="ag-event" data-kind="'+esc(e.kind)+'">'+
       '<div class="ag-date"><span class="ag-day">'+dateNum(e.start)+'</span><span class="ag-mo">'+monthAbbr+'</span></div>'+ 
@@ -1305,6 +1417,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       '<p>'+esc(description)+'</p>'+bonus;
     var actions=(e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte ↗</a>':'')+
       (e.maps?'<a href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Ver no mapa ↗</a>':'')+campfireLink(e)+campfireDateLinks(e)+
+      myEventAction(e)+
       '<button type="button" data-add="'+esc(e.id)+'">Adicionar ao calendário</button>'+
       '<button type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
     return '<article class="ag-m-card" data-kind="'+esc(mobileKind(e))+'">'+
@@ -1404,6 +1517,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     document.getElementById('agAllSummary').textContent=visible.length+' registros · busca e filtros';
     count.textContent=visible.length+' '+(visible.length===1?'registro':'registros')+' na programação';
     clear.hidden=selectedFilter==='todos'&&!search.value&&!future.checked;
+    renderMyAgenda();
   }
 
   function renderSeasonDates(){
@@ -1460,6 +1574,59 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var blob=new Blob([fields.join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'});
     var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='go-nexus-'+e.id+'.ics';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
   }
+
+  function myCalendarBlock(e,stamp){
+    var check=eventMeetups(e,e.start).map(function(m){return 'Check-in Campfire: '+hourLabel(m.from)+' · '+(m.location_short||m.location||'')}).join(' | ');
+    var desc='No jogo: '+localWhen(e,e.start)+' | '+(e.description||'')+(check?' | '+check:'')+
+      (e.location_status==='habitual'?' | Local habitual; confirme antes de sair.':'')+
+      (e.source?' | Fonte: '+e.source:'')+(e.campfire?' | Campfire: '+e.campfire:'');
+    var fields=['BEGIN:VEVENT','UID:'+e.id+'-'+month+'@gonexus','DTSTAMP:'+stamp,'SUMMARY:'+icsEscape(eventTitle(e)),'DESCRIPTION:'+icsEscape(desc)];
+    if(e.location)fields.push('LOCATION:'+icsEscape(e.location));
+    if(e.from&&e.to){
+      fields.push('DTSTART;TZID=America/Fortaleza:'+icsDate(e.start)+'T'+e.from.replace(':','')+'00');
+      fields.push('DTEND;TZID=America/Fortaleza:'+icsDate(e.end)+'T'+e.to.replace(':','')+'00');
+    }else{
+      fields.push('DTSTART;VALUE=DATE:'+icsDate(e.start));
+      fields.push('DTEND;VALUE=DATE:'+icsDate(nextDay(e.end)));
+      fields.push('X-ALT-DESC;FMTTYPE=text/plain:'+(e.game_time_label?'Bônus do jogo ao longo do dia':'Horário não divulgado'));
+    }
+    if(e.campfire)fields.push('URL:'+e.campfire);else if(e.source)fields.push('URL:'+e.source);
+    fields.push('END:VEVENT');
+    return fields;
+  }
+  function downloadMyICS(){
+    var chosen=selectedMyEvents();
+    if(!chosen.length)return;
+    var stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\\.\\d{3}Z$/,'Z');
+    var fields=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//GO Nexus//Minha Agenda GO//PT-BR','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:GO Nexus - Minha Agenda','X-WR-TIMEZONE:America/Fortaleza'];
+    chosen.forEach(function(e){fields=fields.concat(myCalendarBlock(e,stamp))});
+    fields.push('END:VCALENDAR');
+    var blob=new Blob([fields.join('\\r\\n')+'\\r\\n'],{type:'text/calendar;charset=utf-8'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download='go-nexus-minha-agenda-'+month+'.ics';document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
+  }
+  function downloadMyPDF(){
+    var chosen=selectedMyEvents();
+    if(!chosen.length)return;
+    var printWindow=window.open('','_blank');
+    if(!printWindow){
+      document.getElementById('agMyStatus').textContent='O navegador bloqueou a janela de impressão. Permita pop-ups para gerar o PDF.';
+      document.getElementById('agMMyStatus').textContent='O navegador bloqueou a janela de impressão. Permita pop-ups para gerar o PDF.';
+      return;
+    }
+    var cards=chosen.map(function(e){
+      var dateLabel=datePt(e.start,{weekday:'long',day:'numeric',month:'long'})+(e.end!==e.start?' – '+datePt(e.end,{day:'numeric',month:'long'}):'');
+      var time=localWhen(e,e.start),place=e.location_short||e.location||'';
+      return '<article class="event"><div class="date">'+esc(dateLabel)+'</div><div><span class="kind">'+esc(categories[e.kind]||'Evento')+'</span><h2>'+esc(eventTitle(e))+'</h2><p><b>Horário:</b> '+esc(time)+(place?' · <b>Local:</b> '+esc(place):'')+'</p><p>'+esc(e.description||'')+'</p>'+
+        (e.source?'<p class="source">Fonte: '+esc(e.source)+'</p>':'')+'</div></article>';
+    }).join('');
+    var title='Minha Agenda GO · '+monthLong+' de '+month.slice(0,4);
+    var page='<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+'</title><style>'+
+      '@page{size:A4;margin:16mm}*{box-sizing:border-box}body{font:14px/1.5 Arial,sans-serif;color:#173252;margin:0}header{padding:0 0 16px;border-bottom:3px solid #245fc4;margin-bottom:18px}header small{font-size:10px;font-weight:800;letter-spacing:.14em;color:#2864bd}h1{font-size:27px;line-height:1.1;margin:7px 0;color:#122b4d}header p{margin:5px 0 0;color:#657b96;font-size:12px}.event{display:grid;grid-template-columns:155px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid #dbe4ef;break-inside:avoid}.date{font-weight:800;color:#245fc4;font-size:12px}.kind{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#50739f;font-weight:800}h2{font-size:16px;margin:4px 0 6px;color:#132f55}p{margin:4px 0;font-size:12px}.source{font-size:10px;color:#67809d;overflow-wrap:anywhere}.footer{margin-top:20px;padding-top:10px;border-top:1px solid #dbe4ef;font-size:10px;color:#71839b}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><header><small>GO NEXUS / AGENDA PESSOAL</small><h1>'+esc(title)+'</h1><p>'+chosen.length+' '+(chosen.length===1?'evento selecionado':'eventos selecionados')+' · Horário local de Natal (UTC−3)</p></header>'+cards+'<div class="footer">Agenda montada no GO Nexus. Confira atualizações e possíveis mudanças na programação oficial.</div><script>window.addEventListener("load",function(){setTimeout(function(){window.print()},350)});<\\/script></body></html>';
+    printWindow.document.open();printWindow.document.write(page);printWindow.document.close();printWindow.focus();
+  }
+
   function share(e,button){
     var first=eventMeetups(e,e.start)[0];
     var txt=e.title+' — '+range(e)+' • Jogo: '+localWhen(e,e.start)+
@@ -1500,6 +1667,8 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   search.addEventListener('input',render);future.addEventListener('change',render);
   clear.addEventListener('click',function(){selectedFilter='todos';search.value='';future.checked=false;render()});
   function onAction(ev){
+    var myBtn=ev.target.closest('[data-my-add]');
+    if(myBtn){toggleMyEvent(myBtn.dataset.myAdd);return}
     var btn=ev.target.closest('[data-add],[data-share]');if(!btn)return;
     var id=btn.dataset.add||btn.dataset.share;var e=data.find(function(x){return x.id===id});if(!e)return;
     if(btn.dataset.add)addCalendar(e);else share(e,btn);
@@ -1540,6 +1709,16 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var b=ev.target.closest('[data-m-overview]');if(b){mobileSelect(b.dataset.mOverview,true);document.getElementById('agMWeekOverview').open=false}
   });
   document.getElementById('agMEvents').addEventListener('click',onAction);
+  document.getElementById('agMyAgenda').addEventListener('click',onMyAgendaAction);
+  document.getElementById('agMMyAgenda').addEventListener('click',onMyAgendaAction);
+  document.getElementById('agMySelectDay').addEventListener('click',function(){toggleMyDay(monthSelection(),'agMy')});
+  document.getElementById('agMMySelectDay').addEventListener('click',function(){toggleMyDay(mobileSelected||monthSelection(),'agMMy')});
+  document.getElementById('agMyClear').addEventListener('click',clearMyAgenda);
+  document.getElementById('agMMyClear').addEventListener('click',clearMyAgenda);
+  document.getElementById('agMyICS').addEventListener('click',downloadMyICS);
+  document.getElementById('agMMyICS').addEventListener('click',downloadMyICS);
+  document.getElementById('agMyPDF').addEventListener('click',downloadMyPDF);
+  document.getElementById('agMMyPDF').addEventListener('click',downloadMyPDF);
   document.getElementById('agS25List').addEventListener('click',function(ev){
     var btn=ev.target.closest('[data-s25-add]');if(!btn)return;
     var e=seasonDates.find(function(x){return x.id===btn.dataset.s25Add});if(e)addCalendar(e);
@@ -1576,6 +1755,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     weeklyRoutines=Array.isArray(doc.weekly_routines)?doc.weekly_routines:[];
     var singles=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];
     data=singles.concat(expandRoutines(weeklyRoutines));
+    loadMyAgenda();
     weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();
     weekFocusDay=null;
     document.getElementById('agPeekDetails').open=Boolean(typeof window!=='undefined'&&window.matchMedia&&window.matchMedia('(min-width:901px)').matches);

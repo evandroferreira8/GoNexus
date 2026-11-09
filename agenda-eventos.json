@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "updated_at": "2026-11-07",
+  "updated_at": "2026-11-09",
   "timezone": "America/Fortaleza",
   "editorial_note": "O horário oficial do jogo tem prioridade. O Campfire mostra a programação dos encontros/check-in, que pode começar antes ou se estender além das atividades do jogo. Na agenda, início no Campfire não é apresentado como início do evento. Para 2026, Hora Lendária e Holofote são das 18h às 19h; Segunda Max e Sexta da Amizade têm bônus diários. Duração do check-in não foi inferida. Fontes: Pokémon GO oficial e fichas Campfire verificadas para 2, 4, 6, 14 e 21 de novembro. Horários não confirmados não são inventados.",
   "events": [
@@ -588,6 +588,107 @@
       "title": "Tornadus Sombroso",
       "description": "Reides Sombrosas; a programação mensal indica até 1º de dezembro.",
       "source_label": "Programação mensal de novembro (arte de Jogada Excelente enviada pelo usuário)"
+    }
+  ],
+  "season_dates": [
+    {
+      "id": "s25-max-2026-12-05",
+      "title": "Dia de Batalhas Max",
+      "kind": "max",
+      "start": "2026-12-05",
+      "end": "2026-12-05",
+      "description": "Data anunciada para a Temporada 25. Horários, Pokémon em destaque e detalhes adicionais ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-community-dec-2026",
+      "title": "Dia Comunitário de dezembro",
+      "kind": "comunidade",
+      "start": "2026-12-12",
+      "end": "2026-12-13",
+      "description": "Fim de semana do Dia Comunitário de dezembro. A programação detalhada ainda será divulgada.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-raid-2026-12-19",
+      "title": "Dia de Reides",
+      "kind": "reide",
+      "start": "2026-12-19",
+      "end": "2026-12-19",
+      "description": "Data anunciada para a Temporada 25. Pokémon em destaque e horários ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-hatch-2026-12-26",
+      "title": "Dia de Chocar",
+      "kind": "evento",
+      "start": "2026-12-26",
+      "end": "2026-12-26",
+      "description": "Data anunciada para a Temporada 25. Detalhes do evento ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-community-classic-2027-01-02",
+      "title": "Clássico do Dia Comunitário",
+      "kind": "comunidade",
+      "start": "2027-01-02",
+      "end": "2027-01-02",
+      "description": "Data anunciada para o Clássico do Dia Comunitário. Pokémon em destaque e detalhes ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-super-mega-2027-01-09",
+      "title": "Dia de Super Megarreides",
+      "kind": "reide",
+      "start": "2027-01-09",
+      "end": "2027-01-09",
+      "description": "Data anunciada para a Temporada 25. Pokémon em destaque e horários ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-community-2027-01-16",
+      "title": "Dia Comunitário de janeiro",
+      "kind": "comunidade",
+      "start": "2027-01-16",
+      "end": "2027-01-16",
+      "description": "Data anunciada para a Temporada 25. Pokémon em destaque e programação ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-max-2027-01-23",
+      "title": "Dia de Batalhas Max",
+      "kind": "max",
+      "start": "2027-01-23",
+      "end": "2027-01-23",
+      "description": "Data anunciada para a Temporada 25. Pokémon em destaque e detalhes ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-super-mega-2027-01-30",
+      "title": "Dia de Super Megarreides",
+      "kind": "reide",
+      "start": "2027-01-30",
+      "end": "2027-01-30",
+      "description": "Data anunciada para a Temporada 25. Pokémon em destaque e horários ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-community-2027-02-06",
+      "title": "Dia Comunitário de fevereiro",
+      "kind": "comunidade",
+      "start": "2027-02-06",
+      "end": "2027-02-06",
+      "description": "Data anunciada para a Temporada 25. Pokémon em destaque e programação ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-raid-2027-02-13",
+      "title": "Dia de Reides",
+      "kind": "reide",
+      "start": "2027-02-13",
+      "end": "2027-02-13",
+      "description": "Data anunciada para a Temporada 25. Pokémon em destaque e horários ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
     }
   ]
 }

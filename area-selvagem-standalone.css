@@ -337,3 +337,26 @@ body.page-wild .wa-wrap p{margin:0;color:var(--muted)}
 .wa-capture-grid{z-index:1;right:2%;border-color:#f7d28b9c}
 .wa-capture-credit{position:absolute;z-index:5;right:14px;bottom:13px;padding:6px 9px;border:1px solid #e2c37d88;border-radius:6px;background:#091326e8;color:#ffe4a7;font:800 .55rem var(--mono);letter-spacing:.08em}
 .wa-feature-safari{object-fit:cover;border:3px solid #d6b36d;border-radius:50%;box-shadow:0 0 0 4px #101a2d,0 8px 17px #0008}
+
+
+/* LEITURA E CONTRASTE — ajuste editorial 09/11/2026 */
+.wa-capture-copy{max-width:53%}
+.wa-capture-intro p{max-width:100%;font-size:.94rem;line-height:1.55}
+.wa-capture-overline{font-size:.7rem}
+.wa-capture-badge{font-size:.82rem;line-height:1.4}
+.wa-capture-quick small{font-size:.8rem;line-height:1.48}
+.wa-day-note{font-size:.82rem;line-height:1.55}
+.wa-mighty-card b{font-size:.76rem}
+.wa-mon b{font-size:.8rem}
+.wa-small-note{font-size:.8rem;line-height:1.55}
+.wa-checks li{font-size:.84rem;line-height:1.48}
+.wa-foot-tips{font-size:.78rem;line-height:1.52}
+.wa-feature p{font-size:.82rem;line-height:1.5}
+.wa-bonus small{font-size:.78rem;line-height:1.48}
+.wa-extra-body{font-size:.83rem;line-height:1.55}
+.wa-provenance{font-size:.78rem;line-height:1.5}
+.wa-prep-grid small{font-size:.74rem;line-height:1.42}
+.wa-prep-kind{font-size:.62rem}
+.wa-prep-foot{font-size:.78rem;line-height:1.5}
+.wa-hour-strip span{font-size:.72rem}
+.wa-capture-credit{font-size:.64rem}

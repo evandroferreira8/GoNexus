@@ -1256,7 +1256,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   function renderMyAgenda(){
     var chosen=selectedMyEvents(),count=chosen.length;
     ['agMy','agMMy'].forEach(function(prefix){
-      var mobile=prefix==='agMMy',date=mobile?(mobileSelected||monthSelection()):monthSelection();
+      var mobile=prefix==='agMMy',date=mobile?(mobileSelected||monthSelection()):(weekFocusDay||monthSelection());
       var dayEvents=getWeekEntries(date),all=dayEvents.length&&dayEvents.every(function(e){return myAgendaIds.has(e.id)});
       var byId=function(suffix){return document.getElementById(prefix+suffix)};
       var n=byId('Count'),review=byId('ReviewCount'),items=byId('Items'),day=byId('SelectDay');
@@ -1505,6 +1505,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         (e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a>':'')+
         '</details>';
     }).join(''):'<p class="ag-m-empty">Sem rotações cadastradas nesta semana.</p>';
+    renderMyAgenda();
   }
   function render(){
     drawDays();
@@ -1712,7 +1713,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   document.getElementById('agMEvents').addEventListener('click',onAction);
   document.getElementById('agMyAgenda').addEventListener('click',onMyAgendaAction);
   document.getElementById('agMMyAgenda').addEventListener('click',onMyAgendaAction);
-  document.getElementById('agMySelectDay').addEventListener('click',function(){toggleMyDay(monthSelection(),'agMy')});
+  document.getElementById('agMySelectDay').addEventListener('click',function(){toggleMyDay(weekFocusDay||monthSelection(),'agMy')});
   document.getElementById('agMMySelectDay').addEventListener('click',function(){toggleMyDay(mobileSelected||monthSelection(),'agMMy')});
   document.getElementById('agMyClear').addEventListener('click',clearMyAgenda);
   document.getElementById('agMMyClear').addEventListener('click',clearMyAgenda);

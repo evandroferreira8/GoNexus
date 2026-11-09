@@ -694,6 +694,33 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 .ag-peek-local-links{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
 .ag-peek-local-links a{color:#1757b0!important;text-decoration:underline!important;font-size:11px;font-weight:850;line-height:1.35}
 .ag-peek-local-links a:focus-visible{outline:2px solid #d9a31f;outline-offset:2px}
+
+/* Datas futuras anunciadas — Temporada 25 */
+.ag-s25-panel{margin-top:12px;border:1px solid #cbdcf3;background:linear-gradient(180deg,#f8fbff,#fff)}
+.ag-s25-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:13px}
+.ag-s25-kicker{font:800 .65rem var(--gn-code,monospace);letter-spacing:.11em;color:#2862b9;text-transform:uppercase}
+.ag-s25-panel h2{margin:4px 0 0!important;color:#142d52!important;font-size:1.32rem!important;letter-spacing:-.035em}
+.ag-s25-intro{margin:6px 0 0;color:#687d98;font-size:.77rem;line-height:1.45}
+.ag-s25-count{flex:none;border-radius:99px;background:#eaf1fc;color:#28599e;padding:6px 9px;font-size:.68rem;font-weight:850}
+.ag-s25-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ag-s25-item{--s25:#4277bf;display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;align-items:center;min-width:0;padding:10px;border:1px solid #e0e8f3;border-left:3px solid var(--s25);border-radius:12px;background:#fff}
+.ag-s25-item[data-kind=max]{--s25:#bd5799}
+.ag-s25-item[data-kind=reide]{--s25:#7b62c5}
+.ag-s25-item[data-kind=comunidade]{--s25:#199778}
+.ag-s25-item[data-kind=evento]{--s25:#d58b32}
+.ag-s25-date{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:51px;border-radius:9px;background:color-mix(in srgb,var(--s25),white 91%);color:var(--s25)}
+.ag-s25-date strong{font-size:1.4rem;line-height:1;font-weight:900;letter-spacing:-.05em}
+.ag-s25-date small{font:800 .57rem var(--gn-code,monospace);text-transform:uppercase;margin-top:3px}
+.ag-s25-copy{min-width:0}
+.ag-s25-copy h3{margin:0 0 4px!important;color:#183457!important;font-size:.84rem!important;line-height:1.2}
+.ag-s25-copy p{margin:0;color:#75869c;font-size:.67rem;line-height:1.35}
+.ag-s25-type{display:block;margin-bottom:3px;color:var(--s25);font:800 .57rem var(--gn-code,monospace);letter-spacing:.07em;text-transform:uppercase}
+.ag-s25-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:6px}
+.ag-s25-actions button,.ag-s25-actions a{padding:0;border:0;background:none;color:#245bb7;font-size:.65rem;font-weight:850;text-decoration:none;cursor:pointer}
+.ag-s25-actions button:hover,.ag-s25-actions a:hover{text-decoration:underline}
+.ag-s25-foot{margin:12px 0 0;padding-top:10px;border-top:1px solid #e9eef6;color:#75869c;font-size:.68rem;line-height:1.45}
+@media(max-width:600px){.ag-s25-panel{padding:14px 12px!important}.ag-s25-top{align-items:flex-start}.ag-s25-panel h2{font-size:1.2rem!important}.ag-s25-list{grid-template-columns:1fr;gap:7px}.ag-s25-item{grid-template-columns:51px minmax(0,1fr);padding:9px}.ag-s25-copy h3{font-size:.82rem!important}}
+
 </style>
 <link rel="stylesheet" href="agenda-depth.css?v=20261107a">
 </head>
@@ -812,6 +839,16 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         </details>
         <p class="ag-week-note"><b>Horário do jogo</b> é a referência para jogar. O Campfire indica check-in e local do encontro.</p>
       </section>
+
+      <section class="ag-panel ag-s25-panel" aria-labelledby="agS25Title">
+        <div class="ag-s25-top">
+          <div><div class="ag-s25-kicker">SAVE THE DATES · TEMPORADA 25</div><h2 id="agS25Title">Próximas datas anunciadas</h2><p class="ag-s25-intro">Eventos de dezembro a fevereiro já confirmados no calendário oficial. Os detalhes serão acrescentados quando forem divulgados.</p></div>
+          <span class="ag-s25-count" id="agS25Count">11 datas</span>
+        </div>
+        <div class="ag-s25-list" id="agS25List" aria-live="polite"></div>
+        <p class="ag-s25-foot">Datas sujeitas a alterações. Horários e Pokémon em destaque ainda não foram anunciados. <a href="https://pokemongo.com/pt-BR/news/save-the-date-s25" target="_blank" rel="noopener noreferrer">Consultar anúncio oficial ↗</a></p>
+      </section>
+
       <details class="ag-fold ag-all-fold" id="agAllDetails">
         <summary><span class="ag-fold-icon">▦</span><span><b>Explorar todos os eventos</b><small id="agAllSummary">Lista completa, busca e filtros</small></span><span class="ag-fold-arrow" aria-hidden="true">⌄</span></summary>
         <section class="ag-panel ag-all-panel" aria-labelledby="programacaoTitulo">
@@ -865,7 +902,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 <script>
 (function(){
   'use strict';
-  var data=[], rotations=[], weeklyRoutines=[], selectedDay=null, selectedFilter='todos', weekStart=null, weekFocusDay=null, mobileMode='week', mobileSelected=null, mobileWeek=null;
+  var data=[], rotations=[], weeklyRoutines=[], seasonDates=[], selectedDay=null, selectedFilter='todos', weekStart=null, weekFocusDay=null, mobileMode='week', mobileSelected=null, mobileWeek=null;
   var daysNode=document.getElementById('agDays'),list=document.getElementById('agList');
   var count=document.getElementById('agCount'),search=document.getElementById('agSearch');
   var future=document.getElementById('agFuture'), clear=document.getElementById('agClear');
@@ -1337,6 +1374,26 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     count.textContent=visible.length+' '+(visible.length===1?'registro':'registros')+' na programação';
     clear.hidden=selectedFilter==='todos'&&!search.value&&!future.checked;
   }
+
+  function renderSeasonDates(){
+    var host=document.getElementById('agS25List');
+    if(!host)return;
+    var monthNames=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+    var labels={max:'BATALHAS MAX',reide:'REIDES',comunidade:'DIA COMUNITÁRIO',evento:'EVENTO ESPECIAL'};
+    host.innerHTML=seasonDates.map(function(e){
+      var d=e.start.split('-'),end=e.end.split('-');
+      var dateLabel=d[2]+(e.end!==e.start?'–'+end[2]:'');
+      var monthLabel=monthNames[Number(d[1])-1]+'/'+d[0];
+      return '<article class="ag-s25-item" data-kind="'+esc(e.kind)+'">'+
+        '<div class="ag-s25-date"><strong>'+dateLabel+'</strong><small>'+monthLabel+'</small></div>'+
+        '<div class="ag-s25-copy"><span class="ag-s25-type">'+esc(labels[e.kind]||'EVENTO')+'</span>'+
+        '<h3>'+esc(e.title)+'</h3><p>Detalhes e horários a confirmar</p>'+
+        '<div class="ag-s25-actions"><button type="button" data-s25-add="'+esc(e.id)+'">Adicionar ao calendário</button>'+
+        '<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a></div></div></article>';
+    }).join('');
+    document.getElementById('agS25Count').textContent=seasonDates.length+' datas';
+  }
+
   function icsDate(s){return s.replace(/-/g,'')}
   function nextDay(s){var d=new Date(s+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+1);return d.toISOString().slice(0,10)}
   function icsEscape(s){return String(s||'').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/[,;]/g,function(c){return '\\'+c})}
@@ -1441,6 +1498,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var b=ev.target.closest('[data-m-overview]');if(b){mobileSelect(b.dataset.mOverview,true);document.getElementById('agMWeekOverview').open=false}
   });
   document.getElementById('agMEvents').addEventListener('click',onAction);
+  document.getElementById('agS25List').addEventListener('click',function(ev){
+    var btn=ev.target.closest('[data-s25-add]');if(!btn)return;
+    var e=seasonDates.find(function(x){return x.id===btn.dataset.s25Add});if(e)addCalendar(e);
+  });
   document.querySelectorAll('.ag-spotlight').forEach(function(node){
     node.addEventListener('click',function(ev){
       var target=ev.target.closest('[data-spotlight-jump]');if(!target)return;
@@ -1467,6 +1528,8 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     document.getElementById('agMetaMonth').textContent=title+' de '+month.slice(0,4);
     document.getElementById('agMonthText').textContent=monthAbbr+' / '+month.slice(0,4);
     document.getElementById('agCalendarKicker').textContent='AGENDA GO / '+monthLong.toUpperCase()+' '+month.slice(0,4);
+    seasonDates=Array.isArray(doc.season_dates)?doc.season_dates.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];
+    renderSeasonDates();
     rotations=Array.isArray(doc.rotations)?doc.rotations.filter(function(e){return e&&e.start&&e.end&&e.kind}):[];
     weeklyRoutines=Array.isArray(doc.weekly_routines)?doc.weekly_routines:[];
     var singles=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];

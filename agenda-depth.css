@@ -236,3 +236,10 @@
  .ag-my-toolbar button{font-size:.69rem}
 }
 @media(prefers-reduced-motion:reduce){.ag-my-toolbar button,.ag-my-pick{transition:none!important}}
+
+@media(max-width:900px){
+ .agenda-page .ag-m-strip button.has-my-events{border-color:#4e8bd6;background:#edf5ff}
+ .agenda-page .ag-m-my-check{position:absolute;top:4px;right:5px;width:15px;height:15px;display:grid;place-items:center;border-radius:50%;background:#1e60b5;color:#fff;font-size:9px;font-weight:900;line-height:1}
+ .agenda-page .ag-m-monthgrid button.has-my-events{border:1px solid #5791d8;background:#edf5ff;color:#174a8d}
+ .agenda-page .ag-m-monthgrid button{position:relative}
+}

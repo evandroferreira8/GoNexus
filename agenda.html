@@ -794,6 +794,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         <div><p class="ag-m-heading-kicker">PROGRAMAÇÃO DO DIA</p><h2 id="agMDayTitle">Selecione uma data</h2></div>
         <span id="agMDayCount" class="ag-m-daycount">—</span>
       </div>
+      <div class="ag-m-daypick">
+        <p>Quer adicionar todos os eventos desta data à sua agenda?</p>
+        <button type="button" id="agMMySelectDay" class="ag-my-day-action" disabled>Selecione um dia</button>
+      </div>
       <div id="agMEvents" class="ag-m-events" aria-live="polite"></div>
 
       <section class="ag-my-agenda ag-m-my-agenda" id="agMMyAgenda" aria-labelledby="agMMyTitle">
@@ -802,7 +806,6 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
           <div class="ag-my-total"><strong id="agMMyCount">0</strong><span>selecionados</span></div>
         </div>
         <div class="ag-my-toolbar">
-          <button type="button" class="ag-my-day-action" id="agMMySelectDay">＋ Incluir este dia</button>
           <button type="button" class="ag-my-export" id="agMMyICS" disabled>↓ Baixar (.ics)</button>
           <button type="button" class="ag-my-export secondary" id="agMMyPDF" disabled>▤ Salvar PDF</button>
           <button type="button" class="ag-my-clear" id="agMMyClear" disabled>Limpar</button>
@@ -860,6 +863,11 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
               </summary>
               <div id="agPeekItems" class="ag-peek-items"></div>
             </details>
+            <div class="ag-day-pick">
+              <span>INCLUIR NA MINHA AGENDA</span>
+              <p>Escolha uma data no calendário e adicione todos os eventos daquele dia de uma vez.</p>
+              <button type="button" id="agMySelectDay" class="ag-my-day-action" disabled>Selecione um dia</button>
+            </div>
             <button type="button" id="agGoWeek" class="ag-peek-go-week">Ver programação da semana <span aria-hidden="true">→</span></button>
           </div>
         </div>
@@ -870,7 +878,6 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
             <div class="ag-my-total"><strong id="agMyCount">0</strong><span>selecionados</span></div>
           </div>
           <div class="ag-my-toolbar">
-            <button type="button" class="ag-my-day-action" id="agMySelectDay">＋ Incluir dia selecionado</button>
             <button type="button" class="ag-my-export" id="agMyICS" disabled>↓ Baixar calendário (.ics)</button>
             <button type="button" class="ag-my-export secondary" id="agMyPDF" disabled>▤ Salvar PDF</button>
             <button type="button" class="ag-my-clear" id="agMyClear" disabled>Limpar seleção</button>
@@ -1143,7 +1150,6 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var bonus=e.bonus?'<p><b>Bônus:</b> '+esc(e.bonus)+'</p>':'';
     var actions=(e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte ↗</a>':'')+
       (e.maps?'<a href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Mapa ↗</a>':'')+campfireLink(e)+campfireDateLinks(e)+
-      myEventAction(e)+
       '<button type="button" data-add="'+esc(e.id)+'">Salvar no calendário</button>'+
       '<button type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
     return '<article class="ag-compact-event" data-kind="'+esc(e.kind)+'"><div class="ag-compact-event-head">'+
@@ -1151,6 +1157,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       '<span class="ag-compact-event-where"><b>No jogo:</b> '+esc(when)+(location&&!eventMeetups(e,date).length?' · '+esc(location):'')+'</span>'+
       (note?'<p class="ag-compact-event-note">'+esc(note)+'</p>':'')+
       meetupSummary(e,date)+inlineCampfireLink(e,date)+
+      '<div class="ag-compact-select">'+myEventAction(e)+'</div>'+
       '<details class="ag-mini-detail"><summary>Detalhes e ações</summary><p>'+esc(e.description||'Confira a programação da atividade.')+'</p>'+
       extra+bonus+bonuses+benefits+'<div class="ag-mini-action">'+actions+'</div></details></article>';
   }
@@ -1235,7 +1242,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   function myEventAction(e){
     var selected=myAgendaIds.has(e.id);
     return '<button type="button" class="ag-my-pick '+(selected?'is-picked':'')+'" data-my-add="'+esc(e.id)+'" aria-pressed="'+selected+'">'+
-      (selected?'✓ Na minha agenda':'＋ Minha agenda')+'</button>';
+      (selected?'✓ Evento adicionado':'＋ Adicionar este evento')+'</button>';
   }
   function toggleMyEvent(id){
     if(!data.some(function(e){return e.id===id}))return;
@@ -1263,8 +1270,15 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       if(n)n.textContent=count;
       if(review)review.textContent=count+' '+(count===1?'evento':'eventos');
       if(day){
+        var picked=dayEvents.filter(function(e){return myAgendaIds.has(e.id)}).length;
+        var remaining=dayEvents.length-picked;
         day.disabled=!dayEvents.length;
-        day.textContent=all?'✓ Dia incluído · retirar':'＋ '+(mobile?'Incluir este dia':'Incluir dia selecionado')+' ('+dayEvents.length+')';
+        day.textContent=!dayEvents.length?'Nenhum evento nesta data':
+          all?'✓ Todos os eventos adicionados · remover':
+          picked?'＋ Adicionar '+remaining+' eventos restantes':
+          '＋ Adicionar todos os '+dayEvents.length+' eventos deste dia';
+        day.setAttribute('aria-label',day.textContent);
+        day.title=day.textContent;
       }
       ['ICS','PDF','Clear'].forEach(function(suffix){var b=byId(suffix);if(b)b.disabled=!count});
       if(items){
@@ -1341,7 +1355,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       return '<div class="ag-peek-row" data-kind="'+esc(dayKind(e))+'"><span class="ag-peek-mark"></span><span><strong>'+
       esc(eventTitle(e))+'</strong><small>Jogo: '+esc(localWhen(e,date))+
       (where?' · '+esc(where):'')+(e.meetup_status==='publicado'?' · no Campfire':'')+'</small>'+
-      (link?'<span class="ag-peek-local-links">'+link+'</span>':'')+'</span></div>';
+      (link?'<span class="ag-peek-local-links">'+link+'</span>':'')+'</span>'+myEventAction(e)+'</div>';
     }).join('')+(sorted.length>5?'<p class="ag-peek-empty">+'+(sorted.length-5)+' eventos na programação semanal.</p>':''):
       '<p class="ag-peek-empty">Não há eventos programados neste dia.</p>';
   }
@@ -1417,7 +1431,6 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       '<p>'+esc(description)+'</p>'+bonus;
     var actions=(e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte ↗</a>':'')+
       (e.maps?'<a href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Ver no mapa ↗</a>':'')+campfireLink(e)+campfireDateLinks(e)+
-      myEventAction(e)+
       '<button type="button" data-add="'+esc(e.id)+'">Adicionar ao calendário</button>'+
       '<button type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
     return '<article class="ag-m-card" data-kind="'+esc(mobileKind(e))+'">'+
@@ -1427,6 +1440,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       (place&&!eventMeetups(e,date).length?'<span>• '+esc(place)+'</span>':'')+'</div>'+
       ((e.routine||e.meetup_status)&&meetupNote(e,date)?'<p class="ag-m-confirm">'+esc(meetupNote(e,date))+'</p>':'')+
       meetupSummary(e,date)+inlineCampfireLink(e,date)+
+      '<div class="ag-m-card-select">'+myEventAction(e)+'</div>'+
       '<details><summary>Informações, bônus e ações</summary>'+detail+'<div class="ag-m-card-actions">'+actions+'</div></details>'+
       '</article>';
   }

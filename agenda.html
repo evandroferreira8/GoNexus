@@ -696,43 +696,38 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 .ag-peek-local-links a:focus-visible{outline:2px solid #d9a31f;outline-offset:2px}
 
 
-/* Save the Dates — hierarquia por mês e destaque para GO Tour */
-.ag-s25-panel{margin-top:12px;border:1px solid #d9e2ef;background:#f8fafc}
-.ag-s25-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:15px}
-.ag-s25-kicker{font:800 .65rem var(--gn-code,monospace);letter-spacing:.11em;color:#2862b9;text-transform:uppercase}
-.ag-s25-panel h2{margin:4px 0 0!important;color:#142d52!important;font-size:1.32rem!important;letter-spacing:-.035em}
-.ag-s25-intro{margin:6px 0 0;color:#687d98;font-size:.77rem;line-height:1.45;max-width:520px}
-.ag-s25-count{flex:none;border-radius:99px;background:#eaf1fc;color:#28599e;padding:6px 9px;font-size:.68rem;font-weight:850}
-.ag-s25-month{margin-top:15px}
-.ag-s25-month:first-child{margin-top:0}
-.ag-s25-monthhead{display:flex;align-items:center;gap:10px;margin:0 0 8px;color:#1b3455}
-.ag-s25-monthhead strong{font:900 .72rem var(--gn-code,monospace);letter-spacing:.1em;text-transform:uppercase}
-.ag-s25-monthhead span{height:1px;flex:1;background:#dce5f0}
-.ag-s25-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.ag-s25-item{--s25:#4277bf;display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;align-items:center;min-width:0;padding:10px;border:1px solid #e0e8f3;border-left:3px solid var(--s25);border-radius:11px;background:#fff}
-.ag-s25-item[data-kind=max]{--s25:#bd5799}
-.ag-s25-item[data-kind=reide]{--s25:#7b62c5}
-.ag-s25-item[data-kind=comunidade]{--s25:#199778}
-.ag-s25-item[data-kind=evento]{--s25:#d58b32}
-.ag-s25-item[data-kind=tour]{--s25:#182b45;background:#182b45;border-color:#182b45;color:#fff}
-.ag-s25-date{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:51px;border-radius:8px;background:color-mix(in srgb,var(--s25),white 91%);color:var(--s25)}
-.ag-s25-date strong{font-size:1.4rem;line-height:1;font-weight:900;letter-spacing:-.05em}
-.ag-s25-date small{font:800 .57rem var(--gn-code,monospace);text-transform:uppercase;margin-top:3px}
-.ag-s25-copy{min-width:0}
-.ag-s25-copy h3{margin:0 0 4px!important;color:#183457!important;font-size:.84rem!important;line-height:1.2}
-.ag-s25-copy p{margin:0;color:#75869c;font-size:.67rem;line-height:1.35}
-.ag-s25-item[data-kind=tour] .ag-s25-date{background:#e7edf5;color:#183454}
-.ag-s25-item[data-kind=tour] .ag-s25-copy h3{color:#fff!important}
-.ag-s25-item[data-kind=tour] .ag-s25-copy p{color:#c5d0df}
-.ag-s25-item[data-kind=tour] .ag-s25-type{color:#80c8ef}
-.ag-s25-type{display:block;margin-bottom:3px;color:var(--s25);font:800 .57rem var(--gn-code,monospace);letter-spacing:.07em;text-transform:uppercase}
-.ag-s25-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:7px}
-.ag-s25-actions button,.ag-s25-actions a{padding:0;border:0;background:none;color:#245bb7;font-size:.65rem;font-weight:850;text-decoration:none;cursor:pointer}
-.ag-s25-item[data-kind=tour] .ag-s25-actions button,.ag-s25-item[data-kind=tour] .ag-s25-actions a{color:#9bdcff}
-.ag-s25-actions button:hover,.ag-s25-actions a:hover{text-decoration:underline}
-.ag-s25-foot{margin:13px 0 0;padding-top:10px;border-top:1px solid #e1e8f1;color:#75869c;font-size:.68rem;line-height:1.45}
-.ag-s25-foot a{color:#245bb7;font-weight:800;text-decoration:none}
-@media(max-width:600px){.ag-s25-panel{padding:14px 12px!important}.ag-s25-top{align-items:flex-start}.ag-s25-panel h2{font-size:1.2rem!important}.ag-s25-list{grid-template-columns:1fr;gap:7px}.ag-s25-item{grid-template-columns:51px minmax(0,1fr);padding:9px}.ag-s25-copy h3{font-size:.82rem!important}}
+
+/* Datas futuras integradas aos componentes nativos da agenda */
+.ag-s25-fold{margin-top:12px}
+.ag-s25-fold>.ag-s25-content{padding:10px 12px 12px;border-top:1px solid #dce5f1;background:#fff}
+.ag-s25-month{margin:9px 0 5px;color:#7185a0;font:800 .65rem var(--gn-code,monospace);letter-spacing:.08em;text-transform:uppercase}
+.ag-s25-month:first-child{margin-top:1px}
+.ag-s25-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.ag-s25-event{--evc:#3270cf;display:grid;grid-template-columns:48px minmax(0,1fr);gap:9px;align-items:center;background:#fff;border:1px solid #e1e9f4;border-left:3px solid var(--evc);border-radius:10px;padding:8px;min-width:0}
+.ag-s25-event[data-kind=max]{--evc:#b94f9f}
+.ag-s25-event[data-kind=reide]{--evc:#7259bf}
+.ag-s25-event[data-kind=comunidade]{--evc:#18937f}
+.ag-s25-event[data-kind=evento]{--evc:#d49b20}
+.ag-s25-event[data-kind=tour]{--evc:#2c639e}
+.ag-s25-date{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:45px;border-radius:8px;background:#edf3fc;color:#315d91}
+.ag-s25-date strong{font-size:1.12rem;line-height:1;font-weight:900;letter-spacing:-.04em}
+.ag-s25-date small{margin-top:3px;font:800 .55rem var(--gn-code,monospace)}
+.ag-s25-info{min-width:0}
+.ag-s25-info strong{display:block;color:#173256;font-size:.79rem;line-height:1.25}
+.ag-s25-type{display:block;margin-top:3px;color:var(--evc);font-size:.59rem;font-weight:850;letter-spacing:.04em;text-transform:uppercase}
+.ag-s25-note{margin:3px 0 0;color:#70839e;font-size:.65rem;line-height:1.3}
+.ag-s25-actions{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 0}
+.ag-s25-actions button,.ag-s25-actions a{padding:0;border:0;background:none;color:#205bb2;font-size:.66rem;font-weight:800;text-decoration:none;cursor:pointer}
+.ag-s25-source{margin:10px 0 0;padding-top:8px;border-top:1px solid #edf1f6;color:#7185a0;font-size:.65rem;line-height:1.4}
+.ag-s25-source a{color:#205bb2;font-weight:800;text-decoration:none}
+@media(max-width:600px){
+ .ag-s25-fold{margin-top:10px}
+ .ag-s25-fold>.ag-s25-content{padding:8px}
+ .ag-s25-list{grid-template-columns:1fr;gap:6px}
+ .ag-s25-event{grid-template-columns:46px minmax(0,1fr);padding:8px;gap:9px}
+ .ag-s25-info strong{font-size:.78rem}
+ .ag-s25-note{font-size:.65rem}
+}
 
 </style>
 <link rel="stylesheet" href="agenda-depth.css?v=20261107a">
@@ -853,14 +848,17 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         <p class="ag-week-note"><b>Horário do jogo</b> é a referência para jogar. O Campfire indica check-in e local do encontro.</p>
       </section>
 
-      <section class="ag-panel ag-s25-panel" aria-labelledby="agS25Title">
-        <div class="ag-s25-top">
-          <div><div class="ag-s25-kicker">SAVE THE DATES · TEMPORADA 25</div><h2 id="agS25Title">Próximas datas anunciadas</h2><p class="ag-s25-intro">Eventos de dezembro a fevereiro já confirmados no calendário oficial. Os detalhes serão acrescentados quando forem divulgados.</p></div>
-          <span class="ag-s25-count" id="agS25Count">11 datas</span>
+      <details class="ag-fold ag-s25-fold" id="agS25Details">
+        <summary>
+          <span class="ag-fold-icon" aria-hidden="true">◷</span>
+          <span><b>Próximas datas</b><small id="agS25Summary">Temporada 25 · dezembro a fevereiro</small></span>
+          <span class="ag-fold-arrow" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="ag-s25-content">
+          <div id="agS25List" aria-live="polite"></div>
+          <p class="ag-s25-source">Datas anunciadas pela Niantic. Horários e atrações podem ser divulgados posteriormente. <a href="https://pokemongo.com/pt-BR/news/save-the-date-s25" target="_blank" rel="noopener noreferrer">Ver anúncio oficial ↗</a></p>
         </div>
-        <div class="ag-s25-list" id="agS25List" aria-live="polite"></div>
-        <p class="ag-s25-foot">Datas sujeitas a alterações. Horários e Pokémon em destaque ainda não foram anunciados. <a href="https://pokemongo.com/pt-BR/news/save-the-date-s25" target="_blank" rel="noopener noreferrer">Consultar anúncio oficial ↗</a></p>
-      </section>
+      </details>
 
       <details class="ag-fold ag-all-fold" id="agAllDetails">
         <summary><span class="ag-fold-icon">▦</span><span><b>Explorar todos os eventos</b><small id="agAllSummary">Lista completa, busca e filtros</small></span><span class="ag-fold-arrow" aria-hidden="true">⌄</span></summary>
@@ -1393,7 +1391,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     if(!host)return;
     var monthNames=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
     var monthShort=['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
-    var labels={max:'BATALHAS MAX',reide:'REIDES',comunidade:'DIA COMUNITÁRIO',evento:'EVENTO ESPECIAL',tour:'POKÉMON GO TOUR'};
+    var labels={max:'Batalhas Max',reide:'Reides',comunidade:'Dia Comunitário',evento:'Evento especial',tour:'Pokémon GO Tour'};
     var groups={};
     seasonDates.slice().sort(function(a,b){return a.start.localeCompare(b.start)}).forEach(function(e){
       var key=e.start.slice(0,7);(groups[key]=groups[key]||[]).push(e);
@@ -1403,18 +1401,18 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       var cards=groups[key].map(function(e){
         var d=e.start.split('-'),end=e.end.split('-');
         var dateLabel=d[2]+(e.end!==e.start?'–'+end[2]:'');
-        var monthLabel=monthShort[Number(d[1])-1]+'/'+d[0];
-        var note=e.kind==='tour'?(e.location||'Detalhes da experiência a confirmar'):'Horários e Pokémon em destaque a confirmar';
-        return '<article class="ag-s25-item" data-kind="'+esc(e.kind)+'">'+
-          '<div class="ag-s25-date"><strong>'+dateLabel+'</strong><small>'+monthLabel+'</small></div>'+
-          '<div class="ag-s25-copy"><span class="ag-s25-type">'+esc(labels[e.kind]||'EVENTO')+'</span>'+
-          '<h3>'+esc(e.title)+'</h3><p>'+esc(note)+'</p>'+
-          '<div class="ag-s25-actions"><button type="button" data-s25-add="'+esc(e.id)+'">Adicionar ao calendário</button>'+
-          '<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a></div></div></article>';
+        var note=e.kind==='tour'?(e.location||'Detalhes do evento a confirmar'):'Horários e Pokémon em destaque a confirmar';
+        return '<article class="ag-s25-event" data-kind="'+esc(e.kind)+'">'+
+          '<div class="ag-s25-date"><strong>'+dateLabel+'</strong><small>'+monthShort[Number(d[1])-1]+'</small></div>'+
+          '<div class="ag-s25-info"><strong>'+esc(e.title)+'</strong>'+
+          '<span class="ag-s25-type">'+esc(labels[e.kind]||'Evento')+'</span>'+
+          '<p class="ag-s25-note">'+esc(note)+'</p>'+
+          '<div class="ag-s25-actions"><button type="button" data-s25-add="'+esc(e.id)+'">Adicionar ao calendário</button></div></div></article>';
       }).join('');
-      return '<section class="ag-s25-month" aria-label="'+esc(heading)+'"><div class="ag-s25-monthhead"><strong>'+esc(heading)+'</strong><span></span></div><div class="ag-s25-list">'+cards+'</div></section>';
+      return '<section aria-label="'+esc(heading)+'"><h3 class="ag-s25-month">'+esc(heading)+'</h3><div class="ag-s25-list">'+cards+'</div></section>';
     }).join('');
-    document.getElementById('agS25Count').textContent=seasonDates.length+' datas';
+    var summary=document.getElementById('agS25Summary');
+    if(summary)summary.textContent='Temporada 25 · '+seasonDates.length+' datas anunciadas';
   }
 
   function icsDate(s){return s.replace(/-/g,'')}

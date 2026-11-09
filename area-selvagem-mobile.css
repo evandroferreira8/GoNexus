@@ -494,3 +494,66 @@ body.page-wild.wa-low-power :is(.wa-titan img,.wa-titan:after,.wa-titan-marker,.
  body.page-wild .wa-capture-intro{min-height:470px}
  body.page-wild .wa-capture-orb{width:clamp(200px,58vw,245px);right:-24px;bottom:-38px}
 }
+
+
+/* Corrige a sobreposição na faixa tablet: texto e foto passam a ter áreas próprias. */
+@media (min-width:761px) and (max-width:900px){
+ body.page-wild .wa-capture-intro{
+  min-height:410px;padding:27px 25px;
+  display:flex;align-items:center;
+ }
+ body.page-wild .wa-capture-copy{
+  width:50%;max-width:50%;flex:0 0 50%;
+  position:relative;z-index:4;
+ }
+ body.page-wild .wa-capture-intro h3{
+  max-width:100%;font-size:clamp(1.9rem,3.4vw,2.3rem);
+  line-height:1.07;
+ }
+ body.page-wild .wa-capture-intro p{
+  width:100%;max-width:100%;font-size:.96rem;line-height:1.52;
+ }
+ body.page-wild .wa-capture-badge{
+  width:100%;max-width:100%;font-size:.84rem;line-height:1.4;
+ }
+ body.page-wild .wa-capture-orb{
+  width:min(38vw,310px);height:auto;aspect-ratio:1;
+  top:50%;bottom:auto;right:8px;transform:translateY(-50%);
+  opacity:1;
+ }
+ body.page-wild .wa-capture-grid{
+  width:min(37vw,300px);height:auto;aspect-ratio:1;
+  top:50%;bottom:auto;right:2px;transform:translateY(-50%);
+ }
+ body.page-wild .wa-capture-credit{right:16px;bottom:12px;font-size:.62rem}
+}
+
+/* Texto informativo: aumenta o corpo sem perder a hierarquia dos rótulos. */
+@media(max-width:900px){
+ body.page-wild .wa-encounter small{font-size:.75rem}
+ body.page-wild .wa-mighty-heading span{font-size:.78rem}
+ body.page-wild .wa-mighty-card b{font-size:.82rem}
+ body.page-wild .wa-small-note{font-size:.83rem;line-height:1.52}
+ body.page-wild .wa-capture-overline{font-size:.74rem}
+ body.page-wild .wa-capture-intro p{font-size:.94rem;line-height:1.52}
+ body.page-wild .wa-capture-badge{font-size:.84rem;line-height:1.42}
+ body.page-wild .wa-capture-quick small{font-size:.83rem;line-height:1.48}
+ body.page-wild .wa-foot-tips{font-size:.81rem;line-height:1.5}
+ body.page-wild .wa-feature p{font-size:.84rem;line-height:1.48}
+ body.page-wild .wa-bonus small{font-size:.82rem;line-height:1.48}
+ body.page-wild .wa-extra-body{font-size:.87rem;line-height:1.52}
+ body.page-wild .wa-provenance{font-size:.81rem;line-height:1.5}
+ body.page-wild .wa-prep-grid small{font-size:.73rem;line-height:1.38}
+ body.page-wild .wa-prep-kind{font-size:.57rem}
+ body.page-wild .wa-prep-foot{font-size:.8rem;line-height:1.48}
+ body.page-wild .wa-capture-credit{font-size:.62rem}
+}
+
+/* Em telas estreitas, os cards ganham altura para acomodar letras maiores. */
+@media(max-width:430px){
+ body.page-wild .wa-prep-grid article{min-height:124px}
+ body.page-wild .wa-prep-grid b{font-size:.75rem}
+ body.page-wild .wa-prep-grid small{font-size:.7rem;line-height:1.36}
+ body.page-wild .wa-prep-kind{font-size:.54rem}
+ body.page-wild .wa-capture-credit{font-size:.6rem}
+}

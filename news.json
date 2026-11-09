@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-11-09T01:45:27+00:00",
+  "updated_at": "2026-11-09T20:49:00+00:00",
   "items": [
+    {
+      "title": "Marquem no calendário as datas dos Dias Comunitários da próxima Temporada!",
+      "url": "https://pokemongo.com/pt-BR/news/save-the-date-s25",
+      "image": "https://lh3.googleusercontent.com/GMESDlJRw5GMsmroW_oK6TLXA4OerLjNY43b0JkjCoSXrez97CwCflnTBTh-uzMhJZYQvQbtA8nK8YPEknYHu0tearwDyBVUoi8"
+    },
     {
       "title": "Obtenham o dobro de Pokémoedas de bônus com nossa promoção de Black Friday!",
       "url": "https://pokemongo.com/pt-BR/news/black-friday-2026",
@@ -21,11 +26,6 @@
       "title": "Assistam às partidas de Pokémon GO no LAIC 2027, em português!",
       "url": "https://pokemongo.com/pt-BR/news/pokemon-go-at-laic2027",
       "image": "https://lh3.googleusercontent.com/cp8AifKM0anrPp6eGt0utJixuBSgfeny8crbxPGp3krWK6aWK4VId-7iQZ4LkkhIMjQ2AePh7QVxkeFOcQuND1_4CDT-KQTn3Bc"
-    },
-    {
-      "title": "Descubram novas aventuras pelas cidades a partir de hoje! Treinadoras e Treinadores já podem participar das novas Caças aos Selos do Pokémon GO em Sendai • Tohoku, no Japão, e na Cidade do México, no México.",
-      "url": "https://pokemongo.com/pt-BR/news/forever-stamp-rally-go-wild-area-2026",
-      "image": "https://lh3.googleusercontent.com/M9HsqPfmLn15sC1MyDWRVZDzmVDI1nGsjHYREQU0mGjgTkgamrO5mtCve6AQBUdnnHSUH1doO1yPywHyFkuulCuPq15YBjORFm-nBkE42UE"
     }
   ]
 }

@@ -271,3 +271,8 @@
  .ag-m-card-select .ag-my-pick{min-height:43px;font-size:.82rem}
 }
 @media(min-width:901px){.ag-m-daypick{display:none}}
+
+.ag-peek-row{flex-wrap:wrap}
+.ag-peek-row>span:nth-child(2){flex:1;min-width:0}
+.ag-peek-row>.ag-my-pick{flex:0 0 calc(100% - 14px);width:calc(100% - 14px);margin:0 0 0 14px;white-space:normal;line-height:1.25}
+.ag-day-pick .ag-my-day-action,.ag-m-daypick .ag-my-day-action{white-space:normal;line-height:1.25}

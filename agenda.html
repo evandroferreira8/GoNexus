@@ -1598,11 +1598,11 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   function downloadMyICS(){
     var chosen=selectedMyEvents();
     if(!chosen.length)return;
-    var stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\\.\\d{3}Z$/,'Z');
+    var stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
     var fields=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//GO Nexus//Minha Agenda GO//PT-BR','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:GO Nexus - Minha Agenda','X-WR-TIMEZONE:America/Fortaleza'];
     chosen.forEach(function(e){fields=fields.concat(myCalendarBlock(e,stamp))});
     fields.push('END:VCALENDAR');
-    var blob=new Blob([fields.join('\\r\\n')+'\\r\\n'],{type:'text/calendar;charset=utf-8'});
+    var blob=new Blob([fields.join('\r\n')+'\r\n'],{type:'text/calendar;charset=utf-8'});
     var a=document.createElement('a');a.href=URL.createObjectURL(blob);
     a.download='go-nexus-minha-agenda-'+month+'.ics';document.body.appendChild(a);a.click();a.remove();
     setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
@@ -1624,7 +1624,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     }).join('');
     var title='Minha Agenda GO · '+monthLong+' de '+month.slice(0,4);
     var page='<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(title)+'</title><style>'+
-      '@page{size:A4;margin:16mm}*{box-sizing:border-box}body{font:14px/1.5 Arial,sans-serif;color:#173252;margin:0}header{padding:0 0 16px;border-bottom:3px solid #245fc4;margin-bottom:18px}header small{font-size:10px;font-weight:800;letter-spacing:.14em;color:#2864bd}h1{font-size:27px;line-height:1.1;margin:7px 0;color:#122b4d}header p{margin:5px 0 0;color:#657b96;font-size:12px}.event{display:grid;grid-template-columns:155px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid #dbe4ef;break-inside:avoid}.date{font-weight:800;color:#245fc4;font-size:12px}.kind{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#50739f;font-weight:800}h2{font-size:16px;margin:4px 0 6px;color:#132f55}p{margin:4px 0;font-size:12px}.source{font-size:10px;color:#67809d;overflow-wrap:anywhere}.footer{margin-top:20px;padding-top:10px;border-top:1px solid #dbe4ef;font-size:10px;color:#71839b}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><header><small>GO NEXUS / AGENDA PESSOAL</small><h1>'+esc(title)+'</h1><p>'+chosen.length+' '+(chosen.length===1?'evento selecionado':'eventos selecionados')+' · Horário local de Natal (UTC−3)</p></header>'+cards+'<div class="footer">Agenda montada no GO Nexus. Confira atualizações e possíveis mudanças na programação oficial.</div><script>window.addEventListener("load",function(){setTimeout(function(){window.print()},350)});<\\/script></body></html>';
+      '@page{size:A4;margin:16mm}*{box-sizing:border-box}body{font:14px/1.5 Arial,sans-serif;color:#173252;margin:0}header{padding:0 0 16px;border-bottom:3px solid #245fc4;margin-bottom:18px}header small{font-size:10px;font-weight:800;letter-spacing:.14em;color:#2864bd}h1{font-size:27px;line-height:1.1;margin:7px 0;color:#122b4d}header p{margin:5px 0 0;color:#657b96;font-size:12px}.event{display:grid;grid-template-columns:155px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid #dbe4ef;break-inside:avoid}.date{font-weight:800;color:#245fc4;font-size:12px}.kind{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#50739f;font-weight:800}h2{font-size:16px;margin:4px 0 6px;color:#132f55}p{margin:4px 0;font-size:12px}.source{font-size:10px;color:#67809d;overflow-wrap:anywhere}.footer{margin-top:20px;padding-top:10px;border-top:1px solid #dbe4ef;font-size:10px;color:#71839b}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><header><small>GO NEXUS / AGENDA PESSOAL</small><h1>'+esc(title)+'</h1><p>'+chosen.length+' '+(chosen.length===1?'evento selecionado':'eventos selecionados')+' · Horário local de Natal (UTC−3)</p></header>'+cards+'<div class="footer">Agenda montada no GO Nexus. Confira atualizações e possíveis mudanças na programação oficial.</div><script>window.addEventListener("load",function(){setTimeout(function(){window.print()},350)});<\/script></body></html>';
     printWindow.document.open();printWindow.document.write(page);printWindow.document.close();printWindow.focus();
   }
 

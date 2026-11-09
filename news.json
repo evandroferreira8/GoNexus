@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-11-07T01:58:50+00:00",
+  "updated_at": "2026-11-09T01:45:27+00:00",
   "items": [
+    {
+      "title": "Obtenham o dobro de Pokémoedas de bônus com nossa promoção de Black Friday!",
+      "url": "https://pokemongo.com/pt-BR/news/black-friday-2026",
+      "image": "https://lh3.googleusercontent.com/NAgNHh2yS0hBl_CRKM8tmWSD6WkaViAT1xUlfbSZHj3AjZ5O-ZFxfyvffWy77MEIj5Z7w8LeOakudjcT1MZrIizXBDPffSfvFA-4z0P_dA"
+    },
     {
       "title": "Apenas este fim de semana! Faça login entre 6 e 8 de novembro para obter uma Pesquisa temporária gratuita com Machamp Gigamax!",
       "url": "https://pokemongo.com/pt-BR/news/gowildarea-2026-timed-research",
@@ -21,11 +26,6 @@
       "title": "Descubram novas aventuras pelas cidades a partir de hoje! Treinadoras e Treinadores já podem participar das novas Caças aos Selos do Pokémon GO em Sendai • Tohoku, no Japão, e na Cidade do México, no México.",
       "url": "https://pokemongo.com/pt-BR/news/forever-stamp-rally-go-wild-area-2026",
       "image": "https://lh3.googleusercontent.com/M9HsqPfmLn15sC1MyDWRVZDzmVDI1nGsjHYREQU0mGjgTkgamrO5mtCve6AQBUdnnHSUH1doO1yPywHyFkuulCuPq15YBjORFm-nBkE42UE"
-    },
-    {
-      "title": "Preparem-se para a Área Selvagem do Pokémon GO 2026 com fundos de Pokémon no Perfil de Treinador, novos itens de avatar e mais novidades empolgantes.",
-      "url": "https://pokemongo.com/pt-BR/news/get-ready-for-gowildarea-2026",
-      "image": "https://lh3.googleusercontent.com/U-aJxlmtiVe7UDPLAEoyI8LKHgyuRe9RpQB9nxZzRj-sCkzCPo9RlTdZ9XXtMSwR1sI80g6EEtGyA9bLRWGnALsEnz5EHR9z6bOWA2frRw"
     }
   ]
 }

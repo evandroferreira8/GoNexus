@@ -689,6 +689,25 @@
       "end": "2027-02-13",
       "description": "Data anunciada para a Temporada 25. Pokémon em destaque e horários ainda serão divulgados.",
       "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
+    },
+    {
+      "id": "s25-tour-la-taiwan-2027",
+      "title": "Pokémon GO Tour: Los Angeles e Taiwan",
+      "kind": "tour",
+      "start": "2027-02-19",
+      "end": "2027-02-21",
+      "description": "Fim de semana do GO Tour presencial em Los Angeles e Taiwan. Informações específicas de cada experiência devem ser consultadas no anúncio oficial.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25",
+      "location": "Los Angeles (EUA) e Taiwan"
+    },
+    {
+      "id": "s25-tour-global-2027",
+      "title": "Pokémon GO Tour: Global",
+      "kind": "tour",
+      "start": "2027-02-27",
+      "end": "2027-02-28",
+      "description": "Fim de semana do Pokémon GO Tour 2027 Global. Detalhes da programação ainda serão divulgados.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
     }
   ]
 }

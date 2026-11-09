@@ -1275,7 +1275,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         day.disabled=!dayEvents.length;
         day.textContent=!dayEvents.length?'Nenhum evento nesta data':
           all?'✓ Todos os eventos adicionados · remover':
-          picked?'＋ Adicionar '+remaining+' eventos restantes':
+          picked?'＋ Adicionar '+remaining+' '+(remaining===1?'evento restante':'eventos restantes'):
           '＋ Adicionar todos os '+dayEvents.length+' eventos deste dia';
         day.setAttribute('aria-label',day.textContent);
         day.title=day.textContent;

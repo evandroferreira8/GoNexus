@@ -5554,7 +5554,8 @@
           "Japonesa",
           "JP",
           "JPN",
-          "Tokyo"
+          "Tokyo",
+          "Tóquio"
         ]
       }
     },
@@ -7379,7 +7380,8 @@
           "Japonesa",
           "JP",
           "JPN",
-          "Tokyo"
+          "Tokyo",
+          "Tóquio"
         ]
       }
     },
@@ -7794,7 +7796,8 @@
           "Japonesa",
           "JP",
           "JPN",
-          "Tokyo"
+          "Tokyo",
+          "Tóquio"
         ]
       }
     },
@@ -7841,7 +7844,8 @@
           "Japonesa",
           "JP",
           "JPN",
-          "Tokyo"
+          "Tokyo",
+          "Tóquio"
         ]
       }
     },
@@ -10690,7 +10694,9 @@
           "Japonês",
           "Japonesa",
           "JP",
-          "JPN"
+          "JPN",
+          "Tóquio",
+          "Tokyo"
         ]
       }
     },
@@ -11113,7 +11119,9 @@
           "Republic of Korea",
           "Korean",
           "KR",
-          "KOR"
+          "KOR",
+          "Seul",
+          "Seoul"
         ]
       }
     },

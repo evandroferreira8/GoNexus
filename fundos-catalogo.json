@@ -99,7 +99,8 @@
           "Republic of Korea",
           "Korean",
           "KR",
-          "KOR"
+          "KOR",
+          "Jeju Island"
         ]
       }
     },
@@ -196,8 +197,12 @@
           "GB",
           "GBR",
           "Britânico",
-          "Britânica"
-        ]
+          "Britânica",
+          "London",
+          "England",
+          "English"
+        ],
+        "admin": "Inglaterra"
       }
     },
     {
@@ -246,7 +251,9 @@
           "Estados Unidos da América",
           "U.S.A.",
           "New York",
-          "NY"
+          "NY",
+          "New York City",
+          "NYC"
         ]
       }
     },
@@ -290,7 +297,8 @@
           "Republic of Korea",
           "Korean",
           "KR",
-          "KOR"
+          "KOR",
+          "Seoul"
         ]
       }
     },
@@ -374,7 +382,10 @@
           "Mexican",
           "Mexicana",
           "MX",
-          "MEX"
+          "MEX",
+          "Mexico City",
+          "Ciudad de México",
+          "CDMX"
         ]
       }
     },
@@ -650,7 +661,8 @@
           "Spain",
           "Spanish",
           "ES",
-          "ESP"
+          "ESP",
+          "Madrid"
         ]
       }
     },
@@ -705,7 +717,9 @@
           "Estados Unidos da América",
           "U.S.A.",
           "New York",
-          "NY"
+          "NY",
+          "New York City",
+          "NYC"
         ]
       }
     },
@@ -928,7 +942,8 @@
           "Indonesia",
           "Indonesian",
           "ID",
-          "IDN"
+          "IDN",
+          "Jakarta"
         ]
       }
     },
@@ -1102,7 +1117,8 @@
           "Brasileiro",
           "Brasileira",
           "BR",
-          "BRA"
+          "BRA",
+          "Sao Paulo"
         ]
       }
     },
@@ -1276,7 +1292,8 @@
           "India",
           "Indian",
           "IN",
-          "IND"
+          "IND",
+          "Bombay"
         ]
       }
     },
@@ -1317,7 +1334,8 @@
           "Italy",
           "Italian",
           "IT",
-          "ITA"
+          "ITA",
+          "Milan"
         ]
       }
     },
@@ -1765,8 +1783,11 @@
           "GB",
           "GBR",
           "Britânico",
-          "Britânica"
-        ]
+          "Britânica",
+          "England",
+          "English"
+        ],
+        "admin": "Inglaterra"
       }
     },
     {
@@ -1810,8 +1831,12 @@
           "GB",
           "GBR",
           "Britânico",
-          "Britânica"
-        ]
+          "Britânica",
+          "London",
+          "England",
+          "English"
+        ],
+        "admin": "Inglaterra"
       }
     },
     {
@@ -2026,7 +2051,8 @@
           "Spain",
           "Spanish",
           "ES",
-          "ESP"
+          "ESP",
+          "Valencia"
         ]
       }
     },
@@ -2115,7 +2141,8 @@
           "Germany",
           "German",
           "DE",
-          "DEU"
+          "DEU",
+          "Berlin"
         ]
       }
     },
@@ -2390,7 +2417,9 @@
           "Holland",
           "Dutch",
           "NL",
-          "NLD"
+          "NLD",
+          "The Hague",
+          "Hague"
         ]
       }
     },
@@ -2431,7 +2460,8 @@
           "Germany",
           "German",
           "DE",
-          "DEU"
+          "DEU",
+          "Cologne"
         ]
       }
     },
@@ -2478,7 +2508,9 @@
           "Estados Unidos da América",
           "U.S.A.",
           "New York",
-          "NY"
+          "NY",
+          "New York City",
+          "NYC"
         ]
       }
     },
@@ -2570,7 +2602,8 @@
           "United States of America",
           "Estados Unidos da América",
           "U.S.A.",
-          "California"
+          "California",
+          "San Francisco"
         ]
       }
     },
@@ -2825,7 +2858,8 @@
           "Holland",
           "Dutch",
           "NL",
-          "NLD"
+          "NLD",
+          "Amsterdam"
         ]
       }
     },
@@ -2866,7 +2900,8 @@
           "Spain",
           "Spanish",
           "ES",
-          "ESP"
+          "ESP",
+          "Valencia"
         ]
       }
     },
@@ -2911,7 +2946,8 @@
           "Mexicana",
           "MX",
           "MEX",
-          "Quintana Roo"
+          "Quintana Roo",
+          "Cancun"
         ]
       }
     },
@@ -2996,7 +3032,8 @@
           "Republic of Korea",
           "Korean",
           "KR",
-          "KOR"
+          "KOR",
+          "Jeju Island"
         ]
       }
     },
@@ -3299,7 +3336,8 @@
           "Indonesia",
           "Indonesian",
           "ID",
-          "IDN"
+          "IDN",
+          "Jakarta"
         ]
       }
     },
@@ -3385,7 +3423,8 @@
           "Germany",
           "German",
           "DE",
-          "DEU"
+          "DEU",
+          "Cologne"
         ]
       }
     },
@@ -3427,7 +3466,8 @@
           "Brasileiro",
           "Brasileira",
           "BR",
-          "BRA"
+          "BRA",
+          "Rio"
         ]
       }
     },
@@ -3637,7 +3677,8 @@
           "Japonês",
           "Japonesa",
           "JP",
-          "JPN"
+          "JPN",
+          "Tokyo"
         ]
       }
     },
@@ -3681,7 +3722,8 @@
           "Japonês",
           "Japonesa",
           "JP",
-          "JPN"
+          "JPN",
+          "Tokyo"
         ]
       }
     },
@@ -3725,7 +3767,8 @@
           "Japonês",
           "Japonesa",
           "JP",
-          "JPN"
+          "JPN",
+          "Tokyo"
         ]
       }
     },
@@ -3769,7 +3812,8 @@
           "Japonês",
           "Japonesa",
           "JP",
-          "JPN"
+          "JPN",
+          "Tokyo"
         ]
       }
     },
@@ -3852,7 +3896,8 @@
           "Denmark",
           "Danish",
           "DK",
-          "DNK"
+          "DNK",
+          "Copenhagen"
         ]
       }
     },
@@ -5508,7 +5553,8 @@
           "Japonês",
           "Japonesa",
           "JP",
-          "JPN"
+          "JPN",
+          "Tokyo"
         ]
       }
     },
@@ -7332,7 +7378,8 @@
           "Japonês",
           "Japonesa",
           "JP",
-          "JPN"
+          "JPN",
+          "Tokyo"
         ]
       }
     },
@@ -7746,7 +7793,8 @@
           "Japonês",
           "Japonesa",
           "JP",
-          "JPN"
+          "JPN",
+          "Tokyo"
         ]
       }
     },
@@ -7792,7 +7840,8 @@
           "Japonês",
           "Japonesa",
           "JP",
-          "JPN"
+          "JPN",
+          "Tokyo"
         ]
       }
     },
@@ -9259,8 +9308,12 @@
           "GB",
           "GBR",
           "Britânico",
-          "Britânica"
-        ]
+          "Britânica",
+          "London",
+          "England",
+          "English"
+        ],
+        "admin": "Inglaterra"
       }
     },
     {
@@ -9498,7 +9551,8 @@
         "aliases": [
           "Portuguese",
           "PT",
-          "PRT"
+          "PRT",
+          "Lisbon"
         ]
       }
     },
@@ -9537,7 +9591,8 @@
           "France",
           "French",
           "FR",
-          "FRA"
+          "FRA",
+          "Marseille"
         ]
       }
     },
@@ -9576,7 +9631,8 @@
           "Germany",
           "German",
           "DE",
-          "DEU"
+          "DEU",
+          "Munich"
         ]
       }
     },
@@ -9655,7 +9711,8 @@
           "Brasileiro",
           "Brasileira",
           "BR",
-          "BRA"
+          "BRA",
+          "Rio"
         ]
       }
     },
@@ -9790,8 +9847,12 @@
           "GB",
           "GBR",
           "Britânico",
-          "Britânica"
-        ]
+          "Britânica",
+          "London",
+          "England",
+          "English"
+        ],
+        "admin": "Inglaterra"
       }
     },
     {
@@ -9871,7 +9932,10 @@
           "Mexican",
           "Mexicana",
           "MX",
-          "MEX"
+          "MEX",
+          "Mexico City",
+          "Ciudad de México",
+          "CDMX"
         ]
       }
     },
@@ -11088,7 +11152,8 @@
           "Spain",
           "Spanish",
           "ES",
-          "ESP"
+          "ESP",
+          "Malaga"
         ]
       }
     },
@@ -11136,7 +11201,9 @@
           "Estados Unidos da América",
           "U.S.A.",
           "New York",
-          "NY"
+          "NY",
+          "New York City",
+          "NYC"
         ]
       }
     },
@@ -11190,7 +11257,8 @@
           "United States of America",
           "Estados Unidos da América",
           "U.S.A.",
-          "California"
+          "California",
+          "San Francisco"
         ]
       }
     },

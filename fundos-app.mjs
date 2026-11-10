@@ -1,4 +1,4 @@
-import {STORAGE_KEY,BACKUP_KEY,MAX_FILE_SIZE,emptyCollection,parseCollection,validateCollection,readCollection,saveCollection,mergeCollections,progress,filterItems,released,exportCollection,encodeShare,decodeShare,localImage,normalize} from './fundos-core.mjs?v=20261109a';
+import {STORAGE_KEY,BACKUP_KEY,MAX_FILE_SIZE,emptyCollection,parseCollection,validateCollection,readCollection,saveCollection,mergeCollections,progress,filterItems,released,exportCollection,encodeShare,decodeShare,localImage,normalize} from './fundos-core.mjs?v=20261109b';
 const $=id=>document.getElementById(id), categories={special:'Especial',location:'Localização'};
 const mobile=matchMedia('(max-width:600px)');
 const pageSize=()=>mobile.matches?8:20;
@@ -238,7 +238,7 @@ function imageBlob(){return new Promise((resolve,reject)=>$('bg-share-canvas').t
 async function init(){
   if(shared){$('bg-shared').hidden=false;$('bg-local-actions').hidden=true;$('bg-save-note').textContent='Visualização compartilhada · suas marcações não serão alteradas.';$('bg-share').textContent='Compartilhar esta coleção';$('bg-collection-label').textContent='COLEÇÃO COMPARTILHADA';try{collection=decodeShare(location.hash);$('bg-shared-title').textContent=collection.trainer?`Coleção de ${collection.trainer}`:'Coleção compartilhada';}catch(error){locked=true;storageWarning(error.message);$('bg-grid').setAttribute('aria-busy','false');$('bg-result-count').textContent='Link inválido';return;}}
   else{try{collection=readCollection(localStorage);}catch{locked=true;storageWarning('Não foi possível ler os dados locais. As marcações existentes foram preservadas. Você pode exportar uma cópia de segurança, importar um arquivo válido ou restaurar o backup.');}}
-  const response=await fetch('fundos-catalogo.json');if(!response.ok)throw new Error('Catálogo indisponível. Recarregue a página para tentar novamente.');
+  const response=await fetch('fundos-catalogo.json?v=20261109b');if(!response.ok)throw new Error('Catálogo indisponível. Recarregue a página para tentar novamente.');
   catalog=await response.json();if(catalog.schemaVersion!==1||!Array.isArray(catalog.items)||!catalog.items.length)throw new Error('Catálogo inválido. Suas marcações permanecem salvas.');
   $('bg-coverage').textContent=catalog.coverageNote;$('bg-updated').textContent=catalog.updatedAt;
   for(const year of [...new Set(catalog.items.map(item=>item.year).filter(Boolean))].sort((a,b)=>b-a))$('bg-year').add(new Option(year,year));

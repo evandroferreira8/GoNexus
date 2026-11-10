@@ -808,6 +808,16 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         <div class="ag-my-toolbar">
           <button type="button" class="ag-my-export" id="agMMyICS" disabled>↓ Baixar (.ics)</button>
           <button type="button" class="ag-my-export secondary" id="agMMyPDF" disabled>▤ Salvar PDF</button>
+
+            <div class="ag-my-image-tools">
+              <label for="agMMyImageFormat">Formato da imagem</label>
+              <select id="agMMyImageFormat" class="ag-my-image-format">
+                <option value="feed">Feed · 4:5</option>
+                <option value="story">Stories · 9:16</option>
+                <option value="full">Imagem completa</option>
+              </select>
+              <button type="button" class="ag-my-image-button" id="agMMyImage" disabled>▧ Gerar imagem PNG</button>
+            </div>
           <button type="button" class="ag-my-clear" id="agMMyClear" disabled>Limpar</button>
         </div>
         <details class="ag-my-review" id="agMMyReview">
@@ -882,6 +892,16 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
           <div class="ag-my-toolbar">
             <button type="button" class="ag-my-export" id="agMyICS" disabled>↓ Baixar calendário (.ics)</button>
             <button type="button" class="ag-my-export secondary" id="agMyPDF" disabled>▤ Salvar PDF</button>
+
+            <div class="ag-my-image-tools">
+              <label for="agMyImageFormat">Formato da imagem</label>
+              <select id="agMyImageFormat" class="ag-my-image-format">
+                <option value="feed">Feed · 4:5</option>
+                <option value="story">Stories · 9:16</option>
+                <option value="full">Imagem completa</option>
+              </select>
+              <button type="button" class="ag-my-image-button" id="agMyImage" disabled>▧ Gerar imagem PNG</button>
+            </div>
             <button type="button" class="ag-my-clear" id="agMyClear" disabled>Limpar seleção</button>
           </div>
           <details class="ag-my-review" id="agMyReview">
@@ -1282,7 +1302,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         day.setAttribute('aria-label',day.textContent);
         day.title=day.textContent;
       }
-      ['ICS','PDF','Clear'].forEach(function(suffix){var b=byId(suffix);if(b)b.disabled=!count});
+      ['ICS','PDF','Image','Clear'].forEach(function(suffix){var b=byId(suffix);if(b)b.disabled=!count});
       if(items){
         items.innerHTML=count?chosen.map(function(e){
           return '<div class="ag-my-item"><span><strong>'+esc(eventTitle(e))+'</strong><small>'+esc(range(e))+' · '+esc(localWhen(e,e.start))+'</small></span>'+
@@ -1647,6 +1667,123 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     printWindow.document.open();printWindow.document.write(page);printWindow.document.close();printWindow.focus();
   }
 
+
+  function syncImageFormat(ev){
+    var value=ev.target.value;
+    document.getElementById('agMyImageFormat').value=value;
+    document.getElementById('agMMyImageFormat').value=value;
+  }
+  function imageFormat(){
+    var mobile=window.matchMedia&&window.matchMedia('(max-width:900px)').matches;
+    return document.getElementById(mobile?'agMMyImageFormat':'agMyImageFormat').value||'feed';
+  }
+  function drawWrapped(ctx,text,x,y,maxWidth,lineHeight,maxLines){
+    var words=String(text||'').split(/\s+/),line='',lines=[];
+    words.forEach(function(word){
+      var test=line?line+' '+word:word;
+      if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test;
+    });
+    if(line)lines.push(line);
+    var clipped=lines.length>(maxLines||3),limit=maxLines||3;
+    lines.slice(0,limit).forEach(function(row,i){
+      var finalLine=row;
+      if(clipped&&i===limit-1){
+        while(finalLine.length&&ctx.measureText(finalLine+'…').width>maxWidth)finalLine=finalLine.slice(0,-1);
+        finalLine+='…';
+      }
+      ctx.fillText(finalLine,x,y+i*lineHeight);
+    });
+    return Math.min(lines.length,limit);
+  }
+  function imageDateLabel(e){
+    var first=datePt(e.start,{day:'numeric',month:'short'});
+    if(e.start===e.end)return first;
+    return first+' – '+datePt(e.end,{day:'numeric',month:'short'});
+  }
+  function downloadMyImage(){
+    var chosen=selectedMyEvents();
+    if(!chosen.length)return;
+    var format=imageFormat(),width=1080,headerH=330,footerH=112,cardGap=14;
+    var isStory=format==='story',isFeed=format==='feed';
+    var height=isFeed?1350:isStory?1920:headerH+footerH+chosen.length*176+Math.max(0,chosen.length-1)*cardGap;
+    if(isFeed||isStory){
+      var usable=height-headerH-footerH-36;
+      var cardH=Math.min(isFeed?154:220,Math.max(86,(usable-cardGap*(chosen.length-1))/chosen.length));
+      if(cardH*chosen.length+cardGap*(chosen.length-1)>usable)cardH=(usable-cardGap*(chosen.length-1))/chosen.length;
+      var cardsH=cardH*chosen.length+cardGap*(chosen.length-1);
+      var top=headerH+Math.max(18,(usable-cardsH)/2);
+    }else{
+      var cardH=160,top=headerH;
+    }
+    if(!isFeed&&!isStory)height=headerH+footerH+chosen.length*cardH+Math.max(0,chosen.length-1)*cardGap;
+    height=Math.min(height,12000);
+    var canvas=document.createElement('canvas');
+    canvas.width=width;canvas.height=height;
+    var ctx=canvas.getContext('2d');
+    if(!ctx)return;
+    var bg=ctx.createLinearGradient(0,0,width,height);
+    bg.addColorStop(0,'#0b1930');bg.addColorStop(.55,'#112e55');bg.addColorStop(1,'#091629');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,width,height);
+    ctx.strokeStyle='rgba(177,211,255,.055)';ctx.lineWidth=1;
+    for(var gx=32;gx<width;gx+=48){ctx.beginPath();ctx.moveTo(gx,0);ctx.lineTo(gx,height);ctx.stroke()}
+    for(var gy=32;gy<height;gy+=48){ctx.beginPath();ctx.moveTo(0,gy);ctx.lineTo(width,gy);ctx.stroke()}
+    ctx.fillStyle='#ffd548';ctx.fillRect(54,54,9,34);
+    ctx.textAlign='left';ctx.textBaseline='alphabetic';
+    ctx.fillStyle='#a9c8f5';ctx.font='800 23px Arial,sans-serif';
+    ctx.fillText('GO NEXUS  /  MINHA AGENDA',84,80);
+    ctx.fillStyle='#ffffff';ctx.font='900 66px Arial,sans-serif';
+    ctx.fillText('Minha Agenda GO',54,174);
+    ctx.fillStyle='#ffd548';ctx.font='900 38px Arial,sans-serif';
+    ctx.fillText(monthLong.toLocaleUpperCase('pt-BR')+' '+month.slice(0,4),56,229);
+    ctx.fillStyle='#c8d9ef';ctx.font='600 23px Arial,sans-serif';
+    ctx.fillText(chosen.length+' '+(chosen.length===1?'evento selecionado':'eventos selecionados')+'  ·  Horário de Natal (UTC−3)',56,278);
+    ctx.strokeStyle='rgba(196,218,247,.32)';ctx.beginPath();ctx.moveTo(54,304);ctx.lineTo(1026,304);ctx.stroke();
+    var kinds={natal:'#e5ad38',comunidade:'#35ad89',amizade:'#25a18b',reide:'#9980e6',max:'#e36bb4',holofote:'#e7ae49',mega:'#9d85e9',destaque:'#f08a4d',evento:'#4b91df'};
+    chosen.forEach(function(e,index){
+      var y=top+index*(cardH+cardGap);
+      if(y+cardH>height-footerH) return;
+      var x=54,w=972;
+      ctx.fillStyle='rgba(2,10,23,.24)';ctx.fillRect(x+5,y+6,w,cardH);
+      ctx.fillStyle='#f6f8fc';ctx.fillRect(x,y,w,cardH);
+      ctx.fillStyle=kinds[e.kind]||'#4b91df';ctx.fillRect(x,y,10,cardH);
+      var dateWidth=175;
+      ctx.fillStyle='#e8eff9';ctx.fillRect(x+10,y,dateWidth,cardH);
+      ctx.fillStyle='#214d83';ctx.font='900 '+(cardH<115?'25':'31')+'px Arial,sans-serif';
+      drawWrapped(ctx,imageDateLabel(e),x+30,y+Math.min(56,cardH*.42),dateWidth-42,35,2);
+      ctx.fillStyle=kinds[e.kind]||'#4b91df';ctx.font='800 '+(cardH<115?'15':'18')+'px Arial,sans-serif';
+      drawWrapped(ctx,categories[e.kind]||'Evento',x+30,y+cardH-18,dateWidth-42,22,1);
+      var tx=x+dateWidth+42,tw=w-dateWidth-74;
+      var titleSize=cardH<110?27:cardH<145?31:36;
+      ctx.fillStyle='#132f55';ctx.font='900 '+titleSize+'px Arial,sans-serif';
+      var titleLines=drawWrapped(ctx,eventTitle(e),tx,y+Math.min(52,cardH*.37),tw,Math.min(39,cardH*.3),cardH<110?1:2);
+      var metaY=y+Math.min(cardH-16,Math.max(76,48+titleLines*Math.min(39,cardH*.3)));
+      ctx.fillStyle='#536b89';ctx.font='700 '+(cardH<110?17:20)+'px Arial,sans-serif';
+      var place=e.location_short||e.location||'';
+      var meta=localWhen(e,e.start)+(place?'  ·  '+place:'');
+      drawWrapped(ctx,meta,tx,metaY,tw,25,cardH<120?1:2);
+    });
+    var footerY=height-footerH+20;
+    ctx.strokeStyle='rgba(196,218,247,.32)';ctx.beginPath();ctx.moveTo(54,footerY);ctx.lineTo(1026,footerY);ctx.stroke();
+    ctx.fillStyle='#a9c8f5';ctx.font='800 20px Arial,sans-serif';
+    ctx.fillText('SUA PROGRAMAÇÃO, SEU JEITO.',54,footerY+42);
+    ctx.textAlign='right';ctx.fillStyle='#ffffff';ctx.font='900 28px Arial,sans-serif';
+    ctx.fillText('GO NEXUS',1026,footerY+43);
+    canvas.toBlob(function(blob){
+      if(!blob){
+        document.getElementById('agMyStatus').textContent='Não foi possível gerar a imagem neste navegador.';
+        document.getElementById('agMMyStatus').textContent='Não foi possível gerar a imagem neste navegador.';
+        return;
+      }
+      var a=document.createElement('a'),url=URL.createObjectURL(blob);
+      a.href=url;a.download='go-nexus-minha-agenda-'+month+'-'+format+'.png';
+      document.body.appendChild(a);a.click();a.remove();
+      setTimeout(function(){URL.revokeObjectURL(url)},3000);
+      var msg='Imagem PNG gerada · '+(format==='feed'?'Feed 4:5':format==='story'?'Stories 9:16':'imagem completa')+'.';
+      document.getElementById('agMyStatus').textContent=msg;
+      document.getElementById('agMMyStatus').textContent=msg;
+    },'image/png');
+  }
+
   function share(e,button){
     var first=eventMeetups(e,e.start)[0];
     var txt=e.title+' — '+range(e)+' • Jogo: '+localWhen(e,e.start)+
@@ -1740,6 +1877,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   document.getElementById('agMMyICS').addEventListener('click',downloadMyICS);
   document.getElementById('agMyPDF').addEventListener('click',downloadMyPDF);
   document.getElementById('agMMyPDF').addEventListener('click',downloadMyPDF);
+  document.getElementById('agMyImage').addEventListener('click',downloadMyImage);
+  document.getElementById('agMMyImage').addEventListener('click',downloadMyImage);
+  document.getElementById('agMyImageFormat').addEventListener('change',syncImageFormat);
+  document.getElementById('agMMyImageFormat').addEventListener('change',syncImageFormat);
   document.getElementById('agS25List').addEventListener('click',function(ev){
     var btn=ev.target.closest('[data-s25-add]');if(!btn)return;
     var e=seasonDates.find(function(x){return x.id===btn.dataset.s25Add});if(e)addCalendar(e);

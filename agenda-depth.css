@@ -288,3 +288,19 @@
 .ag-month-legend .ag-active-legend{gap:6px;color:#71839a}
 .ag-month-legend .ag-active-legend i{width:12px;height:12px;border:2px solid #4382d5;border-radius:4px;background:transparent}
 .ag-m-key .ag-m-my-legend{display:inline-flex;align-items:center;gap:5px;color:#24558e;font-weight:800}
+
+
+/* Gerador de imagem da Minha Agenda GO */
+.ag-my-image-tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.ag-my-image-tools label{font-size:.69rem;color:#637b98;font-weight:800}
+.ag-my-image-format{min-height:39px;max-width:175px;border:1px solid #c8d7eb;border-radius:9px;background:#fff;color:#24538f;padding:7px 10px;font-size:.75rem;font-weight:750}
+.ag-my-toolbar .ag-my-image-button{background:#ffd548;border-color:#e7bd31;color:#152d4f;font-weight:900}
+.ag-my-image-button:disabled{opacity:.42}
+@media(max-width:900px){
+ .ag-my-image-tools{display:grid;grid-template-columns:1fr 1fr;gap:6px;grid-column:1/-1}
+ .ag-my-image-tools label{grid-column:1/-1}
+ .ag-my-image-format,.ag-my-toolbar .ag-my-image-button{width:100%;max-width:none;min-height:43px}
+}
+@media(max-width:390px){
+ .ag-my-image-tools{grid-template-columns:1fr}
+}

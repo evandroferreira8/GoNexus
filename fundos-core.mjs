@@ -91,9 +91,10 @@ function searchDocument(item) {
     ...(location.aliases||[]),...continentAliases,...(item.searchTerms||[]),
     ...categoryAliases,...eventSearchAliases(item)
   ];
-  const normalized=normalizeSearch(values.filter(Boolean).join(' '));
+  const phrases=values.filter(Boolean).map(normalizeSearch).filter(Boolean);
+  const normalized=phrases.join(' ');
   const tokens=new Set(normalized.split(' ').filter(Boolean));
-  const doc={normalized,tokens};
+  const doc={normalized,tokens,phrases};
   SEARCH_CACHE.set(item,doc);
   return doc;
 }
@@ -129,9 +130,15 @@ function matchesSearchTerm(term,doc) {
 }
 export function filterItems(items, filters, ids, today) {
   const owned = new Set(ids), query = queryTerms(filters.query);
+  const phraseQuery=normalizeSearch(filters.query);
+  const useExactPhrase=phraseQuery.split(' ').filter(Boolean).length>=2 &&
+    items.some(item=>searchDocument(item).phrases.some(field=>field.includes(phraseQuery)));
   return items.filter(item => {
     const doc=searchDocument(item);
-    return query.every(word=>matchesSearchTerm(word,doc)) &&
+    const matchesQuery=useExactPhrase
+      ? doc.phrases.some(field=>field.includes(phraseQuery))
+      : query.every(word=>matchesSearchTerm(word,doc));
+    return matchesQuery &&
       (!filters.category || item.category===filters.category) &&
       (!filters.year || String(item.year)===filters.year) &&
       (!filters.event || normalizeSearch([item.event,...(item.aliases||[])].join(' ')).includes(normalizeSearch(filters.event))) &&

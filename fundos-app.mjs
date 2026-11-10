@@ -1,4 +1,4 @@
-import {STORAGE_KEY,BACKUP_KEY,MAX_FILE_SIZE,emptyCollection,parseCollection,validateCollection,readCollection,saveCollection,mergeCollections,progress,filterItems,released,exportCollection,encodeShare,decodeShare,localImage,normalize} from './fundos-core.mjs?v=20261108c';
+import {STORAGE_KEY,BACKUP_KEY,MAX_FILE_SIZE,emptyCollection,parseCollection,validateCollection,readCollection,saveCollection,mergeCollections,progress,filterItems,released,exportCollection,encodeShare,decodeShare,localImage,normalize} from './fundos-core.mjs?v=20261109a';
 const $=id=>document.getElementById(id), categories={special:'Especial',location:'Localização'};
 const mobile=matchMedia('(max-width:600px)');
 const pageSize=()=>mobile.matches?8:20;

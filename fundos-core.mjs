@@ -123,7 +123,7 @@ function queryTerms(value) {
 function matchesSearchTerm(term,doc) {
   if(term.length<=3)return doc.tokens.has(term);
   if(doc.normalized.includes(term))return true;
-  if(term.length<5)return false;
+  if(term.length<6)return false;
   for(const token of doc.tokens)if(oneEditAway(term,token))return true;
   return false;
 }

@@ -40,7 +40,7 @@ const SEARCH_STOP_WORDS = new Set([
   'evento','eventos','em','no','na','nos','nas','de','do','da','dos','das',
   'e','a','o','as','os','um','uma','uns','umas','para','por','com','que',
   'foi','foram','tem','teve','tinha','aconteceu','ocorreu','ocorreram',
-  'realizado','realizados','realizada','realizadas','aconteceram','acontecer','acontecido','acontecidos','ocorreram','ocorrido','ocorridos','existem','existe','disponivel','disponiveis','lancado','lancados','lancadas','saiu','sairam','realizou','realizaram','distribuido','distribuidos','apareceu','apareceram','onde','qual','quais',
+  'realizado','realizados','realizada','realizadas','aconteceram','acontecer','acontecido','acontecidos','ocorreram','ocorrido','ocorridos','existem','existe','disponivel','disponiveis','lancado','lancados','lancadas','saiu','sairam','realizou','realizaram','distribuido','distribuidos','apareceu','apareceram','sao','what','which','where','happened','happen','happens','fue','fueron','ocurrio','ocurrieron','onde','qual','quais',
   'meu','minha','meus','minhas','seu','sua','seus','suas','buscar','busca',
   'pesquisar','pesquisa','mostra','mostrar','quero','todos','todas',
   'the','of','in','at','on','to','and','for','from','by','is','are',

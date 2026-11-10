@@ -304,3 +304,12 @@
 @media(max-width:390px){
  .ag-my-image-tools{grid-template-columns:1fr}
 }
+
+.ag-my-image-tools{min-width:0}
+.ag-my-image-format{min-width:135px}
+.ag-my-image-button{white-space:nowrap}
+@media(max-width:900px){
+ .ag-my-image-tools{min-width:0}
+ .ag-my-image-format{min-width:0}
+ .ag-my-image-button{white-space:normal;line-height:1.2}
+}

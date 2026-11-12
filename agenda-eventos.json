@@ -1,8 +1,8 @@
 {
   "month": "2026-11",
-  "updated_at": "2026-11-09",
+  "updated_at": "2026-11-12",
   "timezone": "America/Fortaleza",
-  "editorial_note": "O horário oficial do jogo tem prioridade. O Campfire mostra a programação dos encontros/check-in, que pode começar antes ou se estender além das atividades do jogo. Na agenda, início no Campfire não é apresentado como início do evento. Para 2026, Hora Lendária e Holofote são das 18h às 19h; Segunda Max e Sexta da Amizade têm bônus diários. Duração do check-in não foi inferida. Fontes: Pokémon GO oficial e fichas Campfire verificadas para 2, 4, 6, 14 e 21 de novembro. Horários não confirmados não são inventados.",
+  "editorial_note": "O horário oficial do jogo tem prioridade. O Campfire mostra a programação dos encontros/check-in, que pode começar antes ou se estender além das atividades do jogo. Na agenda, início no Campfire não é apresentado como início do evento. Para 2026, Hora Lendária e Holofote são das 18h às 19h; Segunda Max e Sexta da Amizade têm bônus diários. Duração do check-in não foi inferida. Fontes: Pokémon GO oficial e fichas Campfire verificadas para novembro. Horários não confirmados não são inventados.",
   "events": [
     {
       "id": "halloween-2",
@@ -312,8 +312,8 @@
           "meetup_status": "nao_publicado"
         },
         "2026-11-16": {
-          "theme": "Pokémon ainda não anunciado",
-          "source": "https://campfire.scopely.com/discover/collection/d31b682b-9ba9-4a45-a592-94bdedcc4eb8",
+          "theme": "Trilhas Dinamax",
+          "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026",
           "meetup_status": "publicado"
         }
       },

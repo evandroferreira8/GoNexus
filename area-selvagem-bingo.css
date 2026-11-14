@@ -54,3 +54,20 @@
 }
 @media(max-width:360px){.wa-bingo-grid{gap:6px}.wa-bingo-card{padding:7px}.wa-bingo-tag{font-size:.48rem}}
 @media(prefers-reduced-motion:reduce){.wa-bingo-card,.wa-bingo-filter,.wa-bingo-mark{transition:none!important}}
+
+/* CTA principal do Bingo: acesso direto já no primeiro bloco da página */
+.wa-btn-bingo{
+  position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:11px;
+  min-height:54px;padding:8px 16px;border:1px solid #ffd5e8!important;border-radius:11px;
+  background:linear-gradient(112deg,#ffcc67 0%,#ff8caa 54%,#ff5ca8 100%)!important;
+  color:#19152a!important;box-shadow:0 7px 0 #9c316d,0 12px 25px #ff38934b,0 0 0 4px #ff5ca820;
+  text-decoration:none;transform:translateY(-1px);
+}
+.wa-btn-bingo:hover{background:linear-gradient(112deg,#ffdc86 0%,#ffa2bc 54%,#ff79b8 100%)!important;transform:translateY(-3px)}
+.wa-btn-bingo strong{font:900 .92rem/1 var(--display);letter-spacing:-.02em;color:#19152a!important;white-space:nowrap}
+.wa-btn-bingo-kicker{align-self:flex-start;padding:4px 6px;border-radius:5px;background:#21182f;color:#ffe49a;font:900 .54rem/1 var(--mono);letter-spacing:.08em}
+.wa-btn-bingo-arrow{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#21182f;color:#ffe49a;font-size:1rem;font-weight:900}
+@media(max-width:600px){
+  .wa-btn-bingo{min-height:52px;flex:1 1 100%;justify-content:center}
+  .wa-btn-bingo strong{font-size:.9rem}
+}

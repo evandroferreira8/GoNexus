@@ -55,19 +55,95 @@
 @media(max-width:360px){.wa-bingo-grid{gap:6px}.wa-bingo-card{padding:7px}.wa-bingo-tag{font-size:.48rem}}
 @media(prefers-reduced-motion:reduce){.wa-bingo-card,.wa-bingo-filter,.wa-bingo-mark{transition:none!important}}
 
-/* CTA principal do Bingo: acesso direto já no primeiro bloco da página */
-.wa-btn-bingo{
-  position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:11px;
-  min-height:54px;padding:8px 16px;border:1px solid #ffd5e8!important;border-radius:11px;
-  background:linear-gradient(112deg,#ffcc67 0%,#ff8caa 54%,#ff5ca8 100%)!important;
-  color:#19152a!important;box-shadow:0 7px 0 #9c316d,0 12px 25px #ff38934b,0 0 0 4px #ff5ca820;
-  text-decoration:none;transform:translateY(-1px);
+
+/* REFINO EDITORIAL — tipografia e hierarquia do Bingo */
+.wa-bingo-section .wa-section-heading{margin-bottom:20px}
+.wa-bingo-section .wa-eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em}
+.wa-bingo-section h2{font-family:var(--display);font-size:clamp(2rem,4vw,2.8rem);font-weight:900;letter-spacing:-.055em}
+.wa-bingo-section .wa-bingo-intro{max-width:790px;font-family:var(--body);font-size:.98rem;line-height:1.6;font-weight:500;color:#d4deef!important}
+.wa-bingo-stat strong{font-family:var(--display);font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.055em}
+.wa-bingo-stat span{font-family:var(--body);font-size:.73rem;line-height:1.3;font-weight:800;letter-spacing:.035em}
+.wa-bingo-search input{font-family:var(--body);font-size:.94rem;font-weight:600}
+.wa-bingo-search input::placeholder{font-weight:500}
+.wa-bingo-clear-filter,.wa-bingo-filter{font-family:var(--body);font-size:.78rem;font-weight:800;letter-spacing:-.01em}
+.wa-bingo-number{font-family:var(--mono);font-size:.62rem;font-weight:800}
+.wa-bingo-tag{font-family:var(--body);font-size:.61rem;font-weight:800;letter-spacing:0}
+.wa-bingo-name{min-height:40px;margin-bottom:8px;font-family:var(--display);font-size:1rem;font-weight:800;line-height:1.15;letter-spacing:-.035em}
+.wa-bingo-note{font-family:var(--body);font-size:.7rem;font-weight:600;line-height:1.35;color:#c2cde1}
+.wa-bingo-mark{font-family:var(--body);font-size:.73rem;font-weight:800;letter-spacing:-.01em}
+.wa-bingo-mark .wa-bingo-mark-icon{font-size:1rem}
+.wa-bingo-action{font-family:var(--body);font-size:.82rem;font-weight:900;letter-spacing:-.01em}
+.wa-bingo-notice{font-family:var(--body);font-size:.76rem!important;font-weight:600}
+.wa-bingo-footnote{font-family:var(--body);font-size:.74rem!important;line-height:1.58;font-weight:500}
+
+/* DESTAQUE DE ENTRADA — abaixo do cabeçalho do especial */
+.wa-bingo-spotlight{
+  position:relative;z-index:12;isolation:isolate;overflow:hidden;
+  border-top:1px solid #ffdc8c;border-bottom:1px solid #a83b70;
+  background:
+    radial-gradient(ellipse at 8% 0%,#ffcc6738,transparent 36%),
+    radial-gradient(ellipse at 92% 100%,#ff38933c,transparent 42%),
+    linear-gradient(105deg,#111a31 0%,#1b1d36 55%,#26152f 100%);
+  box-shadow:0 12px 34px #0007,inset 0 1px #fff2;
 }
-.wa-btn-bingo:hover{background:linear-gradient(112deg,#ffdc86 0%,#ffa2bc 54%,#ff79b8 100%)!important;transform:translateY(-3px)}
-.wa-btn-bingo strong{font:900 .92rem/1 var(--display);letter-spacing:-.02em;color:#19152a!important;white-space:nowrap}
-.wa-btn-bingo-kicker{align-self:flex-start;padding:4px 6px;border-radius:5px;background:#21182f;color:#ffe49a;font:900 .54rem/1 var(--mono);letter-spacing:.08em}
-.wa-btn-bingo-arrow{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#21182f;color:#ffe49a;font-size:1rem;font-weight:900}
-@media(max-width:600px){
-  .wa-btn-bingo{min-height:52px;flex:1 1 100%;justify-content:center}
-  .wa-btn-bingo strong{font-size:.9rem}
+.wa-bingo-spotlight:before{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.22;pointer-events:none;
+  background:repeating-linear-gradient(135deg,transparent 0 16px,#ffffff12 16px 17px);
+}
+.wa-bingo-spotlight:after{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:5px;
+  background:linear-gradient(180deg,#ffe18d,#ff5ca8,#79d6ff);
+  box-shadow:0 0 22px #ff7dbb9c;
+}
+.wa-bingo-spotlight-inner{
+  width:min(1190px,calc(100% - 34px));min-height:142px;margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px;
+  padding:21px 0 22px;
+}
+.wa-bingo-spotlight-copy{min-width:0}
+.wa-bingo-spotlight-kicker{
+  display:flex;align-items:center;gap:8px;color:#ffda83;
+  font:900 .65rem/1.3 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+}
+.wa-bingo-spotlight-kicker span{font-size:1.15rem;color:#ff75b7;text-shadow:0 0 13px #ff75b7}
+.wa-bingo-spotlight h2{
+  margin:7px 0 3px;color:#fff!important;
+  font:900 clamp(1.65rem,3vw,2.45rem)/1.02 var(--display);
+  letter-spacing:-.055em;text-shadow:0 3px 18px #0007;
+}
+.wa-bingo-spotlight p{
+  margin:0;max-width:690px;color:#e0e8f7;
+  font:600 .91rem/1.48 var(--body);
+}
+.wa-bingo-spotlight-meta{
+  display:inline-flex;align-items:center;gap:9px;margin-top:10px;
+  color:#bfcde4;font:800 .61rem/1.2 var(--mono);letter-spacing:.07em;
+}
+.wa-bingo-spotlight-meta i{font-style:normal;color:#ffcc67;font-size:.72rem}
+.wa-bingo-spotlight-button{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:21px;
+  min-width:225px;min-height:58px;padding:11px 13px 11px 19px;
+  border:1px solid #fff1c5;border-radius:11px;
+  background:linear-gradient(110deg,#ffe49a 0%,#ffbf62 52%,#ff82a8 100%);
+  box-shadow:0 5px 0 #8e3b62,0 11px 24px #ff58914d;
+  color:#1b1a2b!important;text-decoration:none;
+  font:900 .76rem/1.2 var(--body);letter-spacing:.035em;
+  transition:transform .16s ease,box-shadow .16s ease,filter .16s ease;
+}
+.wa-bingo-spotlight-button:hover{transform:translateY(-3px);filter:saturate(1.08);box-shadow:0 7px 0 #8e3b62,0 16px 28px #ff58916e}
+.wa-bingo-spotlight-button strong{
+  display:grid;place-items:center;width:32px;height:32px;flex:0 0 32px;
+  border-radius:50%;background:#21182f;color:#ffe49a;font-size:1.2rem;
+}
+.wa-bingo-spotlight-button:focus-visible{outline:3px solid #fff!important;outline-offset:4px}
+@media(max-width:700px){
+  .wa-bingo-spotlight-inner{width:calc(100% - 34px);grid-template-columns:minmax(0,1fr);gap:14px;min-height:0;padding:18px 0 19px}
+  .wa-bingo-spotlight h2{font-size:clamp(1.65rem,7vw,2.05rem)}
+  .wa-bingo-spotlight p{font-size:.86rem;line-height:1.48}
+  .wa-bingo-spotlight-meta{font-size:.58rem;gap:7px}
+  .wa-bingo-spotlight-button{width:100%;min-width:0;min-height:52px}
+}
+@media(max-width:360px){
+  .wa-bingo-spotlight-kicker{font-size:.58rem;letter-spacing:.09em}
+  .wa-bingo-spotlight-meta{font-size:.53rem;gap:5px}
 }

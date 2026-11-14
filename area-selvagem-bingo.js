@@ -168,7 +168,7 @@
     updateStats();
   }
   function loadData() {
-    fetch("area-selvagem-bingo-data.json?v=20261113a")
+    fetch("area-selvagem-bingo-data.json?v=20261114b")
       .then(response => {
         if (!response.ok) throw new Error("Falha ao carregar a lista de Pokémon.");
         return response.json();

@@ -61,6 +61,14 @@ try{
           assert.equal(await tab.evaluate(()=>getComputedStyle(document.body).backgroundColor),'rgb(8, 11, 25)','Fundo temático da Área Selvagem');
           assert.ok(await tab.locator('.wa-maxbar .wa-brand').isVisible(),'Marca da Área Selvagem visível');
           assert.ok(await tab.locator('#waTitle').isVisible(),'Título da Área Selvagem visível');
+          if(viewport.width<=600){
+            assert.ok(await tab.locator('.wa-bingo-spotlight').isVisible(),'Destaque do Bingo deve aparecer no mobile');
+            assert.ok(await tab.locator('.wa-bingo-spotlight-button').isVisible(),'Botão do Bingo deve aparecer no mobile');
+            const touchTarget=await tab.locator('#waBingoGrid .wa-bingo-card').first().locator('[data-flag="shiny"]').boundingBox().catch(()=>null);
+            assert.ok(!touchTarget || touchTarget.height>=44,'Botão de marcação do Bingo deve ter pelo menos 44px');
+            const mobileOverflow=await tab.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+            assert.ok(mobileOverflow<=2,'Área Selvagem mobile causa rolagem horizontal: '+mobileOverflow+' px');
+          }
           await tab.locator('.wa-switch [data-day="sun"]').click();
           assert.equal(await tab.locator('#waSunday').isVisible(),true,'Agenda do domingo abre');
           assert.equal(await tab.locator('#waSaturday').isVisible(),false,'Agenda do sábado oculta após troca');

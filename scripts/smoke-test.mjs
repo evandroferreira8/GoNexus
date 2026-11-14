@@ -88,10 +88,17 @@ try{
           await bingoCards.first().locator('[data-flag="perfect"]').click();
           assert.equal(await tab.locator('#waBingoShinyCount').innerText(),'1','Contador de Shiny');
           assert.equal(await tab.locator('#waBingoPerfectCount').innerText(),'1','Contador de 100% IV');
+          assert.equal(await tab.locator('#waBingoBackgroundCount').innerText(),'0','Contador de Fundo Especial começa zerado');
           assert.equal(await tab.locator('#waBingoCaughtCount').innerText(),'1 / 80','Contador de espécies marcadas');
+          const eligibleCards=tab.locator('#waBingoGrid .wa-bingo-card[data-background-eligible="true"]');
+          assert.equal(await eligibleCards.count(),8,'Oito encontros/formas são elegíveis a Fundo Especial');
+          assert.equal(await bingoCards.first().locator('[data-flag="background"]').count(),0,'Pokémon não elegíveis não recebem botão de Fundo');
           await bingoCards.nth(1).locator('[data-flag="shiny"]').click();
           assert.equal(await tab.locator('#waBingoShinyCount').innerText(),'2','Segundo Shiny contabilizado');
           assert.equal(await tab.locator('#waBingoCaughtCount').innerText(),'2 / 80','Duas espécies selecionadas');
+          await eligibleCards.first().locator('[data-flag="background"]').click();
+          assert.equal(await tab.locator('#waBingoBackgroundCount').innerText(),'1','Contador de Fundo Especial');
+          assert.equal(await tab.locator('#waBingoCaughtCount').innerText(),'3 / 80','Três espécies/conquistas registradas');
           const stored=await tab.evaluate(()=>JSON.parse(localStorage.getItem('gonexus-area-selvagem-bingo-2026-v1')));
           assert.equal(stored.progress['10101'].shiny,true,'Shiny salvo no navegador');
           assert.equal(stored.progress['10101'].perfect,true,'100% IV salvo no navegador');
@@ -112,7 +119,8 @@ try{
           assert.ok(exportLabels.includes('Sandshrew de Alola'),'PNG inclui primeiro Pokémon marcado');
           assert.ok(exportLabels.includes('Diglett de Alola'),'PNG inclui segundo Pokémon marcado');
           assert.ok(!exportLabels.includes('Magnemite'),'PNG não deve incluir Pokémon sem marcação');
-          assert.ok(exportLabels.some(value=>value.includes('2 SHINY')&&value.includes('1 COM 100% IV')&&value.includes('2 ESPÉCIES')),'Resumo do PNG reflete apenas as capturas marcadas');
+          assert.ok(exportLabels.some(value=>value.includes('2 SHINY')&&value.includes('1 COM 100% IV')&&value.includes('1 COM FUNDO')&&value.includes('3 ESPÉCIES')),'Resumo do PNG reflete Shiny, 100% e Fundo Especial');
+          assert.ok(exportLabels.includes('FUNDO'),'PNG destaca o selo de Fundo Especial');
           await tab.locator('.wa-bingo-filter[data-filter="aco"]').click();
           assert.equal(await tab.locator('#waBingoGrid .wa-bingo-card').count(),22,'Filtro do habitat Aço');
           await tab.locator('.wa-bingo-filter[data-filter="incenso"]').click();

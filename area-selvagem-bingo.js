@@ -186,6 +186,22 @@
         notice.textContent = "A cartela não conseguiu acessar o arquivo de dados.";
       });
   }
+  // Atalhos do Bingo: ir direto à cartela, sem atravessar a página em rolagem suave.
+  document.addEventListener("click", event => {
+    const link = event.target.closest?.('a[href="#bingo"]');
+    if (!link) return;
+    const target = $("bingo");
+    if (!target) return;
+    event.preventDefault();
+    const root = document.documentElement;
+    root.classList.add("wa-bingo-jump-instant");
+    target.scrollIntoView({behavior:"auto",block:"start"});
+    if (window.location.hash !== "#bingo") {
+      window.history.pushState(null,"","#bingo");
+    }
+    window.requestAnimationFrame(() => root.classList.remove("wa-bingo-jump-instant"));
+  });
+
   search.addEventListener("input",() => {
     query = search.value.trim().toLocaleLowerCase("pt-BR");
     render();

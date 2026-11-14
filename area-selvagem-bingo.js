@@ -39,25 +39,28 @@
   }
   function stateFor(key) {
     const value = progress[key] || {};
-    return {shiny:value.shiny === true, perfect:value.perfect === true};
+    return {shiny:value.shiny === true, perfect:value.perfect === true, background:value.background === true};
   }
   function counts() {
-    let shiny = 0, perfect = 0, caught = 0;
+    let shiny = 0, perfect = 0, background = 0, caught = 0;
     for (const item of items) {
       const state = stateFor(item.key);
       if (state.shiny) shiny++;
       if (state.perfect) perfect++;
-      if (state.shiny || state.perfect) caught++;
+      if (state.background) background++;
+      if (state.shiny || state.perfect || state.background) caught++;
     }
-    return {shiny,perfect,caught,total:items.length};
+    return {shiny,perfect,background,caught,total:items.length};
   }
   function updateStats() {
     const c = counts();
     $("waBingoShinyCount").textContent = c.shiny;
     $("waBingoPerfectCount").textContent = c.perfect;
+    $("waBingoBackgroundCount").textContent = c.background;
     $("waBingoCaughtCount").textContent = c.caught + " / " + c.total;
     $("waBingoShinyLabel").textContent = c.shiny === 1 ? "espécie Shiny" : "espécies Shiny";
     $("waBingoPerfectLabel").textContent = c.perfect === 1 ? "espécie 100% IV" : "espécies 100% IV";
+    $("waBingoBackgroundLabel").textContent = c.background === 1 ? "com Fundo Especial" : "com Fundo Especial";
   }
   function drawFilters() {
     filterRoot.replaceChildren();
@@ -90,7 +93,7 @@
     symbol.className = "wa-bingo-mark-icon";
     symbol.textContent = active ? "✓" : icon;
     const label = document.createElement("span");
-    label.textContent = active ? (flag === "shiny" ? "Shiny!" : "100%!") : text;
+    label.textContent = active ? (flag === "shiny" ? "Shiny!" : flag === "perfect" ? "100%!" : "Fundo!") : text;
     button.append(symbol,label);
     button.addEventListener("click",() => {
       const next = stateFor(item.key);
@@ -104,7 +107,8 @@
   function makeCard(item,index) {
     const state = stateFor(item.key);
     const card = document.createElement("article");
-    card.className = "wa-bingo-card" + (state.shiny || state.perfect ? " is-caught" : "");
+    card.className = "wa-bingo-card" + (state.shiny || state.perfect || state.background ? " is-caught" : "");
+    card.dataset.backgroundEligible = String(item.backgroundEligible === true);
     const head = document.createElement("div");
     head.className = "wa-bingo-card-head";
     const number = document.createElement("span");
@@ -140,11 +144,12 @@
       card.append(note);
     }
     const flags = document.createElement("div");
-    flags.className = "wa-bingo-flags";
+    flags.className = "wa-bingo-flags" + (item.backgroundEligible ? " has-background" : "");
     flags.append(
       makeMark(item,"shiny",state.shiny,"✦","Shiny"),
       makeMark(item,"perfect",state.perfect,"💯","100% IV")
     );
+    if (item.backgroundEligible) flags.append(makeMark(item,"background",state.background,"▧","Fundo"));
     card.append(flags);
     return card;
   }
@@ -246,10 +251,10 @@
     const button = $("waBingoExport");
     const selectedItems = items.filter(item => {
       const state = stateFor(item.key);
-      return state.shiny || state.perfect;
+      return state.shiny || state.perfect || state.background;
     });
     if (!selectedItems.length) {
-      notice.textContent = "Marque pelo menos um Pokémon como Shiny ou 100% IV para gerar sua cartela.";
+      notice.textContent = "Marque pelo menos um Pokémon como Shiny, 100% IV ou Fundo Especial para gerar sua cartela.";
       return;
     }
     button.disabled = true;
@@ -279,7 +284,7 @@
 
       const c = counts();
       ctx.fillStyle = "#c9d3ea"; ctx.font = "700 21px Arial";
-      ctx.fillText(c.shiny + " SHINY   ·   " + c.perfect + " COM 100% IV   ·   " + selectedItems.length + " ESPÉCIES",padding,204);
+      ctx.fillText(c.shiny + " SHINY   ·   " + c.perfect + " COM 100% IV   ·   " + c.background + " COM FUNDO   ·   " + selectedItems.length + " ESPÉCIES",padding,204);
       ctx.fillStyle = "#97a7c8"; ctx.font = "18px Arial";
       ctx.fillText("Suas capturas selecionadas · Marcações manuais · GO Nexus",padding,240);
 
@@ -288,9 +293,10 @@
         const item = selectedItems[i], state = stateFor(item.key);
         const col = i % columns, row = Math.floor(i / columns);
         const x = padding + col*(cardWidth+gap), y = cardsTop + row*(cardHeight+gap);
-        const accent = state.shiny && state.perfect ? "#f5d66b" : state.shiny ? "#e8c76d" : "#73d6a3";
+        const achievementCount = [state.shiny,state.perfect,state.background].filter(Boolean).length;
+        const accent = achievementCount > 1 ? "#f5d66b" : state.background ? "#8ed4ff" : state.shiny ? "#e8c76d" : "#73d6a3";
         roundedRect(ctx,x,y,cardWidth,cardHeight,16);
-        ctx.fillStyle = state.shiny && state.perfect ? "#33301f" : state.shiny ? "#342b1d" : "#193329";
+        ctx.fillStyle = achievementCount > 1 ? "#33301f" : state.background ? "#152c40" : state.shiny ? "#342b1d" : "#193329";
         ctx.fill();
         ctx.strokeStyle = accent;
         ctx.lineWidth = 4;
@@ -319,8 +325,9 @@
         const badges = [];
         if (state.shiny) badges.push({label:"SHINY",color:"#ffe397"});
         if (state.perfect) badges.push({label:"100% IV",color:"#9ff0c1"});
-        const badgeGap = 12, badgeHeight = 27, badgeY = y+177;
-        const badgeWidths = badges.map(b => b.label === "SHINY" ? 93 : 108);
+        if (state.background) badges.push({label:"FUNDO",color:"#9edfff"});
+        const badgeGap = 7, badgeHeight = 27, badgeY = y+177;
+        const badgeWidths = badges.map(b => b.label === "SHINY" ? 72 : b.label === "100% IV" ? 82 : 72);
         const totalBadgeWidth = badgeWidths.reduce((sum,v)=>sum+v,0)+badgeGap*(badges.length-1);
         let badgeX = x+(cardWidth-totalBadgeWidth)/2;
         badges.forEach((badge,index) => {

@@ -77,6 +77,8 @@ try{
           assert.equal(stored.progress['10101'].perfect,true,'100% IV salvo no navegador');
           await tab.locator('.wa-bingo-filter[data-filter="aco"]').click();
           assert.equal(await tab.locator('#waBingoGrid .wa-bingo-card').count(),22,'Filtro do habitat Aço');
+          await tab.locator('.wa-bingo-filter[data-filter="incenso"]').click();
+          assert.equal(await tab.locator('#waBingoGrid .wa-bingo-card').count(),16,'Filtro de encontros por Incenso');
           await tab.locator('#waBingoClearFilter').click();
           await tab.locator('#waBingoSearch').fill('Palkia');
           assert.equal(await tab.locator('#waBingoGrid .wa-bingo-card').count(),1,'Busca por nome no bingo');

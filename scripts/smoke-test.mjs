@@ -72,6 +72,15 @@ try{
           await tab.locator('.wa-switch [data-day="sun"]').click();
           assert.equal(await tab.locator('#waSunday').isVisible(),true,'Agenda do domingo abre');
           assert.equal(await tab.locator('#waSaturday').isVisible(),false,'Agenda do sábado oculta após troca');
+          await tab.evaluate(()=>window.scrollTo(0,0));
+          await tab.locator('.wa-bingo-spotlight-button').click();
+          await tab.waitForTimeout(80);
+          const jumpState=await tab.evaluate(()=>({
+            hash:location.hash,
+            top:document.getElementById('bingo').getBoundingClientRect().top
+          }));
+          assert.equal(jumpState.hash,'#bingo','Atalho do destaque atualiza a âncora do Bingo');
+          assert.ok(Math.abs(jumpState.top)<=120,'Atalho do Bingo chega direto à cartela');
           const bingoCards=tab.locator('#waBingoGrid .wa-bingo-card');
           await bingoCards.first().waitFor({timeout:15000});
           assert.equal(await bingoCards.count(),80,'Bingo deve carregar as 80 entradas da lista do evento');
@@ -120,6 +129,18 @@ try{
           if(viewport.width<=600){
             const exportBox=await exportButton.boundingBox();
             assert.ok(exportBox && exportBox.height>=44,'Gerar PNG tem área de toque adequada');
+            const actionStyles=await tab.locator('.wa-bingo-tool-actions').evaluate(el=>{
+              const style=getComputedStyle(el);
+              return {display:style.display,columns:style.gridTemplateColumns.split(' ').length};
+            });
+            assert.equal(actionStyles.display,'grid','Ações do Bingo em grade no celular');
+            assert.equal(actionStyles.columns,viewport.width<=380?2:3,'Ações do Bingo cabem na largura do celular');
+            const actionBoxes=await Promise.all([
+              tab.locator('#waBingoClearFilter').boundingBox(),
+              tab.locator('#waBingoReset').boundingBox(),
+              tab.locator('#waBingoExport').boundingBox()
+            ]);
+            assert.ok(actionBoxes.every(box=>box && box.height>=48),'Todos os controles têm área de toque adequada');
           }
           if(viewport.width<=600){
             const resetBox=await resetButton.boundingBox();

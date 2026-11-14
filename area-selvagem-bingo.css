@@ -1,0 +1,56 @@
+/* GO NEXUS · BINGO DE CAPTURA — Área Selvagem 2026 */
+.wa-bingo-section{scroll-margin-top:18px}
+.wa-bingo-intro{max-width:760px}
+.wa-bingo-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}
+.wa-bingo-stat{min-width:0;padding:14px 15px;border:1px solid #6d5c86;border-radius:12px;background:linear-gradient(145deg,#171d39,#12172d);box-shadow:0 8px 22px #0004}
+.wa-bingo-stat strong{display:block;color:#fff;font:900 clamp(1.45rem,3vw,2rem)/1 var(--display);letter-spacing:-.04em}
+.wa-bingo-stat span{display:block;margin-top:7px;color:#cbd6ed;font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.wa-bingo-toolbar{display:flex;align-items:center;gap:9px;margin:15px 0 10px}
+.wa-bingo-search{display:flex;align-items:center;gap:9px;flex:1;min-width:0;min-height:46px;padding:0 13px;border:1px solid #65547e;border-radius:10px;background:#10162c}
+.wa-bingo-search span{color:#98dfff;font-size:1.1rem}
+.wa-bingo-search input{width:100%;min-width:0;border:0;outline:0;background:transparent!important;color:#fff!important;font-size:.85rem}
+.wa-bingo-search input::placeholder{color:#9ba8c5}
+.wa-bingo-clear-filter{min-height:46px;padding:9px 12px;border:1px solid #635a7d;border-radius:9px;background:#1a2039;color:#e9edfa;font-size:.74rem;font-weight:800}
+.wa-bingo-filters{display:flex;gap:7px;overflow-x:auto;padding:3px 1px 9px;scrollbar-width:thin;scrollbar-color:#a14d80 #101426}
+.wa-bingo-filter{flex:none;min-height:39px;padding:8px 12px;border:1px solid #64567d;border-radius:999px;background:#121a32;color:#d7e0f2;font-size:.72rem;font-weight:850;white-space:nowrap}
+.wa-bingo-filter[aria-pressed="true"]{border-color:#ffcc67;background:#ffcc67;color:#171a2e;box-shadow:0 4px 14px #ffcc6730}
+.wa-bingo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:8px}
+.wa-bingo-card{position:relative;display:flex;flex-direction:column;min-width:0;min-height:218px;padding:12px;border:1px solid #524967;border-radius:13px;background:linear-gradient(155deg,#1b2340,#11172d);overflow:hidden}
+.wa-bingo-card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#79d6ff,#ff3893,#ffcc67);opacity:.8}
+.wa-bingo-card.is-caught{border-color:#6cae91;background:linear-gradient(155deg,#172d35,#121d2d)}
+.wa-bingo-card-head{display:flex;align-items:center;justify-content:space-between;gap:5px}
+.wa-bingo-number{font:800 .57rem var(--mono);color:#9cabc9;letter-spacing:.08em}
+.wa-bingo-groups{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px}
+.wa-bingo-tag{display:inline-flex;align-items:center;padding:3px 6px;border-radius:999px;background:#263452;color:#d5e8ff;font:800 .53rem var(--mono);letter-spacing:.01em}
+.wa-bingo-art{display:grid;place-items:center;height:90px;margin:4px 0 2px}
+.wa-bingo-art img{width:86px;height:86px;object-fit:contain;filter:drop-shadow(0 8px 7px #0007)}
+.wa-bingo-name{min-height:37px;margin:0 0 9px;color:#fff;font:800 .86rem/1.18 var(--display);text-align:center;display:flex;align-items:center;justify-content:center}
+.wa-bingo-note{min-height:23px;margin:-4px 0 7px;color:#aebdd9;font-size:.61rem;line-height:1.2;text-align:center}
+.wa-bingo-flags{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:auto}
+.wa-bingo-mark{display:flex;align-items:center;justify-content:center;gap:5px;min-height:39px;padding:7px 5px;border:1px solid #5a5b78;border-radius:8px;background:#11162b;color:#dbe4f7;font-size:.65rem;font-weight:850;line-height:1.1}
+.wa-bingo-mark[aria-pressed="true"]{border-color:#76d2a2;background:#173b36;color:#c8ffe1}
+.wa-bingo-mark .wa-bingo-mark-icon{font-size:.9rem}
+.wa-bingo-mark[data-flag="shiny"][aria-pressed="true"]{border-color:#f3cf66;background:#3b321c;color:#ffe6a1}
+.wa-bingo-empty{grid-column:1/-1;padding:30px 16px;border:1px dashed #6b5b82;border-radius:12px;color:#c5cfe2;text-align:center;background:#11172d}
+.wa-bingo-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:15px 0 7px}
+.wa-bingo-action{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:45px;padding:10px 15px;border:1px solid #ffcf77;border-radius:9px;background:linear-gradient(165deg,#ffe494,#ffc453);color:#17213a;font-size:.78rem;font-weight:900}
+.wa-bingo-action-secondary{border-color:#75618a;background:#1a2039;color:#f3eefe}
+.wa-bingo-notice{min-height:20px;color:#b8c8e5!important;font-size:.72rem!important}
+.wa-bingo-footnote{margin-top:10px!important;color:#9eabc7!important;font-size:.69rem!important;line-height:1.5}
+@media(max-width:900px){.wa-bingo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){
+ .wa-bingo-summary{gap:7px;margin:13px 0}
+ .wa-bingo-stat{padding:11px 9px;border-radius:10px}
+ .wa-bingo-stat span{font-size:.59rem;letter-spacing:0}
+ .wa-bingo-toolbar{align-items:stretch}
+ .wa-bingo-clear-filter{padding-inline:9px;font-size:.68rem}
+ .wa-bingo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .wa-bingo-card{min-height:207px;padding:9px}
+ .wa-bingo-art{height:81px}
+ .wa-bingo-art img{width:78px;height:78px}
+ .wa-bingo-name{font-size:.79rem;min-height:35px}
+ .wa-bingo-mark{min-height:38px;font-size:.61rem}
+ .wa-bingo-action{flex:1}
+}
+@media(max-width:360px){.wa-bingo-grid{gap:6px}.wa-bingo-card{padding:7px}.wa-bingo-tag{font-size:.48rem}}
+@media(prefers-reduced-motion:reduce){.wa-bingo-card,.wa-bingo-filter,.wa-bingo-mark{transition:none!important}}

@@ -147,3 +147,32 @@
   .wa-bingo-spotlight-kicker{font-size:.58rem;letter-spacing:.09em}
   .wa-bingo-spotlight-meta{font-size:.53rem;gap:5px}
 }
+
+
+/* CONTROLES SUPERIORES — filtros e limpeza de seleção no mesmo lugar */
+.wa-bingo-toolbar{display:flex;align-items:stretch;gap:9px}
+.wa-bingo-search{flex:1 1 auto;min-width:0}
+.wa-bingo-tool-actions{display:flex;align-items:stretch;gap:8px;flex:0 0 auto}
+.wa-bingo-clear-filter,.wa-bingo-clear-selection{
+  min-height:46px;padding:9px 13px;border-radius:9px;
+  font-family:var(--body);font-size:.76rem;font-weight:850;
+  line-height:1.15;white-space:nowrap;
+}
+.wa-bingo-clear-filter{
+  border:1px solid #635a7d;background:#1a2039;color:#e9edfa;
+}
+.wa-bingo-clear-selection{
+  border:1px solid #a95b82;background:#321c35;color:#ffd8e9;
+  box-shadow:inset 0 0 0 1px #ff8ab61a;
+}
+.wa-bingo-clear-selection:hover{background:#49223f;border-color:#ff91ba}
+.wa-bingo-clear-selection:active,.wa-bingo-clear-filter:active{transform:translateY(1px)}
+@media(max-width:600px){
+  .wa-bingo-toolbar{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+  .wa-bingo-search{width:100%;min-height:46px}
+  .wa-bingo-tool-actions{display:grid;grid-template-columns:1fr 1fr;width:100%;gap:8px}
+  .wa-bingo-clear-filter,.wa-bingo-clear-selection{width:100%;min-height:46px;padding:9px 8px;font-size:.72rem}
+}
+@media(max-width:360px){
+  .wa-bingo-tool-actions{grid-template-columns:1fr}
+}

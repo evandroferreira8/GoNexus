@@ -69,6 +69,18 @@ GO Nexus é um projeto independente criado para a comunidade de Pokémon GO e n�
 
 Pokémon, Pokémon GO e demais marcas, personagens, imagens e elementos relacionados pertencem aos seus respectivos titulares.
 
+## Bingo de Captura — Área Selvagem GO 2026
+
+A página `area-selvagem.html` inclui uma cartela de captura com marcações independentes para Pokémon Brilhantes e 100% IV. O progresso é salvo em `localStorage`, no navegador e dispositivo utilizados, e pode ser exportado como imagem PNG.
+
+Arquivos da funcionalidade:
+
+- `area-selvagem-bingo-data.json`: lista editável de espécies e respectivas categorias de encontro.
+- `area-selvagem-bingo.js`: filtros, busca, contadores, persistência local e exportação da cartela.
+- `area-selvagem-bingo.css`: apresentação responsiva da cartela.
+
+As marcações são manuais; o GO Nexus não acessa a conta do jogo nem verifica capturas ou IVs automaticamente. A lista inclui encontros dos habitats, Pokémon incríveis, Reides, Batalhas Max, Ovos de 10 km e Incenso com ingresso. Revise o JSON quando a programação do evento mudar.
+
 ## Revisão técnica da busca global
 
 A busca também indexa o texto usado para montar listas dinâmicas em JavaScript. Isso permite encontrar nomes que não aparecem no HTML inicial — por exemplo, espécies presentes nas listas da Central Mega e da Central Max — sem exibir código no trecho mostrado ao usuário.

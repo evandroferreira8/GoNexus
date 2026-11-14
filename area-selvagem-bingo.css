@@ -207,3 +207,56 @@
   .wa-bingo-tool-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
   .wa-bingo-export-control{grid-column:1/-1}
 }
+
+
+/* MOBILE HOTFIX — os três comandos permanecem visíveis e clicáveis */
+@media(max-width:600px){
+  body.page-wild .wa-bingo-section .wa-bingo-toolbar{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    align-items:stretch!important;
+    gap:8px!important;
+    width:100%!important;
+  }
+  body.page-wild .wa-bingo-section .wa-bingo-search{
+    display:flex!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:46px!important;
+    grid-column:1!important;
+  }
+  body.page-wild .wa-bingo-section .wa-bingo-tool-actions{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-column:1!important;
+    width:100%!important;
+    min-width:0!important;
+    gap:7px!important;
+  }
+  body.page-wild .wa-bingo-section .wa-bingo-tool-actions>button{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:48px!important;
+    height:auto!important;
+    padding:8px 5px!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    text-align:center!important;
+    font-size:.67rem!important;
+    line-height:1.15!important;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+}
+@media(max-width:380px){
+  body.page-wild .wa-bingo-section .wa-bingo-tool-actions{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  body.page-wild .wa-bingo-section .wa-bingo-tool-actions>#waBingoExport{
+    grid-column:1/-1!important;
+  }
+}
+html.wa-bingo-jump-instant{scroll-behavior:auto!important}

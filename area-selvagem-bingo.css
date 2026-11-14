@@ -260,3 +260,21 @@
   }
 }
 html.wa-bingo-jump-instant{scroll-behavior:auto!important}
+
+
+/* TERCEIRA CONQUISTA — Fundo Especial */
+body.page-wild .wa-bingo-summary{grid-template-columns:repeat(4,minmax(0,1fr))}
+.wa-bingo-stat-background{border-color:#5385a7;background:linear-gradient(145deg,#17283d,#121b31)}
+.wa-bingo-stat-background strong{color:#a9e1ff}
+.wa-bingo-card[data-background-eligible="true"] .wa-bingo-flags.has-background{grid-template-columns:repeat(3,minmax(0,1fr))}
+.wa-bingo-mark[data-flag="background"]{border-color:#54718a;background:#142336;color:#cdeaff}
+.wa-bingo-mark[data-flag="background"][aria-pressed="true"]{
+  border-color:#83d4ff;background:#153e5a;color:#d9f2ff;
+  box-shadow:inset 0 0 0 1px #a6e4ff25;
+}
+@media(max-width:600px){
+  body.page-wild .wa-bingo-summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.page-wild .wa-bingo-stat-background{min-height:76px}
+  body.page-wild .wa-bingo-card[data-background-eligible="true"] .wa-bingo-flags.has-background{grid-template-columns:repeat(3,minmax(0,1fr))}
+  body.page-wild .wa-bingo-card[data-background-eligible="true"] .wa-bingo-mark{font-size:.61rem;padding:7px 2px;gap:3px}
+}

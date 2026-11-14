@@ -176,3 +176,34 @@
 @media(max-width:360px){
   .wa-bingo-tool-actions{grid-template-columns:1fr}
 }
+
+
+/* EXPORTAÇÃO NO TOPO — os três comandos ficam juntos */
+.wa-bingo-tool-actions{display:flex;align-items:stretch;gap:8px;flex:0 0 auto}
+.wa-bingo-clear-filter,.wa-bingo-clear-selection,.wa-bingo-export-control{
+  min-height:46px;padding:9px 12px;border-radius:9px;
+  font-family:var(--body);font-size:.74rem;font-weight:850;
+  line-height:1.15;white-space:nowrap;
+}
+.wa-bingo-export-control{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid #ffe39b;
+  background:linear-gradient(115deg,#ffe79c 0%,#ffc65e 58%,#ff9bb8 100%);
+  color:#211a2c;box-shadow:0 3px 0 #8d4764,0 7px 16px #ffb95c30;
+}
+.wa-bingo-export-control span{font-size:1rem;font-weight:900}
+.wa-bingo-export-control:hover{filter:saturate(1.1) brightness(1.04);transform:translateY(-1px)}
+.wa-bingo-export-control:active{transform:translateY(1px)}
+@media(max-width:600px){
+  .wa-bingo-toolbar{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+  .wa-bingo-tool-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:7px}
+  .wa-bingo-clear-filter,.wa-bingo-clear-selection,.wa-bingo-export-control{
+    width:100%;min-width:0;min-height:46px;padding:8px 5px;
+    font-size:.66rem;letter-spacing:-.02em;text-align:center;
+  }
+  .wa-bingo-export-control{gap:4px}
+}
+@media(max-width:360px){
+  .wa-bingo-tool-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wa-bingo-export-control{grid-column:1/-1}
+}

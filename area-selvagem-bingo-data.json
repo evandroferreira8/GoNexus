@@ -1,0 +1,724 @@
+{
+  "title": "Bingo de Captura — Área Selvagem GO 2026",
+  "event": "Área Selvagem GO 2026 · Global",
+  "dates": "14 e 15 de novembro de 2026 · 10h às 18h (horário local)",
+  "updatedAt": "2026-11-13",
+  "source": [
+    {
+      "label": "Especial Área Selvagem GO — GO Nexus",
+      "url": "https://evandroferreira8.github.io/GoNexus/area-selvagem.html"
+    },
+    {
+      "label": "Guia da Área Selvagem — Leek Duck",
+      "url": "https://leekduck.com/pokemon-go-wild-area/"
+    }
+  ],
+  "groups": [
+    {
+      "id": "aco",
+      "label": "Habitat Aço"
+    },
+    {
+      "id": "dragao",
+      "label": "Habitat Dragão"
+    },
+    {
+      "id": "incriveis",
+      "label": "Pokémon incríveis"
+    },
+    {
+      "id": "reides",
+      "label": "Reides"
+    },
+    {
+      "id": "max",
+      "label": "Batalhas Max"
+    },
+    {
+      "id": "ovos",
+      "label": "Ovos de 10 km"
+    },
+    {
+      "id": "incenso",
+      "label": "Incenso com ingresso"
+    }
+  ],
+  "items": [
+    {
+      "key": "10101",
+      "sprite": 10101,
+      "name": "Sandshrew de Alola",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "10105",
+      "sprite": 10105,
+      "name": "Diglett de Alola",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "81",
+      "sprite": 81,
+      "name": "Magnemite",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "90",
+      "sprite": 90,
+      "name": "Shellder",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "95",
+      "sprite": 95,
+      "name": "Onix",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "137",
+      "sprite": 137,
+      "name": "Porygon",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "213",
+      "sprite": 213,
+      "name": "Shuckle",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "227",
+      "sprite": 227,
+      "name": "Skarmory",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "299",
+      "sprite": 299,
+      "name": "Nosepass",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "304",
+      "sprite": 304,
+      "name": "Aron",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "374",
+      "sprite": 374,
+      "name": "Beldum",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "393",
+      "sprite": 393,
+      "name": "Piplup",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "410",
+      "sprite": 410,
+      "name": "Shieldon",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "436",
+      "sprite": 436,
+      "name": "Bronzor",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "448",
+      "sprite": 448,
+      "name": "Lucario",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "529",
+      "sprite": 529,
+      "name": "Drilbur",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "597",
+      "sprite": 597,
+      "name": "Ferroseed",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "599",
+      "sprite": 599,
+      "name": "Klink",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "10180",
+      "sprite": 10180,
+      "name": "Stunfisk de Galar",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "632",
+      "sprite": 632,
+      "name": "Durant",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "821",
+      "sprite": 821,
+      "name": "Rookidee",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "957",
+      "sprite": 957,
+      "name": "Tinkatink",
+      "groups": [
+        "aco"
+      ]
+    },
+    {
+      "key": "4",
+      "sprite": 4,
+      "name": "Charmander",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "129",
+      "sprite": 129,
+      "name": "Magikarp",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "147",
+      "sprite": 147,
+      "name": "Dratini",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "207",
+      "sprite": 207,
+      "name": "Gligar",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "328",
+      "sprite": 328,
+      "name": "Trapinch",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "333",
+      "sprite": 333,
+      "name": "Swablu",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "339",
+      "sprite": 339,
+      "name": "Barboach",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "371",
+      "sprite": 371,
+      "name": "Bagon",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "443",
+      "sprite": 443,
+      "name": "Gible",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "602",
+      "sprite": 602,
+      "name": "Tynamo",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "610",
+      "sprite": 610,
+      "name": "Axew",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "631",
+      "sprite": 631,
+      "name": "Heatmor",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "633",
+      "sprite": 633,
+      "name": "Deino",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "690",
+      "sprite": 690,
+      "name": "Skrelp",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "696",
+      "sprite": 696,
+      "name": "Tyrunt",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "698",
+      "sprite": 698,
+      "name": "Amaura",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "704",
+      "sprite": 704,
+      "name": "Goomy",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "714",
+      "sprite": 714,
+      "name": "Noibat",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "776",
+      "sprite": 776,
+      "name": "Turtonator",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "782",
+      "sprite": 782,
+      "name": "Jangmo-o",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "850",
+      "sprite": 850,
+      "name": "Sizzlipede",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "996",
+      "sprite": 996,
+      "name": "Frigibax",
+      "groups": [
+        "dragao"
+      ]
+    },
+    {
+      "key": "10114",
+      "sprite": 10114,
+      "name": "Exeggutor de Alola",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — sábado"
+    },
+    {
+      "key": "212",
+      "sprite": 212,
+      "name": "Scizor",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — sábado"
+    },
+    {
+      "key": "330",
+      "sprite": 330,
+      "name": "Flygon",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — sábado"
+    },
+    {
+      "key": "365",
+      "sprite": 365,
+      "name": "Walrein",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — sábado"
+    },
+    {
+      "key": "376",
+      "sprite": 376,
+      "name": "Metagross",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — sábado"
+    },
+    {
+      "key": "395",
+      "sprite": 395,
+      "name": "Empoleon",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — sábado"
+    },
+    {
+      "key": "462",
+      "sprite": 462,
+      "name": "Magnezone",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — sábado"
+    },
+    {
+      "key": "534",
+      "sprite": 534,
+      "name": "Conkeldurr",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — sábado"
+    },
+    {
+      "key": "612",
+      "sprite": 612,
+      "name": "Haxorus",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — sábado"
+    },
+    {
+      "key": "184",
+      "sprite": 184,
+      "name": "Azumarill",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — domingo"
+    },
+    {
+      "key": "230",
+      "sprite": 230,
+      "name": "Kingdra",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — domingo"
+    },
+    {
+      "key": "306",
+      "sprite": 306,
+      "name": "Aggron",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — domingo"
+    },
+    {
+      "key": "598",
+      "sprite": 598,
+      "name": "Ferrothorn",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — domingo"
+    },
+    {
+      "key": "635",
+      "sprite": 635,
+      "name": "Hydreigon",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — domingo"
+    },
+    {
+      "key": "706",
+      "sprite": 706,
+      "name": "Goodra",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — domingo"
+    },
+    {
+      "key": "715",
+      "sprite": 715,
+      "name": "Noivern",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — domingo"
+    },
+    {
+      "key": "959",
+      "sprite": 959,
+      "name": "Tinkaton",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — domingo"
+    },
+    {
+      "key": "980",
+      "sprite": 980,
+      "name": "Clodsire",
+      "groups": [
+        "incriveis"
+      ],
+      "note": "Pokémon incrível — domingo"
+    },
+    {
+      "key": "644",
+      "sprite": 644,
+      "name": "Zekrom",
+      "groups": [
+        "reides"
+      ],
+      "note": "Reide 3★/5★ — sábado"
+    },
+    {
+      "key": "10023",
+      "sprite": 10023,
+      "name": "Kyurem Branco",
+      "groups": [
+        "reides"
+      ],
+      "note": "Reide 3★/5★ — sábado"
+    },
+    {
+      "key": "68",
+      "sprite": 68,
+      "name": "Machamp com jaqueta moderna",
+      "groups": [
+        "reides"
+      ],
+      "note": "Reide 3★/5★ — sábado e domingo"
+    },
+    {
+      "key": "643",
+      "sprite": 643,
+      "name": "Reshiram",
+      "groups": [
+        "reides"
+      ],
+      "note": "Reide 3★/5★ — domingo"
+    },
+    {
+      "key": "10022",
+      "sprite": 10022,
+      "name": "Kyurem Preto",
+      "groups": [
+        "reides"
+      ],
+      "note": "Reide 3★/5★ — domingo"
+    },
+    {
+      "key": "483",
+      "sprite": 483,
+      "name": "Dialga Dinamax",
+      "groups": [
+        "max"
+      ],
+      "note": "Batalha Max — sábado"
+    },
+    {
+      "key": "484",
+      "sprite": 484,
+      "name": "Palkia Dinamax",
+      "groups": [
+        "max"
+      ],
+      "note": "Batalha Max — domingo"
+    },
+    {
+      "key": "10225",
+      "sprite": 10225,
+      "name": "Duraludon Gigamax",
+      "groups": [
+        "max"
+      ],
+      "note": "Batalha Max — sábado e domingo"
+    },
+    {
+      "key": "679",
+      "sprite": 679,
+      "name": "Honedge",
+      "groups": [
+        "ovos"
+      ],
+      "note": "Ovo de 10 km"
+    },
+    {
+      "key": "707",
+      "sprite": 707,
+      "name": "Klefki",
+      "groups": [
+        "ovos"
+      ],
+      "note": "Ovo de 10 km"
+    },
+    {
+      "key": "780",
+      "sprite": 780,
+      "name": "Drampa",
+      "groups": [
+        "ovos"
+      ],
+      "note": "Ovo de 10 km"
+    },
+    {
+      "key": "884",
+      "sprite": 884,
+      "name": "Duraludon",
+      "groups": [
+        "ovos"
+      ],
+      "note": "Ovo de 10 km"
+    },
+    {
+      "key": "latias-incenso",
+      "sprite": 380,
+      "name": "Latias",
+      "groups": [
+        "incenso"
+      ],
+      "note": "Incenso — ingresso pago"
+    },
+    {
+      "key": "latios-incenso",
+      "sprite": 381,
+      "name": "Latios",
+      "groups": [
+        "incenso"
+      ],
+      "note": "Incenso — ingresso pago"
+    },
+    {
+      "key": "unown-d",
+      "sprite": 201,
+      "name": "Unown D",
+      "groups": [
+        "incenso"
+      ],
+      "note": "Incenso — ingresso pago"
+    },
+    {
+      "key": "unown-i",
+      "sprite": 201,
+      "name": "Unown I",
+      "groups": [
+        "incenso"
+      ],
+      "note": "Incenso — ingresso pago"
+    },
+    {
+      "key": "unown-l",
+      "sprite": 201,
+      "name": "Unown L",
+      "groups": [
+        "incenso"
+      ],
+      "note": "Incenso — ingresso pago"
+    },
+    {
+      "key": "unown-w",
+      "sprite": 201,
+      "name": "Unown W",
+      "groups": [
+        "incenso"
+      ],
+      "note": "Incenso — ingresso pago"
+    }
+  ]
+}

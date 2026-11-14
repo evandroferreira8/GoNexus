@@ -71,6 +71,8 @@ Pokémon, Pokémon GO e demais marcas, personagens, imagens e elementos relacion
 
 ## Bingo de Captura — Área Selvagem GO 2026
 
+A cartela também registra Fundo Especial para os Pokémon elegíveis em Reides e Batalhas Max, incluindo o Duraludon Gigamax da Pesquisa Especial do ingresso.
+
 A página `area-selvagem.html` inclui uma cartela de captura com marcações independentes para Pokémon Brilhantes e 100% IV. O progresso é salvo em `localStorage`, no navegador e dispositivo utilizados, e pode ser exportado como imagem PNG.
 
 Arquivos da funcionalidade:

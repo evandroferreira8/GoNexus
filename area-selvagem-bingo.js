@@ -228,60 +228,104 @@
   }
   async function exportImage() {
     const button = $("waBingoExport");
+    const selectedItems = items.filter(item => {
+      const state = stateFor(item.key);
+      return state.shiny || state.perfect;
+    });
+    if (!selectedItems.length) {
+      notice.textContent = "Marque pelo menos um Pokémon como Shiny ou 100% IV para gerar sua cartela.";
+      return;
+    }
     button.disabled = true;
     button.textContent = "Preparando imagem…";
     try {
-      const width = 1200, padding = 54, columns = 4, gap = 14;
+      const width = 1200, padding = 54, columns = 4, gap = 16;
       const cardWidth = (width - padding*2 - gap*(columns-1)) / columns;
-      const cardHeight = 194;
-      const rows = Math.ceil(items.length / columns);
-      const height = 390 + rows * (cardHeight + gap) + padding;
+      const cardHeight = 224;
+      const rows = Math.ceil(selectedItems.length / columns);
+      const cardsTop = 300;
+      const footerSpace = 76;
+      const height = cardsTop + rows * (cardHeight + gap) - gap + footerSpace;
       const canvas = document.createElement("canvas");
       canvas.width = width; canvas.height = height;
       const ctx = canvas.getContext("2d");
       if (!ctx) throw new Error("Seu navegador não conseguiu criar a imagem.");
+
       const bg = ctx.createLinearGradient(0,0,width,height);
       bg.addColorStop(0,"#090d20"); bg.addColorStop(.55,"#17132c"); bg.addColorStop(1,"#080b19");
       ctx.fillStyle = bg; ctx.fillRect(0,0,width,height);
+
       ctx.fillStyle = "#ffcc67"; ctx.fillRect(padding,48,48,6);
       ctx.fillStyle = "#f7f8ff"; ctx.font = "900 48px Arial";
       ctx.fillText("BINGO DE CAPTURA",padding,112);
       ctx.fillStyle = "#ff75b7"; ctx.font = "800 22px Arial";
       ctx.fillText("ÁREA SELVAGEM GO 2026 · 14 E 15 NOV",padding,151);
+
       const c = counts();
       ctx.fillStyle = "#c9d3ea"; ctx.font = "700 21px Arial";
-      ctx.fillText("✦ " + c.shiny + " Shiny     💯 " + c.perfect + " Pokémon 100%     " + c.caught + "/" + c.total + " espécies marcadas",padding,204);
+      ctx.fillText(c.shiny + " SHINY   ·   " + c.perfect + " COM 100% IV   ·   " + selectedItems.length + " ESPÉCIES",padding,204);
       ctx.fillStyle = "#97a7c8"; ctx.font = "18px Arial";
-      ctx.fillText("Marcações manuais · GO Nexus",padding,240);
-      const images = await Promise.all(items.map(item => loadImage(ASSET_ROOT + item.sprite + ".png")));
-      for (let i=0;i<items.length;i++) {
-        const item = items[i], state = stateFor(item.key);
+      ctx.fillText("Suas capturas selecionadas · Marcações manuais · GO Nexus",padding,240);
+
+      const images = await Promise.all(selectedItems.map(item => loadImage(ASSET_ROOT + item.sprite + ".png")));
+      for (let i=0;i<selectedItems.length;i++) {
+        const item = selectedItems[i], state = stateFor(item.key);
         const col = i % columns, row = Math.floor(i / columns);
-        const x = padding + col*(cardWidth+gap), y = 280 + row*(cardHeight+gap);
-        roundedRect(ctx,x,y,cardWidth,cardHeight,15);
-        ctx.fillStyle = state.shiny || state.perfect ? "#183334" : "#171e37";
+        const x = padding + col*(cardWidth+gap), y = cardsTop + row*(cardHeight+gap);
+        const accent = state.shiny && state.perfect ? "#f5d66b" : state.shiny ? "#e8c76d" : "#73d6a3";
+        roundedRect(ctx,x,y,cardWidth,cardHeight,16);
+        ctx.fillStyle = state.shiny && state.perfect ? "#33301f" : state.shiny ? "#342b1d" : "#193329";
         ctx.fill();
-        ctx.strokeStyle = state.shiny ? "#e8c76d" : state.perfect ? "#73d6a3" : "#4a5270";
-        ctx.lineWidth = 2; ctx.stroke();
+        ctx.strokeStyle = accent;
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        ctx.fillStyle = accent;
+        roundedRect(ctx,x+13,y+13,cardWidth-26,5,3);
+        ctx.fill();
+
         const img = images[i];
         if (img) {
-          const size = 91, ix = x+(cardWidth-size)/2, iy = y+8;
+          const size = 112, ix = x+(cardWidth-size)/2, iy = y+23;
           ctx.drawImage(img,ix,iy,size,size);
         } else {
-          ctx.fillStyle = "#9fafd0"; ctx.font = "bold 20px Arial"; ctx.textAlign = "center";
-          ctx.fillText("◉",x+cardWidth/2,y+62); ctx.textAlign = "left";
+          ctx.fillStyle = "#bdc9e0"; ctx.font = "bold 30px Arial"; ctx.textAlign = "center";
+          ctx.fillText("POKÉMON",x+cardWidth/2,y+87);
+          ctx.textAlign = "left";
         }
-        ctx.fillStyle = "#f7f8ff"; ctx.font = "800 19px Arial"; ctx.textAlign = "center";
-        ctx.fillText(item.name.length>22 ? item.name.slice(0,21)+"…" : item.name,x+cardWidth/2,y+122);
-        ctx.font = "700 15px Arial";
-        ctx.fillStyle = state.shiny ? "#ffe397" : "#8796b5";
-        ctx.fillText(state.shiny ? "✦ SHINY" : "○ SHINY",x+cardWidth*.28,y+157);
-        ctx.fillStyle = state.perfect ? "#9ff0c1" : "#8796b5";
-        ctx.fillText(state.perfect ? "✓ 100%" : "○ 100%",x+cardWidth*.73,y+157);
+
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "800 20px Arial";
+        ctx.textAlign = "center";
+        const name = item.name.length>24 ? item.name.slice(0,23)+"…" : item.name;
+        ctx.fillText(name,x+cardWidth/2,y+157);
+
+        const badges = [];
+        if (state.shiny) badges.push({label:"SHINY",color:"#ffe397"});
+        if (state.perfect) badges.push({label:"100% IV",color:"#9ff0c1"});
+        const badgeGap = 12, badgeHeight = 27, badgeY = y+177;
+        const badgeWidths = badges.map(b => b.label === "SHINY" ? 93 : 108);
+        const totalBadgeWidth = badgeWidths.reduce((sum,v)=>sum+v,0)+badgeGap*(badges.length-1);
+        let badgeX = x+(cardWidth-totalBadgeWidth)/2;
+        badges.forEach((badge,index) => {
+          const badgeWidth = badgeWidths[index];
+          roundedRect(ctx,badgeX,badgeY,badgeWidth,badgeHeight,7);
+          ctx.fillStyle = "#0b1223";
+          ctx.fill();
+          ctx.strokeStyle = badge.color;
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+          ctx.fillStyle = badge.color;
+          ctx.font = "900 14px Arial";
+          ctx.textAlign = "center";
+          ctx.fillText(badge.label,badgeX+badgeWidth/2,badgeY+18);
+          badgeX += badgeWidth+badgeGap;
+        });
         ctx.textAlign = "left";
       }
+
       ctx.fillStyle = "#8796b5"; ctx.font = "16px Arial";
-      ctx.fillText("Lista baseada no especial da Área Selvagem GO no GO Nexus. Confira os encontros e horários no jogo.",padding,height-28);
+      ctx.fillText("Somente Pokémon marcados na sua cartela. Confira os encontros e horários no jogo.",padding,height-28);
       const blob = await new Promise(resolve => canvas.toBlob(resolve,"image/png"));
       if (!blob) throw new Error("Não foi possível gerar o PNG neste navegador.");
       const url = URL.createObjectURL(blob);
@@ -289,7 +333,7 @@
       anchor.href = url; anchor.download = "go-nexus-bingo-area-selvagem-2026.png";
       document.body.append(anchor); anchor.click(); anchor.remove();
       window.setTimeout(() => URL.revokeObjectURL(url),1000);
-      notice.textContent = "Imagem da cartela gerada. Confira a pasta de downloads.";
+      notice.textContent = "Imagem gerada com " + selectedItems.length + " espécie(s) selecionada(s).";
     } catch (error) {
       notice.textContent = error.message || "Não foi possível exportar a cartela.";
     } finally {

@@ -401,7 +401,8 @@
       "sprite": 10114,
       "name": "Exeggutor de Alola",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — sábado"
     },
@@ -410,7 +411,8 @@
       "sprite": 212,
       "name": "Scizor",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — sábado"
     },
@@ -419,7 +421,8 @@
       "sprite": 330,
       "name": "Flygon",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — sábado"
     },
@@ -446,7 +449,8 @@
       "sprite": 395,
       "name": "Empoleon",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — sábado"
     },
@@ -455,7 +459,8 @@
       "sprite": 462,
       "name": "Magnezone",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — sábado"
     },
@@ -464,7 +469,8 @@
       "sprite": 534,
       "name": "Conkeldurr",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — sábado"
     },
@@ -482,7 +488,8 @@
       "sprite": 184,
       "name": "Azumarill",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — domingo"
     },
@@ -491,7 +498,8 @@
       "sprite": 230,
       "name": "Kingdra",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — domingo"
     },
@@ -500,7 +508,8 @@
       "sprite": 306,
       "name": "Aggron",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — domingo"
     },
@@ -518,7 +527,8 @@
       "sprite": 635,
       "name": "Hydreigon",
       "groups": [
-        "incriveis"
+        "incriveis",
+        "incenso"
       ],
       "note": "Pokémon incrível — domingo"
     },

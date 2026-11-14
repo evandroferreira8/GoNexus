@@ -150,6 +150,7 @@
   }
   function render() {
     const list = visibleItems();
+    grid.setAttribute("aria-busy","false");
     grid.replaceChildren();
     if (!list.length) {
       const empty = document.createElement("div");
@@ -181,6 +182,7 @@
         empty.className = "wa-bingo-empty";
         empty.textContent = error.message + " Atualize a página ou tente novamente.";
         grid.append(empty);
+        grid.setAttribute("aria-busy","false");
         notice.textContent = "A cartela não conseguiu acessar o arquivo de dados.";
       });
   }
@@ -286,7 +288,7 @@
       const anchor = document.createElement("a");
       anchor.href = url; anchor.download = "go-nexus-bingo-area-selvagem-2026.png";
       document.body.append(anchor); anchor.click(); anchor.remove();
-      URL.revokeObjectURL(url);
+      window.setTimeout(() => URL.revokeObjectURL(url),1000);
       notice.textContent = "Imagem da cartela gerada. Confira a pasta de downloads.";
     } catch (error) {
       notice.textContent = error.message || "Não foi possível exportar a cartela.";

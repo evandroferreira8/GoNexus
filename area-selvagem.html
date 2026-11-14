@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="area-selvagem-standalone.css?v=20261109d5">
 <link rel="stylesheet" href="area-selvagem-mobile.css?v=20261109m4">
+<link rel="stylesheet" href="area-selvagem-bingo.css?v=20261113a">
 <style>html,body.page-wild{background-color:#080b19!important;color:#f7f8ff!important}body.page-wild .wa-wrap{color:#f7f8ff!important}body.page-wild .wa-section h2,body.page-wild .wa-hero h1,body.page-wild .wa-capture-intro h3{color:#fff!important}</style>
 
 
@@ -43,7 +44,7 @@
  <a href="#agenda" class="wa-mission-action">Explorar a agenda <span aria-hidden="true">↗</span></a>
 </section>
 <nav class="wa-local-nav" aria-label="Estações do Distrito Max">
- <a href="#natureza">Natureza Selvagem</a><a href="#agenda">Sábado e domingo</a><a href="#distritos">Distritos</a><a href="#captura">Capturas</a><a href="#ingresso">Ingresso</a><a href="#destaques">Destaques</a><a href="#bonus">Bônus</a>
+ <a href="#natureza">Natureza Selvagem</a><a href="#agenda">Sábado e domingo</a><a href="#distritos">Distritos</a><a href="#captura">Capturas</a><a href="#bingo">Bingo</a><a href="#ingresso">Ingresso</a><a href="#destaques">Destaques</a><a href="#bonus">Bônus</a>
 </nav>
 <section class="wa-section wa-prep" data-chapter="00" id="natureza" aria-labelledby="waNatureza">
  <header class="wa-section-heading"><div><span class="wa-eyebrow">00 / AQUECIMENTO · 9–13 NOV</span><h2 id="waNatureza">Antes da Área Selvagem.</h2><p class="wa-section-intro">Natureza Selvagem prepara o caminho para o fim de semana global. São eventos diferentes, em sequência.</p></div></header>
@@ -118,6 +119,35 @@
   </div>
  </div>
 </section>
+<section class="wa-section wa-bingo-section" data-chapter="03B" id="bingo" aria-labelledby="waBingoTitle">
+ <header class="wa-section-heading">
+  <div>
+   <span class="wa-eyebrow">03B / BINGO DE CAPTURA</span>
+   <h2 id="waBingoTitle">O que você conseguiu?</h2>
+   <p class="wa-section-intro wa-bingo-intro">Registre os Pokémon que encontrou durante a Área Selvagem. Marque Shiny e 100% IV separadamente — uma mesma espécie pode entrar nas duas categorias.</p>
+  </div>
+ </header>
+ <div class="wa-bingo-summary" aria-live="polite" aria-label="Resumo das capturas">
+  <article class="wa-bingo-stat"><strong id="waBingoShinyCount">0</strong><span id="waBingoShinyLabel">espécies Shiny</span></article>
+  <article class="wa-bingo-stat"><strong id="waBingoPerfectCount">0</strong><span id="waBingoPerfectLabel">espécies 100% IV</span></article>
+  <article class="wa-bingo-stat"><strong id="waBingoCaughtCount">0 / 0</strong><span>espécies registradas</span></article>
+ </div>
+ <div class="wa-bingo-toolbar">
+  <label class="wa-bingo-search" for="waBingoSearch"><span aria-hidden="true">⌕</span><input id="waBingoSearch" type="search" autocomplete="off" placeholder="Buscar Pokémon..." aria-label="Buscar Pokémon na cartela"></label>
+  <button type="button" class="wa-bingo-clear-filter" id="waBingoClearFilter">Limpar filtro</button>
+ </div>
+ <div class="wa-bingo-filters" id="waBingoFilters" role="group" aria-label="Filtrar Pokémon por encontro"></div>
+ <div class="wa-bingo-grid" id="waBingoGrid" aria-live="polite" aria-busy="true">
+  <div class="wa-bingo-empty">Carregando a cartela de captura…</div>
+ </div>
+ <div class="wa-bingo-actions">
+  <button type="button" class="wa-bingo-action" id="waBingoExport">Baixar cartela em PNG</button>
+  <button type="button" class="wa-bingo-action wa-bingo-action-secondary" id="waBingoReset">Limpar minhas marcações</button>
+ </div>
+ <p class="wa-bingo-notice" id="waBingoNotice" role="status" aria-live="polite">Suas marcações serão salvas neste navegador.</p>
+ <p class="wa-bingo-footnote">A lista reúne espécies dos habitats, Pokémon incríveis, Reides, Batalhas Max, Ovos de 10 km e encontros por Incenso. Alguns encontros dependem do ingresso. Shiny e 100% IV são registros manuais: o GO Nexus não acessa sua conta nem verifica as capturas no jogo. O progresso fica salvo somente neste navegador e dispositivo.</p>
+ <p class="wa-bingo-footnote">Fontes: <a href="https://pokemongo.com/pt-BR/gowildarea/global" target="_blank" rel="noopener noreferrer">Pokémon GO — evento global ↗</a> · <a href="https://leekduck.com/pokemon-go-wild-area/" target="_blank" rel="noopener noreferrer">Leek Duck — guia do evento ↗</a></p>
+</section>
 <section class="wa-section" data-chapter="04" id="ingresso" aria-labelledby="waTicket">
  <header class="wa-section-heading"><div><span class="wa-eyebrow">04 / INGRESSO GLOBAL</span><h2 id="waTicket">Vale a pena ter ingresso?</h2><p class="wa-section-intro">O evento global é acessível a todos. O ingresso libera experiências e bônus adicionais.</p></div></header>
  <div class="wa-ticket">
@@ -186,6 +216,7 @@
 </main>
 <button type="button" class="wa-top-button" id="waTopButton" aria-label="Voltar ao topo da Área Selvagem" hidden>↑</button>
 <script src="area-selvagem.js?v=20261021a" defer></script>
+<script src="area-selvagem-bingo.js?v=20261113a" defer></script>
 <script src="area-selvagem-mobile.js?v=20261021m1" defer></script>
 </body>
 </html>

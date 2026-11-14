@@ -72,9 +72,30 @@ try{
           assert.equal(await tab.locator('#waBingoShinyCount').innerText(),'1','Contador de Shiny');
           assert.equal(await tab.locator('#waBingoPerfectCount').innerText(),'1','Contador de 100% IV');
           assert.equal(await tab.locator('#waBingoCaughtCount').innerText(),'1 / 80','Contador de espécies marcadas');
+          await bingoCards.nth(1).locator('[data-flag="shiny"]').click();
+          assert.equal(await tab.locator('#waBingoShinyCount').innerText(),'2','Segundo Shiny contabilizado');
+          assert.equal(await tab.locator('#waBingoCaughtCount').innerText(),'2 / 80','Duas espécies selecionadas');
           const stored=await tab.evaluate(()=>JSON.parse(localStorage.getItem('gonexus-area-selvagem-bingo-2026-v1')));
           assert.equal(stored.progress['10101'].shiny,true,'Shiny salvo no navegador');
           assert.equal(stored.progress['10101'].perfect,true,'100% IV salvo no navegador');
+          assert.equal(stored.progress['10105'].shiny,true,'Segundo Shiny salvo');
+          const downloadWait=tab.waitForEvent('download');
+          await tab.evaluate(()=>{
+            window.__bingoExportLabels=[];
+            const original=CanvasRenderingContext2D.prototype.fillText;
+            CanvasRenderingContext2D.prototype.fillText=function(text,...args){
+              window.__bingoExportLabels.push(String(text));
+              return original.call(this,text,...args);
+            };
+          });
+          await tab.locator('#waBingoExport').click();
+          const download=await downloadWait;
+          assert.equal(download.suggestedFilename(),'go-nexus-bingo-area-selvagem-2026.png','Nome do PNG exportado');
+          const exportLabels=await tab.evaluate(()=>window.__bingoExportLabels);
+          assert.ok(exportLabels.includes('Sandshrew de Alola'),'PNG inclui primeiro Pokémon marcado');
+          assert.ok(exportLabels.includes('Diglett de Alola'),'PNG inclui segundo Pokémon marcado');
+          assert.ok(!exportLabels.includes('Magnemite'),'PNG não deve incluir Pokémon sem marcação');
+          assert.ok(exportLabels.some(value=>value.includes('2 SHINY')&&value.includes('1 COM 100% IV')&&value.includes('2 ESPÉCIES')),'Resumo do PNG reflete apenas as capturas marcadas');
           await tab.locator('.wa-bingo-filter[data-filter="aco"]').click();
           assert.equal(await tab.locator('#waBingoGrid .wa-bingo-card').count(),22,'Filtro do habitat Aço');
           await tab.locator('.wa-bingo-filter[data-filter="incenso"]').click();

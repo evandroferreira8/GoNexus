@@ -111,6 +111,18 @@ try{
           await tab.locator('#waBingoClearFilter').click();
           await tab.locator('#waBingoSearch').fill('Palkia');
           assert.equal(await tab.locator('#waBingoGrid .wa-bingo-card').count(),1,'Busca por nome no bingo');
+          const resetButton=tab.locator('#waBingoReset');
+          assert.equal(await resetButton.innerText(),'Limpar seleção','Botão de limpeza identificado');
+          assert.equal(await resetButton.evaluate(el=>!!el.closest('.wa-bingo-toolbar')),true,'Limpar seleção fica acima da cartela');
+          if(viewport.width<=600){
+            const resetBox=await resetButton.boundingBox();
+            assert.ok(resetBox && resetBox.height>=44,'Limpar seleção tem área de toque adequada');
+          }
+          tab.once('dialog',dialog=>dialog.accept());
+          await resetButton.click();
+          assert.equal(await tab.locator('#waBingoCaughtCount').innerText(),'0 / 80','Limpar seleção zera o progresso');
+          const cleared=await tab.evaluate(()=>JSON.parse(localStorage.getItem('gonexus-area-selvagem-bingo-2026-v1')));
+          assert.deepEqual(cleared.progress,{},'Limpar seleção apaga as marcações salvas');
           const overflow=await tab.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
           assert.ok(overflow<=2,'Área Selvagem causa rolagem horizontal: '+overflow+' px');
           if(errors.length)throw new Error(errors.join(' | '));

@@ -114,6 +114,13 @@ try{
           const resetButton=tab.locator('#waBingoReset');
           assert.equal(await resetButton.innerText(),'Limpar seleção','Botão de limpeza identificado');
           assert.equal(await resetButton.evaluate(el=>!!el.closest('.wa-bingo-toolbar')),true,'Limpar seleção fica acima da cartela');
+          const exportButton=tab.locator('#waBingoExport');
+          assert.equal(await exportButton.innerText(),'Gerar PNG ↗','Botão de gerar imagem identificado');
+          assert.equal(await exportButton.evaluate(el=>!!el.closest('.wa-bingo-toolbar')),true,'Gerar PNG fica junto aos outros controles');
+          if(viewport.width<=600){
+            const exportBox=await exportButton.boundingBox();
+            assert.ok(exportBox && exportBox.height>=44,'Gerar PNG tem área de toque adequada');
+          }
           if(viewport.width<=600){
             const resetBox=await resetButton.boundingBox();
             assert.ok(resetBox && resetBox.height>=44,'Limpar seleção tem área de toque adequada');

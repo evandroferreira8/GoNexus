@@ -608,7 +608,8 @@
       "end": "2026-12-13",
       "description": "Fim de semana do Dia Comunitário de dezembro. Sábado, 12/12, das 14h às 17h: Vulpix, Vulpix de Alola, Grookey, Scorbunny, Lechonk e Tinkatink; Piplup também poderá aparecer. Domingo, 13/12, das 14h às 17h: Zorua, Pawniard, Sobble, Nickit e Frigibax; Gible e Deino também poderão aparecer. Fora do horário principal, qualquer Pokémon em destaque poderá aparecer das 9h às 21h nos dois dias. Os Pokémon terão a mesma probabilidade de Brilhante de seus respectivos Dias Comunitários originais, e poderão aparecer com Fundo Especial. Bônus: 2× PE, 2× Poeira Estelar e 2× Doces por captura; metade da distância para chocar Ovos colocados em Incubadoras durante o evento; até duas Trocas Especiais por dia e 50% menos Poeira Estelar nas trocas (estes dois últimos bônus ficam ativos de 12/12 às 9h a 13/12 às 21h).",
       "source": "https://pokemongo.com/pt-BR/news/community-day-december-2026",
-      "note": "12 e 13/12 · 14h–17h (horário local). Pokémon em destaque também poderão aparecer das 9h às 21h."
+      "note": "12 e 13/12 · 14h–17h (horário local). Pokémon em destaque também poderão aparecer das 9h às 21h.",
+      "game_time_label": "14h–17h nos dois dias; aparições dos Pokémon em destaque das 9h às 21h"
     },
     {
       "id": "s25-raid-2026-12-19",

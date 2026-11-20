@@ -1575,7 +1575,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       var cards=groups[key].map(function(e){
         var d=e.start.split('-'),end=e.end.split('-');
         var dateLabel=d[2]+(e.end!==e.start?'–'+end[2]:'');
-        var note=e.kind==='tour'?(e.location||'Detalhes do evento a confirmar'):'Horários e Pokémon em destaque a confirmar';
+        var note=e.note||(e.kind==='tour'?(e.location||'Detalhes do evento a confirmar'):'Horários e Pokémon em destaque a confirmar');
         var symbol={max:'ϟ',reide:'✦',comunidade:'★',evento:'◉',tour:'◎'}[e.kind]||'•';
         return '<article class="ag-s25-event" data-kind="'+esc(e.kind)+'">'+
           '<div class="ag-s25-date"><strong>'+dateLabel+'</strong><small>'+monthShort[Number(d[1])-1]+'</small></div>'+

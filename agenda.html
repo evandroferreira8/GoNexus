@@ -1607,7 +1607,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     }else{
       fields.push('DTSTART;VALUE=DATE:'+icsDate(e.start));
       fields.push('DTEND;VALUE=DATE:'+icsDate(nextDay(e.end)));
-      fields.push('X-ALT-DESC;FMTTYPE=text/plain:'+(e.game_time_label?'Bônus do jogo ao longo do dia':'Horário não divulgado'));
+      fields.push('X-ALT-DESC;FMTTYPE=text/plain:'+(e.game_time_label?'Horário: '+e.game_time_label:'Horário não divulgado'));
     }
     if(e.campfire)fields.push('URL:'+e.campfire);else if(e.source)fields.push('URL:'+e.source);
     fields.push('END:VEVENT','END:VCALENDAR');

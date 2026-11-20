@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-11-17T04:33:53+00:00",
+  "updated_at": "2026-11-20T18:37:59+00:00",
   "items": [
+    {
+      "title": "Celebre o ano com todos os Pokémon dos Dias Comunitários de 2026!",
+      "url": "https://pokemongo.com/pt-BR/news/community-day-december-2026",
+      "image": "https://lh3.googleusercontent.com/U20hOVDIiWk8lDJuVvR9R_xUJyzaeFnc7cgploqPDPd_mmekMRr-Dg0S3wcKbrTg9rUr3ncm7jOBjiTBr-usJM6vXVY9CTIk8JFZC9vjDQ"
+    },
     {
       "title": "Aprendam um novo idioma com Pokémon GO e Duolingo.",
       "url": "https://pokemongo.com/pt-BR/news/duolingo-2026",
@@ -21,11 +26,6 @@
       "title": "Marquem no calendário as datas dos Dias Comunitários da próxima Temporada!",
       "url": "https://pokemongo.com/pt-BR/news/save-the-date-s25",
       "image": "https://lh3.googleusercontent.com/GMESDlJRw5GMsmroW_oK6TLXA4OerLjNY43b0JkjCoSXrez97CwCflnTBTh-uzMhJZYQvQbtA8nK8YPEknYHu0tearwDyBVUoi8"
-    },
-    {
-      "title": "Obtenham o dobro de Pokémoedas de bônus com nossa promoção de Black Friday!",
-      "url": "https://pokemongo.com/pt-BR/news/black-friday-2026",
-      "image": "https://lh3.googleusercontent.com/NAgNHh2yS0hBl_CRKM8tmWSD6WkaViAT1xUlfbSZHj3AjZ5O-ZFxfyvffWy77MEIj5Z7w8LeOakudjcT1MZrIizXBDPffSfvFA-4z0P_dA"
     }
   ]
 }

@@ -4,6 +4,24 @@
  const speciesDex = {"bulbasaur":1,"charmander":4,"squirtle":7,"caterpie":10,"pikachu":25,"growlithe":58,"abra":63,"machop":66,"gastly":92,"krabby":98,"hitmonlee":106,"hitmonchan":107,"rhyhorn":111,"chansey":113,"electabuzz":125,"eevee":133,"omanyte":138,"kabuto":140,"articuno":144,"zapdos":145,"moltres":146,"hoothoot":163,"shuckle":213,"hitmontop":237,"raikou":243,"entei":244,"suicune":245,"lugia":249,"hooh":250,"ralts":280,"sableye":302,"wailmer":320,"trapinch":328,"beldum":374,"regirock":377,"regice":378,"registeel":379,"latias":380,"latios":381,"combee":415,"pidove":519,"roggenrola":524,"woobat":527,"drilbur":529,"darumaka":554,"trubbish":568,"cryogonal":615,"deino":633,"inkay":686,"bounsweet":761,"passimian":766,"drampa":780,"grookey":810,"scorbunny":813,"sobble":816,"skwovet":819,"rookidee":821,"wooloo":831,"toxtricity":849,"hatenna":856,"falinks":870,"duraludon":884,"kubfu":891,"sneasel":215,"sizzlipede":850,"uxie":480,"mesprit":481,"azelf":482,"venusaur":3,"charizard":6,"blastoise":9,"butterfree":12,"meowth":52,"machamp":68,"gengar":94,"kingler":99,"lapras":131,"snorlax":143,"rillaboom":812,"cinderace":815,"inteleon":818,"grimmsnarl":861,"garbodor":569,"melmetal":809,"corviknight":823,"orbeetle":826,"drednaw":834,"coalossal":839,"flapple":841,"appletun":842,"sandaconda":844,"centiskorch":851,"hatterene":858,"alcremie":869,"copperajah":879,"urshifu":892};
  const maxForms = {"venusaur":10195,"charizard":10196,"blastoise":10197,"butterfree":10198,"pikachu":10199,"meowth":10200,"machamp":10201,"gengar":10202,"kingler":10203,"lapras":10204,"eevee":10205,"snorlax":10206,"garbodor":10207,"melmetal":10208,"rillaboom":10209,"cinderace":10210,"inteleon":10211,"corviknight":10212,"orbeetle":10213,"drednaw":10214,"coalossal":10215,"flapple":10216,"appletun":10217,"sandaconda":10218,"toxtricity":10228,"centiskorch":10220,"hatterene":10221,"grimmsnarl":10222,"alcremie":10223,"copperajah":10224,"duraludon":10225,"urshifugolpedecisivo":10226,"urshifugolpefluido":10227};
  const spriteRoot = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
+ const TYPE_INFO = {
+  normal:{name:"Normal",icon:"●"}, fire:{name:"Fogo",icon:"🔥"}, water:{name:"Água",icon:"💧"},
+  electric:{name:"Elétrico",icon:"⚡"}, grass:{name:"Planta",icon:"🍃"}, ice:{name:"Gelo",icon:"❄️"},
+  fighting:{name:"Lutador",icon:"🥊"}, poison:{name:"Veneno",icon:"☠️"}, ground:{name:"Terrestre",icon:"🟤"},
+  flying:{name:"Voador",icon:"🪽"}, psychic:{name:"Psíquico",icon:"🔮"}, bug:{name:"Inseto",icon:"🐛"},
+  rock:{name:"Pedra",icon:"🪨"}, ghost:{name:"Fantasma",icon:"👻"}, dragon:{name:"Dragão",icon:"🐉"},
+  dark:{name:"Sombrio",icon:"🌑"}, steel:{name:"Aço",icon:"⚙️"}, fairy:{name:"Fada",icon:"✨"}
+ };
+ const speciesTypes = {
+  venusaur:["grass","poison"], charizard:["fire","flying"], blastoise:["water"], butterfree:["bug","flying"],
+  pikachu:["electric"], meowth:["normal"], machamp:["fighting"], gengar:["ghost","poison"], kingler:["water"],
+  lapras:["water","ice"], snorlax:["normal"], rillaboom:["grass"], cinderace:["fire"], inteleon:["water"],
+  toxtricity:["electric","poison"], grimmsnarl:["dark","fairy"], eevee:["normal"], garbodor:["poison"],
+  melmetal:["steel"], corviknight:["flying","steel"], orbeetle:["bug","psychic"], drednaw:["water","rock"],
+  coalossal:["rock","fire"], flapple:["grass","dragon"], appletun:["grass","dragon"], sandaconda:["ground"],
+  centiskorch:["fire","bug"], hatterene:["psychic","fairy"], alcremie:["fairy"], copperajah:["steel"],
+  duraludon:["steel","dragon"], urshifu:["fighting","dark"]
+ };
  const normalize = s => String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");
  const $ = id => document.getElementById(id);
  const groups = [
@@ -18,7 +36,7 @@
   ].map(c=>({...c,limit:8,records:c.values.map(n=>{
     let name=n,detail="";
     if(n.startsWith("Urshifu — ")){name="Urshifu";detail=n.slice("Urshifu — ".length)}
-    return {name,detail,search:"Gigamax "+n,id:speciesDex[normalize(name)],form:maxForms[normalize(n)]||maxForms[normalize(name)]||null};
+    return {name,detail,search:"Gigamax "+n,id:speciesDex[normalize(name)],form:maxForms[normalize(n)]||maxForms[normalize(name)]||null,types:speciesTypes[normalize(name)]||[]};
   })}))
  ];
  const expanded={};
@@ -49,6 +67,17 @@
    number.textContent=r.id?"#"+String(r.id).padStart(4,"0"):"POKÉMON";
    const title=document.createElement("strong");title.className="mx3-species-name";title.textContent=r.name;
    info.append(number,title);
+   if(r.types && r.types.length){
+     const typeRow=document.createElement("span");typeRow.className="mx3-species-types";
+     r.types.forEach(typeId=>{
+       const meta=TYPE_INFO[typeId];if(!meta)return;
+       const badge=document.createElement("span");badge.className="mx3-species-type";badge.setAttribute("aria-label","Tipo "+meta.name);
+       const icon=document.createElement("span");icon.className="mx3-type-icon";icon.setAttribute("aria-hidden","true");icon.textContent=meta.icon;
+       const label=document.createElement("span");label.textContent=meta.name;
+       badge.append(icon,label);typeRow.append(badge);
+     });
+     if(typeRow.childElementCount)info.append(typeRow);
+   }
    if(r.detail){
      const detail=document.createElement("span");detail.className="mx3-species-sub";
      detail.textContent=(g.tone==="dynamax" && r.search.includes(" → ")?"Evolução: ":"")+r.detail;

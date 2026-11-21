@@ -3,58 +3,136 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b1930">
-<meta name="description" content="O Oráculo Nexus: previsões especulativas para os próximos Dias Comunitários de Pokémon GO.">
+<meta name="description" content="Oráculo Nexus: calendário confirmado, candidatos e previsões especulativas para os próximos Dias Comunitários de Pokémon GO.">
 <title>Oráculo Nexus | GO Nexus</title>
 <link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <style>
-:root{--oracle-night:#0b1930;--oracle-blue:#142c4d;--oracle-gold:#e8bd62;--oracle-cream:#f7edda}
-body{background:radial-gradient(ellipse at 50% 0%,#25466b 0,#102542 42%,#091629 100%)!important;color:var(--oracle-cream)!important}
-.oracle-shell{width:min(1050px,calc(100% - 30px));margin:auto;padding:22px 0 70px}
-.oracle-breadcrumb{font:600 .72rem var(--gn-code);color:#b7c7d9;margin:8px 0 24px}.oracle-breadcrumb a{color:#e8bd62;text-decoration:none}
-.oracle-hero{text-align:center;padding:34px 18px 30px;border:1px solid #d4b36b55;border-radius:24px;background:linear-gradient(145deg,#183354dd,#0b1b31ee);box-shadow:0 22px 60px #02091466;position:relative;overflow:hidden}
-.oracle-symbol{width:76px;height:76px;border:1px solid #e8bd6280;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:var(--oracle-gold);font-size:2.2rem;box-shadow:0 0 0 8px #e8bd6210,0 0 35px #e8bd6225}
-.oracle-kicker{font:700 .68rem var(--gn-code);letter-spacing:.18em;text-transform:uppercase;color:#e8bd62}
-.oracle-hero h1{font:800 clamp(2.2rem,7vw,4rem)/1 'Outfit',sans-serif;letter-spacing:-.05em;color:#fff4df;margin:13px 0}
-.oracle-hero h1 span{color:var(--oracle-gold)}
-.oracle-hero p{max-width:610px;margin:0 auto;color:#c8d5e4;line-height:1.65;font-size:.96rem}
+:root{--o-night:#091629;--o-blue:#142b49;--o-gold:#e8bd62;--o-cream:#f7edda;--o-muted:#b9c8d9}
+body{background:radial-gradient(ellipse at 50% 0%,#29496b 0,#102541 43%,#091629 100%)!important;color:var(--o-cream)!important}
+.oracle-shell{width:min(1080px,calc(100% - 30px));margin:auto;padding:20px 0 72px}
+.oracle-breadcrumb{font:600 .72rem var(--gn-code);color:#b7c7d9;margin:8px 0 22px}.oracle-breadcrumb a{color:var(--o-gold);text-decoration:none}
+.oracle-hero{text-align:center;padding:34px 20px 31px;border:1px solid #d4b36b55;border-radius:24px;background:linear-gradient(145deg,#183354ed,#0b1b31f5);box-shadow:0 22px 60px #02091466;position:relative;overflow:hidden}
+.oracle-symbol{width:76px;height:76px;border:1px solid #e8bd6280;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:var(--o-gold);font-size:2.25rem;box-shadow:0 0 0 8px #e8bd6210,0 0 35px #e8bd6225}
+.oracle-kicker,.eyebrow{font:700 .67rem var(--gn-code);letter-spacing:.16em;text-transform:uppercase;color:var(--o-gold)}
+.oracle-hero h1{font:800 clamp(2.25rem,7vw,4.1rem)/1 'Outfit',sans-serif;letter-spacing:-.05em;color:#fff4df;margin:13px 0}
+.oracle-hero h1 span{color:var(--o-gold)}
+.oracle-hero p{max-width:680px;margin:0 auto;color:#c8d5e4;line-height:1.7;font-size:.95rem}
 .oracle-stamp{display:inline-flex;margin-top:20px;border:1px solid #e8bd6266;border-radius:999px;padding:7px 12px;color:#f1d99f;font:600 .68rem var(--gn-code);letter-spacing:.08em}
-.oracle-section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:32px 2px 14px}
-.oracle-section-head h2{margin:0;color:#fff2d9;font:750 1.35rem 'Outfit',sans-serif}.oracle-section-head p{margin:4px 0 0;color:#aebfd1;font-size:.82rem}
-.oracle-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.oracle-month{position:relative;min-width:0;padding:17px;border:1px solid #d6b76a45;border-radius:16px;background:linear-gradient(145deg,#1b3554eF,#10233dF2);box-shadow:0 10px 28px #020b1833}
-.oracle-month:before{content:"";position:absolute;top:0;left:17px;right:17px;height:2px;background:linear-gradient(90deg,transparent,#d9b66d,transparent)}
-.oracle-month header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
-.oracle-month h3{margin:0;color:#f4d99c;font:750 1.04rem 'Outfit',sans-serif}
-.oracle-index{color:#91a8c1;font:600 .65rem var(--gn-code)}
-.oracle-names{display:flex;flex-wrap:wrap;gap:7px}
-.oracle-chip{padding:7px 10px;border:1px solid #91a9c455;border-radius:999px;background:#ffffff09;color:#f6f0e5;font-size:.83rem;font-weight:650}
-.oracle-chip.featured{border-color:#e8bd62a8;background:#e8bd6218;color:#ffe2a0}
-.oracle-note{margin:23px 0 0;padding:16px 18px;border-left:3px solid #e8bd62;background:#ffffff0a;color:#c4d0df;border-radius:0 12px 12px 0;font-size:.83rem;line-height:1.65}
-.oracle-note strong{color:#f4d99c}
-.oracle-foot{margin-top:24px;text-align:center;color:#8fa4bb;font-size:.72rem;line-height:1.6}
-@media(max-width:620px){.oracle-shell{width:min(100% - 22px,1050px);padding-top:12px}.oracle-hero{padding:28px 15px 25px;border-radius:19px}.oracle-grid{grid-template-columns:1fr}.oracle-month{padding:15px}.oracle-section-head{align-items:start;flex-direction:column}}
+.oracle-section{margin-top:32px}
+.oracle-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 2px 14px}
+.oracle-head h2{margin:0;color:#fff2d9;font:750 1.35rem 'Outfit',sans-serif}
+.oracle-head p{margin:4px 0 0;color:#aebfd1;font-size:.83rem;line-height:1.5}
+.oracle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.oracle-card{min-width:0;padding:17px;border:1px solid #d6b76a45;border-radius:16px;background:linear-gradient(145deg,#1b3554ef,#10233df2);box-shadow:0 10px 28px #020b1833}
+.oracle-card h3{margin:0 0 8px;color:#f4d99c;font:750 1.02rem 'Outfit',sans-serif}
+.oracle-card p{margin:0;color:#c2cfdd;font-size:.83rem;line-height:1.6}
+.oracle-status{display:inline-flex;margin-bottom:10px;padding:5px 8px;border-radius:999px;border:1px solid #e8bd6266;color:#f3d99e;font:700 .62rem var(--gn-code);letter-spacing:.04em}
+.oracle-status.official{border-color:#70c7a077;color:#9ce1bd;background:#70c7a011}
+.oracle-status.unknown{border-color:#9db4d055;color:#c5d4e5}
+.oracle-date{font:800 1.5rem 'Outfit',sans-serif;color:#fff4df;margin:4px 0}
+.oracle-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.oracle-links a{color:#f0d18e;text-decoration:none;font-size:.77rem;font-weight:700}.oracle-links a:hover{text-decoration:underline}
+.oracle-list{display:flex;flex-wrap:wrap;gap:8px}
+.oracle-chip{padding:8px 11px;border:1px solid #91a9c455;border-radius:999px;background:#ffffff09;color:#f6f0e5;font-size:.82rem;font-weight:650}
+.oracle-chip.hot{border-color:#e8bd62a8;background:#e8bd6218;color:#ffe2a0}
+.oracle-callout{margin-top:14px;padding:16px 18px;border-left:3px solid var(--o-gold);background:#ffffff0a;color:#c4d0df;border-radius:0 12px 12px 0;font-size:.83rem;line-height:1.7}
+.oracle-callout strong{color:#f4d99c}
+.oracle-table{width:100%;border-collapse:collapse;border:1px solid #d6b76a45;border-radius:14px;overflow:hidden;background:#10233d}
+.oracle-table th,.oracle-table td{text-align:left;padding:12px 14px;border-bottom:1px solid #ffffff18;font-size:.82rem;line-height:1.5}
+.oracle-table th{color:#f4d99c;font:700 .67rem var(--gn-code);letter-spacing:.08em;text-transform:uppercase;background:#ffffff09}
+.oracle-table td{color:#d5dfeb}.oracle-table tr:last-child td{border-bottom:0}
+.oracle-table .confirmed{color:#9ce1bd;font-weight:700}.oracle-table .pending{color:#f2d38d;font-weight:700}
+.oracle-draw{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;padding:20px;border:1px solid #d6b76a55;border-radius:18px;background:radial-gradient(circle at 85% 40%,#b58b4526,transparent 36%),linear-gradient(130deg,#1b3554,#0d1d34)}
+.oracle-draw h3{margin:5px 0 7px;color:#fff1d5;font:750 1.2rem 'Outfit',sans-serif}
+.oracle-draw p{margin:0;color:#bdcad8;font-size:.82rem;line-height:1.6}
+.oracle-draw-result{margin-top:12px;color:#ffe2a0;font:800 1.5rem 'Outfit',sans-serif;min-height:30px}
+.oracle-button{border:1px solid #e8bd62;background:#e8bd62;color:#17283c;border-radius:999px;padding:12px 16px;font:800 .78rem var(--gn-font);cursor:pointer;white-space:nowrap}
+.oracle-button:hover{background:#f5d88e}
+.oracle-foot{margin-top:25px;text-align:center;color:#8fa4bb;font-size:.72rem;line-height:1.7}
+@media(max-width:760px){.oracle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.oracle-shell{width:min(100% - 22px,1080px);padding-top:12px}.oracle-hero{padding:27px 15px 24px;border-radius:19px}.oracle-grid{grid-template-columns:1fr}.oracle-card{padding:15px}.oracle-head{align-items:start;flex-direction:column}.oracle-draw{grid-template-columns:1fr}.oracle-button{width:100%}.oracle-table th,.oracle-table td{padding:10px 9px;font-size:.76rem}}
 </style>
 </head>
 <body data-studio-page>
 <go-nexus-header></go-nexus-header>
 <main class="oracle-shell">
-<nav class="oracle-breadcrumb" aria-label="Caminho"><a href="index.html">GO Nexus</a> / <span>Oráculo</span></nav>
+<nav class="oracle-breadcrumb" aria-label="Caminho"><a href="index.html">GO Nexus</a> / <span>Oráculo Nexus</span></nav>
+
 <section class="oracle-hero">
 <div class="oracle-symbol" aria-hidden="true">✧</div>
 <div class="oracle-kicker">Nexus Studio · leitura do horizonte</div>
 <h1>Oráculo <span>Nexus</span></h1>
-<p>O futuro dos Dias Comunitários ainda está em aberto. Reunimos sinais do histórico, padrões de escolha e rumores para observar quais Pokémon podem surgir no calendário.</p>
-<div class="oracle-stamp">PREVISÕES · TEMPORADA 2027</div>
+<p>O calendário ainda guarda alguns segredos. Aqui reunimos datas já anunciadas, Pokémon que merecem entrar no radar e palpites sobre os próximos Dias Comunitários. Um espaço para especular — sem confundir intuição com informação oficial.</p>
+<div class="oracle-stamp">EDIÇÃO 01 · TEMPORADA 2026–2027</div>
 </section>
-<section aria-labelledby="forecastTitle">
-<header class="oracle-section-head"><div><h2 id="forecastTitle">O que os meses podem revelar</h2><p>Uma leitura especulativa de janeiro a novembro.</p></div></header>
+
+<section class="oracle-section" aria-labelledby="knownTitle">
+<header class="oracle-head"><div><h2 id="knownTitle">O que já está escrito</h2><p>Datas anunciadas oficialmente pela equipe de Pokémon GO. Os Pokémon em destaque ainda não foram revelados para essas datas.</p></div></header>
 <div class="oracle-grid">
-<article class="oracle-month"><header><h3>Janeiro</h3><span class="oracle-index">SINAL EM OBSERVAÇÃO</span></header><div class="oracle-names"><span class="oracle-chip featured">Charcadet</span></div></article><article class="oracle-month"><header><h3>Fevereiro</h3><span class="oracle-index">POSSIBILIDADES</span></header><div class="oracle-names"><span class="oracle-chip ">Hatenna</span><span class="oracle-chip ">Yamper</span><span class="oracle-chip ">Tadbulb</span></div></article><article class="oracle-month"><header><h3>Março</h3><span class="oracle-index">POSSIBILIDADES</span></header><div class="oracle-names"><span class="oracle-chip ">Impidimp</span><span class="oracle-chip ">Toxel</span></div></article><article class="oracle-month"><header><h3>Abril</h3><span class="oracle-index">POSSIBILIDADES</span></header><div class="oracle-names"><span class="oracle-chip ">Nacli</span><span class="oracle-chip ">Capsakid</span><span class="oracle-chip ">Wattrel</span></div></article><article class="oracle-month"><header><h3>Maio</h3><span class="oracle-index">SINAL EM OBSERVAÇÃO</span></header><div class="oracle-names"><span class="oracle-chip featured">Dreepy</span><span class="oracle-chip ">Frillish</span><span class="oracle-chip ">Wimpod</span></div></article><article class="oracle-month"><header><h3>Junho</h3><span class="oracle-index">POSSIBILIDADES</span></header><div class="oracle-names"><span class="oracle-chip ">Fidough</span><span class="oracle-chip ">Maschiff</span><span class="oracle-chip ">Sizzlipede</span></div></article><article class="oracle-month"><header><h3>Julho</h3><span class="oracle-index">POSSIBILIDADES</span></header><div class="oracle-names"><span class="oracle-chip ">Sandile</span><span class="oracle-chip ">Horsea</span></div></article><article class="oracle-month"><header><h3>Agosto</h3><span class="oracle-index">POSSIBILIDADES</span></header><div class="oracle-names"><span class="oracle-chip ">Hatenna</span><span class="oracle-chip ">Impidimp</span><span class="oracle-chip ">Nacli</span></div></article><article class="oracle-month"><header><h3>Setembro</h3><span class="oracle-index">POSSIBILIDADES</span></header><div class="oracle-names"><span class="oracle-chip ">Toxel</span><span class="oracle-chip ">Wattrel</span><span class="oracle-chip ">Capsakid</span></div></article><article class="oracle-month"><header><h3>Outubro</h3><span class="oracle-index">POSSIBILIDADES</span></header><div class="oracle-names"><span class="oracle-chip ">Fidough</span><span class="oracle-chip ">Yamper</span><span class="oracle-chip ">Tadbulb</span></div></article><article class="oracle-month"><header><h3>Novembro</h3><span class="oracle-index">POSSIBILIDADES</span></header><div class="oracle-names"><span class="oracle-chip ">Charcadet</span><span class="oracle-chip ">Dreepy</span><span class="oracle-chip ">Sizzlipede</span></div></article>
+<article class="oracle-card"><span class="oracle-status official">CONFIRMADO · CLÁSSICO</span><div class="oracle-date">02 JAN 2027</div><h3>Clássico do Dia Comunitário</h3><p>A data está confirmada. O Pokémon em destaque ainda não foi anunciado.</p></article>
+<article class="oracle-card"><span class="oracle-status official">CONFIRMADO</span><div class="oracle-date">16 JAN 2027</div><h3>Dia Comunitário</h3><p>Data confirmada para janeiro. Espécie, ataque em destaque e bônus aguardam anúncio.</p></article>
+<article class="oracle-card"><span class="oracle-status official">CONFIRMADO</span><div class="oracle-date">06 FEV 2027</div><h3>Dia Comunitário</h3><p>Data confirmada para fevereiro. A programação completa ainda não foi divulgada.</p></article>
+</div>
+<div class="oracle-links"><a href="https://pokemongo.com/pt-BR/news/save-the-date-s25" target="_blank" rel="noopener noreferrer">Consultar anúncio oficial das datas ↗</a><a href="https://pokemongo.com/pt-BR/news/community-day-december-2026" target="_blank" rel="noopener noreferrer">Dia Comunitário de dezembro de 2026 ↗</a></div>
+</section>
+
+<section class="oracle-section" aria-labelledby="radarTitle">
+<header class="oracle-head"><div><h2 id="radarTitle">O radar de possibilidades</h2><p>Espécies para acompanhar nas próximas temporadas. A lista não representa vazamento nem previsão de mês específico.</p></div></header>
+<div class="oracle-card">
+<div class="eyebrow">Sinais que merecem atenção</div>
+<div class="oracle-list" style="margin-top:13px">
+<span class="oracle-chip hot">Charcadet</span><span class="oracle-chip hot">Dreepy</span><span class="oracle-chip hot">Toxel</span><span class="oracle-chip hot">Hatenna</span><span class="oracle-chip hot">Impidimp</span><span class="oracle-chip hot">Nacli</span><span class="oracle-chip hot">Fidough</span><span class="oracle-chip hot">Capsakid</span><span class="oracle-chip hot">Wattrel</span><span class="oracle-chip hot">Sizzlipede</span>
+</div>
+<div class="eyebrow" style="margin-top:20px">Outros nomes no horizonte</div>
+<div class="oracle-list" style="margin-top:13px">
+<span class="oracle-chip">Yamper</span><span class="oracle-chip">Tadbulb</span><span class="oracle-chip">Frillish</span><span class="oracle-chip">Wimpod</span><span class="oracle-chip">Maschiff</span><span class="oracle-chip">Sandile</span><span class="oracle-chip">Horsea</span>
+</div>
+<div class="oracle-callout"><strong>Por que esses nomes?</strong> São palpites editoriais para alimentar a conversa: espécies que podem render estreias, novidades ou um Dia Comunitário interessante. A presença na lista não confirma elegibilidade, disponibilidade de forma Brilhante, ataque exclusivo ou qualquer plano da Niantic. Os nomes não estão associados a meses.</div>
 </div>
 </section>
-<aside class="oracle-note"><strong>Como ler o Oráculo:</strong> Charcadet (janeiro) e Dreepy (maio) aparecem em rumores ainda não confirmados. Os demais nomes são hipóteses construídas a partir do histórico de Dias Comunitários, das votações anteriores e das características das espécies. Nenhuma previsão é anúncio oficial.</aside>
-<p class="oracle-foot">O calendário muda quando a Niantic revela novas informações. Esta página é uma análise independente do GO Nexus e não possui vínculo oficial com Pokémon GO.</p>
+
+<section class="oracle-section" aria-labelledby="calendarTitle">
+<header class="oracle-head"><div><h2 id="calendarTitle">Calendário sob observação</h2><p>Separação entre o que foi anunciado e o que ainda está em aberto.</p></div></header>
+<div class="oracle-card" style="padding:0;overflow:hidden">
+<table class="oracle-table">
+<thead><tr><th>Data</th><th>Evento</th><th>Pokémon</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>02/01/2027</td><td>Clássico</td><td>A anunciar</td><td class="confirmed">Data confirmada</td></tr>
+<tr><td>16/01/2027</td><td>Dia Comunitário</td><td>A anunciar</td><td class="confirmed">Data confirmada</td></tr>
+<tr><td>06/02/2027</td><td>Dia Comunitário</td><td>A anunciar</td><td class="confirmed">Data confirmada</td></tr>
+<tr><td>Março em diante</td><td>Próximas edições</td><td>A anunciar</td><td class="pending">Sem datas divulgadas</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="oracle-section" aria-labelledby="drawTitle">
+<header class="oracle-head"><div><h2 id="drawTitle">Consulte o presságio</h2><p>Uma brincadeira para escolher um nome do nosso radar — não é previsão estatística.</p></div></header>
+<div class="oracle-draw">
+<div><div class="eyebrow">Carta do horizonte</div><h3>Qual Pokémon aparece na próxima visão?</h3><p>O Oráculo escolhe um dos nomes acompanhados pela comunidade. O resultado é aleatório e não indica probabilidade real de anúncio.</p><div class="oracle-draw-result" id="oracleResult" aria-live="polite">O horizonte está em silêncio…</div></div>
+<button class="oracle-button" id="oracleDraw" type="button">Revelar um nome ✧</button>
+</div>
+</section>
+
+<section class="oracle-section" aria-labelledby="methodTitle">
+<header class="oracle-head"><div><h2 id="methodTitle">Como funciona a leitura</h2><p>O compromisso do Oráculo é deixar claro o que sabemos e o que estamos apenas imaginando.</p></div></header>
+<div class="oracle-grid">
+<article class="oracle-card"><span class="oracle-status official">OFICIAL</span><h3>Confirmado</h3><p>Informação publicada nos canais oficiais do Pokémon GO. Datas anunciadas entram aqui; Pokémon e bônus só passam a confirmados quando forem divulgados.</p></article>
+<article class="oracle-card"><span class="oracle-status unknown">EM OBSERVAÇÃO</span><h3>Possibilidade</h3><p>Nome que merece acompanhamento por seu potencial para uma edição futura. Não significa rumor, vazamento ou indicação de data.</p></article>
+<article class="oracle-card"><span class="oracle-status unknown">PALPITE</span><h3>Especulação</h3><p>Hipótese editorial baseada em padrões e interesse da comunidade. Pode não acontecer — e será revista quando surgirem informações novas.</p></article>
+</div>
+<div class="oracle-callout"><strong>Nota editorial:</strong> o Oráculo Nexus é independente e não tem acesso antecipado ao calendário interno da Niantic/Scopely. Não publicamos rumor como fato. Quando uma previsão for atualizada, a página deve indicar o motivo e a fonte; quando houver anúncio oficial, o palpite será substituído pela informação confirmada.</div>
+</section>
+
+<p class="oracle-foot">GO Nexus · Oráculo Nexus · Edição de 21 de novembro de 2026<br>Pokémon GO é uma marca de seus respectivos titulares. Este projeto é independente e não possui afiliação oficial.</p>
 </main>
 <go-nexus-footer></go-nexus-footer>
 <script src="nav.js?v=studio-depth-20261013a"></script>
+<script>
+(()=>{"use strict";
+const candidates=["Charcadet","Dreepy","Toxel","Hatenna","Impidimp","Nacli","Fidough","Capsakid","Wattrel","Sizzlipede","Yamper","Tadbulb","Frillish","Wimpod","Maschiff","Sandile","Horsea"];
+const button=document.getElementById("oracleDraw"),result=document.getElementById("oracleResult");
+if(button&&result)button.addEventListener("click",()=>{const pick=candidates[Math.floor(Math.random()*candidates.length)];result.textContent=pick;});
+})();
+</script>
 </body></html>

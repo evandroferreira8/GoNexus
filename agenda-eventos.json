@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-22",
   "timezone": "America/Fortaleza",
   "editorial_note": "O horário oficial do jogo tem prioridade. O Campfire mostra a programação dos encontros/check-in, que pode começar antes ou se estender além das atividades do jogo. Na agenda, início no Campfire não é apresentado como início do evento. Para 2026, Hora Lendária e Holofote são das 18h às 19h; Segunda Max e Sexta da Amizade têm bônus diários. Duração do check-in não foi inferida. Fontes: Pokémon GO oficial e fichas Campfire verificadas para novembro. Horários não confirmados não são inventados.",
   "events": [
@@ -26,6 +26,18 @@
       "game_time_label": "Conforme ingresso, no horário de cada cidade-sede",
       "description": "Eventos presenciais em Sendai (Tohoku, Japão) e na Cidade do México (México), de 6 a 8 de novembro. Atividades exclusivas dessas cidades, com ingresso. A edição global será em 14 e 15 de novembro.",
       "source": "https://pokemongo.com/pt-BR/gowildarea"
+    },
+    {
+      "id": "black-friday-coins-2026",
+      "title": "Promoção de Black Friday: Pokémoedas em dobro",
+      "kind": "evento",
+      "start": "2026-11-08",
+      "end": "2026-11-30",
+      "from": null,
+      "to": null,
+      "description": "A Pokémon GO Web Store oferece o dobro de Pokémoedas de bônus em ofertas de Pokémoedas a partir de US$ 19,99, com até 2.000 Pokémoedas de bônus em ofertas selecionadas. Limite de uma compra por oferta com desconto por cliente. O Combo Delícias da Estação fica disponível até 28/11 à 1h (horário de Brasília), sujeito à disponibilidade regional.",
+      "game_time_label": "Promoção de Pokémoedas até 30/11 à 1h (horário de Brasília)",
+      "source": "https://pokemongo.com/pt-BR/news/black-friday-2026"
     },
     {
       "id": "raid-zacian",
@@ -171,6 +183,18 @@
       "game_time_label": "10h–18h"
     },
     {
+      "id": "pokemon-go-duolingo-2026",
+      "title": "Pokémon GO + Duolingo: Festa de Pokémon do Duo",
+      "kind": "evento",
+      "start": "2026-11-16",
+      "end": "2026-12-31",
+      "from": null,
+      "to": null,
+      "description": "Faça ao menos uma lição por dia no Duolingo para avançar na Festa de Pokémon do Duo e desbloquear recompensas, incluindo até quatro trajes para o avatar do Duolingo e um código de Pesquisa Temporária no Pokémon GO. A Pesquisa Temporária oferece encontros com Pikachu, Meowth, Chatot e Lucario com Fundo Especial, além de PE e Poeira Estelar.",
+      "game_time_label": "Adesão à missão até 21/12; sete lições em dias diferentes até 29/12; concluir e resgatar a Pesquisa Temporária até 31/12, sempre no horário local",
+      "source": "https://pokemongo.com/pt-BR/news/duolingo-2026"
+    },
+    {
       "id": "trilhas-dinamax",
       "title": "Trilhas Dinamax",
       "kind": "max",
@@ -180,6 +204,18 @@
       "to": "20:00",
       "description": "Trilhas Dinamax, de 16 a 23 de novembro, com retorno de Eternatus e atividades de Batalhas Max. Consulte os detalhes oficiais.",
       "source": "https://pokemongo.com/pt-BR/news/dynamax-trails-eternamax-eternatus-2026"
+    },
+    {
+      "id": "laic-2027-rewards",
+      "title": "LAIC 2027: transmissões e recompensas",
+      "kind": "evento",
+      "start": "2026-11-20",
+      "end": "2026-11-22",
+      "from": "09:00",
+      "to": "20:00",
+      "description": "Assista às transmissões oficiais de Pokémon GO no Twitch.tv/PokemonGOAppBR. Com 30 minutos de exibição, é possível obter Pesquisa Temporária inspirada na equipe campeã do NAIC 2026, com Samurott e Doces GG de Oshawott. Com 45 minutos, é possível obter o Pacote de Batalha do LAIC. Conclua e resgate a Pesquisa Temporária até 04/12, às 12h (horário do Pacífico).",
+      "game_time_label": "Transmissões de 20 a 22/11; janela publicada no horário do Pacífico (aprox. 9h–20h em Natal)",
+      "source": "https://pokemongo.com/pt-BR/news/latin-america-international-championships-2026"
     },
     {
       "id": "community-pawniard",
@@ -601,15 +637,33 @@
       "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25"
     },
     {
+      "id": "minior-geminidas-2026",
+      "title": "Chuva de Minior: Gemínidas",
+      "kind": "evento",
+      "start": "2026-12-11",
+      "end": "2026-12-16",
+      "description": "Minior poderá aparecer na natureza com maior frequência e conceder mais Poeira Estelar ao ser capturado. Das 17h às 21h, o céu do jogo ficará iluminado por estrelas cadentes. Uma cor de núcleo estreia no Hemisfério Norte e outra no Hemisfério Sul.",
+      "note": "11/12 às 17h a 16/12 às 23h59 · Horário local. Maior chance de Minior das 17h às 21h diariamente.",
+      "source": "https://pokemongo.com/pt-BR/news/minior-meteor-showers-2026"
+    },
+    {
       "id": "s25-community-dec-2026",
       "title": "Dia Comunitário de dezembro de 2026",
       "kind": "comunidade",
       "start": "2026-12-12",
       "end": "2026-12-13",
-      "description": "Fim de semana do Dia Comunitário de dezembro. Sábado, 12/12, das 14h às 17h: Vulpix, Vulpix de Alola, Grookey, Scorbunny, Lechonk e Tinkatink; Piplup também poderá aparecer. Domingo, 13/12, das 14h às 17h: Zorua, Pawniard, Sobble, Nickit e Frigibax; Gible e Deino também poderão aparecer. Fora do horário principal, qualquer Pokémon em destaque poderá aparecer das 9h às 21h nos dois dias. Os Pokémon terão a mesma probabilidade de Brilhante de seus respectivos Dias Comunitários originais, e poderão aparecer com Fundo Especial. Bônus: 2× PE, 2× Poeira Estelar e 2× Doces por captura; metade da distância para chocar Ovos colocados em Incubadoras durante o evento; até duas Trocas Especiais por dia e 50% menos Poeira Estelar nas trocas (estes dois últimos bônus ficam ativos de 12/12 às 9h a 13/12 às 21h).",
+      "description": "12 e 13/12, das 14h às 17h (horário local). Sábado: Vulpix, Vulpix de Alola, Grookey, Scorbunny, Lechonk e Tinkatink; Piplup também poderá aparecer. Domingo: Zorua, Pawniard, Sobble, Nickit e Frigibax; Gible e Deino também poderão aparecer. Os Pokémon em destaque podem aparecer das 9h às 21h nos dois dias. Bônus: 2× PE, Poeira Estelar e Doces por captura; 2× chance de Doces GG; metade da distância para chocar Ovos; Incensos por 3h; Módulos Atrair por 1h; até duas Trocas Especiais por dia e 50% menos Poeira Estelar nas trocas (últimos bônus de 12/12 às 9h a 13/12 às 21h).",
       "source": "https://pokemongo.com/pt-BR/news/community-day-december-2026",
-      "note": "12 e 13/12 · 14h–17h (horário local). Pokémon em destaque também poderão aparecer das 9h às 21h.",
-      "game_time_label": "14h–17h nos dois dias; aparições dos Pokémon em destaque das 9h às 21h"
+      "note": "12 e 13/12 · 14h–17h; Pokémon em destaque também podem aparecer das 9h às 21h. Evoluções com ataques especiais até 13/12 às 21h.",
+      "game_time_label": "14h–17h nos dois dias; aparições 9h–21h. Bônus ampliados de 12/12 às 9h a 13/12 às 21h.",
+      "bonuses": [
+        "2× PE, Poeira Estelar e Doces por captura.",
+        "2× chance de receber Doces GG por captura para Treinadores de nível 31 ou superior.",
+        "Metade da distância para chocar Ovos colocados em Incubadoras durante o evento.",
+        "Incensos (exceto Incenso de Aventura Diário) duram 3 horas; Módulos Atrair duram 1 hora.",
+        "Até duas Trocas Especiais por dia e 50% menos Poeira Estelar nas trocas, de 12/12 às 9h a 13/12 às 21h.",
+        "Ataques especiais de 2026 disponíveis ao evoluir Pokémon até 13/12 às 21h."
+      ]
     },
     {
       "id": "s25-raid-2026-12-19",
@@ -694,13 +748,13 @@
     },
     {
       "id": "s25-tour-la-taiwan-2027",
-      "title": "Pokémon GO Tour: Los Angeles e Taiwan",
+      "title": "Pokémon GO Tour: Alola — Kaohsiung e Los Angeles",
       "kind": "tour",
       "start": "2027-02-19",
       "end": "2027-02-21",
-      "description": "Fim de semana do GO Tour presencial em Los Angeles e Taiwan. Informações específicas de cada experiência devem ser consultadas no anúncio oficial.",
-      "source": "https://pokemongo.com/pt-BR/news/save-the-date-s25",
-      "location": "Los Angeles (EUA) e Taiwan"
+      "description": "Eventos presenciais de Pokémon GO Tour 2027, celebrando a região de Alola, de 19 a 21 de fevereiro de 2027.",
+      "source": "https://pokemongo.com/pt-BR/news/save-the-date-go-tour-2027",
+      "location": "Kaohsiung, Taiwan, e Los Angeles, Califórnia, EUA"
     },
     {
       "id": "s25-tour-global-2027",

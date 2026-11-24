@@ -321,7 +321,10 @@
       "to": "20:00",
       "status": "confirmado",
       "description": "Evento anunciado no calendário oficial de dezembro. A estreia de Pyukumuku é informação de datamine e permanece não confirmada.",
-      "source": "https://pokemongo.com/news/monthly-content-update-dec2026"
+      "source": "https://pokemongo.com/news/monthly-content-update-dec2026",
+      "rumors": [
+        "Pyukumuku pode estrear durante o evento (datamine; não confirmado)."
+      ]
     },
     {
       "id": "max-battle-day-dec-2026",
@@ -333,7 +336,10 @@
       "to": null,
       "status": "confirmado",
       "description": "Data confirmada pela Niantic. Pokémon em destaque, horário e bônus ainda dependem de anúncio oficial. Datamine aponta Gigamax Inteleon, ainda não confirmado.",
-      "source": "https://pokemongo.com/news/save-the-date-s25"
+      "source": "https://pokemongo.com/news/save-the-date-s25",
+      "rumors": [
+        "Gigantamax Inteleon como destaque (datamine; não confirmado)."
+      ]
     },
     {
       "id": "minior-geminidas-2026",
@@ -369,7 +375,10 @@
       "to": null,
       "status": "confirmado",
       "description": "Data confirmada pela Niantic. Datamine aponta um Clone Special Raid Day com Mewtwo de Armadura, mas essa informação ainda não foi confirmada.",
-      "source": "https://pokemongo.com/news/save-the-date-s25"
+      "source": "https://pokemongo.com/news/save-the-date-s25",
+      "rumors": [
+        "Clone Special Raid Day com Mewtwo de Armadura (datamine; não confirmado)."
+      ]
     },
     {
       "id": "hatch-day-dec-2026",
@@ -381,7 +390,10 @@
       "to": null,
       "status": "confirmado",
       "description": "Data confirmada pela Niantic. Chingling é apontado em datamine como possível destaque, ainda sem confirmação oficial.",
-      "source": "https://pokemongo.com/news/save-the-date-s25"
+      "source": "https://pokemongo.com/news/save-the-date-s25",
+      "rumors": [
+        "Chingling como destaque (datamine; não confirmado)."
+      ]
     },
     {
       "id": "champions-celebration-rumor",
@@ -924,7 +936,7 @@
       "start": "2026-12-30",
       "end": "2027-01-05",
       "title": "Falinks",
-      "description": "Megarreides; confirmar se a programação se refere a Mega Falinks.",
+      "description": "A imagem de programação lista Falinks nesta faixa de Megarreides. A classificação precisa ser conferida: Falinks não deve ser apresentado como Mega Pokémon sem confirmação oficial.",
       "source_label": "Programação mensal de dezembro enviada pelo usuário"
     },
     {

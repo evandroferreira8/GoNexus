@@ -768,7 +768,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 
 /* Sinais editoriais: transparência de origem e grau de confirmação */
 .ag-meta #agUpdatedAt{background:#ffffff20;border-color:#ffffff42}
-.ag-editorial-status{display:inline-flex;align-items:center;padding:3px 7px;border:1px solid #d6e2f1;border-radius:99px;background:#f1f6fc;color:#45617f;font-size:.62rem;font-weight:800;line-height:1.25}
+.ag-m-card-status{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 6px}.ag-editorial-status{display:inline-flex;align-items:center;padding:3px 7px;border:1px solid #d6e2f1;border-radius:99px;background:#f1f6fc;color:#45617f;font-size:.62rem;font-weight:800;line-height:1.25}
 .ag-rumor-note{padding:8px 10px!important;border-left:3px solid #d79a32;background:#fff8e8;border-radius:0 8px 8px 0;color:#77551c!important}
 .ag-source-label{font-size:.68rem!important;color:#8291a5!important;margin-top:5px!important}
 @media(max-width:520px){.ag-meta #agUpdatedAt{display:inline-flex}}
@@ -1556,13 +1556,16 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     if(e.bonus)bonusParts.unshift(e.bonus);
     var bonus=bonusList(bonusParts);
     var detail=(dayDetail?'<p><b>Programação específica:</b> '+esc(dayDetail)+'</p>':'')+
-      '<p>'+esc(description)+'</p>'+bonus;
+      '<p>'+esc(description)+'</p>'+
+      (e.rumors&&e.rumors.length?'<p class="ag-rumor-note"><b>Não confirmado:</b> '+e.rumors.map(function(r){return esc(r)}).join(' ')+'</p>':'')+
+      (e.source_label?'<p class="ag-source-label">Origem: '+esc(e.source_label)+'</p>':'')+bonus;
     var actions=(e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Fonte ↗</a>':'')+
       (e.maps?'<a href="'+safeHref(e.maps)+'" target="_blank" rel="noopener noreferrer">Ver no mapa ↗</a>':'')+campfireLink(e)+campfireDateLinks(e)+
       '<button type="button" data-add="'+esc(e.id)+'">Adicionar ao calendário</button>'+
       '<button type="button" data-share="'+esc(e.id)+'">Compartilhar</button>';
     return '<article class="ag-m-card" data-kind="'+esc(mobileKind(e))+'">'+
       '<div class="ag-m-card-type">'+esc(categories[e.kind]||'Evento do jogo')+'</div>'+
+      '<div class="ag-m-card-status">'+status(e)+'</div>'+
       '<h3>'+esc(title)+'</h3>'+
       '<div class="ag-m-card-meta"><span><b>No jogo:</b> '+esc(when)+'</span>'+
       (place&&!eventMeetups(e,date).length?'<span>• '+esc(place)+'</span>':'')+'</div>'+

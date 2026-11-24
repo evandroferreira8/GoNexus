@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="Experimento de visualização 3D de Pokémon no GO Nexus.">
+<title>Estúdio 3D | GO Nexus</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+<style>
+:root{color-scheme:dark;--bg:#07111f;--panel:#0d1b2d;--panel2:#12243a;--line:#233a55;--text:#edf4ff;--muted:#9aacc2;--accent:#a6ff3f;--blue:#53b9ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% -15%,#183a5c 0,transparent 48%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+a{color:inherit}
+.wrap{width:min(920px,100%);margin:auto;padding:22px 16px 48px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
+.brand{font-weight:900;letter-spacing:.08em;font-size:.85rem}.brand span{color:var(--accent)}
+.back{font-size:.78rem;color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:9px 12px}
+.kicker{font:800 .68rem ui-monospace,monospace;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(1.8rem,6vw,3rem);line-height:1.02;letter-spacing:-.055em;margin:9px 0}
+.intro{color:var(--muted);line-height:1.55;max-width:620px;margin:0 0 22px;font-size:.94rem}
+.viewer{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#1d3c58 0,#102238 43%,#0a1728 78%);border:1px solid var(--line);min-height:340px;aspect-ratio:1.08}
+model-viewer{display:block;width:100%;height:100%;min-height:340px;--poster-color:transparent;--progress-bar-color:var(--accent);--progress-bar-height:3px;outline:none}
+model-viewer::part(default-progress-bar){background:var(--accent)}
+model-viewer::part(default-progress-mask){background:transparent}
+.viewer-status{position:absolute;left:12px;bottom:10px;padding:7px 9px;background:#07111fd9;color:#c5d5e8;font: .68rem ui-monospace,monospace;pointer-events:none}
+.viewer-status.error{color:#ffd28b}
+.controls{display:grid;gap:12px;margin-top:14px}
+.species{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+button{font:inherit;cursor:pointer}
+.species button,.mode button,.action{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:12px 9px;text-align:left;min-height:54px}
+.species button[aria-pressed=true],.mode button[aria-pressed=true]{border-color:var(--accent);background:#142b2a}
+.species strong{display:block;font-size:.85rem}.species small{display:block;color:var(--muted);font-size:.68rem;margin-top:4px}
+.options{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);padding:12px}
+.mode{display:flex;gap:6px;flex-wrap:wrap}.mode button{min-height:38px;padding:8px 12px;font-size:.78rem}
+.mode button:disabled{opacity:.35;cursor:not-allowed}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.action{min-height:40px;padding:9px 13px;font-size:.78rem}
+.action.primary{background:var(--accent);border-color:var(--accent);color:#101b12;font-weight:850}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.info article{background:var(--panel);border:1px solid var(--line);padding:13px}
+.info b{display:block;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.info span{font-size:.83rem;line-height:1.4}
+.notice{margin-top:16px;border-left:2px solid var(--blue);padding:10px 12px;background:#0d1b2d;color:var(--muted);font-size:.76rem;line-height:1.5}
+.footer{margin-top:24px;color:#73869e;font-size:.68rem;line-height:1.5}
+@media(min-width:700px){.layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(270px,.85fr);gap:18px;align-items:start}.controls{margin-top:0}.viewer{aspect-ratio:1}.info{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.species{gap:5px}.species button{padding:10px 7px}.species strong{font-size:.76rem}.species small{font-size:.62rem}.viewer,model-viewer{min-height:300px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><a class="brand" href="../../index.html" aria-label="GO Nexus início">GO <span>NEXUS</span></a><a class="back" href="../../index.html">← Voltar ao Nexus</a></header>
+<div class="kicker">LABORATÓRIO · EXPERIMENTO</div>
+<h1>Pokémon em <span style="color:var(--accent)">3D.</span></h1>
+<p class="intro">Uma primeira experiência para observar modelos, girar, aproximar e comparar formas. O teste está isolado: não altera a agenda nem as outras ferramentas do GO Nexus.</p>
+<div class="layout">
+<section>
+<div class="viewer">
+<model-viewer id="pokemonModel" src="https://raw.githubusercontent.com/Pokemon-3D-api/assets/main/models/opt/regular/609.glb" camera-controls auto-rotate auto-rotate-delay="1200" rotation-per-second="22deg" shadow-intensity="0.65" exposure="1" environment-image="neutral" interaction-prompt="none" loading="eager" reveal="auto" alt="Modelo 3D interativo de Chandelure"></model-viewer>
+<div class="viewer-status" id="status" role="status">CARREGANDO MODELO 3D…</div>
+</div>
+<div class="info">
+<article><b>Controles</b><span>Arraste para girar · pinça para aproximar · dois dedos para mover</span></article>
+<article><b>Carregamento</b><span>O modelo só é solicitado ao abrir esta página.</span></article>
+</div>
+</section>
+<section class="controls" aria-label="Controles do visualizador">
+<div class="species" role="group" aria-label="Escolher Pokémon">
+<button type="button" data-id="609" data-name="Chandelure" data-art="609" aria-pressed="true"><strong>Chandelure</strong><small>#609 · Fantasma/Fogo</small></button>
+<button type="button" data-id="884" data-name="Duraludon" data-art="884" aria-pressed="false"><strong>Duraludon</strong><small>#884 · Aço/Dragão</small></button>
+<button type="button" data-id="36" data-name="Clefable" data-art="36" aria-pressed="false"><strong>Clefable</strong><small>#036 · Fada</small></button>
+</div>
+<div class="options">
+<div><div class="kicker" style="margin-bottom:8px">FORMA / VARIAÇÃO</div><div class="mode" role="group" aria-label="Escolher forma">
+<button type="button" data-form="regular" aria-pressed="true">Normal</button>
+<button type="button" data-form="shiny" aria-pressed="false">Shiny</button>
+<button type="button" data-form="gigantamax" id="gmaxButton" aria-pressed="false" disabled>Gigamax</button>
+</div></div>
+</div>
+<div class="actions">
+<button type="button" class="action primary" id="reset">Centralizar modelo</button>
+<button type="button" class="action" id="pause">Pausar rotação</button>
+</div>
+<div class="notice" id="note" aria-live="polite">Selecione um Pokémon ou altere a forma. A disponibilidade de modelos varia; quando uma versão não existir, o visualizador informa e mantém a última versão funcional.</div>
+</section>
+</div>
+<p class="footer">Experimento técnico do GO Nexus. Modelos servidos pelo projeto comunitário Pokémon 3D API. Pokémon e seus personagens pertencem à Nintendo, The Pokémon Company e Game Freak. Este teste não é afiliado nem endossado por essas empresas.</p>
+</main>
+<script>
+const viewer=document.getElementById('pokemonModel');
+const statusEl=document.getElementById('status');
+const note=document.getElementById('note');
+const gmaxButton=document.getElementById('gmaxButton');
+const regularBase='https://raw.githubusercontent.com/Pokemon-3D-api/assets/main/models/opt/';
+let selected={id:'609',name:'Chandelure',art:'609'};
+let form='regular',lastGood=viewer.src,rotation=true,requestToken=0;
+const artUrl=id=>'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/'+id+'.png';
+function modelUrl(id,variant){return regularBase+variant+'/'+id+'.glb'}
+function setStatus(text,error=false){statusEl.textContent=text;statusEl.classList.toggle('error',error)}
+function updateButtons(){
+ document.querySelectorAll('[data-id]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.id===selected.id)));
+ document.querySelectorAll('[data-form]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.form===form)));
+ gmaxButton.disabled=selected.id!=='884';
+ gmaxButton.setAttribute('aria-pressed',String(form==='gigantamax'));
+}
+function loadModel(nextForm,allowFallback=true){
+ const token=++requestToken;
+ const target=modelUrl(selected.id,nextForm);
+ setStatus('CARREGANDO '+selected.name.toUpperCase()+'…');
+ viewer.alt='Modelo 3D de '+selected.name+(nextForm==='shiny'?' shiny':nextForm==='gigantamax'?' Gigamax':'');
+ viewer.poster=artUrl(selected.art);
+ viewer.src=target;
+ const onLoad=()=>{if(token!==requestToken)return;lastGood=target;setStatus('MODELO 3D · '+selected.name.toUpperCase());note.textContent='Modelo carregado. Arraste para girar e use o gesto de pinça para aproximar.'};
+ const onError=()=>{if(token!==requestToken)return;viewer.removeEventListener('load',onLoad);viewer.removeEventListener('error',onError);if(allowFallback&&nextForm!=='regular'){form='regular';updateButtons();loadModel('regular',false);note.textContent='Esta variação não está disponível nesta coleção. Voltamos à forma normal.';return;}viewer.src=lastGood;setStatus('MODELO INDISPONÍVEL · EXIBINDO REFERÊNCIA',true);note.textContent='Não foi possível carregar este arquivo 3D. Confira sua conexão ou tente outro Pokémon.'};
+ viewer.addEventListener('load',onLoad,{once:true});viewer.addEventListener('error',onError,{once:true});
+}
+document.querySelectorAll('[data-id]').forEach(button=>button.addEventListener('click',()=>{
+ selected={id:button.dataset.id,name:button.dataset.name,art:button.dataset.art};form='regular';updateButtons();loadModel(form);
+}));
+document.querySelectorAll('[data-form]').forEach(button=>button.addEventListener('click',()=>{
+ const next=button.dataset.form;if(next==='gigantamax'&&selected.id!=='884')return;form=next;updateButtons();loadModel(form);
+}));
+gmaxButton.addEventListener('click',()=>{if(selected.id==='884'){form='gigantamax';updateButtons();loadModel(form)}});
+document.getElementById('reset').addEventListener('click',()=>{viewer.cameraOrbit='0deg 75deg 105%';viewer.cameraTarget='auto auto auto';viewer.fieldOfView='auto'});
+document.getElementById('pause').addEventListener('click',e=>{rotation=!rotation;viewer.toggleAttribute('auto-rotate',rotation);e.currentTarget.textContent=rotation?'Pausar rotação':'Retomar rotação'});
+viewer.addEventListener('load',()=>setStatus('MODELO 3D · '+selected.name.toUpperCase()));
+viewer.addEventListener('error',()=>{});
+updateButtons();
+</script>
+</body>
+</html>

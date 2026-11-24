@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0c2042">
-<meta name="description" content="Agenda GO Nexus: eventos do Pokémon GO em Natal, programação de novembro de 2026 e próximas datas da Temporada 25.">
+<meta name="description" content="Agenda GO Nexus: eventos do Pokémon GO, encontros da comunidade em Natal e próximas datas da Temporada 25.">
 <title>Agenda GO · Eventos e encontros em Natal | GO Nexus</title>
 <link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <style>
@@ -765,6 +765,13 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 }
 @media(max-width:375px){.agenda-page .ag-month-nav span{font-size:12px;min-width:0}}
 
+
+/* Sinais editoriais: transparência de origem e grau de confirmação */
+.ag-meta #agUpdatedAt{background:#ffffff20;border-color:#ffffff42}
+.ag-editorial-status{display:inline-flex;align-items:center;padding:3px 7px;border:1px solid #d6e2f1;border-radius:99px;background:#f1f6fc;color:#45617f;font-size:.62rem;font-weight:800;line-height:1.25}
+.ag-rumor-note{padding:8px 10px!important;border-left:3px solid #d79a32;background:#fff8e8;border-radius:0 8px 8px 0;color:#77551c!important}
+.ag-source-label{font-size:.68rem!important;color:#8291a5!important;margin-top:5px!important}
+@media(max-width:520px){.ag-meta #agUpdatedAt{display:inline-flex}}
 </style>
 <link rel="stylesheet" href="agenda-depth.css?v=20261109g">
 </head>
@@ -862,7 +869,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     <div class="ag-kicker">GO NEXUS / AGENDA 2026</div>
     <h1 id="agHeroTitle">Novembro <span>em jogo.</span></h1>
     <p>Eventos do jogo e encontros na UFRN, sem complicação.</p>
-    <div class="ag-meta"><span id="agMetaMonth">Novembro de 2026</span><span>Horário de Natal · UTC−3</span></div>
+    <div class="ag-meta"><span id="agMetaMonth">Dezembro de 2026</span><span>Horário de Natal · UTC−3</span><span id="agUpdatedAt">Atualização: carregando</span></div>
   </div>
   <section class="ag-spotlight ag-spotlight-desktop" aria-label="Próximo evento em destaque" aria-live="polite">
     <span class="ag-spotlight-loading">Carregando próximo evento…</span>
@@ -1067,6 +1074,9 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     monthShort=new Intl.DateTimeFormat('pt-BR',{month:'short',timeZone:'UTC'}).format(d).replace('.','');
     monthAbbr=monthShort.toUpperCase();
     var title=monthLabel(month);
+    document.title='Agenda GO · '+title+' | Eventos e encontros em Natal | GO Nexus';
+    var description=document.querySelector('meta[name="description"]');
+    if(description)description.content='Agenda GO Nexus: eventos do Pokémon GO em '+title+', encontros da comunidade em Natal e próximas datas da Temporada 25.';
     document.getElementById('agHeroTitle').innerHTML=esc(monthLong.charAt(0).toUpperCase()+monthLong.slice(1))+' <span>em jogo.</span>';
     document.getElementById('agMetaMonth').textContent=title;
     document.getElementById('agMonthText').textContent=monthAbbr+' / '+month.slice(0,4);
@@ -1122,7 +1132,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         var topic=r.topics&&r.topics[iso], description=r.description||'Rotina semanal da comunidade.';
         result.push({id:r.id+'-'+iso,title:r.title,kind:r.kind,start:iso,end:iso,
           location:r.location,location_short:r.location_short,maps:r.maps,description:description,
-          topic:topic&&topic.theme||null,bonus:topic&&topic.bonus||null,benefits:r.benefits||[],source:topic&&topic.source||null,routine:true,
+          topic:topic&&topic.theme||null,bonus:topic&&topic.bonus||null,benefits:r.benefits||[],source:topic&&topic.source||null,source_label:topic&&topic.source_label||null,routine:true,
           from:r.game_from||null,to:r.game_to||null,game_time_label:r.game_time_label||null,
           location_status:topic&&topic.meetups&&topic.meetups.length?'confirmado_campfire':'habitual',
           meetups:topic&&topic.meetups||[],meetup_status:topic&&topic.meetup_status||'nao_verificado'});
@@ -1221,8 +1231,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
         var closing=Number(e.to.slice(0,2))*60+Number(e.to.slice(3,5));
         if(nowMinutes>closing)return false;
       }
-      return e.kind==='natal'||e.kind==='comunidade'||e.kind==='destaque'||
-        (!e.routine&&e.start===e.end&&(e.kind==='reide'||e.kind==='max'));
+      return !e.routine;
     }).sort(function(a,b){return a.start.localeCompare(b.start)||eventDaySort(a,b,a.start)});
     var next=upcoming[0];
     document.querySelectorAll('.ag-spotlight').forEach(function(node){
@@ -1292,7 +1301,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       var r=dateNum(e.start)+(e.start===e.end?'':'–'+dateNum(e.end))+' '+monthShort;
       return '<details class="ag-feature" data-kind="'+esc(e.kind)+'"><summary><span class="ag-feature-label">'+esc(kinds[e.kind]||'Evento')+'</span>'+
         '<strong>'+esc(e.title)+'</strong><span class="ag-feature-date">'+esc(r)+'</span></summary>'+
-        '<div class="ag-feature-detail"><p>'+esc(e.description)+'</p>'+
+        '<div class="ag-feature-detail"><p>'+esc(e.description)+'</p>'+(e.source_label?'<p class="ag-source-label">Origem: '+esc(e.source_label)+'</p>':'')+
         (e.source?'<a href="'+safeHref(e.source)+'" target="_blank" rel="noopener noreferrer">Anúncio oficial ↗</a>':'')+'</div></details>';
     }).join(''):'<p class="ag-week-empty" style="grid-column:1/-1">Não há rotações adicionais cadastradas.</p>';
     document.getElementById('agWeekSpecialNote').hidden=end<'2026-11-09'||start>'2026-11-15';
@@ -1472,10 +1481,18 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var query=normal(search.value.trim());
     return kindMatches(e)&&(!future.checked||!passed(e))&&(!query||normal([e.title,e.description,e.location,e.kind].join(' ')).includes(query));
   }
-  function status(e){
-    if(passed(e))return '<span class="ag-done">Encerrado</span>';
-    if(applies(e,current))return '<span class="ag-live">HOJE / EM DATA</span>';
+  function editorialStatus(e){
+    if(e.status==='rumor')return 'Rumor / datamine';
+    if(Array.isArray(e.rumors)&&e.rumors.length)return 'Inclui rumor não confirmado';
+    if(e.status==='confirmado')return 'Data confirmada';
+    if(e.source_label&&/programação mensal/i.test(e.source_label))return 'Programação divulgada';
+    if(e.source_label&&/datamine/i.test(e.source_label))return 'Rumor / datamine';
     return '';
+  }
+  function status(e){
+    var temporal=passed(e)?'<span class="ag-done">Encerrado</span>':(applies(e,current)?'<span class="ag-live">HOJE / EM DATA</span>':'');
+    var editorial=editorialStatus(e);
+    return temporal+(editorial?'<span class="ag-editorial-status" title="Classificação da informação">'+esc(editorial)+'</span>':'');
   }
   function timeLabel(e){
     if(!e.from)return 'Horário a confirmar';
@@ -1496,6 +1513,8 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       '<div class="ag-date"><span class="ag-day">'+dateNum(e.start)+'</span><span class="ag-mo">'+monthAbbr+'</span></div>'+ 
       '<div class="ag-content"><div class="ag-event-head"><span class="ag-type">'+esc(categories[e.kind]||'Evento')+'</span>'+status(e)+'</div>'+
       '<h3>'+esc(e.title)+'</h3><div class="ag-when">'+meta+'</div><p>'+esc(e.description)+((e.routine||e.meetup_status)&&meetupNote(e,e.start)?' '+esc(meetupNote(e,e.start)):'')+'</p>'+
+      (e.rumors&&e.rumors.length?'<p class="ag-rumor-note"><b>Não confirmado:</b> '+e.rumors.map(function(r){return esc(r)}).join(' ')+'</p>':'')+
+      (e.source_label?'<p class="ag-source-label">Origem: '+esc(e.source_label)+'</p>':'')+
       meetupSummary(e,e.start)+(eventMeetups(e,e.start).length?'':directMeetupLink(e))+
       '<div class="ag-actions">'+links+'</div></div></article>';
   }
@@ -2011,6 +2030,11 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   });
   fetch('agenda-eventos.json',{cache:'no-store'}).then(function(res){if(!res.ok)throw Error('Falha');return res.json()}).then(function(doc){
     month=/^\d{4}-\d{2}$/.test(doc.month)?doc.month:month;
+    var updated=document.getElementById('agUpdatedAt');
+    if(updated&&doc.updated_at){
+      var updateDate=new Date(doc.updated_at+'T12:00:00Z');
+      updated.textContent='Atualizada em '+new Intl.DateTimeFormat('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',timeZone:'UTC'}).format(updateDate);
+    }
     singleEvents=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];
     seasonDates=Array.isArray(doc.season_dates)?doc.season_dates.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];
     rotations=Array.isArray(doc.rotations)?doc.rotations.filter(function(e){return e&&e.start&&e.end&&e.kind}):[];

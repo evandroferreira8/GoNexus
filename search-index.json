@@ -1,5 +1,12 @@
 [
   {
+    "title": "Pokédex",
+    "url": "pokedex.html",
+    "description": "Conheça espécies, tipos, características, evoluções e modelos 3D.",
+    "content": "Pokédex GO Nexus Pokémon catálogo espécies número nome tipos geração busca ficha altura peso atributos descrição evoluções modelo 3D shiny normal",
+    "search": "Pokédex Pokémon espécies tipos gerações modelos 3D shiny evolução"
+  },
+  {
     "title": "Oráculo Nexus",
     "url": "oraculo.html",
     "description": "Calendário confirmado, radar de Pokémon e previsões especulativas para os próximos Dias Comunitários.",

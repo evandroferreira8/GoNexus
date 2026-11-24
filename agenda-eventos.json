@@ -2,7 +2,7 @@
   "month": "2026-12",
   "updated_at": "2026-11-24",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Agenda de dezembro de 2026. Informações oficiais e datas anunciadas pela Niantic aparecem como confirmadas; conteúdos de datamine são identificados explicitamente como rumor e não devem ser tratados como anúncio oficial. Horários só são exibidos quando publicados. Fuso: America/Fortaleza. Fontes: Pokémon GO oficial, calendário mensal de dezembro e datamine The Pokemod Group/Jogada Excelente.",
+  "editorial_note": "Agenda de dezembro de 2026. A interface identifica separadamente datas confirmadas, programação mensal divulgada e rumores/datamine. Rumores aparecem destacados como não confirmados. Horários só são exibidos quando publicados. Encontros presenciais e check-ins no Campfire são informações distintas dos eventos do jogo. Fuso: America/Fortaleza.",
   "events": [
     {
       "id": "halloween-2",

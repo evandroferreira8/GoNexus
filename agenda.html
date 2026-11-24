@@ -1044,7 +1044,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     var out={};parts.forEach(function(p){out[p.type]=p.value;});
     return out.year+'-'+out.month+'-'+out.day;
   }
-  var current=localToday(), month='2026-11', monthLong='novembro', monthShort='nov', monthAbbr='NOV';
+  var current=localToday(), month=current.slice(0,7), monthLong='novembro', monthShort='nov', monthAbbr='NOV';
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
   function dateNum(iso){return Number(iso.slice(8,10))}
   function range(e){var a=datePt(e.start,{day:'numeric',month:'short'}),b=datePt(e.end,{day:'numeric',month:'short'});return e.start===e.end?a:a+'–'+b}
@@ -2041,8 +2041,10 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     singleEvents=Array.isArray(doc.events)?doc.events.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];
     seasonDates=Array.isArray(doc.season_dates)?doc.season_dates.filter(function(e){return e&&e.id&&e.start&&e.end&&e.kind}):[];
     rotations=Array.isArray(doc.rotations)?doc.rotations.filter(function(e){return e&&e.start&&e.end&&e.kind}):[];
-    var monthCandidates=[month].concat(singleEvents.map(function(e){return e.end.slice(0,7)}),seasonDates.map(function(e){return e.end.slice(0,7)}),rotations.map(function(e){return e.end.slice(0,7)}));
-    minMonth=month;maxMonth=monthCandidates.sort().slice(-1)[0]||month;
+    var monthStarts=singleEvents.map(function(e){return e.start.slice(0,7)}).concat(seasonDates.map(function(e){return e.start.slice(0,7)}),rotations.map(function(e){return e.start.slice(0,7)}));
+    var monthEnds=singleEvents.map(function(e){return e.end.slice(0,7)}).concat(seasonDates.map(function(e){return e.end.slice(0,7)}),rotations.map(function(e){return e.end.slice(0,7)}));
+    minMonth=monthStarts.concat([month]).sort()[0];
+    maxMonth=monthEnds.concat([month]).sort().slice(-1)[0];
     updateMonthLabels();
     renderSeasonDates();
     weeklyRoutines=Array.isArray(doc.weekly_routines)?doc.weekly_routines:[];

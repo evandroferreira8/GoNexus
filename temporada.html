@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071426">
+<meta name="description" content="Explore Destinos dos Sonhos, a nova temporada de Pokémon GO, com novidades, eventos e destaques no GO Nexus.">
+<title>Destinos dos Sonhos · Temporada Pokémon GO | GO Nexus</title>
+<link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
+<style>
+:root{--sd-ink:#f5f7fb;--sd-muted:#b8c8dc;--sd-gold:#f8d66d;--sd-blue:#77baff;--sd-line:#ffffff20}
+*{box-sizing:border-box}
+body.season-page{margin:0;background:#071426;color:var(--sd-ink);font-family:var(--gn-font,'DM Sans',system-ui,sans-serif)}
+.season-wrap{width:min(1160px,calc(100% - 28px));margin:auto}
+.sd-hero{position:relative;isolation:isolate;min-height:610px;margin:16px 0 24px;overflow:hidden;border:1px solid #ffffff20;border-radius:28px;background:#102b4b}
+.sd-hero:before{content:"";position:absolute;z-index:-2;inset:0;background-image:url("https://lh3.googleusercontent.com/GNoJEQ03i_y7tS62MbULgDXu3uNONLwvHkomQIfYNYqQ3Q5KPb0mIEDg57od6aiO-BHRBrfld4OyKc8DAYyCNCo2kG4vZCzZKMp4o6QI7Q=s0-e365");background-size:cover;background-position:center 42%;transform:scale(1.02)}
+.sd-hero:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(4,16,32,.97) 0%,rgba(4,16,32,.84) 42%,rgba(4,16,32,.24) 100%),linear-gradient(0deg,#071426 0%,transparent 40%)}
+.sd-hero-copy{max-width:650px;padding:clamp(30px,6vw,76px) clamp(22px,5vw,64px) 40px}
+.sd-kicker{display:inline-flex;align-items:center;gap:9px;color:#f7d97e;font:800 .68rem var(--gn-code,monospace);letter-spacing:.17em;text-transform:uppercase}
+.sd-kicker:before{content:"";width:26px;height:2px;background:var(--sd-gold)}
+.sd-status{display:table;margin:22px 0 10px;padding:7px 10px;border:1px solid #f8d66d55;border-radius:5px;background:#f8d66d16;color:#ffe7a2;font-size:.67rem;font-weight:900;letter-spacing:.1em}
+.sd-hero h1{max-width:620px;margin:0!important;color:#fff!important;font-size:clamp(3rem,8vw,6.8rem)!important;line-height:.88;letter-spacing:-.075em}
+.sd-hero h1 span{display:block;color:var(--sd-gold)}
+.sd-lede{max-width:470px;margin:22px 0 0;color:#e1eaf5;font-size:clamp(.94rem,1.8vw,1.1rem);line-height:1.55}
+.sd-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}
+.sd-meta span{padding:9px 12px;border:1px solid #ffffff38;border-radius:99px;background:#ffffff12;color:#f4f7fb;font-size:.72rem;font-weight:800}
+.sd-hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.sd-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:12px;text-decoration:none;font-size:.82rem;font-weight:900}
+.sd-button.primary{background:var(--sd-gold);color:#15243a}
+.sd-button.secondary{border:1px solid #ffffff55;color:#fff;background:#ffffff12}
+.sd-nav{display:flex;gap:8px;overflow:auto;padding:0 0 18px;scrollbar-width:none}
+.sd-nav a{flex:0 0 auto;padding:10px 13px;border:1px solid var(--sd-line);border-radius:99px;color:#d8e4f1;text-decoration:none;font-size:.75rem;font-weight:800;background:#ffffff08}
+.sd-section{margin:20px 0 30px;padding:clamp(18px,3vw,30px);border:1px solid var(--sd-line);border-radius:22px;background:linear-gradient(145deg,#10233c,#0c1b30)}
+.sd-section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
+.sd-eyebrow{color:var(--sd-blue);font:800 .65rem var(--gn-code,monospace);letter-spacing:.14em;text-transform:uppercase}
+.sd-section h2{margin:5px 0 0!important;color:#fff!important;font-size:clamp(1.5rem,3vw,2.2rem)!important;letter-spacing:-.045em}
+.sd-section-head p{max-width:430px;margin:0;color:var(--sd-muted);font-size:.78rem;line-height:1.45}
+.sd-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.sd-card{position:relative;min-height:180px;overflow:hidden;padding:18px;border:1px solid #ffffff20;border-radius:16px;background:linear-gradient(145deg,#193b61,#10223a)}
+.sd-card:after{content:attr(data-number);position:absolute;right:9px;bottom:-28px;color:#ffffff0b;font-size:7rem;font-weight:950;line-height:1}
+.sd-card small{color:var(--sd-gold);font:800 .62rem var(--gn-code,monospace);letter-spacing:.12em;text-transform:uppercase}
+.sd-card h3{position:relative;z-index:1;margin:12px 0 7px!important;color:#fff!important;font-size:1.18rem!important;line-height:1.08}
+.sd-card p{position:relative;z-index:1;max-width:270px;margin:0;color:#c0d0e2;font-size:.78rem;line-height:1.48}
+.sd-card a{position:relative;z-index:1;display:inline-block;margin-top:13px;color:#f9db80;font-size:.72rem;font-weight:900;text-decoration:none}
+.sd-card.featured{background:linear-gradient(145deg,#254e77,#172e4a)}
+.sd-date-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.sd-date{padding:14px;border:1px solid #ffffff20;border-radius:13px;background:#ffffff08}
+.sd-date b{display:block;color:#fff;font-size:1.35rem;letter-spacing:-.04em}
+.sd-date span{display:block;margin-top:5px;color:#b8c8dc;font-size:.7rem;line-height:1.35}
+.sd-date em{display:block;margin-top:8px;color:var(--sd-gold);font-size:.64rem;font-style:normal;font-weight:900;text-transform:uppercase}
+.sd-note{margin:14px 0 0;color:#91a7c1;font-size:.7rem;line-height:1.5}
+.sd-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 2px 34px;color:#91a7c1;font-size:.72rem}
+.sd-footer a{color:#f6d879;text-decoration:none;font-weight:800}
+@media(max-width:760px){.sd-hero{min-height:650px;margin:10px 0 18px;border-radius:20px}.sd-hero:after{background:linear-gradient(180deg,rgba(4,16,32,.25) 0%,rgba(4,16,32,.65) 36%,#071426 88%),linear-gradient(90deg,#07142630,transparent)}.sd-hero:before{background-position:58% top}.sd-hero-copy{padding:270px 20px 26px}.sd-hero h1{font-size:clamp(3.15rem,15vw,5rem)!important}.sd-lede{font-size:.9rem;margin-top:16px}.sd-meta{margin-top:17px}.sd-meta span{font-size:.66rem}.sd-grid{grid-template-columns:1fr}.sd-card{min-height:150px}.sd-date-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sd-section-head{display:block}.sd-section-head p{margin-top:8px}}
+@media(prefers-reduced-motion:no-preference){.sd-hero{animation:sd-enter .7s ease both}@keyframes sd-enter{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
+</style>
+</head>
+<body class="season-page" data-studio-page>
+<go-nexus-header></go-nexus-header>
+<main class="season-wrap" id="topo">
+<section class="sd-hero" aria-labelledby="seasonTitle">
+<div class="sd-hero-copy">
+<span class="sd-kicker">GO NEXUS APRESENTA · NOVA TEMPORADA</span>
+<p class="sd-status" id="seasonStatus">A TEMPORADA COMEÇA EM BREVE</p>
+<h1 id="seasonTitle">Destinos <span>dos Sonhos</span></h1>
+<p class="sd-lede">Novos caminhos, encontros e aventuras chegam ao Pokémon GO. Prepare sua próxima jornada.</p>
+<div class="sd-meta"><span>01 DEZ 2026 — 01 MAR 2027</span><span>HORÁRIO LOCAL</span><span>90 DIAS DE AVENTURA</span></div>
+<div class="sd-hero-actions"><a class="sd-button primary" href="#destaques">Explorar a temporada <span aria-hidden="true">↗</span></a><a class="sd-button secondary" href="eventos.html">Outros eventos</a></div>
+</div>
+</section>
+<nav class="sd-nav" aria-label="Seções da temporada"><a href="#destaques">Destaques</a><a href="#tour">GO Tour: Alola</a><a href="#max">Batalhas Max</a><a href="#comunidade">Dias Comunitários</a><a href="#rotacoes">Rotações sazonais</a></nav>
+<section class="sd-section" id="destaques">
+<header class="sd-section-head"><div><span class="sd-eyebrow">O QUE VEM POR AÍ</span><h2>Uma temporada de novas possibilidades</h2></div><p>Reunimos os principais caminhos anunciados para você acompanhar o que merece atenção.</p></header>
+<div class="sd-grid">
+<article class="sd-card featured" data-number="01"><small>MEGA EVOLUÇÕES</small><h3>Mega Froslass e Mega Drampa</h3><p>As duas Mega Evoluções serão destaque em eventos de Dia de Reides durante a temporada.</p></article>
+<article class="sd-card" data-number="02"><small>BATALHAS MAX</small><h3>Gigamax em destaque</h3><p>Gigamax Inteleon e Gigamax Toxtricity terão seus próprios eventos de Batalhas Max.</p><a href="#max">Ver detalhes ↗</a></article>
+<article class="sd-card" data-number="03"><small>JORNADA GLOBAL</small><h3>Pokémon GO Tour: Alola</h3><p>Uma celebração global inspirada na região de Alola chega no fim de fevereiro.</p><a href="#tour">Conhecer o GO Tour ↗</a></article>
+</div>
+</section>
+<section class="sd-section" id="tour">
+<header class="sd-section-head"><div><span class="sd-eyebrow">27 E 28 DE FEVEREIRO DE 2027</span><h2>Pokémon GO Tour: Alola</h2></div><p>O evento global encerra a temporada com uma jornada inspirada na região de Alola.</p></header>
+<div class="sd-grid">
+<article class="sd-card" data-number="A"><small>EVENTOS PRESENCIAIS</small><h3>Los Angeles e Kaohsiung</h3><p>As experiências presenciais estão anunciadas para 19 a 21 de fevereiro de 2027.</p></article>
+<article class="sd-card featured" data-number="G"><small>EDIÇÃO GLOBAL</small><h3>Alola pelo mundo</h3><p>Treinadoras e Treinadores poderão participar da celebração global em 27 e 28 de fevereiro.</p><a href="https://pokemongo.com/pt-BR/seasons/daydream-destinations" target="_blank" rel="noopener noreferrer">Informações oficiais ↗</a></article>
+<article class="sd-card" data-number="GO"><small>PREPARE-SE</small><h3>Jogue em equipe</h3><p>Encontre sua comunidade, organize seus encontros e acompanhe os anúncios do evento.</p><a href="agenda.html">Abrir Agenda GO ↗</a></article>
+</div>
+</section>
+<section class="sd-section" id="max">
+<header class="sd-section-head"><div><span class="sd-eyebrow">PONTOS DE PODER</span><h2>Batalhas Max</h2></div><p>Formas Dinamax e Gigamax também fazem parte das aventuras da temporada.</p></header>
+<div class="sd-grid">
+<article class="sd-card"><small>DINAMAX</small><h3>Sandshrew de Alola</h3><p>Entre os Pokémon Dinamax anunciados para aparecer em Batalhas Max durante a temporada.</p></article>
+<article class="sd-card"><small>DINAMAX</small><h3>Slowpoke e Corphish</h3><p>Outros encontros Dinamax anunciados para os Pontos de Poder.</p></article>
+<article class="sd-card featured"><small>GIGAMAX</small><h3>Inteleon e Toxtricity</h3><p>Os dois Pokémon terão eventos de Dia de Batalhas Max. Datas e detalhes adicionais serão divulgados pela organização.</p></article>
+</div>
+</section>
+<section class="sd-section" id="comunidade">
+<header class="sd-section-head"><div><span class="sd-eyebrow">MARQUE NO CALENDÁRIO</span><h2>Dias Comunitários</h2></div><p>As datas anunciadas para a temporada já podem entrar no seu planejamento.</p></header>
+<div class="sd-date-grid">
+<div class="sd-date"><b>12–13</b><span>Dezembro de 2026</span><em>Dia Comunitário</em></div>
+<div class="sd-date"><b>02</b><span>Janeiro de 2027</span><em>Clássico</em></div>
+<div class="sd-date"><b>16</b><span>Janeiro de 2027</span><em>Dia Comunitário</em></div>
+<div class="sd-date"><b>06</b><span>Fevereiro de 2027</span><em>Dia Comunitário</em></div>
+</div>
+<p class="sd-note">Datas conforme o anúncio oficial. Pokémon em destaque, horários e detalhes de cada edição podem ser anunciados posteriormente.</p>
+</section>
+<section class="sd-section" id="rotacoes">
+<header class="sd-section-head"><div><span class="sd-eyebrow">MUDANÇAS AO LONGO DA TEMPORADA</span><h2>Rotações sazonais</h2></div><p>Encontros, Ovos e recompensas acompanham o tema de Destinos dos Sonhos.</p></header>
+<div class="sd-grid">
+<article class="sd-card"><small>ENCONTROS</small><h3>Descobertas de Pesquisa</h3><p>Encontros temáticos poderão ser obtidos ao concluir tarefas de Pesquisa de Campo.</p></article>
+<article class="sd-card"><small>OVOS</small><h3>Novas combinações</h3><p>As espécies disponíveis nos Ovos de 2, 5, 7 e 10 km terão rotações sazonais.</p></article>
+<article class="sd-card"><small>ROTAS</small><h3>Presentes de Mateo</h3><p>Ovos de 7 km obtidos na troca de presentes por Rotas também terão encontros temáticos.</p></article>
+</div>
+</section>
+<footer class="sd-footer"><span>GO NEXUS · TEMPORADA DESTINOS DOS SONHOS</span><span><a href="eventos.html">Outros eventos</a> · <a href="agenda.html">Agenda GO</a> · <a href="index.html">Início</a></span></footer>
+</main>
+<script>
+(function(){
+var now=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Fortaleza'}).format(new Date());
+var node=document.getElementById('seasonStatus');
+node.textContent=now<'2026-12-01'?'A TEMPORADA COMEÇA EM BREVE':now<'2027-03-01'?'TEMPORADA EM ANDAMENTO':'TEMPORADA ENCERRADA';
+})();
+</script>
+</body>
+</html>

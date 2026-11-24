@@ -53,14 +53,17 @@ function modelForms(id,inv){
  for(const cat of ['alolan','galar','hisuian','primal','origin','unique','shadow','sza'])add(cat,idstr,formLabels[cat]);
  const multiMap={
   128:['128-1','128-2','128-3'],386:['386-1','386-2','386-3'],718:['718_1','718_2','718_3'],
-  479:['RotomFan','RotomFrost','RotomHeat','RotomMow'],550:['BasculinBlueStripe'],555:['LycanrocDuskForm','LycanrocMidnightForm'],
-  646:['Black_Kyurem','White_Kyurem'],647:['Ice_Rider','Shadow_Rider'],648:['ShayminSky'],649:['EnamorusTherian'],
-  676:['WishiwashiSchool'],718:['718_1','718_2','718_3'],773:['ArchaludonCharging'],800:['Dawn_Wings','Dusk_Mane'],
-  999:['999'],1007:['Koraidon_Combat','Koraidon_Drive'],1008:['Miraidon_Aquatic']
+  479:['RotomFan','RotomFrost','RotomHeat','RotomMow'],550:['BasculinBlueStripe'],745:['LycanrocDuskForm','LycanrocMidnightForm'],
+  646:['Black_Kyurem','White_Kyurem'],492:['ShayminSky'],905:['EnamorusTherian'],
+  746:['WishiwashiSchool'],1018:['ArchaludonCharging'],800:['Dawn_Wings','Dusk_Mane'],
+  898:['Ice_Rider','Shadow_Rider'],999:['999'],1007:['Koraidon_Combat','Koraidon_Drive'],1008:['Miraidon_Aquatic'],875:['875']
  };
- const multiLabels={'128-1':'Forma padrão','128-2':'Forma de combate','128-3':'Forma de combate','386-1':'Forma normal','386-2':'Forma de ataque','386-3':'Forma de defesa','718_1':'10%','718_2':'50%','718_3':'Completa','Black_Kyurem':'Kyurem Negro','White_Kyurem':'Kyurem Branco','Dawn_Wings':'Necrozma Asas da Alvorada','Dusk_Mane':'Necrozma Juba do Crepúsculo','Ice_Rider':'Calyrex Cavaleiro Glacial','Shadow_Rider':'Calyrex Cavaleiro Espectral','RotomFan':'Rotom Ventilador','RotomFrost':'Rotom Geada','RotomHeat':'Rotom Calor','RotomMow':'Rotom Corte'};
- for(const file of (multiMap[id]||[])){add('multiform',file,multiLabels[file]||'Forma alternativa');add('fusion',file,multiLabels[file]||'Fusão')}
- if(id===646||id===800||id===647){for(const file of (multiMap[id]||[])){add('fusion',file,multiLabels[file]||'Fusão');add('fusionShiny',file,'Fusão shiny')}}
+ const multiLabels={'128-1':'Forma alternativa 1','128-2':'Forma alternativa 2','128-3':'Forma alternativa 3','386-1':'Forma alternativa 1','386-2':'Forma alternativa 2','386-3':'Forma alternativa 3','718_1':'Zygarde 10%','718_2':'Zygarde 50%','718_3':'Zygarde completo','Black_Kyurem':'Kyurem Negro','White_Kyurem':'Kyurem Blanco','Dawn_Wings':'Necrozma Asas da Alvorada','Dusk_Mane':'Necrozma Juba do Crepúsculo','Ice_Rider':'Calyrex Cavaleiro Glacial','Shadow_Rider':'Calyrex Cavaleiro Espectral','RotomFan':'Rotom Ventilador','RotomFrost':'Rotom Geada','RotomHeat':'Rotom Calor','RotomMow':'Rotom Corte','ShayminSky':'Shaymin Forma Celeste','BasculinBlueStripe':'Basculin de listra azul','LycanrocDuskForm':'Lycanroc Crepúsculo','LycanrocMidnightForm':'Lycanroc Meia-noite','WishiwashiSchool':'Wishiwashi Forma Cardume','EnamorusTherian':'Enamorus Forma Therian','ArchaludonCharging':'Archaludon carregando','Koraidon_Combat':'Koraidon Forma de Combate','Koraidon_Drive':'Koraidon Forma de Deslocamento','Miraidon_Aquatic':'Miraidon Forma Aquática','875':'Eiscue Forma Gelada'};
+ for(const file of (multiMap[id]||[])){
+  const label=multiLabels[file]||'Forma alternativa';
+  add('multiform',file,label);add('fusion',file,label);
+  if([646,800,898].includes(Number(id)))add('fusionShiny',file,label+' shiny');
+ }
  return out;
 }
 function generationLabel(id){const labels={1:'I · Kanto',2:'II · Johto',3:'III · Hoenn',4:'IV · Sinnoh',5:'V · Unova',6:'VI · Kalos',7:'VII · Alola',8:'VIII · Galar',9:'IX · Paldea'};return labels[Number(gen(id))]||'—'}

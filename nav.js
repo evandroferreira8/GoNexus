@@ -9,6 +9,7 @@
 
   const FEEDBACK = "https://docs.google.com/forms/d/e/1FAIpQLSem76XFAbhD59iByOcJGgVR8tvYhuROQXgmUWOtKPatzjTGBA/viewform?usp=publish-editor";
   const TOOLS = [
+    { file: "pokedex.html", icon: "◉", label: "Pokédex", desc: "Conheça espécies, tipos, evoluções e modelos 3D" },
     { file: "colecao-fundos.html", icon: "▧", label: "Coleção de Fundos", desc: "Seu checklist de fundos do Pokémon GO" },
     { file: "oraculo.html", icon: "✧", label: "Oráculo Nexus", desc: "Previsões e possíveis Dias Comunitários" },
     { file: "guia-busca.html", icon: "🔎", label: "Guia de Busca", desc: "Filtros e comandos de pesquisa" },

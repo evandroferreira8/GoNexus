@@ -32,6 +32,24 @@
  .page-home .gn-grid .gn-generator-card .gn-card-action{position:static;width:39px;height:39px;flex:0 0 39px}
 }
 </style>
+<style id="home-season-experience">
+.home-other-events{display:flex;align-items:center;gap:12px;margin:0 0 10px;padding:13px 16px;border:1px solid #d9e4f1;border-radius:15px;background:#fff;color:#173253;text-decoration:none;box-shadow:0 4px 14px #18365a0a}
+.home-other-icon{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border-radius:11px;background:#edf3fc;color:#245fbd;font-size:1.25rem;font-weight:900}
+.home-other-events small{display:block;color:#6d829d;font:800 .58rem var(--gn-code,monospace);letter-spacing:.12em}
+.home-other-events strong{display:block;margin-top:3px;font-size:.9rem;letter-spacing:-.02em}
+.home-other-arrow{margin-left:auto;color:#2862c2;font-size:1.25rem;font-weight:900}
+.home-season-banner{position:relative;isolation:isolate;display:flex;min-height:330px;overflow:hidden;margin:0 0 24px;border:1px solid #b9cde4;border-radius:22px;background:#0b2342;color:#fff;text-decoration:none;box-shadow:0 12px 28px #17375a20}
+.home-season-banner:before{content:"";position:absolute;z-index:-2;inset:0;background-image:url("https://lh3.googleusercontent.com/GNoJEQ03i_y7tS62MbULgDXu3uNONLwvHkomQIfYNYqQ3Q5KPb0mIEDg57od6aiO-BHRBrfld4OyKc8DAYyCNCo2kG4vZCzZKMp4o6QI7Q=s0-e365");background-size:cover;background-position:center 43%}
+.home-season-banner:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#07172cf5 0%,#0b2342d9 44%,#0b234240 100%),linear-gradient(0deg,#07172c80,transparent 60%)}
+.home-season-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;max-width:650px;padding:30px 32px}
+.home-season-kicker{color:#f8d978;font:800 .65rem var(--gn-code,monospace);letter-spacing:.13em}
+.home-season-title{display:block;margin:13px 0 9px;font-size:clamp(2.2rem,6vw,4rem);font-weight:950;line-height:.94;letter-spacing:-.065em}
+.home-season-title em{color:#f8d978;font-style:normal}
+.home-season-line{max-width:440px;color:#e0eaf5;font-size:.9rem;line-height:1.5}
+.home-season-cta{display:inline-flex;align-items:center;gap:18px;margin-top:22px;padding:12px 16px;border-radius:11px;background:#f8d978;color:#172a42;font-size:.78rem;font-weight:900}
+.home-season-cta b{font-size:1.1rem}
+@media(max-width:600px){.home-other-events{margin-bottom:9px;padding:11px 13px}.home-season-banner{min-height:380px;margin-bottom:19px;border-radius:19px}.home-season-banner:before{background-position:58% top}.home-season-banner:after{background:linear-gradient(180deg,#07172c22 0%,#07172ca8 36%,#07172cf5 83%),linear-gradient(90deg,#07172c55,transparent)}.home-season-copy{justify-content:flex-end;padding:24px 20px}.home-season-title{font-size:2.65rem}.home-season-line{font-size:.82rem}}
+</style>
 </head>
 <body class="page-home">
 <go-nexus-header></go-nexus-header>
@@ -69,17 +87,19 @@
   </div>
  </section>
 
- <a class="wa-home-banner" href="area-selvagem.html" aria-label="Entrar no especial Área Selvagem GO 2026, global 14 e 15 de novembro">
-  <span class="wa-home-copy">
-   <span class="wa-home-tag">EVENTO EM DESTAQUE · EDIÇÃO GLOBAL</span>
-   <strong class="wa-home-title">Área Selvagem <em>GO</em></strong>
-   <span class="wa-home-line">A cidade virou selvagem: Aço, Dragão, Batalhas Max e Pokémon incríveis.</span>
-   <span class="wa-home-meta"><span>◫ 14–15 NOV</span><span>◎ GLOBAL</span><span>◷ 10H–18H</span></span>
-  </span>
-  <img class="wa-home-pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10225.png" width="240" height="240" loading="lazy" decoding="async" alt="">
-  <span class="wa-home-enter">Entrar na Área Selvagem <span aria-hidden="true">→</span></span>
+ <a class="home-other-events" href="eventos.html">
+  <span class="home-other-icon" aria-hidden="true">↗</span>
+  <span><small>EXPLORE TAMBÉM</small><strong>Outros eventos e especiais</strong></span>
+  <span class="home-other-arrow" aria-hidden="true">→</span>
  </a>
-
+ <a class="home-season-banner" href="temporada.html" aria-label="Explorar a temporada Destinos dos Sonhos">
+  <span class="home-season-copy">
+   <span class="home-season-kicker">NOVA TEMPORADA · A PARTIR DE 1º DEZ</span>
+   <strong class="home-season-title">Destinos <em>dos Sonhos</em></strong>
+   <span class="home-season-line">Uma nova jornada começa. Descubra os destaques, novidades e eventos da temporada.</span>
+   <span class="home-season-cta">Explorar temporada <b aria-hidden="true">↗</b></span>
+  </span>
+ </a>
  <section class="gn-section" id="ferramentas" aria-labelledby="essenciaisTitulo">
   <header class="gn-section-head"><div><h2 id="essenciaisTitulo">Ferramentas essenciais</h2><p class="gn-section-sub">O que você mais precisa, sem complicação.</p></div><a href="#planejar" class="gn-section-link">Ver mais <span aria-hidden="true">→</span></a></header>
   <div class="gn-grid"><a class="gn-v2-card gn-background-card" href="colecao-fundos.html" style="--card-top:#123a67;--card-bottom:#4b75b8"><span class="gn-card-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 17 6-6 5 5 4-4 3 4M15 7h2"/></svg></span><span class="gn-card-content"><h3>Coleção de Fundos</h3><p>Seu álbum de fundos.</p></span><span class="gn-card-action" aria-hidden="true">→</span></a><a class="gn-v2-card gn-generator-card" href="gerador-pesquisas.html" style="--card-top:#103264;--card-bottom:#2870da"><span class="gn-card-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h8M4 12h5m-5 5h8m3-13 5 4-5 4m5-4h-8M15 15l5 3-5 3m5-3h-8"/></svg></span><span class="gn-card-content"><span class="gn-generator-kicker">NOVO • EM UM TOQUE</span><h3>Gerador de Pesquisas</h3><p>Cole os nomes. Copie os números da Pokédex.</p></span><span class="gn-card-action" aria-hidden="true">→</span></a><a class="gn-v2-card" href="tipagens.html" style="--card-top:#172b50;--card-bottom:#3570ce"><span class="gn-card-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 4 15 15m-9-11 6-6 3 3-6 6M5 19l4-4m-6 6 6-6m8-1 4 4"/></svg></span><span class="gn-card-content"><h3>Central de Combate</h3><p>Fraquezas e estratégias.</p></span><span class="gn-card-action" aria-hidden="true">→</span></a><a class="gn-v2-card" href="guia-busca.html" style="--card-top:#1d5a8b;--card-bottom:#3796d8"><span class="gn-card-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M8 10.5h5M10.5 8v5"/></svg></span><span class="gn-card-content"><h3>Guia de Busca</h3><p>Filtros e comandos de pesquisa.</p></span><span class="gn-card-action" aria-hidden="true">→</span></a><a class="gn-v2-card" href="calculadora.html" style="--card-top:#91551b;--card-bottom:#d89832"><span class="gn-card-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 7 9-4 9 4v10l-9 4-9-4V7Zm0 0 9 4 9-4m-9 4v10"/></svg></span><span class="gn-card-content"><h3>Vale a Caixa?</h3><p>Compare ofertas e preços.</p></span><span class="gn-card-action" aria-hidden="true">→</span></a><a class="gn-v2-card" href="poeira-estelar.html" style="--card-top:#1e477e;--card-bottom:#6a9ed5"><span class="gn-card-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2ZM19 17l.9 2.1L22 20l-2.1.9L19 23l-.9-2.1L16 20l2.1-.9L19 17Z"/></svg></span><span class="gn-card-content"><h3>Poeira Estelar</h3><p>Valores e bônus de captura.</p></span><span class="gn-card-action" aria-hidden="true">→</span></a></div>

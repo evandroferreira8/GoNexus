@@ -11,7 +11,6 @@
   const TOOLS = [
     { file: "pokedex.html", icon: "◉", label: "Pokédex", desc: "Conheça espécies, tipos, evoluções e modelos 3D" },
     { file: "colecao-fundos.html", icon: "▧", label: "Coleção de Fundos", desc: "Seu checklist de fundos do Pokémon GO" },
-    { file: "oraculo.html", icon: "✧", label: "Oráculo Nexus", desc: "Previsões e possíveis Dias Comunitários" },
     { file: "guia-busca.html", icon: "🔎", label: "Guia de Busca", desc: "Filtros e comandos de pesquisa" },
     { file: "gerador-pesquisas.html", icon: "🔢", label: "Gerador de Pesquisas", desc: "Converta listas em números da Pokédex" },
     { file: "calculadora.html", icon: "🧮", label: "Vale a Caixa?", desc: "Compare ofertas da loja" },

@@ -1,54 +1,20 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f"><meta name="description" content="Explore a Pokédex do GO Nexus: conheça Pokémon, tipos, evoluções e modelos 3D."><title>Pokédex | GO Nexus</title><link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
+<html lang="pt-BR" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f"><meta name="description" content="Explore a Pokédex do GO Nexus: conheça Pokémon, tipos, evoluções e modelos 3D."><title>Pokédex | GO Nexus</title><link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 <style>
 :root{color-scheme:dark;--bg:#07111f;--panel:#0d1b2d;--line:#233a55;--text:#edf4ff;--muted:#9aacc2;--green:#a6ff3f;--blue:#53b9ff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#183a5c 0,transparent 45%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,100%);margin:auto;padding:18px 15px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}.brand{font-weight:900;letter-spacing:.08em;font-size:.86rem}.brand span{color:var(--green)}.back{border:1px solid var(--line);padding:9px 12px;color:var(--muted);font-size:.76rem}.kicker{font:800 .66rem ui-monospace,monospace;letter-spacing:.16em;color:var(--green);text-transform:uppercase}h1{font-size:clamp(2rem,7vw,3.6rem);line-height:.98;letter-spacing:-.06em;margin:9px 0 12px}h1 span{color:var(--green)}.intro{max-width:680px;color:var(--muted);font-size:.92rem;line-height:1.55;margin:0 0 22px}.searchbar{display:grid;grid-template-columns:1fr;gap:9px;margin-bottom:10px}.searchbar input,.searchbar select{width:100%;min-height:46px;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:0 13px;border-radius:0;outline:none}.searchbar input:focus,.searchbar select:focus{border-color:var(--green)}.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px}.statsline{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font:.7rem ui-monospace,monospace;margin:16px 0 12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.pokemon-card{min-width:0;background:linear-gradient(145deg,#11253b,#0b1829);border:1px solid var(--line);padding:10px;text-align:left;color:var(--text)}.pokemon-card:hover{border-color:var(--green)}.pokemon-card img{width:100%;aspect-ratio:1;object-fit:contain;display:block;background:radial-gradient(circle,#244363 0,transparent 68%)}.dexno{font:.65rem ui-monospace,monospace;color:var(--muted)}.pname{font-size:.88rem;font-weight:850;text-transform:capitalize;margin:4px 0 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.types{display:flex;gap:4px;flex-wrap:wrap}.type{display:inline-block;padding:3px 6px;font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;background:#20364c;color:#dcecff}.pager{display:flex;justify-content:center;gap:8px;margin:20px 0}.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:10px 14px;font-size:.76rem}.btn.primary{background:var(--green);border-color:var(--green);color:#101b12;font-weight:900}.btn:disabled{opacity:.35;cursor:not-allowed}.empty,.loading{padding:32px 15px;text-align:center;color:var(--muted);border:1px dashed var(--line);font-size:.84rem;grid-column:1/-1}dialog{width:min(900px,calc(100% - 18px));max-height:92vh;padding:0;border:1px solid var(--line);background:var(--bg);color:var(--text);overflow:auto}dialog::backdrop{background:#020812d9;backdrop-filter:blur(5px)}.detail-head{position:sticky;top:0;z-index:4;background:#07111ff2;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 15px}.close{border:1px solid var(--line);background:var(--panel);color:var(--text);width:36px;height:36px;font-size:1.1rem}.detail-body{padding:14px}.detail-top{display:grid;grid-template-columns:1fr;gap:12px}.modelbox{position:relative;min-height:300px;background:radial-gradient(ellipse at center,#244563,#0d1b2d 72%);border:1px solid var(--line)}model-viewer{width:100%;height:100%;min-height:300px;--poster-color:transparent;--progress-bar-color:var(--green);--progress-bar-height:3px}.model-status{position:absolute;bottom:8px;left:8px;background:#07111fe8;padding:6px 8px;color:var(--muted);font:.62rem ui-monospace,monospace;pointer-events:none}.detail-info{padding:8px 2px}.detail-info h2{font-size:1.9rem;letter-spacing:-.04em;margin:3px 0 7px;text-transform:capitalize}.detail-no{font:.7rem ui-monospace,monospace;color:var(--muted)}.desc{color:#c5d5e8;font-size:.85rem;line-height:1.6;margin:14px 0}.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.fact{background:var(--panel);padding:10px;border:1px solid var(--line)}.fact b{display:block;color:var(--muted);font:.62rem ui-monospace,monospace;text-transform:uppercase;margin-bottom:5px}.fact span{font-size:.82rem}.section{border-top:1px solid var(--line);padding:16px 0;margin-top:14px}.section h3{font-size:.9rem;margin:0 0 10px}.stats{display:grid;gap:7px}.stat{display:grid;grid-template-columns:75px 1fr 30px;gap:8px;align-items:center;font-size:.7rem}.bar{height:7px;background:#1a2c40}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--green))}.evolutions{display:flex;gap:8px;overflow-x:auto;padding-bottom:5px}.evo{min-width:94px;background:var(--panel);border:1px solid var(--line);padding:8px;text-align:center;color:var(--text)}.evo img{width:72px;height:72px;object-fit:contain}.evo strong{display:block;font-size:.72rem;text-transform:capitalize}.evo small{font-size:.6rem;color:var(--muted)}.formrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.formrow button{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:8px 11px;font-size:.7rem}.formrow button[aria-pressed=true]{border-color:var(--green);color:var(--green)}.disclaimer{color:#8296ad;font-size:.68rem;line-height:1.5;margin-top:12px}.footer{color:#73869e;font-size:.68rem;line-height:1.5;margin-top:25px}@media(min-width:560px){.searchbar{grid-template-columns:1.5fr 1fr}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.detail-top{grid-template-columns:1.05fr .95fr;align-items:center}.modelbox,model-viewer{min-height:360px}}@media(min-width:850px){.grid{grid-template-columns:repeat(5,minmax(0,1fr))}.wrap{padding-top:24px}.detail-body{padding:20px}.detail-top{gap:22px}}
 
-/* GO Nexus Studio skin — shared light identity */
-body.page-pokedex{background:#edf2f9!important;color:#152c4b!important;font-family:var(--gn-font,'DM Sans',system-ui,sans-serif)!important}
-.page-pokedex .wrap{width:min(1190px,calc(100% - 30px));padding:0 0 35px}
-.page-pokedex .top{display:none}
-.page-pokedex .kicker{color:#2860b9;font-family:var(--gn-code,monospace);letter-spacing:.09em}
-.page-pokedex h1{font-family:var(--gn-title,'Outfit',sans-serif);color:#0b1f3b;letter-spacing:-.055em}
-.page-pokedex h1 span{color:#2563eb}
-.page-pokedex .intro{color:#526984;max-width:720px}
-.page-pokedex .searchbar input,.page-pokedex .searchbar select{background:#fff;color:#173454;border:1px solid #cbd9eb;border-radius:11px;box-shadow:0 2px 8px #18365a0a}
-.page-pokedex .searchbar input::placeholder{color:#7588a1}
-.page-pokedex .statsline{color:#607792}
-.page-pokedex .pokemon-card{background:#fff;border:1px solid #d5e0ef;border-radius:14px;color:#132e52;box-shadow:0 5px 16px #17365a0a}
-.page-pokedex .pokemon-card:hover{border-color:#8fb2e8;box-shadow:0 8px 20px #17365a13}
-.page-pokedex .pokemon-card img{background:radial-gradient(circle,#eaf2ff 0,transparent 70%)}
-.page-pokedex .dexno{color:#71849e}
-.page-pokedex .type{background:#eaf1fb;color:#2b527e;border:1px solid #d9e4f2;border-radius:5px}
-.page-pokedex .btn{background:#fff;color:#2454a5;border:1px solid #cbd9eb;border-radius:10px}
-.page-pokedex .btn.primary{background:#2563eb;color:#fff;border-color:#2563eb}
-.page-pokedex .empty,.page-pokedex .loading{color:#657b96;border-color:#cbd9eb;background:#fff;border-radius:14px}
-.page-pokedex .footer{color:#70839c;border-top:1px solid #d7e1ef;padding-top:17px}
-.page-pokedex dialog{background:#f8faff;color:#152c4b;border:1px solid #cbd9eb;border-radius:18px;box-shadow:0 24px 80px #102b4a35}
-.page-pokedex dialog::backdrop{background:#0b1f3bb3}
-.page-pokedex .detail-head{background:#fff;border-bottom:1px solid #dbe4f0}
-.page-pokedex .close{background:#f2f6fc;color:#24466f;border-color:#d2deed;border-radius:9px}
-.page-pokedex .modelbox{background:radial-gradient(ellipse at center,#e1edfc,#f7faff 72%);border-color:#d4e0ef;border-radius:15px;overflow:hidden}
-.page-pokedex model-viewer{--poster-color:transparent;--progress-bar-color:#2563eb}
-.page-pokedex .model-status{background:#17365c;color:#fff;border-radius:5px}
-.page-pokedex .detail-info h2{color:#102b4e;font-family:var(--gn-title,'Outfit',sans-serif)}
-.page-pokedex .detail-no{color:#6b809b}
-.page-pokedex .desc{color:#536a86}
-.page-pokedex .fact{background:#fff;border-color:#dbe4f0;border-radius:10px}
-.page-pokedex .fact b{color:#71849c}
-.page-pokedex .fact span{color:#183656}
-.page-pokedex .section{border-color:#dbe4f0}
-.page-pokedex .section h3{color:#16375e}
-.page-pokedex .bar{background:#e4ebf5;border-radius:9px;overflow:hidden}
-.page-pokedex .bar i{background:linear-gradient(90deg,#2563eb,#20a9a0)}
-.page-pokedex .evo{background:#fff;border-color:#d8e2ef;border-radius:11px;color:#173454}
-.page-pokedex .evo:hover{border-color:#8db0e6}
-.page-pokedex .evo small{color:#6d819b}
-.page-pokedex .formrow button{background:#fff;border-color:#cbd9eb;color:#315476;border-radius:8px}
-.page-pokedex .formrow button[aria-pressed=true]{background:#eaf1ff;border-color:#2563eb;color:#1e56bd}
-.page-pokedex .disclaimer{color:#70839b}
-@media(min-width:650px){.page-pokedex .wrap{width:min(1190px,calc(100% - 42px));padding-top:0}}
-@media(max-width:768px){.page-pokedex .wrap{width:calc(100% - 24px);padding-bottom:24px}.page-pokedex .statsline{font-size:.64rem}.page-pokedex .pokemon-card{padding:8px}.page-pokedex .pname{font-size:.82rem}}
+
+.model-fallback{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:24px;pointer-events:none}
+.modelbox.is-fallback model-viewer{visibility:hidden}
+.modelbox.is-fallback .model-fallback{display:block}
+.modelbox .model-status{z-index:2}
+.model-variants{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.model-variants button{border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:8px 10px;font-size:.68rem}
+.model-variants button[aria-pressed=true]{border-color:var(--green);color:var(--green);background:#183047}
+.model-note{font-size:.68rem;line-height:1.45;color:var(--muted);margin:8px 0 0}
+.detail-info .types{gap:5px}
+@media(max-width:560px){.modelbox,model-viewer{min-height:270px}.model-variants button{padding:8px 9px}}
 </style></head><body class="page-pokedex"><go-nexus-header></go-nexus-header><main class="wrap">
 
 <div class="kicker">ENCICLOPÉDIA INTERATIVA</div><h1>Conheça os <span>Pokémon.</span></h1><p class="intro">Explore espécies, tipos, características e evoluções. Abra uma ficha para observar o Pokémon em 3D quando houver um modelo disponível.</p>
@@ -72,8 +38,65 @@ function render(){const start=page*30,items=filtered.slice(start,start+30);$('co
 async function loadTypes(p){try{const d=await fetch(API+'/pokemon/'+p.id).then(r=>r.json()),el=document.querySelector('[data-types="'+p.id+'"]');if(el)el.innerHTML=tags(d.types)}catch(e){}}
 $('grid').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)openDetail(Number(b.dataset.open))});$('search').addEventListener('input',apply);$('generation').addEventListener('change',apply);$('type').addEventListener('change',filterType);$('prev').onclick=()=>{page--;render();scrollTo({top:0,behavior:'smooth'})};$('next').onclick=()=>{page++;render();scrollTo({top:0,behavior:'smooth'})};$('close').onclick=()=>$('detail').close();$('detail').addEventListener('click',e=>{if(e.target===$('detail'))$('detail').close()});
 function flatten(n,out=[]){if(!n)return out;out.push({name:n.species.name,id:Number(n.species.url.split('/').filter(Boolean).pop())});n.evolves_to.forEach(x=>flatten(x,out));return out}
-async function openDetail(id){const token=++detailToken;$('detail').showModal();$('detailBody').innerHTML='<div class="loading">Buscando informações…</div>';try{const pair=await Promise.all([fetch(API+'/pokemon/'+id).then(r=>r.json()),fetch(API+'/pokemon-species/'+id).then(r=>r.json())]);const p=pair[0],s=pair[1];if(token!==detailToken)return;const flavor=s.flavor_text_entries.find(x=>x.language.name==='pt')?.flavor_text||s.flavor_text_entries.find(x=>x.language.name==='en')?.flavor_text||'Descrição não disponível.';const chain=s.evolution_chain?.url?await fetch(s.evolution_chain.url).then(r=>r.json()):null;if(token!==detailToken)return;const evo=chain?flatten(chain.chain):[];const statNames={hp:'PS',attack:'Ataque',defense:'Defesa','special-attack':'Atq. especial','special-defense':'Def. especial',speed:'Velocidade'};const stats=p.stats.map(x=>'<div class="stat"><span>'+esc(statNames[x.stat.name]||x.stat.name)+'</span><div class="bar"><i style="width:'+Math.min(100,x.base_stat/2.55)+'%"></i></div><b>'+x.base_stat+'</b></div>').join('');const genus=s.genera.find(x=>x.language.name==='pt')?.genus||'Pokémon';$('detailBody').innerHTML='<div class="detail-top"><div class="modelbox"><model-viewer id="detailModel" src="'+MODELS+'regular/'+id+'.glb" camera-controls auto-rotate auto-rotate-delay="900" rotation-per-second="20deg" shadow-intensity=".5" environment-image="neutral" interaction-prompt="none" poster="'+art(id)+'" alt="Modelo 3D de '+esc(p.name)+'"></model-viewer><div class="model-status" id="modelStatus">TENTANDO CARREGAR MODELO 3D…</div></div><div class="detail-info"><div class="detail-no">Nº '+pad(id)+' · '+esc(genus)+'</div><h2>'+esc(p.name)+'</h2><div class="types">'+tags(p.types)+'</div><p class="desc">'+esc(flavor.replace(/\\f|\\n/g,' '))+'</p><div class="facts"><div class="fact"><b>Altura</b><span>'+(p.height/10).toFixed(1)+' m</span></div><div class="fact"><b>Peso</b><span>'+(p.weight/10).toFixed(1)+' kg</span></div><div class="fact"><b>Geração</b><span>'+gen(id)+'</span></div><div class="fact"><b>Experiência base</b><span>'+(p.base_experience??'—')+'</span></div></div><div class="formrow"><button data-model="regular" aria-pressed="true">Normal</button><button data-model="shiny" aria-pressed="false">Shiny</button></div><div class="disclaimer">O modelo 3D pode não existir para esta espécie ou variação. A imagem oficial aparece como referência enquanto o modelo é carregado.</div></div></div><section class="section"><h3>Atributos-base</h3><div class="stats">'+stats+'</div></section><section class="section"><h3>Linha evolutiva</h3><div class="evolutions">'+evo.map(x=>'<button class="evo" data-evo="'+x.id+'"><img src="'+art(x.id)+'" alt=""><strong>'+esc(x.name)+'</strong><small>#'+pad(x.id)+'</small></button>').join('')+'</div></section><section class="section"><h3>Sobre os dados</h3><p class="desc">Esta ficha reúne dados da série principal de Pokémon. Altura, peso e atributos não representam necessariamente os valores ou o funcionamento dessa espécie no Pokémon GO.</p><p class="disclaimer">A disponibilidade no Pokémon GO deve ser consultada nas ferramentas específicas do GO Nexus. Dados fornecidos pela PokéAPI.</p></section>';
-const mv=$('detailModel'),status=$('modelStatus');mv.addEventListener('load',()=>status.textContent='MODELO 3D DISPONÍVEL');mv.addEventListener('error',()=>{status.textContent='MODELO 3D NÃO DISPONÍVEL · IMAGEM DE REFERÊNCIA';status.style.color='#ffd28b'});$('detailBody').querySelectorAll('[data-model]').forEach(b=>b.onclick=()=>{const v=b.dataset.model;$('detailBody').querySelectorAll('[data-model]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));status.textContent='CARREGANDO '+(v==='shiny'?'SHINY':'NORMAL')+'…';mv.src=MODELS+v+'/'+id+'.glb'});$('detailBody').querySelectorAll('[data-evo]').forEach(b=>b.onclick=()=>openDetail(Number(b.dataset.evo)));
-}catch(e){if(token===detailToken)$('detailBody').innerHTML='<div class="empty">Não foi possível carregar esta ficha. Tente novamente.</div>'}}
+let modelInventory=null,modelInventoryPromise=null;
+async function getModelInventory(){
+ if(modelInventory)return modelInventory;
+ if(!modelInventoryPromise)modelInventoryPromise=fetch('pokedex-modelos.json?v=20261123').then(r=>{if(!r.ok)throw Error('manifest');return r.json()}).then(d=>modelInventory=d.categories||{}).catch(()=>{modelInventory={regular:[],shiny:[]};return modelInventory});
+ return modelInventoryPromise;
+}
+const formLabels={regular:'Normal',shiny:'Shiny',mega:'Mega',megaShiny:'Mega shiny',gmax:'Gigantamax',alolan:'Forma de Alola',galar:'Forma de Galar',hisuian:'Forma de Hisui',primal:'Forma Primordial',origin:'Forma de origem',unique:'Forma especial',multiform:'Outra forma',fusion:'Fusão',fusionShiny:'Fusão shiny',shadow:'Sombra',sza:'Forma especial'};
+function modelForms(id,inv){
+ const idstr=String(id),out=[];
+ const add=(cat,file,label)=>{if((inv[cat]||[]).includes(file))out.push({cat,file,label,url:MODELS+cat+'/'+file+'.glb'})};
+ add('regular',idstr,'Normal');add('shiny',idstr,'Shiny');
+ add('mega',idstr,'Mega');add('megaShiny',idstr,'Mega shiny');add('gmax',idstr,'Gigantamax');
+ for(const cat of ['alolan','galar','hisuian','primal','origin','unique','shadow','sza'])add(cat,idstr,formLabels[cat]);
+ const multiMap={
+  128:['128-1','128-2','128-3'],386:['386-1','386-2','386-3'],718:['718_1','718_2','718_3'],
+  479:['RotomFan','RotomFrost','RotomHeat','RotomMow'],550:['BasculinBlueStripe'],555:['LycanrocDuskForm','LycanrocMidnightForm'],
+  646:['Black_Kyurem','White_Kyurem'],647:['Ice_Rider','Shadow_Rider'],648:['ShayminSky'],649:['EnamorusTherian'],
+  676:['WishiwashiSchool'],718:['718_1','718_2','718_3'],773:['ArchaludonCharging'],800:['Dawn_Wings','Dusk_Mane'],
+  999:['999'],1007:['Koraidon_Combat','Koraidon_Drive'],1008:['Miraidon_Aquatic']
+ };
+ const multiLabels={'128-1':'Forma padrão','128-2':'Forma de combate','128-3':'Forma de combate','386-1':'Forma normal','386-2':'Forma de ataque','386-3':'Forma de defesa','718_1':'10%','718_2':'50%','718_3':'Completa','Black_Kyurem':'Kyurem Negro','White_Kyurem':'Kyurem Branco','Dawn_Wings':'Necrozma Asas da Alvorada','Dusk_Mane':'Necrozma Juba do Crepúsculo','Ice_Rider':'Calyrex Cavaleiro Glacial','Shadow_Rider':'Calyrex Cavaleiro Espectral','RotomFan':'Rotom Ventilador','RotomFrost':'Rotom Geada','RotomHeat':'Rotom Calor','RotomMow':'Rotom Corte'};
+ for(const file of (multiMap[id]||[])){add('multiform',file,multiLabels[file]||'Forma alternativa');add('fusion',file,multiLabels[file]||'Fusão')}
+ if(id===646||id===800||id===647){for(const file of (multiMap[id]||[])){add('fusion',file,multiLabels[file]||'Fusão');add('fusionShiny',file,'Fusão shiny')}}
+ return out;
+}
+function generationLabel(id){const labels={1:'I · Kanto',2:'II · Johto',3:'III · Hoenn',4:'IV · Sinnoh',5:'V · Unova',6:'VI · Kalos',7:'VII · Alola',8:'VIII · Galar',9:'IX · Paldea'};return labels[Number(gen(id))]||'—'}
+async function openDetail(id){
+ const token=++detailToken;
+ $('detail').showModal();$('detailBody').innerHTML='<div class="loading">Carregando ficha e modelos disponíveis…</div>';
+ try{
+  const [p,s,inv]=await Promise.all([fetch(API+'/pokemon/'+id).then(r=>{if(!r.ok)throw Error('pokemon');return r.json()}),fetch(API+'/pokemon-species/'+id).then(r=>{if(!r.ok)throw Error('species');return r.json()}),getModelInventory()]);
+  if(token!==detailToken)return;
+  const ptText=s.flavor_text_entries.find(x=>['pt-br','pt'].includes(x.language.name));
+  const flavor=ptText?.flavor_text?.replace(/[\f\n\r]/g,' ').replace(/\s+/g,' ').trim()||'Descrição em português não disponível nesta fonte.';
+  const chain=s.evolution_chain?.url?await fetch(s.evolution_chain.url).then(r=>r.ok?r.json():null):null;
+  if(token!==detailToken)return;
+  const evo=chain?flatten(chain.chain):[];
+  const statNames={hp:'PS',attack:'Ataque',defense:'Defesa','special-attack':'Ataque especial','special-defense':'Defesa especial',speed:'Velocidade'};
+  const stats=p.stats.map(x=>'<div class="stat"><span>'+esc(statNames[x.stat.name]||x.stat.name)+'</span><div class="bar"><i style="width:'+Math.min(100,x.base_stat/2.55)+'%"></i></div><b>'+x.base_stat+'</b></div>').join('');
+  const genus=s.genera.find(x=>['pt-br','pt'].includes(x.language.name))?.genus||'Pokémon';
+  const forms=modelForms(id,inv);
+  const initial=forms.find(x=>x.cat==='regular')||forms[0];
+  const hasNormal=!!forms.find(x=>x.cat==='regular');
+  const fallbackMessage=hasNormal?'Carregando modelo 3D…':'Modelo 3D padrão indisponível para esta espécie.';
+  $('detailBody').innerHTML='<div class="detail-top"><div class="modelbox" id="modelBox"><model-viewer id="detailModel" camera-controls auto-rotate auto-rotate-delay="900" rotation-per-second="20deg" shadow-intensity=".5" environment-image="neutral" interaction-prompt="none" poster="'+art(id)+'" alt="Modelo 3D de '+esc(p.name)+'"></model-viewer><img class="model-fallback" id="modelFallback" src="'+art(id)+'" alt="Ilustração oficial de '+esc(p.name)+'"><div class="model-status" id="modelStatus">'+fallbackMessage+'</div></div><div class="detail-info"><div class="detail-no">Nº '+pad(id)+' · Geração '+generationLabel(id)+'</div><h2>'+esc(p.name)+'</h2><div class="types">'+tags(p.types)+'</div><p class="desc">'+esc(flavor)+'</p><div class="facts"><div class="fact"><b>Altura</b><span>'+(p.height/10).toFixed(1).replace('.',',')+' m</span></div><div class="fact"><b>Peso</b><span>'+(p.weight/10).toFixed(1).replace('.',',')+' kg</span></div><div class="fact"><b>Experiência-base</b><span>'+(p.base_experience??'—')+' EXP</span></div><div class="fact"><b>Espécie</b><span>'+esc(genus)+'</span></div></div><div class="model-variants" id="modelVariants"></div><p class="model-note" id="modelNote"></p><div class="disclaimer">As formas exibidas dependem da disponibilidade de modelos 3D na biblioteca externa. A imagem oficial é usada quando não há modelo compatível.</div></div></div><section class="section"><h3>Atributos-base</h3><div class="stats">'+stats+'</div></section><section class="section"><h3>Linha evolutiva</h3><div class="evolutions">'+evo.map(x=>'<button class="evo" data-evo="'+x.id+'"><img src="'+art(x.id)+'" alt=""><strong>'+esc(x.name)+'</strong><small>#'+pad(x.id)+'</small></button>').join('')+'</div></section><section class="section"><h3>Sobre os dados</h3><p class="desc">Esta ficha reúne dados dos jogos principais da franquia. Altura, peso, experiência e atributos não representam necessariamente os valores ou o funcionamento da espécie no Pokémon GO.</p><p class="disclaimer">Dados de espécies e atributos: PokéAPI. Modelos 3D: Pokémon 3D API. Projeto independente, sem afiliação com Nintendo, The Pokémon Company ou Game Freak.</p></section>';
+  const mv=$('detailModel'),status=$('modelStatus'),box=$('modelBox'),variants=$('modelVariants'),note=$('modelNote');
+  if(forms.length){
+   variants.innerHTML=forms.map((v,i)=>'<button type="button" data-form="'+i+'" aria-pressed="'+(v===initial)+'">'+esc(v.label)+'</button>').join('');
+   note.textContent=forms.length+' modelo(s) disponível(is) para esta espécie. A disponibilidade varia conforme a forma.';
+   const setModel=v=>{box.classList.remove('is-fallback');status.textContent='CARREGANDO '+v.label.toUpperCase()+'…';mv.src=v.url;variants.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',String(forms[i]===v)))};
+   mv.addEventListener('load',()=>{box.classList.remove('is-fallback');status.textContent='MODELO 3D · '+(forms.find(v=>v.url===mv.src)?.label||'DISPONÍVEL')});
+   mv.addEventListener('error',()=>{box.classList.add('is-fallback');status.textContent='MODELO INDISPONÍVEL · ILUSTRAÇÃO OFICIAL';});
+   variants.querySelectorAll('[data-form]').forEach(b=>b.onclick=()=>setModel(forms[Number(b.dataset.form)]));
+   setModel(initial);
+  }else{
+   box.classList.add('is-fallback');status.textContent='MODELO 3D NÃO DISPONÍVEL · ILUSTRAÇÃO OFICIAL';note.textContent='A biblioteca consultada não possui modelo 3D catalogado para esta espécie.';
+  }
+  $('detailBody').querySelectorAll('[data-evo]').forEach(b=>b.onclick=()=>openDetail(Number(b.dataset.evo)));
+ }catch(e){if(token===detailToken)$('detailBody').innerHTML='<div class="empty">Não foi possível carregar esta ficha. Tente novamente.</div>'}
+}
 init();
 </script><script src="nav.js?v=pokedex-20261123"></script><script src="theme.js?v=studio-v4-policy-links"></script></body></html>

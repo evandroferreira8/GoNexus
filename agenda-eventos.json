@@ -1,8 +1,8 @@
 {
-  "month": "2026-12",
+  "month": "2026-11",
   "updated_at": "2026-11-24",
   "timezone": "America/Fortaleza",
-  "editorial_note": "Agenda de dezembro de 2026. A interface identifica separadamente datas confirmadas, programação mensal divulgada e rumores/datamine. Rumores aparecem destacados como não confirmados. Horários só são exibidos quando publicados. Encontros presenciais e check-ins no Campfire são informações distintas dos eventos do jogo. Fuso: America/Fortaleza.",
+  "editorial_note": "O mês em destaque é definido automaticamente pela data atual em America/Fortaleza. A navegação mantém acessíveis os meses anteriores e futuros com programação cadastrada. A interface identifica separadamente datas confirmadas, programação mensal divulgada e rumores/datamine. Rumores aparecem destacados como não confirmados. Horários só são exibidos quando publicados. Encontros presenciais e check-ins no Campfire são informações distintas dos eventos do jogo. Fuso: America/Fortaleza.",
   "events": [
     {
       "id": "halloween-2",

@@ -54,6 +54,15 @@ body.season-page{margin:0;background:#071426;color:var(--sd-ink);font-family:var
 @media(max-width:760px){.sd-hero{min-height:650px;margin:10px 0 18px;border-radius:20px}.sd-hero:after{background:linear-gradient(180deg,rgba(4,16,32,.25) 0%,rgba(4,16,32,.65) 36%,#071426 88%),linear-gradient(90deg,#07142630,transparent)}.sd-hero:before{background-position:58% top}.sd-hero-copy{padding:270px 20px 26px}.sd-hero h1{font-size:clamp(3.15rem,15vw,5rem)!important}.sd-lede{font-size:.9rem;margin-top:16px}.sd-meta{margin-top:17px}.sd-meta span{font-size:.66rem}.sd-grid{grid-template-columns:1fr}.sd-card{min-height:150px}.sd-date-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sd-section-head{display:block}.sd-section-head p{margin-top:8px}}
 @media(prefers-reduced-motion:no-preference){.sd-hero{animation:sd-enter .7s ease both}@keyframes sd-enter{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
 
+
+.sd-card{padding-right:126px;min-height:194px}
+.sd-pokemon-art{position:absolute;right:8px;bottom:5px;width:116px;height:116px;object-fit:contain;filter:drop-shadow(0 8px 8px #173e6820);z-index:1}
+.sd-pokemon-duo{position:absolute;right:4px;bottom:8px;display:flex;align-items:end;gap:0;z-index:1}
+.sd-pokemon-duo img{width:76px;height:100px;object-fit:contain;filter:drop-shadow(0 7px 7px #173e6820)}
+.sd-card p,.sd-card h3,.sd-card small,.sd-card a{max-width:100%}
+.sd-card:after{z-index:0}
+@media(max-width:760px){.sd-card{padding-right:118px;min-height:158px}.sd-pokemon-art{width:108px;height:108px;right:3px}.sd-pokemon-duo img{width:68px;height:88px}}
+
 /* Direção de arte Daydream Destinations */
 :root{--sd-ink:#19334b;--sd-muted:#60758a;--sd-gold:#f4d65e;--sd-blue:#168bc5;--sd-line:#d9e2df}
 body.season-page{background:#f4f1e7;color:#19334b}
@@ -105,15 +114,15 @@ body.season-page{background:#f4f1e7;color:#19334b}
 <section class="sd-section" id="destaques">
 <header class="sd-section-head"><div><span class="sd-eyebrow">O QUE VEM POR AÍ</span><h2>Uma temporada de novas possibilidades</h2></div><p>Reunimos os principais caminhos anunciados para você acompanhar o que merece atenção.</p></header>
 <div class="sd-grid">
-<article class="sd-card featured" data-number="01"><small>MEGA EVOLUÇÕES</small><h3>Mega Froslass e Mega Drampa</h3><p>As duas Mega Evoluções serão destaque em eventos de Dia de Reides durante a temporada.</p></article>
-<article class="sd-card" data-number="02"><small>BATALHAS MAX</small><h3>Gigamax em destaque</h3><p>Gigamax Inteleon e Gigamax Toxtricity terão seus próprios eventos de Batalhas Max.</p><a href="#max">Ver detalhes ↗</a></article>
+<article class="sd-card featured" data-number="01"><small>MEGA EVOLUÇÕES</small><h3>Mega Froslass e Mega Drampa</h3><p>As duas Mega Evoluções serão destaque em eventos de Dia de Reides durante a temporada.</p><div class="sd-pokemon-duo" aria-label="Froslass e Drampa"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/478.png" alt="Froslass"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/780.png" alt="Drampa"></div></article>
+<article class="sd-card" data-number="02"><small>BATALHAS MAX</small><h3>Gigamax em destaque</h3><p>Gigamax Inteleon e Gigamax Toxtricity terão seus próprios eventos de Batalhas Max.</p><a href="#max">Ver detalhes ↗</a><div class="sd-pokemon-duo" aria-label="Inteleon e Toxtricity"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/818.png" alt="Inteleon"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/849.png" alt="Toxtricity"></div></article>
 <article class="sd-card" data-number="03"><small>JORNADA GLOBAL</small><h3>Pokémon GO Tour: Alola</h3><p>Uma celebração global inspirada na região de Alola chega no fim de fevereiro.</p><a href="#tour">Conhecer o GO Tour ↗</a></article>
 </div>
 </section>
 <section class="sd-section" id="tour">
 <header class="sd-section-head"><div><span class="sd-eyebrow">27 E 28 DE FEVEREIRO DE 2027</span><h2>Pokémon GO Tour: Alola</h2></div><p>O evento global encerra a temporada com uma jornada inspirada na região de Alola.</p></header>
 <div class="sd-grid">
-<article class="sd-card" data-number="A"><small>EVENTOS PRESENCIAIS</small><h3>Los Angeles e Kaohsiung</h3><p>As experiências presenciais estão anunciadas para 19 a 21 de fevereiro de 2027.</p></article>
+<article class="sd-card" data-number="A"><small>EVENTOS PRESENCIAIS</small><h3>Los Angeles e Kaohsiung</h3><p>As experiências presenciais estão anunciadas para 19 a 21 de fevereiro de 2027.</p><img class="sd-pokemon-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10101.png" alt="Sandshrew de Alola"></article>
 <article class="sd-card featured" data-number="G"><small>EDIÇÃO GLOBAL</small><h3>Alola pelo mundo</h3><p>Treinadoras e Treinadores poderão participar da celebração global em 27 e 28 de fevereiro.</p><a href="https://pokemongo.com/pt-BR/seasons/daydream-destinations" target="_blank" rel="noopener noreferrer">Informações oficiais ↗</a></article>
 <article class="sd-card" data-number="GO"><small>PREPARE-SE</small><h3>Jogue em equipe</h3><p>Encontre sua comunidade, organize seus encontros e acompanhe os anúncios do evento.</p><a href="agenda.html">Abrir Agenda GO ↗</a></article>
 </div>
@@ -121,9 +130,9 @@ body.season-page{background:#f4f1e7;color:#19334b}
 <section class="sd-section" id="max">
 <header class="sd-section-head"><div><span class="sd-eyebrow">PONTOS DE PODER</span><h2>Batalhas Max</h2></div><p>Formas Dinamax e Gigamax também fazem parte das aventuras da temporada.</p></header>
 <div class="sd-grid">
-<article class="sd-card"><small>DINAMAX</small><h3>Sandshrew de Alola</h3><p>Entre os Pokémon Dinamax anunciados para aparecer em Batalhas Max durante a temporada.</p></article>
-<article class="sd-card"><small>DINAMAX</small><h3>Slowpoke e Corphish</h3><p>Outros encontros Dinamax anunciados para os Pontos de Poder.</p></article>
-<article class="sd-card featured"><small>GIGAMAX</small><h3>Inteleon e Toxtricity</h3><p>Os dois Pokémon terão eventos de Dia de Batalhas Max. Datas e detalhes adicionais serão divulgados pela organização.</p></article>
+<article class="sd-card"><small>DINAMAX</small><h3>Sandshrew de Alola</h3><p>Entre os Pokémon Dinamax anunciados para aparecer em Batalhas Max durante a temporada.</p><img class="sd-pokemon-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10101.png" alt="Sandshrew de Alola"></article>
+<article class="sd-card"><small>DINAMAX</small><h3>Slowpoke e Corphish</h3><p>Outros encontros Dinamax anunciados para os Pontos de Poder.</p><div class="sd-pokemon-duo" aria-label="Slowpoke e Corphish"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png" alt="Slowpoke"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/341.png" alt="Corphish"></div></article>
+<article class="sd-card featured"><small>GIGAMAX</small><h3>Inteleon e Toxtricity</h3><p>Os dois Pokémon terão eventos de Dia de Batalhas Max. Datas e detalhes adicionais serão divulgados pela organização.</p><div class="sd-pokemon-duo" aria-label="Inteleon e Toxtricity"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/818.png" alt="Inteleon"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/849.png" alt="Toxtricity"></div></article>
 </div>
 </section>
 <section class="sd-section" id="comunidade">

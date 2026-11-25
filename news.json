@@ -1,7 +1,12 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-11-25T04:55:23+00:00",
+  "updated_at": "2026-11-25T19:57:53+00:00",
   "items": [
+    {
+      "title": "Dê um mergulho no evento Paraíso Tropical no Pokémon GO!",
+      "url": "https://pokemongo.com/pt-BR/news/tropical-paradise-2026",
+      "image": "https://lh3.googleusercontent.com/Xm5QFepUKlbitWVqkoEagfdpPBIe5aUjss60XUhm906VD8qBcckn4LeWbbgCf_wuVyMwbMgIeeO66cxrGEhT-niFpxq-_ASpDHP5eJDtitg"
+    },
     {
       "title": "Explore livremente com a Pesquisa Temporária de Escolha Seu Caminho durante o evento Destinos dos Sonhos.",
       "url": "https://pokemongo.com/pt-BR/news/choose-your-path-daydream-destinations-2026",
@@ -21,11 +26,6 @@
       "title": "Atualização da Liga de Batalha GO: Destinos dos Sonhos",
       "url": "https://pokemongo.com/pt-BR/news/go-battle-league-daydream-destinations",
       "image": "https://lh3.googleusercontent.com/N8oLchahv_q6blX3rtRIIGGXLq5cuYIDtZB1r3Gx8hk_P83pYFdwaM8NrBLtJ1tdVcZ96hYp0jQ2JcHb8UqSFhdt9iK32PFjsB49hOWiAxE"
-    },
-    {
-      "title": "Celebre o ano com todos os Pokémon dos Dias Comunitários de 2026!",
-      "url": "https://pokemongo.com/pt-BR/news/community-day-december-2026",
-      "image": "https://lh3.googleusercontent.com/U20hOVDIiWk8lDJuVvR9R_xUJyzaeFnc7cgploqPDPd_mmekMRr-Dg0S3wcKbrTg9rUr3ncm7jOBjiTBr-usJM6vXVY9CTIk8JFZC9vjDQ"
     }
   ]
 }

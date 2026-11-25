@@ -1,7 +1,17 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-11-24T20:41:46+00:00",
+  "updated_at": "2026-11-25T04:55:23+00:00",
   "items": [
+    {
+      "title": "Explore livremente com a Pesquisa Temporária de Escolha Seu Caminho durante o evento Destinos dos Sonhos.",
+      "url": "https://pokemongo.com/pt-BR/news/choose-your-path-daydream-destinations-2026",
+      "image": "https://lh3.googleusercontent.com/FxWwk2TaiBOgUxK6N306DVGMjaVykMUeRbWLiJUZbVLj8AtM-peHHwQXJXkxXX3biiFhJEooI2-sggHgyPsH2pGYKpYGSHkaNROajEIgtkpR"
+    },
+    {
+      "title": "Um fabul-ovo conjunto de recompensas espera por vocês no Passe GO: dezembro.",
+      "url": "https://pokemongo.com/pt-BR/news/go-pass-december-2026",
+      "image": "https://lh3.googleusercontent.com/mfgxi9NslcfD0zP17URCKOyJwMcOvr4gYcE4wrUcY9x39lAEulq2tk3PmP5y4Y0Eyw3rStlot29OuCgzXE7cp2uLTjWAw3ubXkeV-uianA0"
+    },
     {
       "title": "Atualização de conteúdo de dezembro de 2026",
       "url": "https://pokemongo.com/pt-BR/news/monthly-content-update-dec2026",
@@ -16,16 +26,6 @@
       "title": "Celebre o ano com todos os Pokémon dos Dias Comunitários de 2026!",
       "url": "https://pokemongo.com/pt-BR/news/community-day-december-2026",
       "image": "https://lh3.googleusercontent.com/U20hOVDIiWk8lDJuVvR9R_xUJyzaeFnc7cgploqPDPd_mmekMRr-Dg0S3wcKbrTg9rUr3ncm7jOBjiTBr-usJM6vXVY9CTIk8JFZC9vjDQ"
-    },
-    {
-      "title": "Aprendam um novo idioma com Pokémon GO e Duolingo.",
-      "url": "https://pokemongo.com/pt-BR/news/duolingo-2026",
-      "image": "https://lh3.googleusercontent.com/-_Ix4OwH-le4xoPjgtOle-FoWhXXjNx-NoMqZN2uQ5Xuu7X5JW2n4r3CLLCoH78dwKdWS9QCXnAJXFS3AVaq7GPly9sgUZrWlAXSdkWB7A"
-    },
-    {
-      "title": "Assista e ganhe recompensas do Campeonato Internacional da América Latina 2027",
-      "url": "https://pokemongo.com/pt-BR/news/latin-america-international-championships-2026",
-      "image": "https://lh3.googleusercontent.com/q_9c5jG9s9HK5O0JnTVPuWyuHeIrzhcVolUwcI5SONJj93NVtYL0YdRyO-WVpW2vWOPF6lhxYiwRPRUu2HjYjU7zvi7WP_hq7k0UJnz9LlE"
     }
   ]
 }

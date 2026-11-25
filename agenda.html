@@ -59,6 +59,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 .ag-list{display:flex;flex-direction:column;gap:9px}
 .ag-event{--ag-c:#ef8d37;display:grid;grid-template-columns:70px minmax(0,1fr);gap:13px;border:1px solid #dfe7f2;background:#fff;border-radius:15px;padding:13px;box-shadow:0 3px 12px #17345a08}
 .ag-event[data-kind=natal]{--ag-c:#dca019;background:#fffdf6;border-color:#f0d994}
+.ag-event[data-kind=atividade]{--ag-c:#168b91;background:#f5fcfc;border-color:#bfe3e5}
 .ag-event[data-kind=holofote]{--ag-c:#d58c25}.ag-event[data-kind=amizade]{--ag-c:#148f7b}.ag-event[data-kind=reide]{--ag-c:#805bd9}.ag-event[data-kind=max]{--ag-c:#cf4f97}.ag-event[data-kind=comunidade]{--ag-c:#159c7a}.ag-event[data-kind=destaque]{--ag-c:#eb7133}
 .ag-date{display:flex;flex-direction:column;align-items:center;justify-content:center;align-self:start;min-height:72px;border-radius:12px;background:color-mix(in srgb,var(--ag-c),white 90%);color:var(--ag-c)}
 .ag-day{font-size:1.9rem;line-height:1.05;font-weight:850;letter-spacing:-.06em}
@@ -251,7 +252,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
 .ag-day-row.is-focus .ag-day-row-toggle{background:#eaf2ff}
 .ag-day-expanded{padding:8px 10px 12px;border-top:1px solid #d9e6f8;background:#f8fbff;display:grid;gap:7px}
 .ag-compact-event{--evc:#3270cf;background:#fff;border:1px solid #e1e9f4;border-left:3px solid var(--evc);border-radius:9px;padding:8px 10px;min-width:0}
-.ag-compact-event[data-kind=max]{--evc:#b94f9f}.ag-compact-event[data-kind=reide]{--evc:#7259bf}.ag-compact-event[data-kind=natal]{--evc:#d49b20}.ag-compact-event[data-kind=holofote]{--evc:#d5942a}.ag-compact-event[data-kind=amizade]{--evc:#18937f}.ag-compact-event[data-kind=comunidade]{--evc:#18937f}
+.ag-compact-event[data-kind=max]{--evc:#b94f9f}.ag-compact-event[data-kind=reide]{--evc:#7259bf}.ag-compact-event[data-kind=natal]{--evc:#d49b20}.ag-compact-event[data-kind=holofote]{--evc:#d5942a}.ag-compact-event[data-kind=amizade]{--evc:#18937f}.ag-compact-event[data-kind=comunidade]{--evc:#18937f}.ag-compact-event[data-kind=atividade]{--evc:#168b91}
 .ag-compact-event-head{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
 .ag-compact-event-head strong{font-size:.83rem;color:#173256;line-height:1.28}
 .ag-compact-event-type{font-size:.61rem;font-weight:800;letter-spacing:.02em;text-transform:uppercase;color:var(--evc)}
@@ -988,6 +989,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
           <button type="button" data-filter="todos" aria-pressed="true">Tudo</button>
           <button type="button" data-filter="natal" aria-pressed="false">Encontros em Natal</button>
           <button type="button" data-filter="evento" aria-pressed="false">Eventos</button>
+          <button type="button" data-filter="atividade" aria-pressed="false">Atividades especiais</button>
           <button type="button" data-filter="reide" aria-pressed="false">Reides</button>
           <button type="button" data-filter="max" aria-pressed="false">Batalhas Max</button>
           <button type="button" data-filter="holofote" aria-pressed="false">Holofote</button>
@@ -1037,7 +1039,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   var daysNode=document.getElementById('agDays'),list=document.getElementById('agList');
   var count=document.getElementById('agCount'),search=document.getElementById('agSearch');
   var future=document.getElementById('agFuture'), clear=document.getElementById('agClear');
-  var categories={natal:'Encontro em Natal',evento:'Evento',destaque:'Grande evento',reide:'Reide',max:'Batalha Max',holofote:'Hora do Holofote',amizade:'Sexta da Amizade',comunidade:'Dia Comunitário'};
+  var categories={natal:'Encontro em Natal',evento:'Evento',atividade:'Atividade especial',destaque:'Grande evento',reide:'Reide',max:'Batalha Max',holofote:'Hora do Holofote',amizade:'Sexta da Amizade',comunidade:'Dia Comunitário'};
   var prio={natal:0,destaque:1,comunidade:2,max:3,reide:4,holofote:5,amizade:6,evento:7};
   function localToday(){
     var parts=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Fortaleza',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());

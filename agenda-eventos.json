@@ -418,6 +418,18 @@
       "status": "rumor",
       "description": "Datamine aponta evento de Ano-Novo e Pesquisa de Ramo com escolha entre Abra, Aipom ou Piplup. Informações ainda não confirmadas oficialmente.",
       "source_label": "Datamine — The Pokemod Group, publicação de 24/11/2026"
+    },
+    {
+      "id": "choose-your-path-daydream-destinations-2026",
+      "title": "Escolha Seu Caminho: Destinos de Devaneio",
+      "kind": "atividade",
+      "start": "2026-12-15",
+      "end": "2026-12-21",
+      "from": "10:00",
+      "to": "20:00",
+      "status": "confirmado",
+      "description": "Pesquisa Temporária com escolha entre três caminhos: Explorar, Capturar ou Batalhar. A escolha define as tarefas e os bônus da experiência. Uma atividade especial para manter a aventura entre os eventos tradicionais.",
+      "source": "https://pokemongo.com/pt-BR/news/choose-your-path-daydream-destinations-2026"
     }
   ],
   "weekly_routines": [

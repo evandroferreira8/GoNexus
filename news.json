@@ -1,7 +1,17 @@
 {
   "source": "https://pokemongo.com/pt-BR/news",
-  "updated_at": "2026-11-25T19:57:53+00:00",
+  "updated_at": "2026-11-26T04:11:30+00:00",
   "items": [
+    {
+      "title": "O Pokémon Agente Secreto está em uma missão importante. Preparem-se para o Dia de Batalhas Max com Inteleon Gigamax.",
+      "url": "https://pokemongo.com/pt-BR/news/gigantamax-inteleon-max-battle-day-2026",
+      "image": "https://lh3.googleusercontent.com/888Loq1T5DFCRDq3sK8yLv4eGMtc4A27YQ52O4aTy9epQ0jefToZtmmOWQHg_THwPQtPsj9pVyxl2rXK0Tp-7lCJII4ejpCyH862C_8ifZQ"
+    },
+    {
+      "title": "Preparem-se para o Evento de Celebração de Pokémon Champions!",
+      "url": "https://pokemongo.com/pt-BR/news/pokemon-champions-celebration-event-2026",
+      "image": "https://lh3.googleusercontent.com/9c67O7XVZjVfvANIgmgMm2lqhIXp_5UGC1sYS9TAVvhbzBsE59bsRSS6nR-DSoqylugJSXcvX6RGZvpTRUG5CiL-B1vFOyj9JO4Gq3muoAJW"
+    },
     {
       "title": "Dê um mergulho no evento Paraíso Tropical no Pokémon GO!",
       "url": "https://pokemongo.com/pt-BR/news/tropical-paradise-2026",
@@ -16,16 +26,6 @@
       "title": "Um fabul-ovo conjunto de recompensas espera por vocês no Passe GO: dezembro.",
       "url": "https://pokemongo.com/pt-BR/news/go-pass-december-2026",
       "image": "https://lh3.googleusercontent.com/mfgxi9NslcfD0zP17URCKOyJwMcOvr4gYcE4wrUcY9x39lAEulq2tk3PmP5y4Y0Eyw3rStlot29OuCgzXE7cp2uLTjWAw3ubXkeV-uianA0"
-    },
-    {
-      "title": "Atualização de conteúdo de dezembro de 2026",
-      "url": "https://pokemongo.com/pt-BR/news/monthly-content-update-dec2026",
-      "image": "https://lh3.googleusercontent.com/bup0wWISTZ3O0vrWPQWqhldwW4KfZ5NK5ryVAi4WH9QbIhTbOruURsTgNo1YkmRqIHNjE8y_1rwotBus0gXX6_F--7Aww_qvO-Aw-yTgw9M"
-    },
-    {
-      "title": "Atualização da Liga de Batalha GO: Destinos dos Sonhos",
-      "url": "https://pokemongo.com/pt-BR/news/go-battle-league-daydream-destinations",
-      "image": "https://lh3.googleusercontent.com/N8oLchahv_q6blX3rtRIIGGXLq5cuYIDtZB1r3Gx8hk_P83pYFdwaM8NrBLtJ1tdVcZ96hYp0jQ2JcHb8UqSFhdt9iK32PFjsB49hOWiAxE"
     }
   ]
 }

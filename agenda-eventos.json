@@ -428,15 +428,15 @@
     },
     {
       "id": "new-year-2027-rumor",
-      "title": "Ano-Novo 2027 (rumor)",
-      "kind": "rumor",
+      "title": "Ano-Novo 2027 • programação ainda não divulgada",
+      "kind": "previsao",
       "start": "2026-12-29",
       "end": "2027-01-04",
       "from": null,
       "to": null,
-      "status": "rumor",
-      "description": "Datamine aponta evento de Ano-Novo e Pesquisa de Ramo com escolha entre Abra, Aipom ou Piplup. Informações ainda não confirmadas oficialmente.",
-      "source_label": "Datamine — The Pokemod Group, publicação de 24/11/2026"
+      "status": "a_confirmar",
+      "description": "A programação mensal da Jogada Excelente indica o período de 29/12/2026 a 04/01/2027 para um evento de Ano-Novo. Até o momento, a Niantic não divulgou os detalhes oficiais. Pokémon em destaque, bônus, horários e atividades permanecem desconhecidos.",
+      "source_label": "Programação mensal da Jogada Excelente (imagem enviada pelo usuário)"
     },
     {
       "id": "choose-your-path-jan-2027",

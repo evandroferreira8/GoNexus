@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-27",
   "timezone": "America/Fortaleza",
   "editorial_note": "O mês em destaque é definido automaticamente pela data atual em America/Fortaleza. A navegação mantém acessíveis os meses anteriores e futuros com programação cadastrada. A interface identifica separadamente datas confirmadas, programação mensal divulgada e rumores/datamine. Rumores aparecem destacados como não confirmados. Horários só são exibidos quando publicados. Encontros presenciais e check-ins no Campfire são informações distintas dos eventos do jogo. Fuso: America/Fortaleza.",
   "events": [
@@ -320,26 +320,45 @@
       "from": "10:00",
       "to": "20:00",
       "status": "confirmado",
-      "description": "Evento anunciado no calendário oficial de dezembro. A estreia de Pyukumuku é informação de datamine e permanece não confirmada.",
-      "source": "https://pokemongo.com/news/monthly-content-update-dec2026",
-      "rumors": [
-        "Pyukumuku pode estrear durante o evento (datamine; não confirmado)."
-      ]
+      "description": "Evento de 1º a 7 de dezembro, das 10h às 20h. Pyukumuku estreia no Pokémon GO em Reides e no Passe GO, com chance de encontrá-lo Brilhante. Também estreia o Super Nível Máximo de Mega Slowbro e o ataque Encharcar para Pyukumuku.",
+      "source": "https://pokemongo.com/pt-BR/news/tropical-paradise-2026"
+    },
+    {
+      "id": "go-pass-dezembro-2026",
+      "title": "Passe GO: dezembro",
+      "kind": "evento",
+      "start": "2026-12-01",
+      "end": "2027-01-05",
+      "from": "10:00",
+      "to": "10:00",
+      "description": "Passe GO de dezembro disponível de 1º/12 às 10h a 5/1/2027 às 10h. Recompensas incluem encontro com Kyurem, Doce Raro GG, Passe de Batalha Premium, Ovo da Sorte e, no Passe Deluxe, Incubadora Temporária e Superincubadora. Bônus de temporada incluem mais PE ao subir níveis de amizade e o dobro do dano de bônus de amizade em Reides. As recompensas expiram em 7/1 às 10h.",
+      "source": "https://pokemongo.com/pt-BR/news/go-pass-december-2026",
+      "status": "confirmado"
     },
     {
       "id": "max-battle-day-dec-2026",
-      "title": "Dia de Batalhas Max",
+      "title": "Dia de Batalhas Max: Inteleon Gigamax",
       "kind": "max",
       "start": "2026-12-05",
       "end": "2026-12-05",
-      "from": null,
-      "to": null,
+      "from": "14:00",
+      "to": "17:00",
       "status": "confirmado",
-      "description": "Data confirmada pela Niantic. Pokémon em destaque, horário e bônus ainda dependem de anúncio oficial. Datamine aponta Gigamax Inteleon, ainda não confirmado.",
-      "source": "https://pokemongo.com/news/save-the-date-s25",
-      "rumors": [
-        "Gigantamax Inteleon como destaque (datamine; não confirmado)."
-      ]
+      "description": "Inteleon Gigamax estreia em Batalhas Max de seis estrelas e poderá ser encontrado em sua forma Brilhante pela primeira vez. Bônus: limite de coleta de 1.600 Partículas Max, todos os Pontos de Energia com Batalhas Gigamax, atualização mais frequente e Pontos de Energia adicionais, 8× mais Partículas Max nos Pontos de Energia e até três trocas especiais. Das 0h às 17h: 2× Partículas Max ao explorar e 1/4 da distância para coletá-las. Ingresso opcional com Pesquisa Temporária, Cogumelo Max, PE e Partículas Max.",
+      "source": "https://pokemongo.com/pt-BR/news/gigantamax-inteleon-max-battle-day-2026"
+    },
+    {
+      "id": "champions-celebration-2026",
+      "title": "Evento de Celebração de Pokémon Champions",
+      "kind": "evento",
+      "start": "2026-12-08",
+      "end": "2026-12-14",
+      "from": "10:00",
+      "to": "20:00",
+      "status": "confirmado",
+      "description": "De 8 a 14/12, das 10h às 20h. Encontros na natureza com Charmander, Starly, Grookey e outros; Bagon, Litten e Frigibax em Reides de 1 estrela; Raichu, Garchomp e Rillaboom em Reides de 3 estrelas. Reides de 5 estrelas seguem a rotação sazonal de 9 a 15/12, com possibilidade de Fundos Especiais durante o evento. Maior chance de Kecleon em Poképaradas e Passe GO temático.",
+      "source_label": "Datamine — The Pokemod Group, publicação de 24/11/2026",
+      "source": "https://pokemongo.com/pt-BR/news/pokemon-champions-celebration-event-2026"
     },
     {
       "id": "minior-geminidas-2026",
@@ -364,6 +383,18 @@
       "status": "confirmado",
       "description": "Sábado: Vulpix, Vulpix de Alola, Grookey, Scorbunny, Lechonk e Tinkatink; Piplup também poderá aparecer. Domingo: Zorua, Pawniard, Sobble, Nickit e Frigibax; Gible e Deino também poderão aparecer. Os Pokémon em destaque podem aparecer das 9h às 21h nos dois dias. Bônus: 2× PE, Poeira Estelar e Doces por captura; metade da distância de Ovos; Incensos de 3h; Módulos Atrair de 1h; até duas Trocas Especiais por dia e 50% menos Poeira Estelar nas trocas.",
       "source": "https://pokemongo.com/pt-BR/news/community-day-december-2026"
+    },
+    {
+      "id": "choose-your-path-daydream-destinations-2026",
+      "title": "Escolha Seu Caminho: Destinos dos Sonhos",
+      "kind": "atividade",
+      "start": "2026-12-15",
+      "end": "2026-12-21",
+      "from": "10:00",
+      "to": "20:00",
+      "status": "confirmado",
+      "description": "Pesquisa Temporária com escolha entre três caminhos: Explorar, Capturar ou Batalhar. A escolha define as tarefas e os bônus da experiência. Uma atividade especial para manter a aventura entre os eventos tradicionais.",
+      "source": "https://pokemongo.com/pt-BR/news/choose-your-path-daydream-destinations-2026"
     },
     {
       "id": "raid-day-dec-2026",
@@ -396,18 +427,6 @@
       ]
     },
     {
-      "id": "champions-celebration-rumor",
-      "title": "Celebração Pokémon Champions (rumor)",
-      "kind": "rumor",
-      "start": "2026-12-08",
-      "end": "2026-12-14",
-      "from": null,
-      "to": null,
-      "status": "rumor",
-      "description": "Evento indicado em datamine. Datas e realização ainda não foram confirmadas oficialmente.",
-      "source_label": "Datamine — The Pokemod Group, publicação de 24/11/2026"
-    },
-    {
       "id": "new-year-2027-rumor",
       "title": "Ano-Novo 2027 (rumor)",
       "kind": "rumor",
@@ -420,16 +439,40 @@
       "source_label": "Datamine — The Pokemod Group, publicação de 24/11/2026"
     },
     {
-      "id": "choose-your-path-daydream-destinations-2026",
-      "title": "Escolha Seu Caminho: Destinos dos Sonhos",
+      "id": "choose-your-path-jan-2027",
+      "title": "Escolha Seu Caminho",
       "kind": "atividade",
-      "start": "2026-12-15",
-      "end": "2026-12-21",
+      "start": "2027-01-12",
+      "end": "2027-01-18",
       "from": "10:00",
       "to": "20:00",
-      "status": "confirmado",
-      "description": "Pesquisa Temporária com escolha entre três caminhos: Explorar, Capturar ou Batalhar. A escolha define as tarefas e os bônus da experiência. Uma atividade especial para manter a aventura entre os eventos tradicionais.",
-      "source": "https://pokemongo.com/pt-BR/news/choose-your-path-daydream-destinations-2026"
+      "description": "Pesquisa Temporária com escolha entre três caminhos: Explorar, Capturar ou Batalhar. A escolha define as tarefas e os bônus da semana.",
+      "source": "https://pokemongo.com/pt-BR/news/choose-your-path-daydream-destinations-2026",
+      "status": "confirmado"
+    },
+    {
+      "id": "choose-your-path-late-jan-2027",
+      "title": "Escolha Seu Caminho",
+      "kind": "atividade",
+      "start": "2027-01-26",
+      "end": "2027-02-01",
+      "from": "10:00",
+      "to": "20:00",
+      "description": "Pesquisa Temporária com escolha entre três caminhos: Explorar, Capturar ou Batalhar. A escolha define as tarefas e os bônus da semana.",
+      "source": "https://pokemongo.com/pt-BR/news/choose-your-path-daydream-destinations-2026",
+      "status": "confirmado"
+    },
+    {
+      "id": "choose-your-path-feb-2027",
+      "title": "Escolha Seu Caminho",
+      "kind": "atividade",
+      "start": "2027-02-16",
+      "end": "2027-02-21",
+      "from": "10:00",
+      "to": "20:00",
+      "description": "Pesquisa Temporária com escolha entre três caminhos: Explorar, Capturar ou Batalhar. A escolha define as tarefas e os bônus da semana.",
+      "source": "https://pokemongo.com/pt-BR/news/choose-your-path-daydream-destinations-2026",
+      "status": "confirmado"
     }
   ],
   "weekly_routines": [

@@ -7,39 +7,67 @@
 <title>Lendários e especiais que faltam | GO Nexus</title>
 <link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
 <style>
-.page-legendaries{--lg-ink:#102544;--lg-muted:#60738d;--lg-edge:#cbd9eb;--lg-blue:#245fc2;color:var(--lg-ink)}
-.page-legendaries .wrap{width:min(1120px,calc(100% - 28px));margin:auto;padding:18px 0 42px}
-.page-legendaries .topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 30px}
-.page-legendaries .brand{font:800 .78rem var(--gn-code);letter-spacing:.12em}
-.page-legendaries .brand span{color:#2864c9}
-.page-legendaries .back{font-size:.75rem;color:#285caa;border:1px solid var(--lg-edge);padding:9px 12px;border-radius:9px;text-decoration:none;background:#fff}
-.page-legendaries .kicker{font:800 .67rem var(--gn-code);letter-spacing:.14em;color:#2864c9}
-.page-legendaries h1{font:800 clamp(2.3rem,8vw,4.8rem)/.98 var(--gn-display);letter-spacing:-.065em;margin:12px 0;color:#102544}
-.page-legendaries h1 span{color:#2864c9}
-.page-legendaries .intro{max-width:700px;color:#506783;font-size:.96rem;line-height:1.6;margin:0 0 22px}
-.page-legendaries .summary{display:flex;align-items:center;gap:14px;background:linear-gradient(115deg,#112e59,#245eb8);color:#fff;padding:18px 20px;border-radius:17px;margin:22px 0;border:1px solid #315f9f}
-.page-legendaries .summary strong{font:850 2.2rem/1 var(--gn-display);letter-spacing:-.05em}
-.page-legendaries .summary span{font-size:.8rem;line-height:1.4;color:#e0ebff}
+.page-legendaries{--ink:#102544;--muted:#60738d;--line:#d5e0ed;--blue:#245fc2;color:var(--ink);background:#edf2f9}
+.page-legendaries *{box-sizing:border-box}
+.page-legendaries .wrap{width:min(1120px,calc(100% - 32px));margin:auto;padding:22px 0 48px}
+.page-legendaries .topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 34px}
+.page-legendaries .brand{font:800 .78rem var(--gn-code);letter-spacing:.12em}.page-legendaries .brand span{color:var(--blue)}
+.page-legendaries .back{font-size:.76rem;color:#285caa;border:1px solid var(--line);padding:9px 12px;border-radius:10px;text-decoration:none;background:#fff}
+.page-legendaries .kicker{font:800 .67rem var(--gn-code);letter-spacing:.14em;color:var(--blue)}
+.page-legendaries h1{font:800 clamp(2.15rem,7vw,4.6rem)/.99 var(--gn-display);letter-spacing:-.06em;margin:12px 0;color:#102544}
+.page-legendaries h1 span{color:var(--blue)}
+.page-legendaries .intro{max-width:700px;color:#506783;font-size:.96rem;line-height:1.65;margin:0 0 22px}
+.page-legendaries .summary{display:flex;align-items:center;gap:14px;background:linear-gradient(115deg,#112e59,#245eb8);color:#fff;padding:18px 20px;border-radius:16px;margin:22px 0;border:1px solid #315f9f}
+.page-legendaries .summary strong{font:850 2.2rem/1 var(--gn-display);letter-spacing:-.05em}.page-legendaries .summary span{font-size:.8rem;line-height:1.45;color:#e0ebff}
 .page-legendaries .filters{display:grid;grid-template-columns:1fr;gap:9px;margin:22px 0 12px}
-.page-legendaries input,.page-legendaries select{width:100%;min-height:48px;padding:0 13px;border:1px solid var(--lg-edge);border-radius:11px;background:#fff;color:#172e4e;font:500 .88rem var(--gn-font);outline:none}
-.page-legendaries input:focus,.page-legendaries select:focus{border-color:#2864c9;box-shadow:0 0 0 3px #2864c91c}
-.page-legendaries .results-line{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:15px 0 11px;color:#637791;font:700 .67rem var(--gn-code);letter-spacing:.04em}
-.page-legendaries .legend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.page-legendaries .legend-card{min-width:0;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:11px;border:1px solid #d1deed;border-radius:15px;background:#fff;box-shadow:0 5px 16px #193c6710}
+.page-legendaries input,.page-legendaries select{width:100%;min-height:48px;padding:0 13px;border:1px solid var(--line);border-radius:11px;background:#fff;color:#172e4e;font:500 .88rem var(--gn-font);outline:none}
+.page-legendaries input:focus,.page-legendaries select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2864c91c}
+.page-legendaries .results-line{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0 12px;color:#637791;font:700 .67rem var(--gn-code);letter-spacing:.04em}
+.page-legendaries .legend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.page-legendaries .legend-card{min-width:0;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:10px;border:1px solid #d1deed;border-radius:15px;background:#fff;box-shadow:0 5px 16px #193c6710;transition:transform .18s,border-color .18s,box-shadow .18s}
+.page-legendaries .legend-card:hover{transform:translateY(-2px);border-color:#9db7d8;box-shadow:0 9px 22px #193c6718}
 .page-legendaries .legend-art{display:grid;place-items:center;aspect-ratio:1;background:radial-gradient(circle at 50% 52%,#e4eefb 0,#f5f8fd 64%,#fff 100%);border-radius:11px;overflow:hidden}
-.page-legendaries .legend-art img{width:100%;height:100%;object-fit:contain;padding:8px}
+.page-legendaries .legend-art img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;padding:clamp(8px,2vw,16px);margin:auto}
 .page-legendaries .legend-meta{display:flex;justify-content:space-between;gap:6px;margin:10px 0 5px;color:#6c7e95;font:700 .58rem var(--gn-code)}
-.page-legendaries .legend-card:focus-visible{outline:3px solid #2864c9;outline-offset:3px}.page-legendaries .legend-card h3{font:750 .96rem/1.2 var(--gn-display);letter-spacing:-.025em;margin:0 0 9px;color:#132b4b}
+.page-legendaries .legend-card:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.page-legendaries .legend-card h3{font:750 .96rem/1.2 var(--gn-display);letter-spacing:-.025em;margin:0 0 9px;color:#132b4b}
 .page-legendaries .legend-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:7px}
 .page-legendaries .region{font-size:.67rem;color:#647891}
 .page-legendaries .status{display:inline-flex;align-items:center;gap:5px;font-size:.61rem;font-weight:750;color:#a14b25}
 .page-legendaries .status i{width:6px;height:6px;border-radius:50%;background:#e58b46}
-.page-legendaries .empty{grid-column:1/-1;padding:30px 16px;text-align:center;border:1px dashed var(--lg-edge);border-radius:13px;color:#61758e}
+.page-legendaries .empty{grid-column:1/-1;padding:30px 16px;text-align:center;border:1px dashed var(--line);border-radius:13px;color:#61758e}
 .page-legendaries .note{margin:22px 0 0;padding:14px 15px;border-left:3px solid #e5b62f;background:#fff9e7;color:#66552b;font-size:.76rem;line-height:1.55}
 .page-legendaries .footer{margin-top:25px;color:#75869b;font-size:.68rem;line-height:1.55}
-@media(min-width:560px){.page-legendaries .filters{grid-template-columns:1.5fr 1fr}.page-legendaries .legend-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(min-width:850px){.page-legendaries .legend-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.page-legendaries .wrap{padding-top:24px}.page-legendaries .legend-card{padding:13px}}
-.legend-detail{width:min(900px,calc(100% - 18px));max-height:92vh;padding:0;border:1px solid #cfdaea;border-radius:20px;background:#f7f9fc;color:#173354;box-shadow:0 24px 80px #0a1e3c38;overflow:auto}.legend-detail::backdrop{background:#0d1f39a8;backdrop-filter:blur(7px)}.legend-detail-head{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:12px 15px;background:#f7f9fcf2;border-bottom:1px solid #d8e1ed}.legend-detail-head .kicker{font:800 .67rem var(--gn-code);letter-spacing:.14em;color:#2864c9}.legend-close{width:38px;height:38px;border:1px solid #cbd8e8;border-radius:10px;background:#fff;color:#244364;font-size:1.25rem}.legend-detail-body{padding:clamp(14px,3vw,24px)}.legend-detail-top{display:grid;grid-template-columns:1fr;gap:16px}.legend-modelbox{height:clamp(290px,42vw,430px);position:relative;overflow:hidden;border:1px solid #d4dfed;border-radius:18px;background:radial-gradient(ellipse at 50% 46%,#e3edfb 0,#f5f8fd 67%,#fff 100%)}.legend-modelbox model-viewer{width:100%;height:100%;min-height:0;background:transparent;--poster-color:transparent;--progress-bar-color:#2563eb}.legend-modelbox{display:grid;place-items:center}.legend-modelbox img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;padding:clamp(18px,4vw,36px);margin:auto}.legend-modelbox model-viewer{display:block;position:absolute;inset:0;width:100%;height:100%;min-height:0}.legend-model-toggle{position:absolute;z-index:3;top:10px;right:10px;border:1px solid #cbd8e8;border-radius:9px;background:#ffffffed;color:#244364;padding:8px 10px;font:700 .68rem var(--gn-font)}.legend-model-status{position:absolute;bottom:10px;left:10px;padding:6px 9px;border:1px solid #d4dfed;border-radius:7px;background:#fffffff0;color:#536985;font:.62rem var(--gn-code)}.legend-detail-info h2{margin:5px 0;font:800 2rem var(--gn-display);color:#142e4e;text-transform:capitalize}.legend-detail-info .desc{color:#506783;font-size:.87rem;line-height:1.65}.legend-detail-info .detail-meta{color:#657b98;font:.7rem var(--gn-code)}.legend-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}.legend-fact{padding:11px;border:1px solid #d7e1ed;border-radius:11px;background:#fff}.legend-fact b{display:block;margin-bottom:5px;color:#71839a;font:.62rem var(--gn-code);text-transform:uppercase}.legend-fact span{font-size:.84rem}.legend-types{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0}.legend-type{padding:4px 7px;border-radius:6px;background:#eaf1fb;color:#355475;font-size:.62rem;font-weight:800;text-transform:uppercase}.legend-source{color:#71839a;font-size:.67rem;line-height:1.5;margin-top:10px}@media(min-width:600px){.legend-detail-top{grid-template-columns:1.05fr .95fr;align-items:center}}.legend-variants{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.legend-variants button{border:1px solid #d2deeb;border-radius:9px;background:#fff;color:#536985;padding:8px 9px;font-size:.68rem}.legend-variants button[aria-pressed=true]{border-color:#2563eb;background:#eaf1ff;color:#2058b8}.legend-stats{border-top:1px solid #d7e1ed;margin-top:18px;padding-top:14px}.legend-stats h3{font:750 1rem var(--gn-display);margin:0 0 12px}.legend-stat{display:grid;grid-template-columns:105px 1fr 28px;gap:8px;align-items:center;margin:8px 0;font-size:.69rem}.legend-stat div{height:7px;border-radius:8px;background:#e1eaf5;overflow:hidden}.legend-stat i{display:block;height:100%;background:linear-gradient(90deg,#2563eb,#20a27a);border-radius:8px}.legend-stat b{text-align:right}@media(max-width:560px){.legend-stat{grid-template-columns:90px 1fr 25px}}</style>
+.legend-detail{width:min(860px,calc(100% - 24px));max-height:min(90dvh,900px);padding:0;border:1px solid #cfdaea;border-radius:20px;background:#f7f9fc;color:#173354;box-shadow:0 24px 80px #0a1e3c38;overflow:auto;overscroll-behavior:contain}
+.legend-detail::backdrop{background:#0d1f39a8;backdrop-filter:blur(7px)}
+.legend-detail-head{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#f7f9fcF2;border-bottom:1px solid #d8e1ed}
+.legend-detail-head .kicker{font:800 .67rem var(--gn-code);letter-spacing:.14em;color:var(--blue)}
+.legend-close{width:40px;height:40px;border:1px solid #cbd8e8;border-radius:11px;background:#fff;color:#244364;font-size:1.25rem}
+.legend-detail-body{padding:clamp(14px,3vw,26px)}
+.legend-detail-top{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.legend-artwork-panel{min-width:0}
+.legend-artwork{display:grid;place-items:center;width:100%;height:clamp(220px,56vw,390px);max-height:390px;padding:clamp(18px,4vw,34px);border:1px solid #d4dfed;border-radius:17px;background:radial-gradient(ellipse at 50% 46%,#e3edfb 0,#f5f8fd 67%,#fff 100%);overflow:hidden}
+.legend-artwork img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;margin:auto}
+.legend-detail-info{min-width:0}
+.legend-detail-info h2{margin:6px 0 8px;font:800 clamp(1.75rem,5vw,2.35rem)/1.05 var(--gn-display);color:#142e4e;text-transform:capitalize;overflow-wrap:anywhere}
+.legend-detail-info .desc{color:#506783;font-size:.9rem;line-height:1.7;margin:14px 0}
+.legend-detail-info .detail-meta{color:#657b98;font:.7rem var(--gn-code)}
+.legend-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:16px}
+.legend-fact{min-width:0;padding:12px;border:1px solid #d7e1ed;border-radius:11px;background:#fff}
+.legend-fact b{display:block;margin-bottom:6px;color:#71839a;font:.62rem var(--gn-code);text-transform:uppercase}
+.legend-fact span{font-size:.87rem;overflow-wrap:anywhere}
+.legend-types{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.legend-type{padding:5px 8px;border-radius:7px;background:#eaf1fb;color:#355475;font-size:.65rem;font-weight:800;text-transform:uppercase}
+.legend-source{color:#71839a;font-size:.69rem;line-height:1.55;margin-top:12px}
+.legend-stats{border-top:1px solid #d7e1ed;margin-top:20px;padding-top:16px}
+.legend-stats h3{font:750 1rem var(--gn-display);margin:0 0 12px}
+.legend-stat{display:grid;grid-template-columns:110px minmax(0,1fr) 28px;gap:8px;align-items:center;margin:9px 0;font-size:.7rem}
+.legend-stat div{height:7px;border-radius:8px;background:#e1eaf5;overflow:hidden}.legend-stat i{display:block;height:100%;background:linear-gradient(90deg,#2563eb,#20a27a);border-radius:8px}.legend-stat b{text-align:right}
+@media(min-width:560px){.page-legendaries .filters{grid-template-columns:1.5fr 1fr}.page-legendaries .legend-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.legend-detail-top{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center}.legend-artwork{height:clamp(300px,38vw,390px)}}
+@media(min-width:850px){.page-legendaries .legend-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.page-legendaries .wrap{padding-top:26px}.page-legendaries .legend-card{padding:13px}}
+@media(max-width:559px){.page-legendaries .wrap{width:calc(100% - 24px);padding:14px 0 34px}.page-legendaries .topline{margin:8px 0 27px}.page-legendaries .legend-grid{gap:9px}.page-legendaries .legend-card{padding:8px;border-radius:13px}.page-legendaries .legend-card h3{font-size:.88rem}.page-legendaries .legend-meta{font-size:.54rem}.page-legendaries .region{font-size:.62rem}.page-legendaries .status{font-size:.56rem}.legend-detail{width:100%;max-width:none;height:100dvh;max-height:100dvh;margin:0;border-radius:0;border:0}.legend-detail-head{padding:calc(10px + env(safe-area-inset-top)) 14px 10px}.legend-detail-body{padding:14px 14px calc(22px + env(safe-area-inset-bottom))}.legend-detail-top{gap:16px}.legend-artwork{height:clamp(205px,55vw,300px);max-height:300px;padding:18px}.legend-detail-info h2{font-size:1.8rem}.legend-facts{gap:8px}.legend-fact{padding:10px}.legend-stat{grid-template-columns:92px minmax(0,1fr) 25px;gap:6px}}
+@media(prefers-reduced-motion:reduce){.page-legendaries .legend-card{transition:none}.page-legendaries .legend-card:hover{transform:none}}
+</style>
 </head>
 <body class="page-legendaries">
 <go-nexus-header></go-nexus-header>
@@ -61,10 +89,10 @@
   <div class="legend-meta"><span>#0773</span><span>GERAÇÃO 7</span></div>
   <h3>Silvally</h3><div class="legend-bottom"><span class="region">Alola</span><span class="status"><i></i>Ainda não lançado</span></div>
 </button>
-<button type="button" class="legend-card" data-id="800" data-name="necrozma (ultra)" data-gen="7">
-  <div class="legend-art"><img src="https://img.pokemondb.net/artwork/large/necrozma-ultra.jpg" alt="Necrozma (Ultra)" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/800.png'"></div>
+<button type="button" class="legend-card" data-id="800" data-name="ultra necrozma" data-gen="7">
+  <div class="legend-art"><img src="https://img.pokemondb.net/artwork/large/necrozma-ultra.jpg" alt="Ultra Necrozma" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/800.png'"></div>
   <div class="legend-meta"><span>#0800</span><span>GERAÇÃO 7</span></div>
-  <h3>Necrozma (Ultra)</h3><div class="legend-bottom"><span class="region">Alola</span><span class="status"><i></i>Ainda não lançado</span></div>
+  <h3>Ultra Necrozma</h3><div class="legend-bottom"><span class="region">Alola</span><span class="status"><i></i>Ainda não lançado</span></div>
 </button>
 <button type="button" class="legend-card" data-id="896" data-name="glastrier" data-gen="8">
   <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/896.png" alt="Glastrier" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/896.png'"></div>
@@ -178,64 +206,41 @@ function render(){const q=normalize(search.value.trim()),g=generation.value;let 
 search.addEventListener('input',render);generation.addEventListener('change',render);
 </script>
 <script>
-const LEG_API='https://pokeapi.co/api/v2/',LEG_MODELS='https://raw.githubusercontent.com/Pokemon-3D-api/assets/main/models/opt/',LEG_ART='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
+const LEG_API='https://pokeapi.co/api/v2/',LEG_ART='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
 const legEsc=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const legTypes={normal:'Normal',fire:'Fogo',water:'Água',electric:'Elétrico',grass:'Planta',ice:'Gelo',fighting:'Lutador',poison:'Veneno',ground:'Terrestre',flying:'Voador',psychic:'Psíquico',bug:'Inseto',rock:'Pedra',ghost:'Fantasma',dragon:'Dragão',dark:'Noturno',steel:'Aço',fairy:'Fada'};
-let legInventory=null,legInventoryPromise=null;
-async function getLegInventory(){if(legInventory)return legInventory;if(!legInventoryPromise)legInventoryPromise=fetch('pokedex-modelos.json?v=20261123').then(r=>r.json()).then(d=>legInventory=d.categories||{}).catch(()=>legInventory={});return legInventoryPromise}
-const formLabels={regular:'Normal',shiny:'Shiny',mega:'Mega',megaShiny:'Mega shiny',gmax:'Gigantamax',alolan:'Forma de Alola',galar:'Forma de Galar',hisuian:'Forma de Hisui',primal:'Forma Primordial',origin:'Forma de origem',unique:'Forma especial',multiform:'Outra forma',fusion:'Fusão',fusionShiny:'Fusão shiny',shadow:'Sombra',sza:'Forma especial'};
-const MODELS=LEG_MODELS;
-function legModelForms(id,inv){
- const idstr=String(id),out=[];
- const add=(cat,file,label)=>{if((inv[cat]||[]).includes(file))out.push({cat,file,label,url:MODELS+cat+'/'+file+'.glb'})};
- add('regular',idstr,'Normal');add('shiny',idstr,'Shiny');
- add('mega',idstr,'Mega');add('megaShiny',idstr,'Mega shiny');add('gmax',idstr,'Gigantamax');
- if(id===26){add('sx','26','Mega Raichu X');add('sy','26','Mega Raichu Y')}
- for(const cat of ['alolan','galar','hisuian','primal','origin','unique','shadow','sza'])add(cat,idstr,cat==='unique'&&id===800?'Ultra Necrozma':formLabels[cat]);
- const multiMap={
-  128:['128-1','128-2','128-3'],386:['386-1','386-2','386-3'],718:['718_1','718_2','718_3'],
-  479:['RotomFan','RotomFrost','RotomHeat','RotomMow'],550:['BasculinBlueStripe'],745:['LycanrocDuskForm','LycanrocMidnightForm'],
-  646:['Black_Kyurem','White_Kyurem'],492:['ShayminSky'],905:['EnamorusTherian'],
-  746:['WishiwashiSchool'],1018:['ArchaludonCharging'],800:['Dawn_Wings','Dusk_Mane'],
-  898:['Ice_Rider','Shadow_Rider'],999:['999'],1007:['Koraidon_Combat','Koraidon_Drive'],1008:['Miraidon_Aquatic'],875:['875']
- };
- const multiLabels={'128-1':'Forma alternativa 1','128-2':'Forma alternativa 2','128-3':'Forma alternativa 3','386-1':'Forma alternativa 1','386-2':'Forma alternativa 2','386-3':'Forma alternativa 3','718_1':'Zygarde 10%','718_2':'Zygarde 50%','718_3':'Zygarde completo','Black_Kyurem':'Kyurem Negro','White_Kyurem':'Kyurem Blanco','Dawn_Wings':'Necrozma Asas da Alvorada','Dusk_Mane':'Necrozma Juba do Crepúsculo','Ice_Rider':'Calyrex Cavaleiro Glacial','Shadow_Rider':'Calyrex Cavaleiro Espectral','RotomFan':'Rotom Ventilador','RotomFrost':'Rotom Geada','RotomHeat':'Rotom Calor','RotomMow':'Rotom Corte','ShayminSky':'Shaymin Forma Celeste','BasculinBlueStripe':'Basculin de listra azul','LycanrocDuskForm':'Lycanroc Crepúsculo','LycanrocMidnightForm':'Lycanroc Meia-noite','WishiwashiSchool':'Wishiwashi Forma Cardume','EnamorusTherian':'Enamorus Forma Therian','ArchaludonCharging':'Archaludon carregando','Koraidon_Combat':'Koraidon Forma de Combate','Koraidon_Drive':'Koraidon Forma de Deslocamento','Miraidon_Aquatic':'Miraidon Forma Aquática','875':'Eiscue Forma Gelada'};
- for(const file of (multiMap[id]||[])){
-  const label=multiLabels[file]||'Forma alternativa';
-  add('multiform',file,label);add('fusion',file,label);
-  if([646,800,898].includes(Number(id)))add('fusionShiny',file,label+' shiny');
- }
- return out;
-}
-
+let detailRequest=0;
 async function openLegendDetail(id){
- const dialog=document.getElementById('legendDetail'),body=document.getElementById('legendDetailBody');dialog.showModal();body.innerHTML='<p>Carregando dados do Pokémon…</p>';
+ const token=++detailRequest,dialog=document.getElementById('legendDetail'),body=document.getElementById('legendDetailBody');
+ dialog.showModal();body.innerHTML='<p class="loading">Carregando ficha…</p>';
  try{
-  const [p,s,inv]=await Promise.all([fetch(LEG_API+'pokemon/'+id).then(r=>r.json()),fetch(LEG_API+'pokemon-species/'+id).then(r=>r.json()),getLegInventory()]);
+  const [p,s]=await Promise.all([
+   fetch(LEG_API+'pokemon/'+id).then(r=>{if(!r.ok)throw Error('pokemon');return r.json()}),
+   fetch(LEG_API+'pokemon-species/'+id).then(r=>{if(!r.ok)throw Error('species');return r.json()})
+  ]);
+  if(token!==detailRequest)return;
+  const isUltra=id===800;
   const pt=s.flavor_text_entries.find(x=>x.language.name==='pt-br')||s.flavor_text_entries.find(x=>x.language.name==='pt');
   const en=s.flavor_text_entries.find(x=>x.language.name==='en');
-  let desc=pt?.flavor_text?.replace(/[\f\n\r]/g,' ').replace(/\s+/g,' ').trim()||'',source=pt?'Descrição oficial em português':'';
+  let desc=pt?.flavor_text?.replace(/[\f\n\r]/g,' ').replace(/\s+/g,' ').trim()||'',source=pt?'Descrição dos jogos principais · PokéAPI':'';
   if(!desc&&en){const original=en.flavor_text.replace(/[\f\n\r]/g,' ').replace(/\s+/g,' ').trim();try{const tr=await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=pt&dt=t&q='+encodeURIComponent(original)).then(r=>r.json());desc=tr?.[0]?.map(x=>x?.[0]||'').join('').trim()||'';if(desc)source='Tradução automática da descrição dos jogos Pokémon'}catch(e){}if(!desc){desc=original;source='Descrição original em inglês'}}
+  if(isUltra){desc='Uma forma especial de Necrozma, alcançada por meio da Ultra Explosão nos jogos principais. Ultra Necrozma ainda não estreou no Pokémon GO.';source='Descrição editorial · forma ainda não disponível no Pokémon GO'}
   if(!desc){desc='Ainda não há uma descrição disponível nas fontes consultadas.';source=''}
-  const forms=legModelForms(id,inv),initial=(id===800?forms.find(x=>x.cat==='unique'):null)||forms.find(x=>x.cat==='regular')||forms[0],types=p.types.map(x=>'<span class="legend-type">'+legEsc(legTypes[x.type.name]||x.type.name)+'</span>').join('');
-  const genus=s.genera.find(x=>['pt-br','pt'].includes(x.language.name))?.genus||'Pokémon',fallback=id===800?'https://img.pokemondb.net/artwork/large/necrozma-ultra.jpg':LEG_ART+id+'.png';
-  const statNames={hp:'PS',attack:'Ataque',defense:'Defesa','special-attack':'Ataque especial','special-defense':'Defesa especial',speed:'Velocidade'};
-  const stats=p.stats.map(x=>'<div class="legend-stat"><span>'+legEsc(statNames[x.stat.name]||x.stat.name)+'</span><div><i style="width:'+Math.min(100,x.base_stat/2.55)+'%"></i></div><b>'+x.base_stat+'</b></div>').join('');
-  body.innerHTML='<div class="legend-detail-top"><div><div class="legend-modelbox" id="legModelBox"><img id="legArtwork" src="'+fallback+'" alt="Ilustração oficial de '+legEsc(p.name)+'"><button type="button" class="legend-model-toggle" id="legModelToggle" hidden>Ver modelo 3D</button><span class="legend-model-status" id="legModelStatus">ILUSTRAÇÃO OFICIAL</span></div><div class="legend-variants" id="legVariants"></div></div><div class="legend-detail-info"><div class="detail-meta">Nº '+String(id).padStart(4,'0')+' · FICHA DA ESPÉCIE</div><h2>'+legEsc(p.name)+'</h2><div class="legend-types">'+types+'</div><p class="desc">'+legEsc(desc)+'</p><p class="legend-source">'+legEsc(source)+'</p><div class="legend-facts"><div class="legend-fact"><b>Altura</b><span>'+(p.height/10).toFixed(1).replace('.',',')+' m</span></div><div class="legend-fact"><b>Peso</b><span>'+(p.weight/10).toFixed(1).replace('.',',')+' kg</span></div><div class="legend-fact"><b>Espécie</b><span>'+legEsc(genus)+'</span></div><div class="legend-fact"><b>Experiência-base</b><span>'+(p.base_experience??'—')+'</span></div></div></div></div><section class="legend-stats"><h3>Atributos-base</h3>'+stats+'</section><p class="legend-source">Dados e descrições dos jogos principais via PokéAPI. Não representam necessariamente os atributos ou o funcionamento no Pokémon GO.</p>';
-  if(forms.length){const box=document.getElementById('legModelBox'),img=document.getElementById('legArtwork'),toggle=document.getElementById('legModelToggle'),status=document.getElementById('legModelStatus'),mv=document.createElement('model-viewer'),variants=document.getElementById('legVariants');mv.setAttribute('camera-controls','');mv.setAttribute('auto-rotate','');mv.setAttribute('camera-orbit','auto auto auto');mv.setAttribute('camera-target','auto auto auto');mv.setAttribute('shadow-intensity','.7');mv.setAttribute('environment-image','neutral');mv.setAttribute('interaction-prompt','none');mv.setAttribute('alt','Modelo 3D de '+p.name);let show3D=false,current=initial;toggle.hidden=false;
-   variants.innerHTML=forms.map((v,i)=>'<button type="button" data-form="'+i+'" aria-pressed="'+(v===initial)+'">'+legEsc(v.label)+'</button>').join('');
-   const setView=on=>{show3D=on;img.hidden=on;mv.hidden=!on;toggle.textContent=on?'Ver ilustração':'Ver modelo 3D';toggle.setAttribute('aria-pressed',String(on));status.textContent=on?'MODELO 3D · '+current.label.toUpperCase():'ILUSTRAÇÃO OFICIAL'};
-   const setModel=v=>{current=v;mv.src=v.url;variants.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',String(forms[i]===v)));setView(true);status.textContent='CARREGANDO '+v.label.toUpperCase()+'…'};
-   mv.hidden=true;box.insertBefore(mv,status);mv.addEventListener('load',()=>{if(show3D)status.textContent='MODELO 3D · '+current.label.toUpperCase()});mv.addEventListener('error',()=>{if(show3D){setView(false);toggle.disabled=true;toggle.textContent='3D indisponível';status.textContent='MODELO INDISPONÍVEL · ILUSTRAÇÃO OFICIAL'}});
-   toggle.onclick=()=>{if(show3D)setView(false);else{if(!mv.src)setModel(current);else setView(true)}};
-   variants.querySelectorAll('[data-form]').forEach(b=>b.onclick=()=>setModel(forms[Number(b.dataset.form)]));setView(false);
-  }else{document.getElementById('legModelStatus').textContent='ILUSTRAÇÃO OFICIAL · MODELO 3D NÃO DISPONÍVEL';document.getElementById('legVariants').textContent='Nenhum modelo 3D catalogado para esta espécie.'}
- }catch(e){body.innerHTML='<p>Não foi possível carregar a ficha agora. Tente novamente.</p>'}
+  const name=isUltra?'Ultra Necrozma':p.name;
+  const image=isUltra?'https://img.pokemondb.net/artwork/large/necrozma-ultra.jpg':LEG_ART+id+'.png';
+  const types=isUltra?['psychic','dragon']:p.types.map(x=>x.type.name);
+  const typeHTML=types.map(t=>'<span class="legend-type">'+legEsc(legTypes[t]||t)+'</span>').join('');
+  const genus=isUltra?'Pokémon Prisma':s.genera.find(x=>['pt-br','pt'].includes(x.language.name))?.genus||'Pokémon';
+  const height=isUltra?'7,5 m':(p.height/10).toFixed(1).replace('.',',')+' m';
+  const weight=isUltra?'230,0 kg':(p.weight/10).toFixed(1).replace('.',',')+' kg';
+  const stats=isUltra?'':('<section class="legend-stats"><h3>Atributos-base · forma padrão</h3>'+p.stats.map(x=>{const n={hp:'PS',attack:'Ataque',defense:'Defesa','special-attack':'Ataque especial','special-defense':'Defesa especial',speed:'Velocidade'};return '<div class="legend-stat"><span>'+legEsc(n[x.stat.name]||x.stat.name)+'</span><div><i style="width:'+Math.min(100,x.base_stat/2.55)+'%"></i></div><b>'+x.base_stat+'</b></div>'}).join('')+'</section>');
+  body.innerHTML='<div class="legend-detail-top"><div class="legend-artwork-panel"><div class="legend-artwork"><img src="'+image+'" alt="Ilustração de '+legEsc(name)+'" onerror="this.onerror=null;this.src=\''+LEG_ART+id+'.png\'"></div></div><div class="legend-detail-info"><div class="detail-meta">Nº '+String(id).padStart(4,'0')+' · FICHA DA ESPÉCIE</div><h2>'+legEsc(name)+'</h2><div class="legend-types">'+typeHTML+'</div><p class="desc">'+legEsc(desc)+'</p><p class="legend-source">'+legEsc(source)+'</p><div class="legend-facts"><div class="legend-fact"><b>Altura</b><span>'+height+'</span></div><div class="legend-fact"><b>Peso</b><span>'+weight+'</span></div><div class="legend-fact"><b>Espécie</b><span>'+legEsc(genus)+'</span></div><div class="legend-fact"><b>Experiência-base</b><span>'+(isUltra?'—':p.base_experience??'—')+'</span></div></div></div></div>'+stats+'<p class="legend-source">Dados de espécies e atributos dos jogos principais via PokéAPI. Não representam necessariamente os atributos ou o funcionamento no Pokémon GO.</p>';
+ }catch(e){if(token===detailRequest)body.innerHTML='<p class="empty">Não foi possível carregar esta ficha agora. Tente novamente.</p>'}
 }
 document.getElementById('grid').addEventListener('click',e=>{const card=e.target.closest('.legend-card');if(card)openLegendDetail(Number(card.dataset.id))});
 document.getElementById('legendClose').onclick=()=>document.getElementById('legendDetail').close();
 document.getElementById('legendDetail').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close()});
 </script>
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
 <script src="nav.js?v=legendaries-20261128"></script><script src="theme.js?v=studio-v4-policy-links"></script>
 </body></html>

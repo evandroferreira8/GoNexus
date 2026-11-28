@@ -67,6 +67,7 @@
 @media(min-width:850px){.page-legendaries .legend-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.page-legendaries .wrap{padding-top:26px}.page-legendaries .legend-card{padding:13px}}
 @media(max-width:559px){.page-legendaries .wrap{width:calc(100% - 24px);padding:14px 0 34px}.page-legendaries .topline{margin:8px 0 27px}.page-legendaries .legend-grid{gap:9px}.page-legendaries .legend-card{padding:8px;border-radius:13px}.page-legendaries .legend-card h3{font-size:.88rem}.page-legendaries .legend-meta{font-size:.54rem}.page-legendaries .region{font-size:.62rem}.page-legendaries .status{font-size:.56rem}.legend-detail{width:100%;max-width:none;height:100dvh;max-height:100dvh;margin:0;border-radius:0;border:0}.legend-detail-head{padding:calc(10px + env(safe-area-inset-top)) 14px 10px}.legend-detail-body{padding:14px 14px calc(22px + env(safe-area-inset-bottom))}.legend-detail-top{gap:16px}.legend-artwork{aspect-ratio:1/1;height:auto;max-height:none;padding:18px}.legend-detail-info h2{font-size:1.8rem}.legend-facts{gap:8px}.legend-fact{padding:10px}.legend-stat{grid-template-columns:92px minmax(0,1fr) 25px;gap:6px}}
 @media(prefers-reduced-motion:reduce){.page-legendaries .legend-card{transition:none}.page-legendaries .legend-card:hover{transform:none}}
+.legend-detail-nav{display:flex;align-items:center;gap:6px;margin-left:auto}.legend-detail-nav button{width:36px;height:36px;border:1px solid #cbd8e8;border-radius:9px;background:#fff;color:#244364;font-size:1.35rem;line-height:1}.legend-detail-nav button:disabled{opacity:.28}.legend-detail-nav span{min-width:52px;text-align:center;color:#71839a;font:.62rem ui-monospace,monospace}.legend-detail-head{gap:8px}@media(max-width:560px){.legend-detail-nav{gap:4px}.legend-detail-nav button{width:34px;height:34px}.legend-detail-nav span{min-width:46px}}
 </style>
 </head>
 <body class="page-legendaries">
@@ -194,7 +195,7 @@
   <div class="legend-meta"><span>#1024</span><span>GERAÇÃO 9</span></div>
   <h3>Terapagos</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
 </button></section>
-<dialog id="legendDetail" class="legend-detail"><div class="legend-detail-head"><span class="kicker">FICHA DO POKÉMON</span><button class="legend-close" id="legendClose" type="button" aria-label="Fechar">×</button></div><div id="legendDetailBody" class="legend-detail-body"><p>Carregando ficha…</p></div></dialog>
+<dialog id="legendDetail" class="legend-detail"><div class="legend-detail-head"><span class="kicker">FICHA DO POKÉMON</span><div class="legend-detail-nav"><button type="button" id="legendPrev" aria-label="Registro anterior">‹</button><span id="legendPosition"></span><button type="button" id="legendNext" aria-label="Próximo registro">›</button><button class="legend-close" id="legendClose" type="button" aria-label="Fechar">×</button></div></div><div id="legendDetailBody" class="legend-detail-body"><p>Carregando ficha…</p></div></dialog>
 <p class="note"><strong>Sobre este levantamento:</strong> a lista reproduz os 23 nomes e formas apresentados no infográfico de @PokePrince79, com status em 27/11/2026. Ela é um recorte de pendências, não uma Pokédex completa de todos os lendários já disponíveis. Algumas entradas são formas ou Pokémon Paradoxo agrupados pelo próprio levantamento.</p>
 <p class="footer">Imagens: Pokémon artwork via PokéAPI. Referência de disponibilidade: infográfico @PokePrince79, status em 27 nov. 2026. Pokémon e personagens pertencem à Nintendo, The Pokémon Company e Game Freak. GO Nexus é um projeto independente, sem afiliação ou endosso dessas empresas.</p>
 </main>
@@ -212,6 +213,7 @@ const legTypes={normal:'Normal',fire:'Fogo',water:'Água',electric:'Elétrico',g
 const LEG_PT_DESCRIPTIONS={898:'Calyrex é um Pokémon benevolente, capaz de proporcionar cura e bênçãos. Ele governou a região de Galar em tempos antigos.'};
 let detailRequest=0;
 async function openLegendDetail(id){
+ activeLegendId=id;updateLegendNav();
  const token=++detailRequest,dialog=document.getElementById('legendDetail'),body=document.getElementById('legendDetailBody');
  dialog.showModal();body.innerHTML='<p class="loading">Carregando ficha…</p>';
  try{
@@ -239,6 +241,15 @@ async function openLegendDetail(id){
   body.innerHTML='<div class="legend-detail-top"><div class="legend-artwork-panel"><div class="legend-artwork"><img src="'+image+'" alt="Ilustração de '+legEsc(name)+'" onerror="this.onerror=null;this.src=\''+LEG_ART+id+'.png\'"></div></div><div class="legend-detail-info"><div class="detail-meta">Nº '+String(id).padStart(4,'0')+' · FICHA DA ESPÉCIE</div><h2>'+legEsc(name)+'</h2><div class="legend-types">'+typeHTML+'</div><p class="desc">'+legEsc(desc)+'</p><p class="legend-source">'+legEsc(source)+'</p><div class="legend-facts"><div class="legend-fact"><b>Altura</b><span>'+height+'</span></div><div class="legend-fact"><b>Peso</b><span>'+weight+'</span></div><div class="legend-fact"><b>Espécie</b><span>'+legEsc(genus)+'</span></div><div class="legend-fact"><b>Experiência-base</b><span>'+(isUltra?'—':p.base_experience??'—')+'</span></div></div></div></div>'+stats+'<p class="legend-source">Dados de espécies e atributos dos jogos principais via PokéAPI. Não representam necessariamente os atributos ou o funcionamento no Pokémon GO.</p>';
  }catch(e){if(token===detailRequest)body.innerHTML='<p class="empty">Não foi possível carregar esta ficha agora. Tente novamente.</p>'}
 }
+let activeLegendId=null;
+function visibleLegendIds(){return [...grid.querySelectorAll('.legend-card:not([hidden])')].map(card=>Number(card.dataset.id))}
+function moveLegend(delta){const ids=visibleLegendIds(),i=ids.indexOf(activeLegendId),id=ids[i+delta];if(id)openLegendDetail(id)}
+function updateLegendNav(){const ids=visibleLegendIds(),i=ids.indexOf(activeLegendId);document.getElementById('legendPrev').disabled=i<=0;document.getElementById('legendNext').disabled=i<0||i>=ids.length-1;document.getElementById('legendPosition').textContent=i>=0?(i+1)+' / '+ids.length:''}
+document.getElementById('legendPrev').onclick=()=>moveLegend(-1);
+document.getElementById('legendNext').onclick=()=>moveLegend(1);
+let legendTouch=null;
+document.getElementById('legendDetail').addEventListener('touchstart',e=>{if(e.touches.length===1)legendTouch={x:e.touches[0].clientX,y:e.touches[0].clientY}},{passive:true});
+document.getElementById('legendDetail').addEventListener('touchend',e=>{if(!legendTouch)return;const dx=e.changedTouches[0].clientX-legendTouch.x,dy=e.changedTouches[0].clientY-legendTouch.y;legendTouch=null;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.25)moveLegend(dx<0?1:-1)},{passive:true});
 document.getElementById('grid').addEventListener('click',e=>{const card=e.target.closest('.legend-card');if(card)openLegendDetail(Number(card.dataset.id))});
 document.getElementById('legendClose').onclick=()=>document.getElementById('legendDetail').close();
 document.getElementById('legendDetail').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close()});

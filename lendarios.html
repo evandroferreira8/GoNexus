@@ -226,7 +226,7 @@ async function openLegendDetail(id){
    variants.innerHTML=forms.map((v,i)=>'<button type="button" data-form="'+i+'" aria-pressed="'+(v===initial)+'">'+legEsc(v.label)+'</button>').join('');
    const setView=on=>{show3D=on;img.hidden=on;mv.hidden=!on;toggle.textContent=on?'Ver ilustração':'Ver modelo 3D';toggle.setAttribute('aria-pressed',String(on));status.textContent=on?'MODELO 3D · '+current.label.toUpperCase():'ILUSTRAÇÃO OFICIAL'};
    const setModel=v=>{current=v;mv.src=v.url;variants.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',String(forms[i]===v)));setView(true);status.textContent='CARREGANDO '+v.label.toUpperCase()+'…'};
-   mv.hidden=true;box.insertBefore(mv,status);mv.addEventListener('load',()=>{if(show3D)status.textContent='MODELO 3D · '+current.label.toUpperCase()});mv.addEventListener('error',()=>{if(show3D){setView(false);status.textContent='MODELO INDISPONÍVEL · ILUSTRAÇÃO OFICIAL'}});
+   mv.hidden=true;box.insertBefore(mv,status);mv.addEventListener('load',()=>{if(show3D)status.textContent='MODELO 3D · '+current.label.toUpperCase()});mv.addEventListener('error',()=>{if(show3D){setView(false);toggle.disabled=true;toggle.textContent='3D indisponível';status.textContent='MODELO INDISPONÍVEL · ILUSTRAÇÃO OFICIAL'}});
    toggle.onclick=()=>{if(show3D)setView(false);else{if(!mv.src)setModel(current);else setView(true)}};
    variants.querySelectorAll('[data-form]').forEach(b=>b.onclick=()=>setModel(forms[Number(b.dataset.form)]));setView(false);
   }else{document.getElementById('legModelStatus').textContent='ILUSTRAÇÃO OFICIAL · MODELO 3D NÃO DISPONÍVEL';document.getElementById('legVariants').textContent='Nenhum modelo 3D catalogado para esta espécie.'}

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#edf2f9">
+<meta name="description" content="Consulte os Pokémon lendários e especiais que ainda não estrearam no Pokémon GO, organizados por geração.">
+<title>Lendários ainda não lançados | GO Nexus</title>
+<link rel="stylesheet" href="theme.css?v=studio-depth-20261013a">
+<style>
+.page-legendaries{--lg-ink:#102544;--lg-muted:#60738d;--lg-edge:#cbd9eb;--lg-blue:#245fc2;color:var(--lg-ink)}
+.page-legendaries .wrap{width:min(1120px,calc(100% - 28px));margin:auto;padding:18px 0 42px}
+.page-legendaries .topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 30px}
+.page-legendaries .brand{font:800 .78rem var(--gn-code);letter-spacing:.12em}
+.page-legendaries .brand span{color:#2864c9}
+.page-legendaries .back{font-size:.75rem;color:#285caa;border:1px solid var(--lg-edge);padding:9px 12px;border-radius:9px;text-decoration:none;background:#fff}
+.page-legendaries .kicker{font:800 .67rem var(--gn-code);letter-spacing:.14em;color:#2864c9}
+.page-legendaries h1{font:800 clamp(2.3rem,8vw,4.8rem)/.98 var(--gn-display);letter-spacing:-.065em;margin:12px 0;color:#102544}
+.page-legendaries h1 span{color:#2864c9}
+.page-legendaries .intro{max-width:700px;color:#506783;font-size:.96rem;line-height:1.6;margin:0 0 22px}
+.page-legendaries .summary{display:flex;align-items:center;gap:14px;background:linear-gradient(115deg,#112e59,#245eb8);color:#fff;padding:18px 20px;border-radius:17px;margin:22px 0;border:1px solid #315f9f}
+.page-legendaries .summary strong{font:850 2.2rem/1 var(--gn-display);letter-spacing:-.05em}
+.page-legendaries .summary span{font-size:.8rem;line-height:1.4;color:#e0ebff}
+.page-legendaries .filters{display:grid;grid-template-columns:1fr;gap:9px;margin:22px 0 12px}
+.page-legendaries input,.page-legendaries select{width:100%;min-height:48px;padding:0 13px;border:1px solid var(--lg-edge);border-radius:11px;background:#fff;color:#172e4e;font:500 .88rem var(--gn-font);outline:none}
+.page-legendaries input:focus,.page-legendaries select:focus{border-color:#2864c9;box-shadow:0 0 0 3px #2864c91c}
+.page-legendaries .results-line{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:15px 0 11px;color:#637791;font:700 .67rem var(--gn-code);letter-spacing:.04em}
+.page-legendaries .legend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.page-legendaries .legend-card{min-width:0;padding:11px;border:1px solid #d1deed;border-radius:15px;background:#fff;box-shadow:0 5px 16px #193c6710}
+.page-legendaries .legend-art{display:grid;place-items:center;aspect-ratio:1;background:radial-gradient(circle at 50% 52%,#e4eefb 0,#f5f8fd 64%,#fff 100%);border-radius:11px;overflow:hidden}
+.page-legendaries .legend-art img{width:100%;height:100%;object-fit:contain;padding:8px}
+.page-legendaries .legend-meta{display:flex;justify-content:space-between;gap:6px;margin:10px 0 5px;color:#6c7e95;font:700 .58rem var(--gn-code)}
+.page-legendaries .legend-card h3{font:750 .96rem/1.2 var(--gn-display);letter-spacing:-.025em;margin:0 0 9px;color:#132b4b}
+.page-legendaries .legend-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:7px}
+.page-legendaries .region{font-size:.67rem;color:#647891}
+.page-legendaries .status{display:inline-flex;align-items:center;gap:5px;font-size:.61rem;font-weight:750;color:#a14b25}
+.page-legendaries .status i{width:6px;height:6px;border-radius:50%;background:#e58b46}
+.page-legendaries .empty{grid-column:1/-1;padding:30px 16px;text-align:center;border:1px dashed var(--lg-edge);border-radius:13px;color:#61758e}
+.page-legendaries .note{margin:22px 0 0;padding:14px 15px;border-left:3px solid #e5b62f;background:#fff9e7;color:#66552b;font-size:.76rem;line-height:1.55}
+.page-legendaries .footer{margin-top:25px;color:#75869b;font-size:.68rem;line-height:1.55}
+@media(min-width:560px){.page-legendaries .filters{grid-template-columns:1.5fr 1fr}.page-legendaries .legend-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:850px){.page-legendaries .legend-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.page-legendaries .wrap{padding-top:24px}.page-legendaries .legend-card{padding:13px}}
+</style>
+</head>
+<body class="page-legendaries">
+<go-nexus-header></go-nexus-header>
+<main class="wrap">
+<nav class="topline" aria-label="Navegação"><a class="brand" href="index.html">GO <span>NEXUS</span></a><a class="back" href="index.html">← Voltar ao início</a></nav>
+<div class="kicker">CATÁLOGO · POKÉMON GO</div>
+<h1>Lendários <span>não lançados.</span></h1>
+<p class="intro">Uma lista dos lendários e Pokémon especiais que ainda não haviam estreado no Pokémon GO no recorte de 27 de novembro de 2026. Pesquise por nome ou número e navegue por geração.</p>
+<section class="summary" aria-label="Resumo do catálogo"><strong>23</strong><span>Pokémon ainda não lançados<br>no recorte de 27 NOV 2026</span></section>
+<div class="filters"><input id="search" type="search" placeholder="Buscar por nome ou número…" aria-label="Buscar Pokémon"><select id="generation" aria-label="Filtrar geração"><option value="all">Todas as gerações</option><option value="7">Geração VII · Alola</option><option value="8">Geração VIII · Galar</option><option value="9">Geração IX · Paldea</option></select></div>
+<div class="results-line"><span id="count">23 REGISTROS</span><span>STATUS: NÃO LANÇADOS</span></div>
+<section class="legend-grid" id="grid" aria-live="polite"><article class="legend-card" data-id="772" data-name="type: null" data-gen="7">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/772.png" alt="Type: Null" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/772.png'"></div>
+  <div class="legend-meta"><span>#0772</span><span>GERAÇÃO 7</span></div>
+  <h3>Type: Null</h3><div class="legend-bottom"><span class="region">Alola</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="773" data-name="silvally" data-gen="7">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/773.png" alt="Silvally" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/773.png'"></div>
+  <div class="legend-meta"><span>#0773</span><span>GERAÇÃO 7</span></div>
+  <h3>Silvally</h3><div class="legend-bottom"><span class="region">Alola</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="800" data-name="necrozma (ultra)" data-gen="7">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/800.png" alt="Necrozma (Ultra)" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/800.png'"></div>
+  <div class="legend-meta"><span>#0800</span><span>GERAÇÃO 7</span></div>
+  <h3>Necrozma (Ultra)</h3><div class="legend-bottom"><span class="region">Alola</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="896" data-name="glastrier" data-gen="8">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/896.png" alt="Glastrier" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/896.png'"></div>
+  <div class="legend-meta"><span>#0896</span><span>GERAÇÃO 8</span></div>
+  <h3>Glastrier</h3><div class="legend-bottom"><span class="region">Galar</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="897" data-name="spectrier" data-gen="8">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/897.png" alt="Spectrier" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/897.png'"></div>
+  <div class="legend-meta"><span>#0897</span><span>GERAÇÃO 8</span></div>
+  <h3>Spectrier</h3><div class="legend-bottom"><span class="region">Galar</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="898" data-name="calyrex" data-gen="8">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/898.png" alt="Calyrex" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/898.png'"></div>
+  <div class="legend-meta"><span>#0898</span><span>GERAÇÃO 8</span></div>
+  <h3>Calyrex</h3><div class="legend-bottom"><span class="region">Galar</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1001" data-name="wo-chien" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1001.png" alt="Wo-Chien" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1001.png'"></div>
+  <div class="legend-meta"><span>#1001</span><span>GERAÇÃO 9</span></div>
+  <h3>Wo-Chien</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1002" data-name="chien-pao" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1002.png" alt="Chien-Pao" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1002.png'"></div>
+  <div class="legend-meta"><span>#1002</span><span>GERAÇÃO 9</span></div>
+  <h3>Chien-Pao</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1003" data-name="ting-lu" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1003.png" alt="Ting-Lu" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1003.png'"></div>
+  <div class="legend-meta"><span>#1003</span><span>GERAÇÃO 9</span></div>
+  <h3>Ting-Lu</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1004" data-name="chi-yu" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1004.png" alt="Chi-Yu" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1004.png'"></div>
+  <div class="legend-meta"><span>#1004</span><span>GERAÇÃO 9</span></div>
+  <h3>Chi-Yu</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1007" data-name="koraidon" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1007.png" alt="Koraidon" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1007.png'"></div>
+  <div class="legend-meta"><span>#1007</span><span>GERAÇÃO 9</span></div>
+  <h3>Koraidon</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1008" data-name="miraidon" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1008.png" alt="Miraidon" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1008.png'"></div>
+  <div class="legend-meta"><span>#1008</span><span>GERAÇÃO 9</span></div>
+  <h3>Miraidon</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1009" data-name="walking wake" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1009.png" alt="Walking Wake" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1009.png'"></div>
+  <div class="legend-meta"><span>#1009</span><span>GERAÇÃO 9</span></div>
+  <h3>Walking Wake</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1020" data-name="gouging fire" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1020.png" alt="Gouging Fire" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1020.png'"></div>
+  <div class="legend-meta"><span>#1020</span><span>GERAÇÃO 9</span></div>
+  <h3>Gouging Fire</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1021" data-name="raging bolt" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1021.png" alt="Raging Bolt" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1021.png'"></div>
+  <div class="legend-meta"><span>#1021</span><span>GERAÇÃO 9</span></div>
+  <h3>Raging Bolt</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1010" data-name="iron leaves" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1010.png" alt="Iron Leaves" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1010.png'"></div>
+  <div class="legend-meta"><span>#1010</span><span>GERAÇÃO 9</span></div>
+  <h3>Iron Leaves</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1022" data-name="iron boulder" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1022.png" alt="Iron Boulder" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1022.png'"></div>
+  <div class="legend-meta"><span>#1022</span><span>GERAÇÃO 9</span></div>
+  <h3>Iron Boulder</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1023" data-name="iron crown" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1023.png" alt="Iron Crown" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1023.png'"></div>
+  <div class="legend-meta"><span>#1023</span><span>GERAÇÃO 9</span></div>
+  <h3>Iron Crown</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1014" data-name="okidogi" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1014.png" alt="Okidogi" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1014.png'"></div>
+  <div class="legend-meta"><span>#1014</span><span>GERAÇÃO 9</span></div>
+  <h3>Okidogi</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1015" data-name="munkidori" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1015.png" alt="Munkidori" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1015.png'"></div>
+  <div class="legend-meta"><span>#1015</span><span>GERAÇÃO 9</span></div>
+  <h3>Munkidori</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1016" data-name="fezandipiti" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1016.png" alt="Fezandipiti" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1016.png'"></div>
+  <div class="legend-meta"><span>#1016</span><span>GERAÇÃO 9</span></div>
+  <h3>Fezandipiti</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1017" data-name="ogerpon" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1017.png" alt="Ogerpon" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1017.png'"></div>
+  <div class="legend-meta"><span>#1017</span><span>GERAÇÃO 9</span></div>
+  <h3>Ogerpon</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article>
+<article class="legend-card" data-id="1024" data-name="terapagos" data-gen="9">
+  <div class="legend-art"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1024.png" alt="Terapagos" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1024.png'"></div>
+  <div class="legend-meta"><span>#1024</span><span>GERAÇÃO 9</span></div>
+  <h3>Terapagos</h3><div class="legend-bottom"><span class="region">Paldea</span><span class="status"><i></i>Ainda não lançado</span></div>
+</article></section>
+<p class="note"><strong>Sobre este levantamento:</strong> a lista reproduz os 23 nomes e formas apresentados no infográfico de @PokePrince79, com status em 27/11/2026. Ela é um recorte de pendências, não uma Pokédex completa de todos os lendários já disponíveis. Algumas entradas são formas ou Pokémon Paradoxo agrupados pelo próprio levantamento.</p>
+<p class="footer">Imagens: Pokémon artwork via PokéAPI. Referência de disponibilidade: infográfico @PokePrince79, status em 27 nov. 2026. Pokémon e personagens pertencem à Nintendo, The Pokémon Company e Game Freak. GO Nexus é um projeto independente, sem afiliação ou endosso dessas empresas.</p>
+</main>
+<go-nexus-footer></go-nexus-footer>
+<script>
+const search=document.getElementById('search'),generation=document.getElementById('generation'),grid=document.getElementById('grid'),count=document.getElementById('count');
+const normalize=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR');
+function render(){const q=normalize(search.value.trim()),g=generation.value;let shown=0;grid.querySelectorAll('.legend-card').forEach(card=>{const match=(!q||normalize(card.dataset.name).includes(q)||card.dataset.id.includes(q))&&(g==='all'||card.dataset.gen===g);card.hidden=!match;if(match)shown++});count.textContent=shown+' DE 23 REGISTROS';let empty=grid.querySelector('.empty');if(!shown&&!empty){empty=document.createElement('div');empty.className='empty';empty.textContent='Nenhum Pokémon encontrado. Tente outro nome ou geração.';grid.append(empty)}if(shown&&empty)empty.remove()}
+search.addEventListener('input',render);generation.addEventListener('change',render);
+</script>
+<script src="nav.js?v=legendaries-20261128"></script><script src="theme.js?v=studio-v4-policy-links"></script>
+</body></html>

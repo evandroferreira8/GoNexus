@@ -30,6 +30,9 @@
 .modelbox.is-illustration .model-status{display:none}
 @media(max-width:560px){.legendary-shortcut{margin-bottom:19px;padding:12px 42px 12px 13px}.legendary-shortcut__desc{max-width:90%}.model-view-toggle{top:8px;right:8px;padding:8px 9px}}
 /* NEXUS STUDIO — revisão visual da Pokédex */
+/* Grafia consistente da marca Pokémon, inclusive em textos dinâmicos */
+.pokemon-wordmark{font-family:Inter,Arial,sans-serif!important;font-variant-ligatures:none;text-transform:none!important;letter-spacing:normal;}
+
 :root{color-scheme:light;--bg:#edf2f9;--panel:#fff;--line:#cbd8e8;--text:#152c4b;--muted:#5d718d;--green:#176b55;--blue:#2563eb}
 body{background:radial-gradient(ellipse at 50% -18%,#dce9fb 0,transparent 48%),var(--gn-bg,#edf2f9);color:var(--gn-text,#152c4b);font-family:var(--gn-font,'DM Sans',system-ui,sans-serif)}
 .wrap{width:min(1160px,100%);padding:24px 18px 56px}
@@ -184,5 +187,27 @@ async function openDetail(id){
   $('detailBody').querySelectorAll('[data-evo]').forEach(b=>b.onclick=()=>openDetail(Number(b.dataset.evo)));
  }catch(e){if(token===detailToken)$('detailBody').innerHTML='<div class="empty">Não foi possível carregar esta ficha. Tente novamente.</div>'}
 }
+function normalizePokemonSpelling(root=document.body){
+ const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+ const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+ for(const node of nodes){
+  if(!/pokémon/i.test(node.nodeValue)||node.parentElement?.closest('script,style,textarea,input,.pokemon-wordmark'))continue;
+  const parts=node.nodeValue.split(/(pokémon)/gi);if(parts.length===1)continue;
+  const fragment=document.createDocumentFragment();
+  for(const part of parts){
+   if(/^pokémon$/i.test(part)){
+    const span=document.createElement('span');span.className='pokemon-wordmark';
+    span.textContent=part===part.toUpperCase()?'POKÉMON':part[0]===part[0].toUpperCase()?'Pokémon':'pokémon';
+    fragment.append(span);
+   }else fragment.append(document.createTextNode(part));
+  }
+  node.parentNode.replaceChild(fragment,node);
+ }
+}
+normalizePokemonSpelling();
+new MutationObserver(records=>records.forEach(record=>{
+ if(record.type==='childList')record.addedNodes.forEach(node=>{if(node.nodeType===Node.TEXT_NODE)normalizePokemonSpelling(node.parentNode);else if(node.nodeType===Node.ELEMENT_NODE)normalizePokemonSpelling(node)});
+ else if(record.type==='characterData')normalizePokemonSpelling(record.target.parentNode);
+})).observe(document.body,{subtree:true,childList:true,characterData:true});
 init();
 </script><script src="nav.js?v=pokedex-20261123"></script><script src="theme.js?v=studio-v4-policy-links"></script></body></html>

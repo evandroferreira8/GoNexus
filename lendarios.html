@@ -191,7 +191,7 @@ function legModelForms(id,inv){
  add('regular',idstr,'Normal');add('shiny',idstr,'Shiny');
  add('mega',idstr,'Mega');add('megaShiny',idstr,'Mega shiny');add('gmax',idstr,'Gigantamax');
  if(id===26){add('sx','26','Mega Raichu X');add('sy','26','Mega Raichu Y')}
- for(const cat of ['alolan','galar','hisuian','primal','origin','unique','shadow','sza'])add(cat,idstr,formLabels[cat]);
+ for(const cat of ['alolan','galar','hisuian','primal','origin','unique','shadow','sza'])add(cat,idstr,cat==='unique'&&id===800?'Ultra Necrozma':formLabels[cat]);
  const multiMap={
   128:['128-1','128-2','128-3'],386:['386-1','386-2','386-3'],718:['718_1','718_2','718_3'],
   479:['RotomFan','RotomFrost','RotomHeat','RotomMow'],550:['BasculinBlueStripe'],745:['LycanrocDuskForm','LycanrocMidnightForm'],

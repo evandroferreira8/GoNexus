@@ -83,6 +83,36 @@ model-viewer{display:block;width:100%;height:100%;min-height:0;background:transp
 @media(max-width:560px){.wrap{padding:18px 14px 42px}.modelbox{height:300px;min-height:300px}.detail-top{gap:15px}.pokemon-card{padding:9px;border-radius:13px}}
 @media(prefers-reduced-motion:reduce){.pokemon-card{transition:none}.pokemon-card:hover{transform:none}}
 
+
+/* Ficha em tela cheia no celular — mesmo comportamento da página de lendários */
+@media(max-width:560px){
+ dialog#detail{
+  position:fixed;inset:0;margin:0;
+  width:100%;max-width:none;
+  height:100dvh;max-height:100dvh;
+  border:0;border-radius:0;
+  padding:0;overflow-y:auto;overscroll-behavior:contain;
+  padding-bottom:env(safe-area-inset-bottom);
+ }
+ dialog#detail::backdrop{background:rgba(7,20,39,.72);backdrop-filter:blur(5px)}
+ dialog#detail .detail-head{
+  top:0;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;
+  min-height:64px;background:rgba(247,249,252,.97);
+  color:#173354;border-bottom:1px solid #d7e1ed;
+ }
+ dialog#detail .detail-head .kicker{color:#245fc2}
+ dialog#detail .close{
+  width:42px;height:42px;border-radius:12px;
+  border:1px solid #cbd8e8;background:#fff;color:#244364;
+  font-size:1.25rem;flex:0 0 auto;
+ }
+ dialog#detail .detail-body{padding:14px 14px calc(24px + env(safe-area-inset-bottom))}
+}
+@media(prefers-reduced-motion:no-preference) and (max-width:560px){
+ dialog#detail[open]{animation:dexSheetIn .22s ease-out}
+ @keyframes dexSheetIn{from{transform:translateY(18px);opacity:.75}to{transform:translateY(0);opacity:1}}
+}
+
 </style></head><body class="page-pokedex"><go-nexus-header></go-nexus-header><main class="wrap">
 
 <a class="legendary-shortcut" href="lendarios.html"><span class="legendary-shortcut__eyebrow">GUIA ESPECIAL</span><span class="legendary-shortcut__title">Lendários e especiais que faltam</span><span class="legendary-shortcut__desc">Veja quais ainda não chegaram ao Pokémon GO</span><span class="legendary-shortcut__arrow" aria-hidden="true">→</span></a>

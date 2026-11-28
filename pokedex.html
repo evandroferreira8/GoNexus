@@ -114,12 +114,36 @@ model-viewer{display:block;width:100%;height:100%;min-height:0;background:transp
 }
 
 .detail-nav{display:flex;align-items:center;gap:6px;margin-left:auto;margin-right:9px}.detail-nav button{width:36px;height:36px;border:1px solid #cbd8e8;border-radius:9px;background:#fff;color:#244364;font-size:1.35rem;line-height:1}.detail-nav button:disabled{opacity:.28}.detail-nav span{min-width:52px;text-align:center;color:#71839a;font: .62rem ui-monospace,monospace}@media(max-width:560px){.detail-nav{gap:4px}.detail-nav button{width:34px;height:34px}.detail-nav span{min-width:46px}}
+
+.dex-tools{display:grid;grid-template-columns:1fr;gap:9px;margin:14px 0 18px}
+.dex-pagebar{display:grid;grid-template-columns:46px 1fr 46px;align-items:center;gap:8px}
+.dex-pagebar .btn{min-height:42px;padding:8px;font-size:1.1rem}
+.dex-pagebar span,.page-indicator{color:var(--muted);text-align:center;font:.68rem ui-monospace,monospace}
+.dex-jump{display:grid;grid-template-columns:minmax(0,1fr) 88px 58px;gap:7px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.dex-jump label{grid-column:1/-1;color:var(--muted);font:.66rem ui-monospace,monospace;text-transform:uppercase;letter-spacing:.05em}
+.dex-jump input{width:100%;min-width:0;height:40px;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:#f7f9fc;color:var(--text);font:600 .9rem var(--gn-font,'DM Sans',sans-serif)}
+.dex-jump .btn{height:40px;padding:0 10px}
+.pager{align-items:center}
+@media(min-width:560px){.dex-tools{grid-template-columns:1fr 1fr;align-items:stretch}.dex-jump{grid-template-columns:minmax(0,1fr) 58px}.dex-jump label{grid-column:1/-1}.dex-pagebar{grid-template-columns:46px 1fr 46px}}
+
 </style></head><body class="page-pokedex"><go-nexus-header></go-nexus-header><main class="wrap">
 
 <a class="legendary-shortcut" href="lendarios.html"><span class="legendary-shortcut__eyebrow">GUIA ESPECIAL</span><span class="legendary-shortcut__title">Lendários e especiais que faltam</span><span class="legendary-shortcut__desc">Veja quais ainda não chegaram ao Pokémon GO</span><span class="legendary-shortcut__arrow" aria-hidden="true">→</span></a>
 <div class="kicker">ENCICLOPÉDIA INTERATIVA</div><h1>Conheça os <span>Pokémon.</span></h1><p class="intro">Explore espécies, tipos, características e evoluções. Abra uma ficha para observar o Pokémon em 3D quando houver um modelo disponível.</p>
 <div class="searchbar"><input id="search" type="search" placeholder="Buscar por nome ou número…" aria-label="Buscar Pokémon"><div class="filters"><select id="generation" aria-label="Filtrar geração"><option value="all">Todas as gerações</option><option value="1">Geração I · Kanto</option><option value="2">Geração II · Johto</option><option value="3">Geração III · Hoenn</option><option value="4">Geração IV · Sinnoh</option><option value="5">Geração V · Unova</option><option value="6">Geração VI · Kalos</option><option value="7">Geração VII · Alola</option><option value="8">Geração VIII · Galar</option><option value="9">Geração IX · Paldea</option></select><select id="type" aria-label="Filtrar tipo"><option value="all">Todos os tipos</option><option value="normal">Normal</option><option value="fire">Fogo</option><option value="water">Água</option><option value="electric">Elétrico</option><option value="grass">Planta</option><option value="ice">Gelo</option><option value="fighting">Lutador</option><option value="poison">Veneno</option><option value="ground">Terrestre</option><option value="flying">Voador</option><option value="psychic">Psíquico</option><option value="bug">Inseto</option><option value="rock">Pedra</option><option value="ghost">Fantasma</option><option value="dragon">Dragão</option><option value="dark">Noturno</option><option value="steel">Aço</option><option value="fairy">Fada</option></select></div></div>
-<div class="statsline"><span id="count">CARREGANDO CATÁLOGO…</span><span>POKÉDEX NACIONAL</span></div><section class="grid" id="grid" aria-live="polite"><div class="loading">Carregando Pokédex…</div></section><div class="pager"><button class="btn" id="prev" disabled>← Anterior</button><button class="btn primary" id="next" disabled>Próxima →</button></div>
+<div class="dex-tools" aria-label="Navegação da Pokédex">
+ <div class="dex-pagebar">
+  <button class="btn" id="prevTop" type="button" disabled>←</button>
+  <span id="pageTop">Página 1</span>
+  <button class="btn primary" id="nextTop" type="button" disabled>→</button>
+ </div>
+ <form class="dex-jump" id="dexJumpForm">
+  <label for="dexJump">Ir direto ao número</label>
+  <input id="dexJump" type="number" inputmode="numeric" min="1" max="1025" placeholder="Ex.: 025" aria-label="Número da Pokédex">
+  <button class="btn primary" type="submit">Ir</button>
+ </form>
+</div>
+<div class="statsline"><span id="count">CARREGANDO CATÁLOGO…</span><span>POKÉDEX NACIONAL</span></div><section class="grid" id="grid" aria-live="polite"><div class="loading">Carregando Pokédex…</div></section><div class="pager"><button class="btn" id="prev" disabled>← Anterior</button><span id="pageBottom" class="page-indicator">Página 1</span><button class="btn primary" id="next" disabled>Próxima →</button></div>
 <p class="footer">Dados de espécies, descrições e evoluções: PokéAPI. Modelos 3D: Pokémon 3D API, quando disponíveis. Pokémon e seus personagens pertencem à Nintendo, The Pokémon Company e Game Freak. Projeto independente, sem afiliação ou endosso dessas empresas.</p></main>
 <go-nexus-footer></go-nexus-footer>
 <dialog id="detail"><div class="detail-head"><span class="kicker">FICHA DO POKÉMON</span><div class="detail-nav"><button type="button" id="detailPrev" aria-label="Pokémon anterior">‹</button><span id="detailPosition"></span><button type="button" id="detailNext" aria-label="Próximo Pokémon">›</button><button class="close" id="close" aria-label="Fechar">×</button></div></div><div class="detail-body" id="detailBody"></div></dialog>
@@ -134,7 +158,7 @@ function tags(types){return types.map(t=>'<span class="type">'+esc(label(t.type?
 async function init(){try{const r=await fetch(API+'/pokemon?limit=1025');if(!r.ok)throw 0;const d=await r.json();all=d.results.map((p,i)=>({id:i+1,name:p.name}));apply()}catch(e){$('grid').innerHTML='<div class="empty">Não foi possível carregar a Pokédex. Verifique sua conexão e atualize a página.</div>';$('count').textContent='FALHA AO CARREGAR'}}
 function apply(){const q=$('search').value.trim().toLowerCase(),g=$('generation').value;filtered=all.filter(p=>(!q||p.name.includes(q)||String(p.id)===q||pad(p.id)===q)&&(g==='all'||gen(p.id)===g)&&(!typeSet||typeSet.has(p.name)));page=0;render()}
 async function filterType(){const t=$('type').value;if(t==='all'){typeSet=null;apply();return}$('count').textContent='CONSULTANDO TIPO…';try{const d=await fetch(API+'/type/'+t).then(r=>r.json());typeSet=new Set(d.pokemon.map(x=>x.pokemon.name));apply()}catch(e){$('count').textContent='ERRO AO FILTRAR'}}
-function render(){const start=page*30,items=filtered.slice(start,start+30);$('count').textContent=filtered.length?filtered.length+' ESPÉCIES · '+(start+1)+'–'+Math.min(start+30,filtered.length):'NENHUM RESULTADO';$('grid').innerHTML=items.length?items.map(p=>'<button class="pokemon-card" data-open="'+p.id+'"><img src="'+art(p.id)+'" alt="" loading="lazy" onerror="this.style.opacity=.15"><span class="dexno">Nº '+pad(p.id)+'</span><div class="pname">'+esc(p.name)+'</div><span class="types" data-types="'+p.id+'"><span class="type">#'+gen(p.id)+'</span></span></button>').join(''):'<div class="empty">Nenhum Pokémon encontrado com esses filtros.</div>';items.forEach(loadTypes);$('prev').disabled=page===0;$('next').disabled=start+30>=filtered.length}
+function render(){const start=page*30,items=filtered.slice(start,start+30);$('count').textContent=filtered.length?filtered.length+' ESPÉCIES · '+(start+1)+'–'+Math.min(start+30,filtered.length):'NENHUM RESULTADO';$('grid').innerHTML=items.length?items.map(p=>'<button class="pokemon-card" data-open="'+p.id+'"><img src="'+art(p.id)+'" alt="" loading="lazy" onerror="this.style.opacity=.15"><span class="dexno">Nº '+pad(p.id)+'</span><div class="pname">'+esc(p.name)+'</div><span class="types" data-types="'+p.id+'"><span class="type">#'+gen(p.id)+'</span></span></button>').join(''):'<div class="empty">Nenhum Pokémon encontrado com esses filtros.</div>';items.forEach(loadTypes);$('prev').disabled=page===0;$('next').disabled=start+30>=filtered.length;const pages=Math.max(1,Math.ceil(filtered.length/30));['prev','prevTop'].forEach(id=>$(id).disabled=page===0);['next','nextTop'].forEach(id=>$(id).disabled=page>=pages-1);$('pageTop').textContent='Página '+(page+1)+' de '+pages;$('pageBottom').textContent='Página '+(page+1)+' de '+pages}
 async function loadTypes(p){try{const d=await fetch(API+'/pokemon/'+p.id).then(r=>r.json()),el=document.querySelector('[data-types="'+p.id+'"]');if(el)el.innerHTML=tags(d.types)}catch(e){}}
 $('grid').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)openDetail(Number(b.dataset.open))});
 let activeDexId=null;
@@ -152,7 +176,11 @@ $('detailPrev').onclick=()=>moveDex(-1);$('detailNext').onclick=()=>moveDex(1);
 let dexTouch=null;
 $('detail').addEventListener('touchstart',e=>{if(e.touches.length===1)dexTouch={x:e.touches[0].clientX,y:e.touches[0].clientY}},{passive:true});
 $('detail').addEventListener('touchend',e=>{if(!dexTouch)return;const dx=e.changedTouches[0].clientX-dexTouch.x,dy=e.changedTouches[0].clientY-dexTouch.y;dexTouch=null;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.25)moveDex(dx<0?1:-1)},{passive:true});
-$('search').addEventListener('input',apply);$('generation').addEventListener('change',apply);$('type').addEventListener('change',filterType);$('prev').onclick=()=>{page--;render();scrollTo({top:0,behavior:'smooth'})};$('next').onclick=()=>{page++;render();scrollTo({top:0,behavior:'smooth'})};$('close').onclick=()=>$('detail').close();$('detail').addEventListener('click',e=>{if(e.target===$('detail'))$('detail').close()});
+$('search').addEventListener('input',apply);$('generation').addEventListener('change',apply);$('type').addEventListener('change',filterType);
+function changeDexPage(delta){const pages=Math.max(1,Math.ceil(filtered.length/30));page=Math.max(0,Math.min(pages-1,page+delta));render();document.querySelector('.dex-tools').scrollIntoView({behavior:'smooth',block:'nearest'})}
+['prev','prevTop'].forEach(id=>$(id).onclick=()=>changeDexPage(-1));['next','nextTop'].forEach(id=>$(id).onclick=()=>changeDexPage(1));
+$('dexJumpForm').addEventListener('submit',e=>{e.preventDefault();const id=Number($('dexJump').value);if(!Number.isInteger(id)||id<1||id>all.length){$('dexJump').setCustomValidity('Digite um número entre 1 e '+all.length+'.');$('dexJump').reportValidity();return}$('dexJump').setCustomValidity('');const target=all.find(x=>x.id===id);if(!target)return;$('search').value='';$('generation').value='all';$('type').value='all';typeSet=null;filtered=all.slice();page=Math.floor((id-1)/30);render();openDetail(id);$('dexJump').value='';});
+$('dexJump').addEventListener('input',()=>$('dexJump').setCustomValidity(''));$('close').onclick=()=>$('detail').close();$('detail').addEventListener('click',e=>{if(e.target===$('detail'))$('detail').close()});
 function flatten(n,out=[]){if(!n)return out;out.push({name:n.species.name,id:Number(n.species.url.split('/').filter(Boolean).pop())});n.evolves_to.forEach(x=>flatten(x,out));return out}
 let modelInventory=null,modelInventoryPromise=null;
 async function getModelInventory(){

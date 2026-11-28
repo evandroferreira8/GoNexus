@@ -209,6 +209,7 @@ search.addEventListener('input',render);generation.addEventListener('change',ren
 const LEG_API='https://pokeapi.co/api/v2/',LEG_ART='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
 const legEsc=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const legTypes={normal:'Normal',fire:'Fogo',water:'Água',electric:'Elétrico',grass:'Planta',ice:'Gelo',fighting:'Lutador',poison:'Veneno',ground:'Terrestre',flying:'Voador',psychic:'Psíquico',bug:'Inseto',rock:'Pedra',ghost:'Fantasma',dragon:'Dragão',dark:'Noturno',steel:'Aço',fairy:'Fada'};
+const LEG_PT_DESCRIPTIONS={898:'Calyrex é um Pokémon benevolente, capaz de proporcionar cura e bênçãos. Ele governou a região de Galar em tempos antigos.'};
 let detailRequest=0;
 async function openLegendDetail(id){
  const token=++detailRequest,dialog=document.getElementById('legendDetail'),body=document.getElementById('legendDetailBody');
@@ -224,6 +225,7 @@ async function openLegendDetail(id){
   const en=s.flavor_text_entries.find(x=>x.language.name==='en');
   let desc=pt?.flavor_text?.replace(/[\f\n\r]/g,' ').replace(/\s+/g,' ').trim()||'',source=pt?'Descrição dos jogos principais · PokéAPI':'';
   if(!desc&&en){const original=en.flavor_text.replace(/[\f\n\r]/g,' ').replace(/\s+/g,' ').trim();try{const tr=await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=pt&dt=t&q='+encodeURIComponent(original)).then(r=>r.json());desc=tr?.[0]?.map(x=>x?.[0]||'').join('').trim()||'';if(desc)source='Tradução automática da descrição dos jogos Pokémon'}catch(e){}}
+  if(!desc&&LEG_PT_DESCRIPTIONS[id]){desc=LEG_PT_DESCRIPTIONS[id];source='Descrição em português'}
   if(isUltra){desc='Uma forma especial de Necrozma, alcançada por meio da Ultra Explosão nos jogos principais. Ultra Necrozma ainda não estreou no Pokémon GO.';source='Descrição editorial · forma ainda não disponível no Pokémon GO'}
   if(!desc){desc='Descrição em português indisponível no momento. Consulte novamente mais tarde.';source='Texto original não exibido para manter a ficha em português'}
   const name=isUltra?'Ultra Necrozma':p.name;

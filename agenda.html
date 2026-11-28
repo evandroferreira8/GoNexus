@@ -1039,8 +1039,8 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   var daysNode=document.getElementById('agDays'),list=document.getElementById('agList');
   var count=document.getElementById('agCount'),search=document.getElementById('agSearch');
   var future=document.getElementById('agFuture'), clear=document.getElementById('agClear');
-  var categories={natal:'Encontro em Natal',evento:'Evento',atividade:'Atividade especial',destaque:'Grande evento',reide:'Reide',max:'Batalha Max',holofote:'Hora do Holofote',amizade:'Sexta da Amizade',comunidade:'Dia Comunitário'};
-  var prio={natal:0,destaque:1,comunidade:2,max:3,reide:4,holofote:5,amizade:6,evento:7};
+  var categories={natal:'Encontro em Natal',evento:'Evento',atividade:'Atividade especial',destaque:'Grande evento',reide:'Reide',max:'Batalha Max',holofote:'Hora do Holofote',amizade:'Sexta da Amizade',comunidade:'Dia Comunitário',tour:'Pokémon GO Tour'};
+  var prio={natal:0,destaque:1,comunidade:2,max:3,reide:4,holofote:5,amizade:6,evento:7,tour:1};
   function localToday(){
     var parts=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Fortaleza',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
     var out={};parts.forEach(function(p){out[p.type]=p.value;});
@@ -1052,7 +1052,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   function range(e){var a=datePt(e.start,{day:'numeric',month:'short'}),b=datePt(e.end,{day:'numeric',month:'short'});return e.start===e.end?a:a+'–'+b}
   function applies(e,date){return e.start<=date&&date<=e.end}
   function passed(e){return e.end<current}
-  function kindMatches(e){if(selectedFilter==='todos')return true;if(selectedFilter==='natal')return e.kind==='natal'||e.routine===true;if(selectedFilter==='evento')return ['evento','destaque','comunidade'].includes(e.kind);return e.kind===selectedFilter}
+  function kindMatches(e){if(selectedFilter==='todos')return true;if(selectedFilter==='natal')return e.kind==='natal'||e.routine===true;if(selectedFilter==='evento')return ['evento','destaque','comunidade','tour'].includes(e.kind);return e.kind===selectedFilter}
   function normal(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
 
   function toISO(d){return d.toISOString().slice(0,10)}
@@ -1117,7 +1117,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     mobileSelected=current.slice(0,7)===month?current:month+'-01';
     mobileWeek=startWeek(mobileSelected);
     weekStart=startWeek(mobileSelected);
-    data=singleEvents.concat(expandRoutines(weeklyRoutines));
+    data=singleEvents.concat(calendarSeasonEvents(),expandRoutines(weeklyRoutines));
     loadMyAgenda();
     updateMonthLabels();
     renderLocalExtras();
@@ -1141,6 +1141,20 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
       });
     }
     return result;
+  }
+  function calendarSeasonEvents(){
+    return seasonDates.filter(function(e){
+      return !singleEvents.some(function(existing){
+        return existing.start===e.start&&existing.end===e.end&&existing.kind===e.kind;
+      });
+    }).map(function(e){
+      return Object.assign({},e,{
+        description:e.description||e.note||'Data anunciada pela Niantic; detalhes adicionais a confirmar.',
+        game_time_label:e.game_time_label||'Horário e detalhes a confirmar',
+        status:e.status||'confirmado',
+        source_label:e.source?'Anúncio oficial':''
+      });
+    });
   }
   function eventMeetups(e,date){
     if(e.meetups_by_date)return date&&e.meetups_by_date[date]||[];
@@ -1420,6 +1434,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     });
   }
   function typeLabel(e){
+    if(e.kind==='tour')return 'Pokémon GO Tour';
     if(e.kind==='natal')return 'Encontro';
     if(e.routine&&e.kind==='max')return 'Segunda Max';
     if(e.routine&&e.kind==='reide')return 'Lendária';

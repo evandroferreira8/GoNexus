@@ -2065,7 +2065,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
     updateMonthLabels();
     renderSeasonDates();
     weeklyRoutines=Array.isArray(doc.weekly_routines)?doc.weekly_routines:[];
-    data=singleEvents.concat(expandRoutines(weeklyRoutines));
+    data=singleEvents.concat(calendarSeasonEvents(),expandRoutines(weeklyRoutines));
     loadMyAgenda();
     weekStart=current.slice(0,7)===month?startWeek(current):firstWeek();
     weekFocusDay=null;

@@ -98,8 +98,6 @@ async function getModelInventory(){
 }
 const formLabels={regular:'Normal',shiny:'Shiny',mega:'Mega',megaShiny:'Mega shiny',gmax:'Gigantamax',alolan:'Forma de Alola',galar:'Forma de Galar',hisuian:'Forma de Hisui',primal:'Forma Primordial',origin:'Forma de origem',unique:'Forma especial',multiform:'Outra forma',fusion:'Fusão',fusionShiny:'Fusão shiny',shadow:'Sombra',sza:'Forma especial'};
 function modelForms(id,inv){
- // Arbok (#024): modelo externo com proporções visivelmente incorretas; usar arte oficial até revisão do arquivo 3D.
- if(Number(id)===24)return [];
  const idstr=String(id),out=[];
  const add=(cat,file,label)=>{if((inv[cat]||[]).includes(file))out.push({cat,file,label,url:MODELS+cat+'/'+file+'.glb'})};
  add('regular',idstr,'Normal');add('shiny',idstr,'Shiny');

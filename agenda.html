@@ -1537,6 +1537,7 @@ body.agenda-page{margin:0;background:#edf2f9!important;color:#10264a!important;f
   }
 
   function mobileLabel(e){
+    if(e.kind==='tour')return 'GO Tour';
     if(e.routine){
       if(e.kind==='max')return 'Max';
       if(e.kind==='reide')return 'Reide';

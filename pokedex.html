@@ -113,6 +113,7 @@ model-viewer{display:block;width:100%;height:100%;min-height:0;background:transp
  @keyframes dexSheetIn{from{transform:translateY(18px);opacity:.75}to{transform:translateY(0);opacity:1}}
 }
 
+.detail-nav{display:flex;align-items:center;gap:6px;margin-left:auto;margin-right:9px}.detail-nav button{width:36px;height:36px;border:1px solid #cbd8e8;border-radius:9px;background:#fff;color:#244364;font-size:1.35rem;line-height:1}.detail-nav button:disabled{opacity:.28}.detail-nav span{min-width:52px;text-align:center;color:#71839a;font: .62rem ui-monospace,monospace}@media(max-width:560px){.detail-nav{gap:4px}.detail-nav button{width:34px;height:34px}.detail-nav span{min-width:46px}}
 </style></head><body class="page-pokedex"><go-nexus-header></go-nexus-header><main class="wrap">
 
 <a class="legendary-shortcut" href="lendarios.html"><span class="legendary-shortcut__eyebrow">GUIA ESPECIAL</span><span class="legendary-shortcut__title">Lendários e especiais que faltam</span><span class="legendary-shortcut__desc">Veja quais ainda não chegaram ao Pokémon GO</span><span class="legendary-shortcut__arrow" aria-hidden="true">→</span></a>
@@ -121,7 +122,7 @@ model-viewer{display:block;width:100%;height:100%;min-height:0;background:transp
 <div class="statsline"><span id="count">CARREGANDO CATÁLOGO…</span><span>POKÉDEX NACIONAL</span></div><section class="grid" id="grid" aria-live="polite"><div class="loading">Carregando Pokédex…</div></section><div class="pager"><button class="btn" id="prev" disabled>← Anterior</button><button class="btn primary" id="next" disabled>Próxima →</button></div>
 <p class="footer">Dados de espécies, descrições e evoluções: PokéAPI. Modelos 3D: Pokémon 3D API, quando disponíveis. Pokémon e seus personagens pertencem à Nintendo, The Pokémon Company e Game Freak. Projeto independente, sem afiliação ou endosso dessas empresas.</p></main>
 <go-nexus-footer></go-nexus-footer>
-<dialog id="detail"><div class="detail-head"><span class="kicker">FICHA DO POKÉMON</span><button class="close" id="close" aria-label="Fechar">×</button></div><div class="detail-body" id="detailBody"></div></dialog>
+<dialog id="detail"><div class="detail-head"><span class="kicker">FICHA DO POKÉMON</span><div class="detail-nav"><button type="button" id="detailPrev" aria-label="Pokémon anterior">‹</button><span id="detailPosition"></span><button type="button" id="detailNext" aria-label="Próximo Pokémon">›</button><button class="close" id="close" aria-label="Fechar">×</button></div></div><div class="detail-body" id="detailBody"></div></dialog>
 <script>
 const API='https://pokeapi.co/api/v2',ART='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/',MODELS='https://raw.githubusercontent.com/Pokemon-3D-api/assets/main/models/opt/';
 const names={normal:'Normal',fire:'Fogo',water:'Água',electric:'Elétrico',grass:'Planta',ice:'Gelo',fighting:'Lutador',poison:'Veneno',ground:'Terrestre',flying:'Voador',psychic:'Psíquico',bug:'Inseto',rock:'Pedra',ghost:'Fantasma',dragon:'Dragão',dark:'Noturno',steel:'Aço',fairy:'Fada'};
@@ -135,7 +136,23 @@ function apply(){const q=$('search').value.trim().toLowerCase(),g=$('generation'
 async function filterType(){const t=$('type').value;if(t==='all'){typeSet=null;apply();return}$('count').textContent='CONSULTANDO TIPO…';try{const d=await fetch(API+'/type/'+t).then(r=>r.json());typeSet=new Set(d.pokemon.map(x=>x.pokemon.name));apply()}catch(e){$('count').textContent='ERRO AO FILTRAR'}}
 function render(){const start=page*30,items=filtered.slice(start,start+30);$('count').textContent=filtered.length?filtered.length+' ESPÉCIES · '+(start+1)+'–'+Math.min(start+30,filtered.length):'NENHUM RESULTADO';$('grid').innerHTML=items.length?items.map(p=>'<button class="pokemon-card" data-open="'+p.id+'"><img src="'+art(p.id)+'" alt="" loading="lazy" onerror="this.style.opacity=.15"><span class="dexno">Nº '+pad(p.id)+'</span><div class="pname">'+esc(p.name)+'</div><span class="types" data-types="'+p.id+'"><span class="type">#'+gen(p.id)+'</span></span></button>').join(''):'<div class="empty">Nenhum Pokémon encontrado com esses filtros.</div>';items.forEach(loadTypes);$('prev').disabled=page===0;$('next').disabled=start+30>=filtered.length}
 async function loadTypes(p){try{const d=await fetch(API+'/pokemon/'+p.id).then(r=>r.json()),el=document.querySelector('[data-types="'+p.id+'"]');if(el)el.innerHTML=tags(d.types)}catch(e){}}
-$('grid').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)openDetail(Number(b.dataset.open))});$('search').addEventListener('input',apply);$('generation').addEventListener('change',apply);$('type').addEventListener('change',filterType);$('prev').onclick=()=>{page--;render();scrollTo({top:0,behavior:'smooth'})};$('next').onclick=()=>{page++;render();scrollTo({top:0,behavior:'smooth'})};$('close').onclick=()=>$('detail').close();$('detail').addEventListener('click',e=>{if(e.target===$('detail'))$('detail').close()});
+$('grid').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)openDetail(Number(b.dataset.open))});
+let activeDexId=null;
+function moveDex(delta){
+ const i=filtered.findIndex(x=>x.id===activeDexId),next=filtered[i+delta];
+ if(!next)return;
+ openDetail(next.id);
+}
+function updateDexNav(){
+ const i=filtered.findIndex(x=>x.id===activeDexId),prev=$('detailPrev'),next=$('detailNext');
+ prev.disabled=i<=0;next.disabled=i<0||i>=filtered.length-1;
+ $('detailPosition').textContent=i>=0?(i+1)+' / '+filtered.length:'';
+}
+$('detailPrev').onclick=()=>moveDex(-1);$('detailNext').onclick=()=>moveDex(1);
+let dexTouch=null;
+$('detail').addEventListener('touchstart',e=>{if(e.touches.length===1)dexTouch={x:e.touches[0].clientX,y:e.touches[0].clientY}},{passive:true});
+$('detail').addEventListener('touchend',e=>{if(!dexTouch)return;const dx=e.changedTouches[0].clientX-dexTouch.x,dy=e.changedTouches[0].clientY-dexTouch.y;dexTouch=null;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.25)moveDex(dx<0?1:-1)},{passive:true});
+$('search').addEventListener('input',apply);$('generation').addEventListener('change',apply);$('type').addEventListener('change',filterType);$('prev').onclick=()=>{page--;render();scrollTo({top:0,behavior:'smooth'})};$('next').onclick=()=>{page++;render();scrollTo({top:0,behavior:'smooth'})};$('close').onclick=()=>$('detail').close();$('detail').addEventListener('click',e=>{if(e.target===$('detail'))$('detail').close()});
 function flatten(n,out=[]){if(!n)return out;out.push({name:n.species.name,id:Number(n.species.url.split('/').filter(Boolean).pop())});n.evolves_to.forEach(x=>flatten(x,out));return out}
 let modelInventory=null,modelInventoryPromise=null;
 async function getModelInventory(){
@@ -168,6 +185,8 @@ function modelForms(id,inv){
 }
 function generationLabel(id){const labels={1:'I · Kanto',2:'II · Johto',3:'III · Hoenn',4:'IV · Sinnoh',5:'V · Unova',6:'VI · Kalos',7:'VII · Alola',8:'VIII · Galar',9:'IX · Paldea'};return labels[Number(gen(id))]||'—'}
 async function openDetail(id){
+ activeDexId=id;
+ updateDexNav();
  const token=++detailToken;
  $('detail').showModal();$('detailBody').innerHTML='<div class="loading">Carregando ficha e modelos disponíveis…</div>';
  try{

@@ -46,8 +46,8 @@
 .legend-detail-body{padding:clamp(14px,3vw,26px)}
 .legend-detail-top{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
 .legend-artwork-panel{min-width:0}
-.legend-artwork{display:grid;place-items:center;width:100%;height:clamp(220px,56vw,390px);max-height:390px;padding:clamp(18px,4vw,34px);border:1px solid #d4dfed;border-radius:17px;background:radial-gradient(ellipse at 50% 46%,#e3edfb 0,#f5f8fd 67%,#fff 100%);overflow:hidden}
-.legend-artwork img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;margin:auto}
+.legend-artwork{display:grid;place-items:center;width:100%;aspect-ratio:1/1;height:auto;max-height:420px;padding:clamp(18px,4vw,34px);border:1px solid #d4dfed;border-radius:17px;background:radial-gradient(ellipse at 50% 46%,#e3edfb 0,#f5f8fd 67%,#fff 100%);overflow:hidden}
+.legend-artwork img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;object-position:50% 50%;margin:auto;align-self:center;justify-self:center}
 .legend-detail-info{min-width:0}
 .legend-detail-info h2{margin:6px 0 8px;font:800 clamp(1.75rem,5vw,2.35rem)/1.05 var(--gn-display);color:#142e4e;text-transform:capitalize;overflow-wrap:anywhere}
 .legend-detail-info .desc{color:#506783;font-size:.9rem;line-height:1.7;margin:14px 0}
@@ -63,9 +63,9 @@
 .legend-stats h3{font:750 1rem var(--gn-display);margin:0 0 12px}
 .legend-stat{display:grid;grid-template-columns:110px minmax(0,1fr) 28px;gap:8px;align-items:center;margin:9px 0;font-size:.7rem}
 .legend-stat div{height:7px;border-radius:8px;background:#e1eaf5;overflow:hidden}.legend-stat i{display:block;height:100%;background:linear-gradient(90deg,#2563eb,#20a27a);border-radius:8px}.legend-stat b{text-align:right}
-@media(min-width:560px){.page-legendaries .filters{grid-template-columns:1.5fr 1fr}.page-legendaries .legend-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.legend-detail-top{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center}.legend-artwork{height:clamp(300px,38vw,390px)}}
+@media(min-width:560px){.page-legendaries .filters{grid-template-columns:1.5fr 1fr}.page-legendaries .legend-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.legend-detail-top{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center}.legend-artwork{aspect-ratio:1/1;height:auto;max-height:420px}}
 @media(min-width:850px){.page-legendaries .legend-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.page-legendaries .wrap{padding-top:26px}.page-legendaries .legend-card{padding:13px}}
-@media(max-width:559px){.page-legendaries .wrap{width:calc(100% - 24px);padding:14px 0 34px}.page-legendaries .topline{margin:8px 0 27px}.page-legendaries .legend-grid{gap:9px}.page-legendaries .legend-card{padding:8px;border-radius:13px}.page-legendaries .legend-card h3{font-size:.88rem}.page-legendaries .legend-meta{font-size:.54rem}.page-legendaries .region{font-size:.62rem}.page-legendaries .status{font-size:.56rem}.legend-detail{width:100%;max-width:none;height:100dvh;max-height:100dvh;margin:0;border-radius:0;border:0}.legend-detail-head{padding:calc(10px + env(safe-area-inset-top)) 14px 10px}.legend-detail-body{padding:14px 14px calc(22px + env(safe-area-inset-bottom))}.legend-detail-top{gap:16px}.legend-artwork{height:clamp(205px,55vw,300px);max-height:300px;padding:18px}.legend-detail-info h2{font-size:1.8rem}.legend-facts{gap:8px}.legend-fact{padding:10px}.legend-stat{grid-template-columns:92px minmax(0,1fr) 25px;gap:6px}}
+@media(max-width:559px){.page-legendaries .wrap{width:calc(100% - 24px);padding:14px 0 34px}.page-legendaries .topline{margin:8px 0 27px}.page-legendaries .legend-grid{gap:9px}.page-legendaries .legend-card{padding:8px;border-radius:13px}.page-legendaries .legend-card h3{font-size:.88rem}.page-legendaries .legend-meta{font-size:.54rem}.page-legendaries .region{font-size:.62rem}.page-legendaries .status{font-size:.56rem}.legend-detail{width:100%;max-width:none;height:100dvh;max-height:100dvh;margin:0;border-radius:0;border:0}.legend-detail-head{padding:calc(10px + env(safe-area-inset-top)) 14px 10px}.legend-detail-body{padding:14px 14px calc(22px + env(safe-area-inset-bottom))}.legend-detail-top{gap:16px}.legend-artwork{aspect-ratio:1/1;height:auto;max-height:none;padding:18px}.legend-detail-info h2{font-size:1.8rem}.legend-facts{gap:8px}.legend-fact{padding:10px}.legend-stat{grid-template-columns:92px minmax(0,1fr) 25px;gap:6px}}
 @media(prefers-reduced-motion:reduce){.page-legendaries .legend-card{transition:none}.page-legendaries .legend-card:hover{transform:none}}
 </style>
 </head>
@@ -223,9 +223,9 @@ async function openLegendDetail(id){
   const pt=s.flavor_text_entries.find(x=>x.language.name==='pt-br')||s.flavor_text_entries.find(x=>x.language.name==='pt');
   const en=s.flavor_text_entries.find(x=>x.language.name==='en');
   let desc=pt?.flavor_text?.replace(/[\f\n\r]/g,' ').replace(/\s+/g,' ').trim()||'',source=pt?'Descrição dos jogos principais · PokéAPI':'';
-  if(!desc&&en){const original=en.flavor_text.replace(/[\f\n\r]/g,' ').replace(/\s+/g,' ').trim();try{const tr=await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=pt&dt=t&q='+encodeURIComponent(original)).then(r=>r.json());desc=tr?.[0]?.map(x=>x?.[0]||'').join('').trim()||'';if(desc)source='Tradução automática da descrição dos jogos Pokémon'}catch(e){}if(!desc){desc=original;source='Descrição original em inglês'}}
+  if(!desc&&en){const original=en.flavor_text.replace(/[\f\n\r]/g,' ').replace(/\s+/g,' ').trim();try{const tr=await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=pt&dt=t&q='+encodeURIComponent(original)).then(r=>r.json());desc=tr?.[0]?.map(x=>x?.[0]||'').join('').trim()||'';if(desc)source='Tradução automática da descrição dos jogos Pokémon'}catch(e){}}
   if(isUltra){desc='Uma forma especial de Necrozma, alcançada por meio da Ultra Explosão nos jogos principais. Ultra Necrozma ainda não estreou no Pokémon GO.';source='Descrição editorial · forma ainda não disponível no Pokémon GO'}
-  if(!desc){desc='Ainda não há uma descrição disponível nas fontes consultadas.';source=''}
+  if(!desc){desc='Descrição em português indisponível no momento. Consulte novamente mais tarde.';source='Texto original não exibido para manter a ficha em português'}
   const name=isUltra?'Ultra Necrozma':p.name;
   const image=isUltra?'https://img.pokemondb.net/artwork/large/necrozma-ultra.jpg':LEG_ART+id+'.png';
   const types=isUltra?['psychic','dragon']:p.types.map(x=>x.type.name);
